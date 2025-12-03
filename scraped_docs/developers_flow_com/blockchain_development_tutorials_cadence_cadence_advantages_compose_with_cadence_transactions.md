@@ -44,7 +44,7 @@ Search
 
 On this page
 
-# Compose wth Cadence transactions
+# Compose wth Cadence Transactions
 
 In this tutorial, you'll **compose with someone else's contracts** on Flow testnet. You'll write a Cadence transaction that reads public state from a contract named `Counter` and only increments the counter when it is odd. Then you'll extend the transaction to mint NFTs when the counter is odd, demonstrating how to compose multiple contracts in a single transaction. Everything runs against testnet using the Flow CLI and the dependency manager.
 
@@ -223,7 +223,7 @@ _31
 
 }`
 
-Unlike in Solidity, apps aren't limited to the functionality deployed in a smart contract. One of the ways you can expand your app is to write new transactions that call multiple functions in multiple contracts, with branching based on conditions and state, using a single call and a single signature. You don't need to deploy a new contract, use a proxy, or switch to V2.
+Unlike in Solidity, apps aren't limited to the functionality deployed in a smart contract. One of the ways you can expand your app is to write new transactions that call multiple functions in multiple contracts, with branching based on conditions and state, with a single call and a single signature. You don't need to deploy a new contract, use a proxy, or switch to V2.
 
 In this simple example, imagine that you've already deployed a product that has thousands of users and is dependent on the `Counter` smart contract. After a time, you realize that a significant portion of your users only wish to use the `increment` feature if the current `count` is odd, to try and make the number be even.
 
@@ -379,7 +379,7 @@ _21
 
 info
 
-As with most blockchains, `log`s are not exposed or returned when transactions are run on testnet or mainnet, but they are visible in the console when you use the [emulator](/build/tools/emulator).
+As with most blockchains, `logs` are not exposed or returned when transactions are run on testnet or mainnet, but they are visible in the console when you use the [emulator](/build/tools/emulator).
 
 ### Run on testnet[​](#run-on-testnet "Direct link to Run on testnet")
 
@@ -409,7 +409,7 @@ danger
 
 As with other blockchain accounts, after an account's private key is compromised, anyone with that key completely controls an account and it's assets. **Never** put private keys directly in `flow.json`.
 
-Creating an account using the CLI automatically puts the private key in a `.pkey` file, which is already in `.gitignore`.
+When you create an account with the CLI, it automatically puts the private key in a `.pkey` file, which is already in `.gitignore`.
 
 [Send the transaction](/build/tools/flow-cli/commands#send-transaction) to testnet, signed with `testnet-account`:
 
@@ -421,13 +421,13 @@ You will see logs that show the prior value and whether the increment occurred.
 
 tip
 
-You could trigger this same transaction **from an app** and **signed by a wallet** with a single user click. Your dApp would assemble and submit this exact Cadence transaction using your preferred client library, and the user's wallet would authorize it.
+You could trigger this same transaction **from an app** and **signed by a wallet** with a single user click. Your dApp would assemble and submit this exact Cadence transaction with your preferred client library, and the user's wallet would authorize it.
 
 ---
 
 ## Extend with NFT minting[​](#extend-with-nft-minting "Direct link to Extend with NFT minting")
 
-Now let's take our composition to the next level by adding NFT minting functionality when the counter is odd. We'll use an example NFT contract that's already deployed on testnet.
+Now lets take our composition to the next level and add NFT minting functionality when the counter is odd. We'll use an example NFT contract that's already deployed on testnet.
 
 This is a silly use case, but it demonstrates the complex use cases you can add to your apps, after contract deployment, and even if you aren't the author of any of the contracts!
 
@@ -441,7 +441,7 @@ flow dependencies install testnet://012e4d204a60ac6f.ExampleNFT`
 
 warning
 
-This repository uses different deployments for core contracts than those that the Flow CLI installs. If you previously installed core contract dependencies (like `NonFungibleToken`, `MetadataViews`, etc.) using the CLI, manually delete all `dependencies` except `Counter` from your `flow.json` file to avoid conflicts.
+This repository uses different deployments for core contracts than those that the Flow CLI installs. If you previously installed core contract dependencies (like `NonFungibleToken`, `MetadataViews`, etc.) with the CLI, manually delete all `dependencies` except `Counter` from your `flow.json` file to avoid conflicts.
 
 ### Understand NFT minting[​](#understand-nft-minting "Direct link to Understand NFT minting")
 
@@ -569,7 +569,7 @@ You can copy this functionality and adapt it for our use case.
 
 ### Update the IncrementIfOdd transaction[​](#update-the-incrementifodd-transaction "Direct link to Update the IncrementIfOdd transaction")
 
-Now let's update our `IncrementIfOdd` transaction to mint an NFT when the counter is odd. You can either modify the existing transaction or create a new one:
+Now let's update our `IncrementIfOdd` transaction to mint an NFT when the counter is odd. You can either modify the current transaction or create a new one:
 
 `_43
 
@@ -811,7 +811,7 @@ Run the setup transaction:
 
 flow transactions send cadence/transactions/SetupCollection.cdc --signer testnet-account --network testnet`
 
-### Test the Enhanced Transaction[​](#test-the-enhanced-transaction "Direct link to Test the Enhanced Transaction")
+### Test the enhanced transaction[​](#test-the-enhanced-transaction "Direct link to Test the enhanced transaction")
 
 Now run the enhanced transaction:
 
@@ -845,22 +845,22 @@ The broken image is expected. We didn't use a real URL in the example nft metada
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-In this tutorial, you learned how to compose with multiple on-chain contracts using Cadence transactions. You built a transaction that conditionally interacts with a Counter contract based on its current state, and then extended it to mint NFTs when the counter is odd, demonstrating the power and flexibility of Cadence's composition model.
+In this tutorial, you learned how to compose with multiple on-chain contracts using Cadence transactions. You built a transaction that conditionally interacts with a Counter contract based on its current state, and then extended it to mint NFTs when the counter is odd, which demonstrates the power and flexibility of Cadence's composition model.
 
 Now that you have completed the tutorial, you should be able to:
 
 * Configure the Flow CLI *dependency manager* to import named contracts from **testnet**.
 * Write a Cadence **transaction** that reads and writes to a public contract you did not deploy.
-* Run the transaction on **testnet** with a funded account using the Flow CLI.
-* Extend the transaction to compose multiple public contracts (`Counter` + `ExampleNFT` + `NonFungibleToken`) without redeploying anything.
+* Run the transaction on **testnet** with a funded account with the Flow CLI.
+* Extend the transaction to compose multiple public contracts (`Counter` + `ExampleNFT` + `NonFungibleToken`) without the need to redeploy anything.
 * Set up NFT collections and mint NFTs conditionally based on on-chain state.
-* View transaction results and NFT transfers using Flowscan.
+* View transaction results and NFT transfers with Flowscan.
 
-This approach gives you the freedom to build complex application logic that composes with any public contracts on Flow, making Cadence's composition model a powerful tool for developers building on Flow.
+This approach gives you the freedom to build complex application logic that composes with any public contracts on Flow, which makes Cadence's composition model a powerful tool for developers building on Flow.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/cadence-advantages/compose-with-cadence-transactions.md)
 
-Last updated on **Oct 30, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -877,7 +877,7 @@ Copy as Markdown
 * [Objectives](#objectives)* [Prerequisites](#prerequisites)* [Get started](#get-started)
       + [Install dependencies](#install-dependencies)* [Compose with the public `Counter` contract](#compose-with-the-public-counter-contract)
         + [Run on testnet](#run-on-testnet)* [Extend with NFT minting](#extend-with-nft-minting)
-          + [Install the NFT contract](#install-the-nft-contract)+ [Understand NFT minting](#understand-nft-minting)+ [Update the IncrementIfOdd transaction](#update-the-incrementifodd-transaction)+ [Setup NFT collection](#setup-nft-collection)+ [Test the Enhanced Transaction](#test-the-enhanced-transaction)+ [View your NFT](#view-your-nft)* [Why this matters](#why-this-matters)* [Conclusion](#conclusion)
+          + [Install the NFT contract](#install-the-nft-contract)+ [Understand NFT minting](#understand-nft-minting)+ [Update the IncrementIfOdd transaction](#update-the-incrementifodd-transaction)+ [Setup NFT collection](#setup-nft-collection)+ [Test the enhanced transaction](#test-the-enhanced-transaction)+ [View your NFT](#view-your-nft)* [Why this matters](#why-this-matters)* [Conclusion](#conclusion)
 
 Flow
 

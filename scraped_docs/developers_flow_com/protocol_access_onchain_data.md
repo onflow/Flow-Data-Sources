@@ -8,7 +8,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -500,9 +500,11 @@ _10
 
 `GetTransaction` gets a [transaction](#transaction) by ID.
 
+Any type of transaction - user submitted, scheduled transaction or a system transaction can be queried.
+
 If the transaction is not found in the access node cache, the request is forwarded to a collection node.
 
-*Currently, only transactions within the current epoch can be queried.*
+*Currently, only transactions within the current network upgrade can be queried.*
 
 `_10
 
@@ -560,6 +562,8 @@ _10
 
 `GetTransactionsByBlockID` gets all the [transactions](#transaction) for a specified block.
 
+The response includes user transactions, scheduled transactions, and system transactions.
+
 `_10
 
 rpc GetTransactionsByBlockID(GetTransactionsByBlockIDRequest) returns (TransactionsResponse);`
@@ -603,6 +607,8 @@ _10
 ### GetTransactionResult[​](#gettransactionresult "Direct link to GetTransactionResult")
 
 `GetTransactionResult` gets the execution result of a transaction.
+
+Any type of transaction - user submitted, scheduled transaction or a system transaction can be queried.
 
 `_10
 
@@ -688,6 +694,8 @@ _12
 
 `GetTransactionResultByIndex` gets a transaction's result at a specified block and index.
 
+Any type of transaction - user submitted, scheduled transaction or a system transaction can be queried.
+
 `_10
 
 rpc GetTransactionResultByIndex(GetTransactionByIndexRequest) returns (TransactionResultResponse);`
@@ -768,6 +776,8 @@ _12
 
 `GetTransactionResultsByBlockID` gets all the transaction results for a specified block.
 
+The response includes results for user transactions, scheduled transactions, and system transactions.
+
 `_10
 
 rpc GetTransactionResultsByBlockID(GetTransactionsByBlockIDRequest) returns (TransactionResultsResponse);`
@@ -808,23 +818,27 @@ _10
 
 }`
 
-### GetSystemTransaction[​](#getsystemtransaction "Direct link to GetSystemTransaction")
+### GetScheduledTransaction[​](#getscheduledtransaction "Direct link to GetScheduledTransaction")
 
-`GetSystemTransaction` gets the system transaction for a block.
+`GetScheduledTransaction` gets the scheduled transaction body for a given scheduled transaction ID.
 
 `_10
 
-rpc GetSystemTransaction(GetSystemTransactionRequest) returns (TransactionResponse);`
+rpc GetScheduledTransaction(GetScheduledTransactionRequest) returns (TransactionResponse);`
 
 #### Request[​](#request-15 "Direct link to Request")
 
 `_10
 
-message GetSystemTransactionRequest {
+message GetScheduledTransactionRequest {
 
 _10
 
-bytes block_id = 1;
+uint64 id = 1;
+
+_10
+
+entities.ExecutionStateQuery execution_state_query = 2;
 
 _10
 
@@ -848,15 +862,111 @@ _10
 
 }`
 
+### GetScheduledTransactionResult[​](#getscheduledtransactionresult "Direct link to GetScheduledTransactionResult")
+
+GetScheduledTransactionResult gets a scheduled transaction result for a given scheduled transaction ID
+
+`_10
+
+rpc GetScheduledTransactionResult(GetScheduledTransactionResultRequest)
+
+_10
+
+returns (TransactionResultResponse);`
+
+#### Request[​](#request-16 "Direct link to Request")
+
+`_10
+
+message GetScheduledTransactionResultRequest {
+
+_10
+
+uint64 id = 1;
+
+_10
+
+entities.EventEncodingVersion event_encoding_version = 2;
+
+_10
+
+entities.ExecutionStateQuery execution_state_query = 3;
+
+_10
+
+}`
+
+#### Response[​](#response-16 "Direct link to Response")
+
+`_10
+
+message TransactionResponse {
+
+_10
+
+entities.Transaction transaction = 1;
+
+_10
+
+entities.Metadata metadata = 2;
+
+_10
+
+}`
+
+### GetSystemTransaction[​](#getsystemtransaction "Direct link to GetSystemTransaction")
+
+`GetSystemTransaction` gets the system transaction for a block.
+
+*Scheduled Transactions will not be included in the response*
+
+`_10
+
+rpc GetSystemTransaction(GetSystemTransactionRequest) returns (TransactionResponse);`
+
+#### Request[​](#request-17 "Direct link to Request")
+
+`_10
+
+message GetSystemTransactionRequest {
+
+_10
+
+bytes block_id = 1;
+
+_10
+
+}`
+
+#### Response[​](#response-17 "Direct link to Response")
+
+`_10
+
+message TransactionResponse {
+
+_10
+
+entities.Transaction transaction = 1;
+
+_10
+
+entities.Metadata metadata = 2;
+
+_10
+
+}`
+
 ### GetSystemTransactionResult[​](#getsystemtransactionresult "Direct link to GetSystemTransactionResult")
 
 `GetSystemTransactionResult` gets the system transaction result for a block.
+
+*Scheduled Transactions will not be included in the response*
 
 `_10
 
 rpc GetSystemTransactionResult(GetSystemTransactionResultRequest) returns (TransactionResultResponse);`
 
-#### Request[​](#request-16 "Direct link to Request")
+#### Request[​](#request-18 "Direct link to Request")
 
 `_10
 
@@ -874,7 +984,7 @@ _10
 
 }`
 
-#### Response[​](#response-16 "Direct link to Response")
+#### Response[​](#response-18 "Direct link to Response")
 
 `_12
 
@@ -938,7 +1048,7 @@ _12
 
 rpc GetAccount(GetAccountRequest) returns (GetAccountResponse)`
 
-#### Request[​](#request-17 "Direct link to Request")
+#### Request[​](#request-19 "Direct link to Request")
 
 `_10
 
@@ -952,7 +1062,7 @@ _10
 
 }`
 
-#### Response[​](#response-17 "Direct link to Response")
+#### Response[​](#response-19 "Direct link to Response")
 
 `_10
 
@@ -980,7 +1090,7 @@ The access node queries an execution node for the account details, which are sto
 
 rpc GetAccountAtLatestBlock(GetAccountAtLatestBlockRequest) returns (AccountResponse)`
 
-#### Request[​](#request-18 "Direct link to Request")
+#### Request[​](#request-20 "Direct link to Request")
 
 `_10
 
@@ -994,7 +1104,7 @@ _10
 
 }`
 
-#### Response[​](#response-18 "Direct link to Response")
+#### Response[​](#response-20 "Direct link to Response")
 
 `_10
 
@@ -1022,7 +1132,7 @@ The access node queries an execution node for the account details, which are sto
 
 rpc GetAccountAtBlockHeight(GetAccountAtBlockHeightRequest) returns (AccountResponse)`
 
-#### Request[​](#request-19 "Direct link to Request")
+#### Request[​](#request-21 "Direct link to Request")
 
 `_10
 
@@ -1040,7 +1150,7 @@ _10
 
 }`
 
-#### Response[​](#response-19 "Direct link to Response")
+#### Response[​](#response-21 "Direct link to Response")
 
 `_10
 
@@ -1066,7 +1176,7 @@ _10
 
 rpc GetAccountBalanceAtLatestBlock(GetAccountBalanceAtLatestBlockRequest) returns (AccountBalanceResponse);`
 
-#### Request[​](#request-20 "Direct link to Request")
+#### Request[​](#request-22 "Direct link to Request")
 
 `_10
 
@@ -1080,7 +1190,7 @@ _10
 
 }`
 
-#### Response[​](#response-20 "Direct link to Response")
+#### Response[​](#response-22 "Direct link to Response")
 
 `_10
 
@@ -1106,7 +1216,7 @@ _10
 
 rpc GetAccountBalanceAtBlockHeight(GetAccountBalanceAtBlockHeightRequest) returns (AccountBalanceResponse);`
 
-#### Request[​](#request-21 "Direct link to Request")
+#### Request[​](#request-23 "Direct link to Request")
 
 `_10
 
@@ -1124,7 +1234,7 @@ _10
 
 }`
 
-#### Response[​](#response-21 "Direct link to Response")
+#### Response[​](#response-23 "Direct link to Response")
 
 `_10
 
@@ -1150,7 +1260,7 @@ _10
 
 rpc GetAccountKeyAtLatestBlock(GetAccountKeyAtLatestBlockRequest) returns (AccountKeyResponse);`
 
-#### Request[​](#request-22 "Direct link to Request")
+#### Request[​](#request-24 "Direct link to Request")
 
 `_10
 
@@ -1176,7 +1286,7 @@ _10
 
 }`
 
-#### Response[​](#response-22 "Direct link to Response")
+#### Response[​](#response-24 "Direct link to Response")
 
 `_10
 
@@ -1202,7 +1312,7 @@ _10
 
 rpc GetAccountKeyAtBlockHeight(GetAccountKeyAtBlockHeightRequest) returns (AccountKeyResponse);`
 
-#### Request[​](#request-23 "Direct link to Request")
+#### Request[​](#request-25 "Direct link to Request")
 
 `_10
 
@@ -1236,7 +1346,7 @@ _10
 
 }`
 
-#### Response[​](#response-23 "Direct link to Response")
+#### Response[​](#response-25 "Direct link to Response")
 
 `_10
 
@@ -1262,7 +1372,7 @@ _10
 
 rpc GetAccountKeysAtLatestBlock(GetAccountKeysAtLatestBlockRequest) returns (AccountKeysResponse);`
 
-#### Request[​](#request-24 "Direct link to Request")
+#### Request[​](#request-26 "Direct link to Request")
 
 `_10
 
@@ -1280,7 +1390,7 @@ _10
 
 }`
 
-#### Response[​](#response-24 "Direct link to Response")
+#### Response[​](#response-26 "Direct link to Response")
 
 `_10
 
@@ -1306,7 +1416,7 @@ _10
 
 rpc GetAccountKeysAtBlockHeight(GetAccountKeysAtBlockHeightRequest) returns (AccountKeysResponse);`
 
-#### Request[​](#request-25 "Direct link to Request")
+#### Request[​](#request-27 "Direct link to Request")
 
 `_10
 
@@ -1328,7 +1438,7 @@ _10
 
 }`
 
-#### Response[​](#response-25 "Direct link to Response")
+#### Response[​](#response-27 "Direct link to Response")
 
 `_10
 
@@ -1370,7 +1480,7 @@ _10
 
 value = ExecuteScriptAtBlockID(header.ID, script)`
 
-#### Request[​](#request-26 "Direct link to Request")
+#### Request[​](#request-28 "Direct link to Request")
 
 `_10
 
@@ -1388,7 +1498,7 @@ _10
 
 }`
 
-#### Response[​](#response-26 "Direct link to Response")
+#### Response[​](#response-28 "Direct link to Response")
 
 `_10
 
@@ -1420,7 +1530,7 @@ This method can be used to read account state from the blockchain. The script is
 
 rpc ExecuteScriptAtBlockID (ExecuteScriptAtBlockIDRequest) returns (ExecuteScriptResponse)`
 
-#### Request[​](#request-27 "Direct link to Request")
+#### Request[​](#request-29 "Direct link to Request")
 
 `_10
 
@@ -1442,7 +1552,7 @@ _10
 
 }`
 
-#### Response[​](#response-27 "Direct link to Response")
+#### Response[​](#response-29 "Direct link to Response")
 
 `_10
 
@@ -1474,7 +1584,7 @@ This method can be used to read account state from the blockchain. The script is
 
 rpc ExecuteScriptAtBlockHeight (ExecuteScriptAtBlockHeightRequest) returns (ExecuteScriptResponse)`
 
-#### Request[​](#request-28 "Direct link to Request")
+#### Request[​](#request-30 "Direct link to Request")
 
 `_10
 
@@ -1496,7 +1606,7 @@ _10
 
 }`
 
-#### Response[​](#response-28 "Direct link to Response")
+#### Response[​](#response-30 "Direct link to Response")
 
 `_10
 
@@ -1542,7 +1652,7 @@ The event results are grouped by block, with each group specifying a block ID, h
 
 Event types are name-spaced with the address of the account and contract in which they are declared.
 
-#### Request[​](#request-29 "Direct link to Request")
+#### Request[​](#request-31 "Direct link to Request")
 
 `_10
 
@@ -1568,7 +1678,7 @@ _10
 
 }`
 
-#### Response[​](#response-29 "Direct link to Response")
+#### Response[​](#response-31 "Direct link to Response")
 
 `_10
 
@@ -1622,7 +1732,7 @@ Events can be requested for a list of block IDs via the `block_ids` field and fu
 
 The event results are grouped by block, with each group specifying a block ID, height and block timestamp.
 
-#### Request[​](#request-30 "Direct link to Request")
+#### Request[​](#request-32 "Direct link to Request")
 
 `_10
 
@@ -1644,7 +1754,7 @@ _10
 
 }`
 
-#### Response[​](#response-30 "Direct link to Response")
+#### Response[​](#response-32 "Direct link to Response")
 
 `_10
 
@@ -1701,13 +1811,13 @@ The following method can be used to query for network parameters.
 
 rpc GetNetworkParameters (GetNetworkParametersRequest) returns (GetNetworkParametersResponse)`
 
-#### Request[​](#request-31 "Direct link to Request")
+#### Request[​](#request-33 "Direct link to Request")
 
 `_10
 
 message GetNetworkParametersRequest {}`
 
-#### Response[​](#response-31 "Direct link to Response")
+#### Response[​](#response-33 "Direct link to Response")
 
 `_10
 
@@ -1735,13 +1845,13 @@ _10
 
 rpc GetNodeVersionInfo (GetNodeVersionInfoRequest) returns (GetNodeVersionInfoResponse);`
 
-#### Request[​](#request-32 "Direct link to Request")
+#### Request[​](#request-34 "Direct link to Request")
 
 `_10
 
 message GetNodeVersionInfoRequest {}`
 
-#### Response[​](#response-32 "Direct link to Response")
+#### Response[​](#response-34 "Direct link to Response")
 
 `_10
 
@@ -1770,13 +1880,13 @@ It is used by Flow nodes joining the network to bootstrap a space-efficient loca
 
 rpc GetLatestProtocolStateSnapshot (GetLatestProtocolStateSnapshotRequest) returns (ProtocolStateSnapshotResponse);`
 
-#### Request[​](#request-33 "Direct link to Request")
+#### Request[​](#request-35 "Direct link to Request")
 
 `_10
 
 message GetLatestProtocolStateSnapshotRequest {}`
 
-#### Response[​](#response-33 "Direct link to Response")
+#### Response[​](#response-35 "Direct link to Response")
 
 `_10
 
@@ -1803,7 +1913,7 @@ Used by Flow nodes joining the network to bootstrap a space-efficient local stat
 
 rpc GetProtocolStateSnapshotByBlockID(GetProtocolStateSnapshotByBlockIDRequest) returns (ProtocolStateSnapshotResponse);`
 
-#### Request[​](#request-34 "Direct link to Request")
+#### Request[​](#request-36 "Direct link to Request")
 
 `_10
 
@@ -1817,7 +1927,7 @@ _10
 
 }`
 
-#### Response[​](#response-34 "Direct link to Response")
+#### Response[​](#response-36 "Direct link to Response")
 
 `_10
 
@@ -1844,7 +1954,7 @@ Used by Flow nodes joining the network to bootstrap a space-efficient local stat
 
 rpc GetProtocolStateSnapshotByHeight(GetProtocolStateSnapshotByHeightRequest) returns (ProtocolStateSnapshotResponse);`
 
-#### Request[​](#request-35 "Direct link to Request")
+#### Request[​](#request-37 "Direct link to Request")
 
 `_10
 
@@ -1858,7 +1968,7 @@ _10
 
 }`
 
-#### Response[​](#response-35 "Direct link to Response")
+#### Response[​](#response-37 "Direct link to Response")
 
 `_10
 
@@ -1890,7 +2000,7 @@ Particularly, it contains `EventsCollection` hash for every chunk which can be u
 
 rpc GetExecutionResultForBlockID(GetExecutionResultForBlockIDRequest) returns (ExecutionResultForBlockIDResponse);`
 
-#### Request[​](#request-36 "Direct link to Request")
+#### Request[​](#request-38 "Direct link to Request")
 
 `_10
 
@@ -1904,7 +2014,7 @@ _10
 
 }`
 
-#### Response[​](#response-36 "Direct link to Response")
+#### Response[​](#response-38 "Direct link to Response")
 
 `_10
 
@@ -1932,7 +2042,7 @@ Particularly, it contains `EventsCollection` hash for every chunk which can be u
 
 rpc GetExecutionResultByID(GetExecutionResultByIDRequest) returns (ExecutionResultByIDResponse);`
 
-#### Request[​](#request-37 "Direct link to Request")
+#### Request[​](#request-39 "Direct link to Request")
 
 `_10
 
@@ -1946,7 +2056,7 @@ _10
 
 }`
 
-#### Response[​](#response-37 "Direct link to Response")
+#### Response[​](#response-39 "Direct link to Response")
 
 `_10
 
@@ -2656,7 +2766,7 @@ which block to start from when reconnecting.
 
 rpc SubscribeEvents(SubscribeEventsRequest) returns (stream SubscribeEventsResponse)`
 
-#### Request[​](#request-38 "Direct link to Request")
+#### Request[​](#request-40 "Direct link to Request")
 
 `_10
 
@@ -2690,7 +2800,7 @@ _10
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Field Description|  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | start\_block\_id The first block to search for events. Only one of start\_block\_id and start\_block\_height may be provided, otherwise an InvalidArgument error is returned. If neither are provided, the latest sealed block is used|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | start\_block\_height Block height of the first block to search for events. Only one of start\_block\_id and start\_block\_height may be provided, otherwise an InvalidArgument error is returned. If neither are provided, the latest sealed block is used|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | filter Filter to apply to events for each block searched. If no filter is provided, all events are returned|  |  |  |  | | --- | --- | --- | --- | | heartbeat\_interval Interval in block heights at which the server should return a heartbeat message to the client|  |  | | --- | --- | | event\_encoding\_version Preferred event encoding version of the block events payload. Possible variants: CCF, JSON-CDC | | | | | | | | | | | |
 
-#### Response[​](#response-38 "Direct link to Response")
+#### Response[​](#response-40 "Direct link to Response")
 
 `_10
 
@@ -2728,7 +2838,7 @@ _10
 
 rpc SubscribeExecutionData(SubscribeExecutionDataRequest) returns (stream SubscribeExecutionDataResponse)`
 
-#### Request[​](#request-39 "Direct link to Request")
+#### Request[​](#request-41 "Direct link to Request")
 
 `_10
 
@@ -2754,7 +2864,7 @@ _10
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Field Description|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | start\_block\_id The first block to get execution data for. Only one of start\_block\_id and start\_block\_height may be provided, otherwise an InvalidArgument error is returned. If neither are provided, the latest sealed block is used|  |  |  |  | | --- | --- | --- | --- | | start\_block\_height Block height of the first block to get execution data for. Only one of start\_block\_id and start\_block\_height may be provided, otherwise an InvalidArgument error is returned. If neither are provided, the latest sealed block is used|  |  | | --- | --- | | event\_encoding\_version Preferred event encoding version of the block events payload. Possible variants: CCF, JSON-CDC | | | | | | | |
 
-#### Response[​](#response-39 "Direct link to Response")
+#### Response[​](#response-41 "Direct link to Response")
 
 `_10
 
@@ -2829,7 +2939,7 @@ Below is a list of the available CLI flags to control the behavior of the API
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/protocol/access-onchain-data/index.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Dec 2, 2025** by **Vishal**
 
 [Previous
 
@@ -2847,7 +2957,7 @@ Copy as Markdown
       + [GetLatestBlockHeader](#getlatestblockheader)+ [GetBlockHeaderByID](#getblockheaderbyid)+ [GetBlockHeaderByHeight](#getblockheaderbyheight)* [Blocks](#blocks)
         + [GetLatestBlock](#getlatestblock)+ [GetBlockByID](#getblockbyid)+ [GetBlockByHeight](#getblockbyheight)* [Collections](#collections)
           + [GetCollectionByID](#getcollectionbyid)+ [GetFullCollectionByID](#getfullcollectionbyid)* [Transactions](#transactions)
-            + [SendTransaction](#sendtransaction)+ [GetTransaction](#gettransaction)+ [GetTransactionsByBlockID](#gettransactionsbyblockid)+ [GetTransactionResult](#gettransactionresult)+ [GetTransactionResultByIndex](#gettransactionresultbyindex)+ [GetTransactionResultsByBlockID](#gettransactionresultsbyblockid)+ [GetSystemTransaction](#getsystemtransaction)+ [GetSystemTransactionResult](#getsystemtransactionresult)* [Accounts](#accounts)
+            + [SendTransaction](#sendtransaction)+ [GetTransaction](#gettransaction)+ [GetTransactionsByBlockID](#gettransactionsbyblockid)+ [GetTransactionResult](#gettransactionresult)+ [GetTransactionResultByIndex](#gettransactionresultbyindex)+ [GetTransactionResultsByBlockID](#gettransactionresultsbyblockid)+ [GetScheduledTransaction](#getscheduledtransaction)+ [GetScheduledTransactionResult](#getscheduledtransactionresult)+ [GetSystemTransaction](#getsystemtransaction)+ [GetSystemTransactionResult](#getsystemtransactionresult)* [Accounts](#accounts)
               + [GetAccount](#getaccount)+ [GetAccountAtLatestBlock](#getaccountatlatestblock)+ [GetAccountAtBlockHeight](#getaccountatblockheight)+ [GetAccountBalanceAtLatestBlock](#getaccountbalanceatlatestblock)+ [GetAccountBalanceAtBlockHeight](#getaccountbalanceatblockheight)+ [GetAccountKeyAtLatestBlock](#getaccountkeyatlatestblock)+ [GetAccountKeyAtBlockHeight](#getaccountkeyatblockheight)+ [GetAccountKeysAtLatestBlock](#getaccountkeysatlatestblock)+ [GetAccountKeysAtBlockHeight](#getaccountkeysatblockheight)* [Scripts](#scripts)
                 + [ExecuteScriptAtLatestBlock](#executescriptatlatestblock)+ [ExecuteScriptAtBlockID](#executescriptatblockid)+ [ExecuteScriptAtBlockHeight](#executescriptatblockheight)* [Events](#events)
                   + [GetEventsForHeightRange](#geteventsforheightrange)+ [GetEventsForBlockIDs](#geteventsforblockids)* [Network Parameters](#network-parameters)

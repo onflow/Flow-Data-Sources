@@ -56,24 +56,24 @@ Learn how to compose with someone else's on-chain contracts by writing a Cadence
 
 ### [Native Data Availability with Cadence Scripts](/blockchain-development-tutorials/cadence/cadence-advantages/native-data-availibility-with-cadence-scripts)[​](#native-data-availability-with-cadence-scripts "Direct link to native-data-availability-with-cadence-scripts")
 
-Discover how Cadence scripts provide native data availability, allowing you to query any on-chain data directly from Flow's state without relying on external indexers or APIs. This comprehensive tutorial shows you how to build scripts that can discover and query NFT collections across multiple child accounts using Hybrid Custody, then extend it to include both NBA Top Shot and NFL All Day NFTs. You'll learn to filter and process NFT collections, extract specific metadata, and compare Cadence's native data availability with Solidity's limitations.
+Discover how Cadence scripts provide native data availability, which allows you to query any on-chain data directly from Flow's state without the need to rely on external indexers or APIs. This comprehensive tutorial shows you how to build scripts that can discover and query NFT collections across multiple child accounts with Hybrid Custody, then extend it to include both NBA Top Shot and NFL All Day NFTs. You'll learn to filter and process NFT collections, extract specific metadata, and compare Cadence's native data availability with Solidity's limitations.
 
 ### [Upgrading Cadence Contracts](/blockchain-development-tutorials/cadence/cadence-advantages/upgrading-cadence-contracts)[​](#upgrading-cadence-contracts "Direct link to upgrading-cadence-contracts")
 
-Learn how to upgrade deployed Cadence contracts through multiple incremental upgrades while preserving existing state and maintaining the same contract address. This tutorial demonstrates Cadence's sophisticated contract upgrade system through two realistic scenarios:
+Learn how to upgrade deployed Cadence contracts through multiple incremental upgrades, preserve the current state, and maintain the same contract address. This tutorial demonstrates Cadence's sophisticated contract upgrade system through two realistic scenarios:
 
-* Adding an event to notify users when the counter reaches an even number.
-* Extending the contract with additional functionality like incrementing by two and checking if numbers are even.
+* Add an event to notify users when the counter reaches an even number.
+* Extend the contract with additional functionality like increment by two and check if numbers are even.
 
-You'll understand what you can and can't change during upgrades, perform multiple contract updates using Flow CLI, and test upgraded functionality with comprehensive transactions and scripts.
+You'll understand what you can and can't change when you upgrade, perform multiple contract updates with Flow CLI, and test upgraded functionality with comprehensive transactions and scripts.
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-Cadence's unique features, such as resource-oriented programming to native data availability, seamless transaction composition, and sophisticated contract upgrade capabilities, represent a fundamental advancement in smart contract development. These tutorials demonstrate how Cadence allows developers to build sophisticated applications with capabilities that simply aren't possible on other blockchain platforms, while maintaining security and developer experience as core principles.
+Cadence's unique features, such as resource-oriented programming to native data availability, seamless transaction composition, and sophisticated contract upgrade capabilities, represent a fundamental advancement in smart contract development. These tutorials demonstrate how Cadence allows developers to build sophisticated applications with capabilities that simply aren't possible on other blockchain platforms and maintain security and developer experience as core principles.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/cadence-advantages/index.md)
 
-Last updated on **Oct 27, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 

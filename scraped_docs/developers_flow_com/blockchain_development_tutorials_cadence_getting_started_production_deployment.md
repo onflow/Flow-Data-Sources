@@ -44,11 +44,11 @@ Search
 
 On this page
 
-# Production deployment
+# Production Deployment
 
 You've developed locally with the emulator, integrated external dependencies, built sophisticated transactions, implemented comprehensive testing, and created a frontend interface. Now it's time to take your application live and deploy it to Flow's public networks.
 
-This tutorial will guide you through deploying your Counter application to both testnet and mainnet, ensuring your contracts and frontend work seamlessly in production environments. You'll learn the essential practices for how to manage live blockchain applications, from security considerations to monitoring and maintenance.
+This tutorial will guide you through deployment of your Counter application to both testnet and mainnet, which ensures that your contracts and frontend work seamlessly in production environments. You'll learn the essential practices for how to manage live blockchain applications, from security considerations to monitoring and maintenance.
 
 ## What you'll learn[​](#what-youll-learn "Direct link to What you'll learn")
 
@@ -67,7 +67,7 @@ After you complete this tutorial, you'll be able to:
 * Counter contract and frontend app working locally.
 * Flow CLI installed and configured.
 
-## Deploy to Testnet[​](#deploy-to-testnet "Direct link to Deploy to Testnet")
+## Deploy to testnet[​](#deploy-to-testnet "Direct link to Deploy to testnet")
 
 Testnet is Flow's public test network that mirrors mainnet functionality without using real FLOW tokens. It's the perfect environment to test your application in a live blockchain environment before you commit to mainnet deployment.
 
@@ -361,9 +361,9 @@ _27
 
 **Key changes:**
 
-* `accessNodeUrl`: Changed from localhost to Flow's testnet REST API.
-* `flowNetwork`: Changed from 'emulator' to 'testnet'.
-* `discoveryWallet`: Updated to use testnet wallet discovery.
+* `accessNodeUrl`: changed from localhost to Flow's testnet REST API.
+* `flowNetwork`: changed from 'emulator' to 'testnet'.
+* `discoveryWallet`: updated to use testnet wallet discovery.
 
 ### Test your testnet frontend[​](#test-your-testnet-frontend "Direct link to Test your testnet frontend")
 
@@ -375,10 +375,10 @@ npm run dev`
 
 Visit `http://localhost:3000` and you will see:
 
-1. **Counter value**: Displays the current count from your testnet contract.
-2. **Connect Wallet**: You can now connect with various Flow wallets (not just Dev Wallet).
-3. **Increment functionality**: Transactions are sent to the live testnet.
-4. **Real transaction costs**: Small amounts of testnet Flow are used to pay for compute units, the Flow Cadence equivalence of gas.
+1. **Counter value**: displays the current count from your testnet contract.
+2. **Connect Wallet**: connect with various Flow wallets (not just Dev Wallet).
+3. **Increment functionality**: transactions are sent to the live testnet.
+4. **Real transaction costs**: small amounts of testnet Flow are used for compute units, the Flow Cadence equivalence of gas.
 
 **Important**: When you connect your wallet, make sure to:
 
@@ -684,7 +684,7 @@ npm run build`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/getting-started/production-deployment.md)
 
-Last updated on **Nov 19, 2025** by **Brian Doyle**
+Last updated on **Dec 2, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -698,7 +698,7 @@ Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages
 
 Copy as Markdown
 
-* [What you'll learn](#what-youll-learn)* [Deploy to Testnet](#deploy-to-testnet)
+* [What you'll learn](#what-youll-learn)* [Deploy to testnet](#deploy-to-testnet)
     + [Understanding Flow networks](#understanding-flow-networks)+ [Create a testnet account](#create-a-testnet-account)+ [Fund your testnet account](#fund-your-testnet-account)+ [Configure testnet deployment](#configure-testnet-deployment)+ [Deploy Counter contract to testnet](#deploy-counter-contract-to-testnet)+ [Test your testnet deployment](#test-your-testnet-deployment)+ [Update frontend for testnet](#update-frontend-for-testnet)+ [Test your testnet frontend](#test-your-testnet-frontend)* [Deploy to mainnet](#deploy-to-mainnet)
       + [Create a mainnet account](#create-a-mainnet-account)+ [Acquire FLOW tokens](#acquire-flow-tokens)+ [Configure mainnet deployment](#configure-mainnet-deployment)+ [Deploy to mainnet](#deploy-to-mainnet-1)+ [Production frontend configuration](#production-frontend-configuration)
 

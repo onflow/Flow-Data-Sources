@@ -1,6 +1,6 @@
 # Source: https://cadence-lang.org/
 
-Hello from Cadence | Cadence
+Cadence - Build the Future of Consumer DeFi | Cadence
 
 
 
@@ -14,7 +14,7 @@ Search
 
 Cadence
 
-## Forge the future of decentralized apps. Unleash **utility**, **composability**, and **safety** in smart contracts.
+## Build the future of consumer applications and DeFi. The safest, most **composable** language for **onchain experiences** that reach millions.
 
 [Get started](/docs)
 
@@ -55,42 +55,144 @@ fun main(): String {
 }
 ```
 
-Together, we are working to build a programming language to empower everyone to push the boundaries of smart contracts and on-chain logic.
+Cadence is the best language for digital assets and consumer applications, powering the next generation of Consumer applications and DeFi with institutional-grade security and consumer-friendly experiences that serve millions.
 
-Announced in 2020, the Cadence programming language introduced a new paradigm of resource-oriented programming. By leveraging the power of resources, Cadence brings exciting new ideas to the world of smart contracts. Cadence makes it easy to write maximally on-chain smart contracts that are secure by design. Our goals for Cadence are to enable ambitious developers to make daring & complex ideas possible while making them easy, fun & developer-friendly, as well as safe and secure.
+* User assets stay in user accounts, delivering better-than-fintech security without centralized risk.
+* Atomic transactions create seamless, one-click experiences that feel native to everyday users.
+* Always-on automation runs 24/7/365, enabling recurring payments and strategies that work while you sleep.
+* Real-time settlement in seconds, not days, making onchain applications faster than traditional financial rails.
+* Open and composable by design, enabling global applications that work together seamlessly.
 
-Join us in shaping the future of blockchain, one line of code at a time. Get started today!
+Cadence pioneers [resource-oriented programming](https://cadence-lang.org/docs/language/resources), designed specifically to handle valuable digital assets. Unlike traditional smart contract languages where assets are piled in centralized contract storage, Cadence ensures user assets stay in their own accounts. The result is dramatically reduced attack surfaces and the elimination of entire classes of vulnerabilities.
 
-### Safety by design
+Supported by network features like [Flow Actions](https://developers.flow.com/blockchain-development-tutorials/forte/flow-actions) and [Scheduled Transactions](https://developers.flow.com/blockchain-development-tutorials/forte/scheduled-transactions/scheduled-transactions-introduction), developers can build sophisticated consumer experiences, from DeFi to digital collectibles to onchain games, that feel native to their users.
 
-Cadence provides security and safety guarantees that greatly simplify the development of secure smart contracts.
+```
+import "DeFiActions"
+import "FlowToken"
+import "FlowTransactionScheduler"
+import "FlowTransactionSchedulerUtils"
+import "IncrementFiStakingConnectors"
+import "IncrementFiPoolLiquidityConnectors"
+import "SwapConnectors"
 
-As smart contracts often deal with valuable assets, Cadence provides the [resource-oriented programming paradigm](https://cadence-lang.org/docs/language/resources), which guarantees that assets can only exist in one location at a time, cannot be copied, and cannot be accidentally lost or deleted.
+// Schedule daily yield compounding with Flow Actions
+transaction(stakingPoolId: UInt64, executionEffort: UInt64) {
+    prepare(signer: auth(Storage, Capabilities) &Account) {
 
-Cadence includes several language features that prevent entire classes of bugs via a strong static type system, [design by contract](https://cadence-lang.org/docs/language/functions#function-preconditions-and-postconditions), and [capability-based access control](https://cadence-lang.org/docs/language/capabilities).
+        // Compose DeFi actions atomically: Claim → Zap → Restake
+        let operationID = DeFiActions.createUniqueIdentifier()
+        
+        // Source: Claim staking rewards
+        let rewardsSource = IncrementFiStakingConnectors.PoolRewardsSource(
+            userCertificate: signer.capabilities.storage
+                .issue<&StakingPool>(/storage/userCertificate),
+            pid: stakingPoolId,
+            uniqueID: operationID
+        )
+        
+        // Swapper: Convert single reward token → LP tokens
+        let zapper = IncrementFiPoolLiquidityConnectors.Zapper(
+            token0Type: Type<@FlowToken.Vault>(),
+            token1Type: Type<@RewardToken.Vault>(),
+            stableMode: false,
+            uniqueID: operationID
+        )
+        
+        // Compose: Wrap rewards source with zapper
+        let lpSource = SwapConnectors.SwapSource(
+            swapper: zapper,
+            source: rewardsSource,
+            uniqueID: operationID
+        )
+        
+        // Sink: Restake LP tokens back into pool
+        let poolSink = IncrementFiStakingConnectors.PoolSink(
+            pid: stakingPoolId,
+            staker: signer.address,
+            uniqueID: operationID
+        )
 
-These security and safety features allow smart contract developers to focus on the business logic of their contract, instead of preventing security footguns and attacks.
+        // Setup transaction scheduler manager
+        if signer.storage.borrow<&AnyResource>(
+            from: FlowTransactionSchedulerUtils.managerStoragePath) == nil {
+            let manager <- FlowTransactionSchedulerUtils.createManager()
+            signer.storage.save(<-manager, to: FlowTransactionSchedulerUtils.managerStoragePath)
+        }
+        
+        let manager = signer.storage.borrow<auth(FlowTransactionSchedulerUtils.Owner)
+            &{FlowTransactionSchedulerUtils.Manager}>(
+            from: FlowTransactionSchedulerUtils.managerStoragePath
+        ) ?? panic("Could not borrow Manager")
 
-### Built for permissionless composability
+        // Estimate and pay fees
+        let estimate = FlowTransactionScheduler.estimate(
+            data: nil,
+            timestamp: nextExecution,
+            priority: priority,
+            executionEffort: executionEffort
+        )
+        
+        let feeVault = signer.storage.borrow<auth(FungibleToken.Withdraw) 
+            &FlowToken.Vault>(from: /storage/flowTokenVault)!
+        let fees <- feeVault.withdraw(amount: estimate.flowFee ?? 0.0) as! @FlowToken.Vault
+        
+        // Get handler capability
+        let handlerCap = signer.capabilities.storage
+            .issue<auth(FlowTransactionScheduler.Execute) 
+                &{FlowTransactionScheduler.TransactionHandler}>(/storage/RestakeHandler)
+        
+        // Schedule recurring execution
+        manager.schedule(
+            handlerCap: handlerCap,
+            data: nil,
+            timestamp: getCurrentBlock().timestamp + 86400.0, // 24 hours
+            priority: FlowTransactionScheduler.Priority.Medium,
+            executionEffort: executionEffort,
+            fees: <-fees
+        )
+    }
+}
+```
 
-[Resources](https://cadence-lang.org/docs/language/resources) are stored directly in users' accounts, and can flow freely between contracts. They can be passed as arguments to functions, returned from functions, or even combined in arbitrary data structures. This makes implementing business logic easier and promotes the reuse of existing logic.
+Ready to build the future of on-chain applications? [Get started today](https://developers.flow.com/blockchain-development-tutorials/cadence/getting-started).
 
-[Interfaces](https://cadence-lang.org/docs/language/interfaces) enable interoperability of contracts and resources allowing developers to integrate their applications into existing experiences easily.
+### Complex DeFi Operations, Simple User Experiences
 
-In addition, the [attachments](https://cadence-lang.org/docs/language/attachments) feature of Cadence allows developers to extend existing types with new functionality and data, without requiring the original author of the type to plan or account for the intended behavior.
+In Cadence, transactions are first-class citizens. Write customized transactions that interact with multiple contracts atomically, either all succeed or all fail. No need for intermediary contracts or complex multi-call patterns.
 
-### Easy to learn, build and ship
+Check staking positions, claim rewards, swap tokens, and restake all in one operation by writing a transaction.
 
-Cadence's syntax is inspired by popular modern general-purpose programming languages like Swift, Kotlin, and Rust, so developers will find the syntax and the semantics familiar. Practical tooling, [documentation](https://cadence-lang.org/docs/language), and examples enable developers to start creating programs quickly and effectively.
+Cadence scripts provide native data availability, querying on-chain data directly without external indexers. Build sophisticated analytics and experiences other chains cannot offer.
 
-### Powerful transactions for mainstream experiences
+This flexibility makes Consumer DeFi possible. Complex operations feel simple while maintaining security and atomicity.
 
-In Cadence, a transaction has a lot more flexibility and the power to perform multiple operations with a single transaction, as opposed to multiple, separate smart contract calls like in other languages. It allows complex, multi-step interactions to be one-click user experiences.
+### Perfect for Consumer Apps, NFTs, and Digital Assets
 
-Developers can easily batch multiple transactions, turning complicated user journeys into a few clicks. For example, imagine approving and completing the listing of an NFT from a new collection in the same transaction, or adding and sending funds with just one approval.
+Cadence's [resource-oriented programming](https://cadence-lang.org/docs/language/resources) makes it the ideal language for consumer applications, NFTs, fungible tokens, and digital collectibles. Resources ensure that digital assets are unique, cannot be duplicated, and are owned directly by users, not stored in contract accounts.
 
-### 🧰 Best-in-class tooling
+Whether you're building a marketplace for NFTs, creating a gaming ecosystem with in-game assets, or launching a new token standard, Cadence provides the security and composability you need. Resources flow naturally between contracts and users, enabling seamless experiences across the entire ecosystem.
 
-Cadence comes with great IDE support. Use your favorite editor, like [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=onflow.cadence), Vim or Emacs, to get diagnostics, code completion, refactoring support, and more.
+Build consumer applications with confidence. Cadence's type system and resource guarantees make it impossible to accidentally lose or duplicate valuable digital assets, giving users and developers peace of mind.
 
-To further enhance the developer experience, there is also a native testing framework, which allows developers to write unit & integration tests using Cadence.
+### Built for DeFi Security
+
+In DeFi, security isn't optional. The [resource-oriented programming paradigm](https://cadence-lang.org/docs/language/resources) in Cadence fundamentally changes how assets are stored and protected. **User assets stay in user accounts, not in contract storage.**
+
+Resources guarantee assets can only exist in one location, cannot be copied, and cannot be accidentally lost. Combined with a strong static type system, [enforced business logic](https://cadence-lang.org/docs/language/functions#function-preconditions-and-postconditions), and [capability-based access control](https://cadence-lang.org/docs/language/capabilities), Cadence eliminates entire classes of DeFi vulnerabilities including reentrancy attacks.
+
+Build financial applications with confidence. Cadence provides safety guarantees that let you focus on creating value, not patching vulnerabilities.
+
+### Composable DeFi Primitives
+
+Compose powerful primitives to build sophisticated financial products. [Resources](https://cadence-lang.org/docs/language/resources) stored in users' accounts can flow freely between contracts, which allows seamless integration of lending, swapping, and yield strategies in a single user experience.
+
+[Flow Actions](https://developers.flow.com/blockchain-development-tutorials/forte/flow-actions) allow you to bundle complex multi-step DeFi operations into one-click experiences. [Scheduled Transactions](https://developers.flow.com/blockchain-development-tutorials/forte/scheduled-transactions/scheduled-transactions-introduction) turn on native onchain automation. Recurring payments, DCA strategies, and portfolio rebalancing execute directly from user wallets, no backend servers required.
+
+[Interfaces](https://cadence-lang.org/docs/language/interfaces) and [attachments](https://cadence-lang.org/docs/language/attachments) make protocols truly composable. Build new DeFi functionality on top of any token standard to create composable building blocks that work together seamlessly.
+
+### Learn the Best Language for Consumer Applications and DeFi
+
+Cadence is purpose-built for consumer applications and DeFi. Its intuitive syntax and resource-oriented design make it the ideal language for building financial products that millions of users trust.
+
+Learn a language designed from the ground up by smart contract developers for smart contract developers. With comprehensive documentation, powerful testing frameworks, and a supportive community, you'll be building production-ready consumer DeFi apps faster than with traditional smart contract languages.

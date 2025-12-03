@@ -59,18 +59,18 @@ In this tutorial series, you'll discover how to:
 * Leverage Flow's native features in mobile environments.
 * Build secure, user-friendly blockchain applications.
 
-# Cadence Development Tutorials
+# Cadence development tutorials
 
 ## Account Management[​](#account-management "Direct link to Account Management")
 
-Learn about Flow's revolutionary account linking system that allow shared ownership and progressive onboarding experiences. These tutorials cover the hybrid custody model, parent-child account relationships, and how to implement walletless onboarding that seamlessly transitions users to self-custody.
+Learn about Flow's revolutionary Account Linking system that allow shared ownership and progressive onboarding experiences. These tutorials cover the hybrid custody model, parent-child account relationships, and how to implement walletless onboarding that seamlessly transitions users to self-custody.
 
-* **[Account Linking Overview](/blockchain-development-tutorials/cadence/account-management)** - Understand Flow's unique account linking concepts and hybrid custody model
-* **[Building with Child Accounts](/blockchain-development-tutorials/cadence/account-management/child-accounts)** - Create walletless applications with progressive onboarding flows
-* **[Parent Account Management](/blockchain-development-tutorials/cadence/account-management/parent-accounts)** - Implement parent account functionality and account delegation
-* **[Account Linking with Dapper](/blockchain-development-tutorials/cadence/account-management/account-linking-with-dapper)** - Integrate with Dapper Wallet's account linking system
+* **[Account Linking Overview](/blockchain-development-tutorials/cadence/account-management)** - Understand Flow's unique account linking concepts and hybrid custody model.
+* **[Building with Child Accounts](/blockchain-development-tutorials/cadence/account-management/child-accounts)** - Create walletless applications with progressive onboarding flows.
+* **[Parent Account Management](/blockchain-development-tutorials/cadence/account-management/parent-accounts)** - Implement parent account functionality and account delegation.
+* **[Account Linking with Dapper](/blockchain-development-tutorials/cadence/account-management/account-linking-with-dapper)** - Integrate with Dapper Wallet's account linking system.
 
-## Mobile Development[​](#mobile-development "Direct link to Mobile Development")
+## Mobile development[​](#mobile-development "Direct link to Mobile development")
 
 Discover how to build native mobile applications that leverage Flow's blockchain capabilities. These tutorials cover mobile SDKs, secure key management, wallet integration, and how to create rich user experiences on iOS and Android platforms.
 
@@ -123,7 +123,7 @@ Flow's Cadence offers unparalleled capabilities for building user-friendly block
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/index.md)
 
-Last updated on **Nov 4, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -137,7 +137,7 @@ Getting Started with Cadence](/blockchain-development-tutorials/cadence/getting-
 
 Copy as Markdown
 
-* [What you'll learn](#what-youll-learn)* [Account Management](#account-management)* [Mobile Development](#mobile-development)* [Testing](#testing)* [Key features covered](#key-features-covered)
+* [What you'll learn](#what-youll-learn)* [Account Management](#account-management)* [Mobile development](#mobile-development)* [Testing](#testing)* [Key features covered](#key-features-covered)
           + [Account Linking & hybrid custody](#account-linking--hybrid-custody)+ [Mobile-first development](#mobile-first-development)+ [Flow-specific advantages](#flow-specific-advantages)* [Next steps](#next-steps)* [Conclusion](#conclusion)
 
 Flow

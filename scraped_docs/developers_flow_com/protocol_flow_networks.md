@@ -34,15 +34,17 @@ On this page
 
 ## About Flow Networks[​](#about-flow-networks "Direct link to About Flow Networks")
 
-note
-
-This page provides information on Flow network RPCs. Flow EVM network RPCs can be found [here](/build/evm/networks)
+Flow supports two virtual machine environments: **Flow Cadence** (native Flow smart contracts) and **Flow EVM** (EVM-equivalent smart contracts). Both environments share the same underlying Flow blockchain infrastructure and use FLOW as the native token for gas fees.
 
 In addition to Mainnet, developers have access to the Testnet environment, which serves as an essential testing ground for applications and smart contracts prior to their deployment on Mainnet. This ensures that any potential issues can be identified and resolved in a controlled setting, mitigating risks associated with live deployment.
 
 Furthermore, during network upgrades, Testnet receives updates ahead of Mainnet. This preemptive update process allows developers to comprehensively test their apps against the latest versions of the nodes, enhancements to the Cadence programming language, and core contract upgrades. This strategy guarantees that when these updates are eventually applied to Mainnet, applications and smart contracts will operate seamlessly, enhancing overall network stability and user experience.
 
-### How To Access These Networks?[​](#how-to-access-these-networks "Direct link to How To Access These Networks?")
+## Flow Cadence Networks[​](#flow-cadence-networks "Direct link to Flow Cadence Networks")
+
+Flow Cadence networks provide access to the native Flow blockchain using the Cadence programming language. Access Nodes are the node type that are most useful for developers, as they provide access to the Flow network via the following API endpoints.
+
+### Flow Cadence Network Endpoints[​](#flow-cadence-network-endpoints "Direct link to Flow Cadence Network Endpoints")
 
 |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -53,31 +55,59 @@ For more information on how to access these networks, refer to the following gui
 * [Flow Testnet](/protocol/flow-networks/accessing-testnet)
 * [Flow Mainnet](/protocol/flow-networks/accessing-mainnet)
 
-### Network[​](#network "Direct link to Network")
+### Flow Access API[​](#flow-access-api "Direct link to Flow Access API")
 
-There are two primary ways to access onchain data within the Flow network; Access Nodes and Light nodes. Access Nodes are the node type that are most useful for developers, as they provide access to the Flow network via the following API endpoints:
+There are two primary ways to access onchain data within the Flow network: Access Nodes and Light nodes. Access Nodes are the node type that are most useful for developers, as they provide access to the Flow network via the following API endpoints:
 
 * [Flow Access API](/protocol/access-onchain-data)
   + [Mainnet](/protocol/flow-networks/accessing-mainnet): `access.mainnet.nodes.onflow.org:9000`
   + [Testnet](/protocol/flow-networks/accessing-testnet): `access.devnet.nodes.onflow.org:9000`
 * [Status Page](https://status.onflow.org/) - Network status page
 
-### Rate limits[​](#rate-limits "Direct link to Rate limits")
+## Flow EVM Networks[​](#flow-evm-networks "Direct link to Flow EVM Networks")
+
+Flow EVM is an EVM-equivalent blockchain that combines the advantages of Flow, including security, low-cost gas, and native VRF with compatibility with existing blockchain applications tools and contracts. Flow EVM uses the standard Ethereum JSON-RPC API.
+
+### Flow EVM Network Endpoints[​](#flow-evm-network-endpoints "Direct link to Flow EVM Network Endpoints")
+
+#### Mainnet[​](#mainnet "Direct link to Mainnet")
+
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Name Value|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Network Name Flow EVM Mainnet|  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Description The public RPC URL for Flow Mainnet|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | RPC Endpoint <https://mainnet.evm.nodes.onflow.org>| Chain ID 747|  |  |  |  | | --- | --- | --- | --- | | Currency Symbol FLOW|  |  | | --- | --- | | Block Explorer <https://evm.flowscan.io> | | | | | | | | | | | | | |
+
+#### Testnet[​](#testnet "Direct link to Testnet")
+
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Name Value|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Network Name Flow EVM Testnet|  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Description The public RPC URL for Flow Testnet|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | RPC Endpoint <https://testnet.evm.nodes.onflow.org>| Chain ID 545|  |  |  |  | | --- | --- | --- | --- | | Currency Symbol FLOW|  |  | | --- | --- | | Block Explorer <https://evm-testnet.flowscan.io> | | | | | | | | | | | | | |
+
+### EVM Specification[​](#evm-specification "Direct link to EVM Specification")
+
+* Flow EVM is a virtual EVM-based blockchain using the latest EVM byte-code interpreter
+* Utilizes `FLOW` token for transactions
+* The [EVM Gateway](https://github.com/onflow/flow-evm-gateway) exposes the standard EVM API (Ethereum JSON-RPC)
+* Read more about the implementation in [FLIP 223: EVM integration interface](https://github.com/onflow/flips/blob/main/protocol/20231116-evm-support.md)
+
+For detailed information about supported JSON-RPC methods, see the [Flow EVM Network Information](/build/evm/networks) page.
+
+## Rate limits[​](#rate-limits "Direct link to Rate limits")
 
 Rate limits for Flow Public Access nodes hosted by QuickNode are detailed [here](https://www.quicknode.com/docs/flow#endpoint-rate-limits).
 
-### Running Your Own Node[​](#running-your-own-node "Direct link to Running Your Own Node")
+## Running Your Own Node[​](#running-your-own-node "Direct link to Running Your Own Node")
 
-If you’re getting started you don’t need to run your own node and you can use the above public nodes. The public access nodes are rate-limited, so as your product matures you might want to run your own node. There are multiple options available:
+If you're getting started, you don't need to run your own node and you can use the above public nodes. The public access nodes are rate-limited, so as your product matures you might want to run your own node. There are multiple options available:
 
 * Start with a [Light (Observer) Node](/protocol/node-ops/light-nodes/observer-node).
+* For Flow EVM applications, you can run your own [EVM Gateway](/protocol/node-ops/evm-gateway/evm-gateway-setup) to provide a dedicated private RPC endpoint, remove rate limits, and optionally sponsor gas fees for your users.
 * You can also use a third-party provider like [Quicknode](https://www.quicknode.com/docs/flow).
 
 Check out [Running a Node](/protocol/node-ops/light-nodes/observer-node) for more information.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/protocol/flow-networks/index.md)
 
-Last updated on **Oct 29, 2025** by **Jordan Ribbink**
+Last updated on **Dec 1, 2025** by **Brian Doyle**
 
 [Next
 
@@ -89,8 +119,9 @@ Mainnet](/protocol/flow-networks/accessing-mainnet)
 
 Copy as Markdown
 
-* [About Flow Networks](#about-flow-networks)
-  + [How To Access These Networks?](#how-to-access-these-networks)+ [Network](#network)+ [Rate limits](#rate-limits)+ [Running Your Own Node](#running-your-own-node)
+* [About Flow Networks](#about-flow-networks)* [Flow Cadence Networks](#flow-cadence-networks)
+    + [Flow Cadence Network Endpoints](#flow-cadence-network-endpoints)+ [Flow Access API](#flow-access-api)* [Flow EVM Networks](#flow-evm-networks)
+      + [Flow EVM Network Endpoints](#flow-evm-network-endpoints)+ [EVM Specification](#evm-specification)* [Rate limits](#rate-limits)* [Running Your Own Node](#running-your-own-node)
 
 Flow
 

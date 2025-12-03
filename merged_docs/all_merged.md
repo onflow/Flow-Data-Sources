@@ -155943,7 +155943,7 @@ Built-in Functions](/docs/language/built-in-functions)
 
 
 
-# Source: https://cadence-lang.org/docs/language/
+# Source: https://cadence-lang.org/docs/language
 
 The Cadence Programming Language | Cadence
 
@@ -157103,7 +157103,7 @@ Content is licensed under the Creative Commons Attribution 4.0 International Lic
 
 # Source: https://cadence-lang.org/
 
-Hello from Cadence | Cadence
+Cadence - Build the Future of Consumer DeFi | Cadence
 
 
 
@@ -157117,7 +157117,7 @@ Search
 
 Cadence
 
-## Forge the future of decentralized apps. Unleash **utility**, **composability**, and **safety** in smart contracts.
+## Build the future of consumer applications and DeFi. The safest, most **composable** language for **onchain experiences** that reach millions.
 
 [Get started](/docs)
 
@@ -157158,45 +157158,147 @@ fun main(): String {
 }
 ```
 
-Together, we are working to build a programming language to empower everyone to push the boundaries of smart contracts and on-chain logic.
+Cadence is the best language for digital assets and consumer applications, powering the next generation of Consumer applications and DeFi with institutional-grade security and consumer-friendly experiences that serve millions.
 
-Announced in 2020, the Cadence programming language introduced a new paradigm of resource-oriented programming. By leveraging the power of resources, Cadence brings exciting new ideas to the world of smart contracts. Cadence makes it easy to write maximally on-chain smart contracts that are secure by design. Our goals for Cadence are to enable ambitious developers to make daring & complex ideas possible while making them easy, fun & developer-friendly, as well as safe and secure.
+* User assets stay in user accounts, delivering better-than-fintech security without centralized risk.
+* Atomic transactions create seamless, one-click experiences that feel native to everyday users.
+* Always-on automation runs 24/7/365, enabling recurring payments and strategies that work while you sleep.
+* Real-time settlement in seconds, not days, making onchain applications faster than traditional financial rails.
+* Open and composable by design, enabling global applications that work together seamlessly.
 
-Join us in shaping the future of blockchain, one line of code at a time. Get started today!
+Cadence pioneers [resource-oriented programming](https://cadence-lang.org/docs/language/resources), designed specifically to handle valuable digital assets. Unlike traditional smart contract languages where assets are piled in centralized contract storage, Cadence ensures user assets stay in their own accounts. The result is dramatically reduced attack surfaces and the elimination of entire classes of vulnerabilities.
 
-### Safety by design
+Supported by network features like [Flow Actions](https://developers.flow.com/blockchain-development-tutorials/forte/flow-actions) and [Scheduled Transactions](https://developers.flow.com/blockchain-development-tutorials/forte/scheduled-transactions/scheduled-transactions-introduction), developers can build sophisticated consumer experiences, from DeFi to digital collectibles to onchain games, that feel native to their users.
 
-Cadence provides security and safety guarantees that greatly simplify the development of secure smart contracts.
+```
+import "DeFiActions"
+import "FlowToken"
+import "FlowTransactionScheduler"
+import "FlowTransactionSchedulerUtils"
+import "IncrementFiStakingConnectors"
+import "IncrementFiPoolLiquidityConnectors"
+import "SwapConnectors"
 
-As smart contracts often deal with valuable assets, Cadence provides the [resource-oriented programming paradigm](https://cadence-lang.org/docs/language/resources), which guarantees that assets can only exist in one location at a time, cannot be copied, and cannot be accidentally lost or deleted.
+// Schedule daily yield compounding with Flow Actions
+transaction(stakingPoolId: UInt64, executionEffort: UInt64) {
+    prepare(signer: auth(Storage, Capabilities) &Account) {
 
-Cadence includes several language features that prevent entire classes of bugs via a strong static type system, [design by contract](https://cadence-lang.org/docs/language/functions#function-preconditions-and-postconditions), and [capability-based access control](https://cadence-lang.org/docs/language/capabilities).
+        // Compose DeFi actions atomically: Claim → Zap → Restake
+        let operationID = DeFiActions.createUniqueIdentifier()
+        
+        // Source: Claim staking rewards
+        let rewardsSource = IncrementFiStakingConnectors.PoolRewardsSource(
+            userCertificate: signer.capabilities.storage
+                .issue<&StakingPool>(/storage/userCertificate),
+            pid: stakingPoolId,
+            uniqueID: operationID
+        )
+        
+        // Swapper: Convert single reward token → LP tokens
+        let zapper = IncrementFiPoolLiquidityConnectors.Zapper(
+            token0Type: Type<@FlowToken.Vault>(),
+            token1Type: Type<@RewardToken.Vault>(),
+            stableMode: false,
+            uniqueID: operationID
+        )
+        
+        // Compose: Wrap rewards source with zapper
+        let lpSource = SwapConnectors.SwapSource(
+            swapper: zapper,
+            source: rewardsSource,
+            uniqueID: operationID
+        )
+        
+        // Sink: Restake LP tokens back into pool
+        let poolSink = IncrementFiStakingConnectors.PoolSink(
+            pid: stakingPoolId,
+            staker: signer.address,
+            uniqueID: operationID
+        )
 
-These security and safety features allow smart contract developers to focus on the business logic of their contract, instead of preventing security footguns and attacks.
+        // Setup transaction scheduler manager
+        if signer.storage.borrow<&AnyResource>(
+            from: FlowTransactionSchedulerUtils.managerStoragePath) == nil {
+            let manager <- FlowTransactionSchedulerUtils.createManager()
+            signer.storage.save(<-manager, to: FlowTransactionSchedulerUtils.managerStoragePath)
+        }
+        
+        let manager = signer.storage.borrow<auth(FlowTransactionSchedulerUtils.Owner)
+            &{FlowTransactionSchedulerUtils.Manager}>(
+            from: FlowTransactionSchedulerUtils.managerStoragePath
+        ) ?? panic("Could not borrow Manager")
 
-### Built for permissionless composability
+        // Estimate and pay fees
+        let estimate = FlowTransactionScheduler.estimate(
+            data: nil,
+            timestamp: nextExecution,
+            priority: priority,
+            executionEffort: executionEffort
+        )
+        
+        let feeVault = signer.storage.borrow<auth(FungibleToken.Withdraw) 
+            &FlowToken.Vault>(from: /storage/flowTokenVault)!
+        let fees <- feeVault.withdraw(amount: estimate.flowFee ?? 0.0) as! @FlowToken.Vault
+        
+        // Get handler capability
+        let handlerCap = signer.capabilities.storage
+            .issue<auth(FlowTransactionScheduler.Execute) 
+                &{FlowTransactionScheduler.TransactionHandler}>(/storage/RestakeHandler)
+        
+        // Schedule recurring execution
+        manager.schedule(
+            handlerCap: handlerCap,
+            data: nil,
+            timestamp: getCurrentBlock().timestamp + 86400.0, // 24 hours
+            priority: FlowTransactionScheduler.Priority.Medium,
+            executionEffort: executionEffort,
+            fees: <-fees
+        )
+    }
+}
+```
 
-[Resources](https://cadence-lang.org/docs/language/resources) are stored directly in users' accounts, and can flow freely between contracts. They can be passed as arguments to functions, returned from functions, or even combined in arbitrary data structures. This makes implementing business logic easier and promotes the reuse of existing logic.
+Ready to build the future of on-chain applications? [Get started today](https://developers.flow.com/blockchain-development-tutorials/cadence/getting-started).
 
-[Interfaces](https://cadence-lang.org/docs/language/interfaces) enable interoperability of contracts and resources allowing developers to integrate their applications into existing experiences easily.
+### Complex DeFi Operations, Simple User Experiences
 
-In addition, the [attachments](https://cadence-lang.org/docs/language/attachments) feature of Cadence allows developers to extend existing types with new functionality and data, without requiring the original author of the type to plan or account for the intended behavior.
+In Cadence, transactions are first-class citizens. Write customized transactions that interact with multiple contracts atomically, either all succeed or all fail. No need for intermediary contracts or complex multi-call patterns.
 
-### Easy to learn, build and ship
+Check staking positions, claim rewards, swap tokens, and restake all in one operation by writing a transaction.
 
-Cadence's syntax is inspired by popular modern general-purpose programming languages like Swift, Kotlin, and Rust, so developers will find the syntax and the semantics familiar. Practical tooling, [documentation](https://cadence-lang.org/docs/language), and examples enable developers to start creating programs quickly and effectively.
+Cadence scripts provide native data availability, querying on-chain data directly without external indexers. Build sophisticated analytics and experiences other chains cannot offer.
 
-### Powerful transactions for mainstream experiences
+This flexibility makes Consumer DeFi possible. Complex operations feel simple while maintaining security and atomicity.
 
-In Cadence, a transaction has a lot more flexibility and the power to perform multiple operations with a single transaction, as opposed to multiple, separate smart contract calls like in other languages. It allows complex, multi-step interactions to be one-click user experiences.
+### Perfect for Consumer Apps, NFTs, and Digital Assets
 
-Developers can easily batch multiple transactions, turning complicated user journeys into a few clicks. For example, imagine approving and completing the listing of an NFT from a new collection in the same transaction, or adding and sending funds with just one approval.
+Cadence's [resource-oriented programming](https://cadence-lang.org/docs/language/resources) makes it the ideal language for consumer applications, NFTs, fungible tokens, and digital collectibles. Resources ensure that digital assets are unique, cannot be duplicated, and are owned directly by users, not stored in contract accounts.
 
-### 🧰 Best-in-class tooling
+Whether you're building a marketplace for NFTs, creating a gaming ecosystem with in-game assets, or launching a new token standard, Cadence provides the security and composability you need. Resources flow naturally between contracts and users, enabling seamless experiences across the entire ecosystem.
 
-Cadence comes with great IDE support. Use your favorite editor, like [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=onflow.cadence), Vim or Emacs, to get diagnostics, code completion, refactoring support, and more.
+Build consumer applications with confidence. Cadence's type system and resource guarantees make it impossible to accidentally lose or duplicate valuable digital assets, giving users and developers peace of mind.
 
-To further enhance the developer experience, there is also a native testing framework, which allows developers to write unit & integration tests using Cadence.
+### Built for DeFi Security
+
+In DeFi, security isn't optional. The [resource-oriented programming paradigm](https://cadence-lang.org/docs/language/resources) in Cadence fundamentally changes how assets are stored and protected. **User assets stay in user accounts, not in contract storage.**
+
+Resources guarantee assets can only exist in one location, cannot be copied, and cannot be accidentally lost. Combined with a strong static type system, [enforced business logic](https://cadence-lang.org/docs/language/functions#function-preconditions-and-postconditions), and [capability-based access control](https://cadence-lang.org/docs/language/capabilities), Cadence eliminates entire classes of DeFi vulnerabilities including reentrancy attacks.
+
+Build financial applications with confidence. Cadence provides safety guarantees that let you focus on creating value, not patching vulnerabilities.
+
+### Composable DeFi Primitives
+
+Compose powerful primitives to build sophisticated financial products. [Resources](https://cadence-lang.org/docs/language/resources) stored in users' accounts can flow freely between contracts, which allows seamless integration of lending, swapping, and yield strategies in a single user experience.
+
+[Flow Actions](https://developers.flow.com/blockchain-development-tutorials/forte/flow-actions) allow you to bundle complex multi-step DeFi operations into one-click experiences. [Scheduled Transactions](https://developers.flow.com/blockchain-development-tutorials/forte/scheduled-transactions/scheduled-transactions-introduction) turn on native onchain automation. Recurring payments, DCA strategies, and portfolio rebalancing execute directly from user wallets, no backend servers required.
+
+[Interfaces](https://cadence-lang.org/docs/language/interfaces) and [attachments](https://cadence-lang.org/docs/language/attachments) make protocols truly composable. Build new DeFi functionality on top of any token standard to create composable building blocks that work together seamlessly.
+
+### Learn the Best Language for Consumer Applications and DeFi
+
+Cadence is purpose-built for consumer applications and DeFi. Its intuitive syntax and resource-oriented design make it the ideal language for building financial products that millions of users trust.
+
+Learn a language designed from the ground up by smart contract developers for smart contract developers. With comprehensive documentation, powerful testing frameworks, and a supportive community, you'll be building production-ready consumer DeFi apps faster than with traditional smart contract languages.
 
 
 
@@ -184649,7 +184751,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -185353,7 +185455,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -186754,7 +186856,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -190061,9 +190163,9 @@ Search
 
 On this page
 
-# Getting started with cadence
+# Getting Started With Cadence
 
-The Cadence is designed for the next generation of apps, games, and digital assets. This comprehensive tutorial series will guide you from setting up your development environment to deploying production-ready applications on Flow's mainnet while a complete Counter application that demonstrates all essential Flow development patterns.
+The Cadence is designed for the next generation of apps, games, and digital assets. This comprehensive tutorial series will guide you from development environment setup to production-ready application deployment on Flow's mainnet as a complete Counter application that demonstrates all essential Flow development patterns.
 
 ## What you'll learn[​](#what-youll-learn "Direct link to What you'll learn")
 
@@ -190081,16 +190183,16 @@ In this tutorial series, you'll discover how to:
 
 Throughout these tutorials, you'll build a complete **Counter Application** that demonstrates the core aspects of Flow development:
 
-* **Smart Contracts**: Counter contract with increment/decrement functionality.
-* **External Dependencies**: Integration with NumberFormatter for enhanced display.
-* **Frontend Interface**: React-based web application with wallet authentication.
-* **Production Deployment**: Live application accessible on Flow's public networks.
+* **Smart Contracts**: counter contract with increment/decrement functionality.
+* **External Dependencies**: integration with NumberFormatter for enhanced display.
+* **Frontend Interface**: react-based web application with wallet authentication.
+* **Production Deployment**: live application accessible on Flow's public networks.
 
 By the end, you'll have a fully functional blockchain application and the skills to build your own Flow projects.
 
 ## Environment setup[​](#environment-setup "Direct link to Environment setup")
 
-Learn how to set up your Flow development environment and deploy your first smart contract. This foundational tutorial covers CLI installation, project creation, contract deployment, and basic blockchain interaction patterns using the local Flow emulator.
+Learn how to set up your Flow development environment and deploy your first smart contract. This foundational tutorial covers CLI installation, project creation, contract deployment, and basic blockchain interaction patterns with the local Flow emulator.
 
 Tutorial: [Cadence Environment Setup](/blockchain-development-tutorials/cadence/getting-started/cadence-environment-setup)
 
@@ -190100,9 +190202,9 @@ Gain advanced Flow development skills including dependency management, sophistic
 
 Tutorial: [Smart Contract Interaction](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
 
-## Building a frontend app[​](#building-a-frontend-app "Direct link to Building a frontend app")
+## Build a frontend app[​](#build-a-frontend-app "Direct link to Build a frontend app")
 
-Create a `Next.js` frontend application that interacts with your Flow smart contracts using `@onflow/react-sdk`. Implement wallet authentication, real-time data queries, transaction submission, and status monitoring for a complete user experience.
+Create a `Next.js` frontend application that interacts with your Flow smart contracts via `@onflow/react-sdk`. Implement wallet authentication, real-time data queries, transaction submission, and status monitoring for a complete user experience.
 
 Tutorial: [Building a Frontend App](/blockchain-development-tutorials/cadence/getting-started/building-a-frontend-app)
 
@@ -190114,7 +190216,7 @@ Tutorial: [Production Deployment](/blockchain-development-tutorials/cadence/gett
 
 ## Next steps[​](#next-steps "Direct link to Next steps")
 
-After you complete these tutorials, you'll have the fundamental skills needed for Flow development. Consider exploring our other tutorial series to expand your blockchain development expertise:
+After you complete these tutorials, you'll have the fundamental skills needed for Flow development. You can explore our other tutorial series to expand your blockchain development expertise:
 
 * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps/introduction) - Build applications that integrate Flow EVM and Cadence
 * [Native VRF](/blockchain-development-tutorials/native-vrf) - Implement verifiable random functions in your applications
@@ -190122,7 +190224,7 @@ After you complete these tutorials, you'll have the fundamental skills needed fo
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/getting-started/index.md)
 
-Last updated on **Nov 14, 2025** by **0xLisanAlGaib**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -190136,7 +190238,7 @@ Cadence Environment Setup](/blockchain-development-tutorials/cadence/getting-sta
 
 Copy as Markdown
 
-* [What you'll learn](#what-youll-learn)* [What you'll build](#what-youll-build)* [Environment setup](#environment-setup)* [Smart contract interaction](#smart-contract-interaction)* [Building a frontend app](#building-a-frontend-app)* [Production deployment](#production-deployment)* [Next steps](#next-steps)
+* [What you'll learn](#what-youll-learn)* [What you'll build](#what-youll-build)* [Environment setup](#environment-setup)* [Smart contract interaction](#smart-contract-interaction)* [Build a frontend app](#build-a-frontend-app)* [Production deployment](#production-deployment)* [Next steps](#next-steps)
 
 Flow
 
@@ -195674,7 +195776,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -197739,7 +197841,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -197982,15 +198084,17 @@ On this page
 
 ## About Flow Networks[​](#about-flow-networks "Direct link to About Flow Networks")
 
-note
-
-This page provides information on Flow network RPCs. Flow EVM network RPCs can be found [here](/build/evm/networks)
+Flow supports two virtual machine environments: **Flow Cadence** (native Flow smart contracts) and **Flow EVM** (EVM-equivalent smart contracts). Both environments share the same underlying Flow blockchain infrastructure and use FLOW as the native token for gas fees.
 
 In addition to Mainnet, developers have access to the Testnet environment, which serves as an essential testing ground for applications and smart contracts prior to their deployment on Mainnet. This ensures that any potential issues can be identified and resolved in a controlled setting, mitigating risks associated with live deployment.
 
 Furthermore, during network upgrades, Testnet receives updates ahead of Mainnet. This preemptive update process allows developers to comprehensively test their apps against the latest versions of the nodes, enhancements to the Cadence programming language, and core contract upgrades. This strategy guarantees that when these updates are eventually applied to Mainnet, applications and smart contracts will operate seamlessly, enhancing overall network stability and user experience.
 
-### How To Access These Networks?[​](#how-to-access-these-networks "Direct link to How To Access These Networks?")
+## Flow Cadence Networks[​](#flow-cadence-networks "Direct link to Flow Cadence Networks")
+
+Flow Cadence networks provide access to the native Flow blockchain using the Cadence programming language. Access Nodes are the node type that are most useful for developers, as they provide access to the Flow network via the following API endpoints.
+
+### Flow Cadence Network Endpoints[​](#flow-cadence-network-endpoints "Direct link to Flow Cadence Network Endpoints")
 
 |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -198001,31 +198105,59 @@ For more information on how to access these networks, refer to the following gui
 * [Flow Testnet](/protocol/flow-networks/accessing-testnet)
 * [Flow Mainnet](/protocol/flow-networks/accessing-mainnet)
 
-### Network[​](#network "Direct link to Network")
+### Flow Access API[​](#flow-access-api "Direct link to Flow Access API")
 
-There are two primary ways to access onchain data within the Flow network; Access Nodes and Light nodes. Access Nodes are the node type that are most useful for developers, as they provide access to the Flow network via the following API endpoints:
+There are two primary ways to access onchain data within the Flow network: Access Nodes and Light nodes. Access Nodes are the node type that are most useful for developers, as they provide access to the Flow network via the following API endpoints:
 
 * [Flow Access API](/protocol/access-onchain-data)
   + [Mainnet](/protocol/flow-networks/accessing-mainnet): `access.mainnet.nodes.onflow.org:9000`
   + [Testnet](/protocol/flow-networks/accessing-testnet): `access.devnet.nodes.onflow.org:9000`
 * [Status Page](https://status.onflow.org/) - Network status page
 
-### Rate limits[​](#rate-limits "Direct link to Rate limits")
+## Flow EVM Networks[​](#flow-evm-networks "Direct link to Flow EVM Networks")
+
+Flow EVM is an EVM-equivalent blockchain that combines the advantages of Flow, including security, low-cost gas, and native VRF with compatibility with existing blockchain applications tools and contracts. Flow EVM uses the standard Ethereum JSON-RPC API.
+
+### Flow EVM Network Endpoints[​](#flow-evm-network-endpoints "Direct link to Flow EVM Network Endpoints")
+
+#### Mainnet[​](#mainnet "Direct link to Mainnet")
+
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Name Value|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Network Name Flow EVM Mainnet|  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Description The public RPC URL for Flow Mainnet|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | RPC Endpoint <https://mainnet.evm.nodes.onflow.org>| Chain ID 747|  |  |  |  | | --- | --- | --- | --- | | Currency Symbol FLOW|  |  | | --- | --- | | Block Explorer <https://evm.flowscan.io> | | | | | | | | | | | | | |
+
+#### Testnet[​](#testnet "Direct link to Testnet")
+
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Name Value|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Network Name Flow EVM Testnet|  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Description The public RPC URL for Flow Testnet|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | RPC Endpoint <https://testnet.evm.nodes.onflow.org>| Chain ID 545|  |  |  |  | | --- | --- | --- | --- | | Currency Symbol FLOW|  |  | | --- | --- | | Block Explorer <https://evm-testnet.flowscan.io> | | | | | | | | | | | | | |
+
+### EVM Specification[​](#evm-specification "Direct link to EVM Specification")
+
+* Flow EVM is a virtual EVM-based blockchain using the latest EVM byte-code interpreter
+* Utilizes `FLOW` token for transactions
+* The [EVM Gateway](https://github.com/onflow/flow-evm-gateway) exposes the standard EVM API (Ethereum JSON-RPC)
+* Read more about the implementation in [FLIP 223: EVM integration interface](https://github.com/onflow/flips/blob/main/protocol/20231116-evm-support.md)
+
+For detailed information about supported JSON-RPC methods, see the [Flow EVM Network Information](/build/evm/networks) page.
+
+## Rate limits[​](#rate-limits "Direct link to Rate limits")
 
 Rate limits for Flow Public Access nodes hosted by QuickNode are detailed [here](https://www.quicknode.com/docs/flow#endpoint-rate-limits).
 
-### Running Your Own Node[​](#running-your-own-node "Direct link to Running Your Own Node")
+## Running Your Own Node[​](#running-your-own-node "Direct link to Running Your Own Node")
 
-If you’re getting started you don’t need to run your own node and you can use the above public nodes. The public access nodes are rate-limited, so as your product matures you might want to run your own node. There are multiple options available:
+If you're getting started, you don't need to run your own node and you can use the above public nodes. The public access nodes are rate-limited, so as your product matures you might want to run your own node. There are multiple options available:
 
 * Start with a [Light (Observer) Node](/protocol/node-ops/light-nodes/observer-node).
+* For Flow EVM applications, you can run your own [EVM Gateway](/protocol/node-ops/evm-gateway/evm-gateway-setup) to provide a dedicated private RPC endpoint, remove rate limits, and optionally sponsor gas fees for your users.
 * You can also use a third-party provider like [Quicknode](https://www.quicknode.com/docs/flow).
 
 Check out [Running a Node](/protocol/node-ops/light-nodes/observer-node) for more information.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/protocol/flow-networks/index.md)
 
-Last updated on **Oct 29, 2025** by **Jordan Ribbink**
+Last updated on **Dec 1, 2025** by **Brian Doyle**
 
 [Next
 
@@ -198037,8 +198169,9 @@ Mainnet](/protocol/flow-networks/accessing-mainnet)
 
 Copy as Markdown
 
-* [About Flow Networks](#about-flow-networks)
-  + [How To Access These Networks?](#how-to-access-these-networks)+ [Network](#network)+ [Rate limits](#rate-limits)+ [Running Your Own Node](#running-your-own-node)
+* [About Flow Networks](#about-flow-networks)* [Flow Cadence Networks](#flow-cadence-networks)
+    + [Flow Cadence Network Endpoints](#flow-cadence-network-endpoints)+ [Flow Access API](#flow-access-api)* [Flow EVM Networks](#flow-evm-networks)
+      + [Flow EVM Network Endpoints](#flow-evm-network-endpoints)+ [EVM Specification](#evm-specification)* [Rate limits](#rate-limits)* [Running Your Own Node](#running-your-own-node)
 
 Flow
 
@@ -238156,7 +238289,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -248467,7 +248600,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -251827,7 +251960,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -260966,7 +261099,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -267950,7 +268083,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -268479,7 +268612,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -269844,7 +269977,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -269852,9 +269985,7 @@ Search
 
 * [Ecosystem Index](/ecosystem)* [Developer Support Hub](/ecosystem/developer-support-hub)
 
-    + [Builder Perks](/ecosystem/developer-support-hub/builder-perks)+ [Grants](/ecosystem/developer-support-hub/grants)+ [VCs & Funds](/ecosystem/developer-support-hub/vcs-and-funds)* [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
-
-                * [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
+    + [Builder Perks](/ecosystem/developer-support-hub/builder-perks)+ [Grants](/ecosystem/developer-support-hub/grants)+ [VCs & Funds](/ecosystem/developer-support-hub/vcs-and-funds)* [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
 
 * * [Developer Support Hub](/ecosystem/developer-support-hub)* VCs & Funds
 
@@ -281912,7 +282043,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -289630,7 +289761,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -295267,9 +295398,9 @@ On this page
 
 info
 
-This page will walk you through a very bare bones project to get started building a web3 dapp using the Flow Client Library (FCL). If you want a clonable repo, Flow community members created quickstart templates for different JavaScript frameworks (for example, [Next.js](https://github.com/muttoni/fcl-nextjs-quickstart), [SvelteKit](https://github.com/muttoni/fcl-sveltekit-quickstart), [Nuxt](https://github.com/bluesign/nuxt3-fcl)). You can consult the complete list [here](https://github.com/ph0ph0/Get-The-Flow-Down#fcl).
+This page will walk you through a very bare bones project to get started building a web3 dapp with the Flow Client Library (FCL). If you want a clonable repo, Flow community members created quickstart templates for different JavaScript frameworks (for example, [Next.js](https://github.com/muttoni/fcl-nextjs-quickstart), [SvelteKit](https://github.com/muttoni/fcl-sveltekit-quickstart), [Nuxt](https://github.com/bluesign/nuxt3-fcl.). You can consult the complete list [here](https://github.com/ph0ph0/Get-The-Flow-Down#fcl).
 
-FCL-JS is the easiest way to start building decentralized applications. Flow Client Library (FCL) wraps much of the logic you'd have to write yourself on other blockchains. Follow this quick start and you'll have a solid overview of how to build a shippable dapp on Flow.
+FCL-JS is the easiest way to start to build decentralized applications. Flow Client Library (FCL) wraps much of the logic you'd have to write yourself on other blockchains. Follow this quick start and you'll have a solid overview of how to build a shippable dapp on Flow.
 
 We're going to make an assumption that you know or understand React; however, the concepts should be easy to understand and transfer to another framework. While this tutorial uses Cadence (Flow's smart contract language), you do not need to know it. Instead, we recommend that you later [learn the Cadence language](https://cadence-lang.org/docs/language/) after you've gotten the core FCL concepts down.
 
@@ -295278,9 +295409,9 @@ In this tutorial, we are going to interact with an current smart contract on Flo
 * [Installation](#installation)
 * [Configuration](#configuration)
 * [Authentication](#authentication)
-* [Querying the Blockchain](#querying-the-blockchain)
-* [Initializing an Account](#initializing-an-account)
-* [Mutating the Blockchain](#mutating-the-blockchain)
+* [Query the Blockchain](#query-the-blockchain)
+* [Initialize an Account](#initialize-an-account)
+* [Mutate the Blockchain](#mutate-the-blockchain)
 
 If you ever have any questions, we're always happy to help on [Discord](https://discord.gg/flowblockchain). There are also links at the end of this article for diving deeper into how to build on Flow.
 
@@ -295357,11 +295488,11 @@ _10
 * The `accessNode.api` key specifies the address of a Flow access node. Flow provides these, but in the future, third parties ay provide access to Flow through their own access nodes.
 * `discovery.wallet` and `discovery.authn.endpoint` are addresses that point to a service that lists FCL compatible wallets. Flow's FCL Discovery service is a service that FCL wallet providers can be added to, and be made 'discoverable' to any application that uses the `discovery.wallet` and `discovery.authn.endpoint`.
 
-> Learn more about [configuring Discovery](/build/tools/clients/fcl-js/discovery) or [setting configuration values](/build/tools/clients/fcl-js/packages-docs/fcl#setting-configuration-values).
+> Learn more about [how to configure Discovery](/build/tools/clients/fcl-js/discovery) or [how to set configuration values](/build/tools/clients/fcl-js/packages-docs/fcl#setting-configuration-values).
 
-> If you are running a Wallet Discovery locally and want to use it in the React Native app, change `https://fcl-discovery.onflow.org/` to `http://<LOCAL_IP_ADDRESS>:<PORT>/`
+> If you run a Wallet Discovery locally and want to use it in the React Native app, change `https://fcl-discovery.onflow.org/` to `http://<LOCAL_IP_ADDRESS>:<PORT>/`
 > For Example:
-> using local [Wallet Discovery](/build/tools/clients/fcl-js/discovery) and local [Dev Wallet](/build/tools/flow-dev-wallet):
+> use local [Wallet Discovery](/build/tools/clients/fcl-js/discovery) and local [Dev Wallet](/build/tools/flow-dev-wallet):
 >
 > ./flow/config.js
 >
@@ -295481,13 +295612,13 @@ _21
 
 });`
 
-Now we're ready to start talking to Flow!
+Now we're ready to talk to Flow!
 
 ## Authentication[​](#authentication "Direct link to Authentication")
 
-To authenticate a user, you'll need to render a `ServiceDiscovery` component provided by `fcl-react-native`. Alternatively, you can build your own component using `useServiceDiscovery`.
+To authenticate a user, you'll need to render a `ServiceDiscovery` component provided by `fcl-react-native`. Alternatively, you can build your own component with `useServiceDiscovery`.
 
-Unauthenticate is as simple as calling `fcl.unauthenticate()`. After you're authenticated, FCL sets an object called `fcl.currentUser` which exposes methods to watch for changes in user data, signing transactions, and more.
+To unauthenticate, you can simply call `fcl.unauthenticate()`. After you're authenticated, FCL sets an object called `fcl.currentUser` which exposes methods to watch for changes in user data, signing transactions, and more.
 
 Let's add in a few components and buttons for sign up, login, and to subscribe to changes on the `currentUser`. When the user updates (which happens after authentication), we'll set the user state in our component to reflect this. To demonstrate user authenticated sessions, we'll conditionally render a component based on if the user is or is not logged in.
 
@@ -295649,9 +295780,9 @@ _41
 
 You can now log in or sign up a user and unauthenticate them. After your users log in or sign up, they'll see a popup where they can choose between wallet providers. Let's select the [Blocto wallet](https://blocto.portto.io/) for this example to create an account. After you authenticate, you'll see the component change and the user's wallet address appear if you've completed this properly.
 
-## Querying the blockchain[​](#querying-the-blockchain "Direct link to Querying the blockchain")
+## Query the blockchain[​](#query-the-blockchain "Direct link to Query the blockchain")
 
-One of the main things you'll often need to do when building a dApp is query the Flow blockchain and the smart contracts deployed on it for data. Since smart contracts will live on both Testnet and Mainnet, let's put the account address where the smart contract lives into the configuration (remember, we recommend that you change this later to use environment variables). Let's also give it a key of `Profile` and prefix it with `0x` so that the final key is `0xProfile`. The prefix is important because it tells FCL to pull the corresponding addresses needed from the configuration value.
+One of the main things you'll often need to do when you build a dApp is query the Flow blockchain and the smart contracts deployed on it for data. Since smart contracts will live on both testnet and mainnet, let's put the account address where the smart contract lives into the configuration (remember, we recommend that you change this later to use environment variables). Let's also give it a key of `Profile` and prefix it with `0x` so that the final key is `0xProfile`. The prefix is important because it tells FCL to pull the corresponding addresses needed from the configuration value.
 
 > **Replace file:** `./flow/config.js`
 
@@ -295986,9 +296117,9 @@ _10
 
 }); ``
 
-Inside the query, you'll see we set two things: `cadence` and `args`. Cadence is Flow's smart contract language we mentioned. For this tutorial, when you look at it, you just need to notice that it's importing the `Profile` contract from the account we named `0xProfile` earlier in our config file, then also taking an account address, and reading it. That's it until you're ready to [learn more Cadence](https://cadence-lang.org/docs).
+Inside the query, you'll see we set two things: `cadence` and `args`. Cadence is Flow's smart contract language we mentioned. For this tutorial, when you look at it, you just need to notice that it imports the `Profile` contract from the account we named `0xProfile` earlier in our config file, then also takies an account address, and reads it. That's it until you're ready to [learn more Cadence](https://cadence-lang.org/docs).
 
-In the `args` section, we are simply passing it our user's account address from the user we set in state after authentication and giving it a type of `Address`. For more possible types, [see this reference](/build/tools/clients/fcl-js/packages-docs/types).
+In the `args` section, we simply pass it our user's account address from the user we set in state after authentication and give it a type of `Address`. For more possible types, [see this reference](/build/tools/clients/fcl-js/packages-docs/types).
 
 Go ahead and click "Send Query". You will see "No Profile." That's because we haven't initialized the account yet.
 
@@ -295998,9 +296129,9 @@ For the Profile contract to store a Profile in a user's account, it initializes 
 
 > There's a lot more to resources in Cadence than we'll cover in this guide, so if you'd like to know more, check out [this Cadence intro](https://cadence-lang.org/docs).
 
-To do this resource initialization on an account, we're going to add another function called `initAccount`. Inside of that function, we're going to add some Cadence code which says, *"Hey, does this account have a profile? If it doesn't, let's add one."* We do that with something called a "transaction." Transactions occur when you want to change the state of the blockchain, in this case, some data in a resource, in a specific account. And there is a cost (transaction fee) in order to do that; unlike a query.
+To do this resource initialization on an account, we'll add another function called `initAccount`. Inside of that function, we'll add some Cadence code which says, *"Hey, does this account have a profile? If it doesn't, let's add one."* We do that with something called a "transaction." Transactions occur when you want to change the state of the blockchain, in this case, some data in a resource, in a specific account. And there is a cost (transaction fee) in order to do that; unlike a query.
 
-That's where we jump back into FCL code. Instead of `query`, we use `mutate` for transactions. And because there is a cost, we need to add a few fields that tell Flow who is proposing the transaction, who is authorizing it, who is paying for it, and how much they're willing to pay for it. Those fields — not surprisingly — are called: `proposer`, `authorizer`, `payer`, and `limit`. For more information on these signatory roles, check out [this doc](/build/cadence/basics/transactions#signer-roles).
+That's where we jump back into FCL code. Instead of `query`, we use `mutate` for transactions. And because there is a cost, we need to add a few fields that tell Flow who proposes the transaction, who authorizes it, who pays for it, and how much they want to pay for it. Those fields — not surprisingly — are called: `proposer`, `authorizer`, `payer`, and `limit`. For more information on these signatory roles, check out this [signer roles](/build/cadence/basics/transactions#signer-roles) doc.
 
 Let's take a look at what our account initialization function looks like:
 
@@ -296112,9 +296243,9 @@ _29
 
 }; ``
 
-You can see the new fields we talked about. You'll also notice `fcl.authz`. That's shorthand for "use the current user to authorize this transaction", (you could also write it as `fcl.currentUser.authorization`). If you want to learn more about transactions and signing transactions, you can [view the docs here](/build/cadence/basics/transactions). For this example, we'll keep it simple with the user being each of these roles.
+You can see the new fields we talked about. You'll also notice `fcl.authz`. That's shorthand for "use the current user to authorize this transaction", (you could also write it as `fcl.currentUser.authorization`). If you want to learn more about transactions and signing transactions, you can [view the docs here](/build/cadence/basics/transactions). For this example, we'll keep it simple with the user as each of these roles.
 
-You'll also notice we are awaiting a response with our transaction data by using the syntax `fcl.tx(transactionId).onceExecuted()`. This returns when an execution node completes the transaction ("soft-finality"). If you want to wait until the transaction is sealed ("hard-finality"), you can use `onceSealed()` instead.
+You'll also notice that we await a response with our transaction data with the syntax `fcl.tx(transactionId).onceExecuted()`. This returns when an execution node completes the transaction ("soft-finality"). If you want to wait until the transaction is sealed ("hard-finality"), you can use `onceSealed()` instead.
 
 To learn more about the transaction lifecycle, check out [this doc](/build/cadence/basics/transactions#transaction-lifecycle).
 
@@ -296466,13 +296597,13 @@ _93
 
 }); ``
 
-Press "Init Account," and the wallet asks you to approve a transaction. After you approve it, you will see a transaction response appear in your console (make sure to have that open). It may take a few moments. With the transaction result printed, you can use the `transactionId` to look up the details of the transaction using a [block explorer](https://testnet.flowscan.io/).
+Press "Init Account," and the wallet asks you to approve a transaction. After you approve it, you will see a transaction response appear in your console (make sure to have that open). It may take a few moments. With the transaction result printed, you can use the `transactionId` to look up the details of the transaction with a [block explorer](https://testnet.flowscan.io/).
 
-## Mutating the blockchain[​](#mutating-the-blockchain "Direct link to Mutating the blockchain")
+## Mutate the blockchain[​](#mutate-the-blockchain "Direct link to Mutate the blockchain")
 
 Now that we have the profile initialized, we are going to want to mutate it some more. In this example, we'll use the same smart contract provided to change the profile name.
 
-To do that, we are going to write another transaction that adds some Cadence code which lets us set the name. Everything else looks the same in the following code except for one thing: we'll subscribe to the status changes instead of waiting for it to be sealed after the mutate function returns.
+To do that, we will write another transaction that adds some Cadence code which lets us set the name. Everything else looks the same in the following code except for one thing: we'll subscribe to the status changes instead of waiting for it to be sealed after the mutate function returns.
 
 It looks like this:
 
@@ -297037,9 +297168,10 @@ _124
 }); ``
 
 Now if you click "Execute Transaction," you'll see the statuses update next to "Transaction Status." When you see "4" that means it's sealed! Status code meanings [can be found here](/build/tools/clients/fcl-js/packages-docs/types).
-If you query the account profile again, "Profile Name:" should now display "Flow Developer".
 
-That's it! You now have a shippable Flow dapp that can auth, query, init accounts, and mutate the chain. This is just the beginning. There is so much more to know. We have a lot more resources to help you build. To dive deeper, here are a few good places for taking the next steps:
+If you query the account profile again, "Profile Name:" will now display "Flow Developer".
+
+That's it! You now have a shippable Flow dapp that can auth, query, init accounts, and mutate the chain. This is just the beginning. There is so much more to know. We have a lot more resources to help you build. To dive deeper, here are a few good places to take the next steps:
 
 **Cadence**
 
@@ -297060,7 +297192,7 @@ That's it! You now have a shippable Flow dapp that can auth, query, init account
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/mobile/react-native-quickstart.md)
 
-Last updated on **Nov 4, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -297074,7 +297206,7 @@ Build a Walletless Mobile App (PWA)](/blockchain-development-tutorials/cadence/m
 
 Copy as Markdown
 
-* [Installation](#installation)* [Configuration](#configuration)* [Authentication](#authentication)* [Querying the blockchain](#querying-the-blockchain)* [Initialize an account](#initialize-an-account)* [Mutating the blockchain](#mutating-the-blockchain)
+* [Installation](#installation)* [Configuration](#configuration)* [Authentication](#authentication)* [Query the blockchain](#query-the-blockchain)* [Initialize an account](#initialize-an-account)* [Mutate the blockchain](#mutate-the-blockchain)
 
 Flow
 
@@ -299309,7 +299441,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -300140,65 +300272,65 @@ On this page
 
 # Blockchain Account Abstraction
 
-Flow is a fast blockchain with account abstraction, designed to make Web3 as seamless as Web2. It provides native support for key use cases that are enabled by Account Abstraction, empowering developers to deliver mainstream-ready user experiences. With Cadence, Flow was designed with these use cases in mind through the separation of the contract and transaction layers. This guide demonstrates how Flow supports key use cases that are made possible with Account Abstraction.
+Flow is a fast blockchain with account abstraction, designed to make Web3 as seamless as Web2. It provides native support for key use cases that Account Abstraction , which empowers developers to deliver mainstream-ready user experiences. With Cadence, Flow was designed with these use cases in mind through the separation of the contract and transaction layers. This guide demonstrates how Flow supports key use cases that Account Abstraction makes possible.
 
-## Multi-sig Transactions on a Fast Blockchain with Account Abstraction[​](#multi-sig-transactions-on-a-fast-blockchain-with-account-abstraction "Direct link to Multi-sig Transactions on a Fast Blockchain with Account Abstraction")
+## Multi-sig transactions on a Fast Blockchain with Account Abstraction[​](#multi-sig-transactions-on-a-fast-blockchain-with-account-abstraction "Direct link to Multi-sig transactions on a Fast Blockchain with Account Abstraction")
 
 Since accounts are smart contracts, they can be defined in order to require multiple signatures in order to execute a transaction, which unlocks a range of new users that improve the user experience for Web3 apps.
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| Account Abstraction Flow|  |  | | --- | --- | | The move from from Externally-Owned Accounts (EOAs) to smart contract accounts enables developers to build in logic to require multiple signatures to execute transactions. Flow has native support for multi-sig transactions since all accounts are defined as smart contracts. Flow provides [support for multiple keys](/build/cadence/basics/accounts#account-keys) to be added to an account and weights can be applied to denote relative priority. | | | |
+| Account Abstraction Flow|  |  | | --- | --- | | The move from from Externally-Owned Accounts (EOAs) to smart contract accounts allows developers to build in logic to require multiple signatures to execute transactions. Flow has native support for multi-sig transactions since all accounts are defined as smart contracts. Flow provides [support for multiple keys](/build/cadence/basics/accounts#account-keys) to be added to an account and weights can be applied to denote relative priority. | | | |
 
-## Sponsored Transactions for Mainstream-Ready Web3 Apps[​](#sponsored-transactions-for-mainstream-ready-web3-apps "Direct link to Sponsored Transactions for Mainstream-Ready Web3 Apps")
+## Sponsored transactions for mainstream-ready Web3 apps[​](#sponsored-transactions-for-mainstream-ready-web3-apps "Direct link to Sponsored transactions for mainstream-ready Web3 apps")
 
-The concept of paying fees to execute transactions in order to use Web3 apps can be a hurdle for newcomers as they begin to explore these experiences. In order to remove this significant point of friction in requiring newcomers to acquire crypto before they can get started with an app, developers can subsidize these costs on behalf of users.
-
-|  |  |  |  |
-| --- | --- | --- | --- |
-| Account Abstraction Flow|  |  | | --- | --- | | The ERC-4337 standard introduces the concept of [paymasters](https://eips.ethereum.org/EIPS/eip-4337#extension-paymasters), which can enable a developer to pay the fees for a transaction for their users. Flow has built-in support for [3 different roles](/build/cadence/basics/transactions#signer-roles) for transactions which provides native support for sponsored transactions. | | | |
-
-## Bundled Transactions for Faster User Experience[​](#bundled-transactions-for-faster-user-experience "Direct link to Bundled Transactions for Faster User Experience")
-
-Developers can deliver a more streamlined user experience that reduces the amount of interruptions in the form of transaction approvals by bundling multiple transactions together into a single transaction that executes the set of operations with one signature.
+The requirement that users pay fees to execute transactions in order to use Web3 apps can be a hurdle for newcomers as they begin to explore these experiences. In order to remove this significant point of friction that requires newcomers to acquire crypto before they can get started with an app, developers can subsidize these costs on behalf of users.
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| Account Abstraction Flow|  |  | | --- | --- | | The ERC-4337 standard outlines support for bundled transactions through a new mempool that holds user operations from smart wallets. Bundlers package sets of these user operations into a single transaction on the blockchain and return the result back to each wallet. Since Cadence has an explicit separation of contracts and transactions, Flow has protocol-level support for bundling transactions across multiple contracts into a single transaction. | | | |
+| Account Abstraction Flow|  |  | | --- | --- | | The ERC-4337 standard introduces the concept of [paymasters](https://eips.ethereum.org/EIPS/eip-4337#extension-paymasters), which can allow a developer to pay the fees for a transaction for their users. Flow has built-in support for [3 different roles](/build/cadence/basics/transactions#signer-roles) for transactions which provides native support for sponsored transactions. | | | |
 
-## Account Recovery[​](#account-recovery "Direct link to Account Recovery")
+## Bundled transactions for faster user experience[​](#bundled-transactions-for-faster-user-experience "Direct link to Bundled transactions for faster user experience")
 
-Account Abstraction enables developers to build more robust account management features for users, addressing the major pain point of losing access to assets forever if the user loses their keys to their account. Apps can enable users to recover access to their accounts and enclosed assets through social recovery or pre-approved accounts.
+To deliver a more streamlined user experience that reduces the amount of interruptions in the form of transaction approvals developers can bundle multiple transactions together into a single transaction that executes the set of operations with one signature.
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| Account Abstraction Flow|  |  | | --- | --- | | Smart contract accounts can be defined to include account recovery logic that enables users to define custom recovery methods that can rely on specific accounts or other validated sources. Since all accounts are smart contracts, Flow has native support for account recovery and cycling of keys to help users regain access to accounts in a secure manner. | | | |
+| Account Abstraction Flow|  |  | | --- | --- | | The ERC-4337 standard outlines support for bundled transactions through a new mempool that holds user operations from smart wallets. Bundlers package sets of these user operations into a single transaction on the blockchain and return the result back to each wallet. Since Cadence has an explicit separation of contracts and transactions, Flow has protocol-level support to bundle transactions across multiple contracts into a single transaction. | | | |
 
-## Multi-factor Authentication[​](#multi-factor-authentication "Direct link to Multi-factor Authentication")
+## Account recovery[​](#account-recovery "Direct link to Account recovery")
 
-Multi-factor authentication is a broadly accepted concept in Web2 apps for secure access to accounts and Account Abstraction enables developers to deliver the same benefits to Web3 users.
+Account Abstraction allows developers to build more robust account management features for users, which addresses the major pain point where users lose access to assets forever if they lose the keys to their account. Apps can let recover access to their accounts and enclosed assets through social recovery or pre-approved accounts.
+
+|  |  |  |  |
+| --- | --- | --- | --- |
+| Account Abstraction Flow|  |  | | --- | --- | | Smart contract accounts can be defined to include account recovery logic that allows users to define custom recovery methods that can rely on specific accounts or other validated sources. Since all accounts are smart contracts, Flow has native support for account recovery and cycling of keys to help users regain access to accounts in a secure manner. | | | |
+
+## Multi-factor authentication[​](#multi-factor-authentication "Direct link to Multi-factor authentication")
+
+Multi-factor authentication is a broadly accepted concept in Web2 apps for secure access to accounts and Account Abstraction allows developers to deliver the same benefits to Web3 users.
 
 |  |  |  |  |
 | --- | --- | --- | --- |
 | Account Abstraction Flow|  |  | | --- | --- | | Smart contract accounts can require a secondary factor to confirm transactions which can be delivered in the form of familiar confirmation channels such as email or SMS. Since all accounts are smart contracts, Flow has native support for multi-factor authentication as developers can implement these security mechanisms for their users. | | | |
 
-## Seamless Experience[​](#seamless-experience "Direct link to Seamless Experience")
+## Seamless experience[​](#seamless-experience "Direct link to Seamless experience")
 
-Account Abstraction brings the potential for dramatic improvements to the user experience of Web3 apps. Developers can introduce conditions under which a user can grant a smart contract account to pre-approve transactions under certain conditions, reducing interruptions for the user to explicitly sign each transaction.
+Account Abstraction brings the potential for dramatic improvements to the user experience of Web3 apps. Developers can introduce conditions under which a user can grant a smart contract account to pre-approve transactions under certain conditions, which reduces interruptions for the user to explicitly sign each transaction.
 
-These improvements are especially notable on mobile, where users are typically met with the jarring experience of switching between apps in approve transactions.
+These improvements are especially notable on mobile, where the previous jarring experience required users to switch between apps in approve transactions.
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| Account Abstraction Flow|  |  | | --- | --- | | Developers can build new features that streamline the user experience of Web3 apps, such as 'session keys' that pre-approve transactions for a period of time or setting custom limits on transaction volume or network fees. Since all accounts are smart contracts, Flow has support for these new controls that enable apps to sign pre-approved transactions based on user controls and preferences. | | | |
+| Account Abstraction Flow|  |  | | --- | --- | | Developers can build new features that streamline the user experience of Web3 apps, such as 'session keys' that pre-approve transactions for a period of time or set custom limits on transaction volume or network fees. Since all accounts are smart contracts, Flow has support for these new controls that allow apps to sign pre-approved transactions based on user controls and preferences. | | | |
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-Flow delivers more than just developer convenience, it’s a **high-performance blockchain with account abstraction** built directly into its core protocol. By combining speed, scalability, and advanced features like multi-sig, sponsored transactions, bundled operations, account recovery, and multi-factor authentication, Flow empowers developers to create secure, seamless, and mainstream-ready Web3 experiences without sacrificing performance.
+Flow delivers more than just developer convenience, it’s a **high-performance blockchain with account abstraction** built directly into its core protocol. Flow combines speed, scalability, and advanced features like multi-sig, sponsored transactions, bundled operations, account recovery, and multi-factor authentication. This empowers developers to create secure, seamless, and mainstream-ready Web3 experiences but not sacrifice performance.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/advanced-concepts/account-abstraction.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 1, 2025** by **cshannon1218**
 
 [Previous
 
@@ -300212,7 +300344,7 @@ Scheduled Transactions](/build/cadence/advanced-concepts/scheduled-transactions)
 
 Copy as Markdown
 
-* [Multi-sig Transactions on a Fast Blockchain with Account Abstraction](#multi-sig-transactions-on-a-fast-blockchain-with-account-abstraction)* [Sponsored Transactions for Mainstream-Ready Web3 Apps](#sponsored-transactions-for-mainstream-ready-web3-apps)* [Bundled Transactions for Faster User Experience](#bundled-transactions-for-faster-user-experience)* [Account Recovery](#account-recovery)* [Multi-factor Authentication](#multi-factor-authentication)* [Seamless Experience](#seamless-experience)* [Conclusion](#conclusion)
+* [Multi-sig transactions on a Fast Blockchain with Account Abstraction](#multi-sig-transactions-on-a-fast-blockchain-with-account-abstraction)* [Sponsored transactions for mainstream-ready Web3 apps](#sponsored-transactions-for-mainstream-ready-web3-apps)* [Bundled transactions for faster user experience](#bundled-transactions-for-faster-user-experience)* [Account recovery](#account-recovery)* [Multi-factor authentication](#multi-factor-authentication)* [Seamless experience](#seamless-experience)* [Conclusion](#conclusion)
 
 Flow
 
@@ -302257,7 +302389,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -318826,7 +318958,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -319298,7 +319430,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -320030,7 +320162,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -320857,7 +320989,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -321098,7 +321230,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -321132,7 +321264,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* proposer
 
@@ -325568,7 +325700,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -331259,7 +331391,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -332178,7 +332310,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -332565,7 +332697,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -345788,7 +345920,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -347545,7 +347677,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -357550,7 +357682,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -367338,35 +367470,31 @@ On this page
 
 # Randomness on FLOW
 
-Flow enhances blockchain functionality and eliminates reliance on external oracles by providing native onchain randomness at the protocol level. This secure, decentralized feature empowers developers to build a variety of applications with truly unpredictable, transparent, and fair outcomes, achieved with greater efficiency.
+Flow provides native onchain randomness at the protocol level, which enhances blockchain functionality and eliminates reliance on external oracles. This secure, decentralized feature empowers developers to build a variety of applications with truly unpredictable, transparent, and fair outcomes, achieved with greater efficiency.
 
-Flow onchain randomness delivers immediate random values within transactions, bypassing the latency and complexity of oracle integration. Developers can obtain verifiably random results with a single line of Cadence code, streamlining the development process and enhancing the performance of decentralized applications.
+Flow onchain randomness delivers immediate random values within transactions and bypasses the latency and complexity of oracle integration. Developers can obtain verifiably random results with a single line of Cadence code, which streamlines the development process and enhances the performance of decentralized applications.
 
-## Use Cases of Onchain Randomness[​](#use-cases-of-onchain-randomness "Direct link to Use Cases of Onchain Randomness")
+## Use Cases of onchain randomness[​](#use-cases-of-onchain-randomness "Direct link to Use Cases of onchain randomness")
 
-* **Gaming:** Integrates fairness and unpredictability into gameplay, enhancing user engagement without delays.
-* **NFTs:** Facilitates the creation of uniquely randomized traits in NFTs quickly, adding to their rarity and value.
-* **Lotteries & Draws:** Offers instant and verifiably fair random selection for lotteries, solidifying trust in real-time.
-* **DeFi Protocols:** Enables rapid and innovative random reward systems within decentralized finance.
+* **Gaming:** Integrates fairness and unpredictability into gameplay, which enhances user engagement without delays.
+* **NFTs:** Facilitates the creation of uniquely randomized traits in NFTs quickly, which adds to their rarity and value.
+* **Lotteries & Draws:** Offers instant and verifiably fair random selection for lotteries, which solidifies trust in real-time.
+* **DeFi Protocols:** Allows rapid and innovative random reward systems within decentralized finance.
 * **DAOs:** Assists in unbiased voting and task assignments through immediate randomness.
 * **Broad Applications:** Extends to any domain requiring impartial randomization, from asset distribution to security mechanisms, all with the added benefit of on-demand availability.
 * **Flow protocol:** Contributes to the proof of stake consensus security by selecting which validator gets to propose the next block, and assigns verification nodes to check block computations.
 
-## Flow Distributed Randomness Beacon[​](#flow-distributed-randomness-beacon "Direct link to Flow Distributed Randomness Beacon")
+## Flow distributed randomness beacon[​](#flow-distributed-randomness-beacon "Direct link to Flow distributed randomness beacon")
 
-Within the Flow protocol, the heart of randomness generation lies in the "Distributed Randomness Beacon".
-This module generates randomness that is distributed across the network while adhering to established cryptographic and security standards.
-The output from the randomness beacon is a random source for each block that is unpredictable and impartial.
-Any node or external client can validate the block random source and verify it was generated fairly, making the randomness beacon a Verifiable Random function (VRF).
+Within the Flow protocol, the heart of randomness generation lies in the "Distributed Randomness Beacon". This module generates randomness that is distributed across the network and adheres to established cryptographic and security standards. The output from the randomness beacon is a random source for each block that is unpredictable and impartial. Any node or external client can validate the block random source and verify it was generated fairly, which makes the randomness beacon a Verifiable Random function (VRF).
 
-Since Flow mainnet launch, the beacon has ensured protocol security by selecting which consensus node gets to propose the next block and assigning verification nodes to oversee block computations. For those interested in a more detailed exploration of the randomness beacon and its inner workings, you can read [the technical deep dive on the Flow forum](https://forum.flow.com/t/secure-random-number-generator-for-flow-s-smart-contracts/5110).
+Since Flow mainnet launched, the beacon has ensured protocol security. To do this, it selects which consensus node gets to propose the next block and assigns verification nodes to oversee block computations. For those interested in a more detailed exploration of the randomness beacon and its inner workings, you can read [the technical deep dive on the Flow forum](https://forum.flow.com/t/secure-random-number-generator-for-flow-s-smart-contracts/5110).
 
-The randomness beacon is also used to provide the Flow Virtual Machine (FVM) with random numbers allowing both Cadence and EVM to access fresh, secure and instant randomness at every block and transaction.
+The randomness beacon is also used to provide the Flow Virtual Machine (FVM) with random numbers, which allows both Cadence and EVM to access fresh, secure and instant randomness at every block and transaction.
 
-## Revertible Randomness[​](#revertible-randomness "Direct link to Revertible Randomness")
+## Revertible randomness[​](#revertible-randomness "Direct link to Revertible randomness")
 
-For usage of randomness where result abortion is not an issue, it is recommended to use the built-in function `revertibleRandom.` `revertibleRandom` returns a pseudo-random number and is backed by the Distributed Randomness Beacon.
-The function is available for both Cadence and EVM.
+For usage of randomness where result abortion is not an issue, it is recommended to use the built-in function `revertibleRandom.` `revertibleRandom` returns a pseudo-random number and is backed by the Distributed Randomness Beacon. The function is available for both Cadence and EVM.
 
 `_10
 
@@ -367398,16 +367526,17 @@ _10
 
 It is notable that the random number generation process is unpredictable (for miners unpredictable at block construction time and for cadence logic unpredictable at time of call), verifiable, uniform, as well as safe from bias by miners and previously-running Cadence code.
 
-Check the [Cadence documentation](https://cadence-lang.org/docs/language/built-in-functions#revertiblerandom) for more details about the function usage.
+See the [Cadence documentation](https://cadence-lang.org/docs/language/built-in-functions#revertiblerandom)for more details about the function usage.
 
 Although Cadence and EVM exposes safe randomness generated by the Flow protocol via `revertibleRandom`, there is an additional safety-relevant aspect that developers need to be mindful about.
 
-The `revertibleRandom` function can be used safely in some applications where the transaction results are *not* deliberately reverted after the random number is revealed (i.e. a trusted contract distributing random NFTs to registered users or onchain lucky draw).
-However, if applications require a non-trusted party (for instance app users) to submit a transaction calling a randomized (non-deterministic) contract, the developer must explicitly protect the stream of random numbers to not break the security guarantees:
+The `revertibleRandom` function can be used safely in some applications where the transaction results are *not* deliberately reverted after the random number is revealed (such as a trusted contract that distributes random NFTs to registered users or onchain lucky draw).
+
+However, if applications require a non-trusted party (for instance app users) to submit a transaction that calls a randomized (non-deterministic) contract, the developer must explicitly protect the stream of random numbers to not break the security guarantees:
 
 warning
 
-🚨 A transaction can atomically revert all its action during its runtime and abort. Therefore, it is possible for a transaction calling into your smart contract to post-select favorable results and revert the transaction for unfavorable results.
+🚨 A transaction can atomically revert all its action during its runtime and abort. Therefore, it is possible for a transaction that calls into your smart contract to post-select favorable results and revert the transaction for unfavorable results.
 
 In other words, if you write a lottery function that immediately draws a random number that may or may not be a winner, a clever attacker can get infinite guesses for free. Use commit-reveal and sell them a ticket instead!
 
@@ -367419,22 +367548,21 @@ info
 
 The risky scenario that a contract developer needs to think about is the following:
 
-* Imagine an adversarial user that is sending a transaction that calls your smart contract.
+* Imagine an adversarial user that sends a transaction that calls your smart contract.
 * The transaction includes code that runs after your smart contract returns and inspects the outcome.
 * If the outcome is unfavorable (based on some criteria codified in the transaction), the transaction aborts itself.
 
 As an example, consider a simple coin toss randomized contract where users can bet any amount of tokens against a random binary output. If the coin toss contract outputs `1`, the user doubles their bet. If the coin toss contract outputs `0`, the user loses their bet in favor of the coin toss.
 
-Although the user (or the honest coin toss contract) cannot predict or bias the outcome, the user transaction can check the randomized result and cancel the transaction if they are losing their bet. This can be done by calling an exception causing the transaction to error (division by zero for instance). All temporary state changes are cancelled and the user can repeat the process till they double their bet.
+Although the user (or the honest coin toss contract) cannot predict or bias the outcome, the user transaction can check the randomized result and cancel the transaction if they are losing their bet. To do this, call an exception that causes the transaction to error (such as division by zero). All temporary state changes are cancelled and the user can repeat the process until they double their bet.
 
-## Commit-Reveal Scheme[​](#commit-reveal-scheme "Direct link to Commit-Reveal Scheme")
+## Commit-reveal scheme[​](#commit-reveal-scheme "Direct link to Commit-reveal scheme")
 
-The recommended way to mitigate the problems above is via a commit-reveal scheme. The scheme involves two steps: commit and reveal. During the commit phase, the user transaction commits to accepting the future output of a smart contract where the last remaining input is an unknown random source. The user transaction does not know the random source at the time of committing. The smart contract stores this commitment on the blockchain. The reveal phase can start as early as the next block, when the committed beacon's source of randomness becomes available. The reveal phase can be executed at any block after that, now that the commitment to a past block is stored onchain. With a second transaction, the smart contract can be executed to explicitly generate the random outputs.
+The recommended way to mitigate the problems above is via a commit-reveal scheme. The scheme involves two steps: commit and reveal. During the commit phase, the user transaction commits to accept the future output of a smart contract where the last input is an unknown random source. The user transaction does not know the random source at commit time. The smart contract stores this commitment on the blockchain. The reveal phase can start as early as the next block, when the committed beacon's source of randomness becomes available. The reveal phase can be executed at any block after that, now that the commitment to a past block is stored onchain. With a second transaction, the smart contract can be executed to explicitly generate the random outputs.
 
-### Commit-Reveal pattern on Flow[​](#commit-reveal-pattern-on-flow "Direct link to Commit-Reveal pattern on Flow")
+### Commit-reveal pattern on Flow[​](#commit-reveal-pattern-on-flow "Direct link to Commit-reveal pattern on Flow")
 
-[FLIP 123: Onchain Random beacon history for commit-reveal schemes](https://github.com/onflow/flips/blob/main/protocol/20230728-commit-reveal.md#flip-123-onchain-random-beacon-history-for-commit-reveal-schemes) was introduced to provide a safe pattern to use randomness in transactions so that it's not possible to revert unfavorable randomized transaction results.
-We recommend this approach as a best-practice example for implementing a commit-reveal scheme in Cadence or EVM. The `RandomBeaconHistory` contract provides a convenient archive, where for each past block height (starting Nov 2023) the respective "source of randomness" can be retrieved. The `RandomBeaconHistory` contract is automatically executed by the system at each block to store the next source of randomness. The history table can be used to query the user's committed random source from the past.
+[FLIP 123: Onchain Random beacon history for commit-reveal schemes](https://github.com/onflow/flips/blob/main/protocol/20230728-commit-reveal.md#flip-123-onchain-random-beacon-history-for-commit-reveal-schemes) was introduced to provide a safe pattern to use randomness in transactions so that it's not possible to revert unfavorable randomized transaction results. We recommend this approach as a best-practice example for implementing a commit-reveal scheme in Cadence or EVM. The `RandomBeaconHistory` contract provides a convenient archive, where for each past block height the respective "source of randomness" can be retrieved. The `RandomBeaconHistory` contract is automatically executed by the system at each block to store the next source of randomness. The history table can be used to query the user's committed random source from the past.
 
 info
 
@@ -367443,9 +367571,9 @@ While the commit-and-reveal scheme mitigates post-selection of results by advers
 A commit-reveal scheme can be implemented as follows. To illustrate, we'll revisit the coin toss example discussed earlier:
 
 * When a user submits a bidding transaction, the bid amount is transferred to the coin toss contract, and the block height where the bid was made is stored. This is a commitment by the user to use the Source of Randomness (`SoR`) at the current block. Note that the current block's `SoR` isn't known to the transaction execution environment, and therefore the transaction has no way to inspect the random outcome and predict the coin toss result. The current block's `SoR` is only available once added to the history core-contract, which only happens at the end of the block's execution. The user may also commit to using an SoR of some future block, which is equally unknown at the time the bid is made.
-* The coin toss contract may grant the user a limited window of time (i.e a block height range) to send a second transaction for resolving the results and claim any winnings. Failing to do so, the bid amount remains in the coin toss contract.
+* The coin toss contract may grant the user a limited window of time (such as a block height range) to send a second transaction for resolving the results and claim any winnings. If it fails to do so, the bid amount remains in the coin toss contract.
 * Within that reveal transaction, the user calls the coin toss contract, looks us up the block height at which the block was committed and checks that it has already passed. The contract queries that block's `SoR` from the core-contract `RandomBeaconHistory` via block height.
-* The coin toss contract uses a PRG seeded with the queried `SoR` and diversified using a specific information to the use-case (a user ID or resource ID for instance). Diversification does not add new entropy, but it avoids generating the same outcome for different use-cases. If a diversifier (or salt) isn't used, all users that committed a bid on the same block would either win or lose.
+* The coin toss contract uses a PRG seeded with the queried `SoR` and diversified with a specific information to the use-case (a user ID or resource ID for instance). Diversification does not add new entropy, but it avoids generating the same outcome for different use-cases. If a diversifier (or salt) isn't used, all users that committed a bid on the same block would either win or lose.
 * The PRG is used to generate the random result and resolve the bid. Note that the user can make the transaction abort after inspecting a losing result. However, the bid amount would be lost anyway when the allocated window expires.
 
 The following lines of code illustrate a random coin toss that cannot be gamed or biased. The commit-reveal scheme prevent clients from post-selecting favorable outcomes.
@@ -367646,25 +367774,24 @@ _54
 
 } ``
 
-## Revertible Random or Commit-Reveal?[​](#revertible-random-or-commit-reveal "Direct link to Revertible Random or Commit-Reveal?")
+## Revertible random or commit-reveal?[​](#revertible-random-or-commit-reveal "Direct link to Revertible random or commit-reveal?")
 
-While both methods are backed by the Flow Randomness Beacon,
-it is important for developers to mindfully choose between `revertibleRandom` or seeding a PRNG using the `RandomBeaconHistory` smart contract:
+While both methods are backed by the Flow Randomness Beacon, it is important for developers to mindfully choose between `revertibleRandom` or seeding a PRNG using the `RandomBeaconHistory` smart contract:
 
 * With `revertibleRandom` a user has the power to abort and revert if it doesn't like `revertibleRandom`'s outputs.
-  `revertibleRandom` is only suitable for smart contract functions that exclusively run within trusted transactions emitted by trusted parties. You can think of a lottery contract picking a winning user, where the picking transaction is emitted by the lottery developer who is trusted to not add the abortion logic into the transaction. Users are able to check the transaction code after it is submitted and make sure the lottery developer acted fairly.
-* In contrast, the commit-reveal method using the `RandomBeaconHistory` is necessary in cases where the transaction is submitted by non-trusted users and may revert the random outputs.
-  You can think of a user minting a randomized NFT and is able to add a logic to their transaction to check the random traits and abandon the NFT if they are not happy with the result.
+  `revertibleRandom` is only suitable for smart contract functions that exclusively run within trusted transactions emitted by trusted parties. You can think of a lottery contract that picks a winning user, where that transaction is emitted by the lottery developer who is trusted to not add the abortion logic into the transaction. Users are able to check the transaction code after it is submitted and make sure the lottery developer acted fairly.
+* In contrast, the commit-reveal method with the `RandomBeaconHistory` is necessary in cases where the transaction is submitted by non-trusted users and may revert the random outputs.
+  You can think of a user minting a randomized NFT and can add a logic to their transaction to check the random traits and abandon the NFT if they are not happy with the result.
   Another user playing a betting game, adds a logic to check the bet result and abort whenever they lose the bet.
   General users are not guaranteed to act honestly when they submit transactions to play. Commit-reveal patterns are the way to limit their actions.
   During the commit phase, the user commits to proceed with a future source of randomness,
   which is only revealed after the commit transaction concluded.
 
-Adding a safe pattern to reveal randomness without the possibility of conditional transaction reversion unlocks applications relying on randomness. By providing examples of commit-reveal implementations we hope to foster a more secure ecosystem of decentralized applications and encourage developers to build with best practices.
+If you add a safe pattern to reveal randomness without the possibility of conditional transaction reversion, it unlocks applications that rely on randomness. Since we've provided examples of commit-reveal implementations, we hope to foster a more secure ecosystem of decentralized applications and encourage developers to build with best practices.
 
-## An Invitation to Build[​](#an-invitation-to-build "Direct link to An Invitation to Build")
+## An invitation to build[​](#an-invitation-to-build "Direct link to An invitation to build")
 
-Flow onchain randomness opens new doors for innovation, offering developers the tools to create fair and transparent decentralized applications. With this feature, new possibilities emerge—from enhancing gameplay in decentralized gaming to ensuring the integrity of smart contract-driven lotteries or introducing novel mechanisms in DeFi.
+Flow onchain randomness opens new doors for innovation, and offers developers the tools to create fair and transparent decentralized applications. With this feature, new possibilities emerge—from enhanced gameplay in decentralized gaming to confirmed integrity of smart contract-driven lotteries or introducing novel mechanisms in DeFi.
 
 This is an invitation for builders and creators: leverage onchain randomness on Flow to distinguish your projects and push the boundaries of what's possible. Your imagination and code have the potential to forge new paths in the web3 landscape. So go ahead and build; the community awaits the next big thing that springs from true randomness.
 
@@ -367676,11 +367803,11 @@ If you'd like to dive deeper into onchain randomness on Flow, here's a list of r
 * These FLIPs provide a more in-depth technical understanding of recent updates related to randomness:
   + **[FLIP 120: Update unsafeRandom function:](https://github.com/onflow/flips/blob/main/cadence/20230713-random-function.md#flip-120-update-unsaferandom-function)** describes how the beacon provides randoms to `revertibleRandomness`.
   + **[FLIP 123: Onchain Random beacon history for commit-reveal schemes:](https://github.com/onflow/flips/blob/main/protocol/20230728-commit-reveal.md#flip-123-onchain-random-beacon-history-for-commit-reveal-schemes)** describes the commit-reveal design and why it is secure.
-* To see working Cadence and EVM code, explore the [coin toss example on GitHub](https://github.com/onflow/random-coin-toss).
+* To see funcational Cadence and EVM code, explore the [coin toss example on GitHub](https://github.com/onflow/random-coin-toss).
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/advanced-concepts/randomness.md)
 
-Last updated on **Nov 12, 2025** by **Brian Doyle**
+Last updated on **Dec 1, 2025** by **cshannon1218**
 
 [Previous
 
@@ -367694,8 +367821,8 @@ Scaling Transactions from a Single Account](/build/cadence/advanced-concepts/sca
 
 Copy as Markdown
 
-* [Use Cases of Onchain Randomness](#use-cases-of-onchain-randomness)* [Flow Distributed Randomness Beacon](#flow-distributed-randomness-beacon)* [Revertible Randomness](#revertible-randomness)* [Commit-Reveal Scheme](#commit-reveal-scheme)
-        + [Commit-Reveal pattern on Flow](#commit-reveal-pattern-on-flow)* [Revertible Random or Commit-Reveal?](#revertible-random-or-commit-reveal)* [An Invitation to Build](#an-invitation-to-build)* [Learn More](#learn-more)
+* [Use Cases of onchain randomness](#use-cases-of-onchain-randomness)* [Flow distributed randomness beacon](#flow-distributed-randomness-beacon)* [Revertible randomness](#revertible-randomness)* [Commit-reveal scheme](#commit-reveal-scheme)
+        + [Commit-reveal pattern on Flow](#commit-reveal-pattern-on-flow)* [Revertible random or commit-reveal?](#revertible-random-or-commit-reveal)* [An invitation to build](#an-invitation-to-build)* [Learn More](#learn-more)
 
 Flow
 
@@ -369183,7 +369310,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -373376,11 +373503,11 @@ Search
 
 On this page
 
-# Production deployment
+# Production Deployment
 
 You've developed locally with the emulator, integrated external dependencies, built sophisticated transactions, implemented comprehensive testing, and created a frontend interface. Now it's time to take your application live and deploy it to Flow's public networks.
 
-This tutorial will guide you through deploying your Counter application to both testnet and mainnet, ensuring your contracts and frontend work seamlessly in production environments. You'll learn the essential practices for how to manage live blockchain applications, from security considerations to monitoring and maintenance.
+This tutorial will guide you through deployment of your Counter application to both testnet and mainnet, which ensures that your contracts and frontend work seamlessly in production environments. You'll learn the essential practices for how to manage live blockchain applications, from security considerations to monitoring and maintenance.
 
 ## What you'll learn[​](#what-youll-learn "Direct link to What you'll learn")
 
@@ -373399,7 +373526,7 @@ After you complete this tutorial, you'll be able to:
 * Counter contract and frontend app working locally.
 * Flow CLI installed and configured.
 
-## Deploy to Testnet[​](#deploy-to-testnet "Direct link to Deploy to Testnet")
+## Deploy to testnet[​](#deploy-to-testnet "Direct link to Deploy to testnet")
 
 Testnet is Flow's public test network that mirrors mainnet functionality without using real FLOW tokens. It's the perfect environment to test your application in a live blockchain environment before you commit to mainnet deployment.
 
@@ -373693,9 +373820,9 @@ _27
 
 **Key changes:**
 
-* `accessNodeUrl`: Changed from localhost to Flow's testnet REST API.
-* `flowNetwork`: Changed from 'emulator' to 'testnet'.
-* `discoveryWallet`: Updated to use testnet wallet discovery.
+* `accessNodeUrl`: changed from localhost to Flow's testnet REST API.
+* `flowNetwork`: changed from 'emulator' to 'testnet'.
+* `discoveryWallet`: updated to use testnet wallet discovery.
 
 ### Test your testnet frontend[​](#test-your-testnet-frontend "Direct link to Test your testnet frontend")
 
@@ -373707,10 +373834,10 @@ npm run dev`
 
 Visit `http://localhost:3000` and you will see:
 
-1. **Counter value**: Displays the current count from your testnet contract.
-2. **Connect Wallet**: You can now connect with various Flow wallets (not just Dev Wallet).
-3. **Increment functionality**: Transactions are sent to the live testnet.
-4. **Real transaction costs**: Small amounts of testnet Flow are used to pay for compute units, the Flow Cadence equivalence of gas.
+1. **Counter value**: displays the current count from your testnet contract.
+2. **Connect Wallet**: connect with various Flow wallets (not just Dev Wallet).
+3. **Increment functionality**: transactions are sent to the live testnet.
+4. **Real transaction costs**: small amounts of testnet Flow are used for compute units, the Flow Cadence equivalence of gas.
 
 **Important**: When you connect your wallet, make sure to:
 
@@ -374016,7 +374143,7 @@ npm run build`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/getting-started/production-deployment.md)
 
-Last updated on **Nov 19, 2025** by **Brian Doyle**
+Last updated on **Dec 2, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -374030,7 +374157,7 @@ Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages
 
 Copy as Markdown
 
-* [What you'll learn](#what-youll-learn)* [Deploy to Testnet](#deploy-to-testnet)
+* [What you'll learn](#what-youll-learn)* [Deploy to testnet](#deploy-to-testnet)
     + [Understanding Flow networks](#understanding-flow-networks)+ [Create a testnet account](#create-a-testnet-account)+ [Fund your testnet account](#fund-your-testnet-account)+ [Configure testnet deployment](#configure-testnet-deployment)+ [Deploy Counter contract to testnet](#deploy-counter-contract-to-testnet)+ [Test your testnet deployment](#test-your-testnet-deployment)+ [Update frontend for testnet](#update-frontend-for-testnet)+ [Test your testnet frontend](#test-your-testnet-frontend)* [Deploy to mainnet](#deploy-to-mainnet)
       + [Create a mainnet account](#create-a-mainnet-account)+ [Acquire FLOW tokens](#acquire-flow-tokens)+ [Configure mainnet deployment](#configure-mainnet-deployment)+ [Deploy to mainnet](#deploy-to-mainnet-1)+ [Production frontend configuration](#production-frontend-configuration)
 
@@ -375667,7 +375794,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -378636,7 +378763,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -395203,7 +395330,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -409881,9 +410008,9 @@ info
 
 Forte is **live** on emulator, testnet, and Mainnet.
 
-|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Contract Testnet [CLI](https://developers.flow.com/build/tools/flow-cli/dependency-manager) Mainnet [CLI](https://developers.flow.com/build/tools/flow-cli/dependency-manager)|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | DeFiActions [0x4c2ff9dd03ab442f](https://testnet.flowscan.io/contract/A.4c2ff9dd03ab442f.DeFiActions?tab=deployments) [0x92195d814edf9cb0](https://flowscan.io/contract/A.92195d814edf9cb0.DeFiActions?tab=deployments) | DeFiActionsMathUtils [0x4c2ff9dd03ab442f](https://testnet.flowscan.io/contract/A.4c2ff9dd03ab442f.DeFiActionsMathUtils?tab=deployments) [0x92195d814edf9cb0](https://flowscan.io/contract/A.92195d814edf9cb0.DeFiActionsMathUtils?tab=deployments) | DeFiActionsUtils [0x4c2ff9dd03ab442f](https://testnet.flowscan.io/contract/A.4c2ff9dd03ab442f.DeFiActionsUtils?tab=deployments) [0x92195d814edf9cb0](https://flowscan.io/contract/A.92195d814edf9cb0.DeFiActionsUtils?tab=deployments) | FungibleTokenConnectors [0x5a7b9cee9aaf4e4e](https://testnet.flowscan.io/contract/A.5a7b9cee9aaf4e4e.FungibleTokenConnectors?tab=deployments) [0x1d9a619393e9fb53](https://flowscan.io/contract/A.1d9a619393e9fb53.FungibleTokenConnectors?tab=deployments) | EVMNativeFLOWConnectors [0xb88ba0e976146cd1](https://testnet.flowscan.io/contract/A.b88ba0e976146cd1.EVMNativeFLOWConnectors?tab=deployments) [0xcc15a0c9c656b648](https://flowscan.io/contract/A.cc15a0c9c656b648.EVMNativeFLOWConnectors?tab=deployments) | EVMTokenConnectors [0xb88ba0e976146cd1](https://testnet.flowscan.io/contract/A.b88ba0e976146cd1.EVMTokenConnectors?tab=deployments) [0xcc15a0c9c656b648](https://flowscan.io/contract/A.cc15a0c9c656b648.EVMTokenConnectors?tab=deployments) | SwapConnectors [0xaddd594cf410166a](https://testnet.flowscan.io/contract/A.addd594cf410166a.SwapConnectors?tab=deployments) [0x0bce04a00aedf132](https://flowscan.io/contract/A.0bce04a00aedf132.SwapConnectors?tab=deployments) | IncrementFiSwapConnectors [0x49bae091e5ea16b5](https://testnet.flowscan.io/contract/A.49bae091e5ea16b5.IncrementFiSwapConnectors?tab=deployments) [0xefa9bd7d1b17f1ed](https://flowscan.io/contract/A.efa9bd7d1b17f1ed.IncrementFiSwapConnectors?tab=deployments) | IncrementFiFlashloanConnectors [0x49bae091e5ea16b5](https://testnet.flowscan.io/contract/A.49bae091e5ea16b5.IncrementFiFlashloanConnectors?tab=deployments) [0xefa9bd7d1b17f1ed](https://flowscan.io/contract/A.efa9bd7d1b17f1ed.IncrementFiFlashloanConnectors?tab=deployments) | IncrementFiPoolLiquidityConnectors [0x49bae091e5ea16b5](https://testnet.flowscan.io/contract/A.49bae091e5ea16b5.IncrementFiPoolLiquidityConnectors?tab=deployments) [0xefa9bd7d1b17f1ed](https://flowscan.io/contract/A.efa9bd7d1b17f1ed.IncrementFiPoolLiquidityConnectors?tab=deployments) | IncrementFiStakingConnectors [0x49bae091e5ea16b5](https://testnet.flowscan.io/contract/A.49bae091e5ea16b5.IncrementFiStakingConnectors?tab=deployments) [0xefa9bd7d1b17f1ed](https://flowscan.io/contract/A.efa9bd7d1b17f1ed.IncrementFiStakingConnectors?tab=deployments) | BandOracleConnectors [0x1a9f5d18d096cd7a](https://testnet.flowscan.io/contract/A.1a9f5d18d096cd7a.BandOracleConnectors?tab=deployments) [0xf627b5c89141ed99](https://flowscan.io/contract/A.f627b5c89141ed99.BandOracleConnectors?tab=deployments) | UniswapV2Connectors [0xfef8e4c5c16ccda5](https://testnet.flowscan.io/contract/A.fef8e4c5c16ccda5.UniswapV2Connectors?tab=deployments) [0x0e5b1dececaca3a8](https://flowscan.io/contract/A.0e5b1dececaca3a8.UniswapV2Connectors?tab=deployments)  | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Contract Testnet [CLI](https://developers.flow.com/build/tools/flow-cli/dependency-manager) Mainnet [CLI](https://developers.flow.com/build/tools/flow-cli/dependency-manager)|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | DeFiActions [0x0b11b1848a8aa2c0](https://testnet.flowscan.io/contract/A.0b11b1848a8aa2c0.DeFiActions?tab=deployments) [0x6d888f175c158410](https://flowscan.io/contract/A.6d888f175c158410.DeFiActions?tab=deployments) | DeFiActionsUtils [0x0b11b1848a8aa2c0](https://testnet.flowscan.io/contract/A.0b11b1848a8aa2c0.DeFiActionsUtils?tab=deployments) [0x6d888f175c158410](https://flowscan.io/contract/A.6d888f175c158410.DeFiActionsUtils?tab=deployments) | FungibleTokenConnectors [0x4cd02f8de4122c84](https://testnet.flowscan.io/contract/A.4cd02f8de4122c84.FungibleTokenConnectors?tab=deployments) [0x0c237e1265caa7a3](https://flowscan.io/contract/A.0c237e1265caa7a3.FungibleTokenConnectors?tab=deployments) | ERC4626Utils [0x7014dcffa1f14186](https://testnet.flowscan.io/contract/A.7014dcffa1f14186.ERC4626Utils?tab=deployments) [0x04f5ae6bef48c1fc](https://flowscan.io/contract/A.04f5ae6bef48c1fc.ERC4626Utils?tab=deployments) | ERC4626PriceOracles [0x7014dcffa1f14186](https://testnet.flowscan.io/contract/A.7014dcffa1f14186.ERC4626PriceOracles?tab=deployments) [0x04f5ae6bef48c1fc](https://flowscan.io/contract/A.04f5ae6bef48c1fc.ERC4626PriceOracles?tab=deployments) | ERC4626SinkConnectors [0x7014dcffa1f14186](https://testnet.flowscan.io/contract/A.7014dcffa1f14186.ERC4626SinkConnectors?tab=deployments) [0x04f5ae6bef48c1fc](https://flowscan.io/contract/A.04f5ae6bef48c1fc.ERC4626SinkConnectors?tab=deployments) | ERC4626SwapConnectors [0x7014dcffa1f14186](https://testnet.flowscan.io/contract/A.7014dcffa1f14186.ERC4626SwapConnectors?tab=deployments) [0x04f5ae6bef48c1fc](https://flowscan.io/contract/A.04f5ae6bef48c1fc.ERC4626SwapConnectors?tab=deployments) | EVMNativeFLOWConnectors [0xbee3f3636cec263a](https://testnet.flowscan.io/contract/A.bee3f3636cec263a.EVMNativeFLOWConnectors?tab=deployments) [0x1a771b21fcceadc2](https://flowscan.io/contract/A.1a771b21fcceadc2.EVMNativeFLOWConnectors?tab=deployments) | EVMTokenConnectors [0xbee3f3636cec263a](https://testnet.flowscan.io/contract/A.bee3f3636cec263a.EVMTokenConnectors?tab=deployments) [0x1a771b21fcceadc2](https://flowscan.io/contract/A.1a771b21fcceadc2.EVMTokenConnectors?tab=deployments) | SwapConnectors [0xaddd594cf410166a](https://testnet.flowscan.io/contract/A.addd594cf410166a.SwapConnectors?tab=deployments) [0xe1a479f0cb911df9](https://flowscan.io/contract/A.e1a479f0cb911df9.SwapConnectors?tab=deployments) | IncrementFiSwapConnectors [0x494536c102537e1e](https://testnet.flowscan.io/contract/A.494536c102537e1e.IncrementFiSwapConnectors?tab=deployments) [0xe844c7cf7430a77c](https://flowscan.io/contract/A.e844c7cf7430a77c.IncrementFiSwapConnectors?tab=deployments) | IncrementFiFlashloanConnectors [0x494536c102537e1e](https://testnet.flowscan.io/contract/A.494536c102537e1e.IncrementFiFlashloanConnectors?tab=deployments) [0xe844c7cf7430a77c](https://flowscan.io/contract/A.e844c7cf7430a77c.IncrementFiFlashloanConnectors?tab=deployments) | IncrementFiPoolLiquidityConnectors [0x494536c102537e1e](https://testnet.flowscan.io/contract/A.494536c102537e1e.IncrementFiPoolLiquidityConnectors?tab=deployments) [0xe844c7cf7430a77c](https://flowscan.io/contract/A.e844c7cf7430a77c.IncrementFiPoolLiquidityConnectors?tab=deployments) | IncrementFiStakingConnectors [0x494536c102537e1e](https://testnet.flowscan.io/contract/A.494536c102537e1e.IncrementFiStakingConnectors?tab=deployments) [0xe844c7cf7430a77c](https://flowscan.io/contract/A.e844c7cf7430a77c.IncrementFiStakingConnectors?tab=deployments) | BandOracleConnectors [0xbb76ea2f8aad74a0](https://testnet.flowscan.io/contract/A.bb76ea2f8aad74a0.BandOracleConnectors?tab=deployments) [0xe36ef556b8b5d955](https://flowscan.io/contract/A.e36ef556b8b5d955.BandOracleConnectors?tab=deployments) | UniswapV2Connectors [0x5f1153f29b57747f](https://testnet.flowscan.io/contract/A.5f1153f29b57747f.UniswapV2Connectors?tab=deployments) [0xf94f371678513b2b](https://flowscan.io/contract/A.f94f371678513b2b.UniswapV2Connectors?tab=deployments)  | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
 
 ## Tutorial series[​](#tutorial-series "Direct link to Tutorial series")
 
@@ -409923,7 +410050,7 @@ The Forte network upgrade represents a significant evolution of Flow's capabilit
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/index.md)
 
-Last updated on **Nov 6, 2025** by **cshannon1218**
+Last updated on **Dec 2, 2025** by **Jordan Ribbink**
 
 [Previous
 
@@ -413615,7 +413742,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -413649,7 +413776,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* nodeVersionInfo
 
@@ -416600,7 +416727,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -416840,7 +416967,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -418699,7 +418826,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -430332,7 +430459,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -436312,7 +436439,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -447295,7 +447422,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -463895,7 +464022,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -471417,18 +471544,18 @@ In this tutorial series, you'll discover how to:
 * Leverage Flow's native features in mobile environments.
 * Build secure, user-friendly blockchain applications.
 
-# Cadence Development Tutorials
+# Cadence development tutorials
 
 ## Account Management[​](#account-management "Direct link to Account Management")
 
-Learn about Flow's revolutionary account linking system that allow shared ownership and progressive onboarding experiences. These tutorials cover the hybrid custody model, parent-child account relationships, and how to implement walletless onboarding that seamlessly transitions users to self-custody.
+Learn about Flow's revolutionary Account Linking system that allow shared ownership and progressive onboarding experiences. These tutorials cover the hybrid custody model, parent-child account relationships, and how to implement walletless onboarding that seamlessly transitions users to self-custody.
 
-* **[Account Linking Overview](/blockchain-development-tutorials/cadence/account-management)** - Understand Flow's unique account linking concepts and hybrid custody model
-* **[Building with Child Accounts](/blockchain-development-tutorials/cadence/account-management/child-accounts)** - Create walletless applications with progressive onboarding flows
-* **[Parent Account Management](/blockchain-development-tutorials/cadence/account-management/parent-accounts)** - Implement parent account functionality and account delegation
-* **[Account Linking with Dapper](/blockchain-development-tutorials/cadence/account-management/account-linking-with-dapper)** - Integrate with Dapper Wallet's account linking system
+* **[Account Linking Overview](/blockchain-development-tutorials/cadence/account-management)** - Understand Flow's unique account linking concepts and hybrid custody model.
+* **[Building with Child Accounts](/blockchain-development-tutorials/cadence/account-management/child-accounts)** - Create walletless applications with progressive onboarding flows.
+* **[Parent Account Management](/blockchain-development-tutorials/cadence/account-management/parent-accounts)** - Implement parent account functionality and account delegation.
+* **[Account Linking with Dapper](/blockchain-development-tutorials/cadence/account-management/account-linking-with-dapper)** - Integrate with Dapper Wallet's account linking system.
 
-## Mobile Development[​](#mobile-development "Direct link to Mobile Development")
+## Mobile development[​](#mobile-development "Direct link to Mobile development")
 
 Discover how to build native mobile applications that leverage Flow's blockchain capabilities. These tutorials cover mobile SDKs, secure key management, wallet integration, and how to create rich user experiences on iOS and Android platforms.
 
@@ -471481,7 +471608,7 @@ Flow's Cadence offers unparalleled capabilities for building user-friendly block
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/index.md)
 
-Last updated on **Nov 4, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -471495,7 +471622,7 @@ Getting Started with Cadence](/blockchain-development-tutorials/cadence/getting-
 
 Copy as Markdown
 
-* [What you'll learn](#what-youll-learn)* [Account Management](#account-management)* [Mobile Development](#mobile-development)* [Testing](#testing)* [Key features covered](#key-features-covered)
+* [What you'll learn](#what-youll-learn)* [Account Management](#account-management)* [Mobile development](#mobile-development)* [Testing](#testing)* [Key features covered](#key-features-covered)
           + [Account Linking & hybrid custody](#account-linking--hybrid-custody)+ [Mobile-first development](#mobile-first-development)+ [Flow-specific advantages](#flow-specific-advantages)* [Next steps](#next-steps)* [Conclusion](#conclusion)
 
 Flow
@@ -473624,7 +473751,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -475237,7 +475364,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -480394,40 +480521,32 @@ On this page
 
 # Building Walletless Applications Using Child Accounts
 
-In this tutorial, we'll dive into a progressive onboarding flow, including the Cadence scripts & transactions that go into
-its implementation in your app. These components will allow any implementing app to create a custodial account, mediate
-the user's onchain actions on their behalf, and later delegate access of that app-created account to the user's wallet.
-We'll refer to this custodial pattern as the Hybrid Custody Model and the process of delegating control of the app
-account as Account Linking.
+In this tutorial, we'll dive into a progressive onboarding flow, along with the Cadence scripts and transactions that go into its implementation in your app. These components will allow any implementing app to create a custodial account, mediate the user's onchain actions on their behalf, and later delegate access of that app-created account to the user's wallet. We'll refer to this custodial pattern as the Hybrid Custody Model and the process of app account control delegation as Account Linking.
 
 ## Objectives[​](#objectives "Direct link to Objectives")
 
 * Create a [walletless onboarding](https://flow.com/post/flow-blockchain-mainstream-adoption-easy-onboarding-wallets)
-  transaction
-* Link an existing app account as a child to a newly authenticated parent account.
+  transaction.
+* Link a current app account as a child to a newly authenticated parent account.
 * Get your app to recognize "parent" accounts along with any associated "child" accounts.
 * Put it all together to create a blockchain-native onboarding transaction.
-* View fungible and non-fungible Token metadata relating to assets across all of a user's associated accounts - their
+* View fungible and non-fungible Token metadata that relates to assets across all of a user's associated accounts - their
   wallet-mediated "parent" account and any "child" accounts.
 * Facilitate transactions acting on assets in child accounts.
 
-## Point of Clarity[​](#point-of-clarity "Direct link to Point of Clarity")
+## Point of clarity[​](#point-of-clarity "Direct link to Point of clarity")
 
-Before we dive in, let's make a distinction between "account linking" and "linking accounts".
+Before we dive in, let's make a distinction between "Account Linking" and "linking accounts".
 
 ### Account Linking[​](#account-linking "Direct link to Account Linking")
 
 info
 
-Since account linking is a sensitive action, transactions where an account may be linked are designated by a
-topline pragma `#allowAccountLinking`. This lets wallet providers inform users that their account may be linked in the
-signed transaction.
+Since Account Linking is a sensitive action, transactions where an account may be linked are designated by a topline pragma `#allowAccountLinking`. This lets wallet providers inform users that their account may be linked in the signed transaction.
 
-Very simply, account linking is a [feature in Cadence](https://github.com/onflow/flips/pull/53) that lets an
-[Account](https://cadence-lang.org/docs/language/accounts#authaccount) create a
-[Capability](https://cadence-lang.org/docs/language/capabilities) on itself.
+Very simply, Account Linking is a [feature in Cadence](https://github.com/onflow/flips/pull/53) that lets an [Account](https://cadence-lang.org/docs/language/accounts#authaccount) create a [Capability](https://cadence-lang.org/docs/language/capabilities) on itself.
 
-Below is an example demonstrating how to issue an `&Account` Capability from a signing account transaction:
+Below is an example that demonstrates how to issue an `&Account` Capability from a signing account transaction:
 
 link\_account.cdc
 
@@ -480469,66 +480588,39 @@ _10
 
 }`
 
-From there, the signing account can retrieve the privately linked `&Account` Capability and delegate it to another
-account, which revokes the Capability if they wish to revoke delegated access.
+From there, the signing account can retrieve the privately linked `&Account` Capability and delegate it to another account, which revokes the Capability if they wish to revoke delegated access.
 
-To link an account, a transaction must state the `#allowAccountLinking` pragma in the top line of the
-transaction. This is an interim safety measure so that wallet providers can notify users they're about to sign a
-transaction that may create a Capability on their `Account`.
+To link an account, a transaction must state the `#allowAccountLinking` pragma in the top line of the transaction. This is an interim safety measure so that wallet providers can notify users they're about to sign a transaction that may create a Capability on their `Account`.
 
-### Linking Accounts[​](#linking-accounts "Direct link to Linking Accounts")
+### Linking accounts[​](#linking-accounts "Direct link to Linking accounts")
 
-Linking accounts leverages this account link, otherwise known as an **`&Account` Capability**, and encapsulates it. The
-[components and actions](https://github.com/onflow/flips/pull/72) involved in this process - what the Capability is
-encapsulated in, the collection that holds those encapsulations, and so on is what we'll dive into in this doc.
+Linking accounts leverages this account link, otherwise known as an **`&Account` Capability**, and encapsulates it. The [components and actions](https://github.com/onflow/flips/pull/72) involved in this process - what the Capability is encapsulated in, the collection that holds those encapsulations, and so on is what we'll dive into in this doc.
 
 ## Terminology[​](#terminology "Direct link to Terminology")
 
-**Parent-Child accounts** - For the moment, we'll call the account that the app creates the "child" account and the
-account that receives its `&Account` Capability the "parent" account. Current methods of account access & delegation (for example,
-keys) still imply ownership over the account, but where linked accounts are concerned, the account to which both
-the user and the app share access via `&Account` Capability are considered the "child" account.
+**Parent-Child accounts** - For the moment, we'll call the account that the app creates the "child" account and the account that receives its `&Account` Capability the "parent" account. Current methods of account access and delegation (for example, keys) still imply ownership over the account, but where linked accounts are concerned, the account to which both the user and the app share access via `&Account` Capability are considered the "child" account.
 
-**Walletless onboarding** - An onboarding flow whereby an app creates a custodial account for a user and onboards them to
-the app, which obviates the need for user wallet authentication.
+**Walletless onboarding** - An onboarding flow whereby an app creates a custodial account for a user and onboards them to the app, which obviates the need for user wallet authentication.
 
-**Blockchain-native onboarding** - Similar to the already familiar Web3 onboarding flow where a user authenticates with
-their existing wallet, an app onboards a user via wallet authentication while additionally creating a custodial app
-account and linking it with the authenticated account, resulting in a "hybrid custody" model.
+**Blockchain-native onboarding** - Similar to the already familiar Web3 onboarding flow where a user authenticates with their existing wallet, an app onboards a user via wallet authentication while it also creates a custodial app account and links it with the authenticated account, which creates a "hybrid custody" model.
 
-**Hybrid Custody Model** - A custodial pattern in which an app and a user maintain access to an app-created account and
-user access to that account is mediated via account linking.
+**Hybrid Custody Model** - A custodial pattern in which an app and a user maintain access to an app-created account and user access to that account is mediated via Account Linking.
 
-**Account Linking** - Account linking in our context means to give some other account an
-`&Account` Capability from the granting account. This Capability is maintained in standardized resource called a
-`HybridCustody.Manager`, which provides its owning user access to any and all of their linked accounts.
+**Account Linking** - Account Linking in our context means to give some other account an `&Account` Capability from the granting account. This Capability is maintained in standardized resource called a `HybridCustody.Manager`, which provides its owning user access to any and all of their linked accounts.
 
-**Progressive Onboarding** - An onboarding flow that walks a user up to self-custodial ownership, starting with
-walletless onboarding and later linking the app account with the user's authenticated wallet when the user chooses to do
-so.
+**Progressive Onboarding** - An onboarding flow that walks a user up to self-custodial ownership, which starts with walletless onboarding and later links the app account with the user's authenticated wallet when the user chooses to do so.
 
-**Restricted Child Account** - An account delegation where the access on the delegating account is restricted according
-to rules set by the linking child account. We will expand on the distinctions between this and the subsequent term ("owned" account) later.
+**Restricted Child Account** - An account delegation where the access on the delegating account is restricted according to rules set by the linking child account. We will expand on the distinctions between this and the subsequent term ("owned" account) later.
 
-**Owned Account** - An account delegation where the delegatee has unrestricted access on the delegating child account,
-which gives the delegatee presiding authority superseding any other "restricted" parent accounts.
+**Owned Account** - An account delegation where the delegatee has unrestricted access on the delegating child account, which gives the delegatee presiding authority that supersedes any other "restricted" parent accounts.
 
 ## Account Linking[​](#account-linking-1 "Direct link to Account Linking")
 
-Linking an account delegates account access via `&Account` Capability. Of course, we want to do this
-in a way that allows the receiving account to maintain that Capability and allows easy identification of the accounts on
-either end of the linkage - the user's main "parent" account and the linked "child" account. This is accomplished in the
-`HybridCustody` contract which we'll continue to use in this guidance.
+Linking an account delegates account access via `&Account` Capability. Of course, we want to do this in a way that allows the receiving account to maintain that Capability and allows easy identification of the accounts on either end of the linkage - the user's main "parent" account and the linked "child" account. This is accomplished in the `HybridCustody` contract which we'll continue to use in this guidance.
 
 ### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-Since account delegation is mediated by developer-defined rules, you should make sure to first configure the resources
-that contain those rules. Contracts involved in defining and enforcing this ruleset are
-[`CapabilityFilter`](https://github.com/onflow/hybrid-custody/blob/main/contracts/CapabilityFilter.cdc) and
-[`CapabilityFactory`](https://github.com/onflow/hybrid-custody/blob/main/contracts/CapabilityFactory.cdc). The former
-enumerates those types that are and are not accessible from a child account while the latter allows the access of those
-allowable Capabilities such that the returned values can be properly typed - for example, retrieving a Capability that can be
-cast to `Capability<&NonFungibleToken.Collection>` for example.
+Since account delegation is mediated by developer-defined rules, you should make sure to first configure the resources that contain those rules. Contracts that help define and enforce this ruleset are [`CapabilityFilter`](https://github.com/onflow/hybrid-custody/blob/main/contracts/CapabilityFilter.cdc) and [`CapabilityFactory`](https://github.com/onflow/hybrid-custody/blob/main/contracts/CapabilityFactory.cdc). The former enumerates those types that are and are not accessible from a child account while the latter allows the access of those allowable Capabilities such that the returned values can be properly typed - for example, to retrieve a Capability that can be cast to `Capability<&NonFungibleToken.Collection>`.
 
 Here's how you would configure an `AllowlistFilter` and add allowed types to it:
 
@@ -480654,9 +480746,7 @@ And the following transaction configures a `CapabilityFactory.Manager`, adding N
 
 info
 
-The Manager configured here allows retrieval of castable Capabilities. We recommend that you implement
-Factory resource definitions to support any NFT Collections related with the use of your application so that users can
-retrieve Typed Capabilities from accounts linked from your app.
+The Manager configured here allows retrieval of castable Capabilities. We recommend that you implement Factory resource definitions to support any NFT Collections related with the use of your application so that users can retrieve Typed Capabilities from accounts linked from your app.
 
 setup\_factory.cdc
 
@@ -480806,35 +480896,28 @@ _39
 
 ![resources/hybrid_custody_high_level](/assets/images/hybrid_custody_high_level-0fdf5d00b8b4545c3c587ba78a817fd9.png)
 
-*In this scenario, a user custodies a key for their main account which maintains access to a wrapped `Account`
-Capability. This provides the user restricted access on the app account. The app maintains custodial access to the account
-and regulates the access restrictions to delegatee "parent" accounts.*
+*In this scenario, a user custodies a key for their main account which maintains access to a wrapped `Account` Capability. This provides the user restricted access on the app account. The app maintains custodial access to the account and regulates the access restrictions to delegatee "parent" accounts.*
 
-You can link accounts in one of two ways. Put simply, the child account needs to get the parent an `Account`
-Capability, and the parent needs to save that Capability so they can retain access. This delegation must occur in a way that represents each side of the link and safeguard the integrity of any access restrictions an application puts in
-place on delegated access.
+You can link accounts in one of two ways. Put simply, the child account needs to get the parent an `Account` Capability, and the parent needs to save that Capability so they can retain access. This delegation must occur in a way that represents each side of the link and safeguard the integrity of any access restrictions an application puts in place on delegated access.
 
-We can achieve issuance from the child account and claim from the parent account pattern by either:
+To achieve issuance from the child account and claim from the parent account pattern, we can either:
 
-1. Leveraging [Cadence's `Account.Inbox`](https://cadence-lang.org/docs/language/accounts#account-inbox) to publish the Capability from the child account & have the parent claim the Capability in a subsequent transaction.
-2. Executing a multi-party signed transaction, signed by both the child and parent accounts.
+1. Leverage [Cadence's `Account.Inbox`](https://cadence-lang.org/docs/language/accounts#account-inbox) to publish the Capability from the child account and have the parent claim the Capability in a subsequent transaction.
+2. Execute a multi-party signed transaction, signed by both the child and parent accounts.
 
 Let's take a look at both.
 
 info
 
-You'll want to consider whether you would like the parent account to be configured with some app-specific resources or
-Capabilities and compose you multisig or claim transactions to include such configurations.
+You'll want to consider whether you would like the parent account to be configured with some app-specific resources or Capabilities and compose you multisig or claim transactions to include such configurations.
 
-For example, if your app deals with specific NFTs, you may want to configure the parent account with Collections for
-those NFTs so the user can easily transfer them between their linked accounts.
+For example, if your app deals with specific NFTs, you may want to configure the parent account with Collections for those NFTs so the user can easily transfer them between their linked accounts.
 
-### Publish & Claim[​](#publish--claim "Direct link to Publish & Claim")
+### Publish and claim[​](#publish-and-claim "Direct link to Publish and claim")
 
 #### Publish[​](#publish "Direct link to Publish")
 
-Here, the account delegates access to itself, which links its `&Account` Capability and publishes it to be claimed by the
-designated parent account.
+Here, the account delegates access to itself, which links its `&Account` Capability and publishes it to be claimed by the designated parent account.
 
 publish\_to\_parent.cdc
 
@@ -480958,8 +481041,7 @@ _32
 
 #### Claim[​](#claim "Direct link to Claim")
 
-On the other side, the receiving account claims the published `ChildAccount` Capability, which adds it to the signer's
-`HybridCustody.Manager.childAccounts` indexed on the child account's Address.
+On the other side, the receiving account claims the published `ChildAccount` Capability, which adds it to the signer's `HybridCustody.Manager.childAccounts` indexed on the child account's Address.
 
 redeem\_account.cdc
 
@@ -481159,13 +481241,11 @@ _53
 
 ### Multi-Signed Transaction[​](#multi-signed-transaction "Direct link to Multi-Signed Transaction")
 
-We can combine the two transactions in [Publish](#publish) and [Claim](#claim) into a single multi-signed transaction to
-achieve Hybrid Custody in a single step.
+We can combine the two transactions in [Publish](#publish) and [Claim](#claim) into a single multi-signed transaction to achieve Hybrid Custody in a single step.
 
 info
 
-While the following code links both accounts in a single transaction, in practicality you may find it easier
-to execute publish and claim transactions separately depending on your custodial infrastructure.
+While this code links both accounts in a single transaction, in practicality you may find it easier to execute publish and claim transactions separately depending on your custodial infrastructure.
 
 setup\_multi\_sig.cdc
 
@@ -481495,21 +481575,13 @@ _92
 
 }`
 
-## Onboarding Flows[​](#onboarding-flows "Direct link to Onboarding Flows")
+## Onboarding flows[​](#onboarding-flows "Direct link to Onboarding flows")
 
-Given the ability to establish an account and later delegate access to a user, apps are freed from the constraints of
-dichotomous custodial & self-custodial paradigms. A developer can choose to onboard a user via traditional Web2 identity
-and later delegate access to the user's wallet account. Alternatively, an app can enable wallet authentication at the
-outset, creating an app-specific account & linking with the user's wallet account. As specified above, these two flows
-are known as "walletless" and "blockchain-native" onboarding respectively. Developers can choose to implement one for
-simplicity or both for maximum flexibility.
+Given the ability to establish an account and later delegate access to a user, apps are freed from the constraints of dichotomous custodial and self-custodial paradigms. A developer can choose to onboard a user via traditional Web2 identity and later delegate access to the user's wallet account. Alternatively, an app can enable wallet authentication at the outset, which creates an app-specific account & link with the user's wallet account. As specified above, these two flows are known as "walletless" and "blockchain-native" onboarding respectively. Developers can choose to implement one for simplicity or both for maximum flexibility.
 
-### Walletless Onboarding[​](#walletless-onboarding "Direct link to Walletless Onboarding")
+### Walletless onboarding[​](#walletless-onboarding "Direct link to Walletless onboarding")
 
-The following transaction creates an account, funding creation via the signer and adding the provided public key. You'll
-notice this transaction is pretty much your standard account creation. The magic for you will be how you custody the key
-for this account (locally, KMS, wallet service, etc.) in a manner that allows your app to mediate onchain interactions
-on behalf of your user.
+This transaction creates an account, funding creation via the signer and adding the provided public key. You'll notice this transaction is pretty much your standard account creation. The magic for you will be how you custody the key for this account (locally, KMS, wallet service, and so on) in a manner that allows your app to mediate onchain interactions on behalf of your user.
 
 walletless\_onboarding
 
@@ -481707,7 +481779,7 @@ _51
 
 }`
 
-### Blockchain-Native Onboarding[​](#blockchain-native-onboarding "Direct link to Blockchain-Native Onboarding")
+### Blockchain-native onboarding[​](#blockchain-native-onboarding "Direct link to Blockchain-native onboarding")
 
 This onboarding flow is really a single-transaction composition of the steps covered above. This is a testament to the
 power of the complex transactions you can compose on Flow with Cadence!
@@ -481719,13 +481791,11 @@ Recall the [prerequisites](#prerequisites) needed to be satisfied before linking
 1. CapabilityFilter Filter saved and linked.
 2. CapabilityFactory Manager saved and linked as well as Factory implementations supporting the Capability Types you'll want accessible from linked child accounts as Typed Capabilities.
 
-#### Account Creation & Linking[​](#account-creation--linking "Direct link to Account Creation & Linking")
+#### Account creation & linking[​](#account-creation--linking "Direct link to Account creation & linking")
 
-Compared to walletless onboarding where a user does not have a Flow account, blockchain-native onboarding assumes a user already has a wallet configured and immediately links it with a newly created app account. This allows the app to sign transactions on the user's behalf via the new child account while immediately delegating control of that account to the onboarding user's main account.
+Compared to walletless onboarding where a user does not have a Flow account, blockchain-native onboarding assumes a user already has a wallet configured and immediately links it with a newly created app account. This allows the app to sign transactions on the user's behalf via the new child account and immediately delegate control of that account to the onboarding user's main account.
 
-After this transaction, both the custodial party (presumably the client/app) and the signing parent account will have
-access to the newly created account - the custodial party via key access and the parent account via their
-`HybridCustody.Manager` maintaining the new account's `ChildAccount` Capability.
+After this transaction, both the custodial party (presumably the client/app) and the signing parent account will have access to the newly created account - the custodial party via key access and the parent account via their `HybridCustody.Manager` that maintains the new account's `ChildAccount` Capability.
 
 blockchain\_native\_onboarding.cdc
 
@@ -482185,58 +482255,35 @@ _123
 
 ## Funding & Custody Patterns[​](#funding--custody-patterns "Direct link to Funding & Custody Patterns")
 
-Aside from implementing onboarding flows and account linking, you'll want to also consider the account funding & custodial
-pattern appropriate for the app you're building. The only pattern compatible with walletless onboarding (and therefore
-the only one showcased above) is one in which the app custodies the child account's key and funds account creation.
+Aside from the implementation of onboarding flows and Account Linking, you'll want to also consider the account funding & custodial pattern appropriate for the app you want to build. The only pattern compatible with walletless onboarding (and therefore the only one showcased above) is one in which the app custodies the child account's key and funds account creation.
 
-In general, the funding pattern for account creation will determine, to some extent, the backend infrastructure needed to
-support your app and the onboarding flow your app can support. For example, if you want to to create a service-less
-client (a totally local app without backend infrastructure), you could forego walletless onboarding in favor of a
-user-funded blockchain-native onboarding to achieve a hybrid custody model. Your app maintains the keys to the app
-account locally to sign on behalf of the user, and the user funds the creation of the the account, linking to their main
-account on account creation. This would be a **user-funded, app custodied** pattern.
+In general, the funding pattern for account creation will determine, to some extent, the backend infrastructure needed to support your app and the onboarding flow your app can support. For example, if you want to to create a service-less client (a totally local app without backend infrastructure), you could forego walletless onboarding in favor of a user-funded blockchain-native onboarding to achieve a hybrid custody model. Your app maintains the keys to the app account locally to sign on behalf of the user, and the user funds the creation of the the account, which links to their main account on account creation. This would be a **user-funded, app custodied** pattern.
 
-Again, custody may deserve some regulatory insight depending on your jurisdiction. If building for production, you'll
-likely want to consider these non-technical implications in your technical decision-making. Such is the nature of
-building in crypto.
+Again, custody may deserve some regulatory insight depending on your jurisdiction. If you build for production, you'll likely want to consider these non-technical implications in your technical decision-making. Such is the nature of building in crypto.
 
 Here are the patterns you might consider:
 
-### App-Funded, App-Custodied[​](#app-funded-app-custodied "Direct link to App-Funded, App-Custodied")
+### App-funded, app-custodied[​](#app-funded-app-custodied "Direct link to App-funded, app-custodied")
 
-If you want to implement walletless onboarding, you can stop here as this is the only compatible pattern. In this
-scenario, a backend app account funds the creation of a new account and the app custodies the key for said account
-either on the user's device or some backend KMS.
+If you want to implement walletless onboarding, you can stop here as this is the only compatible pattern. In this scenario, a backend app account funds the creation of a new account and the app custodies the key for said account either on the user's device or some backend KMS.
 
-### App-Funded, User-Custodied[​](#app-funded-user-custodied "Direct link to App-Funded, User-Custodied")
+### App-funded, user-custodied[​](#app-funded-user-custodied "Direct link to App-funded, user-custodied")
 
-In this case, the backend app account funds account creation, but adds a key to the account which the user custodies. In
-order for the app to act on the user's behalf, it has to be delegated access via `&Account` Capability which the backend
-app account would maintain in a `HybridCustody.Manager`. This means that the new account would have two parent accounts
+In this case, the backend app account funds account creation, but adds a key to the account which the user custodies. For the app to act on the user's behalf, it has to be delegated access via `&Account` Capability which the backend app account would maintain in a `HybridCustody.Manager`. This means that the new account would have two parent accounts - the user's and the app.
 
-* the user's and the app.
+While this pattern provides the user maximum ownership and authority over the child account, it may present unique considerations and edge cases for you as a builder depending on your app's access to the child account. Also note that this and the following patterns are incompatible with walletless onboarding in that the user must have a walletvpre-configured before onboarding.
 
-While this pattern provides the user maximum ownership and authority over the child account, it may present unique
-considerations and edge cases for you as a builder depending on your app's access to the child account. Also note that
-this and the following patterns are incompatible with walletless onboarding in that the user must have a wallet
-pre-configured before onboarding.
+### User-funded, app-custodied[​](#user-funded-app-custodied "Direct link to User-funded, app-custodied")
 
-### User-Funded, App-Custodied[​](#user-funded-app-custodied "Direct link to User-Funded, App-Custodied")
+As mentioned above, this pattern unlocks totally service-less architectures - just a local client and smart contracts. An authenticated user signs a transaction creating an account, adds the key that the client provides, and links the account as a child account. At the end of the transaction, hybrid custody is achieved and the app can sign with the custodied key on the user's behalf with the newly-created account.
 
-As mentioned above, this pattern unlocks totally service-less architectures - just a local client & smart contracts. An
-authenticated user signs a transaction creating an account, adding the key provided by the client, and linking the
-account as a child account. At the end of the transaction, hybrid custody is achieved and the app can sign with the
-custodied key on the user's behalf using the newly created account.
+### User-funded, user-custodied[​](#user-funded-user-custodied "Direct link to User-funded, user-custodied")
 
-### User-Funded, User-Custodied[​](#user-funded-user-custodied "Direct link to User-Funded, User-Custodied")
-
-While perhaps not useful for most apps, this pattern may be desirable for advanced users who wish to create a shared
-access account themselves. The user funds account creation, adding keys they custody, and delegates secondary access to
-some other account.
+While perhaps not useful for most apps, this pattern may be desirable for advanced users who wish to create a shared access account themselves. The user funds account creation, adds keys they custody, and delegates secondary access to some other account.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/account-management/child-accounts.md)
 
-Last updated on **Nov 3, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -482250,11 +482297,11 @@ Working With Parent Accounts](/blockchain-development-tutorials/cadence/account-
 
 Copy as Markdown
 
-* [Objectives](#objectives)* [Point of Clarity](#point-of-clarity)
-    + [Account Linking](#account-linking)+ [Linking Accounts](#linking-accounts)* [Terminology](#terminology)* [Account Linking](#account-linking-1)
-        + [Prerequisites](#prerequisites)+ [Publish & Claim](#publish--claim)+ [Multi-Signed Transaction](#multi-signed-transaction)* [Onboarding Flows](#onboarding-flows)
-          + [Walletless Onboarding](#walletless-onboarding)+ [Blockchain-Native Onboarding](#blockchain-native-onboarding)* [Funding & Custody Patterns](#funding--custody-patterns)
-            + [App-Funded, App-Custodied](#app-funded-app-custodied)+ [App-Funded, User-Custodied](#app-funded-user-custodied)+ [User-Funded, App-Custodied](#user-funded-app-custodied)+ [User-Funded, User-Custodied](#user-funded-user-custodied)
+* [Objectives](#objectives)* [Point of clarity](#point-of-clarity)
+    + [Account Linking](#account-linking)+ [Linking accounts](#linking-accounts)* [Terminology](#terminology)* [Account Linking](#account-linking-1)
+        + [Prerequisites](#prerequisites)+ [Publish and claim](#publish-and-claim)+ [Multi-Signed Transaction](#multi-signed-transaction)* [Onboarding flows](#onboarding-flows)
+          + [Walletless onboarding](#walletless-onboarding)+ [Blockchain-native onboarding](#blockchain-native-onboarding)* [Funding & Custody Patterns](#funding--custody-patterns)
+            + [App-funded, app-custodied](#app-funded-app-custodied)+ [App-funded, user-custodied](#app-funded-user-custodied)+ [User-funded, app-custodied](#user-funded-app-custodied)+ [User-funded, user-custodied](#user-funded-user-custodied)
 
 Flow
 
@@ -489717,7 +489764,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -492096,6 +492143,679 @@ Build with Forte ↙](/ecosystem/defi-liquidity/forte)
 Copy as Markdown
 
 * [Why DeFi on Flow?](#why-defi-on-flow)* [DeFi Partners](#defi-partners)* [Kittypunch](#kittypunch)* [Trado.one](#tradoone)* [Increment.fi](#incrementfi)* [More.Markets](#moremarkets)* [Sturdy.Finance](#sturdyfinance)* [Ankr](#ankr)* [Sudocat](#sudocat)* [Hitdex](#hitdex)* [Rally](#rally)* [Hype.meme](#hypememe)* [Vaultopolis](#vaultopolis)* [Izumi.finance](#izumifinance)* [Bridged USDC](#bridged-usdc)* [USDF](#usdf)* [Pumpflow](#pumpflow)* [Fixes.world](#fixesworld)* [Tally](#tally)* [Securing DeFi on Flow EVM](#securing-defi-on-flow-evm)
+
+Flow
+
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
+
+Cadence
+
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
+
+Solidity (EVM)
+
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
+
+Community & Support
+
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
+
+Network & Resources
+
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow Foundation. All Rights Reserved.
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://developers.flow.com/defi/band-oracle
+
+Band Oracle on Flow | Flow Developer Portal
+
+
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Defi](/defi)* [Build with Forte ↙](/defi/forte)* [DeFi Contracts Mainnet](/defi/defi-contracts-mainnet)* [DeFi Contracts Testnet](/defi/defi-contracts-testnet)* [Cross-chain swaps on Flow EVM](/defi/cross-chain-swaps)* [Add Token To MetaMask](/defi/add-token-to-metamask)* [Band Oracle](/defi/band-oracle)* [Stablecoins & Bridges FAQ](/defi/faq)
+
+* * Band Oracle
+
+On this page
+
+# Band Oracle with Cadence
+
+The Band Protocol Oracle contract enables Flow blockchain applications to access real-time price data from the [Band Protocol Oracle network](https://faq.bandprotocol.com/). The oracle provides a comprehensive set of cryptocurrency and fiat currency price quotes from the Band Standard Dataset, making them available to any Cadence application, contract, or transaction.
+
+## Contract Addresses[​](#contract-addresses "Direct link to Contract Addresses")
+
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Network Address [CLI](https://developers.flow.com/build/tools/flow-cli/dependency-manager) Explorer|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | Testnet `0x9fb6606c300b5051` [View Contract](https://testnet.flowscan.io/contract/A.9fb6606c300b5051.BandOracle)| Mainnet `0x6801a6222ebf784a` [View Contract](https://flowscan.io/contract/A.6801a6222ebf784a.BandOracle) | | | | | | | | | | | |
+
+## Supported Symbols[​](#supported-symbols "Direct link to Supported Symbols")
+
+### Cryptocurrency Pairs (against USD)[​](#cryptocurrency-pairs-against-usd "Direct link to Cryptocurrency Pairs (against USD)")
+
+* **Major**: ETH, FLOW, USDC, USDT, WBTC, BNB, XRP, ADA, DOGE, POL (MATIC)
+* **Layer 1**: SOL, DOT, AVAX, ATOM, XLM, TRX, SUI
+* **DeFi**: AAVE, LINK, CRV, OP, UNI, SUSHI, CAKE, DYDX, 1INCH, BAT
+* **Others**: LTC, SHIB, DAI, FTM
+
+### Fiat Currency Pairs (against USD)[​](#fiat-currency-pairs-against-usd "Direct link to Fiat Currency Pairs (against USD)")
+
+* **Asian**: KRW, INR, HKD, TWD, THB, JPY, MYR, PHP, CNY, SGD
+* **European**: PLN, CZK, EUR, GBP, CHF, RUB, SEK, TRY
+* **Americas**: BRL, CAD
+* **Oceanic**: AUD, NZD
+
+## How It Works[​](#how-it-works "Direct link to How It Works")
+
+### Architecture[​](#architecture "Direct link to Architecture")
+
+The Band Oracle contract maintains a decentralized price feed system with three key components:
+
+1. **Data Storage**: Price data is stored in a contract-level dictionary `symbolsRefData: {String: RefData}` where each symbol maps to its latest price information.
+2. **Data Updates**: Authorized BandChain relayers continuously update price data from the Band Protocol network to keep prices current.
+3. **Data Access**: Any user or contract can query the latest price data through public functions, enabling real-time price integrations.
+
+### Data Structure[​](#data-structure "Direct link to Data Structure")
+
+Price data is stored using the `RefData` struct:
+
+`_10
+
+access(all) struct RefData {
+
+_10
+
+// USD-rate, multiplied by 1e9
+
+_10
+
+access(all) var rate: UInt64
+
+_10
+
+// UNIX epoch when data was last resolved
+
+_10
+
+access(all) var timestamp: UInt64
+
+_10
+
+// BandChain request identifier for this data
+
+_10
+
+access(all) var requestID: UInt64
+
+_10
+
+}`
+
+When querying prices, you receive a `ReferenceData` struct:
+
+`_10
+
+access(all) struct ReferenceData {
+
+_10
+
+// Rate as integer multiplied by 1e18
+
+_10
+
+access(all) var integerE18Rate: UInt256
+
+_10
+
+// Rate as a fixed-point decimal
+
+_10
+
+access(all) var fixedPointRate: UFix64
+
+_10
+
+// Timestamp of base symbol data
+
+_10
+
+access(all) var baseTimestamp: UInt64
+
+_10
+
+// Timestamp of quote symbol data
+
+_10
+
+access(all) var quoteTimestamp: UInt64
+
+_10
+
+}`
+
+### Data Normalization[​](#data-normalization "Direct link to Data Normalization")
+
+All price data is stored with a USD conversion rate. When you query for price conversions between two non-USD symbols, the contract derives the rate from their respective USD rates. For example, to get ETH/EUR, the contract calculates: `(ETH/USD) / (EUR/USD)`.
+
+## Features[​](#features "Direct link to Features")
+
+### Price Queries[​](#price-queries "Direct link to Price Queries")
+
+* Query any supported symbol pair in real-time
+* Get both integer (e18 precision) and fixed-point decimal rates
+* Access timestamp information to verify data freshness
+* Track BandChain request IDs for transparency
+
+### Fee Structure[​](#fee-structure "Direct link to Fee Structure")
+
+* Configurable fee system for oracle usage (currently set to zero)
+* Fee collected in FLOW tokens
+* Query current fee using `BandOracle.getFee()`
+
+### Event Monitoring[​](#event-monitoring "Direct link to Event Monitoring")
+
+The contract emits events to notify applications of updates:
+
+`_10
+
+// Emitted when symbol prices are updated
+
+_10
+
+access(all) event BandOracleSymbolsUpdated(
+
+_10
+
+symbols: [String],
+
+_10
+
+relayerID: UInt64,
+
+_10
+
+requestID: UInt64
+
+_10
+
+)
+
+_10
+
+_10
+
+// Emitted when a symbol is removed
+
+_10
+
+access(all) event BandOracleSymbolRemoved(symbol: String)`
+
+## Usage Guide[​](#usage-guide "Direct link to Usage Guide")
+
+### Basic Price Query (Transaction)[​](#basic-price-query-transaction "Direct link to Basic Price Query (Transaction)")
+
+To query price data from a transaction:
+
+`_32
+
+import "BandOracle"
+
+_32
+
+import "FlowToken"
+
+_32
+
+import "FungibleToken"
+
+_32
+
+_32
+
+transaction(baseSymbol: String, quoteSymbol: String) {
+
+_32
+
+_32
+
+let payment: @{FungibleToken.Vault}
+
+_32
+
+_32
+
+prepare(acct: auth(BorrowValue) &Account) {
+
+_32
+
+// Borrow reference to user's FLOW vault
+
+_32
+
+let vaultRef = acct.storage.borrow<auth(FungibleToken.Withdraw) &FlowToken.Vault>(
+
+_32
+
+from: /storage/flowTokenVault
+
+_32
+
+) ?? panic("Cannot borrow reference to signer's FLOW vault")
+
+_32
+
+_32
+
+// Withdraw payment for oracle fee
+
+_32
+
+self.payment <- vaultRef.withdraw(amount: BandOracle.getFee())
+
+_32
+
+}
+
+_32
+
+_32
+
+execute {
+
+_32
+
+// Get reference data
+
+_32
+
+let priceData = BandOracle.getReferenceData(
+
+_32
+
+baseSymbol: baseSymbol,
+
+_32
+
+quoteSymbol: quoteSymbol,
+
+_32
+
+payment: <- self.payment
+
+_32
+
+)
+
+_32
+
+_32
+
+log("Rate (fixed-point): ".concat(priceData.fixedPointRate.toString()))
+
+_32
+
+log("Rate (integer e18): ".concat(priceData.integerE18Rate.toString()))
+
+_32
+
+log("Base timestamp: ".concat(priceData.baseTimestamp.toString()))
+
+_32
+
+log("Quote timestamp: ".concat(priceData.quoteTimestamp.toString()))
+
+_32
+
+}
+
+_32
+
+}`
+
+### Example: ETH/USD Price[​](#example-ethusd-price "Direct link to Example: ETH/USD Price")
+
+`_10
+
+// Get ETH price in USD
+
+_10
+
+let priceData = BandOracle.getReferenceData(
+
+_10
+
+baseSymbol: "ETH",
+
+_10
+
+quoteSymbol: "USD",
+
+_10
+
+payment: <- flowPayment
+
+_10
+
+)
+
+_10
+
+// priceData.fixedPointRate contains ETH price in USD`
+
+### Example: Cross-Currency Conversion[​](#example-cross-currency-conversion "Direct link to Example: Cross-Currency Conversion")
+
+`_10
+
+// Get EUR price in JPY
+
+_10
+
+let priceData = BandOracle.getReferenceData(
+
+_10
+
+baseSymbol: "EUR",
+
+_10
+
+quoteSymbol: "JPY",
+
+_10
+
+payment: <- flowPayment
+
+_10
+
+)
+
+_10
+
+// priceData.fixedPointRate contains EUR/JPY exchange rate`
+
+### Contract Integration[​](#contract-integration "Direct link to Contract Integration")
+
+Here's how to integrate the oracle into your smart contract:
+
+`_44
+
+import "BandOracle"
+
+_44
+
+import "FlowToken"
+
+_44
+
+import "FungibleToken"
+
+_44
+
+_44
+
+access(all) contract MyDeFiContract {
+
+_44
+
+_44
+
+// Store a vault to pay for oracle fees
+
+_44
+
+access(self) let oracleFeeVault: @{FungibleToken.Vault}
+
+_44
+
+_44
+
+access(all) fun getTokenPriceInUSD(tokenSymbol: String): UFix64 {
+
+_44
+
+// Withdraw payment for oracle
+
+_44
+
+let payment <- self.oracleFeeVault.withdraw(
+
+_44
+
+amount: BandOracle.getFee()
+
+_44
+
+)
+
+_44
+
+_44
+
+// Query the oracle
+
+_44
+
+let priceData = BandOracle.getReferenceData(
+
+_44
+
+baseSymbol: tokenSymbol,
+
+_44
+
+quoteSymbol: "USD",
+
+_44
+
+payment: <- payment
+
+_44
+
+)
+
+_44
+
+_44
+
+return priceData.fixedPointRate
+
+_44
+
+}
+
+_44
+
+_44
+
+access(all) fun swapTokens(amount: UFix64, maxPrice: UFix64) {
+
+_44
+
+// Get current price
+
+_44
+
+let currentPrice = self.getTokenPriceInUSD(tokenSymbol: "ETH")
+
+_44
+
+_44
+
+// Verify price is acceptable
+
+_44
+
+if currentPrice > maxPrice {
+
+_44
+
+panic("Price too high")
+
+_44
+
+}
+
+_44
+
+_44
+
+// Proceed with swap logic...
+
+_44
+
+}
+
+_44
+
+_44
+
+init() {
+
+_44
+
+// Initialize vault for oracle fees
+
+_44
+
+self.oracleFeeVault <- FlowToken.createEmptyVault(
+
+_44
+
+vaultType: Type<@FlowToken.Vault>()
+
+_44
+
+)
+
+_44
+
+}
+
+_44
+
+}`
+
+## Best Practices[​](#best-practices "Direct link to Best Practices")
+
+### 1. Listen for Price Updates[​](#1-listen-for-price-updates "Direct link to 1. Listen for Price Updates")
+
+Monitor the `BandOracleSymbolsUpdated` event to keep your contract's stored prices up-to-date:
+
+`_10
+
+// Listen for this event in your application
+
+_10
+
+access(all) event BandOracleSymbolsUpdated(
+
+_10
+
+symbols: [String],
+
+_10
+
+relayerID: UInt64,
+
+_10
+
+requestID: UInt64
+
+_10
+
+)`
+
+When you detect an update for symbols your app uses, trigger a transaction to refresh your stored prices.
+
+## Advanced Features[​](#advanced-features "Direct link to Advanced Features")
+
+### Converting Between Number Formats[​](#converting-between-number-formats "Direct link to Converting Between Number Formats")
+
+The contract provides a utility function to convert between integer and fixed-point representations:
+
+`_10
+
+// Convert e18 integer to fixed-point decimal
+
+_10
+
+let fixedPoint = BandOracle.e18ToFixedPoint(rate: integerE18Rate)`
+
+### Fee Management[​](#fee-management "Direct link to Fee Management")
+
+For contract administrators, the oracle supports dynamic fee configuration:
+
+`_10
+
+// Query current fee
+
+_10
+
+let currentFee = BandOracle.getFee()
+
+_10
+
+_10
+
+// Fee can be updated by the fee collector (admin only)
+
+_10
+
+// feeCollector.setFee(fee: 0.001) // 0.001 FLOW per query`
+
+## Resources[​](#resources "Direct link to Resources")
+
+* [Band Protocol FAQ](https://faq.bandprotocol.com/)
+* [Band Standard Dataset](https://data.bandprotocol.com/)
+* [Cadence Language Reference](https://cadence-lang.org/)
+
+---
+
+**Note**: The oracle currently charges no fees for usage, but this may change in the future. Always check `BandOracle.getFee()` before querying to ensure your contract has sufficient FLOW tokens allocated.
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/defi/band-oracle.md)
+
+Last updated on **Dec 1, 2025** by **Brian Doyle**
+
+[Previous
+
+Add Token To MetaMask](/defi/add-token-to-metamask)[Next
+
+Stablecoins & Bridges FAQ](/defi/faq)
+
+###### Rate this page
+
+😞😐😊
+
+Copy as Markdown
+
+* [Contract Addresses](#contract-addresses)* [Supported Symbols](#supported-symbols)
+    + [Cryptocurrency Pairs (against USD)](#cryptocurrency-pairs-against-usd)+ [Fiat Currency Pairs (against USD)](#fiat-currency-pairs-against-usd)* [How It Works](#how-it-works)
+      + [Architecture](#architecture)+ [Data Structure](#data-structure)+ [Data Normalization](#data-normalization)* [Features](#features)
+        + [Price Queries](#price-queries)+ [Fee Structure](#fee-structure)+ [Event Monitoring](#event-monitoring)* [Usage Guide](#usage-guide)
+          + [Basic Price Query (Transaction)](#basic-price-query-transaction)+ [Example: ETH/USD Price](#example-ethusd-price)+ [Example: Cross-Currency Conversion](#example-cross-currency-conversion)+ [Contract Integration](#contract-integration)* [Best Practices](#best-practices)
+            + [1. Listen for Price Updates](#1-listen-for-price-updates)* [Advanced Features](#advanced-features)
+              + [Converting Between Number Formats](#converting-between-number-formats)+ [Fee Management](#fee-management)* [Resources](#resources)
 
 Flow
 
@@ -505598,7 +506318,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -511700,43 +512420,43 @@ It accompanies the [PoC demo](https://github.com/onflow/passkey-wallet-demo) for
 
 Platform-specific APIs
 
-This tutorial focuses on the **Web Authentication API** (WebAuthn) for browser-based applications. Other platforms such as iOS, Android, and desktop applications will require platform-specific APIs (e.g., Apple's [Authentication Services](https://developer.apple.com/documentation/authenticationservices), Android's [Credential Manager](https://developer.android.com/identity/sign-in/credential-manager)), but the underlying concepts—credential creation, challenge signing, and signature formatting—remain the same across all platforms.
+This tutorial focuses on the **Web Authentication API** (WebAuthn) for browser-based applications. Other platforms such as iOS, Android, and desktop applications will require platform-specific APIs (such as Apple's [Authentication Services](https://developer.apple.com/documentation/authenticationservices,) or Android's [Credential Manager](https://developer.android.com/identity/sign-in/credential-manager)), but the underlying concepts—credential creation, challenge signing, and signature formatting—remain the same across all platforms.
 
 ## What you'll learn[​](#what-youll-learn "Direct link to What you'll learn")
 
-After completing this guide, you'll be able to:
+After you complete this guide, you'll be able to:
 
-* Create a passkey and derive a Flow‑compatible public key
-* Generate the correct challenge for signing transactions (wallet sets SHA2‑256(signable))
-* Convert a WebAuthn ECDSA DER signature into Flow's raw `r||s` format and attach the transaction signature extension
+* Create a passkey and derive a Flow‑compatible public key.
+* Generate the correct challenge for signing transactions (wallet sets SHA2‑256(signable)).
+* Convert a WebAuthn ECDSA DER signature into Flow's raw `r||s` format and attach the transaction signature extension.
 
-## Benefits of using passkeys[​](#benefits-of-using-passkeys "Direct link to Benefits of using passkeys")
+## Passkey benefits[​](#passkey-benefits "Direct link to Passkey benefits")
 
 **Sign transactions securely**  
-Users can sign Flow transactions using passkeys while the private key stays securely stored within the authenticator. This reduces the risk of key extraction attacks and phishing attempts.
+Users can sign Flow transactions with passkeys while the private key stays securely stored within the authenticator. This reduces the risk of key extraction attacks and phishing attempts.
 
 **Authenticate across devices**  
-Users can scan a QR code displayed on a desktop browser with a mobile device to approve transactions. Cloud-synchronized passkeys (such as those stored in Apple iCloud or Google Password Manager) enable authentication across multiple devices without manual key transfers.
+Users can scan a QR code displayed on a desktop browser with a mobile device to approve transactions. Cloud-synchronized passkeys (such as those stored in Apple iCloud or Google Password Manager) allow authentication across multiple devices without manual key transfers.
 
 **Authenticate with platform-based security**  
-Users can sign transactions directly on devices with built-in authenticators, such as Face ID on iPhones or Windows Hello on Windows PCs. This approach enables native transaction signing without needing an external security key.
+Users can sign transactions directly on devices with built-in authenticators, such as Face ID on iPhones or Windows Hello on Windows PCs. This approach allows native transaction signing without the need for an external security key.
 
 **Recover access with cloud-synced passkeys**  
-Cloud-synced passkeys help users recover access if they lose a device, though this introduces trade-offs between convenience and self-custody (see [Limitations of passkeys](#limitations-of-passkeys)).
+Cloud-synced passkeys help users recover access if they lose a device, though this introduces trade-offs between convenience and self-custody (see [Limitations of passkeys](#limitations-of-passkeys).
 
 **Work with multi-key accounts**  
-Combine passkeys with other authentication types using Flow's native [multi-key account support](/build/cadence/basics/accounts#account-keys) to build secure recovery options and shared access patterns with weighted keys.
+Combine passkeys with other authentication types with Flow's native [multi-key account support](/build/cadence/basics/accounts#account-keys) to build secure recovery options and shared access patterns with weighted keys.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-* Working knowledge of modern frontend (React/Next.js) and basic backend
-* Familiarity with WebAuthn/Passkeys concepts and platform constraints
-* FCL installed and configured for your app
-* Flow accounts and keys: [Signature and Hash Algorithms](/build/cadence/basics/accounts)
+* Working knowledge of modern frontend (React/Next.js) and basic backend.
+* Familiarity with WebAuthn/Passkeys concepts and platform constraints.
+* Flow Command Line (FCL) installed and configured for your app.
+* Flow accounts and keys: [Signature and Hash Algorithms](/build/cadence/basics/accounts).
 
 ## Registration[​](#registration "Direct link to Registration")
 
-When a user generates a passkey via [navigator.credentials.create()](https://developer.mozilla.org/en-US/docs/Web/API/CredentialsContainer/create) with `{ publicKey }`, the authenticator returns an attestation containing the new credential's public key. On Flow, you can register that public key on an account if the algorithm of the requested passkey is either `ES256` or `ES256k`. This guide demonstrates an `ES256` passkey which translates to an `ECDSA_P256` Flow key paired with `SHA2_256` hashing. Alternatively, an `ES256k` passkey translates to an `ECDSA_secp256k1` Flow key paired with `SHA2_256` hashing.
+When a user generates a passkey via [navigator.credentials.create()](https://developer.mozilla.org/en-US/docs/Web/API/CredentialsContainer/create) with `{ publicKey }`, the authenticator returns an attestation that contains the new credential's public key. On Flow, you can register that public key on an account if the algorithm of the requested passkey is either `ES256` or `ES256k`. This guide demonstrates an `ES256` passkey which translates to an `ECDSA_P256` Flow key paired with `SHA2_256` hashing. Alternatively, an `ES256k` passkey translates to an `ECDSA_secp256k1` Flow key paired with `SHA2_256` hashing.
 
 High‑level steps:
 
@@ -511752,15 +512472,15 @@ High‑level steps:
    * Signature algorithm: `ECDSA_P256`
    * Hash algorithm: `SHA2_256`
 
-tip
+info
 
-Libraries like SimpleWebAuthn can parse the COSE key and produce the raw public key bytes required for onchain registration. Ensure you normalize into the exact raw byte format Flow expects before writing to the account key.
+Libraries like SimpleWebAuthn can parse the COSE key and produce the raw public key bytes required for onchain registration. Ensure you normalize into the exact raw byte format Flow expects before it writes to the account key.
 
 ### Build creation options and create credential[​](#build-creation-options-and-create-credential "Direct link to Build creation options and create credential")
 
 Minimum example — wallet‑mode registration:
 
-This builds `PublicKeyCredentialCreationOptions` for a wallet RP with a constant registration challenge and ES256 (P‑256) so the resulting public key can be registered on a Flow account.
+This builds `PublicKeyCredentialCreationOptions` for a wallet RP with a constant registration challenge and ES256 (P‑256) so you can register the newly-created public key on a Flow account.
 
 `_28
 
@@ -511870,11 +512590,11 @@ RP ID for non-browser platforms
 
 For web applications, `rpId` is set to `window.location.hostname`. For native mobile and desktop applications, use your app's identifier instead:
 
-* **iOS**: Use your app's bundle identifier (e.g., `com.example.wallet`) or an associated domain
-* **Android**: Use your app's package name (e.g., `com.example.wallet`) or an associated domain
-* **Desktop**: Use your application identifier or registered domain
+* **iOS**: Use your app's bundle identifier (such as `com.example.wallet`) or an associated domain.
+* **Android**: Use your app's package name (such as `com.example.wallet`) or an associated domain.
+* **Desktop**: Use your application identifier or registered domain.
 
-The rpId should remain consistent across credential creation and assertion for the same user account; however, this consistency is not validated or enforced by Flow.
+The `rpId` should remain consistent across credential creation and assertion for the same user account. However, Flow does not validate or enforce this consistency.
 
 ### Extract and normalize public key[​](#extract-and-normalize-public-key "Direct link to Extract and normalize public key")
 
@@ -512050,7 +512770,7 @@ const publicKeyHex = coseEcP256ToUncompressedXYHex(cosePubKey)`
 
 ### Add key to account[​](#add-key-to-account "Direct link to Add key to account")
 
-Now that you have the user's public key, provision a Flow account with that key. Creating accounts (or adding key to an existing account) requires payment; in practice, account instantiation typically occurs on the wallet provider's backend service.
+Now that you have the user's public key, provision a Flow account with that key. Account creation (or to add key to an account) requires payment. In practice, account instantiation typically occurs on the wallet provider's backend service.
 
 In the PoC demo, we used a test API to provision an account with the public key:
 
@@ -512236,15 +512956,15 @@ _23
 
 // (see next subsection for a full getAssertion example)`
 
-note
+info
 
-`encodeMessageFromSignable` and `encodeTransactionPayload` are FCL‑specific helpers. If you are not using FCL, construct the Flow signable transaction message yourself (payload for proposer/authorizer, envelope for payer, prepended by the transaction domain tag), then compute `SHA2‑256(messageBytes)` for the challenge. The payload encoding shown here applies regardless of wallet implementation; the helper calls are simply conveniences from FCL.
+`encodeMessageFromSignable` and `encodeTransactionPayload` are FCL‑specific helpers. If you don't use FCL, construct the Flow signable transaction message yourself (payload for proposer/authorizer, envelope for payer, prepended by the transaction domain tag), then compute `SHA2‑256(messageBytes)` for the challenge. The payload encoding shown here applies regardless of wallet implementation; the helper calls are simply conveniences from FCL.
 
 ### Request assertion[​](#request-assertion "Direct link to Request assertion")
 
 Minimal example — wallet assertion:
 
-Build [PublicKeyCredentialRequestOptions](https://developer.mozilla.org/en-US/docs/Web/API/PublicKeyCredentialRequestOptions) and request an assertion using the transaction hash as `challenge`. `rpId` must match the wallet domain. When the wallet has mapped the active account to a credential, include `allowCredentials` with that credential ID to avoid extra prompts; omitting it is permissible for discoverable credentials. You will invoke [navigator.credentials.get()](https://developer.mozilla.org/en-US/docs/Web/API/CredentialsContainer/get).
+Build [PublicKeyCredentialRequestOptions](https://developer.mozilla.org/en-US/docs/Web/API/PublicKeyCredentialRequestOptions) and request an assertion with the transaction hash as `challenge`. `rpId` must match the wallet domain. When the wallet has mapped the active account to a credential, include `allowCredentials` with that credential ID to avoid extra prompts. You can omit it, which is permissible for discoverable credentials. You will invoke [navigator.credentials.get()](https://developer.mozilla.org/en-US/docs/Web/API/CredentialsContainer/get).
 
 `_23
 
@@ -512332,10 +513052,10 @@ _23
 
 assertion.response as AuthenticatorAssertionResponse`
 
-note
+info
 
-* **Credential selection**: Wallets typically know which credential corresponds to the user's active account (selected during authentication/authorization), so they should pass that credential via `allowCredentials` to scope selection and minimize prompts. For discoverable credentials, omitting `allowCredentials` is also valid and lets the authenticator surface available credentials. See [WebAuthn specifications](https://www.w3.org/TR/webauthn-3) for guidance.
-* **RP ID consistency**: The `rpId` used here should match what was used during credential creation; however, Flow does not validate or enforce this (transactions would still pass even if different). For non-browser platforms, use the same app identifier (bundle ID, package name, etc.) as in registration.
+* **Credential selection**: Wallets typically know which credential corresponds to the user's active account (selected during authentication/authorization), so they should pass that credential via `allowCredentials` to scope selection and minimize prompts. For discoverable credentials, you can omit `allowCredentials`, which lets the authenticator surface available credentials. See [WebAuthn specifications](https://www.w3.org/TR/webauthn-3) for guidance.
+* **RP ID consistency**: The `rpId` used here should match what was used during credential creation. However, Flow does not validate or enforce this (transactions would still pass even if different). For non-browser platforms, use the same app identifier (bundle ID, package name, and so on.) as in registration.
 
 ### Convert and attach signature[​](#convert-and-attach-signature "Direct link to Convert and attach signature")
 
@@ -512602,11 +513322,11 @@ _38
 
 ## Notes from the PoC[​](#notes-from-the-poc "Direct link to Notes from the PoC")
 
-* The [PoC demo](https://github.com/onflow/passkey-wallet-demo) demonstrates reference flows for passkey creation and assertion, including:
-  + Extracting and normalizing the ECDSA P‑256 public key for Flow
-  + Building the correct challenge
-  + Converting DER signatures to raw `r||s`
-  + Packaging WebAuthn fields as signature extension data
+* The [PoC demo](https://github.com/onflow/passkey-wallet-demo) demonstrates reference flows for passkey creation and assertion, such as:
+  + Extract and normalize the ECDSA P‑256 public key for Flow.
+  + Build the correct challenge .
+  + Convert DER signatures to raw `r||s`.
+  + Package WebAuthn fields as signature extension data.
 
 > Align your implementation with the FLIP to ensure your extension payloads and verification logic match network expectations.
 
@@ -512620,7 +513340,7 @@ _38
 ## Limitations of passkeys[​](#limitations-of-passkeys "Direct link to Limitations of passkeys")
 
 **Functionality varies by authenticator**  
-Some security keys do not support biometric authentication, requiring users to enter a PIN instead. Because WebAuthn does not provide access to private keys, users must either store their passkey securely or enable cloud synchronization for recovery.
+Some security keys do not support biometric authentication, which requires users to enter a PIN instead. Because WebAuthn does not provide access to private keys, users must either store their passkey securely or turn on cloud synchronization for recovery.
 
 **Cloud synchronization introduces risks**  
 Cloud-synced passkeys improve accessibility but also create risks if a cloud provider is compromised or if a user loses access to their cloud account. Users who prefer full self-custody can use hardware-based passkeys that do not rely on cloud synchronization.
@@ -512632,10 +513352,10 @@ Users cannot transfer a passkey between different authenticators. For example, a
 
 Wallet providers should persist credential metadata to support seamless signing, rotation, and recovery:
 
-* Map `credentialId` ↔ Flow `addr` (and `keyId`) for the active account
-* Store `rpId`, user handle, and (optionally) `aaguid`/attestation info for risk decisions
-* Support multiple credentials per account and revocation/rotation workflows
-* Enforce nonce/sequence semantics and rate limits server-side as needed
+* Map `credentialId` ↔ Flow `addr` (and `keyId`) for the active account.
+* Store `rpId`, user handle, and (optionally) `aaguid`/attestation info for risk decisions.
+* Support multiple credentials per account and revocation/rotation workflows.
+* Enforce nonce/sequence semantics and rate limits server-side as needed.
 
 See [WebAuthn Credential Support (FLIP)](https://github.com/onflow/flips/blob/cfaaf5f6b7c752e8db770e61ec9c180dc0eb6543/protocol/20250203-webauthn-credential-support.md) for rationale and wallet‑mode guidance.
 
@@ -512645,9 +513365,9 @@ In this tutorial, you integrated passkeys (WebAuthn) with Flow for both registra
 
 Now that you have completed the tutorial, you should be able to:
 
-* Create a WebAuthn credential and derive a Flow‑compatible public key
-* Generate the correct challenge for signing transactions (wallet sets SHA2‑256(signable))
-* Convert a WebAuthn ECDSA DER signature into Flow's raw `r||s` format and attach the transaction signature extension
+* Create a WebAuthn credential and derive a Flow‑compatible public key.
+* Generate the correct challenge for signing transactions (wallet sets SHA2‑256(signable)).
+* Convert a WebAuthn ECDSA DER signature into Flow's raw `r||s` format and attach the transaction signature extension.
 
 ### Further reading[​](#further-reading "Direct link to Further reading")
 
@@ -512660,7 +513380,7 @@ Now that you have completed the tutorial, you should be able to:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/advanced-concepts/passkeys.md)
 
-Last updated on **Oct 14, 2025** by **Jordan Ribbink**
+Last updated on **Dec 1, 2025** by **cshannon1218**
 
 [Previous
 
@@ -512674,7 +513394,7 @@ FLIX (Flow Interaction Templates)](/build/cadence/advanced-concepts/flix)
 
 Copy as Markdown
 
-* [What you'll learn](#what-youll-learn)* [Benefits of using passkeys](#benefits-of-using-passkeys)* [Prerequisites](#prerequisites)* [Registration](#registration)
+* [What you'll learn](#what-youll-learn)* [Passkey benefits](#passkey-benefits)* [Prerequisites](#prerequisites)* [Registration](#registration)
         + [Build creation options and create credential](#build-creation-options-and-create-credential)+ [Extract and normalize public key](#extract-and-normalize-public-key)+ [Add key to account](#add-key-to-account)* [Signing](#signing)
           + [Generate the challenge](#generate-the-challenge)+ [Request assertion](#request-assertion)+ [Convert and attach signature](#convert-and-attach-signature)* [Notes from the PoC](#notes-from-the-poc)* [Security and UX considerations](#security-and-ux-considerations)* [Limitations of passkeys](#limitations-of-passkeys)* [Credential management (wallet responsibilities)](#credential-management-wallet-responsibilities)* [Conclusion](#conclusion)
                     + [Further reading](#further-reading)
@@ -514721,7 +515441,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -514759,9 +515479,7 @@ On this page
 
 # Working With Parent Accounts
 
-In this tutorial, we'll continue from the perspective of a wallet or marketplace app seeking to facilitate a unified account
-experience, abstracting away the partitioned access between accounts into a single dashboard for user interactions on
-all their owned assets.
+In this tutorial, we'll continue from the perspective of a wallet or marketplace app who seeks to facilitate a unified account experience, and abstract away the partitioned access between accounts into a single dashboard for user interactions on all their owned assets.
 
 ## Objectives[​](#objectives "Direct link to Objectives")
 
@@ -514776,106 +515494,61 @@ all their owned assets.
 
 info
 
-TL;DR: An account's
-[`HybridCustody.Manager`](https://github.com/onflow/hybrid-custody/blob/main/contracts/HybridCustody.cdc) is the entry
-point for all of a user's associated accounts.
+TL;DR: An account's [`HybridCustody.Manager`](https://github.com/onflow/hybrid-custody/blob/main/contracts/HybridCustody.cdc) is the entry point for all of a user's associated accounts.
 
-The basic idea in the Hybrid Custody model is relatively simple. A parent account is one that has received delegated
-(albeit restricted) access on another account. The account which has delegated authority over itself to the parent
-account is the child account.
+The basic idea in the Hybrid Custody model is relatively simple. A parent account is one that has received delegated (albeit restricted) access on another account. The account which has delegated authority over itself to the parent account is the child account.
 
-In the [Hybrid Custody Model](https://forum.flow.com/t/hybrid-custody/4016), this child account would have shared
-access between the app - the entity which created and likely custodies the account - and the linked parent account.
+In the [Hybrid Custody Model](https://forum.flow.com/t/hybrid-custody/4016), this child account would have shared access between the app - the entity which created and likely custodies the account - and the linked parent account.
 
-How does this delegation occur? Typically when we think of shared account access in crypto, we think keys. However,
-Cadence enables [accounts to link Capabilities on
-themselves](https://cadence-lang.org/docs/language/accounts/capabilities#accountcapabilities) and issue those
-Capabilities to other parties (more on [capability-based access
-here](https://cadence-lang.org/docs/language/capabilities)).
+How does this delegation occur? Typically when we think of shared account access in crypto, we think keys. However, Cadence allows [accounts to link Capabilities on themselves](https://cadence-lang.org/docs/language/accounts/capabilities#accountcapabilities) and issue those Capabilities to other parties (more on [capability-based access here](https://cadence-lang.org/docs/language/capabilities.)).
 
-This feature has been leveraged in an ecosystem standard so that apps can implement a hybrid custody model whereby the app
-creates an account it controls, then later delegates access on that account to the user once they've authenticated with
-their wallet.
+This feature was leveraged in an ecosystem standard so that apps can implement a hybrid custody model whereby the app creates an account it controls, then later delegates access on that account to the user once they've authenticated with their wallet.
 
-All related constructs are used together in the [`HybridCustody`
-contract](https://github.com/onflow/hybrid-custody/tree/main) to define the standard.
+All related constructs are used together in the [`HybridCustody` contract](https://github.com/onflow/hybrid-custody/tree/main) to define the standard.
 
-Parent accounts own a `Manager` resource which stores Capabilities to `ChildAccount` (restricted access) and
-`OwnedAccount` (unrestricted access) resources, both of which are stored in any given child account.
+Parent accounts own a `Manager` resource which stores Capabilities to `ChildAccount` (restricted access) and `OwnedAccount` (unrestricted access) resources, both of which are stored in any given child account.
 
-Therefore, the presence of a `Manager` in an account implies there are potentially associated accounts for which the
-owning account has delegated access. This resource is intended to be configured with a public Capability that enables
-querying of an account's child account addresses via `getAccountAddresses()` and `getOwnedAccountAddresses()`. As you can
-deduce from these two methods, there is a notion of "owned" accounts which we'll expand on later.
+Therefore, the presence of a `Manager` in an account implies there are potentially associated accounts for which the owning account has delegated access. This resource is intended to be configured with a public Capability that allows you to query an account's child account addresses via `getAccountAddresses()` and `getOwnedAccountAddresses()`. As you can deduce from these two methods, there is a notion of "owned" accounts which we'll expand on later.
 
-A wallet or marketplace wishing to discover all of a user's accounts and assets within them can do so by first looking
-to the user's `Manager`.
+If a wallet or marketplace wants to discover all of a user's accounts and assets within them, they can first look to the user's `Manager`.
 
-### Identifying Account Hierarchy[​](#identifying-account-hierarchy "Direct link to Identifying Account Hierarchy")
+### Identify account hierarchy[​](#identify-account-hierarchy "Direct link to Identify account hierarchy")
 
-To clarify, insofar as the standard is concerned, an account is a parent account if it contains a `Manager` resource,
-and an account is a child account if it contains at minimum an `OwnedAccount` or additionally a `ChildAccount` resource.
+To clarify, insofar as the standard is concerned, an account is a parent account if it contains a `Manager` resource, and an account is a child account if it contains at minimum an `OwnedAccount` or additionally a `ChildAccount` resource.
 
-Within a user's `Manager`, its mapping of `childAccounts` points to the addresses of its child accounts in each key,
-with corresponding values that give the `Manager` access to those accounts via corresponding `ChildAccount` Capability.
+Within a user's `Manager`, its mapping of `childAccounts` points to the addresses of its child accounts in each key, with corresponding values that give the `Manager` access to those accounts via corresponding `ChildAccount` Capability.
 
 ![HybridCustody Conceptual Overview](/assets/images/hybrid_custody_conceptual_overview-d5155af50fce363671600e0242b4e391.png)
 
-Likewise, the child account's `ChildAccount.parentAddress` (which owns a `Manager`) points to the user's account as its
-parent address. This makes it easy to both identify whether an account is a parent, child, or both, and its associated
-parent or child account(s).
+Likewise, the child account's `ChildAccount.parentAddress` (which owns a `Manager`) points to the user's account as its parent address. This makes it easy to both identify whether an account is a parent, child, or both, and its associated parent or child account(s).
 
-`OwnedAccount` resources underly all account delegations, so can have multiple parents whereas `ChildAccount`s are 1:1.
-This provides more granular revocation as each parent account has its own Capability path on which its access relies.
+`OwnedAccount` resources underly all account delegations, so can have multiple parents whereas `ChildAccount`s are 1:1. This provides more granular revocation as each parent account has its own Capability path on which its access relies.
 
 #### Restricted vs. Owned Accounts[​](#restricted-vs-owned-accounts "Direct link to Restricted vs. Owned Accounts")
 
-`ChildAccount` Capabilities allow access to the underlying account according to rules
-configured by the child account delegating access. The `ChildAccount` maintains these rules along with an `OwnedAccount`
-Capability within which the `&Account` Capability is stored. Anyone with access to the surface level `ChildAccount`
-can then access the underlying `Account`, but only according the pre-defined rule set. These rules are fundamentally
-a list of Types that can/cannot be retrieved from an account.
+`ChildAccount` Capabilities allow access to the underlying account according to rules configured when the child account delegates access. The `ChildAccount` maintains these rules along with an `OwnedAccount` Capability within which the `&Account` Capability is stored. Anyone with access to the surface level `ChildAccount` can then access the underlying `Account`, but only within the pre-defined rule set. These rules are fundamentally a list of Types that can or can't be retrieved from an account.
 
-The app developer can codify these rule sets on allowable Capability types in a
-[`CapabilityFilter`](https://github.com/onflow/hybrid-custody/blob/main/contracts/CapabilityFilter.cdc) along with a
-[`CapabilityFactory`](https://github.com/onflow/hybrid-custody/blob/main/contracts/CapabilityFactory.cdc) defining retrieval
-patterns for those Capabilities. When delegation occurs, the developer would provide the `CapabilityFilter` and
-`CapabilityFactory` Capabilities to an `OwnedAccount` resource which stores them in a `ChildAccount` resource. Then,
-capabilities are created for the `OwnedAccount` and `ChildAccount` resource and are given to the specified parent
-account.
+The app developer can codify these rule sets on allowable Capability types in a [`CapabilityFilter`](https://github.com/onflow/hybrid-custody/blob/main/contracts/CapabilityFilter.cdc) along with a [`CapabilityFactory`](https://github.com/onflow/hybrid-custody/blob/main/contracts/CapabilityFactory.cdc) defining retrieval patterns for those Capabilities. When delegation occurs, the developer would provide the `CapabilityFilter` and `CapabilityFactory` Capabilities to an `OwnedAccount` resource which stores them in a `ChildAccount` resource. Then, capabilities are created for the `OwnedAccount` and `ChildAccount` resource and are given to the specified parent account.
 
-So, if an app developer wants to enable Hybrid Custody but doesn't want to allow parent accounts to access FungibleToken
-Vaults, for example, the app developer can codify rule sets enumerating allowable Capability types in a
-`CapabilityFilter` along with a `CapabilityFactory` defining retrieval patterns for those Capabilities.
+So, if an app developer wants to turn on Hybrid Custody but doesn't want to allow parent accounts to access FungibleToken Vaults, for example, the app developer can codify rule sets enumerating allowable Capability types in a `CapabilityFilter` along with a `CapabilityFactory` defining retrieval patterns for those Capabilities.
 
-When delegation occurs, they would provide the `CapabilityFilter` and `CapabilityFactory` Capabilities to an
-`OwnedAccount`. This `OwnedAccount` then wraps the given filter & factory Capabilities in a `ChildAccount` along with a
-Capability to itself before publishing the new `ChildAccount` Capability for the specified parent account to claim.
+When delegation occurs, they would provide the `CapabilityFilter` and `CapabilityFactory` Capabilities to an `OwnedAccount`. This `OwnedAccount` then wraps the given filter & factory Capabilities in a `ChildAccount` along with a Capability to itself before it publishes the new `ChildAccount` Capability for the specified parent account to claim.
 
 info
 
-If you enumerate allowable Types in your `CapabilityFilter.Filter` implementation, you by default exclude
-access to anything other than the Types you declare as allowable.
+If you enumerate allowable Types in your `CapabilityFilter.Filter` implementation, you by default exclude access to anything other than the Types you declare as allowable.
 
-As mentioned earlier, `Manager`s also maintain access to "owned" accounts - accounts which define unrestricted access as
-they allow direct retrieval of encapsulated `&Account` Capabilities. These owned accounts, found in `Manager.ownedAccounts`,
-are simply `OwnedAccount` Capabilities instead of `ChildAccount` Capabilities.
+As mentioned earlier, `Manager`s also maintain access to "owned" accounts - accounts which define unrestricted access as they allow direct retrieval of encapsulated `&Account` Capabilities. These owned accounts, found in `Manager.ownedAccounts`, are simply `OwnedAccount` Capabilities instead of `ChildAccount` Capabilities.
 
 ![HybridCustody Total Overview](/assets/images/hybrid_custody_low_level-d02b49dc41a18f8ca382a968141846a4.png)
 
 ### Considerations[​](#considerations "Direct link to Considerations")
 
-Do note that this construction does not prevent an account from having multiple parent accounts or a child account from
-being the parent to other accounts. While initial intuition might lead one to believe that account associations are a
-tree with the user at the root, the graph of associated accounts among child accounts may lead to cycles of association.
+This construction does not prevent an account from having multiple parent accounts or a child account from being the parent to other accounts. While initial intuition might lead one to believe that account associations are a tree with the user at the root, the graph of associated accounts among child accounts may lead to cycles of association.
 
-We believe it's unlikely for a use case to demand a user delegates authority over their main account (in fact
-we'd discourage such constructions), but it might be useful to delegate access between child accounts. As an example,
-consider a set of local game clients across mobile and web platforms, each with self-custodied app accounts that have
-delegated authority to each other while both are child accounts of the user's main account.
+We believe it's unlikely for a use case to demand a user delegates authority over their main account (in fact we'd discourage such constructions), but it might be useful to delegate access between child accounts. As an example, consider a set of local game clients across mobile and web platforms, each with self-custodied app accounts that have delegated authority to each other while both are child accounts of the user's main account.
 
-Ultimately, it's' up to the implementing wallet or marketplace how far down the graph of account associations they'd
-want to traverse and display to the user.
+Ultimately, it's' up to the wallet or marketplace who implements this how far down the graph of account associations they'd want to traverse and display to the user.
 
 ## Implementation[​](#implementation "Direct link to Implementation")
 
@@ -514886,14 +515559,14 @@ From the perspective of a wallet or marketplace app, some relevant things to kno
 * What NFTs are owned by this user across all associated accounts?
 * What are the balances of all FungibleTokens across all associated accounts?
 
-And with respect to acting on the assets of child accounts and managing child accounts themselves:
+And with respect to actions on the assets of child accounts and management of the child accounts themselves:
 
-* Accessing an NFT from a linked account's Collection
-* Removing a linked account
+* Access an NFT from a linked account's Collection
+* Remove a linked account
 
 ## Examples[​](#examples "Direct link to Examples")
 
-### Query Whether an Address Has Associated Accounts[​](#query-whether-an-address-has-associated-accounts "Direct link to Query Whether an Address Has Associated Accounts")
+### Query whether an address has associated accounts[​](#query-whether-an-address-has-associated-accounts "Direct link to Query whether an address has associated accounts")
 
 This script will return `true` if a `HybridCustody.Manager` is stored and `false` otherwise
 
@@ -514933,10 +515606,9 @@ _10
 
 }`
 
-### Query All Accounts Associated with Address[​](#query-all-accounts-associated-with-address "Direct link to Query All Accounts Associated with Address")
+### Query all accounts associated with address[​](#query-all-accounts-associated-with-address "Direct link to Query all accounts associated with address")
 
-The following script will return an array of addresses associated with a given account's address, inclusive of the
-provided address. If a `HybridCustody.Manager` is not found, the script will revert.
+The following script will return an array of addresses associated with a given account's address, inclusive of the provided address. If a `HybridCustody.Manager` is not found, the script will revert.
 
 get\_child\_addresses.cdc
 
@@ -514970,20 +515642,16 @@ _10
 
 }`
 
-### Query All Owned NFT Metadata[​](#query-all-owned-nft-metadata "Direct link to Query All Owned NFT Metadata")
+### Query all owned NFT metadata[​](#query-all-owned-nft-metadata "Direct link to Query all owned NFT metadata")
 
-While it is possible to iterate over the storage of all associated accounts in a single script, memory limits prevent
-this approach from scaling well.
+While it is possible to iterate over the storage of all associated accounts in a single script, memory limits prevent this approach from scaling well.
 
-Since some accounts hold thousands of NFTs, we recommend breaking up iteration, utilizing several queries to iterate
-over accounts and the storage of each account. Batching queries on individual accounts may even be required based on the
-number of NFTs held.
+Since some accounts hold thousands of NFTs, we recommend that you break up iteration and use several queries to iterate over accounts and the storage of each account. Based on the number of NFTs held, you might be required to batch the queries on individual accounts.
 
 1. Get all associated account addresses (see above).
-2. Looping over each associated account address client-side, get each address's owned NFT metadata.
+2. Loop over each associated account address client-side and get each address's owned NFT metadata.
 
-For simplicity, we'll show a condensed query, returning NFT display views from all accounts associated with a given
-address for a specified NFT Collection path.
+For simplicity, we'll show a condensed query that returns NFT display views from all accounts associated with a given address for a specified NFT Collection path.
 
 get\_nft\_display\_view\_from\_public.cdc
 
@@ -515203,16 +515871,14 @@ _59
 
 }`
 
-At the end of this query, the caller will have a mapping of `Display` views indexed on the NFT ID and grouped by account
-Address. This script does not take batching into consideration and assumes that each NFT resolves the
-`MetadataViews.Display` view type.
+At the end of this query, the caller will have a mapping of `Display` views indexed on the NFT ID and grouped by account Address. This script does not take batching into consideration and assumes that each NFT resolves the `MetadataViews.Display` view type.
 
-### Query All Account FungibleToken Balances[​](#query-all-account-fungibletoken-balances "Direct link to Query All Account FungibleToken Balances")
+### Query all acount FungibleToken balances[​](#query-all-acount-fungibletoken-balances "Direct link to Query all acount FungibleToken balances")
 
 Similar to the previous example, we recommend that you break up this task due to memory limits.
 
 1. Get all linked account addresses (see above).
-2. Looping over each associated account address client-side, get each address's owned FungibleToken Vault metadata.
+2. Loop over each associated account address client-side and get each address's owned FungibleToken Vault metadata.
 
 However, we'll condense both of these steps down into one script for simplicity:
 
@@ -515470,18 +516136,13 @@ _66
 
 The above script returns a dictionary of balances indexed on the type and further grouped by account Address.
 
-The returned data at the end of address iteration should be sufficient to achieve a unified balance of all Vaults of
-similar types across all of a user's associated account as well as a more granular per account view.
+The returned data at the end of address iteration should be sufficient to achieve a unified balance of all Vaults of similar types across all of a user's associated account as well as a more granular per account view.
 
-You might consider resolving
-[`FungibleTokenMetadataViews`](https://github.com/onflow/flow-ft/blob/master/contracts/FungibleTokenMetadataViews.cdc)
-to aggregate more information about the underlying Vaults.
+You might resolve [`FungibleTokenMetadataViews`](https://github.com/onflow/flow-ft/blob/master/contracts/FungibleTokenMetadataViews.cdc) to aggregate more information about the underlying Vaults.
 
-### Access NFT in Child Account from Parent Account[​](#access-nft-in-child-account-from-parent-account "Direct link to Access NFT in Child Account from Parent Account")
+### Access NFT in child account from parent account[​](#access-nft-in-child-account-from-parent-account "Direct link to Access NFT in child account from parent account")
 
-A user with NFTs in their child accounts will likely want to utilize said NFTs. In this example, the user signs a
-transaction with their authenticated account that retrieves a reference to a child account's
-`NonFungibleToken.Provider`, which allows withdrawal from the child account that signs as the parent account.
+A user with NFTs in their child accounts will likely want to utilize said NFTs. In this example, the user signs a transaction with their authenticated account that retrieves a reference to a child account's `NonFungibleToken.Provider`, which allows withdrawal from the child account that signs as the parent account.
 
 withdraw\_nft\_from\_child.cdc
 
@@ -515677,26 +516338,19 @@ _52
 
 }`
 
-At the end of this transaction, you withdrew an NFT from the specified account using an NFT `Provider` Capability. A
-similar approach could get you any allowable Capabilities from a signer's child account.
+At the end of this transaction, you withdrew an NFT from the specified account with an NFT `Provider` Capability. A similar approach could get you any allowable Capabilities from a signer's child account.
 
-### Revoking Secondary Access on a Linked Account[​](#revoking-secondary-access-on-a-linked-account "Direct link to Revoking Secondary Access on a Linked Account")
+### Revoke secondary access on a linked account[​](#revoke-secondary-access-on-a-linked-account "Direct link to Revoke secondary access on a linked account")
 
-The expected uses of child accounts for progressive onboarding implies that they will be accounts with shared access. A
-user may decide that they no longer want secondary parties to have access to the child account.
+The expected uses of child accounts for progressive onboarding implies that they will be accounts with shared access. A user may decide that they no longer want secondary parties to have access to the child account.
 
-There are two ways a party can have delegated access to an account - keys and `&Account` Capability. With
-`ChildAccount` mediated access, a user wouldn't be able to revoke anyone's access except for their own. With
-unrestricted access via `OwnedAccount`, one could remove parents (`OwnedAccount.removeParent(parent: Address)`) thereby
-unlinking relevant Capabilities and further destroying their `ChildAccount` and `CapabilityDelegator` resources.
+There are two ways a party can have delegated access to an account - keys and `&Account` Capability. With `ChildAccount` mediated access, a user wouldn't be able to revoke anyone's access except for their own. With unrestricted access via `OwnedAccount`, one could remove parents (`OwnedAccount.removeParent(parent: Address)`) thereby unlinking relevant Capabilities and further destroying their `ChildAccount` and `CapabilityDelegator` resources.
 
-For now, we recommend that if users want to revoke secondary access, they transfer any assets from the relevant child
-account and remove it from their `Manager` altogether.
+For now, we recommend that if users want to revoke secondary access, they transfer any assets from the relevant child account and remove it from their `Manager` altogether.
 
 ### Remove a Child Account[​](#remove-a-child-account "Direct link to Remove a Child Account")
 
-As mentioned above, if a user no longer wishes to share access with another party, we recommended that they transfer desired assets from that account to either their main account or other linked accounts and the linked account be removed
-from their `HybridCustody.Manager`. Let's see how to complete that removal.
+As mentioned above, if a user no longer wishes to share access with another party, we recommended that they transfer desired assets from that account to either their main account or other linked accounts and the linked account be removed from their `HybridCustody.Manager`. Let's see how to complete that removal.
 
 remove\_child\_account.cdc
 
@@ -515746,7 +516400,7 @@ and ultimately the owners of these child accounts the ability to revoke secondar
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/account-management/parent-accounts.md)
 
-Last updated on **Nov 3, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -515761,8 +516415,8 @@ Account Linking With NBA Top Shot](/blockchain-development-tutorials/cadence/acc
 Copy as Markdown
 
 * [Objectives](#objectives)* [Design Overview](#design-overview)
-    + [Identifying Account Hierarchy](#identifying-account-hierarchy)+ [Considerations](#considerations)* [Implementation](#implementation)* [Examples](#examples)
-        + [Query Whether an Address Has Associated Accounts](#query-whether-an-address-has-associated-accounts)+ [Query All Accounts Associated with Address](#query-all-accounts-associated-with-address)+ [Query All Owned NFT Metadata](#query-all-owned-nft-metadata)+ [Query All Account FungibleToken Balances](#query-all-account-fungibletoken-balances)+ [Access NFT in Child Account from Parent Account](#access-nft-in-child-account-from-parent-account)+ [Revoking Secondary Access on a Linked Account](#revoking-secondary-access-on-a-linked-account)+ [Remove a Child Account](#remove-a-child-account)
+    + [Identify account hierarchy](#identify-account-hierarchy)+ [Considerations](#considerations)* [Implementation](#implementation)* [Examples](#examples)
+        + [Query whether an address has associated accounts](#query-whether-an-address-has-associated-accounts)+ [Query all accounts associated with address](#query-all-accounts-associated-with-address)+ [Query all owned NFT metadata](#query-all-owned-nft-metadata)+ [Query all acount FungibleToken balances](#query-all-acount-fungibletoken-balances)+ [Access NFT in child account from parent account](#access-nft-in-child-account-from-parent-account)+ [Revoke secondary access on a linked account](#revoke-secondary-access-on-a-linked-account)+ [Remove a Child Account](#remove-a-child-account)
 
 Flow
 
@@ -527467,7 +528121,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -531064,7 +531718,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -533605,7 +534259,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -534706,7 +535360,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -547712,7 +548366,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -547720,9 +548374,7 @@ Search
 
 * [Ecosystem Index](/ecosystem)* [Developer Support Hub](/ecosystem/developer-support-hub)
 
-    + [Builder Perks](/ecosystem/developer-support-hub/builder-perks)+ [Grants](/ecosystem/developer-support-hub/grants)+ [VCs & Funds](/ecosystem/developer-support-hub/vcs-and-funds)* [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
-
-                * [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
+    + [Builder Perks](/ecosystem/developer-support-hub/builder-perks)+ [Grants](/ecosystem/developer-support-hub/grants)+ [VCs & Funds](/ecosystem/developer-support-hub/vcs-and-funds)* [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
 
 * * [Developer Support Hub](/ecosystem/developer-support-hub)* Builder Perks
 
@@ -547798,6 +548450,134 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 
 
 
+# Source: https://developers.flow.com/defi/add-token-to-metamask
+
+How To Add Token To MetaMask | Flow Developer Portal
+
+
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Defi](/defi)* [Build with Forte ↙](/defi/forte)* [DeFi Contracts Mainnet](/defi/defi-contracts-mainnet)* [DeFi Contracts Testnet](/defi/defi-contracts-testnet)* [Cross-chain swaps on Flow EVM](/defi/cross-chain-swaps)* [Add Token To MetaMask](/defi/add-token-to-metamask)* [Band Oracle](/defi/band-oracle)* [Stablecoins & Bridges FAQ](/defi/faq)
+
+* * Add Token To MetaMask
+
+On this page
+
+# How To Add Token To MetaMask
+
+info
+
+Want to add a token to MetaMask on Flow EVM?
+
+You can find a list of tokens on Flow at [evm.flowscan.io/tokens](https://evm.flowscan.io/tokens) or check the most popular DeFi token contract addresses [here](/defi/defi-contracts-mainnet)
+
+## Objectives[​](#objectives "Direct link to Objectives")
+
+After completing this guide, you'll be able to:
+
+* Add ERC20 tokens to MetaMask via [Flowscan](https://evm.flowscan.io).
+* Manually add a custom token to MetaMask using a contract address.
+* Locate Flow EVM token contract addresses on various platforms.
+
+## Add a Token to MetaMask via Flowscan[​](#add-a-token-to-metamask-via-flowscan "Direct link to Add a Token to MetaMask via Flowscan")
+
+1. Visit <https://evm.flowscan.io/tokens> to find the token you want to add to MetaMask.
+2. Hover over the token you want to import, and a MetaMask icon will appear. Click on it to add the token.
+
+note
+
+If you haven't yet added the Flow EVM network to your MetaMask, you will receive a prompt to add the network before adding the token.
+
+![Add Token Via Flowscan](/assets/images/add_wrapped_flow_to_metamask-414ae9fd33a9cc3d9d26aabc0007db72.jpg)
+
+![Add wrapped Flow](/assets/images/add_wrapped_flow_to_metamask_2-1f9ff16f19895dc55d5c4cf7e25f0755.png)
+
+## Add a Custom Token in MetaMask Wallet[​](#add-a-custom-token-in-metamask-wallet "Direct link to Add a Custom Token in MetaMask Wallet")
+
+If you have a token contract address, you can manually add it to MetaMask.
+
+### Steps to Add a Custom Token[​](#steps-to-add-a-custom-token "Direct link to Steps to Add a Custom Token")
+
+1. Open your MetaMask and go to the **Tokens** tab.
+2. Scroll down and click on **Import tokens**.
+3. Enter the token contract address.
+4. Click **Next**, then **Import** to add the token.
+
+![Add custom token in MetaMask](/assets/images/add_custom_token_metamask-35251f31db402d26d23471d723b726ae.gif)
+
+## How to Find The Token Contract Address[​](#how-to-find-the-token-contract-address "Direct link to How to Find The Token Contract Address")
+
+You can find token contract addresses on:
+
+* [Flowscan Token List](https://evm.flowscan.io/tokens)
+* The [DeFi Contracts](/defi/defi-contracts-mainnet) page
+* [Dexscreener Flow EVM](https://dexscreener.com/flowevm)
+* [Gecko Terminal Flow EVM](https://www.geckoterminal.com/flow-evm/pools)
+
+If you're unsure, check the Flow EVM block explorer at [evm.flowscan.io](https://evm.flowscan.io)
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/defi/add-token-to-metamask.md)
+
+Last updated on **Dec 1, 2025** by **Brian Doyle**
+
+[Previous
+
+Cross-chain swaps on Flow EVM](/defi/cross-chain-swaps)[Next
+
+Band Oracle](/defi/band-oracle)
+
+###### Rate this page
+
+😞😐😊
+
+Copy as Markdown
+
+* [Objectives](#objectives)* [Add a Token to MetaMask via Flowscan](#add-a-token-to-metamask-via-flowscan)* [Add a Custom Token in MetaMask Wallet](#add-a-custom-token-in-metamask-wallet)
+      + [Steps to Add a Custom Token](#steps-to-add-a-custom-token)* [How to Find The Token Contract Address](#how-to-find-the-token-contract-address)
+
+Flow
+
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
+
+Cadence
+
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
+
+Solidity (EVM)
+
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
+
+Community & Support
+
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
+
+Network & Resources
+
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow Foundation. All Rights Reserved.
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/why
 
 why | Flow Developer Portal
@@ -547808,7 +548588,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -548204,7 +548984,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -554662,7 +555442,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -554846,7 +555626,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -555338,9 +556118,11 @@ _10
 
 `GetTransaction` gets a [transaction](#transaction) by ID.
 
+Any type of transaction - user submitted, scheduled transaction or a system transaction can be queried.
+
 If the transaction is not found in the access node cache, the request is forwarded to a collection node.
 
-*Currently, only transactions within the current epoch can be queried.*
+*Currently, only transactions within the current network upgrade can be queried.*
 
 `_10
 
@@ -555398,6 +556180,8 @@ _10
 
 `GetTransactionsByBlockID` gets all the [transactions](#transaction) for a specified block.
 
+The response includes user transactions, scheduled transactions, and system transactions.
+
 `_10
 
 rpc GetTransactionsByBlockID(GetTransactionsByBlockIDRequest) returns (TransactionsResponse);`
@@ -555441,6 +556225,8 @@ _10
 ### GetTransactionResult[​](#gettransactionresult "Direct link to GetTransactionResult")
 
 `GetTransactionResult` gets the execution result of a transaction.
+
+Any type of transaction - user submitted, scheduled transaction or a system transaction can be queried.
 
 `_10
 
@@ -555526,6 +556312,8 @@ _12
 
 `GetTransactionResultByIndex` gets a transaction's result at a specified block and index.
 
+Any type of transaction - user submitted, scheduled transaction or a system transaction can be queried.
+
 `_10
 
 rpc GetTransactionResultByIndex(GetTransactionByIndexRequest) returns (TransactionResultResponse);`
@@ -555606,6 +556394,8 @@ _12
 
 `GetTransactionResultsByBlockID` gets all the transaction results for a specified block.
 
+The response includes results for user transactions, scheduled transactions, and system transactions.
+
 `_10
 
 rpc GetTransactionResultsByBlockID(GetTransactionsByBlockIDRequest) returns (TransactionResultsResponse);`
@@ -555646,23 +556436,27 @@ _10
 
 }`
 
-### GetSystemTransaction[​](#getsystemtransaction "Direct link to GetSystemTransaction")
+### GetScheduledTransaction[​](#getscheduledtransaction "Direct link to GetScheduledTransaction")
 
-`GetSystemTransaction` gets the system transaction for a block.
+`GetScheduledTransaction` gets the scheduled transaction body for a given scheduled transaction ID.
 
 `_10
 
-rpc GetSystemTransaction(GetSystemTransactionRequest) returns (TransactionResponse);`
+rpc GetScheduledTransaction(GetScheduledTransactionRequest) returns (TransactionResponse);`
 
 #### Request[​](#request-15 "Direct link to Request")
 
 `_10
 
-message GetSystemTransactionRequest {
+message GetScheduledTransactionRequest {
 
 _10
 
-bytes block_id = 1;
+uint64 id = 1;
+
+_10
+
+entities.ExecutionStateQuery execution_state_query = 2;
 
 _10
 
@@ -555686,15 +556480,111 @@ _10
 
 }`
 
+### GetScheduledTransactionResult[​](#getscheduledtransactionresult "Direct link to GetScheduledTransactionResult")
+
+GetScheduledTransactionResult gets a scheduled transaction result for a given scheduled transaction ID
+
+`_10
+
+rpc GetScheduledTransactionResult(GetScheduledTransactionResultRequest)
+
+_10
+
+returns (TransactionResultResponse);`
+
+#### Request[​](#request-16 "Direct link to Request")
+
+`_10
+
+message GetScheduledTransactionResultRequest {
+
+_10
+
+uint64 id = 1;
+
+_10
+
+entities.EventEncodingVersion event_encoding_version = 2;
+
+_10
+
+entities.ExecutionStateQuery execution_state_query = 3;
+
+_10
+
+}`
+
+#### Response[​](#response-16 "Direct link to Response")
+
+`_10
+
+message TransactionResponse {
+
+_10
+
+entities.Transaction transaction = 1;
+
+_10
+
+entities.Metadata metadata = 2;
+
+_10
+
+}`
+
+### GetSystemTransaction[​](#getsystemtransaction "Direct link to GetSystemTransaction")
+
+`GetSystemTransaction` gets the system transaction for a block.
+
+*Scheduled Transactions will not be included in the response*
+
+`_10
+
+rpc GetSystemTransaction(GetSystemTransactionRequest) returns (TransactionResponse);`
+
+#### Request[​](#request-17 "Direct link to Request")
+
+`_10
+
+message GetSystemTransactionRequest {
+
+_10
+
+bytes block_id = 1;
+
+_10
+
+}`
+
+#### Response[​](#response-17 "Direct link to Response")
+
+`_10
+
+message TransactionResponse {
+
+_10
+
+entities.Transaction transaction = 1;
+
+_10
+
+entities.Metadata metadata = 2;
+
+_10
+
+}`
+
 ### GetSystemTransactionResult[​](#getsystemtransactionresult "Direct link to GetSystemTransactionResult")
 
 `GetSystemTransactionResult` gets the system transaction result for a block.
+
+*Scheduled Transactions will not be included in the response*
 
 `_10
 
 rpc GetSystemTransactionResult(GetSystemTransactionResultRequest) returns (TransactionResultResponse);`
 
-#### Request[​](#request-16 "Direct link to Request")
+#### Request[​](#request-18 "Direct link to Request")
 
 `_10
 
@@ -555712,7 +556602,7 @@ _10
 
 }`
 
-#### Response[​](#response-16 "Direct link to Response")
+#### Response[​](#response-18 "Direct link to Response")
 
 `_12
 
@@ -555776,7 +556666,7 @@ _12
 
 rpc GetAccount(GetAccountRequest) returns (GetAccountResponse)`
 
-#### Request[​](#request-17 "Direct link to Request")
+#### Request[​](#request-19 "Direct link to Request")
 
 `_10
 
@@ -555790,7 +556680,7 @@ _10
 
 }`
 
-#### Response[​](#response-17 "Direct link to Response")
+#### Response[​](#response-19 "Direct link to Response")
 
 `_10
 
@@ -555818,7 +556708,7 @@ The access node queries an execution node for the account details, which are sto
 
 rpc GetAccountAtLatestBlock(GetAccountAtLatestBlockRequest) returns (AccountResponse)`
 
-#### Request[​](#request-18 "Direct link to Request")
+#### Request[​](#request-20 "Direct link to Request")
 
 `_10
 
@@ -555832,7 +556722,7 @@ _10
 
 }`
 
-#### Response[​](#response-18 "Direct link to Response")
+#### Response[​](#response-20 "Direct link to Response")
 
 `_10
 
@@ -555860,7 +556750,7 @@ The access node queries an execution node for the account details, which are sto
 
 rpc GetAccountAtBlockHeight(GetAccountAtBlockHeightRequest) returns (AccountResponse)`
 
-#### Request[​](#request-19 "Direct link to Request")
+#### Request[​](#request-21 "Direct link to Request")
 
 `_10
 
@@ -555878,7 +556768,7 @@ _10
 
 }`
 
-#### Response[​](#response-19 "Direct link to Response")
+#### Response[​](#response-21 "Direct link to Response")
 
 `_10
 
@@ -555904,7 +556794,7 @@ _10
 
 rpc GetAccountBalanceAtLatestBlock(GetAccountBalanceAtLatestBlockRequest) returns (AccountBalanceResponse);`
 
-#### Request[​](#request-20 "Direct link to Request")
+#### Request[​](#request-22 "Direct link to Request")
 
 `_10
 
@@ -555918,7 +556808,7 @@ _10
 
 }`
 
-#### Response[​](#response-20 "Direct link to Response")
+#### Response[​](#response-22 "Direct link to Response")
 
 `_10
 
@@ -555944,7 +556834,7 @@ _10
 
 rpc GetAccountBalanceAtBlockHeight(GetAccountBalanceAtBlockHeightRequest) returns (AccountBalanceResponse);`
 
-#### Request[​](#request-21 "Direct link to Request")
+#### Request[​](#request-23 "Direct link to Request")
 
 `_10
 
@@ -555962,7 +556852,7 @@ _10
 
 }`
 
-#### Response[​](#response-21 "Direct link to Response")
+#### Response[​](#response-23 "Direct link to Response")
 
 `_10
 
@@ -555988,7 +556878,7 @@ _10
 
 rpc GetAccountKeyAtLatestBlock(GetAccountKeyAtLatestBlockRequest) returns (AccountKeyResponse);`
 
-#### Request[​](#request-22 "Direct link to Request")
+#### Request[​](#request-24 "Direct link to Request")
 
 `_10
 
@@ -556014,7 +556904,7 @@ _10
 
 }`
 
-#### Response[​](#response-22 "Direct link to Response")
+#### Response[​](#response-24 "Direct link to Response")
 
 `_10
 
@@ -556040,7 +556930,7 @@ _10
 
 rpc GetAccountKeyAtBlockHeight(GetAccountKeyAtBlockHeightRequest) returns (AccountKeyResponse);`
 
-#### Request[​](#request-23 "Direct link to Request")
+#### Request[​](#request-25 "Direct link to Request")
 
 `_10
 
@@ -556074,7 +556964,7 @@ _10
 
 }`
 
-#### Response[​](#response-23 "Direct link to Response")
+#### Response[​](#response-25 "Direct link to Response")
 
 `_10
 
@@ -556100,7 +556990,7 @@ _10
 
 rpc GetAccountKeysAtLatestBlock(GetAccountKeysAtLatestBlockRequest) returns (AccountKeysResponse);`
 
-#### Request[​](#request-24 "Direct link to Request")
+#### Request[​](#request-26 "Direct link to Request")
 
 `_10
 
@@ -556118,7 +557008,7 @@ _10
 
 }`
 
-#### Response[​](#response-24 "Direct link to Response")
+#### Response[​](#response-26 "Direct link to Response")
 
 `_10
 
@@ -556144,7 +557034,7 @@ _10
 
 rpc GetAccountKeysAtBlockHeight(GetAccountKeysAtBlockHeightRequest) returns (AccountKeysResponse);`
 
-#### Request[​](#request-25 "Direct link to Request")
+#### Request[​](#request-27 "Direct link to Request")
 
 `_10
 
@@ -556166,7 +557056,7 @@ _10
 
 }`
 
-#### Response[​](#response-25 "Direct link to Response")
+#### Response[​](#response-27 "Direct link to Response")
 
 `_10
 
@@ -556208,7 +557098,7 @@ _10
 
 value = ExecuteScriptAtBlockID(header.ID, script)`
 
-#### Request[​](#request-26 "Direct link to Request")
+#### Request[​](#request-28 "Direct link to Request")
 
 `_10
 
@@ -556226,7 +557116,7 @@ _10
 
 }`
 
-#### Response[​](#response-26 "Direct link to Response")
+#### Response[​](#response-28 "Direct link to Response")
 
 `_10
 
@@ -556258,7 +557148,7 @@ This method can be used to read account state from the blockchain. The script is
 
 rpc ExecuteScriptAtBlockID (ExecuteScriptAtBlockIDRequest) returns (ExecuteScriptResponse)`
 
-#### Request[​](#request-27 "Direct link to Request")
+#### Request[​](#request-29 "Direct link to Request")
 
 `_10
 
@@ -556280,7 +557170,7 @@ _10
 
 }`
 
-#### Response[​](#response-27 "Direct link to Response")
+#### Response[​](#response-29 "Direct link to Response")
 
 `_10
 
@@ -556312,7 +557202,7 @@ This method can be used to read account state from the blockchain. The script is
 
 rpc ExecuteScriptAtBlockHeight (ExecuteScriptAtBlockHeightRequest) returns (ExecuteScriptResponse)`
 
-#### Request[​](#request-28 "Direct link to Request")
+#### Request[​](#request-30 "Direct link to Request")
 
 `_10
 
@@ -556334,7 +557224,7 @@ _10
 
 }`
 
-#### Response[​](#response-28 "Direct link to Response")
+#### Response[​](#response-30 "Direct link to Response")
 
 `_10
 
@@ -556380,7 +557270,7 @@ The event results are grouped by block, with each group specifying a block ID, h
 
 Event types are name-spaced with the address of the account and contract in which they are declared.
 
-#### Request[​](#request-29 "Direct link to Request")
+#### Request[​](#request-31 "Direct link to Request")
 
 `_10
 
@@ -556406,7 +557296,7 @@ _10
 
 }`
 
-#### Response[​](#response-29 "Direct link to Response")
+#### Response[​](#response-31 "Direct link to Response")
 
 `_10
 
@@ -556460,7 +557350,7 @@ Events can be requested for a list of block IDs via the `block_ids` field and fu
 
 The event results are grouped by block, with each group specifying a block ID, height and block timestamp.
 
-#### Request[​](#request-30 "Direct link to Request")
+#### Request[​](#request-32 "Direct link to Request")
 
 `_10
 
@@ -556482,7 +557372,7 @@ _10
 
 }`
 
-#### Response[​](#response-30 "Direct link to Response")
+#### Response[​](#response-32 "Direct link to Response")
 
 `_10
 
@@ -556539,13 +557429,13 @@ The following method can be used to query for network parameters.
 
 rpc GetNetworkParameters (GetNetworkParametersRequest) returns (GetNetworkParametersResponse)`
 
-#### Request[​](#request-31 "Direct link to Request")
+#### Request[​](#request-33 "Direct link to Request")
 
 `_10
 
 message GetNetworkParametersRequest {}`
 
-#### Response[​](#response-31 "Direct link to Response")
+#### Response[​](#response-33 "Direct link to Response")
 
 `_10
 
@@ -556573,13 +557463,13 @@ _10
 
 rpc GetNodeVersionInfo (GetNodeVersionInfoRequest) returns (GetNodeVersionInfoResponse);`
 
-#### Request[​](#request-32 "Direct link to Request")
+#### Request[​](#request-34 "Direct link to Request")
 
 `_10
 
 message GetNodeVersionInfoRequest {}`
 
-#### Response[​](#response-32 "Direct link to Response")
+#### Response[​](#response-34 "Direct link to Response")
 
 `_10
 
@@ -556608,13 +557498,13 @@ It is used by Flow nodes joining the network to bootstrap a space-efficient loca
 
 rpc GetLatestProtocolStateSnapshot (GetLatestProtocolStateSnapshotRequest) returns (ProtocolStateSnapshotResponse);`
 
-#### Request[​](#request-33 "Direct link to Request")
+#### Request[​](#request-35 "Direct link to Request")
 
 `_10
 
 message GetLatestProtocolStateSnapshotRequest {}`
 
-#### Response[​](#response-33 "Direct link to Response")
+#### Response[​](#response-35 "Direct link to Response")
 
 `_10
 
@@ -556641,7 +557531,7 @@ Used by Flow nodes joining the network to bootstrap a space-efficient local stat
 
 rpc GetProtocolStateSnapshotByBlockID(GetProtocolStateSnapshotByBlockIDRequest) returns (ProtocolStateSnapshotResponse);`
 
-#### Request[​](#request-34 "Direct link to Request")
+#### Request[​](#request-36 "Direct link to Request")
 
 `_10
 
@@ -556655,7 +557545,7 @@ _10
 
 }`
 
-#### Response[​](#response-34 "Direct link to Response")
+#### Response[​](#response-36 "Direct link to Response")
 
 `_10
 
@@ -556682,7 +557572,7 @@ Used by Flow nodes joining the network to bootstrap a space-efficient local stat
 
 rpc GetProtocolStateSnapshotByHeight(GetProtocolStateSnapshotByHeightRequest) returns (ProtocolStateSnapshotResponse);`
 
-#### Request[​](#request-35 "Direct link to Request")
+#### Request[​](#request-37 "Direct link to Request")
 
 `_10
 
@@ -556696,7 +557586,7 @@ _10
 
 }`
 
-#### Response[​](#response-35 "Direct link to Response")
+#### Response[​](#response-37 "Direct link to Response")
 
 `_10
 
@@ -556728,7 +557618,7 @@ Particularly, it contains `EventsCollection` hash for every chunk which can be u
 
 rpc GetExecutionResultForBlockID(GetExecutionResultForBlockIDRequest) returns (ExecutionResultForBlockIDResponse);`
 
-#### Request[​](#request-36 "Direct link to Request")
+#### Request[​](#request-38 "Direct link to Request")
 
 `_10
 
@@ -556742,7 +557632,7 @@ _10
 
 }`
 
-#### Response[​](#response-36 "Direct link to Response")
+#### Response[​](#response-38 "Direct link to Response")
 
 `_10
 
@@ -556770,7 +557660,7 @@ Particularly, it contains `EventsCollection` hash for every chunk which can be u
 
 rpc GetExecutionResultByID(GetExecutionResultByIDRequest) returns (ExecutionResultByIDResponse);`
 
-#### Request[​](#request-37 "Direct link to Request")
+#### Request[​](#request-39 "Direct link to Request")
 
 `_10
 
@@ -556784,7 +557674,7 @@ _10
 
 }`
 
-#### Response[​](#response-37 "Direct link to Response")
+#### Response[​](#response-39 "Direct link to Response")
 
 `_10
 
@@ -557494,7 +558384,7 @@ which block to start from when reconnecting.
 
 rpc SubscribeEvents(SubscribeEventsRequest) returns (stream SubscribeEventsResponse)`
 
-#### Request[​](#request-38 "Direct link to Request")
+#### Request[​](#request-40 "Direct link to Request")
 
 `_10
 
@@ -557528,7 +558418,7 @@ _10
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Field Description|  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | start\_block\_id The first block to search for events. Only one of start\_block\_id and start\_block\_height may be provided, otherwise an InvalidArgument error is returned. If neither are provided, the latest sealed block is used|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | start\_block\_height Block height of the first block to search for events. Only one of start\_block\_id and start\_block\_height may be provided, otherwise an InvalidArgument error is returned. If neither are provided, the latest sealed block is used|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | filter Filter to apply to events for each block searched. If no filter is provided, all events are returned|  |  |  |  | | --- | --- | --- | --- | | heartbeat\_interval Interval in block heights at which the server should return a heartbeat message to the client|  |  | | --- | --- | | event\_encoding\_version Preferred event encoding version of the block events payload. Possible variants: CCF, JSON-CDC | | | | | | | | | | | |
 
-#### Response[​](#response-38 "Direct link to Response")
+#### Response[​](#response-40 "Direct link to Response")
 
 `_10
 
@@ -557566,7 +558456,7 @@ _10
 
 rpc SubscribeExecutionData(SubscribeExecutionDataRequest) returns (stream SubscribeExecutionDataResponse)`
 
-#### Request[​](#request-39 "Direct link to Request")
+#### Request[​](#request-41 "Direct link to Request")
 
 `_10
 
@@ -557592,7 +558482,7 @@ _10
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Field Description|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | start\_block\_id The first block to get execution data for. Only one of start\_block\_id and start\_block\_height may be provided, otherwise an InvalidArgument error is returned. If neither are provided, the latest sealed block is used|  |  |  |  | | --- | --- | --- | --- | | start\_block\_height Block height of the first block to get execution data for. Only one of start\_block\_id and start\_block\_height may be provided, otherwise an InvalidArgument error is returned. If neither are provided, the latest sealed block is used|  |  | | --- | --- | | event\_encoding\_version Preferred event encoding version of the block events payload. Possible variants: CCF, JSON-CDC | | | | | | | |
 
-#### Response[​](#response-39 "Direct link to Response")
+#### Response[​](#response-41 "Direct link to Response")
 
 `_10
 
@@ -557667,7 +558557,7 @@ Below is a list of the available CLI flags to control the behavior of the API
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/protocol/access-onchain-data/index.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Dec 2, 2025** by **Vishal**
 
 [Previous
 
@@ -557685,7 +558575,7 @@ Copy as Markdown
       + [GetLatestBlockHeader](#getlatestblockheader)+ [GetBlockHeaderByID](#getblockheaderbyid)+ [GetBlockHeaderByHeight](#getblockheaderbyheight)* [Blocks](#blocks)
         + [GetLatestBlock](#getlatestblock)+ [GetBlockByID](#getblockbyid)+ [GetBlockByHeight](#getblockbyheight)* [Collections](#collections)
           + [GetCollectionByID](#getcollectionbyid)+ [GetFullCollectionByID](#getfullcollectionbyid)* [Transactions](#transactions)
-            + [SendTransaction](#sendtransaction)+ [GetTransaction](#gettransaction)+ [GetTransactionsByBlockID](#gettransactionsbyblockid)+ [GetTransactionResult](#gettransactionresult)+ [GetTransactionResultByIndex](#gettransactionresultbyindex)+ [GetTransactionResultsByBlockID](#gettransactionresultsbyblockid)+ [GetSystemTransaction](#getsystemtransaction)+ [GetSystemTransactionResult](#getsystemtransactionresult)* [Accounts](#accounts)
+            + [SendTransaction](#sendtransaction)+ [GetTransaction](#gettransaction)+ [GetTransactionsByBlockID](#gettransactionsbyblockid)+ [GetTransactionResult](#gettransactionresult)+ [GetTransactionResultByIndex](#gettransactionresultbyindex)+ [GetTransactionResultsByBlockID](#gettransactionresultsbyblockid)+ [GetScheduledTransaction](#getscheduledtransaction)+ [GetScheduledTransactionResult](#getscheduledtransactionresult)+ [GetSystemTransaction](#getsystemtransaction)+ [GetSystemTransactionResult](#getsystemtransactionresult)* [Accounts](#accounts)
               + [GetAccount](#getaccount)+ [GetAccountAtLatestBlock](#getaccountatlatestblock)+ [GetAccountAtBlockHeight](#getaccountatblockheight)+ [GetAccountBalanceAtLatestBlock](#getaccountbalanceatlatestblock)+ [GetAccountBalanceAtBlockHeight](#getaccountbalanceatblockheight)+ [GetAccountKeyAtLatestBlock](#getaccountkeyatlatestblock)+ [GetAccountKeyAtBlockHeight](#getaccountkeyatblockheight)+ [GetAccountKeysAtLatestBlock](#getaccountkeysatlatestblock)+ [GetAccountKeysAtBlockHeight](#getaccountkeysatblockheight)* [Scripts](#scripts)
                 + [ExecuteScriptAtLatestBlock](#executescriptatlatestblock)+ [ExecuteScriptAtBlockID](#executescriptatblockid)+ [ExecuteScriptAtBlockHeight](#executescriptatblockheight)* [Events](#events)
                   + [GetEventsForHeightRange](#geteventsforheightrange)+ [GetEventsForBlockIDs](#geteventsforblockids)* [Network Parameters](#network-parameters)
@@ -560538,7 +561428,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -564529,7 +565419,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -572902,24 +573792,24 @@ Learn how to compose with someone else's on-chain contracts by writing a Cadence
 
 ### [Native Data Availability with Cadence Scripts](/blockchain-development-tutorials/cadence/cadence-advantages/native-data-availibility-with-cadence-scripts)[​](#native-data-availability-with-cadence-scripts "Direct link to native-data-availability-with-cadence-scripts")
 
-Discover how Cadence scripts provide native data availability, allowing you to query any on-chain data directly from Flow's state without relying on external indexers or APIs. This comprehensive tutorial shows you how to build scripts that can discover and query NFT collections across multiple child accounts using Hybrid Custody, then extend it to include both NBA Top Shot and NFL All Day NFTs. You'll learn to filter and process NFT collections, extract specific metadata, and compare Cadence's native data availability with Solidity's limitations.
+Discover how Cadence scripts provide native data availability, which allows you to query any on-chain data directly from Flow's state without the need to rely on external indexers or APIs. This comprehensive tutorial shows you how to build scripts that can discover and query NFT collections across multiple child accounts with Hybrid Custody, then extend it to include both NBA Top Shot and NFL All Day NFTs. You'll learn to filter and process NFT collections, extract specific metadata, and compare Cadence's native data availability with Solidity's limitations.
 
 ### [Upgrading Cadence Contracts](/blockchain-development-tutorials/cadence/cadence-advantages/upgrading-cadence-contracts)[​](#upgrading-cadence-contracts "Direct link to upgrading-cadence-contracts")
 
-Learn how to upgrade deployed Cadence contracts through multiple incremental upgrades while preserving existing state and maintaining the same contract address. This tutorial demonstrates Cadence's sophisticated contract upgrade system through two realistic scenarios:
+Learn how to upgrade deployed Cadence contracts through multiple incremental upgrades, preserve the current state, and maintain the same contract address. This tutorial demonstrates Cadence's sophisticated contract upgrade system through two realistic scenarios:
 
-* Adding an event to notify users when the counter reaches an even number.
-* Extending the contract with additional functionality like incrementing by two and checking if numbers are even.
+* Add an event to notify users when the counter reaches an even number.
+* Extend the contract with additional functionality like increment by two and check if numbers are even.
 
-You'll understand what you can and can't change during upgrades, perform multiple contract updates using Flow CLI, and test upgraded functionality with comprehensive transactions and scripts.
+You'll understand what you can and can't change when you upgrade, perform multiple contract updates with Flow CLI, and test upgraded functionality with comprehensive transactions and scripts.
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-Cadence's unique features, such as resource-oriented programming to native data availability, seamless transaction composition, and sophisticated contract upgrade capabilities, represent a fundamental advancement in smart contract development. These tutorials demonstrate how Cadence allows developers to build sophisticated applications with capabilities that simply aren't possible on other blockchain platforms, while maintaining security and developer experience as core principles.
+Cadence's unique features, such as resource-oriented programming to native data availability, seamless transaction composition, and sophisticated contract upgrade capabilities, represent a fundamental advancement in smart contract development. These tutorials demonstrate how Cadence allows developers to build sophisticated applications with capabilities that simply aren't possible on other blockchain platforms and maintain security and developer experience as core principles.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/cadence-advantages/index.md)
 
-Last updated on **Oct 27, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -580330,56 +581220,33 @@ On this page
 
 # Account Linking
 
-Account linking is a unique Flow concept that allows sharing ownership over [accounts](/build/cadence/basics/accounts). To understand how we can achieve that, we must first understand how to access accounts on Flow.
+Account Linking is a unique Flow concept that allows sharing ownership over [accounts](/build/cadence/basics/accounts). To understand how we can achieve that, we must first understand how to access accounts on Flow.
 
-You can access accounts on flow in Cadence through two types, `PublicAccount` and `Account`. As the name implies, the
-`PublicAccount` type gives access to all public account information such as address, balance, storage capacity, etc.,
-but doesn't allow changes to the account. The `Account` type (or more specifically, an
-[entitled](https://cadence-lang.org/docs/language/access-control#entitlements) `&Account`) allows the same access as
-`PublicAccount` but also allows changes to the account, which includes adding or revoking account keys, managing the deployed
-contracts, as well as linking and publishing Capabilities.
+You can access accounts on flow in Cadence through two types, `PublicAccount` and `Account`. As the name implies, the `PublicAccount` type gives access to all public account information such as address, balance, storage capacity, etc., but doesn't allow changes to the account. The `Account` type (or more specifically, an [entitled]`&Account`) allows the same access as `PublicAccount` but also allows changes to the account, which includes adding or revoking account keys, managing the deployed contracts, as well as linking and publishing Capabilities.
 
 ![Flow account structure](/assets/images/account-structure-835ec18016e0f43c6b4a4fea2e54934f.png)
 
-## Accessing Account[​](#accessing-account "Direct link to Accessing Account")
+## Access Account[​](#access-account "Direct link to Access Account")
 
-Accessing `Account` allows for modification to account storage, so it's essential to mandate that the account being accessed signs all transactions, which safeguards this access.
-[Account
-entitlements](https://cadence-lang.org/docs/language/accounts/#performing-write-operations) allow for more granular
-access control over the specific parts of the account that you can access from within the signed transaction. A
-transaction can list multiple authorizing account it wants to access as part of the `prepare` section of the
-transaction. Read more about transaction signing in the [transaction documentation](/build/cadence/basics/transactions).
+When you access `Account`, you can modify account storage, so it's essential to mandate that the account being accessed signs all transactions, which safeguards this access. [Account entitlements](https://cadence-lang.org/docs/language/accounts/#performing-write-operations) allow for more granular access control over the specific parts of the account that you can access from within the signed transaction. A transaction can list multiple authorizing account it wants to access as part of the `prepare` section of the transaction. Read more about transaction signing in the [transaction documentation].
 
-Since access to the `Account` object allows state change, the idea of account ownership actually translates to the
-ability to access the underlying account. Traditionally, you might consider this the same as having key access on an
-account, but we'll see in just a minute how programmatic, ownership-level access is unlocked with [Capabilities on
-Flow](https://cadence-lang.org/docs/language/capabilities).
+Since access to the `Account` object allows state change, the idea of account ownership actually translates to the ability to access the underlying account. Traditionally, you might consider this the same as having key access on an account, but we'll see in just a minute how programmatic, ownership-level access is unlocked with [Cadence Capabilities](https://cadence-lang.org/docs/language/capabilities)
 
 ## Account Capabilities[​](#account-capabilities "Direct link to Account Capabilities")
 
-Before you continue with this section, you'll need a clear understanding of [Cadence
-capabilities](https://cadence-lang.org/docs/language/capabilities). Advanced features such as
-Account Capabilities are powerful, but they can put your app or users at risk if used incorrectly.
+Before you continue with this section, you'll need a clear understanding of [Cadence Capabilities](https://cadence-lang.org/docs/language/capabilities). Advanced features such as Account Capabilities are powerful, but they can put your app or users at risk if used incorrectly.
 
-Cadence allows for Capabilities creation to delegate access to account storage, which means any account that obtains a valid
-Ccapability to another account object in the storage can access it. This is a powerful feature on its own - accessing
-another account programmatically without the need for an active key on the accessible account. You can limit the access to the object when you create a Capability so your users can only access intended functions or fields.
+Cadence allows for Capabilities creation to delegate access to account storage, which means any account that obtains a valid Ccapability to another account object in the storage can access it. This is a powerful feature on its own - to access another account programmatically without the need for an active key on the accessible account. You can limit the access to the object when you create a Capability so your users can only access intended functions or fields.
 
-Account linking is made possible by the extension of Capabilities on the `Account` object itself. Similar to how storage
-capabilities allow access to a value stored in an account's storage, `&Account` Capabilities allow delegated access to
-the issuing `Account`. These Capabilities allow for access to key assignment, contract deployment, and other privileged
-actions on the delegating `Account` - effectively sharing ownership of the account without ever adding or sharing a key.
-This Capability can of course be revoked at any time by the delegating account.
+Account Linking is made possible by the extension of Capabilities on the `Account` object itself. Similar to how storage capabilities allow access to a value stored in an account's storage, `&Account` Capabilities allow delegated access to the issuing `Account`. These Capabilities allow for access to key assignment, contract deployment, and other privileged actions on the delegating `Account` - which effectively shares account ownership without the need to add or share a key. The delegating account can revoke this Capability at any time.
 
-### Creating Account Links[​](#creating-account-links "Direct link to Creating Account Links")
+### Create Account Links[​](#create-account-links "Direct link to Create Account Links")
 
-When we refer to 'account linking,' we mean that the parent account creates an `&Account` Capability and published
-to another account. The account that owns the `&Account` Capability which was made available to another account is the child
-account. The account in possession of the Capability given by the child account becomes its parent account.
+When we refer to 'Account Linking,' we mean that the parent account creates an `&Account` Capability and published to another account. The account that owns the `&Account` Capability which was made available to another account is the child account. The account in possession of the Capability given by the child account becomes its parent account.
 
 ![Account linking on Flow relational diagram](/assets/images/account-linking-relational-diagram-9ea0dedfb84460d27a1e78e2a6c40b65.png)
 
-You can create a link between two existing accounts on Flow in two steps:
+You can create a link between two current accounts on Flow in two steps:
 
 1. A child account creates an `&Account` Capability and publishes it to the parent account.
 2. The parent account, claims that Capability and can access the child's account through it.
@@ -580514,58 +581381,41 @@ _18
 
 }`
 
-## What is account linking most useful for?[​](#what-is-account-linking-most-useful-for "Direct link to What is account linking most useful for?")
+## What is Account Linking most useful for?[​](#what-is-account-linking-most-useful-for "Direct link to What is Account Linking most useful for?")
 
-Account linking was specifically designed to allow smooth and seamless custodial onboarding of users to your Flow based
-application without them first requiring a wallet to do so. This pattern overcomes both the technical hurdle, as well as
-user's reluctance to install a wallet, which opens access to Flow applications to every user. Users can experience an app
-without any delay while still offering a path to self-sovreign ownership.
+Account Linking was specifically designed to allow smooth and seamless custodial onboarding of users to your Flow-based application without the requirement of a wallet to do so. This pattern overcomes both the technical hurdle, as well as user's reluctance to install a wallet, which opens access to Flow applications to every user. Users can experience an app without any delay and still offer a path to self-sovreign ownership.
 
-Naturally, users may expect to use their account with another application, or otherwise move assets stored in that
-account elsewhere - at minimum from their wallet. When an app initially leverages account linking, the app creates the
-account instead of the user and stores that user's specific state in the app-created account. At a later point, users
-can take ownership of the app account providing they possess a full [Flow account](/build/cadence/basics/accounts), typically
-by installing a wallet app.
+Naturally, users may expect to use their account with another application, or otherwise move assets stored in that account elsewhere - at minimum from their wallet. When an app initially leverages Account Linking, the app creates the account instead of the user and stores that user's specific state in the app-created account. At a later point, users can take ownership of the app account if they possess a full [Flow account], which they can get if they install a wallet app.
 
-Account linking allows users to possess multiple linked child accounts from different apps. Complexities associated
-with accessing those child accounts are eliminated by abstracting access to them through the user's parent account.
+Account Linking allows users to possess multiple linked child accounts from different apps. Access complexities associated with those child accounts are eliminated if you abstract access to them through the user's parent account.
 
 info
 
 Simply put, child accounts are accessed and can be treated as a seamless part of the parent account.
 
-All assets in the app account can now jump the walled garden to play in the rest of the Flow ecosystem. The user does
-not need to rely on the custodial app to execute transactions moving assets from the child account as the parent account
-already has access to the assets in the child account.
+All assets in the app account can now jump the walled garden to play in the rest of the Flow ecosystem. The user does not need to rely on the custodial app to execute transactions moving assets from the child account as the parent account already has access to the assets in the child account.
 
 ![Multiple parent-child accounts on Flow](/assets/images/account-linking-multiple-accounts-19cad9db0d1f1abdde126848033b3e43.png)
 
-This shared control over the digital items in the in-app account allows users to establish real ownership of the items
-beyond the context of the app, where they can use their parent account to view inventory, take the items to other apps
-in the ecosystem, such as a marketplace or a game.
+This shared control over the digital items in the in-app account allows users to establish real ownership of the items beyond the context of the app, where they can use their parent account to view inventory, take the items to other apps in the ecosystem, such as a marketplace or a game.
 
-Most importantly, users can do this without the need to transfer the digital items between accounts, which makes it
-seamless to continue using the original app and enjoy their assets in other contexts.
+Most importantly, users can do this without the need to transfer the digital items between accounts, which makes it seamless to continue to use the original app and enjoy their assets in other contexts.
 
-## Security Considerations[​](#security-considerations "Direct link to Security Considerations")
+## Security considerations[​](#security-considerations "Direct link to Security considerations")
 
-Account linking is a *very* powerful Cadence feature, and thus it must be treated with care. So far in this document,
-we've discussed account linking between two accounts we own, even if a third-party
-application manages the child account. But, we can't make the same trust assumptions about custodial accounts in the real world.
+Account Linking is a *very* powerful Cadence feature, and thus you must treat it with care. So far in this document, we've discussed Account Linking between two accounts we own, even if a third-party application manages the child account. But, we can't make the same trust assumptions about custodial accounts in the real world.
 
-If we create an `&Account` Capability and publish it to an account we don't own, we give that account full
-access to our account. This should be seen as an anti-pattern.
+If we create an `&Account` Capability and publish it to an account we don't own, we give that account full access to our account. This should be seen as an anti-pattern.
 
 warning
 
-If you create an `&Account` Capability and share it with a third-party account, you effectively give that person your
-account's private keys.
+If you create an `&Account` Capability and share it with a third-party account, you effectively give that person your account's private keys.
 
-Because unfiltered account linking can be dangerous, Flow introduces the [`HybridCustody`
-contract](/blockchain-development-tutorials/cadence/account-management/parent-accounts) that helps custodial applications regulate access and allows parent accounts to
-manage their many child accounts and assets within them.
+Because unfiltered account linking can be dangerous, Flow introduces the `HybridCustody` contract that helps custodial applications regulate access and allows parent accounts to manage their many child accounts and assets within them.
 
-## Hybrid Custody and Account Linking[​](#hybrid-custody-and-account-linking "Direct link to Hybrid Custody and Account Linking")
+Learn more about it in the [Working With Parent Accounts] documentation.
+
+## Hybrid custody and Account Linking[​](#hybrid-custody-and-account-linking "Direct link to Hybrid custody and Account Linking")
 
 Apps need assurances that their own resources are safe from malicious actors, so to permit full access might not be what they want. Hybrid custody contracts will allow the app to maintain control of their managed accounts, but they can:
 
@@ -580573,29 +581423,32 @@ Apps need assurances that their own resources are safe from malicious actors, so
    parent accounts via helper contracts (the `CapabilityFactory`, and `CapabilityFilter`).
 2. Share additional capabilities (public or private) with a parent account via a `CapabilityDelegator` resource.
 
-Learn more about it in the [Hybrid Custody documentation](/blockchain-development-tutorials/cadence/account-management/parent-accounts).
-
 ### Guides[​](#guides "Direct link to Guides")
 
-* [Building Walletless Applications Using Child Accounts](/blockchain-development-tutorials/cadence/account-management/child-accounts) covers how apps can leverage Account
-  Linking to create a seamless user experience and allow future self-custody.
-* [Working With Parent Accounts](/blockchain-development-tutorials/cadence/account-management/parent-accounts) covers features enabled by the core `HybridCustody` contract to
-  access child account assets from parent accounts. This is useful for apps like marketplaces or wallets that are
-  working with accounts that have potential child accounts.
+* [Building Walletless Applications Using Child Accounts](/blockchain-development-tutorials/cadence/account-management/child-accounts) covers how apps can leverage Account Linking to create a seamless user experience and allow future self-custody.
+* [Working With Parent Accounts] covers features activated by the core `HybridCustody` contract to access child account assets from parent accounts. This is useful for apps like marketplaces or wallets that work with accounts that have potential child accounts.
 
 ### Resources[​](#resources "Direct link to Resources")
 
-* [Forum Post](https://forum.flow.com/t/hybrid-custody/4016) where core concepts were introduced and discussed.
-* [GitHub repository](https://github.com/onflow/hybrid-custody) where `HybridCustody` core contracts and scripts are
-  maintained. Check out the repository for more advanced script or transaction examples.
-* [Example](https://github.com/jribbink/magic-link-hc-sample/) Account Linking project with
-  [Magic](https://magic.link/).
-* [Starter template](https://github.com/Niftory/niftory-samples/tree/main/walletless-onboarding) for
-  [Niftory](https://niftory.com/) Account Linking API.
+* [Forum Post] where core concepts were introduced and discussed.
+* [GitHub repository] where `HybridCustody` core contracts and scripts are maintained. Check out the repository for more advanced script or transaction examples.
+* [Example] - Account Linking project with [Magic].
+* [Starter template] for [Niftory] Account Linking API.
+
+[entitled]: <https://cadence-lang.org/docs/language/access-control#entitlements>)
+[Flow account]: ../../../build/cadence/basics/accounts.md
+[Forum Post]: <https://forum.flow.com/t/hybrid-custody/4016>
+[GitHub repository]: <https://github.com/onflow/hybrid-custody>
+[Example]: <https://github.com/jribbink/magic-link-hc-sample/>
+[Magic]: <https://magic.link/>
+[Starter template]: <https://github.com/Niftory/niftory-samples/tree/main/walletless-onboarding>
+[Niftory]: <https://niftory.com/>
+[transaction documentation]: ../../../build/cadence/basics/transactions.md
+[Working With Parent Accounts]: ./parent-accounts.md
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/account-management/index.md)
 
-Last updated on **Nov 3, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -580609,8 +581462,8 @@ Building Walletless Applications Using Child Accounts](/blockchain-development-t
 
 Copy as Markdown
 
-* [Accessing Account](#accessing-account)* [Account Capabilities](#account-capabilities)
-    + [Creating Account Links](#creating-account-links)* [What is account linking most useful for?](#what-is-account-linking-most-useful-for)* [Security Considerations](#security-considerations)* [Hybrid Custody and Account Linking](#hybrid-custody-and-account-linking)
+* [Access Account](#access-account)* [Account Capabilities](#account-capabilities)
+    + [Create Account Links](#create-account-links)* [What is Account Linking most useful for?](#what-is-account-linking-most-useful-for)* [Security considerations](#security-considerations)* [Hybrid custody and Account Linking](#hybrid-custody-and-account-linking)
           + [Guides](#guides)+ [Resources](#resources)
 
 Flow
@@ -581997,7 +582850,7 @@ Search
 
 On this page
 
-# Compose wth Cadence transactions
+# Compose wth Cadence Transactions
 
 In this tutorial, you'll **compose with someone else's contracts** on Flow testnet. You'll write a Cadence transaction that reads public state from a contract named `Counter` and only increments the counter when it is odd. Then you'll extend the transaction to mint NFTs when the counter is odd, demonstrating how to compose multiple contracts in a single transaction. Everything runs against testnet using the Flow CLI and the dependency manager.
 
@@ -582176,7 +583029,7 @@ _31
 
 }`
 
-Unlike in Solidity, apps aren't limited to the functionality deployed in a smart contract. One of the ways you can expand your app is to write new transactions that call multiple functions in multiple contracts, with branching based on conditions and state, using a single call and a single signature. You don't need to deploy a new contract, use a proxy, or switch to V2.
+Unlike in Solidity, apps aren't limited to the functionality deployed in a smart contract. One of the ways you can expand your app is to write new transactions that call multiple functions in multiple contracts, with branching based on conditions and state, with a single call and a single signature. You don't need to deploy a new contract, use a proxy, or switch to V2.
 
 In this simple example, imagine that you've already deployed a product that has thousands of users and is dependent on the `Counter` smart contract. After a time, you realize that a significant portion of your users only wish to use the `increment` feature if the current `count` is odd, to try and make the number be even.
 
@@ -582332,7 +583185,7 @@ _21
 
 info
 
-As with most blockchains, `log`s are not exposed or returned when transactions are run on testnet or mainnet, but they are visible in the console when you use the [emulator](/build/tools/emulator).
+As with most blockchains, `logs` are not exposed or returned when transactions are run on testnet or mainnet, but they are visible in the console when you use the [emulator](/build/tools/emulator).
 
 ### Run on testnet[​](#run-on-testnet "Direct link to Run on testnet")
 
@@ -582362,7 +583215,7 @@ danger
 
 As with other blockchain accounts, after an account's private key is compromised, anyone with that key completely controls an account and it's assets. **Never** put private keys directly in `flow.json`.
 
-Creating an account using the CLI automatically puts the private key in a `.pkey` file, which is already in `.gitignore`.
+When you create an account with the CLI, it automatically puts the private key in a `.pkey` file, which is already in `.gitignore`.
 
 [Send the transaction](/build/tools/flow-cli/commands#send-transaction) to testnet, signed with `testnet-account`:
 
@@ -582374,13 +583227,13 @@ You will see logs that show the prior value and whether the increment occurred.
 
 tip
 
-You could trigger this same transaction **from an app** and **signed by a wallet** with a single user click. Your dApp would assemble and submit this exact Cadence transaction using your preferred client library, and the user's wallet would authorize it.
+You could trigger this same transaction **from an app** and **signed by a wallet** with a single user click. Your dApp would assemble and submit this exact Cadence transaction with your preferred client library, and the user's wallet would authorize it.
 
 ---
 
 ## Extend with NFT minting[​](#extend-with-nft-minting "Direct link to Extend with NFT minting")
 
-Now let's take our composition to the next level by adding NFT minting functionality when the counter is odd. We'll use an example NFT contract that's already deployed on testnet.
+Now lets take our composition to the next level and add NFT minting functionality when the counter is odd. We'll use an example NFT contract that's already deployed on testnet.
 
 This is a silly use case, but it demonstrates the complex use cases you can add to your apps, after contract deployment, and even if you aren't the author of any of the contracts!
 
@@ -582394,7 +583247,7 @@ flow dependencies install testnet://012e4d204a60ac6f.ExampleNFT`
 
 warning
 
-This repository uses different deployments for core contracts than those that the Flow CLI installs. If you previously installed core contract dependencies (like `NonFungibleToken`, `MetadataViews`, etc.) using the CLI, manually delete all `dependencies` except `Counter` from your `flow.json` file to avoid conflicts.
+This repository uses different deployments for core contracts than those that the Flow CLI installs. If you previously installed core contract dependencies (like `NonFungibleToken`, `MetadataViews`, etc.) with the CLI, manually delete all `dependencies` except `Counter` from your `flow.json` file to avoid conflicts.
 
 ### Understand NFT minting[​](#understand-nft-minting "Direct link to Understand NFT minting")
 
@@ -582522,7 +583375,7 @@ You can copy this functionality and adapt it for our use case.
 
 ### Update the IncrementIfOdd transaction[​](#update-the-incrementifodd-transaction "Direct link to Update the IncrementIfOdd transaction")
 
-Now let's update our `IncrementIfOdd` transaction to mint an NFT when the counter is odd. You can either modify the existing transaction or create a new one:
+Now let's update our `IncrementIfOdd` transaction to mint an NFT when the counter is odd. You can either modify the current transaction or create a new one:
 
 `_43
 
@@ -582764,7 +583617,7 @@ Run the setup transaction:
 
 flow transactions send cadence/transactions/SetupCollection.cdc --signer testnet-account --network testnet`
 
-### Test the Enhanced Transaction[​](#test-the-enhanced-transaction "Direct link to Test the Enhanced Transaction")
+### Test the enhanced transaction[​](#test-the-enhanced-transaction "Direct link to Test the enhanced transaction")
 
 Now run the enhanced transaction:
 
@@ -582798,22 +583651,22 @@ The broken image is expected. We didn't use a real URL in the example nft metada
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-In this tutorial, you learned how to compose with multiple on-chain contracts using Cadence transactions. You built a transaction that conditionally interacts with a Counter contract based on its current state, and then extended it to mint NFTs when the counter is odd, demonstrating the power and flexibility of Cadence's composition model.
+In this tutorial, you learned how to compose with multiple on-chain contracts using Cadence transactions. You built a transaction that conditionally interacts with a Counter contract based on its current state, and then extended it to mint NFTs when the counter is odd, which demonstrates the power and flexibility of Cadence's composition model.
 
 Now that you have completed the tutorial, you should be able to:
 
 * Configure the Flow CLI *dependency manager* to import named contracts from **testnet**.
 * Write a Cadence **transaction** that reads and writes to a public contract you did not deploy.
-* Run the transaction on **testnet** with a funded account using the Flow CLI.
-* Extend the transaction to compose multiple public contracts (`Counter` + `ExampleNFT` + `NonFungibleToken`) without redeploying anything.
+* Run the transaction on **testnet** with a funded account with the Flow CLI.
+* Extend the transaction to compose multiple public contracts (`Counter` + `ExampleNFT` + `NonFungibleToken`) without the need to redeploy anything.
 * Set up NFT collections and mint NFTs conditionally based on on-chain state.
-* View transaction results and NFT transfers using Flowscan.
+* View transaction results and NFT transfers with Flowscan.
 
-This approach gives you the freedom to build complex application logic that composes with any public contracts on Flow, making Cadence's composition model a powerful tool for developers building on Flow.
+This approach gives you the freedom to build complex application logic that composes with any public contracts on Flow, which makes Cadence's composition model a powerful tool for developers building on Flow.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/cadence-advantages/compose-with-cadence-transactions.md)
 
-Last updated on **Oct 30, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -582830,7 +583683,7 @@ Copy as Markdown
 * [Objectives](#objectives)* [Prerequisites](#prerequisites)* [Get started](#get-started)
       + [Install dependencies](#install-dependencies)* [Compose with the public `Counter` contract](#compose-with-the-public-counter-contract)
         + [Run on testnet](#run-on-testnet)* [Extend with NFT minting](#extend-with-nft-minting)
-          + [Install the NFT contract](#install-the-nft-contract)+ [Understand NFT minting](#understand-nft-minting)+ [Update the IncrementIfOdd transaction](#update-the-incrementifodd-transaction)+ [Setup NFT collection](#setup-nft-collection)+ [Test the Enhanced Transaction](#test-the-enhanced-transaction)+ [View your NFT](#view-your-nft)* [Why this matters](#why-this-matters)* [Conclusion](#conclusion)
+          + [Install the NFT contract](#install-the-nft-contract)+ [Understand NFT minting](#understand-nft-minting)+ [Update the IncrementIfOdd transaction](#update-the-incrementifodd-transaction)+ [Setup NFT collection](#setup-nft-collection)+ [Test the enhanced transaction](#test-the-enhanced-transaction)+ [View your NFT](#view-your-nft)* [Why this matters](#why-this-matters)* [Conclusion](#conclusion)
 
 Flow
 
@@ -588509,7 +589362,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -589920,7 +590773,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -602417,7 +603270,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -602453,7 +603306,7 @@ Search
 
 On this page
 
-# Cadence environment setup
+# Cadence Environment Setup
 
 This comprehensive tutorial will guide you through how to set up your complete development environment, deploy your first smart contract, and learn the fundamentals of Flow development. You'll work hands-on with the Flow CLI, local emulator, and a real smart contract to build practical skills from day one.
 
@@ -602464,7 +603317,7 @@ Flow is a blockchain built for the next generation of apps, games, and digital a
 After you complete this tutorial, you'll be able to:
 
 * **Set up a complete Flow development environment** with CLI tools and VSCode integration.
-* **Create and manage Flow projects** using the Flow CLI and understand project structure.
+* **Create and manage Flow projects** with the Flow CLI and understand project structure.
 * **Deploy and interact with smart contracts** on the local Flow emulator.
 * **Execute scripts and transactions** to read from and modify blockchain state.
 * **Understand Flow's account model** and how contracts are deployed to account storage.
@@ -602475,10 +603328,10 @@ After you complete this tutorial, you'll be able to:
 You'll work with a `Counter` contract, a simple but comprehensive example that demonstrates core Flow development patterns. This contract maintains a count value and provides functions to increment, decrement, and read the current count. By the end of this tutorial, you'll have:
 
 * A fully functional local Flow development environment.
-* A deployed Counter contract running on your local emulator.
+* A deployed Counter contract that runs on your local emulator.
 * Scripts to query the contract's state.
 * Transactions to modify the contract's state.
-* Understanding of how to extend this foundation for more complex applications.
+* Knowledge of how to extend this foundation for more complex applications.
 
 **Time Commitment:** Approximately 30-45 minutes
 
@@ -602492,7 +603345,7 @@ You'll work with a `Counter` contract, a simple but comprehensive example that d
 
 ### Install Flow CLI[​](#install-flow-cli "Direct link to Install Flow CLI")
 
-The [Flow Command Line Interface](/build/tools/flow-cli) (CLI) is a set of tools that developers can use to interact with the Flow blockchain by managing accounts, sending transactions, deploying smart contracts, running the emulator, and more. This quickstart will get you familiar with its main concepts and functionality.
+The [Flow Command Line Interface](/build/tools/flow-cli) (CLI) is a set of tools that developers can use to interact with the Flow blockchain. Developers can manage accounts, send transactions, deploy smart contracts, run the emulator, and more. This quickstart will get you familiar with its main concepts and functionality.
 
 The first thing you'll need to do is install the Flow CLI. If you have [homebrew](https://brew.sh/) installed, run:
 
@@ -602534,7 +603387,7 @@ When prompted:
 
 The `flow init` command creates:
 
-* **`flow.json`**: Central configuration file containing accounts, contracts, deployments, and network settings.
+* **`flow.json`**: Central configuration file that contains accounts, contracts, deployments, and network settings.
 * **`emulator-account.pkey`**: Private key for the default emulator account.
 * **`cadence/`**: Directory structure for your Cadence code:
   + `contracts/`: Smart contract files
@@ -602700,7 +603553,7 @@ _31
 
 ### Create and configure deployment account[​](#create-and-configure-deployment-account "Direct link to Create and configure deployment account")
 
-When you create a project, you'll see that a `Counter` contract was added to your [`flow.json` configuration file](/build/tools/flow-cli/flow.json/configuration), but it's not set up for deployment yet. We could deploy it to the automatically created `emulator-account`, but for this example, lets also create a new account on the emulator to deploy it to.
+When you create a project, you'll see that a `Counter` contract was added to your [`flow.json`](/build/tools/flow-cli/flow.json/configuration) configuration file, but it's not set up for deployment yet. We could deploy it to the automatically created `emulator-account`, but for this example, lets also create a new account on the emulator to deploy it to.
 
 info
 
@@ -602717,7 +603570,7 @@ When prompted:
 1. **Account name:** Enter `test-account`
 2. **Network:** Select `Emulator`
 
-This adds the new account to your `flow.json` configuration file.You'll now see this account in your [`flow.json`](/build/tools/flow-cli/flow.json/configuration).
+This adds the new account to your `flow.json` configuration file.
 
 After you've created you accounts, then you can view all your accounts on the with the Flow CLI with:
 
@@ -602803,7 +603656,7 @@ _24
 
 💡 Tip: To fund testnet accounts, run: flow accounts fund`
 
-This is a great tool to visualize your different accounts and balances when you are developing.
+This is a great tool to visualize your different accounts and balances while you develop..
 
 ### Configure contract deployment[​](#configure-contract-deployment "Direct link to Configure contract deployment")
 
@@ -603045,8 +603898,8 @@ You've successfully established a solid foundation for building on Flow. Let's r
 
 ✅ **Blockchain interactions**
 
-* Scripts to query contract state (reading blockchain data).
-* Transactions to modify contract state (writing to blockchain).
+* Scripts to query contract state (read blockchain data).
+* Transactions to modify contract state (write to blockchain).
 * Real-time interaction with blockchain data through CLI commands.
 
 ### Resources for continued learning[​](#resources-for-continued-learning "Direct link to Resources for continued learning")
@@ -603063,7 +603916,7 @@ Welcome to the Flow developer community—you're ready to build the future of di
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/getting-started/cadence-environment-setup.md)
 
-Last updated on **Nov 14, 2025** by **0xLisanAlGaib**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -603852,7 +604705,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -604352,7 +605205,7 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
-# Source: https://developers.flow.com/
+# Source: https://developers.flow.com
 
 Flow Developer Portal
 
@@ -607155,7 +608008,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -609061,7 +609914,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -614236,7 +615089,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -617143,12 +617996,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **9a76a6d7a99aef61**
+Cloudflare Ray ID: **9a7ee4b9fc327a97**
 •
 
 Your IP:
 Click to reveal
-4.236.158.49
+57.151.138.242
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 
