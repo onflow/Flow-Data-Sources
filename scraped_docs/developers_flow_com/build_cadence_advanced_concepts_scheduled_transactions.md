@@ -38,7 +38,7 @@ warning
 
 Scheduled transactions were part of the Forte network upgrade and are available on Flow Mainnet, Flow Emulator (CLI v2.7.0+) and Flow Testnet. For more infomation, see [Forte: Introducing Actions & Agents](https://flow.com/post/forte-introducing-actions-agents-supercharging-composability-and-automation).
 
-Scheduled transactions on the Flow blockchain enable users and smart contracts to autonomously execute predefined logic at specific future times without external triggers. This powerful feature allows developers to create "wake up" patterns where contracts can schedule themselves to run at predetermined block timestamps, which allows novel blockchain automation patterns.
+Scheduled transactions on the Flow blockchain allow users and smart contracts to autonomously execute predefined logic at specific future times without external triggers. This powerful feature allows developers to create "wake up" patterns where contracts can schedule themselves to run at predetermined block timestamps, which allows novel blockchain automation patterns.
 
 Key benefits include:
 
@@ -50,7 +50,7 @@ Common use cases include recurring payments, automated arbitrage, time-based con
 
 info
 
-Flow provides a scheduled transaction manager to make managing your scheduled transactions more streamlined. Check out the [scheduled transactions intro](/blockchain-development-tutorials/forte/scheduled-transactions/scheduled-transactions-introduction) for a tutorial on how to schedule some basic transactions with the manager.
+Flow provides a scheduled transaction manager to help you manage your scheduled transactions more easily. Check out the [scheduled transactions intro](/blockchain-development-tutorials/forte/scheduled-transactions/scheduled-transactions-introduction) for a tutorial on how to schedule some basic transactions with the manager.
 
 ## Concepts[​](#concepts "Direct link to Concepts")
 
@@ -262,7 +262,7 @@ _43
 
 ### Scheduling[​](#scheduling "Direct link to Scheduling")
 
-In sceduling, you create the transaction that executes at a specified future timestamp. The system uses three priority levels:
+In scheduling, you create the transaction that executes at a specified future timestamp. The system uses three priority levels:
 
 * **High Priority**: guarantees execution in the first block with the scheduled time or fails scheduling, requires the highest fees.
 * **Medium Priority**: best-effort execution as close as possible to the scheduled time known during scheduling.
@@ -278,8 +278,7 @@ Each transaction requires:
 
 These arguments are required by the [`FlowTransactionScheduler.schedule()` function](https://github.com/onflow/flow-core-contracts/blob/master/contracts/FlowTransactionScheduler.cdc#L732). This function returns a `ScheduledTransaction` resource object.
 
-The Scheduled Transaction Manager standard (mentioned in the intro) provides an easy way for developers
-and users to manage their scheduled transactions from a central place in their account. Users are strongly encouraged to use this.
+The Scheduled Transaction Manager standard (mentioned in the intro) provides an easy way for developers and users to manage their scheduled transactions from a central place in their account. Users are strongly encouraged to use this.
 
 More information about the Scheduled Transaction manager is in the [section at the end of this document](#2-scheduling-a-transaction-with-the-manager).
 
@@ -289,7 +288,7 @@ When a transaction is scheduled, the [`FlowTransactionScheduler.Scheduled` event
 
 Fee calculation includes:
 
-* **Base execution fee**: based on computational effort using standard Flow fee structure.
+* **Base execution fee**: based on computational effort with standard Flow fee structure.
 * **Priority multiplier**: higher priorities pay more (High: 10x, Medium: 5x, Low: 2x base rate).
 * **Storage fee**: cost to store transaction data on-chain.
 
@@ -309,7 +308,7 @@ If the scheduled transaction fails at any point during execution, the `Executed`
 
 You can cancel scheduled transactions before execution. When you cancel a transaction, it returns a portion of the fees (configurable refund percentage, 50% as of now). Please keep in mind the refund percentage can change in the future.
 
-To cancel, you need the `ScheduledTransaction` resource that was returned during scheduling. The scheduled transaction manager also makes cancelling scheduled transaction easier.
+To cancel, you need the `ScheduledTransaction` resource that was returned during scheduling. The scheduled transaction manager also makes scheduled transaction cancellation easier.
 
 ### Transaction lifecycle[​](#transaction-lifecycle "Direct link to Transaction lifecycle")
 
@@ -974,7 +973,7 @@ _20
 
 ### 6. Monitor execution events[​](#6-monitor-execution-events "Direct link to 6. Monitor execution events")
 
-Use the Flow CLI to monitor all scheduled transaction events in real-time (example for testnet - account addresses may differ):
+Use the Flow Command Line Interface (CLI) to monitor all scheduled transaction events in real-time (example for testnet - account addresses may differ):
 
 `_10
 
@@ -1032,7 +1031,7 @@ Read [FLIP 330: Scheduled Callbacks](https://github.com/onflow/flips/blob/main/p
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/advanced-concepts/scheduled-transactions.md)
 
-Last updated on **Nov 19, 2025** by **Brian Doyle**
+Last updated on **Dec 1, 2025** by **cshannon1218**
 
 [Previous
 

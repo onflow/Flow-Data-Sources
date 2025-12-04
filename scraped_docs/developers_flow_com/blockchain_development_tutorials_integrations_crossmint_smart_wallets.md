@@ -8,7 +8,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -46,45 +46,45 @@ Traditional blockchain wallets create significant friction for mainstream users.
 
 With Crossmint Smart Wallets, you can:
 
-* **Eliminate wallet complexity** with email and social login authentication
-* **Remove onboarding friction** by automatically creating wallets for users
-* **Support multiple authentication methods** including email, Google, passkeys, and external wallets
-* **Enable gasless transactions** to improve user experience
-* **Build on Flow** with full support for both mainnet and testnet environments
-* **Scale with confidence** using infrastructure trusted by Fortune 500 companies
+* **Eliminate wallet complexity** with email and social login authentication.
+* **Remove onboarding friction** with automatic user wallet creation.
+* **Support multiple authentication methods** such as email, Google, passkeys, and external wallets.
+* **Enable gasless transactions** to improve user experience.
+* **Build on Flow** with full support for both mainnet and testnet environments.
+* **Scale with confidence** using infrastructure trusted by Fortune 500 companies.
 
-This tutorial will guide you through integrating Crossmint Smart Wallets into your Flow application. You'll learn how to set up authentication, automatically create wallets, check balances, transfer tokens, and display transaction historyall with a familiar Web2-style developer experience.
+This tutorial will guide you through how to integrate Crossmint Smart Wallets into your Flow application. You'll learn how to set up authentication, automatically create wallets, check balances, transfer tokens, and display transaction historyall with a familiar Web2-style developer experience.
 
 info
 
-Crossmint provides flexible wallet solutions across 50+ blockchains including Flow. This tutorial focuses on the **React implementation** for web applications, but Crossmint also supports Node.js, React Native, Swift (iOS), and Kotlin (Android) platforms.
+Crossmint provides flexible wallet solutions across more than 50 blockchains, such as Flow. This tutorial focuses on the **React implementation** for web applications, but Crossmint also supports Node.js, React Native, Swift (iOS), and Kotlin (Android) platforms.
 
 ## Objectives[​](#objectives "Direct link to Objectives")
 
-After completing this guide, you'll be able to:
+After you complete this guide, you'll be able to:
 
-* Configure a Crossmint account with proper API keys and permissions
-* Implement email and social authentication for automatic wallet creation
-* Display wallet information including address, balance, and ownership details
-* Execute token transfers on Flow using Crossmint's SDK
-* Build an activity feed showing transaction history
-* Handle authentication states and error scenarios properly
-* Deploy your Crossmint-powered application to production
+* Configure a Crossmint account with proper API keys and permissions.
+* Implement email and social authentication for automatic wallet creation.
+* Display wallet information including address, balance, and ownership details.
+* Execute token transfers on Flow using Crossmint's SDK.
+* Build an activity feed showing transaction history.
+* Handle authentication states and error scenarios properly.
+* Deploy your Crossmint-powered application to production.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-Before starting this tutorial, you should have:
+Before you start this tutorial, you should have:
 
-* **Development Environment**: Node.js and npm/yarn/pnpm installed
-* **React Knowledge**: Familiarity with React hooks and component patterns
-* **Next.js or Create-React-App**: A React application ready for integration
-* **Basic Blockchain Concepts**: Understanding of wallet addresses and token transfers (helpful but not required)
+* **Development Environment**: Node.js and npm/yarn/pnpm installed.
+* **React Knowledge**: Familiarity with React hooks and component patterns.
+* **Next.js or Create-React-App**: A React application ready for integration.
+* **Basic Blockchain Concepts**: Knowledge of wallet addresses and token transfers (helpful but not required).
 
-## Setting Up Your Crossmint Account[​](#setting-up-your-crossmint-account "Direct link to Setting Up Your Crossmint Account")
+## Set up your crossmint account[​](#set-up-your-crossmint-account "Direct link to Set up your crossmint account")
 
-You need to create a Crossmint account and configure API access before implementing wallet functionality.
+You need to create a Crossmint account and configure API access before you implement wallet functionality.
 
-### Step 1. Create Your Crossmint Account[​](#step-1-create-your-crossmint-account "Direct link to Step 1. Create Your Crossmint Account")
+### Step 1. Create your Crossmint account[​](#step-1-create-your-crossmint-account "Direct link to Step 1. Create your Crossmint account")
 
 Sign up on the [Crossmint Console](https://www.crossmint.com/console) to establish an account. For development and testing, use the [Staging Console](https://staging.crossmint.com/console) instead.
 
@@ -92,23 +92,23 @@ tip
 
 Always use the staging environment during development. Staging supports testnet blockchains only, while production supports mainnet deployments.
 
-### Step 2. Create a New Project[​](#step-2-create-a-new-project "Direct link to Step 2. Create a New Project")
+### Step 2. Create a new project[​](#step-2-create-a-new-project "Direct link to Step 2. Create a new project")
 
-After logging into the console:
+After you log in to the console:
 
-1. Click **Create New Project**
-2. Enter a project name (e.g., "Flow DApp")
-3. Select your project type (Web Application recommended)
-4. Save your project settings
+1. Click **Create New Project**.
+2. Enter a project name (such as "Flow DApp").
+3. Select your project type (Web Application recommended).
+4. Save your project settings.
 
-### Step 3. Generate API Keys[​](#step-3-generate-api-keys "Direct link to Step 3. Generate API Keys")
+### Step 3. Generate API keys[​](#step-3-generate-api-keys "Direct link to Step 3. Generate API keys")
 
 Navigate to your project dashboard to create a client-side API key:
 
 1. Go to the **API Keys** section
 2. Click **Create New API Key**
 3. Select **Client API Key** (not server key)
-4. Enable the following scopes:
+4. Activate the following scopes:
 
    * `users.create` - Create new users
    * `users.read` - Read user information
@@ -117,14 +117,14 @@ Navigate to your project dashboard to create a client-side API key:
    * `wallets:transactions.create` - Create transactions
    * `wallets:transactions.sign` - Sign transactions
    * `wallets:balance.read` - Read balance information
-   * `wallets.fund` - Fund wallets (staging/development only)
+   * `wallets.fund` - Fund wallets (staging and development only)
 5. Copy the generated API key to your clipboard
 
 warning
 
 Keep your API keys secure! Never commit them to version control. Use environment variables to store sensitive credentials.
 
-### Step 4. Configure Environment Variables[​](#step-4-configure-environment-variables "Direct link to Step 4. Configure Environment Variables")
+### Step 4. Configure environment variables[​](#step-4-configure-environment-variables "Direct link to Step 4. Configure environment variables")
 
 Create a `.env` or `.env.local` file in your project root:
 
@@ -146,11 +146,11 @@ _10
 
 NEXT_PUBLIC_CHAIN=flow`
 
-## Implementing Crossmint Smart Wallets[​](#implementing-crossmint-smart-wallets "Direct link to Implementing Crossmint Smart Wallets")
+## Implement Crossmint Smart Wallets[​](#implement-crossmint-smart-wallets "Direct link to Implement Crossmint Smart Wallets")
 
 With your Crossmint account configured, you can now integrate wallet functionality into your React application.
 
-### Step 1. Install Dependencies[​](#step-1-install-dependencies "Direct link to Step 1. Install Dependencies")
+### Step 1. Install dependencies[​](#step-1-install-dependencies "Direct link to Step 1. Install dependencies")
 
 Install the Crossmint React SDK:
 
@@ -172,7 +172,7 @@ yarn add @crossmint/client-sdk-react-ui`
 
 npm install @crossmint/client-sdk-react-ui`
 
-### Step 2. Configure Crossmint Providers[​](#step-2-configure-crossmint-providers "Direct link to Step 2. Configure Crossmint Providers")
+### Step 2. Configure Crossmint providers[​](#step-2-configure-crossmint-providers "Direct link to Step 2. Configure Crossmint providers")
 
 Crossmint requires three providers to be set up in a specific hierarchy. These providers handle API configuration, authentication, and wallet management.
 
@@ -552,24 +552,24 @@ _41
 
 );`
 
-**Provider Configuration Options:**
+**Provider configuration cptions:**
 
-* **CrossmintProvider**: Top-level provider requiring only your API key
+* **CrossmintProvider**: Top-level provider that requires only your API key.
 * **CrossmintAuthProvider**: Manages authentication with configurable options:
-  + `authModalTitle`: Title displayed in the authentication modal
-  + `loginMethods`: Array of enabled authentication methods (`"email"`, `"google"`, `"apple"`, `"twitter"`, `"farcaster"`)
-  + `appearance`: Customize UI colors and styling
+  + `authModalTitle`: Title displayed in the authentication modal.
+  + `loginMethods`: Array of active authentication methods (`"email"`, `"google"`, `"apple"`, `"twitter"`, `"farcaster"`).
+  + `appearance`: Customize UI colors and style.
 * **CrossmintWalletProvider**: Handles wallet creation and management:
-  + `createOnLogin.chain`: Target blockchain (e.g., `"flow"`, `"flow-testnet"`)
-  + `createOnLogin.signer.type`: Authentication method for wallet signing (`"email"`, `"passkey"`)
+  + `createOnLogin.chain`: Target blockchain (such as `"flow"`, `"flow-testnet"`)
+  + `createOnLogin.signer.type`: Authentication method for wallet signing (`"email"`, `"passkey"`).
 
 info
 
 The `createOnLogin` configuration enables **automatic wallet creation**. When a user logs in for the first time, Crossmint automatically provisions a wallet on the specified chain. No additional setup required!
 
-### Step 3. Implement Authentication[​](#step-3-implement-authentication "Direct link to Step 3. Implement Authentication")
+### Step 3. Implement authentication[​](#step-3-implement-authentication "Direct link to Step 3. Implement authentication")
 
-Create login and logout components using Crossmint's `useAuth` hook.
+Create login and logout components with Crossmint's `useAuth` hook.
 
 **LoginButton.tsx:**
 
@@ -769,9 +769,9 @@ _21
 
 }`
 
-### Step 4. Display Wallet Information[​](#step-4-display-wallet-information "Direct link to Step 4. Display Wallet Information")
+### Step 4. Display wallet information[​](#step-4-display-wallet-information "Direct link to Step 4. Display wallet information")
 
-Create a component to show wallet details using the `useWallet` hook.
+Create a component to show wallet details with the `useWallet` hook.
 
 **WalletInfo.tsx:**
 
@@ -1015,9 +1015,9 @@ _65
 
 } ``
 
-### Step 5. Display Wallet Balance[​](#step-5-display-wallet-balance "Direct link to Step 5. Display Wallet Balance")
+### Step 5. Display wallet balance[​](#step-5-display-wallet-balance "Direct link to Step 5. Display wallet balance")
 
-Fetch and display the wallet's token balance using the `wallet.balances()` method.
+Fetch and display the wallet's token balance with the `wallet.balances()` method.
 
 **WalletBalance.tsx:**
 
@@ -1277,9 +1277,9 @@ _69
 
 }`
 
-### Step 6. Implement Token Transfers[​](#step-6-implement-token-transfers "Direct link to Step 6. Implement Token Transfers")
+### Step 6. Implement token transfers[​](#step-6-implement-token-transfers "Direct link to Step 6. Implement token transfers")
 
-Create a component for transferring tokens using the `wallet.send()` method.
+Create a component to transfer tokens with the `wallet.send()` method.
 
 **TransferTokens.tsx:**
 
@@ -1723,11 +1723,11 @@ _117
 
 tip
 
-The `wallet.send()` method throws an `AuthRejectedError` when users cancel the transaction. Handle this separately to avoid showing unnecessary error messages.
+The `wallet.send()` method throws an `AuthRejectedError` when users cancel the transaction. Handle this separately to avoid a display of unnecessary error messages.
 
-### Step 7. Build Activity Feed[​](#step-7-build-activity-feed "Direct link to Step 7. Build Activity Feed")
+### Step 7. Build activity feed[​](#step-7-build-activity-feed "Direct link to Step 7. Build activity feed")
 
-Display transaction history using the `wallet.experimental_activity()` method with polling for real-time updates.
+Display transaction history with the `wallet.experimental_activity()` method with polling for real-time updates.
 
 **ActivityFeed.tsx:**
 
@@ -2171,7 +2171,7 @@ warning
 
 The `experimental_activity()` method is experimental and may change in future SDK versions. Always handle errors gracefully and provide fallback UI.
 
-### Step 8. Create Main Dashboard[​](#step-8-create-main-dashboard "Direct link to Step 8. Create Main Dashboard")
+### Step 8. Create main dashboard[​](#step-8-create-main-dashboard "Direct link to Step 8. Create main dashboard")
 
 Combine all components into a cohesive dashboard with proper state management.
 
@@ -2465,7 +2465,7 @@ For native Android development:
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-In this tutorial, you successfully integrated Crossmint Smart Wallets to enable seamless blockchain experiences on Flow. You learned how to implement email-based authentication, automatically create wallets for users, display balances, execute token transfers, and show transaction historyall without requiring users to understand complex blockchain concepts like seed phrases or gas fees.
+In this tutorial, you successfully integrated Crossmint Smart Wallets to enable seamless blockchain experiences on Flow. You learned how to implement email-based authentication, automatically create wallets for users, display balances, execute token transfers, and show transaction history, all without a requirement that users understand complex blockchain concepts like seed phrases or gas fees.
 
 Now that you have completed the tutorial, you should be able to:
 
@@ -2480,7 +2480,7 @@ Crossmint's wallet infrastructure, combined with Flow's high-performance blockch
 
 ## Next Steps[​](#next-steps "Direct link to Next Steps")
 
-* Explore [Crossmint's NFT Minting Platform](https://docs.crossmint.com/nft-minting/overview) to add NFT functionality
+* Explore [Crossmint's NFT Minting Platform](https://docs.crossmint.com/nft-minting/overview)to add NFT functionality
 * Learn about [Payment Checkout](https://docs.crossmint.com/payments/overview) for credit card and crypto payments
 * Implement [Passkey Authentication](https://docs.crossmint.com/wallets/signers/passkey) for enhanced security
 * Review [Flow Smart Contract Development](/blockchain-development-tutorials/cadence) to build custom on-chain logic
@@ -2488,7 +2488,7 @@ Crossmint's wallet infrastructure, combined with Flow's high-performance blockch
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/integrations/crossmint/smart-wallets.md)
 
-Last updated on **Nov 6, 2025** by **Felipe Cevallos**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -2500,9 +2500,9 @@ Minting Platform Integration](/blockchain-development-tutorials/integrations/cro
 
 Copy as Markdown
 
-* [Objectives](#objectives)* [Prerequisites](#prerequisites)* [Setting Up Your Crossmint Account](#setting-up-your-crossmint-account)
-      + [Step 1. Create Your Crossmint Account](#step-1-create-your-crossmint-account)+ [Step 2. Create a New Project](#step-2-create-a-new-project)+ [Step 3. Generate API Keys](#step-3-generate-api-keys)+ [Step 4. Configure Environment Variables](#step-4-configure-environment-variables)* [Implementing Crossmint Smart Wallets](#implementing-crossmint-smart-wallets)
-        + [Step 1. Install Dependencies](#step-1-install-dependencies)+ [Step 2. Configure Crossmint Providers](#step-2-configure-crossmint-providers)+ [Step 3. Implement Authentication](#step-3-implement-authentication)+ [Step 4. Display Wallet Information](#step-4-display-wallet-information)+ [Step 5. Display Wallet Balance](#step-5-display-wallet-balance)+ [Step 6. Implement Token Transfers](#step-6-implement-token-transfers)+ [Step 7. Build Activity Feed](#step-7-build-activity-feed)+ [Step 8. Create Main Dashboard](#step-8-create-main-dashboard)* [Additional Platform Support](#additional-platform-support)
+* [Objectives](#objectives)* [Prerequisites](#prerequisites)* [Set up your crossmint account](#set-up-your-crossmint-account)
+      + [Step 1. Create your Crossmint account](#step-1-create-your-crossmint-account)+ [Step 2. Create a new project](#step-2-create-a-new-project)+ [Step 3. Generate API keys](#step-3-generate-api-keys)+ [Step 4. Configure environment variables](#step-4-configure-environment-variables)* [Implement Crossmint Smart Wallets](#implement-crossmint-smart-wallets)
+        + [Step 1. Install dependencies](#step-1-install-dependencies)+ [Step 2. Configure Crossmint providers](#step-2-configure-crossmint-providers)+ [Step 3. Implement authentication](#step-3-implement-authentication)+ [Step 4. Display wallet information](#step-4-display-wallet-information)+ [Step 5. Display wallet balance](#step-5-display-wallet-balance)+ [Step 6. Implement token transfers](#step-6-implement-token-transfers)+ [Step 7. Build activity feed](#step-7-build-activity-feed)+ [Step 8. Create main dashboard](#step-8-create-main-dashboard)* [Additional Platform Support](#additional-platform-support)
           + [Node.js (Backend)](#nodejs-backend)+ [React Native (Mobile)](#react-native-mobile)+ [Swift (iOS Native)](#swift-ios-native)+ [Kotlin (Android Native)](#kotlin-android-native)* [Conclusion](#conclusion)* [Next Steps](#next-steps)
 
 Flow

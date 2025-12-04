@@ -8,7 +8,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -63,8 +63,9 @@ flow project deploy`
 This command automatically deploys your project's contracts based on the
 configuration defined in your `flow.json` file.
 
+**Important:** Use Flow CLI commands to configure your project instead of manually editing `flow.json`.
 Before using this command, read about how to
-[configure project contracts and deployment targets](/build/tools/flow-cli/deployment/project-contracts).
+[configure project contracts and deployment targets](/build/tools/flow-cli/deployment/project-contracts) using CLI commands.
 
 ## Example Usage[​](#example-usage "Direct link to Example Usage")
 
@@ -94,7 +95,11 @@ _10
 
 ✨ All contracts deployed successfully`
 
-In the example above, your `flow.json` file might look something like this:
+**Note:** The `flow.json` configuration shown below is created automatically when you use CLI commands.
+You should use `flow config add contract` and `flow config add deployment` to configure your project
+rather than manually editing the file. See [Add Project Contracts](/build/tools/flow-cli/deployment/project-contracts) for details.
+
+Your `flow.json` file might look something like this:
 
 `_13
 
@@ -168,7 +173,7 @@ KittyItems.cdc
 
 `_10
 
-import NonFungibleToken from "./NonFungibleToken.cdc"
+import "NonFungibleToken"
 
 _10
 
@@ -186,71 +191,82 @@ _10
 
 ## Initialization Arguments[​](#initialization-arguments "Direct link to Initialization Arguments")
 
-Deploying contracts that take initialization arguments
-can be achieved with adding those arguments to the configuration.
+Deploying contracts that take initialization arguments requires adding those arguments to the deployment configuration.
+
+**Note:** For basic deployments, use `flow config add deployment` to configure your contracts.
+Initialization arguments are an advanced feature that may require manual editing of `flow.json`
+after the basic deployment is configured with CLI commands.
 
 Each deployment can be specified as an object containing
-`name` and `args` key specifying arguments to be
+`name` and `args` keys specifying arguments to be
 used during the deployment. Example:
 
-`_14
+`_16
 
-...
+{
 
-_14
+_16
 
 "deployments": {
 
-_14
+_16
 
 "testnet": {
 
-_14
+_16
 
 "my-testnet-account": [
 
-_14
+_16
 
-"NonFungibleToken", {
+"NonFungibleToken",
 
-_14
+_16
+
+{
+
+_16
 
 "name": "Foo",
 
-_14
+_16
 
 "args": [
 
-_14
+_16
 
 { "type": "String", "value": "Hello World" },
 
-_14
+_16
 
 { "type": "UInt32", "value": "10" }
 
-_14
+_16
 
 ]
 
-_14
-
-}]
-
-_14
+_16
 
 }
 
-_14
+_16
+
+]
+
+_16
 
 }
 
-_14
+_16
 
-...`
+}
 
-⚠️ Warning: before proceeding,
-we recommend reading the [Flow CLI security guidelines](/build/tools/flow-cli/flow.json/security)
+_16
+
+}`
+
+⚠️ **Security Warning:** Never put raw private keys in `flow.json`. Always use `.pkey` files for key storage.
+Before proceeding, we recommend reading the [Flow CLI security guidelines](/build/tools/flow-cli/flow.json/security)
 to learn about the best practices for private key storage.
 
 ## Dependency Resolution[​](#dependency-resolution "Direct link to Dependency Resolution")
@@ -261,7 +277,7 @@ After the dependencies are found, the CLI will deploy the contracts in a determi
 such that no contract is deployed until all of its dependencies are deployed.
 The command will return an error if no such ordering exists due to one or more cyclic dependencies.
 
-In the example above, `Foo` will always be deployed before `Bar`.
+In the example above, `NonFungibleToken` will always be deployed before `KittyItems` since `KittyItems` imports `NonFungibleToken`.
 
 ## Address Replacement[​](#address-replacement "Direct link to Address Replacement")
 
@@ -271,6 +287,8 @@ source file location.
 
 The rewritten versions are then deployed to their respective targets,
 leaving the original contract files unchanged.
+
+### Contracts Importing from Other Contracts[​](#contracts-importing-from-other-contracts "Direct link to Contracts Importing from Other Contracts")
 
 In the example above, the `KittyItems` contract would be rewritten like this:
 
@@ -294,152 +312,449 @@ _10
 
 }`
 
+### Contracts Importing from Dependencies[​](#contracts-importing-from-dependencies "Direct link to Contracts Importing from Dependencies")
+
+When your contracts import from the `dependencies` section, the deploy command uses the network-specific aliases defined in those dependencies.
+
+**Example `flow.json` with dependencies:**
+
+`_35
+
+{
+
+_35
+
+"contracts": {
+
+_35
+
+"ExampleConnectors": {
+
+_35
+
+"source": "cadence/contracts/ExampleConnectors.cdc",
+
+_35
+
+"aliases": {
+
+_35
+
+"testing": "0000000000000007"
+
+_35
+
+}
+
+_35
+
+}
+
+_35
+
+},
+
+_35
+
+"dependencies": {
+
+_35
+
+"FlowToken": {
+
+_35
+
+"source": "mainnet://1654653399040a61.FlowToken",
+
+_35
+
+"hash": "cefb25fd19d9fc80ce02896267eb6157a6b0df7b1935caa8641421fe34c0e67a",
+
+_35
+
+"aliases": {
+
+_35
+
+"emulator": "0ae53cb6e3f42a79",
+
+_35
+
+"mainnet": "1654653399040a61",
+
+_35
+
+"testnet": "7e60df042a9c0868"
+
+_35
+
+}
+
+_35
+
+},
+
+_35
+
+"FungibleToken": {
+
+_35
+
+"source": "mainnet://f233dcee88fe0abe.FungibleToken",
+
+_35
+
+"hash": "23c1159cf99b2b039b6b868d782d57ae39b8d784045d81597f100a4782f0285b",
+
+_35
+
+"aliases": {
+
+_35
+
+"emulator": "ee82856bf20e2aa6",
+
+_35
+
+"mainnet": "f233dcee88fe0abe",
+
+_35
+
+"testnet": "9a0766d93b6608b7"
+
+_35
+
+}
+
+_35
+
+}
+
+_35
+
+},
+
+_35
+
+"deployments": {
+
+_35
+
+"testnet": {
+
+_35
+
+"testnet-account": ["ExampleConnectors"]
+
+_35
+
+}
+
+_35
+
+}
+
+_35
+
+}`
+
+**Original contract source:**
+
+ExampleConnectors.cdc
+
+`_10
+
+import "FungibleToken"
+
+_10
+
+import "FlowToken"
+
+_10
+
+_10
+
+access(all) contract ExampleConnectors {
+
+_10
+
+// ...
+
+_10
+
+}`
+
+**Rewritten for testnet deployment:**
+
+ExampleConnectors.cdc
+
+`_10
+
+import FungibleToken from 0x9a0766d93b6608b7
+
+_10
+
+import FlowToken from 0x7e60df042a9c0868
+
+_10
+
+_10
+
+access(all) contract ExampleConnectors {
+
+_10
+
+// ...
+
+_10
+
+}`
+
+**Rewritten for mainnet deployment:**
+
+ExampleConnectors.cdc
+
+`_10
+
+import FungibleToken from 0xf233dcee88fe0abe
+
+_10
+
+import FlowToken from 0x1654653399040a61
+
+_10
+
+_10
+
+access(all) contract ExampleConnectors {
+
+_10
+
+// ...
+
+_10
+
+}`
+
+The deploy command automatically uses the addresses from the `dependencies` section's aliases for the target network. Notice how the addresses change based on the network—testnet uses `0x9a0766d93b6608b7` for `FungibleToken`, while mainnet uses `0xf233dcee88fe0abe`. Contracts in the `dependencies` section are not deployed—they're assumed to already exist on the network at the addresses specified in their aliases.
+
 ## Merging Multiple Configuration Files[​](#merging-multiple-configuration-files "Direct link to Merging Multiple Configuration Files")
 
 You can use the `-f` flag multiple times to merge several configuration files.
 
 If there is an overlap in any of the fields in the configuration between two or more configuration files, the value of
 the overlapped field in the resulting configuration will come from the configuration file that is on the further right
-order in the list of configuration files specified in the -f flag
+order in the list of configuration files specified in the `-f` flag.
 
-Let's look at an example of `deploy` commands with multiple configuration files below
+**Important:** Never put raw private keys in `flow.json`. Always use `.pkey` files for key storage.
+
+**Note:** Use `flow config add account` to create accounts in your main `flow.json` file.
+The merging feature is useful for separating sensitive account information into a separate file that you can exclude from version control.
+
+**Example usage:**
+
+`_10
+
+flow project deploy -f flow.json -f private.json`
+
+**Example configuration files:**
 
 flow.json
 
-`_12
+`_18
 
 {
 
-_12
+_18
 
 "accounts": {
 
-_12
+_18
 
 "admin-account": {
 
-_12
+_18
 
 "address": "f8d6e0586b0a20c7",
 
-_12
+_18
 
-"key": "21c5dfdeb0ff03a7a73ef39788563b62c89adea67bbb21ab95e5f710bd1d40b7"
+"key": {
 
-_12
+_18
+
+"type": "file",
+
+_18
+
+"location": "admin-account.pkey"
+
+_18
+
+}
+
+_18
 
 },
 
-_12
+_18
 
 "test-account": {
 
-_12
+_18
 
 "address": "f8d6e0586b0a20c8",
 
-_12
+_18
 
-"key": "52d5dfdeb0ff03a7a73ef39788563b62c89adea67bbb21ab95e5f710bd1d51c9"
+"key": {
 
-_12
+_18
+
+"type": "file",
+
+_18
+
+"location": "test-account.pkey"
+
+_18
 
 }
 
-_12
+_18
 
 }
 
-_12
+_18
+
+}
+
+_18
 
 }`
 
 private.json
 
-`_10
+`_11
 
 {
 
-_10
+_11
 
-"accounts":{
+"accounts": {
 
-_10
+_11
 
-"admin-account":{
+"admin-account": {
 
-_10
+_11
 
-"address":"f1d6e0586b0a20c7",
+"address": "f1d6e0586b0a20c7",
 
-_10
+_11
 
-"key":"3335dfdeb0ff03a7a73ef39788563b62c89adea67bbb21ab95e5f710bd1d40b7"
+"key": {
 
-_10
+_11
+
+"type": "file",
+
+_11
+
+"location": "admin-account-private.pkey"
+
+_11
 
 }
 
-_10
+_11
 
 }
 
-_10
+_11
+
+}
+
+_11
 
 }`
 
-In the example above, when we try to use the `deploy` command with multiple configuration files and there is an overlap
-in the `admin-account` account in `accounts` field of the configuration, the resulting configuration will be like this
+When using multiple configuration files with overlapping fields, the rightmost file takes precedence.
+In this example, the resulting merged configuration will be:
 
-> flow project deploy -f flow.json -f private.json
-
-`_12
+`_18
 
 {
 
-_12
+_18
 
-"accounts":{
+"accounts": {
 
-_12
+_18
 
-"admin-account":{
+"admin-account": {
 
-_12
+_18
 
-"address":"f1d6e0586b0a20c7",
+"address": "f1d6e0586b0a20c7",
 
-_12
+_18
 
-"key":"3335dfdeb0ff03a7a73ef39788563b62c89adea67bbb21ab95e5f710bd1d40b7"
+"key": {
 
-_12
+_18
+
+"type": "file",
+
+_18
+
+"location": "admin-account-private.pkey"
+
+_18
+
+}
+
+_18
 
 },
 
-_12
+_18
 
-"test-account":{
+"test-account": {
 
-_12
+_18
 
-"address":"f8d6e0586b0a20c8",
+"address": "f8d6e0586b0a20c8",
 
-_12
+_18
 
-"key":"52d5dfdeb0ff03a7a73ef39788563b62c89adea67bbb21ab95e5f710bd1d51c9"
+"key": {
 
-_12
+_18
+
+"type": "file",
+
+_18
+
+"location": "test-account.pkey"
+
+_18
 
 }
 
-_12
+_18
 
 }
 
-_12
+_18
+
+}
+
+_18
 
 }`
+
+**Security best practice:** Ensure `.pkey` files are added to `.gitignore` to prevent accidentally committing private keys to version control.
 
 ## Flags[​](#flags "Direct link to Flags")
 
@@ -540,7 +855,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/deployment/deploy-project-contracts.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Nov 20, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -554,7 +869,8 @@ Execute a Script](/build/tools/flow-cli/scripts/execute-scripts)
 
 Copy as Markdown
 
-* [Example Usage](#example-usage)* [Initialization Arguments](#initialization-arguments)* [Dependency Resolution](#dependency-resolution)* [Address Replacement](#address-replacement)* [Merging Multiple Configuration Files](#merging-multiple-configuration-files)* [Flags](#flags)
+* [Example Usage](#example-usage)* [Initialization Arguments](#initialization-arguments)* [Dependency Resolution](#dependency-resolution)* [Address Replacement](#address-replacement)
+        + [Contracts Importing from Other Contracts](#contracts-importing-from-other-contracts)+ [Contracts Importing from Dependencies](#contracts-importing-from-dependencies)* [Merging Multiple Configuration Files](#merging-multiple-configuration-files)* [Flags](#flags)
             + [Allow Updates](#allow-updates)+ [Show Update Diff](#show-update-diff)+ [Host](#host)+ [Network Key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version Check](#version-check)
 
 Flow

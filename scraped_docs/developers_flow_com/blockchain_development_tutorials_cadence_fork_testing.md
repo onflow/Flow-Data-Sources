@@ -44,13 +44,13 @@ Search
 
 On this page
 
-# Fork testing with Cadence
+# Fork Testing with Cadence
 
 This tutorial teaches you how to run your Cadence tests against a snapshot of Flow mainnet using `flow test` with the `#test_fork` pragma. You'll learn how to test your contracts against real deployed contracts and production data without needing to deploy anything to a live network or bootstrap test accounts.
 
 Fork testing bridges the gap between isolated local unit tests and testnet deployments. It allows you to validate your contracts work correctly with real on-chain state, test integrations with deployed contracts, and debug issues with historical blockchain data—all in a safe, local environment.
 
-## What You'll Learn[​](#what-youll-learn "Direct link to What You'll Learn")
+## What you'll learn[​](#what-youll-learn "Direct link to What you'll learn")
 
 After you complete this tutorial, you'll be able to:
 
@@ -61,15 +61,15 @@ After you complete this tutorial, you'll be able to:
 * **Pin tests to specific block heights** for historical debugging.
 * **Integrate fork testing** into your development workflow.
 
-## What You'll Build[​](#what-youll-build "Direct link to What You'll Build")
+## What you'll build[​](#what-youll-build "Direct link to What you'll build")
 
 You'll create a complete fork testing setup that demonstrates:
 
-* Reading from the live FlowToken contract on mainnet.
-* Deploying your own contract that interacts with mainnet contracts.
-* Testing custom logic against real account balances and state.
-* Executing transactions using impersonated mainnet accounts.
-* A reusable pattern for integration testing your Flow applications.
+* How to read from the live FlowToken contract on mainnet.
+* How to deploy your own contract that interacts with mainnet contracts.
+* How to test custom logic against real account balances and state.
+* How to execute transactions with impersonated mainnet accounts.
+* A reusable pattern for integration tests your Flow applications.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
@@ -85,7 +85,7 @@ For other operating systems, refer to the [installation guide](/build/tools/flow
 
 ### Basic Cadence testing knowledge[​](#basic-cadence-testing-knowledge "Direct link to Basic Cadence testing knowledge")
 
-You should be familiar with writing basic Cadence tests. If you're new to Cadence testing, start with [Testing Smart Contracts](/build/cadence/smart-contracts/testing-strategy) first.
+You should be familiar with how to write basic Cadence tests. If you're new to Cadence testing, start with [Testing Smart Contracts](/build/cadence/smart-contracts/testing-strategy) first.
 
 ### Network access[​](#network-access "Direct link to Network access")
 
@@ -188,7 +188,7 @@ _12
 
 Your `flow.json` now has the mainnet and testnet networks configured from `flow init`. In fork mode, contract imports automatically resolve to the correct network addresses.
 
-## Test Reading Live State[​](#test-reading-live-state "Direct link to Test Reading Live State")
+## Test reading live state[​](#test-reading-live-state "Direct link to Test reading live state")
 
 Generate a script to read `FlowToken` supply:
 
@@ -305,13 +305,13 @@ The pragma handles the fork configuration automatically! You will see the test P
 
 #test_fork(network: "testnet", height: nil)`
 
-## Deploy and Test Your Contract[​](#deploy-and-test-your-contract "Direct link to Deploy and Test Your Contract")
+## Deploy and test Your contract[​](#deploy-and-test-your-contract "Direct link to Deploy and test Your contract")
 
-Now you'll create a contract that depends on FlowToken and test it against the forked mainnet state—no need to bootstrap tokens or set up test accounts.
+Now you'll create a contract that depends on FlowToken and test it against the forked mainnet state. There's no need to bootstrap tokens or set up test accounts.
 
-### Create a Test Account[​](#create-a-test-account "Direct link to Create a Test Account")
+### Create a test account[​](#create-a-test-account "Direct link to Create a test account")
 
-Create a new account for deploying your contract:
+Create a new account to deploy your contract:
 
 `_10
 
@@ -328,7 +328,7 @@ note
 
 This creates a local account with a mainnet-format address for fork testing. When you're ready to deploy to actual mainnet, you'll use this same account—see the [Deploying Contracts guide](/build/cadence/smart-contracts/deploying) for details.
 
-### Create a Contract that Uses `FlowToken`[​](#create-a-contract-that-uses-flowtoken "Direct link to create-a-contract-that-uses-flowtoken")
+### Create a contract that uses `FlowToken`[​](#create-a-contract-that-uses-flowtoken "Direct link to create-a-contract-that-uses-flowtoken")
 
 Generate a new contract:
 
@@ -694,9 +694,9 @@ _39
 
 ## Execute transactions with account impersonation[​](#execute-transactions-with-account-impersonation "Direct link to Execute transactions with account impersonation")
 
-Fork testing includes built-in account impersonation—you can execute transactions as **any mainnet account** without needing private keys. This lets you test interactions with real accounts and their existing state.
+Fork testing includes built-in account impersonation—you can execute transactions as **any mainnet account** without the need for private keys. This lets you test interactions with real accounts and their current state.
 
-### Create Transactions[​](#create-transactions "Direct link to Create Transactions")
+### Create transactions[​](#create-transactions "Direct link to Create transactions")
 
 Generate the transactions:
 
@@ -1193,7 +1193,7 @@ For strategy, limitations, and best practices, see the guide: [Testing Smart Con
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-In this tutorial, you learned how to use fork testing to validate your Cadence contracts against live Flow network state. You created tests that read from real mainnet contracts, deployed custom contracts that interact with production data, and executed transactions using account impersonation—all without deploying to a live network or bootstrapping test accounts.
+In this tutorial, you learned how to use fork testing to validate your Cadence contracts against live Flow network state. You created tests that read from real mainnet contracts, deployed custom contracts that interact with production data, and executed transactions using account impersonation—all without the need deploy to a live network or bootstrap test accounts.
 
 Now that you have completed this tutorial, you can:
 
@@ -1204,7 +1204,7 @@ Now that you have completed this tutorial, you can:
 * **Pin tests to specific block heights** for historical debugging.
 * **Integrate fork testing** into your development workflow.
 
-Fork testing bridges the gap between local unit tests and testnet deployments, allowing you to catch integration issues early and test against real-world conditions. Use it as part of your pre-deployment validation process, alongside emulator unit tests for determinism and isolation, and testnet deployments for final verification.
+Fork testing bridges the gap between local unit tests and testnet deployments, which allows you to catch integration issues early and test against real-world conditions. Use it as part of your pre-deployment validation process, alongside emulator unit tests for determinism and isolation, and testnet deployments for final verification.
 
 ### Next Steps[​](#next-steps "Direct link to Next Steps")
 
@@ -1216,7 +1216,7 @@ Fork testing bridges the gap between local unit tests and testnet deployments, a
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/fork-testing/index.md)
 
-Last updated on **Nov 19, 2025** by **Jordan Ribbink**
+Last updated on **Dec 2, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -1230,10 +1230,10 @@ Flow EVM Guides](/blockchain-development-tutorials/evm)
 
 Copy as Markdown
 
-* [What You'll Learn](#what-youll-learn)* [What You'll Build](#what-youll-build)* [Prerequisites](#prerequisites)
-      + [Flow CLI](#flow-cli)+ [Basic Cadence testing knowledge](#basic-cadence-testing-knowledge)+ [Network access](#network-access)* [Create your project](#create-your-project)* [Install dependencies](#install-dependencies)* [Test Reading Live State](#test-reading-live-state)* [Deploy and Test Your Contract](#deploy-and-test-your-contract)
-              + [Create a Test Account](#create-a-test-account)+ [Create a Contract that Uses `FlowToken`](#create-a-contract-that-uses-flowtoken)+ [Configure contract in flow.json](#configure-contract-in-flowjson)+ [Create scripts for testing](#create-scripts-for-testing)+ [Test Your contract with forked state](#test-your-contract-with-forked-state)+ [What's happening here](#whats-happening-here)* [Execute transactions with account impersonation](#execute-transactions-with-account-impersonation)
-                + [Create Transactions](#create-transactions)+ [Test transaction execution with impersonation](#test-transaction-execution-with-impersonation)+ [Key points about account impersonation](#key-points-about-account-impersonation)* [Run all tests together](#run-all-tests-together)
+* [What you'll learn](#what-youll-learn)* [What you'll build](#what-youll-build)* [Prerequisites](#prerequisites)
+      + [Flow CLI](#flow-cli)+ [Basic Cadence testing knowledge](#basic-cadence-testing-knowledge)+ [Network access](#network-access)* [Create your project](#create-your-project)* [Install dependencies](#install-dependencies)* [Test reading live state](#test-reading-live-state)* [Deploy and test Your contract](#deploy-and-test-your-contract)
+              + [Create a test account](#create-a-test-account)+ [Create a contract that uses `FlowToken`](#create-a-contract-that-uses-flowtoken)+ [Configure contract in flow.json](#configure-contract-in-flowjson)+ [Create scripts for testing](#create-scripts-for-testing)+ [Test Your contract with forked state](#test-your-contract-with-forked-state)+ [What's happening here](#whats-happening-here)* [Execute transactions with account impersonation](#execute-transactions-with-account-impersonation)
+                + [Create transactions](#create-transactions)+ [Test transaction execution with impersonation](#test-transaction-execution-with-impersonation)+ [Key points about account impersonation](#key-points-about-account-impersonation)* [Run all tests together](#run-all-tests-together)
                   + [Best Practices: In-File Configuration vs CLI Flags](#best-practices-in-file-configuration-vs-cli-flags)* [Pinning block heights for reproducibility](#pinning-block-heights-for-reproducibility)* [When to use fork testing](#when-to-use-fork-testing)* [Conclusion](#conclusion)
                         + [Next Steps](#next-steps)
 

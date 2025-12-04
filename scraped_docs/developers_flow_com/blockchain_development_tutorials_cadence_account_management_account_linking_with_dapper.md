@@ -44,19 +44,19 @@ Search
 
 On this page
 
-# Account Linking With NBA Top Shot
+# Account Linking with NBA Top Shot
 
-[Account Linking](/blockchain-development-tutorials/cadence/account-management) is a powerful Flow feature that allows users to connect their wallets, enabling linked wallets to view and manage assets in one wallet with another. This feature helps reduce or even eliminate the challenges posed by other account abstraction solutions, which often lead to multiple isolated wallets and fragmented assets.
+[Account Linking](/blockchain-development-tutorials/cadence/account-management) is a powerful Flow feature that allows users to connect their wallets, which allows linked wallets to view and manage assets in one wallet with another. This feature helps reduce or even eliminate the challenges posed by other account abstraction solutions, which often lead to multiple isolated wallets and fragmented assets.
 
 ![Top Shot Preview](/assets/images/top-shot-preview-6c64a2b21e280ea48e213066546e6794.png)
 
-In this tutorial, you'll build a [simple onchain app](https://nextjs-topshot-account-linking.vercel.app) that allows users to sign in to your app with their Flow wallet and view [NBA Top Shot](https://nbatopshot.com) Moments that reside in their [Dapper Wallet](https://meetdapper.com) without those users needing to sign in with Dapper.
+In this tutorial, you'll build a [simple onchain app](https://nextjs-topshot-account-linking.vercel.app) that allows users to sign in to your app with their Flow wallet and view [NBA Top Shot](https://nbatopshot.com) Moments that reside in their [Dapper Wallet](https://meetdapper.com) without the need for those users to sign in with Dapper.
 
 ## Objectives[​](#objectives "Direct link to Objectives")
 
 After you complete this guide, you'll be able to:
 
-* Pull your users' NBA Top Shot Moments into your Flow app without needing to transfer them out of their Dapper wallet.
+* Pull your users' NBA Top Shot Moments into your Flow app without the need to transfer them out of their Dapper wallet.
 * Retrieve and list all NFT collections in any child wallet linked to a given Flow address.
 * Write a [Cadence](https://cadence-lang.org/docs) script to iterate through the storage of a Flow wallet to find NFT collections.
 * Run Cadence Scripts from the frontend.
@@ -65,7 +65,7 @@ After you complete this guide, you'll be able to:
 
 ### Next.js and Modern Frontend Development[​](#nextjs-and-modern-frontend-development "Direct link to Next.js and Modern Frontend Development")
 
-This tutorial uses [Next.js](https://nextjs.org/docs/app/getting-started/installation). You don't need to be an expert, but it's helpful to be comfortable with development using a current React framework. You'll be on your own to select and use a package manager, manage Node versions, and other frontend environment tasks. If you don't have your own preference, you can just follow along with us and use [Yarn](https://yarnpkg.com).
+This tutorial uses [Next.js](https://nextjs.org/docs/app/getting-started/installation). You don't need to be an expert, but it's helpful to be comfortable with development with a current React framework. You'll be on your own to select and use a package manager, manage Node versions, and other frontend environment tasks. If you don't have your own preference, you can just follow along with us and use [Yarn](https://yarnpkg.com).
 
 ### Flow Wallet[​](#flow-wallet "Direct link to Flow Wallet")
 
@@ -75,7 +75,7 @@ You'll need a [Flow Wallet](https://wallet.flow.com), but you don't need to depo
 
 You'll need a [Dapper Wallet](https://meetdapper.com) that contains some Moments NFTs, such as [NBA Top Shot](https://nbatopshot.com) Moments.
 
-## Getting Started[​](#getting-started "Direct link to Getting Started")
+## Get Started[​](#get-started "Direct link to Get Started")
 
 This tutorial will use a [Next.js](https://nextjs.org/docs/app/getting-started/installation) project as the foundation of the frontend. Create a new project with:
 
@@ -97,13 +97,13 @@ yarn run dev`
 
 If everything works properly, you can navigate to `localhost:3000` and see the default [Next.js](https://nextjs.org/docs/app/getting-started/installation) page.
 
-## Flow Cadence Setup[​](#flow-cadence-setup "Direct link to Flow Cadence Setup")
+## Flow Cadence setup[​](#flow-cadence-setup "Direct link to Flow Cadence setup")
 
 You'll need a few more dependencies to efficiently work with Cadence inside of your app.
 
-### Flow CLI and Types[​](#flow-cli-and-types "Direct link to Flow CLI and Types")
+### Flow CLI and types[​](#flow-cli-and-types "Direct link to Flow CLI and types")
 
-The [Flow CLI](/build/tools/flow-cli) contains a number of command-line tools for interacting with the Flow ecosystem. If you don't have it installed, you can add it with Brew (or using [other installation methods](/build/tools/flow-cli/install)):
+The [Flow CLI](/build/tools/flow-cli) contains a number of command-line tools to interact with the Flow ecosystem. If you don't have it installed, you can add it with Brew (or with [other installation methods](/build/tools/flow-cli/install)):
 
 `_10
 
@@ -115,7 +115,7 @@ After it's installed, initialize Flow in your `Next.js` project. From the root, 
 
 flow init --config-only`
 
-The `--config-only` flag [initializes a project](/build/tools/flow-cli/commands#init) with the just the config file. This allows the Flow CLI to interact with your project without adding adding the other files you want for most projects.
+The `--config-only` flag [initializes a project](/build/tools/flow-cli/commands#init) with the just the config file. This allows the Flow CLI to interact with your project without the need to add the other files you want for most projects.
 
 Next, you'll need to do a little bit of config work so that your project knows how to read Cadence files. Install the Flow Cadence Plugin:
 
@@ -171,7 +171,7 @@ _13
 
 export default nextConfig;`
 
-## Frontend Setup[​](#frontend-setup "Direct link to Frontend Setup")
+## Frontend setup[​](#frontend-setup "Direct link to Frontend setup")
 
 We'll use the Flow Client Library [FCL](/build/tools/clients/fcl-js) to manage blockchain interaction from the frontend. It's similar to `viem`, `ethers`, or `web3.js`, but works with the Flow blockchain and transactions and scripts written in Cadence.
 
@@ -185,7 +185,7 @@ Go ahead and install `dotenv` as well:
 
 yarn add dotenv`
 
-### Provider Setup[​](#provider-setup "Direct link to Provider Setup")
+### Provider setup[​](#provider-setup "Direct link to Provider setup")
 
 You'll need a fair amount of boilerplate code to set up your provider. We'll provide it, but since it's not the purpose of this tutorial, we'll be brief on explanations. For more details, check out the [App Quickstart Guide](/blockchain-development-tutorials/cadence/getting-started).
 
@@ -451,7 +451,7 @@ warning
 
 Don't forget to replace `<YOUR ID HERE>` with your own [Wallet Connect](https://cloud.walletconnect.com/sign-in) app id!
 
-### Implement the Provider and Flow Config[​](#implement-the-provider-and-flow-config "Direct link to Implement the Provider and Flow Config")
+### Implement the provider and Flow Ccnfig[​](#implement-the-provider-and-flow-ccnfig "Direct link to Implement the provider and Flow Ccnfig")
 
 Finally, open `layout.tsx`. TO start, import Flow dependencies and the AuthProvider:
 
@@ -631,7 +631,7 @@ _30
 
 }`
 
-### Add the Connect Button[​](#add-the-connect-button "Direct link to Add the Connect Button")
+### Add the connect button[​](#add-the-connect-button "Direct link to Add the connect button")
 
 Open `page.tsx` and clean up the demo code, leaving only the `<main>` block:
 
@@ -729,7 +729,7 @@ _10
 
 </main>`
 
-## Testing Pass[​](#testing-pass "Direct link to Testing Pass")
+## Test pass[​](#test-pass "Direct link to Test pass")
 
 Run the app:
 
@@ -747,7 +747,7 @@ Click `Log In` in the middle of the window and log in with your Flow wallet.
 
 Now that your app is set up, you can make use of [Account Linking](/blockchain-development-tutorials/cadence/account-management) to to pull your NFTs from your Dapper Wallet, through your Flow Wallet, and into the app.
 
-### Setting Up Account Linking[​](#setting-up-account-linking "Direct link to Setting Up Account Linking")
+### Set up Account Linking[​](#set-up-account-linking "Direct link to Set up Account Linking")
 
 If you haven't yet, you'll need to [link your Dapper Wallet](https://support.meetdapper.com/hc/en-us/articles/20744347884819-Account-Linking-and-FAQ) to your Flow Wallet.
 
@@ -755,17 +755,17 @@ warning
 
 The Dapper Wallet requires that you complete KYC before you can use Account Linking. While this may frustrate some members of the community, it makes it much easier for app developers to design onboarding rewards and bonuses that are less farmable.
 
-### Discovering the NFTs with a Script[​](#discovering-the-nfts-with-a-script "Direct link to Discovering the NFTs with a Script")
+### Discover the NFTs with a script[​](#discover-the-nfts-with-a-script "Direct link to Discover the NFTs with a script")
 
 With your accounts linked, your Flow Wallet now has a set of capabilities related to your Dapper Wallet and it can use those to view and even manipulate those NFTs and assets.
 
-Before you can add a script that can handle this, you'll need to import the `HybridCustody` contract using the [Flow Dependency Manager](/build/tools/flow-cli/dependency-manager):
+Before you can add a script that can handle this, you'll need to import the `HybridCustody` contract with the [Flow Dependency Manager](/build/tools/flow-cli/dependency-manager):
 
 `_10
 
 flow dependencies install mainnet://d8a7e05a7ac670c0.HybridCustody`
 
-Choose `none` to skip deploying on the `emulator` and skip adding testnet aliases. There's no point, these NFTs are on mainnet!
+Choose `none` to skip deployment on the `emulator` and skip adding testnet aliases. There's no point, these NFTs are on mainnet!
 
 You'll get a complete summary from the Dependency Manager:
 
@@ -1221,7 +1221,7 @@ warning
 
 The above script is a relatively naive implementation. For production, you'll want to filter for only the collections you care about, and you will eventually need to add handling for very large collections in a wallet.
 
-### Running the Script and Displaying the NFTs[​](#running-the-script-and-displaying-the-nfts "Direct link to Running the Script and Displaying the NFTs")
+### Run the script and display the NFTs[​](#run-the-script-and-display-the-nfts "Direct link to Run the script and display the NFTs")
 
 Add a component in `app/components` called `DisplayLinkedNFTs.cdc`.
 
@@ -1245,7 +1245,7 @@ _10
 
 import FetchNFTs from '../cadence/scripts/FetchNFTsFromLinkedAccts.cdc';`
 
-As we're using TypeScript, add some types as well to manage the data from the NFTs nicely. For now, just add them to this file:
+As we use TypeScript, add some types as well to manage the data from the NFTs nicely. For now, just add them to this file:
 
 `_21
 
@@ -1453,11 +1453,11 @@ _10
 
 }`
 
-### Testing[​](#testing "Direct link to Testing")
+### Test[​](#test "Direct link to Test")
 
 Run the app again. If you have linked your account and have NFTs in that account, you'll see them in the console!
 
-### Displaying the Moments[​](#displaying-the-moments "Direct link to Displaying the Moments")
+### Display the moments[​](#display-the-moments "Direct link to Display the moments")
 
 Now that they're here, all that's left to do is display them nicely! Return to `DisplayLinkedNFTs.tsx`. Add a helper function to confirm each returned NFT matches the Moments format. You can update this to handle other NFTs you'd like to show as well.
 
@@ -1521,7 +1521,7 @@ _15
 
 };`
 
-Next, add a rendering function with some basic styling:
+Next, add a render function with some basic styling:
 
 `_33
 
@@ -1729,7 +1729,7 @@ _18
 
 );`
 
-### Further Polish[​](#further-polish "Direct link to Further Polish")
+### Further polish[​](#further-polish "Direct link to Further polish")
 
 Finally, you can polish up your `page.tsx` to look a little nicer, and guide your users to the Account Linking process in the Dapper Wallet:
 
@@ -1949,7 +1949,7 @@ Reference solutions are functional, but may not be optimal.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/account-management/account-linking-with-dapper.md)
 
-Last updated on **Nov 3, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -1964,11 +1964,11 @@ Mobile Development on Flow](/blockchain-development-tutorials/cadence/mobile)
 Copy as Markdown
 
 * [Objectives](#objectives)* [Prerequisites](#prerequisites)
-    + [Next.js and Modern Frontend Development](#nextjs-and-modern-frontend-development)+ [Flow Wallet](#flow-wallet)* [Moments NFTs](#moments-nfts)* [Getting Started](#getting-started)* [Flow Cadence Setup](#flow-cadence-setup)
-          + [Flow CLI and Types](#flow-cli-and-types)* [Frontend Setup](#frontend-setup)
-            + [Provider Setup](#provider-setup)* [.env](#env)
-              + [Implement the Provider and Flow Config](#implement-the-provider-and-flow-config)+ [Add the Connect Button](#add-the-connect-button)* [Testing Pass](#testing-pass)* [Account Linking](#account-linking)
-                  + [Setting Up Account Linking](#setting-up-account-linking)+ [Discovering the NFTs with a Script](#discovering-the-nfts-with-a-script)+ [Running the Script and Displaying the NFTs](#running-the-script-and-displaying-the-nfts)+ [Testing](#testing)+ [Displaying the Moments](#displaying-the-moments)+ [Further Polish](#further-polish)* [Conclusion](#conclusion)* [Reference Solution](#reference-solution)
+    + [Next.js and Modern Frontend Development](#nextjs-and-modern-frontend-development)+ [Flow Wallet](#flow-wallet)* [Moments NFTs](#moments-nfts)* [Get Started](#get-started)* [Flow Cadence setup](#flow-cadence-setup)
+          + [Flow CLI and types](#flow-cli-and-types)* [Frontend setup](#frontend-setup)
+            + [Provider setup](#provider-setup)* [.env](#env)
+              + [Implement the provider and Flow Ccnfig](#implement-the-provider-and-flow-ccnfig)+ [Add the connect button](#add-the-connect-button)* [Test pass](#test-pass)* [Account Linking](#account-linking)
+                  + [Set up Account Linking](#set-up-account-linking)+ [Discover the NFTs with a script](#discover-the-nfts-with-a-script)+ [Run the script and display the NFTs](#run-the-script-and-display-the-nfts)+ [Test](#test)+ [Display the moments](#display-the-moments)+ [Further polish](#further-polish)* [Conclusion](#conclusion)* [Reference Solution](#reference-solution)
 
 Flow
 

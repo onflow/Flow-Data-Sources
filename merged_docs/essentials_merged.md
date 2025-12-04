@@ -38,23 +38,23 @@ Flow is designed for consumer-scale internet applications and is one of the fast
 
    These are transactions initiated by users, such as:
 
-   * Buying or selling NFTs
-   * Transferring tokens
-   * Swapping tokens on decentralized exchanges (DEXs)
-   * Staking or unstaking tokens
+   * Buying or selling NFTs.
+   * Transferring tokens.
+   * Swapping tokens on decentralized exchanges (DEXs).
+   * Staking or unstaking tokens.
 
-   In this category, each transaction originates from a unique account and is sent to the Flow network from a different machine. Developers don't need to take special measures to scale for this category, beyond ensuring their logic is primarily onchain and their supporting systems (e.g., frontend, backend) can handle scaling if they become bottlenecks. Flow's protocol inherently manages scaling for user transactions.
+   In this category, each transaction originates from a unique account and is sent to the Flow network from a different machine. Developers don't need to take special measures to scale for this category, beyond ensuring their logic is primarily onchain and their supporting systems (for example, frontend, backend) can handle scaling if they become bottlenecks. Flow's protocol inherently manages scaling for user transactions.
 2. **System Transactions**
 
    These are transactions initiated by an app's backend or various tools, such as:
 
-   * Minting thousands of tokens from a single minter account
-   * Creating transaction workers for custodians
-   * Running maintenance jobs and batch operations
+   * Minting thousands of tokens from a single minter account.
+   * Creating transaction workers for custodians.
+   * Running maintenance jobs and batch operations.
 
    In this category, many transactions originate from the same account and are sent to the Flow network from the same machine, which can make scaling tricky. This guide focuses on strategies for scaling transactions from a single account.
 
-In the following sections, we'll explore how to execute concurrent transactions from a single account on Flow using multiple proposer keys.
+In the following sections, we'll explore how to execute concurrent transactions from a single account on Flow with multiple proposer keys.
 
 info
 
@@ -64,46 +64,46 @@ This guide is specific to non-EVM transactions. For EVM-compatible transactions,
 
 Blockchains use sequence numbers, also known as nonces, for each transaction to prevent [replay attacks](https://en.wikipedia.org/wiki/Replay_attack) and allow users to specify the order of their transactions. The Flow network requires a specific sequence number for each incoming transaction and will reject any transaction where the sequence number does not exactly match the expected next value.
 
-This behavior presents a challenge for scaling, as sending multiple transactions does not guarantee that they will be executed in the order they were sent. This is a fundamental aspect of Flow's resistance to MEV (Maximal Extractable Value), as transaction ordering is randomized within each block.
+This behavior challenges scaling, as sending multiple transactions does not guarantee that the netwrok executes them in the order users send them. This is a fundamental aspect of Flow's resistance to MEV (Maximal Extractable Value), as transaction ordering is randomized within each block.
 
-If a transaction arrives out of order, the network will reject it and return an error message similar to the following:
+If a transaction arrives out of order, the network rejects it and return an error message similar to the following:
 
 `_10
 
 * checking sequence number failed: [Error Code: 1007] invalid proposal key: public key X on account 123 has sequence number 7, but given 6`
 
-Our objective is to execute multiple concurrent transactions without encountering the sequence number error described above. While designing a solution, we must consider the following key factors:
+Our objective is to execute multiple concurrent transactions and not encounter the sequence number error described above. When we design a solution, we must consider the following key factors:
 
 * **Reliability**
 
   Ideally, we want to avoid local sequence number management, as it is error-prone. In a local sequence number implementation, the sender must determine which error types increment the sequence number and which do not. For instance, network issues do not increment the sequence number, but application errors do. Furthermore, if the sender's sequence number becomes unsynchronized with the network, multiple transactions may fail.
 
-  The most reliable approach to managing sequence numbers is to query the network for the latest sequence number before signing and sending each transaction.
+  The most reliable approach to manage sequence numbers is to query the network for the latest sequence number before you sign and send each transaction.
 * **Scalability**
 
-  Allowing multiple workers to manage the same sequence number can introduce coupling and synchronization challenges. To address this, we aim to decouple workers so that they can operate independently without interfering with one another.
+  If you allow multiple workers to manage the same sequence number, it can introduce coupling and synchronization challenges. To address this, we aim to decouple workers so that they can operate independently and not interfere with one another.
 * **Capacity Management**
 
-  To ensure reliability, the system must recognize when it has reached capacity. Additional transactions should be queued and executed once there is sufficient throughput. Fire-and-forget strategies are unreliable for handling arbitrary traffic, as they do not account for system capacity.
+  To ensure reliability, the system must recognize when it has reached capacity. Additional transactions should be queued and executed when there is sufficient throughput. Fire-and-forget strategies are unreliable to handle arbitrary traffic, as they do not account for system capacity.
 
 ## Solution[​](#solution "Direct link to Solution")
 
-Flow's transaction model introduces a unique role called the proposer. Each Flow transaction is signed by three roles: authorizer, proposer, and payer. The proposer key determines the sequence number for the transaction, effectively decoupling sequence number management from the authorizer and enabling independent scaling. You can learn more about this concept [here](https://developers.flow.com/build/cadence/basics/transactions#proposal-key).
+Flow's transaction model introduces a unique role called the proposer. Each Flow transaction is signed by three roles: authorizer, proposer, and payer. The proposer key determines the sequence number for the transaction, which effectively decouples sequence number management from the authorizer and allows independent scaling. You can learn more about this concept [here](https://developers.flow.com/build/cadence/basics/transactions#proposal-key).
 
 We can leverage this model to design an ideal system transaction architecture as follows:
 
 * **Multiple Proposer Keys**
 
-  Flow accounts can have multiple keys. By assigning a unique proposer key to each worker, each worker can independently manage its own sequence number without interference from others.
+  Flow accounts can have multiple keys. If you assign a unique proposer key to each worker, each worker can independently manage its own sequence number without interference from others.
 * **Sequence Number Management**
 
-  Each worker ensures it uses the correct sequence number by fetching the latest sequence number from the network. Since workers operate with different proposer keys, there are no conflicts or synchronization issues.
-* **Queue and Processing Workflow**
+  To ensure each worker uses the correct sequence number, they fetch the latest sequence number from the network. Since workers operate with different proposer keys, there are no conflicts or synchronization issues.
+* **Queue and Process Workflow**
 
   + Each worker picks a transaction request from the incoming requests queue, signs it with its assigned proposer key, and submits it to the network.
   + The worker remains occupied until the transaction is finalized by the network.
   + If all workers are busy, the incoming requests queue holds additional requests until there is enough capacity to process them.
-* **Key Reuse for Optimization**
+* **Key reuse for optimization**
 
   To simplify the system further, we can reuse the same cryptographic key multiple times within the same account by adding it as a new key. These additional keys can have a weight of 0 since they do not need to authorize transactions.
 
@@ -113,9 +113,9 @@ Here's a visual example of how such an [account configuration](https://www.flows
 
 As shown, the account includes additional weightless keys designated for proposals, each with its own independent sequence number. This setup ensures that multiple workers can operate concurrently without conflicts or synchronization issues.
 
-In the next section, we'll demonstrate how to implement this architecture using the [Go SDK](https://github.com/onflow/flow-go-sdk).
+In the next section, we'll demonstrate how to implement this architecture with the [Go SDK](https://github.com/onflow/flow-go-sdk).
 
-## Example Implementation[​](#example-implementation "Direct link to Example Implementation")
+## Example implementation[​](#example-implementation "Direct link to Example implementation")
 
 An example implementation of this architecture can be found in the [Go SDK Example](https://github.com/onflow/flow-go-sdk/blob/master/examples/transaction_scaling/main.go).
 
@@ -177,11 +177,11 @@ _16
 
 }`
 
-The goal is to invoke the `increase()` function 420 times concurrently from a single account. By adding 420 concurrency keys and using 420 workers, all these transactions can be executed almost simultaneously.
+The goal is to invoke the `increase()` function 420 times concurrently from a single account. When you add 420 concurrency keys and use 420 workers, all these transactions can be executed almost simultaneously.
 
 ### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-We're using Testnet to demonstrate real network conditions. To run this example, you need to create a new testnet account. Start by generating a key pair:
+We use Testnet to demonstrate real network conditions. To run this example, you need to create a new testnet account. To start, generate a key pair:
 
 `_10
 
@@ -197,7 +197,7 @@ _10
 
 const ACCOUNT_ADDRESS = "0x123"`
 
-### Code Walkthrough[​](#code-walkthrough "Direct link to Code Walkthrough")
+### Code walkthrough[​](#code-walkthrough "Direct link to Code walkthrough")
 
 When the example starts, it will deploy the `Counter` contract to the account and add 420 proposer keys with the following transaction:
 
@@ -521,9 +521,9 @@ _30
 
 } ``
 
-The above code is executed concurrently by each worker. Since each worker operates with a unique proposer key, there are no conflicts or synchronization issues. Each worker independently manages its sequence number, ensuring smooth execution of all transactions.
+The above code is executed concurrently by each worker. Since each worker operates with a unique proposer key, there are no conflicts or synchronization issues. Each worker independently manages its sequence number, which ensures smooth execution of all transactions.
 
-Finally, the `RunTransaction` function serves as a helper utility to send transactions to the network and wait for them to be finalized. It is important to note that the proposer key sequence number is set within the `IncreaseCounter` function before calling `RunTransaction`.
+Finally, the `RunTransaction` function serves as a helper utility to send transactions to the network and wait for them to be finalized. It is important to note that the proposer key sequence number is set within the `IncreaseCounter` function before it calls `RunTransaction`.
 
 `_26
 
@@ -621,9 +621,9 @@ _26
 
 }`
 
-### Running the Example[​](#running-the-example "Direct link to Running the Example")
+### Run the Example[​](#run-the-example "Direct link to Run the Example")
 
-Running the example will execute 420 transactions at the same time:
+Run the example to execute 420 transactions at the same time:
 
 `_10
 
@@ -657,7 +657,7 @@ It takes roughly the time of 1 transaction to run all 420 without any errors.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/advanced-concepts/scaling.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Dec 1, 2025** by **cshannon1218**
 
 [Previous
 
@@ -671,8 +671,8 @@ Core Smart Contracts](/build/cadence/core-contracts)
 
 Copy as Markdown
 
-* [Problem](#problem)* [Solution](#solution)* [Example Implementation](#example-implementation)
-      + [Prerequisites](#prerequisites)+ [Code Walkthrough](#code-walkthrough)+ [Running the Example](#running-the-example)
+* [Problem](#problem)* [Solution](#solution)* [Example implementation](#example-implementation)
+      + [Prerequisites](#prerequisites)+ [Code walkthrough](#code-walkthrough)+ [Run the Example](#run-the-example)
 
 Flow
 
@@ -2676,7 +2676,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -14053,7 +14053,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -18088,7 +18088,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -22137,7 +22137,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -22173,17 +22173,17 @@ Search
 
 On this page
 
-# Smart contract interaction
+# Smart Contract Interaction
 
 Building on your local development setup from the previous tutorial, you'll now master advanced Flow development skills that every professional developer needs. This tutorial focuses on how to work with external dependencies, build sophisticated transactions, and establish robust testing practices.
 
-Flow's composability is one of its greatest strengths, becuase contracts can easily import and use functionality from other contracts. You'll learn to leverage this power while building reliable, well-tested applications that interact seamlessly with the broader Flow ecosystem.
+Flow's composability is one of its greatest strengths, becuase contracts can easily import and use functionality from other contracts. You'll learn to leverage this power while you build reliable, well-tested applications that interact seamlessly with the broader Flow ecosystem.
 
 ## What you'll learn[​](#what-youll-learn "Direct link to What you'll learn")
 
 After you complete this tutorial, you'll be able to:
 
-* **Manage external dependencies** using Flow's dependency manager and integrate third-party contracts.
+* **Manage external dependencies** with Flow's dependency manager and integrate third-party contracts.
 * **Build sophisticated transactions** that interact with multiple contracts and handle complex state changes.
 * **Master transaction anatomy** and understand how Cadence transactions work under the hood.
 * **Implement comprehensive testing** strategies including edge cases and error conditions.
@@ -22211,15 +22211,15 @@ In addition to creating your own contracts, you can also install contracts that 
 
 Flow's dependency manager allows you to:
 
-* Install contracts deployed on any Flow network (mainnet, testnet, emulator)
-* Automatically manage contract addresses across different environments
-* Keep your code portable and environment-independent
+* Install contracts deployed on any Flow network (mainnet, testnet, emulator).
+* Automatically manage contract addresses across different environments.
+* Keep your code portable and environment-independent.
 
 For example, let's say we want to format the result of our `GetCounter` script so that we display the number with commas if it's greater than 999. To do that we can install a contract called [`NumberFormatter`](https://contractbrowser.com/A.8a4dce54554b225d.NumberFormatter) from `testnet` that has a function to format numbers.
 
 ### Install NumberFormatter contract[​](#install-numberformatter-contract "Direct link to Install NumberFormatter contract")
 
-The [`NumberFormatter`](https://contractbrowser.com/A.8a4dce54554b225d.NumberFormatter) contract provides utilities for formatting numbers with commas, making large numbers more readable. Let's install it from testnet:
+The [`NumberFormatter`](https://contractbrowser.com/A.8a4dce54554b225d.NumberFormatter) contract provides utilities for formatting numbers with commas, which makes large numbers more readable. Let's install it from testnet:
 
 `_10
 
@@ -22237,7 +22237,7 @@ This command:
 * Configures deployment settings in [`flow.json`](https://developers.flow.com/build/tools/flow-cli/flow.json/configuration).
 * Sets up automatic address resolution.
 
-### Configure Dependencies in flow.json[​](#configure-dependencies-in-flowjson "Direct link to Configure Dependencies in flow.json")
+### Configure dependencies in flow.json[​](#configure-dependencies-in-flowjson "Direct link to Configure dependencies in flow.json")
 
 Open your `flow.json` file and view the new sections:
 
@@ -22341,9 +22341,9 @@ This configuration:
 
 * Maps the `NumberFormatter` dependency to its testnet source.
 * Sets up deployment to your emulator account.
-* Enables automatic address resolution in your code.
+* Allows automatic address resolution in your code.
 
-### Deploy External Dependencies[​](#deploy-external-dependencies "Direct link to Deploy External Dependencies")
+### Deploy external dependencies[​](#deploy-external-dependencies "Direct link to Deploy external dependencies")
 
 Now we can deploy the `NumberFormatter` contract to the emulator:
 
@@ -22369,7 +22369,7 @@ _10
 
 🎉 All contracts deployed successfully`
 
-### Integrate External Contract[​](#integrate-external-contract "Direct link to Integrate External Contract")
+### Integrate external contract[​](#integrate-external-contract "Direct link to Integrate external contract")
 
 Now let's update your `GetCounter.cdc` script to use the NumberFormatter. Open `cadence/scripts/GetCounter.cdc` and update it:
 
@@ -22423,13 +22423,13 @@ _14
 
 }`
 
-**Key Points:**
+**Key points:**
 
 * **Import syntax**: `import "Counter"` and `import "NumberFormatter"` don't require addresses.
 * **Contract interaction**: We call `NumberFormatter.formatWithCommas()` just like any other function.
 * **Return type change**: The script now returns a `String` instead of an `Int`.
 
-### Test the Integration[​](#test-the-integration "Direct link to Test the Integration")
+### Test the integration[​](#test-the-integration "Direct link to Test the integration")
 
 Run your updated script:
 
@@ -22551,13 +22551,13 @@ Perfect! The NumberFormatter automatically adds commas to make large numbers rea
 
 info
 
-**The Power of Composability**: Notice what just happened—you enhanced your Counter contract's functionality **without modifying the original contract**. This is the power of Flow's composability: you can extend functionality by combining contracts, enabling rapid development and code reuse. Even more importantly, we did this **without needing access or permission.**
+**The Power of Composability**: Notice what just happened—you enhanced your Counter contract's functionality **without modifying the original contract**. This is the power of Flow's composability: you can extend functionality by combining contracts, which allows rapid development and code reuse. Even more importantly, we did this **without the need for access or permission.**
 
 ## Build transactions[​](#build-transactions "Direct link to Build transactions")
 
 Transactions are the foundation of blockchain state changes. Unlike scripts (which only read data), transactions can modify contract state, transfer tokens, and emit events. Let's master advanced transaction patterns.
 
-### Understanding transaction anatomy[​](#understanding-transaction-anatomy "Direct link to Understanding transaction anatomy")
+### Understand transaction anatomy[​](#understand-transaction-anatomy "Direct link to Understand transaction anatomy")
 
 Every Cadence transaction has the same basic structure:
 
@@ -22639,12 +22639,12 @@ _21
 
 ### Transaction phases explained[​](#transaction-phases-explained "Direct link to Transaction phases explained")
 
-1. **Import Phase**: Declare contract dependencies.
-2. **Parameter Declaration**: Define inputs the transaction accepts.
-3. **Variable Declaration**: Declare transaction-scoped variables.
-4. **Prepare Phase**: Access account storage and capabilities (authorized).
-5. **Execute Phase**: Main logic execution (no storage access).
-6. **Post Phase**: Verify transaction success conditions.
+1. **Import Phase**: declare contract dependencies.
+2. **Parameter Declaration**: define inputs the transaction accepts.
+3. **Variable Declaration**: declare transaction-scoped variables.
+4. **Prepare Phase**: access account storage and capabilities (authorized).
+5. **Execute Phase**: main logic execution (no storage access).
+6. **Post Phase**: verify transaction success conditions.
 
 #### Transaction with parameters[​](#transaction-with-parameters "Direct link to Transaction with parameters")
 
@@ -22804,7 +22804,7 @@ flow transactions send cadence/transactions/IncrementByAmount.cdc <amount> --net
 
 ## Test your code[​](#test-your-code "Direct link to Test your code")
 
-Testing is crucial for smart contract development. Flow provides powerful testing capabilities built into the CLI that enable comprehensive test coverage and test-driven development workflows.
+Testing is crucial for smart contract development. Flow provides powerful testing capabilities built into the CLI that allow comprehensive test coverage and test-driven development workflows.
 
 Execute the test suite:
 
@@ -22828,7 +22828,7 @@ _10
 
 All tests passed`
 
-### Understanding Existing Tests[​](#understanding-existing-tests "Direct link to Understanding Existing Tests")
+### Understand current tests[​](#understand-current-tests "Direct link to Understand current tests")
 
 Open `cadence/tests/Counter_test.cdc` to see the existing test:
 
@@ -22880,11 +22880,11 @@ _13
 
 This basic test:
 
-1. **Creates a test account** using `Test.createAccount()`.
+1. **Creates a test account** with `Test.createAccount()`.
 2. **Deploys the Counter contract** to the test environment.
 3. **Verifies deployment succeeded** by checking that no error occurred.
 
-### Test Integration with Dependencies[​](#test-integration-with-dependencies "Direct link to Test Integration with Dependencies")
+### Test integration with dependencies[​](#test-integration-with-dependencies "Direct link to Test integration with dependencies")
 
 Test the NumberFormatter integration:
 
@@ -22980,7 +22980,7 @@ _24
 
 The `Formatter_test.cdc` test validates that number formatting with commas works correctly by testing two scenarios: numbers under 1,000 (which should have no commas) and numbers over 999 (which should have commas). The test is constructed with two main assertions - first testing that 123 formats as "123" without commas, and second testing that 1234 formats as "1,234" with a comma.
 
-### Run Your Enhanced Test Suite[​](#run-your-enhanced-test-suite "Direct link to Run Your Enhanced Test Suite")
+### Run your enhanced test suite[​](#run-your-enhanced-test-suite "Direct link to Run your enhanced test suite")
 
 Execute the complete test suite with your new comprehensive tests:
 
@@ -23070,7 +23070,7 @@ Continue your Flow mastery with these advanced resources:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction.md)
 
-Last updated on **Nov 14, 2025** by **0xLisanAlGaib**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -23085,9 +23085,9 @@ Building a Frontend App](/blockchain-development-tutorials/cadence/getting-start
 Copy as Markdown
 
 * [What you'll learn](#what-youll-learn)* [What you'll build](#what-youll-build)* [Manage dependencies](#manage-dependencies)
-      + [Install NumberFormatter contract](#install-numberformatter-contract)+ [Configure Dependencies in flow.json](#configure-dependencies-in-flowjson)+ [Deploy External Dependencies](#deploy-external-dependencies)+ [Integrate External Contract](#integrate-external-contract)+ [Test the Integration](#test-the-integration)+ [Create a bulk increment transaction](#create-a-bulk-increment-transaction)* [Build transactions](#build-transactions)
-        + [Understanding transaction anatomy](#understanding-transaction-anatomy)+ [Transaction phases explained](#transaction-phases-explained)* [Test your code](#test-your-code)
-          + [Understanding Existing Tests](#understanding-existing-tests)+ [Test Integration with Dependencies](#test-integration-with-dependencies)+ [Run Your Enhanced Test Suite](#run-your-enhanced-test-suite)* [Conclusion](#conclusion)
+      + [Install NumberFormatter contract](#install-numberformatter-contract)+ [Configure dependencies in flow.json](#configure-dependencies-in-flowjson)+ [Deploy external dependencies](#deploy-external-dependencies)+ [Integrate external contract](#integrate-external-contract)+ [Test the integration](#test-the-integration)+ [Create a bulk increment transaction](#create-a-bulk-increment-transaction)* [Build transactions](#build-transactions)
+        + [Understand transaction anatomy](#understand-transaction-anatomy)+ [Transaction phases explained](#transaction-phases-explained)* [Test your code](#test-your-code)
+          + [Understand current tests](#understand-current-tests)+ [Test integration with dependencies](#test-integration-with-dependencies)+ [Run your enhanced test suite](#run-your-enhanced-test-suite)* [Conclusion](#conclusion)
             + [What you've learned](#what-youve-learned)+ [Next steps](#next-steps)+ [Resources for continued learning](#resources-for-continued-learning)
 
 Flow
@@ -44083,7 +44083,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -64650,7 +64650,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -88016,7 +88016,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -103005,7 +103005,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -105247,7 +105247,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -116054,7 +116054,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -127099,7 +127099,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -127137,45 +127137,45 @@ Traditional blockchain wallets create significant friction for mainstream users.
 
 With Crossmint Smart Wallets, you can:
 
-* **Eliminate wallet complexity** with email and social login authentication
-* **Remove onboarding friction** by automatically creating wallets for users
-* **Support multiple authentication methods** including email, Google, passkeys, and external wallets
-* **Enable gasless transactions** to improve user experience
-* **Build on Flow** with full support for both mainnet and testnet environments
-* **Scale with confidence** using infrastructure trusted by Fortune 500 companies
+* **Eliminate wallet complexity** with email and social login authentication.
+* **Remove onboarding friction** with automatic user wallet creation.
+* **Support multiple authentication methods** such as email, Google, passkeys, and external wallets.
+* **Enable gasless transactions** to improve user experience.
+* **Build on Flow** with full support for both mainnet and testnet environments.
+* **Scale with confidence** using infrastructure trusted by Fortune 500 companies.
 
-This tutorial will guide you through integrating Crossmint Smart Wallets into your Flow application. You'll learn how to set up authentication, automatically create wallets, check balances, transfer tokens, and display transaction historyall with a familiar Web2-style developer experience.
+This tutorial will guide you through how to integrate Crossmint Smart Wallets into your Flow application. You'll learn how to set up authentication, automatically create wallets, check balances, transfer tokens, and display transaction historyall with a familiar Web2-style developer experience.
 
 info
 
-Crossmint provides flexible wallet solutions across 50+ blockchains including Flow. This tutorial focuses on the **React implementation** for web applications, but Crossmint also supports Node.js, React Native, Swift (iOS), and Kotlin (Android) platforms.
+Crossmint provides flexible wallet solutions across more than 50 blockchains, such as Flow. This tutorial focuses on the **React implementation** for web applications, but Crossmint also supports Node.js, React Native, Swift (iOS), and Kotlin (Android) platforms.
 
 ## Objectives[​](#objectives "Direct link to Objectives")
 
-After completing this guide, you'll be able to:
+After you complete this guide, you'll be able to:
 
-* Configure a Crossmint account with proper API keys and permissions
-* Implement email and social authentication for automatic wallet creation
-* Display wallet information including address, balance, and ownership details
-* Execute token transfers on Flow using Crossmint's SDK
-* Build an activity feed showing transaction history
-* Handle authentication states and error scenarios properly
-* Deploy your Crossmint-powered application to production
+* Configure a Crossmint account with proper API keys and permissions.
+* Implement email and social authentication for automatic wallet creation.
+* Display wallet information including address, balance, and ownership details.
+* Execute token transfers on Flow using Crossmint's SDK.
+* Build an activity feed showing transaction history.
+* Handle authentication states and error scenarios properly.
+* Deploy your Crossmint-powered application to production.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-Before starting this tutorial, you should have:
+Before you start this tutorial, you should have:
 
-* **Development Environment**: Node.js and npm/yarn/pnpm installed
-* **React Knowledge**: Familiarity with React hooks and component patterns
-* **Next.js or Create-React-App**: A React application ready for integration
-* **Basic Blockchain Concepts**: Understanding of wallet addresses and token transfers (helpful but not required)
+* **Development Environment**: Node.js and npm/yarn/pnpm installed.
+* **React Knowledge**: Familiarity with React hooks and component patterns.
+* **Next.js or Create-React-App**: A React application ready for integration.
+* **Basic Blockchain Concepts**: Knowledge of wallet addresses and token transfers (helpful but not required).
 
-## Setting Up Your Crossmint Account[​](#setting-up-your-crossmint-account "Direct link to Setting Up Your Crossmint Account")
+## Set up your crossmint account[​](#set-up-your-crossmint-account "Direct link to Set up your crossmint account")
 
-You need to create a Crossmint account and configure API access before implementing wallet functionality.
+You need to create a Crossmint account and configure API access before you implement wallet functionality.
 
-### Step 1. Create Your Crossmint Account[​](#step-1-create-your-crossmint-account "Direct link to Step 1. Create Your Crossmint Account")
+### Step 1. Create your Crossmint account[​](#step-1-create-your-crossmint-account "Direct link to Step 1. Create your Crossmint account")
 
 Sign up on the [Crossmint Console](https://www.crossmint.com/console) to establish an account. For development and testing, use the [Staging Console](https://staging.crossmint.com/console) instead.
 
@@ -127183,23 +127183,23 @@ tip
 
 Always use the staging environment during development. Staging supports testnet blockchains only, while production supports mainnet deployments.
 
-### Step 2. Create a New Project[​](#step-2-create-a-new-project "Direct link to Step 2. Create a New Project")
+### Step 2. Create a new project[​](#step-2-create-a-new-project "Direct link to Step 2. Create a new project")
 
-After logging into the console:
+After you log in to the console:
 
-1. Click **Create New Project**
-2. Enter a project name (e.g., "Flow DApp")
-3. Select your project type (Web Application recommended)
-4. Save your project settings
+1. Click **Create New Project**.
+2. Enter a project name (such as "Flow DApp").
+3. Select your project type (Web Application recommended).
+4. Save your project settings.
 
-### Step 3. Generate API Keys[​](#step-3-generate-api-keys "Direct link to Step 3. Generate API Keys")
+### Step 3. Generate API keys[​](#step-3-generate-api-keys "Direct link to Step 3. Generate API keys")
 
 Navigate to your project dashboard to create a client-side API key:
 
 1. Go to the **API Keys** section
 2. Click **Create New API Key**
 3. Select **Client API Key** (not server key)
-4. Enable the following scopes:
+4. Activate the following scopes:
 
    * `users.create` - Create new users
    * `users.read` - Read user information
@@ -127208,14 +127208,14 @@ Navigate to your project dashboard to create a client-side API key:
    * `wallets:transactions.create` - Create transactions
    * `wallets:transactions.sign` - Sign transactions
    * `wallets:balance.read` - Read balance information
-   * `wallets.fund` - Fund wallets (staging/development only)
+   * `wallets.fund` - Fund wallets (staging and development only)
 5. Copy the generated API key to your clipboard
 
 warning
 
 Keep your API keys secure! Never commit them to version control. Use environment variables to store sensitive credentials.
 
-### Step 4. Configure Environment Variables[​](#step-4-configure-environment-variables "Direct link to Step 4. Configure Environment Variables")
+### Step 4. Configure environment variables[​](#step-4-configure-environment-variables "Direct link to Step 4. Configure environment variables")
 
 Create a `.env` or `.env.local` file in your project root:
 
@@ -127237,11 +127237,11 @@ _10
 
 NEXT_PUBLIC_CHAIN=flow`
 
-## Implementing Crossmint Smart Wallets[​](#implementing-crossmint-smart-wallets "Direct link to Implementing Crossmint Smart Wallets")
+## Implement Crossmint Smart Wallets[​](#implement-crossmint-smart-wallets "Direct link to Implement Crossmint Smart Wallets")
 
 With your Crossmint account configured, you can now integrate wallet functionality into your React application.
 
-### Step 1. Install Dependencies[​](#step-1-install-dependencies "Direct link to Step 1. Install Dependencies")
+### Step 1. Install dependencies[​](#step-1-install-dependencies "Direct link to Step 1. Install dependencies")
 
 Install the Crossmint React SDK:
 
@@ -127263,7 +127263,7 @@ yarn add @crossmint/client-sdk-react-ui`
 
 npm install @crossmint/client-sdk-react-ui`
 
-### Step 2. Configure Crossmint Providers[​](#step-2-configure-crossmint-providers "Direct link to Step 2. Configure Crossmint Providers")
+### Step 2. Configure Crossmint providers[​](#step-2-configure-crossmint-providers "Direct link to Step 2. Configure Crossmint providers")
 
 Crossmint requires three providers to be set up in a specific hierarchy. These providers handle API configuration, authentication, and wallet management.
 
@@ -127643,24 +127643,24 @@ _41
 
 );`
 
-**Provider Configuration Options:**
+**Provider configuration cptions:**
 
-* **CrossmintProvider**: Top-level provider requiring only your API key
+* **CrossmintProvider**: Top-level provider that requires only your API key.
 * **CrossmintAuthProvider**: Manages authentication with configurable options:
-  + `authModalTitle`: Title displayed in the authentication modal
-  + `loginMethods`: Array of enabled authentication methods (`"email"`, `"google"`, `"apple"`, `"twitter"`, `"farcaster"`)
-  + `appearance`: Customize UI colors and styling
+  + `authModalTitle`: Title displayed in the authentication modal.
+  + `loginMethods`: Array of active authentication methods (`"email"`, `"google"`, `"apple"`, `"twitter"`, `"farcaster"`).
+  + `appearance`: Customize UI colors and style.
 * **CrossmintWalletProvider**: Handles wallet creation and management:
-  + `createOnLogin.chain`: Target blockchain (e.g., `"flow"`, `"flow-testnet"`)
-  + `createOnLogin.signer.type`: Authentication method for wallet signing (`"email"`, `"passkey"`)
+  + `createOnLogin.chain`: Target blockchain (such as `"flow"`, `"flow-testnet"`)
+  + `createOnLogin.signer.type`: Authentication method for wallet signing (`"email"`, `"passkey"`).
 
 info
 
 The `createOnLogin` configuration enables **automatic wallet creation**. When a user logs in for the first time, Crossmint automatically provisions a wallet on the specified chain. No additional setup required!
 
-### Step 3. Implement Authentication[​](#step-3-implement-authentication "Direct link to Step 3. Implement Authentication")
+### Step 3. Implement authentication[​](#step-3-implement-authentication "Direct link to Step 3. Implement authentication")
 
-Create login and logout components using Crossmint's `useAuth` hook.
+Create login and logout components with Crossmint's `useAuth` hook.
 
 **LoginButton.tsx:**
 
@@ -127860,9 +127860,9 @@ _21
 
 }`
 
-### Step 4. Display Wallet Information[​](#step-4-display-wallet-information "Direct link to Step 4. Display Wallet Information")
+### Step 4. Display wallet information[​](#step-4-display-wallet-information "Direct link to Step 4. Display wallet information")
 
-Create a component to show wallet details using the `useWallet` hook.
+Create a component to show wallet details with the `useWallet` hook.
 
 **WalletInfo.tsx:**
 
@@ -128106,9 +128106,9 @@ _65
 
 } ``
 
-### Step 5. Display Wallet Balance[​](#step-5-display-wallet-balance "Direct link to Step 5. Display Wallet Balance")
+### Step 5. Display wallet balance[​](#step-5-display-wallet-balance "Direct link to Step 5. Display wallet balance")
 
-Fetch and display the wallet's token balance using the `wallet.balances()` method.
+Fetch and display the wallet's token balance with the `wallet.balances()` method.
 
 **WalletBalance.tsx:**
 
@@ -128368,9 +128368,9 @@ _69
 
 }`
 
-### Step 6. Implement Token Transfers[​](#step-6-implement-token-transfers "Direct link to Step 6. Implement Token Transfers")
+### Step 6. Implement token transfers[​](#step-6-implement-token-transfers "Direct link to Step 6. Implement token transfers")
 
-Create a component for transferring tokens using the `wallet.send()` method.
+Create a component to transfer tokens with the `wallet.send()` method.
 
 **TransferTokens.tsx:**
 
@@ -128814,11 +128814,11 @@ _117
 
 tip
 
-The `wallet.send()` method throws an `AuthRejectedError` when users cancel the transaction. Handle this separately to avoid showing unnecessary error messages.
+The `wallet.send()` method throws an `AuthRejectedError` when users cancel the transaction. Handle this separately to avoid a display of unnecessary error messages.
 
-### Step 7. Build Activity Feed[​](#step-7-build-activity-feed "Direct link to Step 7. Build Activity Feed")
+### Step 7. Build activity feed[​](#step-7-build-activity-feed "Direct link to Step 7. Build activity feed")
 
-Display transaction history using the `wallet.experimental_activity()` method with polling for real-time updates.
+Display transaction history with the `wallet.experimental_activity()` method with polling for real-time updates.
 
 **ActivityFeed.tsx:**
 
@@ -129262,7 +129262,7 @@ warning
 
 The `experimental_activity()` method is experimental and may change in future SDK versions. Always handle errors gracefully and provide fallback UI.
 
-### Step 8. Create Main Dashboard[​](#step-8-create-main-dashboard "Direct link to Step 8. Create Main Dashboard")
+### Step 8. Create main dashboard[​](#step-8-create-main-dashboard "Direct link to Step 8. Create main dashboard")
 
 Combine all components into a cohesive dashboard with proper state management.
 
@@ -129556,7 +129556,7 @@ For native Android development:
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-In this tutorial, you successfully integrated Crossmint Smart Wallets to enable seamless blockchain experiences on Flow. You learned how to implement email-based authentication, automatically create wallets for users, display balances, execute token transfers, and show transaction historyall without requiring users to understand complex blockchain concepts like seed phrases or gas fees.
+In this tutorial, you successfully integrated Crossmint Smart Wallets to enable seamless blockchain experiences on Flow. You learned how to implement email-based authentication, automatically create wallets for users, display balances, execute token transfers, and show transaction history, all without a requirement that users understand complex blockchain concepts like seed phrases or gas fees.
 
 Now that you have completed the tutorial, you should be able to:
 
@@ -129571,7 +129571,7 @@ Crossmint's wallet infrastructure, combined with Flow's high-performance blockch
 
 ## Next Steps[​](#next-steps "Direct link to Next Steps")
 
-* Explore [Crossmint's NFT Minting Platform](https://docs.crossmint.com/nft-minting/overview) to add NFT functionality
+* Explore [Crossmint's NFT Minting Platform](https://docs.crossmint.com/nft-minting/overview)to add NFT functionality
 * Learn about [Payment Checkout](https://docs.crossmint.com/payments/overview) for credit card and crypto payments
 * Implement [Passkey Authentication](https://docs.crossmint.com/wallets/signers/passkey) for enhanced security
 * Review [Flow Smart Contract Development](/blockchain-development-tutorials/cadence) to build custom on-chain logic
@@ -129579,7 +129579,7 @@ Crossmint's wallet infrastructure, combined with Flow's high-performance blockch
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/integrations/crossmint/smart-wallets.md)
 
-Last updated on **Nov 6, 2025** by **Felipe Cevallos**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -129591,9 +129591,9 @@ Minting Platform Integration](/blockchain-development-tutorials/integrations/cro
 
 Copy as Markdown
 
-* [Objectives](#objectives)* [Prerequisites](#prerequisites)* [Setting Up Your Crossmint Account](#setting-up-your-crossmint-account)
-      + [Step 1. Create Your Crossmint Account](#step-1-create-your-crossmint-account)+ [Step 2. Create a New Project](#step-2-create-a-new-project)+ [Step 3. Generate API Keys](#step-3-generate-api-keys)+ [Step 4. Configure Environment Variables](#step-4-configure-environment-variables)* [Implementing Crossmint Smart Wallets](#implementing-crossmint-smart-wallets)
-        + [Step 1. Install Dependencies](#step-1-install-dependencies)+ [Step 2. Configure Crossmint Providers](#step-2-configure-crossmint-providers)+ [Step 3. Implement Authentication](#step-3-implement-authentication)+ [Step 4. Display Wallet Information](#step-4-display-wallet-information)+ [Step 5. Display Wallet Balance](#step-5-display-wallet-balance)+ [Step 6. Implement Token Transfers](#step-6-implement-token-transfers)+ [Step 7. Build Activity Feed](#step-7-build-activity-feed)+ [Step 8. Create Main Dashboard](#step-8-create-main-dashboard)* [Additional Platform Support](#additional-platform-support)
+* [Objectives](#objectives)* [Prerequisites](#prerequisites)* [Set up your crossmint account](#set-up-your-crossmint-account)
+      + [Step 1. Create your Crossmint account](#step-1-create-your-crossmint-account)+ [Step 2. Create a new project](#step-2-create-a-new-project)+ [Step 3. Generate API keys](#step-3-generate-api-keys)+ [Step 4. Configure environment variables](#step-4-configure-environment-variables)* [Implement Crossmint Smart Wallets](#implement-crossmint-smart-wallets)
+        + [Step 1. Install dependencies](#step-1-install-dependencies)+ [Step 2. Configure Crossmint providers](#step-2-configure-crossmint-providers)+ [Step 3. Implement authentication](#step-3-implement-authentication)+ [Step 4. Display wallet information](#step-4-display-wallet-information)+ [Step 5. Display wallet balance](#step-5-display-wallet-balance)+ [Step 6. Implement token transfers](#step-6-implement-token-transfers)+ [Step 7. Build activity feed](#step-7-build-activity-feed)+ [Step 8. Create main dashboard](#step-8-create-main-dashboard)* [Additional Platform Support](#additional-platform-support)
           + [Node.js (Backend)](#nodejs-backend)+ [React Native (Mobile)](#react-native-mobile)+ [Swift (iOS Native)](#swift-ios-native)+ [Kotlin (Android Native)](#kotlin-android-native)* [Conclusion](#conclusion)* [Next Steps](#next-steps)
 
 Flow
@@ -150505,7 +150505,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -160125,19 +160125,19 @@ Search
 
 On this page
 
-# Account Linking With NBA Top Shot
+# Account Linking with NBA Top Shot
 
-[Account Linking](/blockchain-development-tutorials/cadence/account-management) is a powerful Flow feature that allows users to connect their wallets, enabling linked wallets to view and manage assets in one wallet with another. This feature helps reduce or even eliminate the challenges posed by other account abstraction solutions, which often lead to multiple isolated wallets and fragmented assets.
+[Account Linking](/blockchain-development-tutorials/cadence/account-management) is a powerful Flow feature that allows users to connect their wallets, which allows linked wallets to view and manage assets in one wallet with another. This feature helps reduce or even eliminate the challenges posed by other account abstraction solutions, which often lead to multiple isolated wallets and fragmented assets.
 
 ![Top Shot Preview](/assets/images/top-shot-preview-6c64a2b21e280ea48e213066546e6794.png)
 
-In this tutorial, you'll build a [simple onchain app](https://nextjs-topshot-account-linking.vercel.app) that allows users to sign in to your app with their Flow wallet and view [NBA Top Shot](https://nbatopshot.com) Moments that reside in their [Dapper Wallet](https://meetdapper.com) without those users needing to sign in with Dapper.
+In this tutorial, you'll build a [simple onchain app](https://nextjs-topshot-account-linking.vercel.app) that allows users to sign in to your app with their Flow wallet and view [NBA Top Shot](https://nbatopshot.com) Moments that reside in their [Dapper Wallet](https://meetdapper.com) without the need for those users to sign in with Dapper.
 
 ## Objectives[​](#objectives "Direct link to Objectives")
 
 After you complete this guide, you'll be able to:
 
-* Pull your users' NBA Top Shot Moments into your Flow app without needing to transfer them out of their Dapper wallet.
+* Pull your users' NBA Top Shot Moments into your Flow app without the need to transfer them out of their Dapper wallet.
 * Retrieve and list all NFT collections in any child wallet linked to a given Flow address.
 * Write a [Cadence](https://cadence-lang.org/docs) script to iterate through the storage of a Flow wallet to find NFT collections.
 * Run Cadence Scripts from the frontend.
@@ -160146,7 +160146,7 @@ After you complete this guide, you'll be able to:
 
 ### Next.js and Modern Frontend Development[​](#nextjs-and-modern-frontend-development "Direct link to Next.js and Modern Frontend Development")
 
-This tutorial uses [Next.js](https://nextjs.org/docs/app/getting-started/installation). You don't need to be an expert, but it's helpful to be comfortable with development using a current React framework. You'll be on your own to select and use a package manager, manage Node versions, and other frontend environment tasks. If you don't have your own preference, you can just follow along with us and use [Yarn](https://yarnpkg.com).
+This tutorial uses [Next.js](https://nextjs.org/docs/app/getting-started/installation). You don't need to be an expert, but it's helpful to be comfortable with development with a current React framework. You'll be on your own to select and use a package manager, manage Node versions, and other frontend environment tasks. If you don't have your own preference, you can just follow along with us and use [Yarn](https://yarnpkg.com).
 
 ### Flow Wallet[​](#flow-wallet "Direct link to Flow Wallet")
 
@@ -160156,7 +160156,7 @@ You'll need a [Flow Wallet](https://wallet.flow.com), but you don't need to depo
 
 You'll need a [Dapper Wallet](https://meetdapper.com) that contains some Moments NFTs, such as [NBA Top Shot](https://nbatopshot.com) Moments.
 
-## Getting Started[​](#getting-started "Direct link to Getting Started")
+## Get Started[​](#get-started "Direct link to Get Started")
 
 This tutorial will use a [Next.js](https://nextjs.org/docs/app/getting-started/installation) project as the foundation of the frontend. Create a new project with:
 
@@ -160178,13 +160178,13 @@ yarn run dev`
 
 If everything works properly, you can navigate to `localhost:3000` and see the default [Next.js](https://nextjs.org/docs/app/getting-started/installation) page.
 
-## Flow Cadence Setup[​](#flow-cadence-setup "Direct link to Flow Cadence Setup")
+## Flow Cadence setup[​](#flow-cadence-setup "Direct link to Flow Cadence setup")
 
 You'll need a few more dependencies to efficiently work with Cadence inside of your app.
 
-### Flow CLI and Types[​](#flow-cli-and-types "Direct link to Flow CLI and Types")
+### Flow CLI and types[​](#flow-cli-and-types "Direct link to Flow CLI and types")
 
-The [Flow CLI](/build/tools/flow-cli) contains a number of command-line tools for interacting with the Flow ecosystem. If you don't have it installed, you can add it with Brew (or using [other installation methods](/build/tools/flow-cli/install)):
+The [Flow CLI](/build/tools/flow-cli) contains a number of command-line tools to interact with the Flow ecosystem. If you don't have it installed, you can add it with Brew (or with [other installation methods](/build/tools/flow-cli/install)):
 
 `_10
 
@@ -160196,7 +160196,7 @@ After it's installed, initialize Flow in your `Next.js` project. From the root, 
 
 flow init --config-only`
 
-The `--config-only` flag [initializes a project](/build/tools/flow-cli/commands#init) with the just the config file. This allows the Flow CLI to interact with your project without adding adding the other files you want for most projects.
+The `--config-only` flag [initializes a project](/build/tools/flow-cli/commands#init) with the just the config file. This allows the Flow CLI to interact with your project without the need to add the other files you want for most projects.
 
 Next, you'll need to do a little bit of config work so that your project knows how to read Cadence files. Install the Flow Cadence Plugin:
 
@@ -160252,7 +160252,7 @@ _13
 
 export default nextConfig;`
 
-## Frontend Setup[​](#frontend-setup "Direct link to Frontend Setup")
+## Frontend setup[​](#frontend-setup "Direct link to Frontend setup")
 
 We'll use the Flow Client Library [FCL](/build/tools/clients/fcl-js) to manage blockchain interaction from the frontend. It's similar to `viem`, `ethers`, or `web3.js`, but works with the Flow blockchain and transactions and scripts written in Cadence.
 
@@ -160266,7 +160266,7 @@ Go ahead and install `dotenv` as well:
 
 yarn add dotenv`
 
-### Provider Setup[​](#provider-setup "Direct link to Provider Setup")
+### Provider setup[​](#provider-setup "Direct link to Provider setup")
 
 You'll need a fair amount of boilerplate code to set up your provider. We'll provide it, but since it's not the purpose of this tutorial, we'll be brief on explanations. For more details, check out the [App Quickstart Guide](/blockchain-development-tutorials/cadence/getting-started).
 
@@ -160532,7 +160532,7 @@ warning
 
 Don't forget to replace `<YOUR ID HERE>` with your own [Wallet Connect](https://cloud.walletconnect.com/sign-in) app id!
 
-### Implement the Provider and Flow Config[​](#implement-the-provider-and-flow-config "Direct link to Implement the Provider and Flow Config")
+### Implement the provider and Flow Ccnfig[​](#implement-the-provider-and-flow-ccnfig "Direct link to Implement the provider and Flow Ccnfig")
 
 Finally, open `layout.tsx`. TO start, import Flow dependencies and the AuthProvider:
 
@@ -160712,7 +160712,7 @@ _30
 
 }`
 
-### Add the Connect Button[​](#add-the-connect-button "Direct link to Add the Connect Button")
+### Add the connect button[​](#add-the-connect-button "Direct link to Add the connect button")
 
 Open `page.tsx` and clean up the demo code, leaving only the `<main>` block:
 
@@ -160810,7 +160810,7 @@ _10
 
 </main>`
 
-## Testing Pass[​](#testing-pass "Direct link to Testing Pass")
+## Test pass[​](#test-pass "Direct link to Test pass")
 
 Run the app:
 
@@ -160828,7 +160828,7 @@ Click `Log In` in the middle of the window and log in with your Flow wallet.
 
 Now that your app is set up, you can make use of [Account Linking](/blockchain-development-tutorials/cadence/account-management) to to pull your NFTs from your Dapper Wallet, through your Flow Wallet, and into the app.
 
-### Setting Up Account Linking[​](#setting-up-account-linking "Direct link to Setting Up Account Linking")
+### Set up Account Linking[​](#set-up-account-linking "Direct link to Set up Account Linking")
 
 If you haven't yet, you'll need to [link your Dapper Wallet](https://support.meetdapper.com/hc/en-us/articles/20744347884819-Account-Linking-and-FAQ) to your Flow Wallet.
 
@@ -160836,17 +160836,17 @@ warning
 
 The Dapper Wallet requires that you complete KYC before you can use Account Linking. While this may frustrate some members of the community, it makes it much easier for app developers to design onboarding rewards and bonuses that are less farmable.
 
-### Discovering the NFTs with a Script[​](#discovering-the-nfts-with-a-script "Direct link to Discovering the NFTs with a Script")
+### Discover the NFTs with a script[​](#discover-the-nfts-with-a-script "Direct link to Discover the NFTs with a script")
 
 With your accounts linked, your Flow Wallet now has a set of capabilities related to your Dapper Wallet and it can use those to view and even manipulate those NFTs and assets.
 
-Before you can add a script that can handle this, you'll need to import the `HybridCustody` contract using the [Flow Dependency Manager](/build/tools/flow-cli/dependency-manager):
+Before you can add a script that can handle this, you'll need to import the `HybridCustody` contract with the [Flow Dependency Manager](/build/tools/flow-cli/dependency-manager):
 
 `_10
 
 flow dependencies install mainnet://d8a7e05a7ac670c0.HybridCustody`
 
-Choose `none` to skip deploying on the `emulator` and skip adding testnet aliases. There's no point, these NFTs are on mainnet!
+Choose `none` to skip deployment on the `emulator` and skip adding testnet aliases. There's no point, these NFTs are on mainnet!
 
 You'll get a complete summary from the Dependency Manager:
 
@@ -161302,7 +161302,7 @@ warning
 
 The above script is a relatively naive implementation. For production, you'll want to filter for only the collections you care about, and you will eventually need to add handling for very large collections in a wallet.
 
-### Running the Script and Displaying the NFTs[​](#running-the-script-and-displaying-the-nfts "Direct link to Running the Script and Displaying the NFTs")
+### Run the script and display the NFTs[​](#run-the-script-and-display-the-nfts "Direct link to Run the script and display the NFTs")
 
 Add a component in `app/components` called `DisplayLinkedNFTs.cdc`.
 
@@ -161326,7 +161326,7 @@ _10
 
 import FetchNFTs from '../cadence/scripts/FetchNFTsFromLinkedAccts.cdc';`
 
-As we're using TypeScript, add some types as well to manage the data from the NFTs nicely. For now, just add them to this file:
+As we use TypeScript, add some types as well to manage the data from the NFTs nicely. For now, just add them to this file:
 
 `_21
 
@@ -161534,11 +161534,11 @@ _10
 
 }`
 
-### Testing[​](#testing "Direct link to Testing")
+### Test[​](#test "Direct link to Test")
 
 Run the app again. If you have linked your account and have NFTs in that account, you'll see them in the console!
 
-### Displaying the Moments[​](#displaying-the-moments "Direct link to Displaying the Moments")
+### Display the moments[​](#display-the-moments "Direct link to Display the moments")
 
 Now that they're here, all that's left to do is display them nicely! Return to `DisplayLinkedNFTs.tsx`. Add a helper function to confirm each returned NFT matches the Moments format. You can update this to handle other NFTs you'd like to show as well.
 
@@ -161602,7 +161602,7 @@ _15
 
 };`
 
-Next, add a rendering function with some basic styling:
+Next, add a render function with some basic styling:
 
 `_33
 
@@ -161810,7 +161810,7 @@ _18
 
 );`
 
-### Further Polish[​](#further-polish "Direct link to Further Polish")
+### Further polish[​](#further-polish "Direct link to Further polish")
 
 Finally, you can polish up your `page.tsx` to look a little nicer, and guide your users to the Account Linking process in the Dapper Wallet:
 
@@ -162030,7 +162030,7 @@ Reference solutions are functional, but may not be optimal.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/account-management/account-linking-with-dapper.md)
 
-Last updated on **Nov 3, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -162045,11 +162045,11 @@ Mobile Development on Flow](/blockchain-development-tutorials/cadence/mobile)
 Copy as Markdown
 
 * [Objectives](#objectives)* [Prerequisites](#prerequisites)
-    + [Next.js and Modern Frontend Development](#nextjs-and-modern-frontend-development)+ [Flow Wallet](#flow-wallet)* [Moments NFTs](#moments-nfts)* [Getting Started](#getting-started)* [Flow Cadence Setup](#flow-cadence-setup)
-          + [Flow CLI and Types](#flow-cli-and-types)* [Frontend Setup](#frontend-setup)
-            + [Provider Setup](#provider-setup)* [.env](#env)
-              + [Implement the Provider and Flow Config](#implement-the-provider-and-flow-config)+ [Add the Connect Button](#add-the-connect-button)* [Testing Pass](#testing-pass)* [Account Linking](#account-linking)
-                  + [Setting Up Account Linking](#setting-up-account-linking)+ [Discovering the NFTs with a Script](#discovering-the-nfts-with-a-script)+ [Running the Script and Displaying the NFTs](#running-the-script-and-displaying-the-nfts)+ [Testing](#testing)+ [Displaying the Moments](#displaying-the-moments)+ [Further Polish](#further-polish)* [Conclusion](#conclusion)* [Reference Solution](#reference-solution)
+    + [Next.js and Modern Frontend Development](#nextjs-and-modern-frontend-development)+ [Flow Wallet](#flow-wallet)* [Moments NFTs](#moments-nfts)* [Get Started](#get-started)* [Flow Cadence setup](#flow-cadence-setup)
+          + [Flow CLI and types](#flow-cli-and-types)* [Frontend setup](#frontend-setup)
+            + [Provider setup](#provider-setup)* [.env](#env)
+              + [Implement the provider and Flow Ccnfig](#implement-the-provider-and-flow-ccnfig)+ [Add the connect button](#add-the-connect-button)* [Test pass](#test-pass)* [Account Linking](#account-linking)
+                  + [Set up Account Linking](#set-up-account-linking)+ [Discover the NFTs with a script](#discover-the-nfts-with-a-script)+ [Run the script and display the NFTs](#run-the-script-and-display-the-nfts)+ [Test](#test)+ [Display the moments](#display-the-moments)+ [Further polish](#further-polish)* [Conclusion](#conclusion)* [Reference Solution](#reference-solution)
 
 Flow
 
@@ -163434,7 +163434,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -208469,7 +208469,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -213801,24 +213801,15 @@ Search
 
 On this page
 
-# Metadata Views on Flow
+# Metadata views on Flow
 
-`MetadataViews` on Flow offer a standardized way to represent onchain metadata
-across different resources. This standard is primarily used for NFTs, but it can be used for any resource that wants a flexible standard for metadata, such as [scheduled transactions](/build/cadence/advanced-concepts/scheduled-transactions)
+`MetadataViews` on Flow offer a standardized way to represent onchain metadata across different resources. This standard is primarily used for NFTs, but you can use it for any resource that wants a flexible standard for metadata, such as [scheduled transactions](/build/cadence/advanced-concepts/scheduled-transactions)
 
-Through integration of the metadata views standard, developers can ensure
-that different platforms and marketplaces can interpret the metadata of their resources
-in a unified manner. This means that when users visit different websites,
-wallets, and marketplaces,
-the metadata will be presented in a consistent manner,
-ensuring a uniform experience across various platforms.
+Through integration of the metadata views standard, developers can ensure that different platforms and marketplaces can interpret the metadata of their resources in a unified manner. This means that when users visit different websites, wallets, and marketplaces, the metadata will be presented in a consistent manner, which ensures a uniform experience across various platforms.
 
 info
 
-It is important to understand this document so you can make meaningful decisions
-about how to manage your project's metadata as support for metadata views does
-not happen by default. Each project has unique metadata and therefore will have to
-define how they expose it in unique ways.
+It is important to understand this document so you can make meaningful decisions about how to manage your project's metadata as support for metadata views does not happen by default. Each project has unique metadata and therefore will have to define how they expose it in unique ways.
 
 info
 
@@ -213826,8 +213817,7 @@ This document primarily uses NFTs as examples for how metadata views can be used
 but metadata views can be used for any kind of project or resource that wants
 a standard way to represent metadata.
 
-A view is a standard Cadence struct that represents a specific type of metadata,
-such as a [Royalty specification](https://github.com/onflow/flow-nft?tab=readme-ov-file#royalty-view):
+A view is a standard Cadence struct that represents a specific type of metadata, such as a [Royalty specification](https://github.com/onflow/flow-nft?tab=readme-ov-file#royalty-view):
 
 `_10
 
@@ -213903,53 +213893,24 @@ _10
 
 }`
 
-This guide acts as a specification for the correct ways to use each metadata view.
-Many of the standard metadata views do not have built-in requirements
-for how they are meant to be used, so it is important for developers to understand
-the content of this document so third party apps can integrate with their
-smart contracts as easily and effectively as possible.
+This guide acts as a specification for the correct ways to use each metadata view. Many of the standard metadata views do not have built-in requirements for how they are meant to be used, so it is important for developers to understand the content of this document so third party apps can integrate with their smart contracts as easily and effectively as possible.
 
-> If you'd like to follow along while we discuss the concepts below,
-> you can do so by referring to
-> the [ExampleNFT contract](https://github.com/onflow/flow-nft/blob/master/contracts/ExampleNFT.cdc).
-> Additionally, here is the source code for the
-> [`ViewResolver` contract](https://github.com/onflow/flow-nft/blob/master/contracts/ViewResolver.cdc)
-> and the [`MetadataViews` contract](https://github.com/onflow/flow-nft/blob/master/contracts/MetadataViews.cdc).
+> If you'd like to follow along while we discuss the concepts below, see the [ExampleNFT contract](https://github.com/onflow/flow-nft/blob/master/contracts/ExampleNFT.cdc). Additionally, here is the source code for the [`ViewResolver` contract](https://github.com/onflow/flow-nft/blob/master/contracts/ViewResolver.cdc) and the [`MetadataViews` contract](https://github.com/onflow/flow-nft/blob/master/contracts/MetadataViews.cdc).
 
-Flowty has also provided [a useful guide](https://docs.flowty.io/developer-docs/)
-for how to manage metadata views properly
-in order to be compatible with their marketplace. This guide is very useful
-because all of their advice is generally good advice for any NFT contract,
-regardless of what marketplace it is using.
+Flowty has also provided [a useful guide](https://docs.flowty.io/developer-docs/) for how to manage metadata views properly in order to be compatible with their marketplace. This guide is very useful because all of their advice is generally good advice for any NFT contract, regardless of what marketplace it uses.
 
-## Two Levels of Metadata: An Overview[​](#two-levels-of-metadata-an-overview "Direct link to Two Levels of Metadata: An Overview")
+## Two levels of metadata: an overview[​](#two-levels-of-metadata-an-overview "Direct link to Two levels of metadata: an overview")
 
 Metadata in Cadence is structured at two distinct levels:
 
-1. **Contract-Level Metadata**: This provides an overarching description
-   of the entire collection/project.
-   Any metadata about individual resources is not included here.
-2. **Resource-Level Metadata**: Diving deeper, this metadata relates to individual resources, often NFTs.
-   It provides context, describes rarity, and highlights other distinctive attributes
-   that distinguish one object from another within the same contract or collection.
+1. **Contract-Level Metadata**: This provides an overarching description of the entire collection/project. Any metadata about individual resources is not included here.
+2. **Resource-Level Metadata**: This metadata relates to individual resources, often NFTs. It provides context, describes rarity, and highlights other distinctive attributes that distinguish one object from another within the same contract or collection.
 
-While these distinct levels describe different aspects of a project,
-they both use the same view system for representing the metadata
-and the same basic function calls to query the information,
-just from different places.
+While these distinct levels describe different aspects of a project, they both use the same view system to represent the metadata and the same basic function calls to query the information, just from different places.
 
-## Understanding `ViewResolver` and `MetadataViews.Resolver`[​](#understanding-viewresolver-and-metadataviewsresolver "Direct link to understanding-viewresolver-and-metadataviewsresolver")
+## Understand `ViewResolver` and `MetadataViews.Resolver`[​](#understand-viewresolver-and-metadataviewsresolver "Direct link to understand-viewresolver-and-metadataviewsresolver")
 
-When considering Flow and how it handles metadata for resources,
-it is crucial to understand two essential interfaces:
-`ViewResolver` and `MetadataViews.Resolver`.
-[Interfaces](https://cadence-lang.org/docs/language/interfaces)
-serve as blueprints for types that specify the required fields and methods
-that your contract or [composite type](https://cadence-lang.org/docs/language/composite-types) must adhere to
-to be considered a subtype of that interface.
-This guarantees that any contract asserting adherence to these interfaces
-will possess a consistent set of functionalities
-that other applications or contracts can rely on.
+When you consider Flow and how it handles metadata for resources, it is crucial to understand two essential interfaces: `ViewResolver` and `MetadataViews.Resolver`. [Interfaces](https://cadence-lang.org/docs/language/interfaces) serve as blueprints for types that specify the required fields and methods that your contract or [composite type](https://cadence-lang.org/docs/language/composite-types) must adhere to be considered a subtype of that interface. This guarantees that any contract that asserts adherence to these interfaces will possess a consistent set of functionalities that other applications or contracts can rely on.
 
 1. **`ViewResolver` for Contract-Level Metadata**:
    * This interface ensures that **contracts**, particularly those encapsulating NFT collections, conform to the Metadata Views standard.
@@ -213958,15 +213919,13 @@ that other applications or contracts can rely on.
    * Used within **individual resources**, this interface ensures each resource adheres to the Metadata standard format.
    * It focuses on the distinct attributes of an individual resource, such as its unique ID, name, description, and other defining characteristics.
 
-### Core Functions[​](#core-functions "Direct link to Core Functions")
+### Core functions[​](#core-functions "Direct link to Core functions")
 
-Both the `ViewResolver` and `MetadataViews.Resolver` utilize the following core functions:
+Both the `ViewResolver` and `MetadataViews.Resolver` use these core functions:
 
-### `getViews` Function[​](#getviews-function "Direct link to getviews-function")
+### The `getViews` function[​](#the-getviews-function "Direct link to the-getviews-function")
 
-This function provides a list of supported metadata view types,
-which can be applied either by the contract (in the case of `ViewResolver`)
-or by an individual resource (in the case of `MetadataViews.Resolver`).
+This function provides a list of supported metadata view types, which you can apply either by the contract (in the case of `ViewResolver`) or by an individual resource (in the case of `MetadataViews.Resolver`).
 
 `_10
 
@@ -213996,13 +213955,11 @@ _10
 
 }`
 
-### `resolveView` Function[​](#resolveview-function "Direct link to resolveview-function")
+### The `resolveView` function[​](#the-resolveview-function "Direct link to the-resolveview-function")
 
-Whether utilized at the contract or resource level, this function's role
-is to deliver the actual metadata associated with a given view type.
+Whether used at the contract or resource level, this function's role is to deliver the actual metadata associated with a given view type.
 
-The caller provides the type of the view they want to query as the only argument,
-and the view is returned if it exists, and `nil` is returned if it doesn't.
+The caller provides the type of the view they want to query as the only argument, and the view is returned if it exists, and `nil` is returned if it doesn't.
 
 `_10
 
@@ -214040,26 +213997,13 @@ As you can see, the return values of `getViews()` can be used as arguments
 for `resolveView()` if you want to just iterate through all the views
 that a resource implements.
 
-## Resource-Level Metadata Implementation[​](#resource-level-metadata-implementation "Direct link to Resource-Level Metadata Implementation")
+## Resource-level metadata implementation[​](#resource-level-metadata-implementation "Direct link to Resource-level metadata implementation")
 
-Resource-level metadata addresses the unique attributes of individual tokens
-within a collection. It provides structured information for each resource,
-including its identifier, descriptive elements, royalties,
-and other associated metadata. Incorporating this level of detail
-ensures consistency and standardization among individual resources,
-making them interoperable and recognizable across various platforms and marketplaces.
+Resource-level metadata addresses the unique attributes of individual tokens within a collection. It provides structured information for each resource, such as its identifier, descriptive elements, royalties, and other associated metadata. When you incorporate this level of detail, it assures consistency and standardization among individual resources, which makes them interoperable and recognizable across various platforms and marketplaces.
 
-### Core Properties[​](#core-properties "Direct link to Core Properties")
+### Core properties[​](#core-properties "Direct link to Core properties")
 
-In the code below, an NFT has properties such as
-its unique ID, name, description, and others.
-When we add the `NonFungibleToken.NFT` and by extension,
-the `MetadataViews.Resolver` to our NFT resource,
-we are indicating that these variables will adhere to the specifications
-outlined in the MetadataViews contract for each of these properties.
-This facilitates interoperability within the Flow ecosystem
-and assures that the metadata of our NFT can be consistently accessed
-and understood by various platforms and services that interact with NFTs.
+In the code below, an NFT has properties such as its unique ID, name, description, and others. When we add the `NonFungibleToken.NFT` and by extension, the `MetadataViews.Resolver` to our NFT resource, we indicate that these variables will adhere to the specifications outlined in the MetadataViews contract for each of these properties. This facilitates interoperability within the Flow ecosystem and assures that the metadata of our NFT can be consistently accessed and understood by various platforms and services that interact with NFTs.
 
 `_10
 
@@ -214097,14 +214041,9 @@ _10
 
 }`
 
-To make this possible though, it is **vital** that projects
-all use the standard metadata views in the same way, so third-party
-applications can consume them in standard ways.
+To make this possible though, it is **vital** that projects all use the standard metadata views in the same way, so third-party applications can consume them in standard ways.
 
-For example, many metadata views have `String`-typed fields. It is difficult
-to enforce that these fields are formatted in the correct way, so it is important
-for projects to be dilligent about how they use them. Take `Traits` for example,
-a commonly misused metadata view:
+For example, many metadata views have `String`-typed fields. It is difficult to enforce that these fields are formatted in the correct way, so it is important for projects to be dilligent about how they use them. Take `Traits` for example, a commonly misused metadata view:
 
 `_10
 
@@ -214130,27 +214069,18 @@ _10
 
 }`
 
-The name of the trait should be formatted in a way so that it is easy to display
-on a user-facing website. Many projects will use something like CamelCase for
-the value, so it looks like "HairColor", which is not pretty on a website.
-The correct format for this example would be "Hair Color".
-This is just one of many common view uses that projects need to be aware of
-to maximize the chance of success for their project.
+The name of the trait should be formatted in a way so that it is easy to display on a user-facing website. Many projects will use something like CamelCase for the value, so it looks like "HairColor", which is not pretty on a website. The correct format for this example would be "Hair Color". This is just one of many common view uses that projects need to be aware of to maximize the chance of success for their project.
 
-## Metadata Views for NFTs[​](#metadata-views-for-nfts "Direct link to Metadata Views for NFTs")
+## Metadata views for NFTs[​](#metadata-views-for-nfts "Direct link to Metadata views for NFTs")
 
-`MetadataViews` types define how the NFT presents its data.
-When invoked, the system knows precisely which view to return,
-ensuring that the relevant information is presented consistently across various platforms.
-In this section of the document, we will explore each metadata view and describe
-how projects should properly use them.
+`MetadataViews` types define how the NFT presents its data. When invoked, the system knows precisely which view to return,
+which ensures that the relevant information is presented consistently across various platforms.
+
+In this section of the document, we will explore each metadata view and describe how projects should properly use them.
 
 ### Display[​](#display "Direct link to Display")
 
-This view provides the bare minimum information about the NFT
-suitable for listing or display purposes. When the `Display` type is invoked,
-it dynamically assembles the visual and descriptive information
-that is typically needed for showcasing the NFT in marketplaces or collections.
+This view provides the bare minimum information about the NFT suitable for list or display purposes. When the `Display` type is invoked, it dynamically assembles the visual and descriptive information that is typically needed to showcase the NFT in marketplaces or collections.
 
 `_10
 
@@ -214216,7 +214146,7 @@ _10
 
 info
 
-Note about SVG files onchain: SVG field should be sent as `thumbnailURL`,
+SVG field should be sent as `thumbnailURL`,
 should be base64 encoded, and should have a dataURI prefix, like so:
 
 `_10
@@ -214225,19 +214155,11 @@ data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3
 
 ### Editions[​](#editions "Direct link to Editions")
 
-The `Editions` view provides intricate details regarding the particular release of an NFT
-within a set of NFTs with the same metadata.
-This can include information about the number of copies in an edition,
-the specific NFT's sequence number within that edition, or its inclusion in a limited series.
-When the `Editions` view is queried, it retrieves this data,
-providing collectors with the information they need to comprehend
-the rarity and exclusivity of the NFT they are interested in.
+The `Editions` view provides intricate details about the particular release of an NFT within a set of NFTs with the same metadata. This can include information about the number of copies in an edition, the specific NFT's sequence number within that edition, or its inclusion in a limited series. When the `Editions` view is queried, it retrieves this data, and provides collectors with the information they need to comprehend the rarity and exclusivity of the NFT they are interested in.
 
-An NFT can also be part of multiple editions, which is why the `Editions` view
-can hold any number of `Edition` structs in an array.
+An NFT can also be part of multiple editions, which is why the `Editions` view can hold any number of `Edition` structs in an array.
 
-For example, if an NFT is number 11 of 30 of an exclusive edition,
-the code to return the `Editions` view would look like this:
+For example, if an NFT is number 11 of 30 of an exclusive edition, the code to return the `Editions` view would look like this:
 
 `_10
 
@@ -214267,16 +214189,10 @@ _10
 
 return MetadataViews.Editions([editionInfo])`
 
-### Serial Number Metadata[​](#serial-number-metadata "Direct link to Serial Number Metadata")
+### Serial number metadata[​](#serial-number-metadata "Direct link to Serial number metadata")
 
-The `Serial` metadata provides the unique serial number of the NFT,
-akin to a serial number on a currency note or a VIN on a car.
-This serial number is a fundamental attribute that certifies the individuality
-of each NFT and is critical for identification and verification processes.
-Serial numbers are expected to be unique among other NFTs from the same project.
-Many projects are already using the NFT resource's
-[globally unique UUID]([resource's globally unique UUID](https://cadence-lang.org/docs/language/resources#resource-identifier))
-as the ID already, so they will typically also use that as the serial number.
+The `Serial` metadata provides the unique serial number of the NFT, akin to a serial number on a currency note or a VIN on a car. This serial number is a fundamental attribute that certifies the individuality of each NFT and is critical for identification and verification processes. Serial numbers are expected to be unique among other NFTs from the same project.
+Many projects already use the NFT resource's [resource's globally unique UUID](https://cadence-lang.org/docs/language/resources#resource-identifier) as the ID, so they will typically also use that as the serial number.
 
 `_10
 
@@ -214286,13 +214202,9 @@ _10
 
 return MetadataViews.Serial(self.uuid)`
 
-### Royalties Metadata[​](#royalties-metadata "Direct link to Royalties Metadata")
+### Royalties metadata[​](#royalties-metadata "Direct link to Royalties metadata")
 
-Royalty information is vital for the sustainable economics of the creators in the NFT space.
-[The `Royalties` metadata view](https://github.com/onflow/flow-nft/blob/master/contracts/MetadataViews.cdc#L295)
-defines the specifics of any royalty agreements in place,
-including the percentage of sales revenue that will go to the original creator
-or other stakeholders on secondary sales.
+Royalty information is vital for the sustainable economics of the creators in the NFT space. [The `Royalties` metadata view](https://github.com/onflow/flow-nft/blob/master/contracts/MetadataViews.cdc#L295) defines the specifics of any royalty agreements in place, such as the percentage of sales revenue that will go to the original creator or other stakeholders on secondary sales.
 
 Each royalty view contains a fungible token receiver capability where royalties should be paid:
 
@@ -214370,11 +214282,7 @@ _13
 
 return MetadataViews.Royalties(detailedRoyalties)`
 
-If someone wants to make a listing for their NFT on a marketplace,
-the marketplace can check to see if the royalty receiver
-accepts the seller's desired fungible token by calling
-the `receiver.getSupportedVaultTypes(): {Type: Bool}`
-function via the `receiver` reference:
+If someone wants to make a listing for their NFT on a marketplace, the marketplace can check to see if the royalty receiver accepts the seller's desired fungible token by calling the `receiver.getSupportedVaultTypes(): {Type: Bool}` function via the `receiver` reference:
 
 `_10
 
@@ -214416,39 +214324,21 @@ _10
 
 }`
 
-If the desired type is not supported, the marketplace has a few options.
-They could either get the address of the receiver by using the
-`receiver.owner.address` field and check to see if the account
-has a receiver for the desired token, they could perform the sale without a royalty cut,
-or they could abort the sale since the token type isn't accepted by the royalty beneficiary.
+If the desired type is not supported, the marketplace has a few options. They could either get the address of the receiver with the `receiver.owner.address` field and check to see if the account has a receiver for the desired token, they could perform the sale without a royalty cut, or they could abort the sale since the token type isn't accepted by the royalty beneficiary.
 
-You can see example implementations of royalties in the `ExampleNFT` contract
-and the associated transactions and scripts.
-NFTs are often sold for a variety of currencies, so the royalty receiver should ideally
-be a [fungible token switchboard](https://github.com/onflow/flow-ft?tab=readme-ov-file#fungible-token-switchboard) receiver that forwards any received tokens
-to the correct vault in the receiving account.
+You can see example implementations of royalties in the `ExampleNFT` contract and the associated transactions and scripts. NFTs are often sold for a variety of currencies, so the royalty receiver should ideally be a [fungible token switchboard](https://github.com/onflow/flow-ft?tab=readme-ov-file#fungible-token-switchboard) receiver that forwards any received tokens to the correct vault in the receiving account.
 
 #### Important instructions for royalty receivers[​](#important-instructions-for-royalty-receivers "Direct link to Important instructions for royalty receivers")
 
-If you plan to set your account as a receiver of royalties,
-you'll likely want to be able to accept as many token types as possible.
-This is possible with the `FungibleTokenSwitchboard`.
-If you initialize a switchboard in your account, it can accept any generic fungible token
-and route it to the correct vault in your account.
+If you plan to set your account as a receiver of royalties, you'll likely want to be able to accept as many token types as possible. This is possible with the `FungibleTokenSwitchboard`. If you initialize a switchboard in your account, it can accept any generic fungible token and route it to the correct vault in your account.
 
-Therefore, if you want to receive royalties, you should set up your account with the
-[`setup_royalty_account_by_paths.cdc`](https://github.com/onflow/flow-ft/blob/master/transactions/switchboard/setup_royalty_account_by_paths.cdc) transaction.
+Therefore, if you want to receive royalties, you should set up your account with the [`setup_royalty_account_by_paths.cdc`](https://github.com/onflow/flow-ft/blob/master/transactions/switchboard/setup_royalty_account_by_paths.cdc) transaction.
 
-This will link generic public path from `MetadataViews.getRoyaltyReceiverPublicPath()`
-to the capability paths and types that you provide as arguments.
-Then you can use that public path and capability for your royalty receiver.
+This will link generic public path from `MetadataViews.getRoyaltyReceiverPublicPath() to the capability paths and types that you provide as arguments. Then you can use that public path and capability for your royalty receiver.
 
-### External URL Metadata[​](#external-url-metadata "Direct link to External URL Metadata")
+### External URL metadata[​](#external-url-metadata "Direct link to External URL metadata")
 
-The ExternalURL view returns to an associated webpage URL,
-providing additional content or information about the NFT.
-This can be a website, social media page, or anything else related to the project
-that uses a URL.
+The ExternalURL view returns to an associated webpage URL, which provides additional content or information about the NFT. This can be a website, social media page, or anything else related to the project that uses a URL.
 
 `_10
 
@@ -214458,10 +214348,9 @@ _10
 
 return MetadataViews.ExternalURL("<https://example-nft.flow.com/>".concat(self.id.toString()))`
 
-### Traits Metadata[​](#traits-metadata "Direct link to Traits Metadata")
+### Traits metadata[​](#traits-metadata "Direct link to Traits metadata")
 
-The [`Trait`](https://github.com/onflow/flow-nft/blob/master/contracts/MetadataViews.cdc#L655) view type encapsulates the unique attributes of an NFT, like any visual aspects or category-defining properties. These can be essential for marketplaces that need to sort or filter NFTs based on these characteristics.
-By returning trait views as recommended, you can fit the data in the places you want.
+The [`Trait`](https://github.com/onflow/flow-nft/blob/master/contracts/MetadataViews.cdc#L655) view type encapsulates the unique attributes of an NFT, like any visual aspects or category-defining properties. These can be essential for marketplaces that need to sort or filter NFTs based on these characteristics. When you return trait views as recommended, you can fit the data in the places you want.
 
 `_15
 
@@ -214517,30 +214406,19 @@ _15
 
 access(all) let rarity: Rarity?`
 
-The traits view is extremely important to get right, because many third-party apps
-and marketplaces are heavily reliant on it to properly display the entirety of your NFTs.
-For example, the names and values of the traits are likely going to be displayed
-on a user-facing website, so it is important to return them in a presentable form, such as `First Name`, instead of `first_name` or `firstName`.
+The traits view is extremely important to get right, because many third-party apps and marketplaces are heavily reliant on it to properly display the entirety of your NFTs. For example, the names and values of the traits likely display on a user-facing website, so it is important to return them in a presentable form, such as `First Name`, instead of `first_name` or `firstName`.
 
 Additionally, limit your `value` field to primitive types like `String`, `Int`, or `Bool`.
 
-Additionally, the `displayType` is important as well, because it tells websites
-how to display the trait properly. Developers should not just default
-to `String` or `Integer` for all their display types.
-When applicable, the display types to accurately reflect the data that needs to be displayed.
+Furthermore, the `displayType` is important as well, because it tells websites how to display the trait properly. Developers should not just default to `String` or `Integer` for all their display types. When applicable, the display types to accurately reflect the data that needs to be displayed.
 
 ![MetadataViews.Traits](/assets/images/traits_String-183a7543a327e232391a34f19a4df34a.png "traits_String")
 
-#### Note: Always prefer wrappers over single views[​](#note-always-prefer-wrappers-over-single-views "Direct link to Note: Always prefer wrappers over single views")
+#### Note: always prefer wrappers over single views[​](#note-always-prefer-wrappers-over-single-views "Direct link to Note: always prefer wrappers over single views")
 
-When exposing a view that could have multiple occurrences on a single NFT,
-such as `Edition`, `Royalty`, `Media` or `Trait` the wrapper view should always be used
-(such as `Editions`, `Royalties`, etc), even if there is only a single occurrence.
-The wrapper view is always the plural version of the single view name
-and can be found below the main view definition in the `MetadataViews` contract.
+When you expose a view that could have multiple occurrences on a single NFT, such as `Edition`, `Royalty`, `Media` or `Trait`, always use the wrapper view (such as `Editions`, `Royalties`, etc), even if there is only a single occurrence. The wrapper view is always the plural version of the single view name and can be found below the main view definition in the `MetadataViews` contract.
 
-When resolving the view, the wrapper view should be the returned value,
-instead of returning the single view or just an array of several occurrences of the view.
+When you resolve the view, the wrapper view should be the returned value, instead of return the single view or just an array of several occurrences of the view.
 
 `_11
 
@@ -214586,15 +214464,9 @@ _11
 
 }`
 
-## Contract-Level Metadata Implementation[​](#contract-level-metadata-implementation "Direct link to Contract-Level Metadata Implementation")
+## Contract-level metadata implementation[​](#contract-level-metadata-implementation "Direct link to Contract-level metadata implementation")
 
-Contract-level metadata provides a holistic view of an NFT collection,
-capturing overarching attributes and contextual information about the entire set,
-rather than specifics of individual tokens. These views describe attributes
-at the collection or series level rather than individual NFTs.
-These views should still should be queryable via individual NFTs though.
-One can accomplish this by just forwarding the call
-from the NFT's `resolveView()` method to the contract's `resolveView()` method, like so:
+Contract-level metadata provides a holistic view of an NFT collection. It captures complete attributes and contextual information about the entire set, rather than specifics of individual tokens. These views describe attributes at the collection or series level rather than individual NFTs. These views should still should be queryable via individual NFTs though. To accomplish this, you can forward the call from the NFT's `resolveView()` method to the contract's `resolveView()` method, like so:
 
 `` _10
 
@@ -214610,9 +214482,7 @@ return ExampleNFT.getCollectionDisplay(nftType: Type<@ExampleNFT.NFT>()) ``
 
 ### NFTCollectionData[​](#nftcollectiondata "Direct link to NFTCollectionData")
 
-This view provides paths and types related to the NFT collection's storage
-and access within the smart contract. The information in this view
-is critical for understanding how to interact with a collection.
+This view provides paths and types related to the NFT collection's storage and access within the smart contract. The information in this view is critical for you to understand how to interact with a collection.
 
 `_14
 
@@ -214670,19 +214540,11 @@ _14
 
 )`
 
-Here, `NFTCollectionData` is specifying several important elements
-related to how the collection is stored and accessed on the Flow blockchain.
-It provides information on storage paths and access control paths
-for both public and private data, as well as linked types
-that specify what capabilities are publicly available
-(like collection, receiver, or provider interfaces).
+Here, `NFTCollectionData` specifies several important elements related to how the collection is stored and accessed on the Flow blockchain. It provides information on storage paths and access control paths for both public and private data, as well as linked types that specify what capabilities are publicly available (like collection, receiver, or provider interfaces).
 
 ### NFTCollectionDisplay[​](#nftcollectiondisplay "Direct link to NFTCollectionDisplay")
 
-This view describes the collection with visual elements and metadata
-that are useful for display purposes, such as in a marketplace or gallery.
-Many third party apps need this in order to display high-level information
-about an NFT project properly.
+This view describes the collection with visual elements and metadata that are useful for display purposes, such as in a marketplace or gallery. Many third party apps need this in order to display high-level information about an NFT project properly.
 
 `_17
 
@@ -214752,22 +214614,15 @@ _17
 
 )`
 
-In the example above, the `NFTCollectionDisplay` not only offers fundamental metadata
-like the collection's name and description but also provides image URLs
-for visual representations of the collection (`squareImage` and `bannerImage`)
-and external links, including social media profiles.
+In the example above, the `NFTCollectionDisplay` not only offers fundamental metadata like the collection's name and description but also provides image URLs for visual representations of the collection (`squareImage` and `bannerImage`) and external links, including social media profiles.
 
 ![MetadataViews.CollectionDisplay](/assets/images/collectionDisplay-c46eba803c52ece34661178c113354f2.png "CollectionDisplay")
 
 ### Contract-borrowing Metadata[​](#contract-borrowing-metadata "Direct link to Contract-borrowing Metadata")
 
-With the contract borrowing feature, the [ViewResolver](https://github.com/onflow/flow-nft/blob/master/contracts/ViewResolver.cdc)
-interface on contracts can be borrowed directly without needing to import the contract first.
-Views can be resolved directly from there.
-As an example, you might want to allow your contract
-to resolve `NFTCollectionData` and `NFTCollectionDisplay` so that platforms
-do not need to find an NFT that belongs to your contract
-to get information about how to set up or show your collection.
+With the contract borrowing feature, the [ViewResolver](https://github.com/onflow/flow-nft/blob/master/contracts/ViewResolver.cdc) interface on contracts can be borrowed directly without needing to import the contract first. Views can be resolved directly from there.
+
+As an example, you might want to allow your contract to resolve `NFTCollectionData` and `NFTCollectionDisplay` so that platforms do not need to find an NFT that belongs to your contract to get information about how to set up or show your collection.
 
 `_15
 
@@ -214831,22 +214686,17 @@ Will Return
 
 ## More[​](#more "Direct link to More")
 
-Understanding `MetadataViews` and the core functions associated with it
-is crucial for developers aiming to deploy NFTs on Flow.
-With these views and functions, NFTs can maintain a consistent presentation
-across various platforms and marketplaces and foster interoperability
-between contracts and applications in the Flow ecosystem.
-To gain a deeper understanding of implementing the MetadataView standard,
-check out our documentation on "How to Create an NFT Project on Flow".
-It provides an introduction to integrating these standards into your NFT contracts.
+It's crucial that developers who want to deploy NFTs on Flow understand `MetadataViews` and the core functions associated with it With these views and functions, NFTs can maintain a consistent presentation across various platforms and marketplaces and foster interoperability between contracts and applications in the Flow ecosystem.
 
-* See the [API reference for a complete list of Metadata functions](https://developers.flow.com/build/cadence/core-contracts/flow-nft/MetdataViews/MetadataViews)
-* Check out [an Example NFT project](https://github.com/onflow/flow-nft/blob/master/contracts/ExampleNFT.cdc) implementing `MetadataViews`
-* Read [the NFT Guide](/blockchain-development-tutorials/tokens/nft-cadence) for an introduction to implementation
+To gain a deeper understanding of implementing the MetadataView standard, check out our documentation on "How to Create an NFT Project on Flow". It provides an introduction for how to integrate these standards into your NFT contracts.
+
+* See the [API reference for a complete list of Metadata functions](https://developers.flow.com/build/cadence/core-contracts/flow-nft/MetdataViews/MetadataViews).
+* Check out [an Example NFT project](https://github.com/onflow/flow-nft/blob/master/contracts/ExampleNFT.cdc) which implements `MetadataViews`.
+* Read [the NFT Guide](/blockchain-development-tutorials/tokens/nft-cadence)for an introduction to implementation.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/advanced-concepts/metadata-views.md)
 
-Last updated on **Oct 2, 2025** by **Josh Hannan**
+Last updated on **Dec 1, 2025** by **cshannon1218**
 
 [Previous
 
@@ -214860,10 +214710,10 @@ VRF (Randomness) in Cadence](/build/cadence/advanced-concepts/randomness)
 
 Copy as Markdown
 
-* [Two Levels of Metadata: An Overview](#two-levels-of-metadata-an-overview)* [Understanding `ViewResolver` and `MetadataViews.Resolver`](#understanding-viewresolver-and-metadataviewsresolver)
-    + [Core Functions](#core-functions)+ [`getViews` Function](#getviews-function)+ [`resolveView` Function](#resolveview-function)* [Resource-Level Metadata Implementation](#resource-level-metadata-implementation)
-      + [Core Properties](#core-properties)* [Metadata Views for NFTs](#metadata-views-for-nfts)
-        + [Display](#display)+ [Editions](#editions)+ [Serial Number Metadata](#serial-number-metadata)+ [Royalties Metadata](#royalties-metadata)+ [External URL Metadata](#external-url-metadata)+ [Traits Metadata](#traits-metadata)* [Contract-Level Metadata Implementation](#contract-level-metadata-implementation)
+* [Two levels of metadata: an overview](#two-levels-of-metadata-an-overview)* [Understand `ViewResolver` and `MetadataViews.Resolver`](#understand-viewresolver-and-metadataviewsresolver)
+    + [Core functions](#core-functions)+ [The `getViews` function](#the-getviews-function)+ [The `resolveView` function](#the-resolveview-function)* [Resource-level metadata implementation](#resource-level-metadata-implementation)
+      + [Core properties](#core-properties)* [Metadata views for NFTs](#metadata-views-for-nfts)
+        + [Display](#display)+ [Editions](#editions)+ [Serial number metadata](#serial-number-metadata)+ [Royalties metadata](#royalties-metadata)+ [External URL metadata](#external-url-metadata)+ [Traits metadata](#traits-metadata)* [Contract-level metadata implementation](#contract-level-metadata-implementation)
           + [NFTCollectionData](#nftcollectiondata)+ [NFTCollectionDisplay](#nftcollectiondisplay)+ [Contract-borrowing Metadata](#contract-borrowing-metadata)* [More](#more)
 
 Flow
@@ -242105,7 +241955,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -245597,7 +245447,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -252945,7 +252795,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -255247,7 +255097,7 @@ warning
 
 Scheduled transactions were part of the Forte network upgrade and are available on Flow Mainnet, Flow Emulator (CLI v2.7.0+) and Flow Testnet. For more infomation, see [Forte: Introducing Actions & Agents](https://flow.com/post/forte-introducing-actions-agents-supercharging-composability-and-automation).
 
-Scheduled transactions on the Flow blockchain enable users and smart contracts to autonomously execute predefined logic at specific future times without external triggers. This powerful feature allows developers to create "wake up" patterns where contracts can schedule themselves to run at predetermined block timestamps, which allows novel blockchain automation patterns.
+Scheduled transactions on the Flow blockchain allow users and smart contracts to autonomously execute predefined logic at specific future times without external triggers. This powerful feature allows developers to create "wake up" patterns where contracts can schedule themselves to run at predetermined block timestamps, which allows novel blockchain automation patterns.
 
 Key benefits include:
 
@@ -255259,7 +255109,7 @@ Common use cases include recurring payments, automated arbitrage, time-based con
 
 info
 
-Flow provides a scheduled transaction manager to make managing your scheduled transactions more streamlined. Check out the [scheduled transactions intro](/blockchain-development-tutorials/forte/scheduled-transactions/scheduled-transactions-introduction) for a tutorial on how to schedule some basic transactions with the manager.
+Flow provides a scheduled transaction manager to help you manage your scheduled transactions more easily. Check out the [scheduled transactions intro](/blockchain-development-tutorials/forte/scheduled-transactions/scheduled-transactions-introduction) for a tutorial on how to schedule some basic transactions with the manager.
 
 ## Concepts[​](#concepts "Direct link to Concepts")
 
@@ -255471,7 +255321,7 @@ _43
 
 ### Scheduling[​](#scheduling "Direct link to Scheduling")
 
-In sceduling, you create the transaction that executes at a specified future timestamp. The system uses three priority levels:
+In scheduling, you create the transaction that executes at a specified future timestamp. The system uses three priority levels:
 
 * **High Priority**: guarantees execution in the first block with the scheduled time or fails scheduling, requires the highest fees.
 * **Medium Priority**: best-effort execution as close as possible to the scheduled time known during scheduling.
@@ -255487,8 +255337,7 @@ Each transaction requires:
 
 These arguments are required by the [`FlowTransactionScheduler.schedule()` function](https://github.com/onflow/flow-core-contracts/blob/master/contracts/FlowTransactionScheduler.cdc#L732). This function returns a `ScheduledTransaction` resource object.
 
-The Scheduled Transaction Manager standard (mentioned in the intro) provides an easy way for developers
-and users to manage their scheduled transactions from a central place in their account. Users are strongly encouraged to use this.
+The Scheduled Transaction Manager standard (mentioned in the intro) provides an easy way for developers and users to manage their scheduled transactions from a central place in their account. Users are strongly encouraged to use this.
 
 More information about the Scheduled Transaction manager is in the [section at the end of this document](#2-scheduling-a-transaction-with-the-manager).
 
@@ -255498,7 +255347,7 @@ When a transaction is scheduled, the [`FlowTransactionScheduler.Scheduled` event
 
 Fee calculation includes:
 
-* **Base execution fee**: based on computational effort using standard Flow fee structure.
+* **Base execution fee**: based on computational effort with standard Flow fee structure.
 * **Priority multiplier**: higher priorities pay more (High: 10x, Medium: 5x, Low: 2x base rate).
 * **Storage fee**: cost to store transaction data on-chain.
 
@@ -255518,7 +255367,7 @@ If the scheduled transaction fails at any point during execution, the `Executed`
 
 You can cancel scheduled transactions before execution. When you cancel a transaction, it returns a portion of the fees (configurable refund percentage, 50% as of now). Please keep in mind the refund percentage can change in the future.
 
-To cancel, you need the `ScheduledTransaction` resource that was returned during scheduling. The scheduled transaction manager also makes cancelling scheduled transaction easier.
+To cancel, you need the `ScheduledTransaction` resource that was returned during scheduling. The scheduled transaction manager also makes scheduled transaction cancellation easier.
 
 ### Transaction lifecycle[​](#transaction-lifecycle "Direct link to Transaction lifecycle")
 
@@ -256183,7 +256032,7 @@ _20
 
 ### 6. Monitor execution events[​](#6-monitor-execution-events "Direct link to 6. Monitor execution events")
 
-Use the Flow CLI to monitor all scheduled transaction events in real-time (example for testnet - account addresses may differ):
+Use the Flow Command Line Interface (CLI) to monitor all scheduled transaction events in real-time (example for testnet - account addresses may differ):
 
 `_10
 
@@ -256241,7 +256090,7 @@ Read [FLIP 330: Scheduled Callbacks](https://github.com/onflow/flips/blob/main/p
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/advanced-concepts/scheduled-transactions.md)
 
-Last updated on **Nov 19, 2025** by **Brian Doyle**
+Last updated on **Dec 1, 2025** by **cshannon1218**
 
 [Previous
 
@@ -258275,7 +258124,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -261844,7 +261693,7 @@ On this page
 
 # Upgrading Cadence Contracts
 
-In Cadence, you can upgrade deployed contracts by adding new functionality while preserving existing state and maintaining the same contract address. Unlike other blockchain platforms that require complex proxy patterns or complete redeployment, Cadence allows you to seamlessly extend your contracts with new functions and events through multiple incremental upgrades.
+In Cadence, to upgrade deployed contracts, you can add new functionality while preserving the current state and maintain the same contract address. Unlike other blockchain platforms that require complex proxy patterns or complete redeployment, Cadence allows you to seamlessly extend your contracts with new functions and events through multiple incremental upgrades.
 
 This tutorial demonstrates how to upgrade a deployed contract through two scenarios:
 
@@ -261900,7 +261749,7 @@ The [Cadence Contract Updatability documentation](https://cadence-lang.org/docs/
 * **Storage inconsistencies** from structural changes.
 * **Type confusion** from enum value changes.
 
-The validation system ensures that existing stored data remains valid and accessible after upgrades.
+The validation system ensures that current stored data remains valid and accessible after upgrades.
 
 ## Get started[​](#get-started "Direct link to Get started")
 
@@ -262326,13 +262175,13 @@ _25
 
 ---
 
-## Upgrade the contract - Part 1: Add event for even numbers[​](#upgrade-the-contract---part-1-add-event-for-even-numbers "Direct link to Upgrade the contract - Part 1: Add event for even numbers")
+## Upgrade the contract - Part 1: add event for even numbers[​](#upgrade-the-contract---part-1-add-event-for-even-numbers "Direct link to Upgrade the contract - Part 1: add event for even numbers")
 
 Let's start with a realistic scenario: What if we've realized it's very important to our users that they know when the counter reaches an even number, but we forgot to add an event for that case? Let's add that functionality first.
 
 ### Modify the Counter contract - first upgrade[​](#modify-the-counter-contract---first-upgrade "Direct link to Modify the Counter contract - first upgrade")
 
-Update `cadence/contracts/Counter.cdc` to add the new event and enhance the existing `increment()` function:
+Update `cadence/contracts/Counter.cdc` to add the new event and enhance the current `increment()` function:
 
 `_39
 
@@ -262478,17 +262327,17 @@ This first upgrade adds:
 
 1. **New event**: `CounterIncrementedToEven` to notify when incrementing results in an even number.
 2. **Enhanced existing function**: The `increment()` function now also emits the new event when appropriate.
-3. **No new fields**: We only use the existing `count` field to avoid validation errors.
+3. **No new fields**: We only use the current `count` field to avoid validation errors.
 
 info
 
-This demonstrates how you can add new behavior and modify existing function behavior, which enhances existing functionality. The original `CounterIncremented` event still works as before, ensuring backward compatibility.
+This demonstrates how you can add new behavior and modify current function behavior, which enhances current functionality. The original `CounterIncremented` event still works as before, which ensures backward compatibility.
 
 ---
 
-## Update the deployed contract - Part 1[​](#update-the-deployed-contract---part-1 "Direct link to Update the deployed contract - Part 1")
+## Update the deployed contract - part 1[​](#update-the-deployed-contract---part-1 "Direct link to Update the deployed contract - part 1")
 
-Now let's update the deployed contract on testnet using the Flow CLI update command with our first upgrade.
+Now let's update the deployed contract on testnet with the Flow CLI update command with our first upgrade.
 
 ### Update the contract[​](#update-the-contract "Direct link to Update the contract")
 
@@ -262498,7 +262347,7 @@ Use the [Flow CLI update contract command](/build/tools/flow-cli/accounts/accoun
 
 flow accounts update-contract ./cadence/contracts/Counter.cdc --signer testnet-account --network testnet`
 
-You should see output similar to:
+You will see output similar to:
 
 `_16
 
@@ -262563,7 +262412,7 @@ tip
 The contract successfully updated! Notice that:
 
 * The contract address remains the same (`0x9942a81bc6c3c5b7`).
-* The existing state (`count`) is preserved.
+* The current state (`count`) is preserved.
 * New functionality is available.
 
 ### Test the first upgrade[​](#test-the-first-upgrade "Direct link to Test the first upgrade")
@@ -262612,7 +262461,7 @@ Run the script to check the current state:
 
 flow scripts execute cadence/scripts/CheckCounter.cdc --network testnet`
 
-You will see output showing the counter state:
+You will see output that shows the counter state:
 
 `_10
 
@@ -262625,7 +262474,7 @@ Notice that:
 
 ---
 
-## Upgrade the contract - Part 2: add more functionality[​](#upgrade-the-contract---part-2-add-more-functionality "Direct link to Upgrade the contract - Part 2: add more functionality")
+## Upgrade the contract - part 2: add more functionality[​](#upgrade-the-contract---part-2-add-more-functionality "Direct link to Upgrade the contract - part 2: add more functionality")
 
 Now that we've successfully added the even number event, let's add more functionality to our contract. This demonstrates how you can make multiple incremental upgrades to extend your contract's capabilities.
 
@@ -262857,14 +262706,14 @@ _62
 
 This second upgrade adds:
 
-1. **New functions**: `incrementByTwo()` and `decrementByTwo()` that modify the existing counter by two.
-2. **New events**: `CounterIncrementedByTwo` and `CounterDecrementedByTwo` for the new functionality
+1. **New functions**: `incrementByTwo()` and `decrementByTwo()` that modify the current counter by two.
+2. **New events**: `CounterIncrementedByTwo` and `CounterDecrementedByTwo` for the new functionality.
 3. **New view function**: `isEven()` to check if the current count is even.
 4. **Preserved existing functionality**: All previous functionality remains intact.
 
 ---
 
-## Update the deployed contract - Part 2[​](#update-the-deployed-contract---part-2 "Direct link to Update the deployed contract - Part 2")
+## Update the deployed contract - part 2[​](#update-the-deployed-contract---part-2 "Direct link to Update the deployed contract - part 2")
 
 Now let's update the deployed contract with our second upgrade.
 
@@ -262941,7 +262790,7 @@ tip
 The contract successfully updated again! Notice that:
 
 * The contract address remains the same (`0x9942a81bc6c3c5b7`).
-* The existing state (`count`) is preserved.
+* The current state (`count`) is preserved.
 * All previous functionality is still available.
 * New functionality is now available.
 
@@ -263186,7 +263035,7 @@ This confirms that:
 
 ## Understand contract upgrades in Cadence[​](#understand-contract-upgrades-in-cadence "Direct link to Understand contract upgrades in Cadence")
 
-Cadence provides a sophisticated contract upgrade system that ensures data consistency while allowing controlled modifications. The [Cadence Contract Updatability documentation](https://cadence-lang.org/docs/language/contract-updatability) provides comprehensive details about the validation rules and restrictions.
+Cadence provides a sophisticated contract upgrade system that ensures data consistency and allows controlled modifications. The [Cadence Contract Updatability documentation](https://cadence-lang.org/docs/language/contract-updatability) provides comprehensive details about the validation rules and restrictions.
 
 ### What you can upgrade[​](#what-you-can-upgrade-1 "Direct link to What you can upgrade")
 
@@ -263206,16 +263055,16 @@ When you upgrade Cadence contracts, you can:
 
 There are important limitations to contract upgrades:
 
-* **Cannot add new fields** to existing structs, resources, or contracts.
-  + This would cause runtime crashes when loading existing data.
+* **Cannot add new fields** to current structs, resources, or contracts.
+  + This would cause runtime crashes when you load current data.
   + The initializer only runs once during deployment, not on updates.
-* **Cannot change the type** of existing state variables.
+* **Cannot change the type** of current state variables.
   + Would cause deserialization errors with stored data.
 * **Cannot remove existing state variables** (though they become inaccessible).
 * **Cannot change enum structures** (raw values must remain consistent).
 * **Cannot change the contract name** or address.
 
-### Validation Goals[​](#validation-goals "Direct link to Validation Goals")
+### Validation goals[​](#validation-goals "Direct link to Validation goals")
 
 The contract update validation ensures that:
 
@@ -263225,7 +263074,7 @@ The contract update validation ensures that:
 
 warning
 
-The validation system focuses on preventing runtime inconsistencies with stored data. It does not ensure that programs which import the updated contract remain valid - you may need to update dependent code if you change function signatures or remove functions.
+The validation system focuses on how to prevent runtime inconsistencies with stored data. It does not ensure that programs which import the updated contract remain valid - you may need to update dependent code if you change function signatures or remove functions.
 
 ### Advanced upgrade patterns[​](#advanced-upgrade-patterns "Direct link to Advanced upgrade patterns")
 
@@ -263265,8 +263114,8 @@ This pragma:
 
 Enums have special restrictions due to their raw value representation:
 
-* **Can only add enum cases at the end** of existing cases.
-* **Cannot reorder, rename, or remove** existing enum cases.
+* **Can only add enum cases at the end** of current cases.
+* **Cannot reorder, rename, or remove** current enum cases.
 * **Cannot change the raw type** of an enum.
 * **Cannot change enum case names** (would change stored values' meaning).
 
@@ -263290,12 +263139,12 @@ When you upgrade contracts:
 Cadence's contract upgrade model provides several advantages:
 
 * **No proxy patterns needed** - Unlike Ethereum, you don't need complex proxy contracts.
-* **State preservation** - Existing data and functionality remain intact.
+* **State preservation** - Current data and functionality remain intact.
 * **Address stability** - Contract addresses don't change during upgrades.
 * **Gas efficiency** - Upgrades are more efficient than redeployment.
 * **User experience** - Applications continue working without interruption.
 
-This approach allows you to evolve your contracts over time, You can add new features and capabilities and maintain backward compatibility and preserving user data.
+This approach allows you to evolve your contracts over time, You can add new features and capabilities and maintain backward compatibility and preserve user data.
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
@@ -263310,19 +263159,19 @@ In this tutorial, you learned how to upgrade deployed Cadence contracts through 
 
 Now that you have completed the tutorial, you should be able to:
 
-* Deploy contracts to Flow testnet using Flow CLI.
+* Deploy contracts to Flow testnet with Flow CLI.
 * Perform incremental contract upgrades by adding new functions and events.
-* Update deployed contracts multiple times while preserving existing state.
+* Update deployed contracts multiple times and preserve the current state.
 * Test upgraded functionality with Cadence transactions and scripts.
 * Understand what can and cannot be changed during contract upgrades.
 * Apply realistic upgrade scenarios based on user feedback and requirements.
 * Plan and execute multiple contract upgrades over time.
 
-This incremental upgrade model makes Cadence contracts more flexible and maintainable than traditional smart contract platforms, allowing you to evolve your applications over time based on real user needs without complex migration patterns or breaking changes. The ability to make multiple upgrades while preserving state and maintaining the same contract address provides a powerful foundation for long-term application development.
+This incremental upgrade model makes Cadence contracts more flexible and maintainable than traditional smart contract platforms, which allows you to evolve your applications over time based on real user needs without complex migration patterns or breaking changes. The ability to make multiple upgrades while you maintain state and the same contract address provides a powerful foundation for long-term application development.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/cadence-advantages/upgrading-cadence-contracts.md)
 
-Last updated on **Oct 30, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -263339,13 +263188,13 @@ Copy as Markdown
 * [Objectives](#objectives)* [Prerequisites](#prerequisites)* [Contract upgrade overview](#contract-upgrade-overview)
       + [What you CAN upgrade](#what-you-can-upgrade)+ [What you CANNOT upgrade](#what-you-cannot-upgrade)+ [Why these restrictions exist](#why-these-restrictions-exist)* [Get started](#get-started)
         + [Create and fund testnet account](#create-and-fund-testnet-account)* [Deploy the initial counter contract](#deploy-the-initial-counter-contract)
-          + [Configure deployment](#configure-deployment)+ [Deploy to Testnet](#deploy-to-testnet)+ [Test the initial contract](#test-the-initial-contract)* [Upgrade the contract - Part 1: Add event for even numbers](#upgrade-the-contract---part-1-add-event-for-even-numbers)
-            + [Modify the Counter contract - first upgrade](#modify-the-counter-contract---first-upgrade)+ [Key changes made - part 1](#key-changes-made---part-1)* [Update the deployed contract - Part 1](#update-the-deployed-contract---part-1)
-              + [Update the contract](#update-the-contract)+ [Test the first upgrade](#test-the-first-upgrade)* [Upgrade the contract - Part 2: add more functionality](#upgrade-the-contract---part-2-add-more-functionality)
-                + [Modify the Counter contract - second upgrade](#modify-the-counter-contract---second-upgrade)+ [Key changes made - part 2](#key-changes-made---part-2)* [Update the deployed contract - Part 2](#update-the-deployed-contract---part-2)
+          + [Configure deployment](#configure-deployment)+ [Deploy to Testnet](#deploy-to-testnet)+ [Test the initial contract](#test-the-initial-contract)* [Upgrade the contract - Part 1: add event for even numbers](#upgrade-the-contract---part-1-add-event-for-even-numbers)
+            + [Modify the Counter contract - first upgrade](#modify-the-counter-contract---first-upgrade)+ [Key changes made - part 1](#key-changes-made---part-1)* [Update the deployed contract - part 1](#update-the-deployed-contract---part-1)
+              + [Update the contract](#update-the-contract)+ [Test the first upgrade](#test-the-first-upgrade)* [Upgrade the contract - part 2: add more functionality](#upgrade-the-contract---part-2-add-more-functionality)
+                + [Modify the Counter contract - second upgrade](#modify-the-counter-contract---second-upgrade)+ [Key changes made - part 2](#key-changes-made---part-2)* [Update the deployed contract - part 2](#update-the-deployed-contract---part-2)
                   + [Update the contract again](#update-the-contract-again)+ [Verify the update](#verify-the-update)* [Test the new functionality](#test-the-new-functionality)
                     + [Create test transaction](#create-test-transaction)+ [Run the test transaction](#run-the-test-transaction)+ [Verify final state](#verify-final-state)* [Understand contract upgrades in Cadence](#understand-contract-upgrades-in-cadence)
-                      + [What you can upgrade](#what-you-can-upgrade-1)+ [What You cannot change](#what-you-cannot-change)+ [Validation Goals](#validation-goals)+ [Advanced upgrade patterns](#advanced-upgrade-patterns)+ [Best practices](#best-practices)* [Why this matters](#why-this-matters)* [Conclusion](#conclusion)
+                      + [What you can upgrade](#what-you-can-upgrade-1)+ [What You cannot change](#what-you-cannot-change)+ [Validation goals](#validation-goals)+ [Advanced upgrade patterns](#advanced-upgrade-patterns)+ [Best practices](#best-practices)* [Why this matters](#why-this-matters)* [Conclusion](#conclusion)
 
 Flow
 
@@ -271803,7 +271652,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -271825,23 +271674,23 @@ Search
 
 On this page
 
-# FLIX (Flow Interaction Templates)
+# Flow Interaction Templates
 
-Flow Interaction Templates is a standard for how contract developers, wallets, users, auditors, and applications can create, audit, and verify the intent, security, and metadata of Flow scripts and transactions, with the goal to improve the understandability and security of authorizing transactions and promote patterns for change resilient composability of applications on Flow.
+Flow Interaction Templates (FLIX) is a standard for how contract developers, wallets, users, auditors, and applications can create, audit, and verify the intent, security, and metadata of Flow scripts and transactions, with the goal to improve the understandability and security of transaction authorizations and promote patterns for change resilient composability of applications on Flow.
 
-Interaction Templates provide a way to use and reuse existing scripts and transactions, as well as to provide more metadata such as a human-readable title and description of what the transaction or script will do, which can be used by the developer as well as the user of the application.
+Interaction Templates provide a way to use and reuse current scripts and transactions, as well as to provide more metadata such as a human-readable title and description of what the transaction or script will do, which the developer can use, as well as the application user.
 
-By using FLIX transactions and scripts, developers don't have to write their own for common operations!
+With FLIX transactions and scripts, developers don't have to write their own for common operations!
 
-Read more about the design and purpose of FLIX in the [FLIP](https://github.com/onflow/flips/blob/main/application/20220503-interaction-templates.md)
+Read more about the design and purpose of FLIX in the [FLIP](https://github.com/onflow/flips/blob/main/application/20220503-interaction-templates.md).
 
-## Using FLIX[​](#using-flix "Direct link to Using FLIX")
+## Use FLIX[​](#use-flix "Direct link to Use FLIX")
 
 Flow makes FLIX available through an API available at flix.flow.com.
 
-You can query a FLIX API to get an Interaction Template. An example query looks like: <https://flix.flow.com/v1/templates?name=transfer-flow>
+You can query a FLIX API to get an Interaction Template. An example query looks like [this](https://flix.flow.com/v1/templates?name=transfer-flow).
 
-You can read more about how to query a FLIX API in the documentation available here: <https://github.com/onflow/flow-interaction-template-service>
+You can read more about how to query a FLIX API in the documentation available [here](https://github.com/onflow/flow-interaction-template-service).
 
 info
 
@@ -271849,17 +271698,17 @@ The FLIX working group is currently working on a protocol to publish FLIX templa
 
 ### Example[​](#example "Direct link to Example")
 
-How to integrate FLIX across different developer teams? For this example there are two github repositories.
+How to integrate FLIX across different developer teams? For this example there are two GitHub repositories.
 
-* (smart contracts) <https://github.com/onflow/hello-world-flix>
-* (web development) <https://github.com/onflow/hello-world-web>
+* (smart contracts) [<https://github.com/onflow/hello-world-flix>]
+* (web development) [<https://github.com/onflow/hello-world-web>]
 
-The Smart contract developer creates FLIX templates and makes them available in github, these can be versioned. Example is `v0.1.0` release, the templates are available for a specific version. In this example the templates are located at:
+The Smart contract developer creates FLIX templates and makes them available in GitHub, these can be versioned. Example is `v0.1.0` release, the templates are available for a specific version. In this example the templates are located at:
 
 * <https://github.com/onflow/hello-world-flix/blob/v0.1.0/cadence/templates/ReadHelloWorld.template.json>
 * <https://github.com/onflow/hello-world-flix/blob/v0.1.0/cadence/templates/UpdateHelloWorld.template.json>
 
-Developers can use FLIX templates from the smart contract github to interact with their smart contracts. They simply need the FLIX template URLs to create binding files (TypeScript or JavaScript). One major benefit is the web developers don't need to learn Cadence or copy Cadence to their repository in order to integrate with existing smart contracts.
+Developers can use FLIX templates from the smart contract github to interact with their smart contracts. They simply need the FLIX template URLs to create binding files (TypeScript or JavaScript). One major benefit is the web developers don't need to learn Cadence or copy Cadence to their repository in order to integrate with current smart contracts.
 
 TypeScript code generated from templates:
 
@@ -271870,23 +271719,33 @@ warning
 
 manually added "@ts-ignore" in generated file because of linting error. 'template' property is typed as "object" when it should also allow strings (url to flix template file). There is current a dev effort that will fix this linting issue.
 
-See the `hello-world-web` [README](https://github.com/onflow/hello-world-web/tree/main) for more information on how to generate and execute FLIX templates here [flow-cli flix](/build/tools/flow-cli/flix) commands
+See the `hello-world-web` [README]for more information on how to generate and execute FLIX templates here.
+
+[flow-cli flix]
 
 ### Clients[​](#clients "Direct link to Clients")
 
 There are currently two clients that have integrated with FLIX that you can use:
 
-**Go client** <https://github.com/onflow/flixkit-go>
+**Go client** [<https://github.com/onflow/flixkit-go>]
 
-**FCL client you** read how to get started [tools/clients/fcl-js/interaction-templates](/build/tools/clients/fcl-js/interaction-templates)
+**FCL client you** read how to get started [tools/clients/fcl-js/interaction-templates]
 
-## (Advanced) Running a FLIX API[​](#advanced-running-a-flix-api "Direct link to (Advanced) Running a FLIX API")
+## (Advanced) Run a FLIX API[​](#advanced-run-a-flix-api "Direct link to (Advanced) Run a FLIX API")
 
-Flow provides an implementation of the Flow interaction template service as an open-source project. If you wish to run your own API, you can find the repository here: <https://github.com/onflow/flow-interaction-template-service>
+Flow provides an implementation of the Flow interaction template service as an open-source project. If you wish to run your own API, you can find the repository at [<https://github.com/onflow/flow-interaction-template-service>].
+
+[<https://github.com/onflow/hello-world-flix>]: <https://github.com/onflow/hello-world-flix>)
+[<https://github.com/onflow/hello-world-web>]: <https://github.com/onflow/hello-world-web>)
+[README]: <https://github.com/onflow/hello-world-web/tree/main>
+[flow-cli flix]: ../../../build/tools/flow-cli/flix.md
+[<https://github.com/onflow/flixkit-go>]: <https://github.com/onflow/flixkit-go>
+[tools/clients/fcl-js/interaction-templates]: ../../../build/tools/clients/fcl-js/interaction-templates.mdx
+[<https://github.com/onflow/flow-interaction-template-service>]: <https://github.com/onflow/flow-interaction-template-service>
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/advanced-concepts/flix.md)
 
-Last updated on **Oct 9, 2025** by **Brian Doyle**
+Last updated on **Dec 1, 2025** by **cshannon1218**
 
 [Previous
 
@@ -271900,8 +271759,8 @@ NFT Metadata Views](/build/cadence/advanced-concepts/metadata-views)
 
 Copy as Markdown
 
-* [Using FLIX](#using-flix)
-  + [Example](#example)+ [Clients](#clients)* [(Advanced) Running a FLIX API](#advanced-running-a-flix-api)
+* [Use FLIX](#use-flix)
+  + [Example](#example)+ [Clients](#clients)* [(Advanced) Run a FLIX API](#advanced-run-a-flix-api)
 
 Flow
 
@@ -281704,7 +281563,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -288528,7 +288387,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -310728,7 +310587,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -327096,7 +326955,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -341077,7 +340936,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -346630,7 +346489,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -366618,7 +366477,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -396568,7 +396427,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -399364,7 +399223,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -402050,7 +401909,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -402105,8 +401964,9 @@ flow project deploy`
 This command automatically deploys your project's contracts based on the
 configuration defined in your `flow.json` file.
 
+**Important:** Use Flow CLI commands to configure your project instead of manually editing `flow.json`.
 Before using this command, read about how to
-[configure project contracts and deployment targets](/build/tools/flow-cli/deployment/project-contracts).
+[configure project contracts and deployment targets](/build/tools/flow-cli/deployment/project-contracts) using CLI commands.
 
 ## Example Usage[​](#example-usage "Direct link to Example Usage")
 
@@ -402136,7 +401996,11 @@ _10
 
 ✨ All contracts deployed successfully`
 
-In the example above, your `flow.json` file might look something like this:
+**Note:** The `flow.json` configuration shown below is created automatically when you use CLI commands.
+You should use `flow config add contract` and `flow config add deployment` to configure your project
+rather than manually editing the file. See [Add Project Contracts](/build/tools/flow-cli/deployment/project-contracts) for details.
+
+Your `flow.json` file might look something like this:
 
 `_13
 
@@ -402210,7 +402074,7 @@ KittyItems.cdc
 
 `_10
 
-import NonFungibleToken from "./NonFungibleToken.cdc"
+import "NonFungibleToken"
 
 _10
 
@@ -402228,71 +402092,82 @@ _10
 
 ## Initialization Arguments[​](#initialization-arguments "Direct link to Initialization Arguments")
 
-Deploying contracts that take initialization arguments
-can be achieved with adding those arguments to the configuration.
+Deploying contracts that take initialization arguments requires adding those arguments to the deployment configuration.
+
+**Note:** For basic deployments, use `flow config add deployment` to configure your contracts.
+Initialization arguments are an advanced feature that may require manual editing of `flow.json`
+after the basic deployment is configured with CLI commands.
 
 Each deployment can be specified as an object containing
-`name` and `args` key specifying arguments to be
+`name` and `args` keys specifying arguments to be
 used during the deployment. Example:
 
-`_14
+`_16
 
-...
+{
 
-_14
+_16
 
 "deployments": {
 
-_14
+_16
 
 "testnet": {
 
-_14
+_16
 
 "my-testnet-account": [
 
-_14
+_16
 
-"NonFungibleToken", {
+"NonFungibleToken",
 
-_14
+_16
+
+{
+
+_16
 
 "name": "Foo",
 
-_14
+_16
 
 "args": [
 
-_14
+_16
 
 { "type": "String", "value": "Hello World" },
 
-_14
+_16
 
 { "type": "UInt32", "value": "10" }
 
-_14
+_16
 
 ]
 
-_14
-
-}]
-
-_14
+_16
 
 }
 
-_14
+_16
+
+]
+
+_16
 
 }
 
-_14
+_16
 
-...`
+}
 
-⚠️ Warning: before proceeding,
-we recommend reading the [Flow CLI security guidelines](/build/tools/flow-cli/flow.json/security)
+_16
+
+}`
+
+⚠️ **Security Warning:** Never put raw private keys in `flow.json`. Always use `.pkey` files for key storage.
+Before proceeding, we recommend reading the [Flow CLI security guidelines](/build/tools/flow-cli/flow.json/security)
 to learn about the best practices for private key storage.
 
 ## Dependency Resolution[​](#dependency-resolution "Direct link to Dependency Resolution")
@@ -402303,7 +402178,7 @@ After the dependencies are found, the CLI will deploy the contracts in a determi
 such that no contract is deployed until all of its dependencies are deployed.
 The command will return an error if no such ordering exists due to one or more cyclic dependencies.
 
-In the example above, `Foo` will always be deployed before `Bar`.
+In the example above, `NonFungibleToken` will always be deployed before `KittyItems` since `KittyItems` imports `NonFungibleToken`.
 
 ## Address Replacement[​](#address-replacement "Direct link to Address Replacement")
 
@@ -402313,6 +402188,8 @@ source file location.
 
 The rewritten versions are then deployed to their respective targets,
 leaving the original contract files unchanged.
+
+### Contracts Importing from Other Contracts[​](#contracts-importing-from-other-contracts "Direct link to Contracts Importing from Other Contracts")
 
 In the example above, the `KittyItems` contract would be rewritten like this:
 
@@ -402336,152 +402213,449 @@ _10
 
 }`
 
+### Contracts Importing from Dependencies[​](#contracts-importing-from-dependencies "Direct link to Contracts Importing from Dependencies")
+
+When your contracts import from the `dependencies` section, the deploy command uses the network-specific aliases defined in those dependencies.
+
+**Example `flow.json` with dependencies:**
+
+`_35
+
+{
+
+_35
+
+"contracts": {
+
+_35
+
+"ExampleConnectors": {
+
+_35
+
+"source": "cadence/contracts/ExampleConnectors.cdc",
+
+_35
+
+"aliases": {
+
+_35
+
+"testing": "0000000000000007"
+
+_35
+
+}
+
+_35
+
+}
+
+_35
+
+},
+
+_35
+
+"dependencies": {
+
+_35
+
+"FlowToken": {
+
+_35
+
+"source": "mainnet://1654653399040a61.FlowToken",
+
+_35
+
+"hash": "cefb25fd19d9fc80ce02896267eb6157a6b0df7b1935caa8641421fe34c0e67a",
+
+_35
+
+"aliases": {
+
+_35
+
+"emulator": "0ae53cb6e3f42a79",
+
+_35
+
+"mainnet": "1654653399040a61",
+
+_35
+
+"testnet": "7e60df042a9c0868"
+
+_35
+
+}
+
+_35
+
+},
+
+_35
+
+"FungibleToken": {
+
+_35
+
+"source": "mainnet://f233dcee88fe0abe.FungibleToken",
+
+_35
+
+"hash": "23c1159cf99b2b039b6b868d782d57ae39b8d784045d81597f100a4782f0285b",
+
+_35
+
+"aliases": {
+
+_35
+
+"emulator": "ee82856bf20e2aa6",
+
+_35
+
+"mainnet": "f233dcee88fe0abe",
+
+_35
+
+"testnet": "9a0766d93b6608b7"
+
+_35
+
+}
+
+_35
+
+}
+
+_35
+
+},
+
+_35
+
+"deployments": {
+
+_35
+
+"testnet": {
+
+_35
+
+"testnet-account": ["ExampleConnectors"]
+
+_35
+
+}
+
+_35
+
+}
+
+_35
+
+}`
+
+**Original contract source:**
+
+ExampleConnectors.cdc
+
+`_10
+
+import "FungibleToken"
+
+_10
+
+import "FlowToken"
+
+_10
+
+_10
+
+access(all) contract ExampleConnectors {
+
+_10
+
+// ...
+
+_10
+
+}`
+
+**Rewritten for testnet deployment:**
+
+ExampleConnectors.cdc
+
+`_10
+
+import FungibleToken from 0x9a0766d93b6608b7
+
+_10
+
+import FlowToken from 0x7e60df042a9c0868
+
+_10
+
+_10
+
+access(all) contract ExampleConnectors {
+
+_10
+
+// ...
+
+_10
+
+}`
+
+**Rewritten for mainnet deployment:**
+
+ExampleConnectors.cdc
+
+`_10
+
+import FungibleToken from 0xf233dcee88fe0abe
+
+_10
+
+import FlowToken from 0x1654653399040a61
+
+_10
+
+_10
+
+access(all) contract ExampleConnectors {
+
+_10
+
+// ...
+
+_10
+
+}`
+
+The deploy command automatically uses the addresses from the `dependencies` section's aliases for the target network. Notice how the addresses change based on the network—testnet uses `0x9a0766d93b6608b7` for `FungibleToken`, while mainnet uses `0xf233dcee88fe0abe`. Contracts in the `dependencies` section are not deployed—they're assumed to already exist on the network at the addresses specified in their aliases.
+
 ## Merging Multiple Configuration Files[​](#merging-multiple-configuration-files "Direct link to Merging Multiple Configuration Files")
 
 You can use the `-f` flag multiple times to merge several configuration files.
 
 If there is an overlap in any of the fields in the configuration between two or more configuration files, the value of
 the overlapped field in the resulting configuration will come from the configuration file that is on the further right
-order in the list of configuration files specified in the -f flag
+order in the list of configuration files specified in the `-f` flag.
 
-Let's look at an example of `deploy` commands with multiple configuration files below
+**Important:** Never put raw private keys in `flow.json`. Always use `.pkey` files for key storage.
+
+**Note:** Use `flow config add account` to create accounts in your main `flow.json` file.
+The merging feature is useful for separating sensitive account information into a separate file that you can exclude from version control.
+
+**Example usage:**
+
+`_10
+
+flow project deploy -f flow.json -f private.json`
+
+**Example configuration files:**
 
 flow.json
 
-`_12
+`_18
 
 {
 
-_12
+_18
 
 "accounts": {
 
-_12
+_18
 
 "admin-account": {
 
-_12
+_18
 
 "address": "f8d6e0586b0a20c7",
 
-_12
+_18
 
-"key": "21c5dfdeb0ff03a7a73ef39788563b62c89adea67bbb21ab95e5f710bd1d40b7"
+"key": {
 
-_12
+_18
+
+"type": "file",
+
+_18
+
+"location": "admin-account.pkey"
+
+_18
+
+}
+
+_18
 
 },
 
-_12
+_18
 
 "test-account": {
 
-_12
+_18
 
 "address": "f8d6e0586b0a20c8",
 
-_12
+_18
 
-"key": "52d5dfdeb0ff03a7a73ef39788563b62c89adea67bbb21ab95e5f710bd1d51c9"
+"key": {
 
-_12
+_18
+
+"type": "file",
+
+_18
+
+"location": "test-account.pkey"
+
+_18
 
 }
 
-_12
+_18
 
 }
 
-_12
+_18
+
+}
+
+_18
 
 }`
 
 private.json
 
-`_10
+`_11
 
 {
 
-_10
+_11
 
-"accounts":{
+"accounts": {
 
-_10
+_11
 
-"admin-account":{
+"admin-account": {
 
-_10
+_11
 
-"address":"f1d6e0586b0a20c7",
+"address": "f1d6e0586b0a20c7",
 
-_10
+_11
 
-"key":"3335dfdeb0ff03a7a73ef39788563b62c89adea67bbb21ab95e5f710bd1d40b7"
+"key": {
 
-_10
+_11
+
+"type": "file",
+
+_11
+
+"location": "admin-account-private.pkey"
+
+_11
 
 }
 
-_10
+_11
 
 }
 
-_10
+_11
+
+}
+
+_11
 
 }`
 
-In the example above, when we try to use the `deploy` command with multiple configuration files and there is an overlap
-in the `admin-account` account in `accounts` field of the configuration, the resulting configuration will be like this
+When using multiple configuration files with overlapping fields, the rightmost file takes precedence.
+In this example, the resulting merged configuration will be:
 
-> flow project deploy -f flow.json -f private.json
-
-`_12
+`_18
 
 {
 
-_12
+_18
 
-"accounts":{
+"accounts": {
 
-_12
+_18
 
-"admin-account":{
+"admin-account": {
 
-_12
+_18
 
-"address":"f1d6e0586b0a20c7",
+"address": "f1d6e0586b0a20c7",
 
-_12
+_18
 
-"key":"3335dfdeb0ff03a7a73ef39788563b62c89adea67bbb21ab95e5f710bd1d40b7"
+"key": {
 
-_12
+_18
+
+"type": "file",
+
+_18
+
+"location": "admin-account-private.pkey"
+
+_18
+
+}
+
+_18
 
 },
 
-_12
+_18
 
-"test-account":{
+"test-account": {
 
-_12
+_18
 
-"address":"f8d6e0586b0a20c8",
+"address": "f8d6e0586b0a20c8",
 
-_12
+_18
 
-"key":"52d5dfdeb0ff03a7a73ef39788563b62c89adea67bbb21ab95e5f710bd1d51c9"
+"key": {
 
-_12
+_18
+
+"type": "file",
+
+_18
+
+"location": "test-account.pkey"
+
+_18
 
 }
 
-_12
+_18
 
 }
 
-_12
+_18
+
+}
+
+_18
 
 }`
+
+**Security best practice:** Ensure `.pkey` files are added to `.gitignore` to prevent accidentally committing private keys to version control.
 
 ## Flags[​](#flags "Direct link to Flags")
 
@@ -402582,7 +402756,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/deployment/deploy-project-contracts.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Nov 20, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -402596,7 +402770,8 @@ Execute a Script](/build/tools/flow-cli/scripts/execute-scripts)
 
 Copy as Markdown
 
-* [Example Usage](#example-usage)* [Initialization Arguments](#initialization-arguments)* [Dependency Resolution](#dependency-resolution)* [Address Replacement](#address-replacement)* [Merging Multiple Configuration Files](#merging-multiple-configuration-files)* [Flags](#flags)
+* [Example Usage](#example-usage)* [Initialization Arguments](#initialization-arguments)* [Dependency Resolution](#dependency-resolution)* [Address Replacement](#address-replacement)
+        + [Contracts Importing from Other Contracts](#contracts-importing-from-other-contracts)+ [Contracts Importing from Dependencies](#contracts-importing-from-dependencies)* [Merging Multiple Configuration Files](#merging-multiple-configuration-files)* [Flags](#flags)
             + [Allow Updates](#allow-updates)+ [Show Update Diff](#show-update-diff)+ [Host](#host)+ [Network Key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version Check](#version-check)
 
 Flow
@@ -406395,13 +406570,13 @@ Search
 
 On this page
 
-# Fork testing with Cadence
+# Fork Testing with Cadence
 
 This tutorial teaches you how to run your Cadence tests against a snapshot of Flow mainnet using `flow test` with the `#test_fork` pragma. You'll learn how to test your contracts against real deployed contracts and production data without needing to deploy anything to a live network or bootstrap test accounts.
 
 Fork testing bridges the gap between isolated local unit tests and testnet deployments. It allows you to validate your contracts work correctly with real on-chain state, test integrations with deployed contracts, and debug issues with historical blockchain data—all in a safe, local environment.
 
-## What You'll Learn[​](#what-youll-learn "Direct link to What You'll Learn")
+## What you'll learn[​](#what-youll-learn "Direct link to What you'll learn")
 
 After you complete this tutorial, you'll be able to:
 
@@ -406412,15 +406587,15 @@ After you complete this tutorial, you'll be able to:
 * **Pin tests to specific block heights** for historical debugging.
 * **Integrate fork testing** into your development workflow.
 
-## What You'll Build[​](#what-youll-build "Direct link to What You'll Build")
+## What you'll build[​](#what-youll-build "Direct link to What you'll build")
 
 You'll create a complete fork testing setup that demonstrates:
 
-* Reading from the live FlowToken contract on mainnet.
-* Deploying your own contract that interacts with mainnet contracts.
-* Testing custom logic against real account balances and state.
-* Executing transactions using impersonated mainnet accounts.
-* A reusable pattern for integration testing your Flow applications.
+* How to read from the live FlowToken contract on mainnet.
+* How to deploy your own contract that interacts with mainnet contracts.
+* How to test custom logic against real account balances and state.
+* How to execute transactions with impersonated mainnet accounts.
+* A reusable pattern for integration tests your Flow applications.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
@@ -406436,7 +406611,7 @@ For other operating systems, refer to the [installation guide](/build/tools/flow
 
 ### Basic Cadence testing knowledge[​](#basic-cadence-testing-knowledge "Direct link to Basic Cadence testing knowledge")
 
-You should be familiar with writing basic Cadence tests. If you're new to Cadence testing, start with [Testing Smart Contracts](/build/cadence/smart-contracts/testing-strategy) first.
+You should be familiar with how to write basic Cadence tests. If you're new to Cadence testing, start with [Testing Smart Contracts](/build/cadence/smart-contracts/testing-strategy) first.
 
 ### Network access[​](#network-access "Direct link to Network access")
 
@@ -406539,7 +406714,7 @@ _12
 
 Your `flow.json` now has the mainnet and testnet networks configured from `flow init`. In fork mode, contract imports automatically resolve to the correct network addresses.
 
-## Test Reading Live State[​](#test-reading-live-state "Direct link to Test Reading Live State")
+## Test reading live state[​](#test-reading-live-state "Direct link to Test reading live state")
 
 Generate a script to read `FlowToken` supply:
 
@@ -406656,13 +406831,13 @@ The pragma handles the fork configuration automatically! You will see the test P
 
 #test_fork(network: "testnet", height: nil)`
 
-## Deploy and Test Your Contract[​](#deploy-and-test-your-contract "Direct link to Deploy and Test Your Contract")
+## Deploy and test Your contract[​](#deploy-and-test-your-contract "Direct link to Deploy and test Your contract")
 
-Now you'll create a contract that depends on FlowToken and test it against the forked mainnet state—no need to bootstrap tokens or set up test accounts.
+Now you'll create a contract that depends on FlowToken and test it against the forked mainnet state. There's no need to bootstrap tokens or set up test accounts.
 
-### Create a Test Account[​](#create-a-test-account "Direct link to Create a Test Account")
+### Create a test account[​](#create-a-test-account "Direct link to Create a test account")
 
-Create a new account for deploying your contract:
+Create a new account to deploy your contract:
 
 `_10
 
@@ -406679,7 +406854,7 @@ note
 
 This creates a local account with a mainnet-format address for fork testing. When you're ready to deploy to actual mainnet, you'll use this same account—see the [Deploying Contracts guide](/build/cadence/smart-contracts/deploying) for details.
 
-### Create a Contract that Uses `FlowToken`[​](#create-a-contract-that-uses-flowtoken "Direct link to create-a-contract-that-uses-flowtoken")
+### Create a contract that uses `FlowToken`[​](#create-a-contract-that-uses-flowtoken "Direct link to create-a-contract-that-uses-flowtoken")
 
 Generate a new contract:
 
@@ -407045,9 +407220,9 @@ _39
 
 ## Execute transactions with account impersonation[​](#execute-transactions-with-account-impersonation "Direct link to Execute transactions with account impersonation")
 
-Fork testing includes built-in account impersonation—you can execute transactions as **any mainnet account** without needing private keys. This lets you test interactions with real accounts and their existing state.
+Fork testing includes built-in account impersonation—you can execute transactions as **any mainnet account** without the need for private keys. This lets you test interactions with real accounts and their current state.
 
-### Create Transactions[​](#create-transactions "Direct link to Create Transactions")
+### Create transactions[​](#create-transactions "Direct link to Create transactions")
 
 Generate the transactions:
 
@@ -407544,7 +407719,7 @@ For strategy, limitations, and best practices, see the guide: [Testing Smart Con
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-In this tutorial, you learned how to use fork testing to validate your Cadence contracts against live Flow network state. You created tests that read from real mainnet contracts, deployed custom contracts that interact with production data, and executed transactions using account impersonation—all without deploying to a live network or bootstrapping test accounts.
+In this tutorial, you learned how to use fork testing to validate your Cadence contracts against live Flow network state. You created tests that read from real mainnet contracts, deployed custom contracts that interact with production data, and executed transactions using account impersonation—all without the need deploy to a live network or bootstrap test accounts.
 
 Now that you have completed this tutorial, you can:
 
@@ -407555,7 +407730,7 @@ Now that you have completed this tutorial, you can:
 * **Pin tests to specific block heights** for historical debugging.
 * **Integrate fork testing** into your development workflow.
 
-Fork testing bridges the gap between local unit tests and testnet deployments, allowing you to catch integration issues early and test against real-world conditions. Use it as part of your pre-deployment validation process, alongside emulator unit tests for determinism and isolation, and testnet deployments for final verification.
+Fork testing bridges the gap between local unit tests and testnet deployments, which allows you to catch integration issues early and test against real-world conditions. Use it as part of your pre-deployment validation process, alongside emulator unit tests for determinism and isolation, and testnet deployments for final verification.
 
 ### Next Steps[​](#next-steps "Direct link to Next Steps")
 
@@ -407567,7 +407742,7 @@ Fork testing bridges the gap between local unit tests and testnet deployments, a
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/fork-testing/index.md)
 
-Last updated on **Nov 19, 2025** by **Jordan Ribbink**
+Last updated on **Dec 2, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -407581,10 +407756,10 @@ Flow EVM Guides](/blockchain-development-tutorials/evm)
 
 Copy as Markdown
 
-* [What You'll Learn](#what-youll-learn)* [What You'll Build](#what-youll-build)* [Prerequisites](#prerequisites)
-      + [Flow CLI](#flow-cli)+ [Basic Cadence testing knowledge](#basic-cadence-testing-knowledge)+ [Network access](#network-access)* [Create your project](#create-your-project)* [Install dependencies](#install-dependencies)* [Test Reading Live State](#test-reading-live-state)* [Deploy and Test Your Contract](#deploy-and-test-your-contract)
-              + [Create a Test Account](#create-a-test-account)+ [Create a Contract that Uses `FlowToken`](#create-a-contract-that-uses-flowtoken)+ [Configure contract in flow.json](#configure-contract-in-flowjson)+ [Create scripts for testing](#create-scripts-for-testing)+ [Test Your contract with forked state](#test-your-contract-with-forked-state)+ [What's happening here](#whats-happening-here)* [Execute transactions with account impersonation](#execute-transactions-with-account-impersonation)
-                + [Create Transactions](#create-transactions)+ [Test transaction execution with impersonation](#test-transaction-execution-with-impersonation)+ [Key points about account impersonation](#key-points-about-account-impersonation)* [Run all tests together](#run-all-tests-together)
+* [What you'll learn](#what-youll-learn)* [What you'll build](#what-youll-build)* [Prerequisites](#prerequisites)
+      + [Flow CLI](#flow-cli)+ [Basic Cadence testing knowledge](#basic-cadence-testing-knowledge)+ [Network access](#network-access)* [Create your project](#create-your-project)* [Install dependencies](#install-dependencies)* [Test reading live state](#test-reading-live-state)* [Deploy and test Your contract](#deploy-and-test-your-contract)
+              + [Create a test account](#create-a-test-account)+ [Create a contract that uses `FlowToken`](#create-a-contract-that-uses-flowtoken)+ [Configure contract in flow.json](#configure-contract-in-flowjson)+ [Create scripts for testing](#create-scripts-for-testing)+ [Test Your contract with forked state](#test-your-contract-with-forked-state)+ [What's happening here](#whats-happening-here)* [Execute transactions with account impersonation](#execute-transactions-with-account-impersonation)
+                + [Create transactions](#create-transactions)+ [Test transaction execution with impersonation](#test-transaction-execution-with-impersonation)+ [Key points about account impersonation](#key-points-about-account-impersonation)* [Run all tests together](#run-all-tests-together)
                   + [Best Practices: In-File Configuration vs CLI Flags](#best-practices-in-file-configuration-vs-cli-flags)* [Pinning block heights for reproducibility](#pinning-block-heights-for-reproducibility)* [When to use fork testing](#when-to-use-fork-testing)* [Conclusion](#conclusion)
                         + [Next Steps](#next-steps)
 
@@ -412368,7 +412543,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -422064,7 +422239,7 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
-# Source: https://developers.flow.com
+# Source: https://developers.flow.com/
 
 Flow Developer Portal
 
@@ -427875,7 +428050,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -428378,7 +428553,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -434812,12 +434987,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **9a7ee4b9fc327a97**
+Cloudflare Ray ID: **9a8722908a1be264**
 •
 
 Your IP:
 Click to reveal
-57.151.138.242
+64.236.134.33
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 
