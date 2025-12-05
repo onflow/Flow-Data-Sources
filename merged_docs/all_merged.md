@@ -155943,7 +155943,7 @@ Built-in Functions](/docs/language/built-in-functions)
 
 
 
-# Source: https://cadence-lang.org/docs/language/
+# Source: https://cadence-lang.org/docs/language
 
 The Cadence Programming Language | Cadence
 
@@ -194072,9 +194072,11 @@ Flow EVM Guides | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -194108,17 +194110,17 @@ Search
 
 On this page
 
-# EVM Guides
+# Flow EVM Guides
 
-Flow EVM provides full Ethereum Virtual Machine compatibility, enabling developers to deploy existing Solidity contracts and use familiar Ethereum development tools on Flow's high-performance blockchain. These guides demonstrate how to leverage popular Ethereum tools and frameworks to build, test, and deploy smart contracts on Flow EVM while taking advantage of Flow's unique features like built-in randomness and efficient transaction processing.
+Flow EVM provides full Ethereum Virtual Machine (EVM) compatibility, which allows developers to deploy current Solidity contracts and use familiar Ethereum development tools on Flow's high-performance blockchain. These guides demonstrate how to leverage popular Ethereum tools and frameworks to build, test, and deploy smart contracts on Flow EVM while taking advantage of Flow's unique features like built-in randomness and efficient transaction processing.
 
 ## [Setup](/blockchain-development-tutorials/evm/setup)[​](#setup "Direct link to setup")
 
-Essential setup guides for Flow EVM development, including MetaMask integration and wallet configuration. Learn how to connect popular Ethereum tools to Flow's EVM-compatible network and prepare your development environment for building on Flow.
+Essential setup guides for Flow EVM development, which includes MetaMask integration and wallet configuration. Learn how to connect popular Ethereum tools to Flow's EVM-compatible network and prepare your development environment to build on Flow.
 
 ## [Frameworks](/blockchain-development-tutorials/evm/frameworks)[​](#frameworks "Direct link to frameworks")
 
-Modern JavaScript and React frameworks for building Flow EVM applications. These guides cover popular blockchain libraries like ethers.js, web3.js, wagmi, and RainbowKit, providing practical implementation patterns for frontend development on Flow.
+Modern JavaScript and React frameworks to build Flow EVM applications. These guides cover popular blockchain libraries like `ethers.js`, `web3.js`, `wagmi`, and RainbowKit. They provide practical implementation patterns for frontend development on Flow.
 
 ## [Development Tools](/blockchain-development-tutorials/evm/development-tools)[​](#development-tools "Direct link to development-tools")
 
@@ -194126,19 +194128,19 @@ Professional Solidity development tools adapted for Flow EVM. Master Foundry's t
 
 ## [Build a Fully-Onchain Image Gallery](/blockchain-development-tutorials/evm/image-gallery)[​](#build-a-fully-onchain-image-gallery "Direct link to build-a-fully-onchain-image-gallery")
 
-Create a decentralized image gallery that stores images directly on the blockchain using Flow's efficient gas pricing. This comprehensive tutorial demonstrates building smart contracts for onchain image storage, implementing factory patterns for user galleries, and creating a modern React frontend with wallet integration. Learn how Flow's low gas costs enable applications that would be prohibitively expensive on other chains.
+Create a decentralized image gallery that stores images directly on the blockchain with Flow's efficient gas pricing. This comprehensive tutorial demonstrates how to build smart contracts for onchain image storage, implement factory patterns for user galleries, and create a modern React frontend with wallet integration. Learn how Flow's low gas costs allow applications that would be prohibitively expensive on other chains.
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-These EVM guides provide comprehensive coverage of the most popular Ethereum development tools and frameworks, adapted for Flow EVM development. Whether you're migrating existing Ethereum applications or building new projects, these tutorials offer practical implementation patterns for wallet integration, contract deployment, and blockchain interaction on Flow's high-performance EVM-compatible network.
+These EVM guides provide comprehensive coverage of the most popular Ethereum development tools and frameworks, adapted for Flow EVM development. Whether you want to migrate Ethereum applications or build new projects, these tutorials offer practical implementation patterns for wallet integration, contract deployment, and blockchain interaction on Flow's high-performance EVM-compatible network.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/index.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Nov 6, 2025** by **cshannon1218**
 
 [Previous
 
-Build a Walletless Mobile App (PWA)](/blockchain-development-tutorials/cadence/mobile/walletless-pwa)[Next
+Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)[Next
 
 Flow EVM Setup](/blockchain-development-tutorials/evm/setup)
 
@@ -210262,7 +210264,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -218312,7 +218314,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -222786,7 +222788,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -237505,7 +237507,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -273904,7 +273906,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -297554,7 +297556,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -300944,7 +300946,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -307348,6 +307350,10 @@ On this page
 
 # Build a fully-onchain image gallery
 
+warning
+
+This tutorial has not been updated for the new [limit of 16 million gas per transaction](https://ethereum.org/roadmap/fusaka/#how-does-new-16m-gas-limit-affects-contract-developers) in Fusaka. It will still work, but you will need to resize the images to a maximum of about 160\*160 pixels.
+
 info
 
 The [FlowtoBooth](https://flowtobooth.vercel.app/) tutorial series teaches you how to build a **fun benchmark app** and provides inspiration for the greater scope of possibilities to build on Flow since gas is so much less expensive.
@@ -310177,7 +310183,7 @@ Now that you've completed this tutorial, you're ready to explore more complex on
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/image-gallery.md)
 
-Last updated on **Nov 19, 2025** by **cshannon1218**
+Last updated on **Dec 4, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -319742,7 +319748,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -368993,7 +368999,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -379013,7 +379019,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -379051,15 +379057,15 @@ On this page
 
 # Build a Walletless Mobile App (PWA)
 
-In this tutorial, we delve into the intricacies of crafting an accessible Progressive Web App (PWA) on the Flow blockchain, tackling the challenge of mobile mainstream accessibility in web3. We recognize the complexity of current onboarding processes, so we'll guide you through a streamlined approach, featuring a seamless walletless mobile login to alleviate the often daunting task for new users.
+In this tutorial, we delve into the intricacies of how to craft an accessible Progressive Web App (PWA) on the Flow blockchain, and tackle the challenge of mobile mainstream accessibility in web3. We recognize the complexity of current onboarding processes, so we'll guide you through a streamlined approach, which features a seamless walletless mobile login to alleviate the often daunting task for new users.
 
-### Understanding PWAs[​](#understanding-pwas "Direct link to Understanding PWAs")
+### Understand PWAs[​](#understand-pwas "Direct link to Understand PWAs")
 
-PWAs have garnered attention recently, with platforms like [friend.tech](http://friend.tech/) leading the way in popularity. PWAs blur the lines between web pages and mobile applications, offering an immersive, app-like experience directly from your browser. You can easily add a shortcut to your home screen, and the PWA operates just like a native application would. Beyond these capabilities, PWAs also boast offline functionality and support for push notifications, among many [other features](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps).
+PWAs have garnered attention recently, and platforms like [friend.tech] lead the way in popularity. PWAs blur the lines between web pages and mobile applications, and offer an immersive, app-like experience directly from your browser. You can easily add a shortcut to your home screen, and the PWA operates just like a native application would. Beyond these capabilities, PWAs also boast offline functionality and support for push notifications, among many [other features].
 
 ### ****Explore walletless onboarding****[​](#explore-walletless-onboarding "Direct link to explore-walletless-onboarding")
 
-Walletless onboarding is a groundbreaking feature that allows users to securely interact with decentralized applications (dApps) in a matter of seconds, all without the traditional need to create a blockchain wallet. This method effectively simplifies the user experience, abstracting the complexities of blockchain technology to facilitate swift and straightforward app access. For a deeper dive into walletless onboarding and its integration with Flow, feel free to explore the following resource: [Flow Magic Integration](https://flow.com/post/flow-magic-integration).
+Walletless onboarding is a groundbreaking feature that allows users to securely interact with decentralized applications (dApps) in a matter of seconds, all without the traditional need to create a blockchain wallet. This method effectively simplifies the user experience; it abstracts the complexities of blockchain technology to facilitate swift and straightforward app access. For a deeper dive into walletless onboarding and its integration with Flow, feel free to explore the following resource: [Flow Magic Integration](https://flow.com/post/flow-magic-integration).
 
 # Detailed steps
 
@@ -379068,9 +379074,9 @@ To effectively follow this tutorial, the developer requires a few essential libr
 ## **Dependencies**[​](#dependencies "Direct link to dependencies")
 
 1. **Magic Account**: To start, set up an app on magic.link, where you'll obtain an API key crucial for further steps.
-2. **Magic SDK**: Essential to integrate Magic's functionality in your project, and you can find it [here](https://www.npmjs.com/package/magic-sdk).
-3. **Magic Flow SDK**: This SDK allows Magic's integration with Flow. You can install it from [this link](https://www.npmjs.com/package/@magic-ext/flow/v/13.3.0).
-4. **Flow Client Library ([FCL](https://developers.flow.com/tooling/fcl-js))**: As the JavaScript SDK for the Flow blockchain, FCL allows developers to create applications that seamlessly interact with the Flow blockchain and its smart contracts.
+2. **Magic SDK**: Essential to integrate Magic's functionality in your project, and you can find it [here](https://flow-inflation.vercel.app/).
+3. **Magic Flow SDK**: This SDK allows Magic's integration with Flow. You can install it from [this link].
+4. **Flow Client Library ([FCL])**: As the JavaScript SDK for the Flow blockchain, FCL allows developers to create applications that seamlessly interact with the Flow blockchain and its smart contracts.
 5. **React**: We'll build our project with the React framework.
 
 ### ****Set up up PWA and testing locally****[​](#set-up-up-pwa-and-testing-locally "Direct link to set-up-up-pwa-and-testing-locally")
@@ -379089,7 +379095,7 @@ Proceed to build your application with your preferred build tool. In this exampl
 
 yarn run build`
 
-Following the build, you can serve your application locally with:
+After the build, you can serve your application locally with:
 
 `_10
 
@@ -379171,7 +379177,7 @@ Anytime you need to interface with chain, you will use this magic instance.
 
 This file creates a React context that you'll use to share the current user's data across your application.
 
-**React Context**: It is created using **`React.createContext()`** which provides a way to pass data through the component tree without having to pass props down manually at every level.
+**React Context**: It is created with **`React.createContext()`** which provides a way to pass data through the component tree without the need to pass props down manually at every level.
 
 `_10
 
@@ -379193,10 +379199,10 @@ export default CurrentUserContext;`
 
 This file defines a React provider component that uses the context created above. This provider component will wrap around your application's components, which allows them to access the current user's data.
 
-* **useState**: To create state variables to store the current user's data and the loading status.
-* **useEffect**: To fetch the user's data from Magic when the component mounts.
-* **magic.user.isLoggedIn**: Checks if a user is logged in.
-* **magic.user.getMetadata**: Fetches the user's metadata.
+* **useState**: creates state variables to store the current user's data and the loading status.
+* **useEffect**: fetches the user's data from Magic when the component mounts.
+* **magic.user.isLoggedIn**: checks if a user is logged in.
+* **magic.user.getMetadata**: fetches the user's metadata.
 
 `_37
 
@@ -379341,7 +379347,7 @@ export default CurrentUserProvider;`
 This part shows how to log in a user with Magic's SMS authentication.
 
 * **magic.auth.loginWithSMS**: A function that Magic provides to authenticate users with their phone number.
-* **setCurrentUser**: Updates the user's data in the context.
+* **setCurrentUser**: updates the user's data in the context.
 
 `_12
 
@@ -379385,9 +379391,9 @@ _12
 
 };`
 
-### **Scripts/Transactions with Flow**[​](#scriptstransactions-with-flow "Direct link to scriptstransactions-with-flow")
+### **Scripts and transactions with Flow**[​](#scripts-and-transactions-with-flow "Direct link to scripts-and-transactions-with-flow")
 
-This example shows how to interact with the Flow blockchain using FCL and Magic for authorization.
+This example shows how to interact with the Flow blockchain with FCL and Magic for authorization.
 
 * **fcl.send**: A function that FCL provides to send transactions or scripts to the Flow blockchain.
 * **AUTHORIZATION\_FUNCTION**: The authorization function that Magic provides to sign transactions.
@@ -379490,7 +379496,7 @@ _26
 
 }; ``
 
-### ****Account linking with Flow****[​](#account-linking-with-flow "Direct link to account-linking-with-flow")
+### ****Account Linking with Flow****[​](#account-linking-with-flow "Direct link to account-linking-with-flow")
 
 Now we can unlock the real power of Flow. Lets say you have another Flow account and you want to link the "magic" account as a child account so that you can take full custody of whatever is in the magic account. You can do this via Hybird Custody.
 
@@ -379498,7 +379504,7 @@ You can view the hybrid custody repo and contracts here: <https://github.com/onf
 
 We will maintain two accounts within the app. The child(magic) account from earlier and new non custodial FCL flow account. We won't go over how to log in with FCL here and use it, but you can do the normal process to obtain the parent account.
 
-After you log in to the parent account and child(magic) account, you can link the account with the following transaction.
+After you log in to the parent account and child(magic) account, you can link the account with the following transaction:
 
 `_72
 
@@ -379754,9 +379760,9 @@ _72
 
 info
 
-For the sake of this example, well use some pre defined factory and filter implementations. You can find them on the repo, but on testnet we can use 0x1055970ee34ef4dc and 0xe2664be06bb0fe62 for the factory and filter address respectively. 0x1055970ee34ef4dc provides NFT capabilities and 0xe2664be06bb0fe62 which is the AllowAllFilter. These generalized implementations likely cover most use cases, but you'll want to weigh the decision to use them according to your risk tolerance and specific scenario
+For the sake of this example, well use some pre defined factory and filter implementations. You can find them on the repo, but on testnet we can use 0x1055970ee34ef4dc and 0xe2664be06bb0fe62 for the factory and filter address respectively. 0x1055970ee34ef4dc provides NFT capabilities and 0xe2664be06bb0fe62 which is the AllowAllFilter. These generalized implementations likely cover most use cases, but you'll want to weigh the decision to use them according to your risk tolerance and specific scenario.
 
-Now, for viewing all parent accounts linked to a child account and removing a linked account, you can follow similar patterns, using Cadence scripts and transactions as required.
+Now, to view all parent accounts linked to a child account and remove a linked account, you can follow similar patterns, and use Cadence scripts and transactions as required.
 
 `_12
 
@@ -379896,9 +379902,9 @@ _24
 
 [![Video Title](/assets/images/pwa_youtube_thumbnail-bc472a96186e5e5aa558c64d2021aed7.png)](https://www.youtube.com/watch?v=1ZmvfBFdCxY "Video Title")
 
-# **Sample Flow PWA: Balloon inflation game**
+# **Sample Flow PWA: balloon inflation game**
 
-## **Game Overview**[​](#game-overview "Direct link to game-overview")
+## **Game overview**[​](#game-overview "Direct link to game-overview")
 
 This PWA game revolves around inflating a virtual balloon, with a twist! The players engage with the balloon, witnessing its growth and color transformation, all while being cautious not to pop it. The ultimate goal is to mint the balloon's state as an NFT to commemorate their achievement.
 
@@ -379927,17 +379933,17 @@ The full code for this game can be found here: <https://github.com/onflow/inflat
 
 ## **Integration with Flow and Magic**[​](#integration-with-flow-and-magic "Direct link to integration-with-flow-and-magic")
 
-The entire game is crafted upon the previously discussed setup, ensuring a seamless and user-friendly experience.
+The entire game is crafted upon the previously discussed setup, which ensures a seamless and user-friendly experience.
 
-### **Playing the game:**[​](#playing-the-game "Direct link to playing-the-game")
+### **Play the game:**[​](#play-the-game "Direct link to play-the-game")
 
 * **Walletless interaction**: Users can jump right into the game, inflate the balloon and enjoy the gameplay without any blockchain wallet setup.
 * **Inflation and visuals**: The balloon's size and color change in real-time, which provides instant visual feedback to the player.
 
-### **Minting and viewing NFTs:**[​](#minting-and-viewing-nfts "Direct link to minting-and-viewing-nfts")
+### **Mint and view NFTs:**[​](#mint-and-view-nfts "Direct link to mint-and-view-nfts")
 
 * **Magic login for minting**: To mint their balloon as an NFT, players log in with Magic and embrace a walletless experience.
-* **Viewing NFT Collection**: Post-minting, players can easily access and view their collection of balloon NFTs.
+* **View NFT Collection**: Post-minting, players can easily access and view their collection of balloon NFTs.
 
 ### **Take custody with Account Linking:**[​](#take-custody-with-account-linking "Direct link to take-custody-with-account-linking")
 
@@ -379946,11 +379952,18 @@ The entire game is crafted upon the previously discussed setup, ensuring a seaml
 
 ## **Conclusion**[​](#conclusion "Direct link to conclusion")
 
-The balloon inflation game stands as a testament to the seamless integration of Flow, Magic, and PWA technology, creating a user-friendly blockchain game that is accessible, engaging, and secure. Players can enjoy the game, mint NFTs, and take full ownership of their digital assets with ease and convenience.
+The balloon inflation game stands as a testament to the seamless integration of Flow, Magic, and PWA technology, and creates a user-friendly blockchain game that is accessible, engaging, and secure. Players can enjoy the game, mint NFTs, and take full ownership of their digital assets with ease and convenience.
+
+[here](https://flow-inflation.vercel.app/): <https://www.npmjs.com/package/magic-sdk>).
+[this link]: <https://www.npmjs.com/package/@magic-ext/flow/v/13.3.0>
+[FCL]: <https://developers.flow.com/tooling/fcl-js>
+[Flow Magic Integration](https://flow.com/post/flow-magic-integration): <https://flow.com/post/flow-magic-integration>
+[friend.tech]: <http://friend.tech/>
+[other features]: <https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps>).
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/mobile/walletless-pwa.md)
 
-Last updated on **Nov 4, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -379964,10 +379977,10 @@ Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)
 
 Copy as Markdown
 
-* [Understanding PWAs](#understanding-pwas)* [****Explore walletless onboarding****](#explore-walletless-onboarding)* [**Dependencies**](#dependencies)
-      + [****Set up up PWA and testing locally****](#set-up-up-pwa-and-testing-locally)+ [Integrate with Magic](#integrate-with-magic)+ [****React context and provider for user data****](#react-context-and-provider-for-user-data)+ [**Log in the user**](#log-in-the-user)+ [**Scripts/Transactions with Flow**](#scriptstransactions-with-flow)+ [****Account linking with Flow****](#account-linking-with-flow)* [**Game Overview**](#game-overview)
+* [Understand PWAs](#understand-pwas)* [****Explore walletless onboarding****](#explore-walletless-onboarding)* [**Dependencies**](#dependencies)
+      + [****Set up up PWA and testing locally****](#set-up-up-pwa-and-testing-locally)+ [Integrate with Magic](#integrate-with-magic)+ [****React context and provider for user data****](#react-context-and-provider-for-user-data)+ [**Log in the user**](#log-in-the-user)+ [**Scripts and transactions with Flow**](#scripts-and-transactions-with-flow)+ [****Account Linking with Flow****](#account-linking-with-flow)* [**Game overview**](#game-overview)
         + [**Key game features:**](#key-game-features)* [**Integration with Flow and Magic**](#integration-with-flow-and-magic)
-          + [**Playing the game:**](#playing-the-game)+ [**Minting and viewing NFTs:**](#minting-and-viewing-nfts)+ [**Take custody with Account Linking:**](#take-custody-with-account-linking)* [**Conclusion**](#conclusion)
+          + [**Play the game:**](#play-the-game)+ [**Mint and view NFTs:**](#mint-and-view-nfts)+ [**Take custody with Account Linking:**](#take-custody-with-account-linking)* [**Conclusion**](#conclusion)
 
 Flow
 
@@ -392189,7 +392202,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -409961,7 +409974,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -419142,7 +419155,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -442111,7 +442124,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -442145,7 +442158,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* tx
 
@@ -532985,7 +532998,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -589138,7 +589151,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -594358,7 +594371,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -605380,7 +605393,7 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
-# Source: https://developers.flow.com/
+# Source: https://developers.flow.com
 
 Flow Developer Portal
 
@@ -618171,12 +618184,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **9a8722908a1be264**
+Cloudflare Ray ID: **9a8f5fd4ad59c0b2**
 •
 
 Your IP:
 Click to reveal
-64.236.134.33
+172.212.167.81
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 

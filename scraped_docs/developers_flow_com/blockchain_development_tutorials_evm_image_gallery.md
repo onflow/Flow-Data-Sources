@@ -44,6 +44,10 @@ On this page
 
 # Build a fully-onchain image gallery
 
+warning
+
+This tutorial has not been updated for the new [limit of 16 million gas per transaction](https://ethereum.org/roadmap/fusaka/#how-does-new-16m-gas-limit-affects-contract-developers) in Fusaka. It will still work, but you will need to resize the images to a maximum of about 160\*160 pixels.
+
 info
 
 The [FlowtoBooth](https://flowtobooth.vercel.app/) tutorial series teaches you how to build a **fun benchmark app** and provides inspiration for the greater scope of possibilities to build on Flow since gas is so much less expensive.
@@ -2873,7 +2877,7 @@ Now that you've completed this tutorial, you're ready to explore more complex on
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/image-gallery.md)
 
-Last updated on **Nov 19, 2025** by **cshannon1218**
+Last updated on **Dec 4, 2025** by **Brian Doyle**
 
 [Previous
 

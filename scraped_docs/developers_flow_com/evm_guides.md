@@ -4,9 +4,11 @@ Flow EVM Guides | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -40,17 +42,17 @@ Search
 
 On this page
 
-# EVM Guides
+# Flow EVM Guides
 
-Flow EVM provides full Ethereum Virtual Machine compatibility, enabling developers to deploy existing Solidity contracts and use familiar Ethereum development tools on Flow's high-performance blockchain. These guides demonstrate how to leverage popular Ethereum tools and frameworks to build, test, and deploy smart contracts on Flow EVM while taking advantage of Flow's unique features like built-in randomness and efficient transaction processing.
+Flow EVM provides full Ethereum Virtual Machine (EVM) compatibility, which allows developers to deploy current Solidity contracts and use familiar Ethereum development tools on Flow's high-performance blockchain. These guides demonstrate how to leverage popular Ethereum tools and frameworks to build, test, and deploy smart contracts on Flow EVM while taking advantage of Flow's unique features like built-in randomness and efficient transaction processing.
 
 ## [Setup](/blockchain-development-tutorials/evm/setup)[​](#setup "Direct link to setup")
 
-Essential setup guides for Flow EVM development, including MetaMask integration and wallet configuration. Learn how to connect popular Ethereum tools to Flow's EVM-compatible network and prepare your development environment for building on Flow.
+Essential setup guides for Flow EVM development, which includes MetaMask integration and wallet configuration. Learn how to connect popular Ethereum tools to Flow's EVM-compatible network and prepare your development environment to build on Flow.
 
 ## [Frameworks](/blockchain-development-tutorials/evm/frameworks)[​](#frameworks "Direct link to frameworks")
 
-Modern JavaScript and React frameworks for building Flow EVM applications. These guides cover popular blockchain libraries like ethers.js, web3.js, wagmi, and RainbowKit, providing practical implementation patterns for frontend development on Flow.
+Modern JavaScript and React frameworks to build Flow EVM applications. These guides cover popular blockchain libraries like `ethers.js`, `web3.js`, `wagmi`, and RainbowKit. They provide practical implementation patterns for frontend development on Flow.
 
 ## [Development Tools](/blockchain-development-tutorials/evm/development-tools)[​](#development-tools "Direct link to development-tools")
 
@@ -58,19 +60,19 @@ Professional Solidity development tools adapted for Flow EVM. Master Foundry's t
 
 ## [Build a Fully-Onchain Image Gallery](/blockchain-development-tutorials/evm/image-gallery)[​](#build-a-fully-onchain-image-gallery "Direct link to build-a-fully-onchain-image-gallery")
 
-Create a decentralized image gallery that stores images directly on the blockchain using Flow's efficient gas pricing. This comprehensive tutorial demonstrates building smart contracts for onchain image storage, implementing factory patterns for user galleries, and creating a modern React frontend with wallet integration. Learn how Flow's low gas costs enable applications that would be prohibitively expensive on other chains.
+Create a decentralized image gallery that stores images directly on the blockchain with Flow's efficient gas pricing. This comprehensive tutorial demonstrates how to build smart contracts for onchain image storage, implement factory patterns for user galleries, and create a modern React frontend with wallet integration. Learn how Flow's low gas costs allow applications that would be prohibitively expensive on other chains.
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-These EVM guides provide comprehensive coverage of the most popular Ethereum development tools and frameworks, adapted for Flow EVM development. Whether you're migrating existing Ethereum applications or building new projects, these tutorials offer practical implementation patterns for wallet integration, contract deployment, and blockchain interaction on Flow's high-performance EVM-compatible network.
+These EVM guides provide comprehensive coverage of the most popular Ethereum development tools and frameworks, adapted for Flow EVM development. Whether you want to migrate Ethereum applications or build new projects, these tutorials offer practical implementation patterns for wallet integration, contract deployment, and blockchain interaction on Flow's high-performance EVM-compatible network.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/index.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Nov 6, 2025** by **cshannon1218**
 
 [Previous
 
-Build a Walletless Mobile App (PWA)](/blockchain-development-tutorials/cadence/mobile/walletless-pwa)[Next
+Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)[Next
 
 Flow EVM Setup](/blockchain-development-tutorials/evm/setup)
 
