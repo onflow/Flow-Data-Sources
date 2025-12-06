@@ -155943,7 +155943,7 @@ Built-in Functions](/docs/language/built-in-functions)
 
 
 
-# Source: https://cadence-lang.org/docs/language
+# Source: https://cadence-lang.org/docs/language/
 
 The Cadence Programming Language | Cadence
 
@@ -184383,7 +184383,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -228913,7 +228913,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -258631,19 +258631,19 @@ Search
 
 On this page
 
-# Building a frontend app
+# Building a Frontend App
 
-This tutorial builds on the `Counter` contract you deployed in [Cadence Environment Setup](/blockchain-development-tutorials/cadence/getting-started/cadence-environment-setup) and [Smart Contract Interaction](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction). It shows you how to create a simple `Next.js` frontend that interacts with the `Counter` smart contract deployed on your local Flow emulator. Instead of using FCL directly, you'll leverage [**@onflow/react-sdk**](/build/tools/react-sdk) to simplify authentication, querying, transactions, and to display real-time transaction status updates using convenient React hooks.
+This tutorial builds on the `Counter` contract you deployed in [Cadence Environment Setup](/blockchain-development-tutorials/cadence/getting-started/cadence-environment-setup) and [Smart Contract Interaction](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction). It shows you how to create a simple `Next.js` frontend that interacts with the `Counter` smart contract deployed on your local Flow emulator. Rather than use FCL directly, you'll leverage [**@onflow/react-sdk**](/build/tools/react-sdk) to simplify authentication, querys, transactions, and to display real-time transaction status updates with convenient React hooks.
 
 ## Objectives[​](#objectives "Direct link to Objectives")
 
 After you complete this tutorial, you will be able to:
 
 * Wrap your `Next.js` app with a Flow provider using [**@onflow/react-sdk**](/build/tools/react-sdk).
-* Read data from a Cadence smart contract (`Counter`) using kit's query hook.
-* Send a transaction to update the smart contract's state using kit's mutation hook.
-* Monitor a transaction's status in real time using kit's transaction hook.
-* Authenticate with the Flow blockchain using kit's built-in hooks and the local [Dev Wallet](/build/tools/flow-dev-wallet).
+* Read data from a Cadence smart contract (`Counter`) with kit's query hook.
+* Send a transaction to update the smart contract's state with kit's mutation hook.
+* Monitor a transaction's status in real time with kit's transaction hook.
+* Authenticate with the Flow blockchain with kit's built-in hooks and the local [Dev Wallet](/build/tools/flow-dev-wallet).
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
@@ -258673,15 +258673,15 @@ During setup, choose the following options:
 * **Use src directory**: **Yes**
 * **Use App Router**: **Yes**
 
-This command creates a new Next.js project named `kit-app-quickstart` inside your current directory. We're generating the frontend in a subdirectory so we can next move it into our existing project structure from the previous steps (you can't create an app in a non-empty directory).
+This command creates a new Next.js project named `kit-app-quickstart` inside your current directory. We will generate the frontend in a subdirectory so we can next move it into our current project structure from the previous steps (you can't create an app in a non-empty directory).
 
-### Step 2: Move the Next.js app Up a directory[​](#step-2-move-the-nextjs-app-up-a-directory "Direct link to Step 2: Move the Next.js app Up a directory")
+### Step 2: Move the Next.js app up a directory[​](#step-2-move-the-nextjs-app-up-a-directory "Direct link to Step 2: Move the Next.js app up a directory")
 
 Move the contents of the `kit-app-quickstart` directory into your project root. You can use the gui in your editor, or the console.
 
 warning
 
-You'll want to consolidate both `.gitignore` files, keeping the contents of both in the file that ends up in the root.
+You'll want to consolidate both `.gitignore` files, which keeps the contents of both in the file that ends up in the root.
 
 On macOS/Linux:
 
@@ -258713,7 +258713,7 @@ Remove-Item -Recurse -Force .\kit-app-quickstart`
 
 tip
 
-When moving hidden files (those beginning with a dot) like `.gitignore`, be cautious not to overwrite any important files.
+When you move hidden files (those that start with a dot) like `.gitignore`, be cautious not to overwrite any important files.
 
 ### Step 3: Install @onflow/react-sdk[​](#step-3-install-onflowreact-sdk "Direct link to Step 3: Install @onflow/react-sdk")
 
@@ -258723,15 +258723,15 @@ Install the kit library in your project:
 
 npm install @onflow/react-sdk`
 
-This library wraps FCL internally and exposes a set of hooks for authentication, querying, sending transactions, and tracking transaction status.
+This library wraps FCL internally and exposes a set of hooks for authentication, querys, to send transactions, and track transaction status.
 
-## Configure the local Flow Emulator and Dev Wallet[​](#configure-the-local-flow-emulator-and-dev-wallet "Direct link to Configure the local Flow Emulator and Dev Wallet")
+## Configure the local Flow emulator and Dev Wallet[​](#configure-the-local-flow-emulator-and-dev-wallet "Direct link to Configure the local Flow emulator and Dev Wallet")
 
 warning
 
 You should already have the Flow emulator running from the local development step. If it's not running, you can start it again — but when you restart the emulator, it will clear all blockchain state, which includes any contracts deployed in [Step 2: Local Development].
 
-### Start the Flow Emulator (if not already running)[​](#start-the-flow-emulator-if-not-already-running "Direct link to Start the Flow Emulator (if not already running)")
+### Start the Flow emulator (if not already running)[​](#start-the-flow-emulator-if-not-already-running "Direct link to Start the Flow emulator (if not already running)")
 
 Open a new terminal window in your project directory and run:
 
@@ -258753,7 +258753,7 @@ This will start the [Dev Wallet](/build/tools/flow-dev-wallet) on `http://localh
 
 ## Wrap Your app with FlowProvider[​](#wrap-your-app-with-flowprovider "Direct link to Wrap Your app with FlowProvider")
 
-[**@onflow/react-sdk**](/build/tools/react-sdk) provides a `FlowProvider` component that sets up the Flow Client Library configuration. In `Next.js` using the App Router, add or update your `src/app/layout.tsx` as follows:
+[**@onflow/react-sdk**](/build/tools/react-sdk) provides a `FlowProvider` component that sets up the Flow Client Library configuration. In `Next.js`, use the App Router to add or update your `src/app/layout.tsx` as follows:
 
 `_27
 
@@ -258865,7 +258865,7 @@ For more information on Discovery configurations, refer to the [Wallet Discovery
 
 ## Interact With the chain[​](#interact-with-the-chain "Direct link to Interact With the chain")
 
-Now that we've set our provider, lets start interacting with the chain.
+Now that we've set our provider, lets start to interact with the chain.
 
 ### Query the chain[​](#query-the-chain "Direct link to Query the chain")
 
@@ -258941,7 +258941,7 @@ This script fetches the counter value, formats it via the `NumberFormatter`, and
 
 info
 
-* **Import Syntax:** The imports (`import "Counter"` and `import "NumberFormatter"`) don't include addresses because those are automatically resolved using the `flow.json` file configured in your `FlowProvider`. This keeps your Cadence scripts portable and environment-independent.
+* **Import Syntax:** The imports (`import "Counter"` and `import "NumberFormatter"`) don't include addresses because those are automatically resolved with the `flow.json` file configured in your `FlowProvider`. This keeps your Cadence scripts portable and environment-independent.
 * **`enabled` Flag:** This controls whether the query should run automatically. Set it to `true` to run on mount, or pass a condition (e.g. `!!user?.addr`) to delay execution until the user is available. This is useful for queries that depend on authentication or other asynchronous data.
 
 ### Send a transaction[​](#send-a-transaction "Direct link to Send a transaction")
@@ -259052,7 +259052,7 @@ _27
 
 #### Explanation[​](#explanation "Direct link to Explanation")
 
-This sends a Cadence transaction to the blockchain using the `mutate` function. The transaction imports the `Counter` contract and calls its `increment` function. The connected wallet handles authorization automatically during the `prepare` phase. After it's submitted, you cna use the returned `txId` to track the transaction's status in real time.
+This sends a Cadence transaction to the blockchain with the `mutate` function. The transaction imports the `Counter` contract and calls its `increment` function. The connected wallet handles authorization automatically during the `prepare` phase. After it's submitted, you cna use the returned `txId` to track the transaction's status in real time.
 
 ### Subscribe to transaction status[​](#subscribe-to-transaction-status "Direct link to Subscribe to transaction status")
 
@@ -259106,7 +259106,7 @@ _13
 
 #### Explanation:[​](#explanation-1 "Direct link to Explanation:")
 
-* `useFlowTransactionStatus(txId)` subscribes to real-time updates about a transaction's lifecycle using the transaction ID.
+* `useFlowTransactionStatus(txId)` subscribes to real-time updates about a transaction's lifecycle with the transaction ID.
 * `transactionStatus.status` is a numeric code representing the state of the transaction:
   + `0`: **Unknown** – The transaction status is not yet known.
   + `1`: **Pending** – The transaction has been submitted and is waiting to be included in a block.
@@ -259118,16 +259118,16 @@ _13
 
 #### Why we recommend `Executed` for UI Updates:[​](#why-we-recommend-executed-for-ui-updates "Direct link to why-we-recommend-executed-for-ui-updates")
 
-Waiting for `Sealed` provides full onchain confirmation but can introduce a delay — especially in local or test environments. Since most transactions (like incrementing a counter) don't require strong finality guarantees, you can typically refetch data once the transaction reaches `Executed` for a faster, more responsive user experience.
+Waiting for `Sealed` provides full onchain confirmation but can introduce a delay — especially in local or test environments. Since most transactions (like incrementing a counter) don't require strong finality guarantees, you can typically refetch data after the transaction reaches `Executed` for a faster, more responsive user experience.
 
 However:
 
-* If you're dealing with critical state changes (for example, token transfers or contract deployments), prefer waiting for `Sealed`.
+* If you experience critical state changes (for example, token transfers or contract deployments), wait for `Sealed`.
 * For non-critical UI updates, `Executed` is usually safe and significantly improves perceived performance.
 
 ### Integrate authentication and build the complete UI[​](#integrate-authentication-and-build-the-complete-ui "Direct link to Integrate authentication and build the complete UI")
 
-Finally, integrate the query, mutation, and transaction status hooks with authentication using `useFlowCurrentUser`. Combine all parts to build the complete page.
+Finally, integrate the query, mutation, and transaction status hooks with authentication via `useFlowCurrentUser`. Combine all parts to build the complete page.
 
 `` _106
 
@@ -259523,12 +259523,12 @@ In this complete page:
 
 * **Step 1** queries the counter value.
 * **Step 2** sends a transaction to increment the counter and stores the transaction ID.
-* **Step 3** subscribes to transaction status updates using the stored transaction ID and uses a `useEffect` hook to automatically refetch the updated count when the transaction is sealed (status code 4).
+* **Step 3** subscribes to transaction status updates with the stored transaction ID and uses a `useEffect` hook to automatically refetch the updated count when the transaction is sealed (status code 4).
 * **Step 4** integrates authentication via `useFlowCurrentUser` and combines all the pieces into a single user interface.
 
 tip
 
-In this tutorial, we inlined Cadence code for simplicity. For real projects, we recommend storing Cadence in separate `.cdc` files, using the [Cadence VSCode extension](/build/tools/vscode-extension), and importing them with the [`flow-cadence-plugin`](https://github.com/chasefleming/flow-cadence-plugin) for Next.js or Webpack projects.
+In this tutorial, we inlined Cadence code for simplicity. For real projects, we recommend that you store Cadence in separate `.cdc` files, with the [Cadence VSCode extension](/build/tools/vscode-extension), and import them with the [`flow-cadence-plugin`](https://github.com/chasefleming/flow-cadence-plugin) for Next.js or Webpack projects.
 
 ## Run the app[​](#run-the-app "Direct link to Run the app")
 
@@ -259542,7 +259542,7 @@ warning
 
 If you have the Flow wallet browser extension installed, you might automatically log into the app. Normally this is desirable for your users, but you don't want to use it here.
 
-Log out, and log back in selecting the Dev Wallet instead of the Flow Wallet.
+Log out, and log back in. Select the Dev Wallet instead of the Flow Wallet.
 
 warning
 
@@ -259553,11 +259553,11 @@ Then visit <http://localhost:3000> in your browser. You should see:
 * The current counter value displayed (formatted with commas using `NumberFormatter`).
 * A **Log In** button that launches the kit Discovery UI with your local [Dev Wallet](/build/tools/flow-dev-wallet).
 * Once logged in, your account address appears with options to **Log Out** and **Increment Count**.
-* When you click **Increment Count**, the transaction is sent; its status updates are displayed in real time below the action buttons, and once the transaction is sealed, the updated count is automatically fetched.
+* When you click **Increment Count**, the transaction is sent; its status updates are displayed in real time below the action buttons, and after the transaction is sealed, the updated count is automatically fetched.
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-By following these steps, you've built a simple `Next.js` dApp that interacts with a Flow smart contract using [**@onflow/react-sdk**](/build/tools/react-sdk). In this guide you learned how to:
+When you follow these steps, you've built a simple `Next.js` dApp that interacts with a Flow smart contract with [**@onflow/react-sdk**](/build/tools/react-sdk). In this guide you learned how to:
 
 * Wrap your application in a `FlowProvider` to configure blockchain connectivity.
 * Use kit hooks such as `useFlowQuery`, `useFlowMutate`, `useFlowTransactionStatus`, and `useFlowCurrentUser` to manage authentication, query onchain data, submit transactions, and monitor their status.
@@ -259567,7 +259567,7 @@ For additional details and advanced usage, refer to the [@onflow/react-sdk docum
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/getting-started/building-a-frontend-app.md)
 
-Last updated on **Nov 14, 2025** by **0xLisanAlGaib**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -259582,8 +259582,8 @@ Production Deployment](/blockchain-development-tutorials/cadence/getting-started
 Copy as Markdown
 
 * [Objectives](#objectives)* [Prerequisites](#prerequisites)* [Set Up the Next.js app](#set-up-the-nextjs-app)
-      + [Step 1: Create a new Next.js app](#step-1-create-a-new-nextjs-app)+ [Step 2: Move the Next.js app Up a directory](#step-2-move-the-nextjs-app-up-a-directory)+ [Step 3: Install @onflow/react-sdk](#step-3-install-onflowreact-sdk)* [Configure the local Flow Emulator and Dev Wallet](#configure-the-local-flow-emulator-and-dev-wallet)
-        + [Start the Flow Emulator (if not already running)](#start-the-flow-emulator-if-not-already-running)+ [Start the Dev Wallet](#start-the-dev-wallet)* [Wrap Your app with FlowProvider](#wrap-your-app-with-flowprovider)* [Interact With the chain](#interact-with-the-chain)
+      + [Step 1: Create a new Next.js app](#step-1-create-a-new-nextjs-app)+ [Step 2: Move the Next.js app up a directory](#step-2-move-the-nextjs-app-up-a-directory)+ [Step 3: Install @onflow/react-sdk](#step-3-install-onflowreact-sdk)* [Configure the local Flow emulator and Dev Wallet](#configure-the-local-flow-emulator-and-dev-wallet)
+        + [Start the Flow emulator (if not already running)](#start-the-flow-emulator-if-not-already-running)+ [Start the Dev Wallet](#start-the-dev-wallet)* [Wrap Your app with FlowProvider](#wrap-your-app-with-flowprovider)* [Interact With the chain](#interact-with-the-chain)
             + [Query the chain](#query-the-chain)+ [Send a transaction](#send-a-transaction)+ [Subscribe to transaction status](#subscribe-to-transaction-status)+ [Integrate authentication and build the complete UI](#integrate-authentication-and-build-the-complete-ui)* [Run the app](#run-the-app)* [Conclusion](#conclusion)
 
 Flow
@@ -269004,13 +269004,13 @@ On this page
 
 # Mobile Development on Flow
 
-Building mobile native applications that interact with the blockchain allows a much richer end user experience and provides access to OS capabilities. With Flow Mobile, developers can build native applications for iOS and Android with SDKs and mobile wallets.
+When you build mobile native applications that interact with the blockchain, it allows a much richer end user experience and provides access to OS capabilities. With Flow Mobile, developers can build native applications for iOS and Android with SDKs and mobile wallets.
 
 ## Why Flow[​](#why-flow "Direct link to Why Flow")
 
 Millions of users with Flow accounts explore the ecosystem and look for applications. Most of these users purchased Flow NFTs and are comfortable with web3 principles.
 
-In addition to the existing user base, developers can tap into smart contracts deployed on the Flow blockchain. These contracts, including their onchain state, provide unique possibilities to build experiences that enrich currently-used applications.
+In addition to the current user base, developers can tap into smart contracts deployed on the Flow blockchain. These contracts, which includes their onchain state, provide unique possibilities to build experiences that enrich currently-used applications.
 
 The following key capabilities make Flow a standout choice for mobile applications:
 
@@ -269028,7 +269028,7 @@ Flow is built with mainstream adoption in mind. Mobile applications can leverage
 
 ### Best-in-class UX[​](#best-in-class-ux "Direct link to Best-in-class UX")
 
-Flow's Client Library makes it very intuitive to sign up and sign in with their wallet of choice. For transaction signing, Flow offers human readable security, so users get a clear understanding of what they are approving. An increased sense of trust for Flow applications is the outcome.
+Flow's Client Library makes it very intuitive to sign up and sign in with their wallet of choice. For transaction signing, Flow offers human readable security, so users get a clear understanding of what they approve. An increased sense of trust for Flow applications is the outcome.
 
 Furthermore, Flow's powerful account model allows for seamless user flows of onchain operations. Apps can perform transactions on behalf of the users (with their approval) in the background, without the need to switch between apps. The account model also allows apps to pay for transactions to postpone fiat on-ramps to get them to experience the value of an application before they commit to buy tokens.
 
@@ -269036,7 +269036,7 @@ Last, but not least, developers can leverage progressive web3 onboarding, in whi
 
 ### Security first[​](#security-first "Direct link to Security first")
 
-Flow's mobile SDKs use on-device key encryption via Apple's Secure Enclave and Android's Keystore. The flexible account model makes it possible for an account to have multiple keys with different weights, which enables secure social recovery, account sharing, and much more.
+Flow's mobile SDKs use on-device key encryption via Apple's Secure Enclave and Android's Keystore. The flexible account model makes it possible for an account to have multiple keys with different weights, which allows secure social recovery, account sharing, and much more.
 
 ## Smart contract language inspired by mobile languages[​](#smart-contract-language-inspired-by-mobile-languages "Direct link to Smart contract language inspired by mobile languages")
 
@@ -269061,11 +269061,11 @@ Developers can leverage the following features to get productive quickly:
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-Flow Mobile empowers developers to create native blockchain applications that deliver best-in-class user experiences while maintaining the security and flexibility that mainstream adoption demands. Whether building with native SDKs or creating Progressive Web Apps, Flow's mobile development capabilities provide the tools needed to bring web3 to millions of users through intuitive, secure, and feature-rich mobile experiences.
+Flow Mobile empowers developers to create native blockchain applications that deliver best-in-class user experiences and maintain the security and flexibility that mainstream adoption demands. Whether you build with native SDKs or create Progressive Web Apps, Flow's mobile development capabilities provide the tools needed to bring web3 to millions of users through intuitive, secure, and feature-rich mobile experiences.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/mobile/index.md)
 
-Last updated on **Nov 4, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -336346,7 +336346,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -336382,11 +336382,11 @@ Search
 
 On this page
 
-# Overview
+# IOS Development
 
 The following tutorial aims to educate you on how to build a native mobile application on Flow. It first presents Monster Maker, a starter project we've built to represent simple Flow mobile concepts. Next, it presents various developer resources related to building mobile native Flow applications.
 
-# Monster Maker
+## Monster Maker[​](#monster-maker "Direct link to Monster Maker")
 
 ![monster_maker_logo.png](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABEAAAAGQCAYAAACu+RXHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFw2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNy4yLWMwMDAgNzkuNTY2ZWJjNWI0LCAyMDIyLzA1LzA5LTA4OjI1OjU1ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgMjMuNCAoTWFjaW50b3NoKSIgeG1wOkNyZWF0ZURhdGU9IjIwMjItMTEtMDhUMDc6Mjc6NDEtMDg6MDAiIHhtcDpNb2RpZnlEYXRlPSIyMDIyLTExLTIyVDEzOjM5OjMyLTA4OjAwIiB4bXA6TWV0YWRhdGFEYXRlPSIyMDIyLTExLTIyVDEzOjM5OjMyLTA4OjAwIiBkYzpmb3JtYXQ9ImltYWdlL3BuZyIgcGhvdG9zaG9wOkNvbG9yTW9kZT0iMyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo0NTU2Njc1Ny02YjM5LTQ1MjMtYWQwNC1lNDllODE5NTZkYmMiIHhtcE1NOkRvY3VtZW50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)
 
@@ -336414,9 +336414,9 @@ For run in real device, there are a few steps to deal with for signing:
 
    ![XCode Target Setup](/assets/images/xcode_setup-a21fd8b008f0fc0f04d4b8b4355f064a.png)
 
-## Connecting to a wallet[​](#connecting-to-a-wallet "Direct link to Connecting to a wallet")
+## Connect to a wallet[​](#connect-to-a-wallet "Direct link to Connect to a wallet")
 
-To connect with wallets, there is native wallet discovery in the app. After you click on connect, it brings out the list of the wallets which support `HTTP/POST` or `WC/RPC` method.
+To connect with wallets, there is native wallet discovery in the app. After you click connect, it brings out the list of the wallets which support `HTTP/POST` or `WC/RPC` method.
 
 ### FCL config[​](#fcl-config "Direct link to FCL config")
 
@@ -336570,13 +336570,13 @@ _10
 
 try await fcl.authenticate()`
 
-## Signing a transaction[​](#signing-a-transaction "Direct link to Signing a transaction")
+## Sign a transaction[​](#sign-a-transaction "Direct link to Sign a transaction")
 
 ![In Monster Maker, Initializing the NFT collection with the Initialize button triggers a transaction.](/assets/images/initialize-741f992eddc54e2734901a8fe3954b89.png)
 
 In Monster Maker, click `Initialize` to initialize the NFT colelction. This triggers a transaction.
 
-Similar to what we have on fcl-js, native sdk also use `query` and `mutate` for onchain interactions. To request a signature from user, you can simply use `fcl.mutate` method. By default, the user is the payer, proposer and authorizer. If you want to add custom authorizer refer to the code from [Server](https://github.com/onflow/monster-maker/blob/main/server/pages/api/signAsMinter/index.ts) and [iOS](https://github.com/onflow/monster-maker/blob/main/iOS/MonsterMaker/Flow/MintHelper.swift) end.
+Similar to what we have on fcl-js, native sdk also use `query` and `mutate` for onchain interactions. To request a signature from user, you can simply use `fcl.mutate` method. By default, the user is the payer, proposer and authorizer. If you want to add custom authorizer refer to the code from [Server](https://github.com/onflow/monster-maker/blob/main/server/pages/api/signAsMinter/index.ts) and [iOS] end.
 
 `_23
 
@@ -336670,7 +336670,7 @@ print("txId -> \(txId)")`
 
 ![The View page in Monster Maker exemplifies showing Monster Maker NFTs held by the connected wallet](/assets/images/collection-99cddabc5758e782ca038bb6a6451914.png)
 
-The View page in Monster Maker exemplifies showing Monster Maker NFTs held by the connected wallet
+The View page in Monster Maker exemplifies showing Monster Maker NFTs held by the connected wallet.
 
 During development, you always can query your NFT with `fcl.query`. Here is an example:
 
@@ -336998,18 +336998,23 @@ FCL Android is the Android native SDK for FCL.
 
 One of the easiest ways to connect to a wallet via a mobile native dApp is through Flow's new support for Wallet Connect 2.0. This is the pattern that Monster Maker uses to connect to the [Flow Wallet](https://wallet.flow.com/). For more information on FCL Wallet Connect 2.0, check out this page:
 
-[FCL Wallet Discovery](/build/tools/clients/fcl-js/discovery)
+[FCL Wallet Discovery]
 
 **How to build a native iOS dapp**
 
 The Agile Monkeys wrote a very comprehensive guide on how to build a native mobile application on iOS and interface with fcl-swift, which you can view with the link below:
 
-[How to Build a Native iOS Dapper](https://dev.to/theagilemonkeys/how-to-buid-a-native-ios-dapp-that-uses-the-flow-blockchain-as-the-backend-n9k)
-[Source Code](https://github.com/jfsagasti/FlowNotes)
+[How to Build a Native iOS Dapper]
+[Source Code]
+
+[iOS]: <https://github.com/onflow/monster-maker/blob/main/iOS/MonsterMaker/Flow/MintHelper.swift>)
+[FCL Wallet Discovery]: ../../../build/tools/clients/fcl-js/discovery.md
+[How to Build a Native iOS Dapper]: <https://dev.to/theagilemonkeys/how-to-buid-a-native-ios-dapp-that-uses-the-flow-blockchain-as-the-backend-n9k>
+[Source Code]: <https://github.com/jfsagasti/FlowNotes>
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/mobile/ios-quickstart.md)
 
-Last updated on **Nov 18, 2025** by **Chase Fleming**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -337023,8 +337028,8 @@ React Native Development](/blockchain-development-tutorials/cadence/mobile/react
 
 Copy as Markdown
 
-* [Github repo](#github-repo)* [Build to device](#build-to-device)* [Connecting to a wallet](#connecting-to-a-wallet)
-      + [FCL config](#fcl-config)+ [Open wallet discovery](#open-wallet-discovery)* [Signing a transaction](#signing-a-transaction)* [View NFT](#view-nft)
+* [Monster Maker](#monster-maker)* [Github repo](#github-repo)* [Build to device](#build-to-device)* [Connect to a wallet](#connect-to-a-wallet)
+        + [FCL config](#fcl-config)+ [Open wallet discovery](#open-wallet-discovery)* [Sign a transaction](#sign-a-transaction)* [View NFT](#view-nft)
 
 Flow
 
@@ -496065,7 +496070,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -507218,88 +507223,414 @@ With Flow EVM, EVM operations can now be called within Cadence transactions. EVM
 Transaction fee on EVM = surge x [inclusion fee + (execution effort * unit cost)]`
 
 * `Surge' factor` dynamically accounts for network pressure and market conditions.
-* `Inclusion fee` accounts for the resources required to process a transaction due to its core properties (byte size, signatures). This is currently constant at 1E-6 FLOW, but subject to change with community approval.
-* `Execution fee` The fee that accounts for the operational cost of running the transaction script, processing the results, sending results for verification, generating verification receipts, etc. and is calculated as a product of `execution effort units` and the `cost per unit`.
-  + `Execution Effort (computation)` is based on transaction type and operations that are called during the execution of a transaction. The weights determine how costly (time consuming) each operation is.
-  + `Execution Effort Unit Cost` = `2.49E-07 FLOW` (currently constant, but subject to change with community approval)
+* `Inclusion fee` accounts for the resources required to process a transaction due to its core properties (byte size, signatures). This is currently constant at 1E-4 FLOW, but subject to change with community approval.
+* `Execution fee` The fee that accounts for the operational cost of running the transaction script, processing the results, sending results for verification, generating verification receipts, etc. and is calculated as a product of `computation units` and the `cost per unit`.
+  + `Execution Effort (measured in computation units)` is based on transaction type and operations that are called during the execution of a transaction. The weights determine how costly (time-consuming) each operation is.
+  + `Execution Effort Unit Cost` = `4E-05 FLOW` (currently constant, but subject to change with community approval)
 
 ### Calculation of Execution Effort
 
-`_10
+`_44
 
 Execution Effort (computation) =
 
-_10
+_44
 
-0.00478 * function_or_loop_call +
+3.271E+01 * create_account +
 
-_10
+_44
 
-0.00246 * GetValue +
+2.348E+01 * blsverify_pop +
 
-_10
+_44
 
-0.00234 * SetValue +
+7.408E+00 * get_account_balance +
 
-_10
+_44
 
-8.65988 * CreateAccount +
+6.145E+00 * blsaggregate_public_keys +
 
-_10
+_44
 
-EVMGasUsageCost * EVMGasUsage`
+6.059E+00 * get_storage_capacity +
+
+_44
+
+5.726E+00 * get_account_available_balance +
+
+_44
+
+5.637E+00 * update_account_contract_code +
+
+_44
+
+4.964E+00 * blsaggregate_signatures +
+
+_44
+
+1.152E+00 * generate_account_local_id +
+
+_44
+
+5.000E-01 * get_account_contract_names +
+
+_44
+
+3.878E-01 * get_storage_used +
+
+_44
+
+3.770E-01 * account_keys_count +
+
+_44
+
+2.346E-01 * allocate_slab_index +
+
+_44
+
+1.348E-01 * atree_map_get +
+
+_44
+
+1.125E-01 * atree_map_remove +
+
+_44
+
+6.659E-02 * create_array_value +
+
+_44
+
+5.826E-02 * create_dictionary_value +
+
+_44
+
+5.579E-02 * atree_map_set +
+
+_44
+
+5.573E-02 * atree_array_insert +
+
+_44
+
+5.074E-02 * atree_map_read_iteration +
+
+_44
+
+4.442E-02 * encode_event +
+
+_44
+
+3.598E-02 * transfer_composite_value +
+
+_44
+
+2.910E-02 * atree_array_append +
+
+_44
+
+2.701E-02 * statement +
+
+_44
+
+2.650E-02 * atree_array_set +
+
+_44
+
+2.135E-02 * function_invocation +
+
+_44
+
+1.846E-02 * atree_map_pop_iteration +
+
+_44
+
+1.123E-02 * atree_array_pop_iteration +
+
+_44
+
+7.874E-03 * rlpdecoding +
+
+_44
+
+4.242E-03 * graphemes_iteration +
+
+_44
+
+3.922E-03 * ufix_parse +
+
+_44
+
+3.403E-03 * fix_parse +
+
+_44
+
+2.731E-03 * loop +
+
+_44
+
+2.701E-03 * atree_array_batch_construction +
+
+_44
+
+1.907E-03 * transfer_dictionary_value +
+
+_44
+
+1.053E-03 * big_int_parse +
+
+_44
+
+7.324E-04 * transfer_array_value +
+
+_44
+
+7.324E-04 * set_value +
+
+_44
+
+4.730E-04 * uint_parse +
+
+_44
+
+4.272E-04 * int_parse +
+
+_44
+
+3.510E-04 * get_value +
+
+_44
+
+7.629E-05 * string_to_lower +
+
+_44
+
+4.578E-05 * evmgas_usage`
 
 where
 
 `` _10
 
-`EVMGasUsage` is reported by EVM as the cost in gas for executing the transaction within the EVM, for instance, 21K gas for a simple send transaction. ``
-
-`` _10
-
-`EVMGasUsageCost` - The ratio that converts EVM gas into Flow compute units (execution effort) is currently set at `1/5000` but subject to revision by community approval ``
+`evmgas_usage` is reported by EVM as the cost in gas for executing the transaction within the EVM, for instance, 21K gas for a simple send transaction. ``
 
 
 
 ## Demonstration of Transaction Fees on EVM
 
-Assume a simple NFT transfer transaction that makes 31 cadence loop calls, reads 5668 bytes from the storage register, and saves 1668 bytes to the storage register.
-
-* 'function\_or\_loop\_call' = 31
-* 'GetValue' = 5688
-* 'SetValue' = 1668
-* 'CreateAccount' = 0
+Assume a simple Token transfer transaction:
 
 **Scenario 1 - Cadence-only Transaction**
 
-`_10
+The token transfer transaction:
 
-Compute Units = 0.00478 * (31) + 0.00246 * (5668) + 0.00234 *(1668) + 8.65988 *(0) + EVMGasUsageCost * EVMGasUsage`
+* makes 76 atree\_map\_get calls,
+* reads 9431 bytes (get\_value),
+* sets 2448 bytes (set\_value),
+* invokes 55 cadence statements,
+* makes 2 get\_storage\_used calls,
+* makes 28 cadence function\_invocation calls,
+* makes 8 transfer\_composite\_value calls,
+* makes 5 atree\_map\_set calls,
+* makes 4 encode\_event calls,
+* makes 2 create\_array\_value calls,
+* makes 2 atree\_array\_append calls,
+* makes 4 atree\_array\_batch\_construction calls,
+* makes 2 loop calls,
+* makes 2 transfer\_array\_value calls
+
+`_15
+
+Compute Units =
+
+_15
+
+76 * 0.135 +
+
+_15
+
+9431 * 0.000 +
+
+_15
+
+2448 * 0.001 +
+
+_15
+
+55 * 0.027 +
+
+_15
+
+2 * 0.388 +
+
+_15
+
+28 * 0.021 +
+
+_15
+
+8 * 0.036 +
+
+_15
+
+5 * 0.056 +
+
+_15
+
+4 * 0.044 +
+
+_15
+
+2 * 0.067 +
+
+_15
+
+2 * 0.029 +
+
+_15
+
+4 * 0.003 +
+
+_15
+
+2 * 0.003 +
+
+_15
+
+2 * 0.001`
 
 But since `EVMGasUsage` is 0 for a Cadence transaction,
 
 `_10
 
-Compute Units = 18.04378`
+Compute Units = 19.2`
 
 Thus
 
 `_10
 
-Transaction fee = [1E-6 FLOW + (18.04378 * 2.49E-07 FLOW)] x 1 = 5.5E-06 FLOW`
+Transaction fee = [1E-4 FLOW + (19.2 * 4E-05 FLOW)] x 1 = 8.68E-04`
 
 **Scenario 2 - EVM Transaction**
-If the EVMGasUsage can be assumed to be 21,000 gas (typical for a simple transfer),
+If the EVMGasUsage can be assumed to be 21,000 gas (typical for a simple transfer):
 
-`_10
+* uses 377806 evm gas (evmgas\_usage),
+* reads 22840 bytes (get\_value),
+* makes 1676 atree\_array\_batch\_construction calls,
+* makes 30 atree\_map\_get calls,
+* makes 325 atree\_array\_pop\_iteration calls,
+* sets 3182 bytes (set\_value),
+* makes 273 rlpdecoding calls,
+* makes 20 atree\_map\_read\_iteration calls,
+* makes 1329 transfer\_array\_value calls,
+* invokes 25 cadence statements,
+* makes 12 atree\_map\_set calls,
+* makes 17 transfer\_composite\_value calls,
+* makes 8 create\_array\_value calls,
+* makes 19 function\_invocation calls,
+* makes 1 get\_storage\_used calls,
+* makes 87 graphemes\_iteration calls,
+* makes 2 encode\_event calls,
+* makes 2 atree\_array\_append calls,
+* makes 1 atree\_map\_pop\_iteration calls,
+* makes 2 loop calls,
+* makes 40 string\_to\_lower calls
 
-Compute Units = 0.00478 * (31) + 0.00246 * (5668) + 0.00234 *(1668) + 8.65988 *(0) + 1/5000 * 21000 = 22.24378`
+`_23
+
+Compute Units =
+
+_23
+
+377806 * 0.00005 +
+
+_23
+
+22840 * 0.00035 +
+
+_23
+
+1676 * 0.00270 +
+
+_23
+
+30 * 0.13484 +
+
+_23
+
+325 * 0.01123 +
+
+_23
+
+3182 * 0.00073 +
+
+_23
+
+273 * 0.00787 +
+
+_23
+
+20 * 0.05074 +
+
+_23
+
+1329 * 0.00073 +
+
+_23
+
+25 * 0.02701 +
+
+_23
+
+12 * 0.05579 +
+
+_23
+
+17 * 0.03598 +
+
+_23
+
+8 * 0.06659 +
+
+_23
+
+19 * 0.02135 +
+
+_23
+
+1 * 0.38782 +
+
+_23
+
+87 * 0.00424 +
+
+_23
+
+2 * 0.04442 +
+
+_23
+
+2 * 0.02910 +
+
+_23
+
+1 * 0.01846 +
+
+_23
+
+2 * 0.00273 +
+
+_23
+
+40 * 0.00008
+
+_23
+
+= 47.8`
 
 Thus
 
 `_10
 
-Transaction fee = [1E-6 FLOW + (110.97 * 2.49E-07 FLOW)] x 1 = 6.55E-06 FLOW`
+Transaction fee = [1E-4 FLOW + (47.8 * 4E-05 FLOW)] x 1 = 2.012E-03 FLOW`
 
 **Note**: Please be aware that this example serves solely for illustrative purposes to elucidate the calculations. Actual transaction fees may differ due to various factors, including the byte size of the transaction.
 
@@ -507311,7 +507642,7 @@ To learn more about storage fee and transaction fee, visit [Flow Tokenomics page
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/evm/fees.md)
 
-Last updated on **Nov 12, 2025** by **Brian Doyle**
+Last updated on **Dec 5, 2025** by **Vishal**
 
 [Previous
 
@@ -513539,7 +513870,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -530334,7 +530665,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -539888,9 +540219,9 @@ The execution effort for a transaction is determined by the code path the transa
 * Writing data to storage, charged per byte written
 * Account creation
 
-|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Transaction Type Estimated cost (FLOW)|  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | FT transfer 0.00000185|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Mint a small NFT (heavily depends on the NFT size) 0.0000019|  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Empty Transaction 0.000001|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | Add key to an account 0.000001|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | Create 1 Account 0.00000315|  |  |  |  | | --- | --- | --- | --- | | Create 10 accounts 0.00002261|  |  | | --- | --- | | Deploying a contract that is ~50kb 0.00002965 | | | | | | | | | | | | | | | |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Computation Units Flow|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | FT transfer 19 8.60E-04|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Mint a small NFT (size-dependent) 25 1.10E-03|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Empty Transaction 0 1.00E-04|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Create 1 Account 45 1.90E-03|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Create 10 Accounts 363 1.46E-02|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | Deploy contract (~50kb) 319 1.29E-02|  |  |  | | --- | --- | --- | | Add key to an account 9 4.60E-04 | | | | | | | | | | | | | | | | | | | | | | | |
 
 **Inclusion Fee**
 
@@ -539900,7 +540231,9 @@ The inclusion effort of a transaction represents the work needed for:
 * Transporting the transaction information from node to node
 * Verifying transaction signatures
 
-Right now, the inclusion effort is always 1.0 and the inclusion effort cost is fixed to `0.000001`.
+Right now, the inclusion effort is always 1.0 and the inclusion effort cost is fixed to `0.0001`.
+
+Fees were last revised as per [FLIP 351](https://github.com/onflow/flips/blob/main/governance/20251119-transaction-fee-update.md)
 
 **Surge Factor**
 
@@ -540552,7 +540885,7 @@ Additional Details:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/basics/fees.md)
 
-Last updated on **Nov 18, 2025** by **Brian Doyle**
+Last updated on **Dec 5, 2025** by **Vishal**
 
 [Previous
 
@@ -618184,12 +618517,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **9a8f5fd4ad59c0b2**
+Cloudflare Ray ID: **9a979b055c01c980**
 •
 
 Your IP:
 Click to reveal
-172.212.167.81
+40.79.245.20
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 

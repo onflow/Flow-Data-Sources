@@ -69,9 +69,9 @@ The execution effort for a transaction is determined by the code path the transa
 * Writing data to storage, charged per byte written
 * Account creation
 
-|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Transaction Type Estimated cost (FLOW)|  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | FT transfer 0.00000185|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Mint a small NFT (heavily depends on the NFT size) 0.0000019|  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Empty Transaction 0.000001|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | Add key to an account 0.000001|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | Create 1 Account 0.00000315|  |  |  |  | | --- | --- | --- | --- | | Create 10 accounts 0.00002261|  |  | | --- | --- | | Deploying a contract that is ~50kb 0.00002965 | | | | | | | | | | | | | | | |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Computation Units Flow|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | FT transfer 19 8.60E-04|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Mint a small NFT (size-dependent) 25 1.10E-03|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Empty Transaction 0 1.00E-04|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Create 1 Account 45 1.90E-03|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Create 10 Accounts 363 1.46E-02|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | Deploy contract (~50kb) 319 1.29E-02|  |  |  | | --- | --- | --- | | Add key to an account 9 4.60E-04 | | | | | | | | | | | | | | | | | | | | | | | |
 
 **Inclusion Fee**
 
@@ -81,7 +81,9 @@ The inclusion effort of a transaction represents the work needed for:
 * Transporting the transaction information from node to node
 * Verifying transaction signatures
 
-Right now, the inclusion effort is always 1.0 and the inclusion effort cost is fixed to `0.000001`.
+Right now, the inclusion effort is always 1.0 and the inclusion effort cost is fixed to `0.0001`.
+
+Fees were last revised as per [FLIP 351](https://github.com/onflow/flips/blob/main/governance/20251119-transaction-fee-update.md)
 
 **Surge Factor**
 
@@ -733,7 +735,7 @@ Additional Details:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/basics/fees.md)
 
-Last updated on **Nov 18, 2025** by **Brian Doyle**
+Last updated on **Dec 5, 2025** by **Vishal**
 
 [Previous
 
