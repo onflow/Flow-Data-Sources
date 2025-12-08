@@ -26733,7 +26733,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -50579,7 +50579,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -50615,19 +50615,19 @@ Search
 
 On this page
 
-# Account Linking With NBA Top Shot
+# Account Linking with NBA Top Shot
 
-[Account Linking](/blockchain-development-tutorials/cadence/account-management) is a powerful Flow feature that allows users to connect their wallets, enabling linked wallets to view and manage assets in one wallet with another. This feature helps reduce or even eliminate the challenges posed by other account abstraction solutions, which often lead to multiple isolated wallets and fragmented assets.
+[Account Linking](/blockchain-development-tutorials/cadence/account-management) is a powerful Flow feature that allows users to connect their wallets, which allows linked wallets to view and manage assets in one wallet with another. This feature helps reduce or even eliminate the challenges posed by other account abstraction solutions, which often lead to multiple isolated wallets and fragmented assets.
 
 ![Top Shot Preview](/assets/images/top-shot-preview-6c64a2b21e280ea48e213066546e6794.png)
 
-In this tutorial, you'll build a [simple onchain app](https://nextjs-topshot-account-linking.vercel.app) that allows users to sign in to your app with their Flow wallet and view [NBA Top Shot](https://nbatopshot.com) Moments that reside in their [Dapper Wallet](https://meetdapper.com) without those users needing to sign in with Dapper.
+In this tutorial, you'll build a [simple onchain app](https://nextjs-topshot-account-linking.vercel.app) that allows users to sign in to your app with their Flow wallet and view [NBA Top Shot](https://nbatopshot.com) Moments that reside in their [Dapper Wallet](https://meetdapper.com) without the need for those users to sign in with Dapper.
 
 ## Objectives[​](#objectives "Direct link to Objectives")
 
 After you complete this guide, you'll be able to:
 
-* Pull your users' NBA Top Shot Moments into your Flow app without needing to transfer them out of their Dapper wallet.
+* Pull your users' NBA Top Shot Moments into your Flow app without the need to transfer them out of their Dapper wallet.
 * Retrieve and list all NFT collections in any child wallet linked to a given Flow address.
 * Write a [Cadence](https://cadence-lang.org/docs) script to iterate through the storage of a Flow wallet to find NFT collections.
 * Run Cadence Scripts from the frontend.
@@ -50636,7 +50636,7 @@ After you complete this guide, you'll be able to:
 
 ### Next.js and Modern Frontend Development[​](#nextjs-and-modern-frontend-development "Direct link to Next.js and Modern Frontend Development")
 
-This tutorial uses [Next.js](https://nextjs.org/docs/app/getting-started/installation). You don't need to be an expert, but it's helpful to be comfortable with development using a current React framework. You'll be on your own to select and use a package manager, manage Node versions, and other frontend environment tasks. If you don't have your own preference, you can just follow along with us and use [Yarn](https://yarnpkg.com).
+This tutorial uses [Next.js](https://nextjs.org/docs/app/getting-started/installation). You don't need to be an expert, but it's helpful to be comfortable with development with a current React framework. You'll be on your own to select and use a package manager, manage Node versions, and other frontend environment tasks. If you don't have your own preference, you can just follow along with us and use [Yarn](https://yarnpkg.com).
 
 ### Flow Wallet[​](#flow-wallet "Direct link to Flow Wallet")
 
@@ -50646,7 +50646,7 @@ You'll need a [Flow Wallet](https://wallet.flow.com), but you don't need to depo
 
 You'll need a [Dapper Wallet](https://meetdapper.com) that contains some Moments NFTs, such as [NBA Top Shot](https://nbatopshot.com) Moments.
 
-## Getting Started[​](#getting-started "Direct link to Getting Started")
+## Get Started[​](#get-started "Direct link to Get Started")
 
 This tutorial will use a [Next.js](https://nextjs.org/docs/app/getting-started/installation) project as the foundation of the frontend. Create a new project with:
 
@@ -50668,13 +50668,13 @@ yarn run dev`
 
 If everything works properly, you can navigate to `localhost:3000` and see the default [Next.js](https://nextjs.org/docs/app/getting-started/installation) page.
 
-## Flow Cadence Setup[​](#flow-cadence-setup "Direct link to Flow Cadence Setup")
+## Flow Cadence setup[​](#flow-cadence-setup "Direct link to Flow Cadence setup")
 
 You'll need a few more dependencies to efficiently work with Cadence inside of your app.
 
-### Flow CLI and Types[​](#flow-cli-and-types "Direct link to Flow CLI and Types")
+### Flow CLI and types[​](#flow-cli-and-types "Direct link to Flow CLI and types")
 
-The [Flow CLI](/build/tools/flow-cli) contains a number of command-line tools for interacting with the Flow ecosystem. If you don't have it installed, you can add it with Brew (or using [other installation methods](/build/tools/flow-cli/install)):
+The [Flow CLI](/build/tools/flow-cli) contains a number of command-line tools to interact with the Flow ecosystem. If you don't have it installed, you can add it with Brew (or with [other installation methods](/build/tools/flow-cli/install)):
 
 `_10
 
@@ -50686,7 +50686,7 @@ After it's installed, initialize Flow in your `Next.js` project. From the root, 
 
 flow init --config-only`
 
-The `--config-only` flag [initializes a project](/build/tools/flow-cli/commands#init) with the just the config file. This allows the Flow CLI to interact with your project without adding adding the other files you want for most projects.
+The `--config-only` flag [initializes a project](/build/tools/flow-cli/commands#init) with the just the config file. This allows the Flow CLI to interact with your project without the need to add the other files you want for most projects.
 
 Next, you'll need to do a little bit of config work so that your project knows how to read Cadence files. Install the Flow Cadence Plugin:
 
@@ -50742,7 +50742,7 @@ _13
 
 export default nextConfig;`
 
-## Frontend Setup[​](#frontend-setup "Direct link to Frontend Setup")
+## Frontend setup[​](#frontend-setup "Direct link to Frontend setup")
 
 We'll use the Flow Client Library [FCL](/build/tools/clients/fcl-js) to manage blockchain interaction from the frontend. It's similar to `viem`, `ethers`, or `web3.js`, but works with the Flow blockchain and transactions and scripts written in Cadence.
 
@@ -50756,7 +50756,7 @@ Go ahead and install `dotenv` as well:
 
 yarn add dotenv`
 
-### Provider Setup[​](#provider-setup "Direct link to Provider Setup")
+### Provider setup[​](#provider-setup "Direct link to Provider setup")
 
 You'll need a fair amount of boilerplate code to set up your provider. We'll provide it, but since it's not the purpose of this tutorial, we'll be brief on explanations. For more details, check out the [App Quickstart Guide](/blockchain-development-tutorials/cadence/getting-started).
 
@@ -51022,7 +51022,7 @@ warning
 
 Don't forget to replace `<YOUR ID HERE>` with your own [Wallet Connect](https://cloud.walletconnect.com/sign-in) app id!
 
-### Implement the Provider and Flow Config[​](#implement-the-provider-and-flow-config "Direct link to Implement the Provider and Flow Config")
+### Implement the provider and Flow Ccnfig[​](#implement-the-provider-and-flow-ccnfig "Direct link to Implement the provider and Flow Ccnfig")
 
 Finally, open `layout.tsx`. TO start, import Flow dependencies and the AuthProvider:
 
@@ -51202,7 +51202,7 @@ _30
 
 }`
 
-### Add the Connect Button[​](#add-the-connect-button "Direct link to Add the Connect Button")
+### Add the connect button[​](#add-the-connect-button "Direct link to Add the connect button")
 
 Open `page.tsx` and clean up the demo code, leaving only the `<main>` block:
 
@@ -51300,7 +51300,7 @@ _10
 
 </main>`
 
-## Testing Pass[​](#testing-pass "Direct link to Testing Pass")
+## Test pass[​](#test-pass "Direct link to Test pass")
 
 Run the app:
 
@@ -51318,7 +51318,7 @@ Click `Log In` in the middle of the window and log in with your Flow wallet.
 
 Now that your app is set up, you can make use of [Account Linking](/blockchain-development-tutorials/cadence/account-management) to to pull your NFTs from your Dapper Wallet, through your Flow Wallet, and into the app.
 
-### Setting Up Account Linking[​](#setting-up-account-linking "Direct link to Setting Up Account Linking")
+### Set up Account Linking[​](#set-up-account-linking "Direct link to Set up Account Linking")
 
 If you haven't yet, you'll need to [link your Dapper Wallet](https://support.meetdapper.com/hc/en-us/articles/20744347884819-Account-Linking-and-FAQ) to your Flow Wallet.
 
@@ -51326,17 +51326,17 @@ warning
 
 The Dapper Wallet requires that you complete KYC before you can use Account Linking. While this may frustrate some members of the community, it makes it much easier for app developers to design onboarding rewards and bonuses that are less farmable.
 
-### Discovering the NFTs with a Script[​](#discovering-the-nfts-with-a-script "Direct link to Discovering the NFTs with a Script")
+### Discover the NFTs with a script[​](#discover-the-nfts-with-a-script "Direct link to Discover the NFTs with a script")
 
 With your accounts linked, your Flow Wallet now has a set of capabilities related to your Dapper Wallet and it can use those to view and even manipulate those NFTs and assets.
 
-Before you can add a script that can handle this, you'll need to import the `HybridCustody` contract using the [Flow Dependency Manager](/build/tools/flow-cli/dependency-manager):
+Before you can add a script that can handle this, you'll need to import the `HybridCustody` contract with the [Flow Dependency Manager](/build/tools/flow-cli/dependency-manager):
 
 `_10
 
 flow dependencies install mainnet://d8a7e05a7ac670c0.HybridCustody`
 
-Choose `none` to skip deploying on the `emulator` and skip adding testnet aliases. There's no point, these NFTs are on mainnet!
+Choose `none` to skip deployment on the `emulator` and skip adding testnet aliases. There's no point, these NFTs are on mainnet!
 
 You'll get a complete summary from the Dependency Manager:
 
@@ -51792,7 +51792,7 @@ warning
 
 The above script is a relatively naive implementation. For production, you'll want to filter for only the collections you care about, and you will eventually need to add handling for very large collections in a wallet.
 
-### Running the Script and Displaying the NFTs[​](#running-the-script-and-displaying-the-nfts "Direct link to Running the Script and Displaying the NFTs")
+### Run the script and display the NFTs[​](#run-the-script-and-display-the-nfts "Direct link to Run the script and display the NFTs")
 
 Add a component in `app/components` called `DisplayLinkedNFTs.cdc`.
 
@@ -51816,7 +51816,7 @@ _10
 
 import FetchNFTs from '../cadence/scripts/FetchNFTsFromLinkedAccts.cdc';`
 
-As we're using TypeScript, add some types as well to manage the data from the NFTs nicely. For now, just add them to this file:
+As we use TypeScript, add some types as well to manage the data from the NFTs nicely. For now, just add them to this file:
 
 `_21
 
@@ -52024,11 +52024,11 @@ _10
 
 }`
 
-### Testing[​](#testing "Direct link to Testing")
+### Test[​](#test "Direct link to Test")
 
 Run the app again. If you have linked your account and have NFTs in that account, you'll see them in the console!
 
-### Displaying the Moments[​](#displaying-the-moments "Direct link to Displaying the Moments")
+### Display the moments[​](#display-the-moments "Direct link to Display the moments")
 
 Now that they're here, all that's left to do is display them nicely! Return to `DisplayLinkedNFTs.tsx`. Add a helper function to confirm each returned NFT matches the Moments format. You can update this to handle other NFTs you'd like to show as well.
 
@@ -52092,7 +52092,7 @@ _15
 
 };`
 
-Next, add a rendering function with some basic styling:
+Next, add a render function with some basic styling:
 
 `_33
 
@@ -52300,7 +52300,7 @@ _18
 
 );`
 
-### Further Polish[​](#further-polish "Direct link to Further Polish")
+### Further polish[​](#further-polish "Direct link to Further polish")
 
 Finally, you can polish up your `page.tsx` to look a little nicer, and guide your users to the Account Linking process in the Dapper Wallet:
 
@@ -52520,7 +52520,7 @@ Reference solutions are functional, but may not be optimal.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/account-management/account-linking-with-dapper.md)
 
-Last updated on **Nov 3, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -52535,11 +52535,11 @@ Mobile Development on Flow](/blockchain-development-tutorials/cadence/mobile)
 Copy as Markdown
 
 * [Objectives](#objectives)* [Prerequisites](#prerequisites)
-    + [Next.js and Modern Frontend Development](#nextjs-and-modern-frontend-development)+ [Flow Wallet](#flow-wallet)* [Moments NFTs](#moments-nfts)* [Getting Started](#getting-started)* [Flow Cadence Setup](#flow-cadence-setup)
-          + [Flow CLI and Types](#flow-cli-and-types)* [Frontend Setup](#frontend-setup)
-            + [Provider Setup](#provider-setup)* [.env](#env)
-              + [Implement the Provider and Flow Config](#implement-the-provider-and-flow-config)+ [Add the Connect Button](#add-the-connect-button)* [Testing Pass](#testing-pass)* [Account Linking](#account-linking)
-                  + [Setting Up Account Linking](#setting-up-account-linking)+ [Discovering the NFTs with a Script](#discovering-the-nfts-with-a-script)+ [Running the Script and Displaying the NFTs](#running-the-script-and-displaying-the-nfts)+ [Testing](#testing)+ [Displaying the Moments](#displaying-the-moments)+ [Further Polish](#further-polish)* [Conclusion](#conclusion)* [Reference Solution](#reference-solution)
+    + [Next.js and Modern Frontend Development](#nextjs-and-modern-frontend-development)+ [Flow Wallet](#flow-wallet)* [Moments NFTs](#moments-nfts)* [Get Started](#get-started)* [Flow Cadence setup](#flow-cadence-setup)
+          + [Flow CLI and types](#flow-cli-and-types)* [Frontend setup](#frontend-setup)
+            + [Provider setup](#provider-setup)* [.env](#env)
+              + [Implement the provider and Flow Ccnfig](#implement-the-provider-and-flow-ccnfig)+ [Add the connect button](#add-the-connect-button)* [Test pass](#test-pass)* [Account Linking](#account-linking)
+                  + [Set up Account Linking](#set-up-account-linking)+ [Discover the NFTs with a script](#discover-the-nfts-with-a-script)+ [Run the script and display the NFTs](#run-the-script-and-display-the-nfts)+ [Test](#test)+ [Display the moments](#display-the-moments)+ [Further polish](#further-polish)* [Conclusion](#conclusion)* [Reference Solution](#reference-solution)
 
 Flow
 
@@ -65099,7 +65099,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -78832,7 +78832,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -375695,7 +375695,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -422585,7 +422585,7 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
-# Source: https://developers.flow.com
+# Source: https://developers.flow.com/
 
 Flow Developer Portal
 
@@ -424131,9 +424131,9 @@ On this page
 
 # Native Data Availability With Cadence Scripts
 
-In Solidity, you can only retrieve data from **view** functions that the contract author anticipated and included in the original contract. If the exact query you want is not exposed, teams typically rely on a *data availability service* such as The Graph, Covalent, Alchemy Enhanced APIs, Reservoir, or NFTScan to compute and serve that view.
+In Solidity, you can only retrieve data from **view** functions that the contract author anticipated and included in the original contract. If the exact query you want isn't exposed, teams typically rely on a *data availability service* such as The Graph, Covalent, Alchemy Enhanced APIs, Reservoir, or NFTScan to compute and serve that view.
 
-In Cadence, **scripts** are general-purpose read programs. They can traverse public account storage, read public capabilities, and compose types from multiple contracts to answer new questions without modifying those contracts. You are not limited to the pre-written surface area of a single contract's views.
+In Cadence, **scripts** are general-purpose read programs. They can traverse public account storage, read public capabilities, and compose types from multiple contracts to answer new questions without the need to modify those contracts. You are not limited to the pre-written surface area of a single contract's views.
 
 info
 
@@ -424222,7 +424222,7 @@ This will install the contract and its own dependencies. You don't need to deplo
 
 warning
 
-The language server treats installing dependencies in this way similar to installing packages in other platforms. You'll need to close and reopen the file or type something to trigger a refresh.
+The language server treats dependency installations in this way similar to package installations in other platforms. You'll need to close and reopen the file or type something to trigger a refresh.
 
 Open `scripts/TopShotQuery.cdc` Replace the file contents with:
 
@@ -424278,7 +424278,7 @@ Run it:
 
 flow scripts execute cadence/scripts/TopShotQuery.cdc --network mainnet 0xfeb88a0fcc175a3d`
 
-You should see a list of child addresses. If you do not, confirm the parent actually stores a manager at `HybridCustody.ManagerStoragePath`.
+You will see a list of child addresses. If you do not, confirm the parent actually stores a manager at `HybridCustody.ManagerStoragePath`.
 
 `_10
 
@@ -424596,7 +424596,7 @@ Run it:
 
 flow scripts execute cadence/scripts/TopShotQuery.cdc --network mainnet 0xfeb88a0fcc175a3d`
 
-You should now see type identifiers such as `A.<address>.<Contract>.<Type>` for collections the parent can control. We will use these identifiers to filter for Top Shot.
+You will now see type identifiers such as `A.<address>.<Contract>.<Type>` for collections the parent can control. We will use these identifiers to filter for Top Shot.
 
 `_10
 
@@ -424604,13 +424604,13 @@ Result: {0xa16b948ba2c9a858: ["A.807c3d470888cc48.Backpack.Collection", "A.e4cf4
 
 ---
 
-## Filtering NFT collection to find and return Top Shots[​](#filtering-nft-collection-to-find-and-return-top-shots "Direct link to Filtering NFT collection to find and return Top Shots")
+## Filter NFT collection to find and return Top Shots[​](#filter-nft-collection-to-find-and-return-top-shots "Direct link to Filter NFT collection to find and return Top Shots")
 
 Finally, for each detected collection, [borrow](https://cadence-lang.org/docs/language/capabilities#borrowing-public-capabilities-with-borrow) the collection `{NonFungibleToken.CollectionPublic}`, iterate IDs, resolve `MetadataViews.Display`, and return only Top Shot items. We add a small `isTopShot` predicate that you can customize to your deployment.
 
 info
 
-The [borrow](https://cadence-lang.org/docs/language/capabilities#borrowing-public-capabilities-with-borrow) function is how you use a published [*capability*](https://cadence-lang.org/docs/language/capabilities) in your code. In this case, you're borrowing the **public** functionality of Cadence NFTs, which includes [`MetadataViews`] that return a view of the **fully-onchain metadata** for the NFT.
+The [borrow](https://cadence-lang.org/docs/language/capabilities#borrowing-public-capabilities-with-borrow) function is how you use a published [*capability*](https://cadence-lang.org/docs/language/capabilities) in your code. In this case, you borrow the **public** functionality of Cadence NFTs, which includes [`MetadataViews`] that return a view of the **fully-onchain metadata** for the NFT.
 
 Update the query to borrow a reference to each public collection and return metadata for those that are NBA Top Shots:
 
@@ -424954,9 +424954,9 @@ Result: {0xa16b948ba2c9a858: {44311697: A.1d7e57aa55817448.MetadataViews.Display
 
 ---
 
-## Extending the script to include AllDay NFTs[​](#extending-the-script-to-include-allday-nfts "Direct link to Extending the script to include AllDay NFTs")
+## Extend the script to include AllDay NFTs[​](#extend-the-script-to-include-allday-nfts "Direct link to Extend the script to include AllDay NFTs")
 
-Now that you have a working script for Top Shot NFTs, let's extend it to also return NFL All Day NFTs. This demonstrates the flexibility of Cadence scripts - you can easily modify them to answer new questions without changing any contracts.
+Now that you have a working script for Top Shot NFTs, let's extend it to also return NFL All Day NFTs. This demonstrates the flexibility of Cadence scripts - you can easily modify them to answer new questions without the need to change any contracts.
 
 Update the `isTopShot` function to also include AllDay NFTs:
 
@@ -424996,14 +424996,14 @@ This demonstrates how you can easily modify Cadence scripts to answer different 
 
 ---
 
-## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
+## Troubleshoot[​](#troubleshoot "Direct link to Troubleshoot")
 
 * If you see `manager does not exist`, confirm the parent address actually stores a `HybridCustody.Manager` at `HybridCustody.ManagerStoragePath`.
 * If you see empty arrays in Step 3, the parent may not have *provider* access to any collections in those child accounts.
 * If you see empty results in Step 4, confirm `isTopShot` matches the identifiers you observed in Step 3.
 * If you are not using *Hybrid Custody*, you can adapt Steps 2-4 to use `getAccount(child)` and scan **publicly exposed** `{NonFungibleToken.CollectionPublic}` capabilities, but you will not be able to assert provider access.
 
-## How This compares to Solidity[​](#how-this-compares-to-solidity "Direct link to How This compares to Solidity")
+## How this compares to Solidity[​](#how-this-compares-to-solidity "Direct link to How this compares to Solidity")
 
 * **Solidity views are fixed**: You can only retrieve what the contract author exposed via `view` or `pure` functions. If you need a different aggregation or cross-contract traversal, you typically rely on a *data availability service* or write a new contract to expose that view.
 * **Cadence scripts are flexible**: You compose types across modules, traverse account storage, and read public capabilities at query time. You do not need to redeploy contracts to answer new questions.
@@ -425018,22 +425018,22 @@ Common *data availability service* examples used in EVM ecosystems:
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-In this tutorial, you learned how to use Cadence scripts to query onchain data directly from Flow's state, without relying on external indexers or APIs. You built a script that can discover and query NFT collections across multiple child accounts using Hybrid Custody, and then extended it to include both NBA Top Shot and NFL All Day NFTs, demonstrating the power and flexibility of Cadence's native data availability.
+In this tutorial, you learned how to use Cadence scripts to query onchain data directly from Flow's state, without the need to rely on external indexers or APIs. You built a script that can discover and query NFT collections across multiple child accounts with Hybrid Custody, and then extended it to include both NBA Top Shot and NFL All Day NFTs, which demonstrates the power and flexibility of Cadence's native data availability.
 
 Now that you have completed the tutorial, you should be able to:
 
-* Query onchain data directly using Cadence scripts without external dependencies
+* Query onchain data directly with Cadence scripts without external dependencies
 * Use Hybrid Custody to access child account data from parent accounts
 * Filter and process NFT collections to extract specific metadata
 * Modify scripts to answer different questions about the same onchain data
 * Compare Cadence's native data availability with Solidity's limitations
 * Build applications that can access any onchain data in real-time
 
-This approach gives you the freedom to build applications that can access any onchain data in real-time, making Flow's native data availability a powerful tool for developers building on Flow.
+This approach gives you the freedom to build applications that can access any onchain data in real-time, which makes Flow's native data availability a powerful tool for developers who build on Flow.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/cadence-advantages/native-data-availibility-with-cadence-scripts.md)
 
-Last updated on **Nov 18, 2025** by **Brian Doyle**
+Last updated on **Dec 2, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -425047,7 +425047,7 @@ Upgrading Cadence Contracts](/blockchain-development-tutorials/cadence/cadence-a
 
 Copy as Markdown
 
-* [Objectives](#objectives)* [Prerequisites](#prerequisites)* [Get started](#get-started)* [Query the account to find child accounts](#query-the-account-to-find-child-accounts)* [Listing the storage paths found in each child account](#listing-the-storage-paths-found-in-each-child-account)* [Detecting NFT collections the parent can control](#detecting-nft-collections-the-parent-can-control)* [Filtering NFT collection to find and return Top Shots](#filtering-nft-collection-to-find-and-return-top-shots)* [Extending the script to include AllDay NFTs](#extending-the-script-to-include-allday-nfts)* [Troubleshooting](#troubleshooting)* [How This compares to Solidity](#how-this-compares-to-solidity)* [Conclusion](#conclusion)
+* [Objectives](#objectives)* [Prerequisites](#prerequisites)* [Get started](#get-started)* [Query the account to find child accounts](#query-the-account-to-find-child-accounts)* [Listing the storage paths found in each child account](#listing-the-storage-paths-found-in-each-child-account)* [Detecting NFT collections the parent can control](#detecting-nft-collections-the-parent-can-control)* [Filter NFT collection to find and return Top Shots](#filter-nft-collection-to-find-and-return-top-shots)* [Extend the script to include AllDay NFTs](#extend-the-script-to-include-allday-nfts)* [Troubleshoot](#troubleshoot)* [How this compares to Solidity](#how-this-compares-to-solidity)* [Conclusion](#conclusion)
 
 Flow
 
@@ -435333,12 +435333,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **9a9fdd909d032329**
+Cloudflare Ray ID: **9aa818134df8c985**
 •
 
 Your IP:
 Click to reveal
-172.212.167.81
+20.161.45.115
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 
