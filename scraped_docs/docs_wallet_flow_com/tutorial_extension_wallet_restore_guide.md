@@ -50,10 +50,6 @@ Flow Wallet](/)
 
 On this page
 
-* [From Device Backup](#from-device-backup)
-* [From Raw Key](#from-raw-key)
-* [Support](#support)
-
 Copy
 
 1. [Tutorial](/tutorial)
@@ -139,3 +135,7 @@ If you encounter any issues or have further questions, please reach out to our s
 [PreviousExtension Wallet Backup Guide](/tutorial/extension-wallet-backup-guide)[NextExtension Update Guide](/tutorial/extension-update-guide)
 
 Last updated 1 year ago
+
+* [From Device Backup](#from-device-backup)
+* [From Raw Key](#from-raw-key)
+* [Support](#support)

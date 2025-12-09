@@ -50,11 +50,6 @@ Flow Wallet](/)
 
 On this page
 
-* [From Device Backup](#from-device-backup)
-* [From Multi Backup](#from-multi-backup)
-* [From Raw Key](#from-raw-key)
-* [Support](#support)
-
 Copy
 
 1. [Tutorial](/tutorial)
@@ -170,3 +165,8 @@ If you encounter any issues or have further questions, please reach out to our s
 [PreviousMove Assets between Flow and EVM](/tutorial/move-assets-between-flow-and-evm)[NextExtension Wallet Backup Guide](/tutorial/extension-wallet-backup-guide)
 
 Last updated 1 year ago
+
+* [From Device Backup](#from-device-backup)
+* [From Multi Backup](#from-multi-backup)
+* [From Raw Key](#from-raw-key)
+* [Support](#support)

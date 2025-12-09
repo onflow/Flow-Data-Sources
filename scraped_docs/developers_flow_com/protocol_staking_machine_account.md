@@ -62,17 +62,17 @@ info
 Because some transactions sent by the Machine Account are system critical, we recommend maintaining
 a balance sufficient to accommodate worst-case transaction submission numbers at all times. **See [here](/protocol/node-ops/node-operation/monitoring-nodes#machine-account) for how to monitor.**
 
-When creating a new machine account, we recommend initially funding with 0.005 FLOW for collection nodes and
-0.25 FLOW for consensus nodes.
+When creating a new machine account, we recommend initially funding with **0.75 FLOW for collection nodes** and
+**6 FLOW for consensus nodes**.
 
-Machine account balances should be monitored and periodically refilled to ensure they have sufficient funds.
-We recommend a minimum balance at all times of 0.002 FLOW for collection nodes and 0.1 FLOW for consensus nodes.
+Machine account balances must be [monitored](/protocol/node-ops/node-operation/monitoring-nodes#machine-account) and periodically refilled to ensure they have sufficient funds.
+We recommend a minimum balance at all times of 0.25 FLOW for collection nodes and 2 FLOW for consensus nodes.
 
-A node operator can easily withdraw their FLOW from their machine account if they decide they don't need them there any more.
+FLOW deposited to a machine account can be withdrawn at any time by the node operator.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/protocol/staking/11-machine-account.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Dec 8, 2025** by **Jordan Schalm**
 
 [Previous
 

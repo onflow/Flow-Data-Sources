@@ -52,12 +52,6 @@ Flow Wallet](/)
 
 On this page
 
-* [Introduction](#introduction)
-* [Download](#download)
-* [Ecosystem Primer](#ecosystem-primer)
-* [Wallet Features](#wallet-features)
-* [Ecosystem Development](#ecosystem-development)
-
 Copy
 
 # 👋Welcome to Flow Wallet
@@ -93,3 +87,9 @@ The Flow Wallet ecosystem primer document explains the purpose of Flow Wallet an
 [NextFlow Reference Wallet Primer](/ecosystem-primers/flow-reference-wallet-primer)
 
 Last updated 1 year ago
+
+* [Introduction](#introduction)
+* [Download](#download)
+* [Ecosystem Primer](#ecosystem-primer)
+* [Wallet Features](#wallet-features)
+* [Ecosystem Development](#ecosystem-development)

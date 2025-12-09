@@ -50,11 +50,6 @@ Flow Wallet](/)
 
 On this page
 
-* [Indroduction](#indroduction)
-* [Fungible asset transaction](#fungible-asset-transaction)
-* [Non-fungible assets transaction](#non-fungible-assets-transaction)
-* [Support](#support)
-
 Copy
 
 1. [Tutorial](/tutorial)
@@ -172,3 +167,8 @@ If you encounter any issues or have further questions, please reach out to our s
 [PreviousMobile Wallet Backup Guide](/tutorial/mobile-wallet-backup-guide)[NextMobile Wallet Restore Guide](/tutorial/mobile-wallet-restore-guide)
 
 Last updated 1 year ago
+
+* [Indroduction](#indroduction)
+* [Fungible asset transaction](#fungible-asset-transaction)
+* [Non-fungible assets transaction](#non-fungible-assets-transaction)
+* [Support](#support)

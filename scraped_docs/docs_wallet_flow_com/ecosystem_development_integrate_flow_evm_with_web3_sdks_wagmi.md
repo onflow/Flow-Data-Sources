@@ -59,9 +59,6 @@ Flow Wallet](/)
 
 On this page
 
-* [Config wagmi with Chains and providers](#config-wagmi-with-chains-and-providers)
-* [Connect injected wallet with Flow EVM](#connect-injected-wallet-with-flow-evm)
-
 Copy
 
 1. [Ecosystem Development](/ecosystem-development)
@@ -100,6 +97,15 @@ export function getConfig() {
 
 ### Connect injected wallet with Flow EVM
 
+See more detail on <https://github.com/Outblock/wagmi-project>
+
+[PreviousIntegrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)[NextRainbowkit](/ecosystem-development/integrate-flow-evm-with-web3-sdks/rainbowkit)
+
+Last updated 10 months ago
+
+* [Config wagmi with Chains and providers](#config-wagmi-with-chains-and-providers)
+* [Connect injected wallet with Flow EVM](#connect-injected-wallet-with-flow-evm)
+
 Copy
 
 ```
@@ -130,9 +136,3 @@ function App() {
     )
 }
 ```
-
-See more detail on <https://github.com/Outblock/wagmi-project>
-
-[PreviousIntegrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)[NextRainbowkit](/ecosystem-development/integrate-flow-evm-with-web3-sdks/rainbowkit)
-
-Last updated 10 months ago
