@@ -30,16 +30,11 @@ Search
 
 * * Cadence* [Core Smart Contracts](/build/cadence/core-contracts)* Burner
 
-# Contract
+# Flow Burner Contract Address
 
-The [Burner](https://github.com/onflow/flow-ft/blob/master/contracts/utility/Burner.cdc) contract provides a way for resources to define
-custom logic that is executed when the resource is destroyed.
-Resources that want to utilize this functionality should implement
-the `Burner.Burnable` interface which requires that they include
-a `burnCallback()` function that includes the custom logic.
+The [Burner](https://github.com/onflow/flow-ft/blob/master/contracts/utility/Burner.cdc) contract provides a way for resources to define custom logic that is executed when the resource is destroyed. Resources that want to use this functionality should implement the `Burner.Burnable` interface which requires that they include a `burnCallback()` function that includes the custom logic.
 
-It is recommended that regardless of the resource, all users and developers
-should use `Burner.burn()` when destroying a resource instead of `destroy`.
+We recommend that, regardless of the resource, all users and developers should use `Burner.burn()` when they destroy a resource instead of `destroy`.
 
 |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -47,7 +42,7 @@ should use `Burner.burn()` when destroying a resource instead of `destroy`.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/core-contracts/14-burner.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 3, 2025** by **cshannon1218**
 
 [Previous
 

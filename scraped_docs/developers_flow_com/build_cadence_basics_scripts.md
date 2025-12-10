@@ -36,8 +36,7 @@ A script provides a light-weight method to query chain data.
 
 It is executable Cadence code that can query for Flow execution state data but cannot modify it in any way.
 
-Unlike a Flow transaction, a script is not signed and requires no transaction fees. Also unlike a transaction, a script can return a value back to the caller.
-You can think of executing a script as a read-only operation, very similar to the `eth_call` RPC method on Ethereum.
+Unlike a Flow transaction, a script is not signed and requires no transaction fees. Also unlike a transaction, a script can return a value back to the caller. You can think of script execution as a read-only operation, very similar to the `eth_call` RPC method on Ethereum.
 
 Scripts are currently executed on either the Access Nodes or the Execution Nodes based on the Access node configuration.
 
@@ -107,22 +106,22 @@ _10
 
 }`
 
-Scripts can also be run against previous blocks, allowing you to query historic data from the Flow network. This is particularly useful for retrieving historical states of contracts or tracking changes over time.
+Scripts can also be run against previous blocks, which allows you to query historic data from the Flow network. This is particularly useful to retrieve historical states of contracts or track changes over time.
 
 ## When to use a script?[​](#when-to-use-a-script "Direct link to When to use a script?")
 
 Scripts can be used for the following:
 
-1. Validating a transaction before submitting it e.g. checking if the payer has sufficient balance, the receiver account is setup correctly to receive a token or NFT etc.
-2. Collecting chain data over time.
-3. Continuously verifying accounts through a background job e.g. a Discord bot that verifies users by their Flow account.
-4. Querying core contracts e.g. see [staking scripts and events](/protocol/staking/staking-scripts-events) for querying staking and epoch related information, see the scripts directory under each of the [core contract transactions](https://github.com/onflow/flow-core-contracts/tree/master/transactions) for other core contracts related scripts.
+1. Validate a transaction before you submit it (for example, confirm that if the payer has sufficient balance, the receiver account is setup correctly to receive a token or NFT).
+2. Collect chain data over time.
+3. Continuously verify accounts through a background job, such as a Discord bot that verifies users by their Flow account.
+4. Query core contracts. For an example, see how to [query staking and epoch related information](/protocol/staking/staking-scripts-events). Also, see the scripts directory under each of the [core contract transactions](https://github.com/onflow/flow-core-contracts/tree/master/transactions) for other core contracts related scripts.
 
-## Executing Scripts[​](#executing-scripts "Direct link to Executing Scripts")
+## Execute Scripts[​](#execute-scripts "Direct link to Execute Scripts")
 
 ### Access API[​](#access-api "Direct link to Access API")
 
-A script can be executed by submitting it to the Access API provided by access nodes. Currently, there are three API endpoints that allow a user to execute scripts at the latest sealed block, a previous block height, or a previous block ID.
+To execute a script, submit it to the Access API provided by access nodes. Currently, there are three API endpoints that allow a user to execute scripts at the latest sealed block, a previous block height, or a previous block ID.
 
 [**gRPC Script API**](/protocol/access-onchain-data#scripts)
 
@@ -138,26 +137,26 @@ Find a list of all SDKs [here](/build/tools/clients)
 
 ### Flow CLI[​](#flow-cli "Direct link to Flow CLI")
 
-You can also execute a script by using the [Flow CLI](/build/tools/flow-cli/scripts/execute-scripts):
+You can also execute a script with the [Flow CLI](/build/tools/flow-cli/scripts/execute-scripts):
 
 `_10
 
 flow scripts execute ./helloWorld.cdc`
 
-A user can define their own scripts or can use already defined scripts by the contract authors that can be found by using the [FLIX](/build/tools/flow-cli/flix) service.
+A user can define their own scripts or can use already defined scripts by the contract authors that can be found with the [FLIX](/build/tools/flow-cli/flix) service.
 
 ## Best Practices[​](#best-practices "Direct link to Best Practices")
 
-Following are some recommendations on how to write efficient scripts:
+The following are some recommendations for how to write efficient scripts:
 
-1. **Simpler and shorter scripts**: Scripts, like transactions, are subject to computation limits (see [limitations](#limitations)). It is recommended to run shorter and simpler scripts which have low time complexity for a faster response. If you have a script with several nested loops, long iteration, or that queries many onchain fields, consider simplifying the script logic.
+1. **Simpler and shorter scripts**: Scripts, like transactions, are subject to computation limits (see [limitations](#limitations)).We recommend that you run shorter and simpler scripts which have low time complexity for a faster response. If you have a script with several nested loops, long iteration, or that queries many onchain fields, we recommend that you simplify the script logic.
 2. **Fewer state reads**: A script reads execution state and to get a faster response, it is best to limit the amount of state that is read by the script.
-3. **Smaller length of array or dictionary type arguments**: If your script requires an array or a dictionary as an argument where each element causes a state lookup, instead of making a single script call passing in a long list, make multiple calls with a smaller subset of the array or dictionary.
+3. **Smaller length of array or dictionary type arguments**: If your script requires an array or a dictionary as an argument where each element causes a state lookup, instead of a single script call that passes in a long list, make multiple calls with a smaller subset of the array or dictionary.
 4. **NFTCatalog**: If your script uses the [NFTCatalog](https://github.com/onflow/nft-catalog) functions, ensure that you use the [latest functions](https://github.com/onflow/nft-catalog?tab=readme-ov-file#using-the-catalog-for-marketplaces-and-other-nft-applications) and do not use any of the deprecated functions such as `getCatalog()`.
 
 ## Limitations[​](#limitations "Direct link to Limitations")
 
-1. **Rate limit** - Script execution is subjected to API rate-limits imposed by the Access nodes and the Execution nodes. The rate limits for the Public Access nodes hosted by QuickNode are outlined [here](https://www.quicknode.com/docs/flow#endpoint-rate-limits).
+1. **Rate limit** - Script execution is subjected to API rate-limits imposed by the Access nodes and the Execution nodes. The rate limits for the Public Access nodes hosted by QuickNode are outlined [outlined here](https://www.quicknode.com/docs/flow#endpoint-rate-limits).
 2. **Computation limit** - Similar to a transaction, each script is also subjected to a computation limit. The specific value can be configured by individual Access and Execution node operators. Currently, the default compute unit (gas) limit for a script is 100,000.
 3. **Historic block data limit**
 
@@ -166,7 +165,7 @@ Following are some recommendations on how to write efficient scripts:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/basics/scripts.md)
 
-Last updated on **Nov 12, 2025** by **Brian Doyle**
+Last updated on **Dec 2, 2025** by **cshannon1218**
 
 [Previous
 
@@ -180,7 +179,7 @@ Fees](/build/cadence/basics/fees)
 
 Copy as Markdown
 
-* [When to use a script?](#when-to-use-a-script)* [Executing Scripts](#executing-scripts)
+* [When to use a script?](#when-to-use-a-script)* [Execute Scripts](#execute-scripts)
     + [Access API](#access-api)+ [Flow CLI](#flow-cli)* [Best Practices](#best-practices)* [Limitations](#limitations)
 
 Flow

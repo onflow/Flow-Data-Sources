@@ -34,8 +34,6 @@ On this page
 
 # Flow Fees Contract
 
-## FlowFees[​](#flowfees "Direct link to FlowFees")
-
 The `FlowFees` contract is where all the collected flow fees are gathered.
 
 Source: [FlowFees.cdc](https://github.com/onflow/flow-core-contracts/blob/master/contracts/FlowFees.cdc)
@@ -120,7 +118,7 @@ access(all) event MinimumStorageReservationChanged(_ minimumStorageReservation: 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/core-contracts/05-flow-fees.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 3, 2025** by **cshannon1218**
 
 [Previous
 
@@ -134,8 +132,7 @@ Staking Table](/build/cadence/core-contracts/staking-contract-reference)
 
 Copy as Markdown
 
-* [FlowFees](#flowfees)
-  + [Events](#events)* [FlowStorageFees](#flowstoragefees)
+* [Events](#events)* [FlowStorageFees](#flowstoragefees)
     + [Events](#events-1)
 
 Flow

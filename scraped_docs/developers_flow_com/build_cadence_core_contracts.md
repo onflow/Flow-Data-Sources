@@ -47,16 +47,23 @@ These contracts control the following:
 There are other important contracts that aren't part of the core protocol
 but are nevertheless important to developers on Flow:
 
-* Standard Non-Fungible Token Behavior. ([NonFungibleToken](/build/cadence/core-contracts/non-fungible-token))
-* NFT Metadata Standard. ([MetadataViews, ViewResolver](/build/cadence/core-contracts/nft-metadata))
-* Staking Collection. ([StakingCollection](/build/cadence/core-contracts/staking-collection))
-* NFT Storefronts. ([NFTStorefront](/build/cadence/core-contracts/nft-storefront))
-* Account linking and Hybrid Custody. ([AccountLinking](/build/cadence/core-contracts/hybrid-custody))
-* EVM interfacing contract. ([EVM](/build/cadence/core-contracts/evm))
+* Standard Non-Fungible Token Behavior. ([NonFungibleToken])
+* NFT Metadata Standard. ([MetadataViews, ViewResolver])
+* Staking Collection. ([StakingCollection])
+* NFT Storefronts. ([NFTStorefront])
+* Account linking and Hybrid Custody. ([AccountLinking])
+* EVM interfacing contract. ([EVM])
+
+[NonFungibleToken]: ./08-non-fungible-token.md))
+[MetadataViews, ViewResolver]: ./09-nft-metadata.md))
+[StakingCollection]: ./11-staking-collection.md
+[NFTStorefront]: ./10-nft-storefront.md
+[AccountLinking]: ./12-hybrid-custody.md
+[EVM]: ./13-evm.md)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/core-contracts/index.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 3, 2025** by **cshannon1218**
 
 [Previous
 

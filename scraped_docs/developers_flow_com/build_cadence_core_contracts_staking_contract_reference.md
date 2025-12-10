@@ -34,8 +34,6 @@ On this page
 
 # Flow Staking Contract Reference
 
-## Contract[​](#contract "Direct link to Contract")
-
 The `FlowIDTableStaking` contract is the central table that manages staked nodes, delegation and rewards.
 
 Source: [FlowIDTableStaking.cdc](https://github.com/onflow/flow-core-contracts/blob/master/contracts/FlowIDTableStaking.cdc)
@@ -44,13 +42,11 @@ Source: [FlowIDTableStaking.cdc](https://github.com/onflow/flow-core-contracts/b
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Network Contract Address|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | Emulator `0xf8d6e0586b0a20c7`| Cadence Testing Framework `0x0000000000000001`| Testnet `0x9eca2b38b18b5dfe`| Mainnet `0x8624b52f9ddcd04a` | | | | | | | | | |
 
-## Transactions and Scripts[​](#transactions-and-scripts "Direct link to Transactions and Scripts")
+## Transactions and scripts[​](#transactions-and-scripts "Direct link to Transactions and scripts")
 
-Transactions for the staking contract are in the `flow-core-contracts` repo.
-Developers and users are advised to use [the staking collection transactions](/protocol/staking/staking-collection)
-to stake tokens instead of the basic transactions that are used for tests.
+Transactions for the staking contract are in the `flow-core-contracts` repo. Developers and users are advised to use [the staking collection transactions](/protocol/staking/staking-collection) to stake tokens instead of the basic transactions that are used for tests.
 
-### Getting Staking Info with Scripts[​](#getting-staking-info-with-scripts "Direct link to Getting Staking Info with Scripts")
+### Getting staking info with scripts[​](#getting-staking-info-with-scripts "Direct link to Getting staking info with scripts")
 
 These scripts are read-only and get info about the current state of the staking contract.
 
@@ -58,15 +54,15 @@ These scripts are read-only and get info about the current state of the staking 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ID Name Source|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **`SC.01`** Get Delegation Cut Percentage [idTableStaking/get\_cut\_percentage.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_cut_percentage.cdc)| **`SC.02`** Get Minimum Stake Requirements [idTableStaking/get\_stake\_requirements.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_stake_requirements.cdc)| **`SC.03`** Get Total Weekly Reward Payout [idTableStaking/get\_weekly\_payout.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_weekly_payout.cdc)| **`SC.04`** Get Current Staked Node Table [idTableStaking/get\_current\_table.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_current_table.cdc)| **`SC.05`** Get Proposed Staked Node Table [idTableStaking/get\_proposed\_table.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_proposed_table.cdc)| **`SC.06`** Get Total Flow Staked [idTableStaking/get\_total\_staked.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_total_staked.cdc)| **`SC.07`** Get Total Flow Staked by Node Type [idTableStaking/get\_total\_staked\_by\_type.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_total_staked_by_type.cdc)| **`SC.08`** Get All Info about a single NodeID [idTableStaking/get\_node\_info.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_node_info.cdc)| **`SC.09`** Get a node's total Commitment (delegators) [idTableStaking/get\_node\_total\_commitment.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_node_total_commitment.cdc)| **`SC.10`** Get All Info about a single Delegator [idTableStaking/delegation/get\_delegator\_info.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/delegation/get_delegator_info.cdc)| **`SC.11`** Get a node's total Commitment [idTableStaking/get\_node\_total\_commitment\_without\_delegators.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_node_total_commitment_without_delegators.cdc) | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
 
-### Delegator Transactions[​](#delegator-transactions "Direct link to Delegator Transactions")
+### Delegator transactions[​](#delegator-transactions "Direct link to Delegator transactions")
 
-Documentation for delegating with tokens is described in the staking documentation
-for [the staking collection](/protocol/staking/staking-collection)
+Documentation for token delegation is described in the staking documentation
+for [the staking collection](/protocol/staking/staking-collection).
 
 ## Events[​](#events "Direct link to Events")
 
 The `FlowIDTableStaking` contract emits an event whenever an important action occurs.
-See the [staking events Documentation](/protocol/staking/staking-scripts-events) for more information about each event.
+See the [staking events Documentation](/protocol/staking/staking-scripts-events)for more information about each event.
 
 `_44
 
@@ -240,7 +236,7 @@ access(all) event NewDelegatorStakingMinimum(newMinimum: UFix64)`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/core-contracts/06-staking-contract-reference.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Dec 3, 2025** by **cshannon1218**
 
 [Previous
 
@@ -254,8 +250,8 @@ Epoch Contracts](/build/cadence/core-contracts/epoch-contract-reference)
 
 Copy as Markdown
 
-* [Contract](#contract)* [Transactions and Scripts](#transactions-and-scripts)
-    + [Getting Staking Info with Scripts](#getting-staking-info-with-scripts)+ [Delegator Transactions](#delegator-transactions)* [Events](#events)
+* [Transactions and scripts](#transactions-and-scripts)
+  + [Getting staking info with scripts](#getting-staking-info-with-scripts)+ [Delegator transactions](#delegator-transactions)* [Events](#events)
 
 Flow
 

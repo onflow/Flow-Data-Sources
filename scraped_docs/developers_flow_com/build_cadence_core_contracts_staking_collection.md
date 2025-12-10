@@ -32,18 +32,13 @@ Search
 
 On this page
 
-# Contract
+# Flow Staking Collection Contract Reference
 
-The `FlowStakingCollection` contract is a contract that manages a resource containing a user's stake and delegation objects.
+The `FlowStakingCollection` contract is a contract that manages a resource which contain a user's stake and delegation objects.
 
-The `FlowStakingCollection` allows a user to manage multiple active nodes or delegators
-and interact with node or delegator objects stored in either their optional locked account
-or in the StakingCollection itself (stored in the main account).
-If a user has locked tokens, StakingCollection allows a user to interact with their locked tokens
-to perform staking actions for any of their nodes or delegators.
+The `FlowStakingCollection` allows a user to manage multiple active nodes or delegators and interact with node or delegator objects stored in either their optional locked account or in the StakingCollection itself (stored in the main account). If a user has locked tokens, StakingCollection allows a user to interact with their locked tokens to perform staking actions for any of their nodes or delegators.
 
-The staking collection also manages creating a node's machine accounts if they have any collector or consensus nodes.
-It also allows them to deposit and withdraw tokens from any of their machine accounts through the staking collection.
+The staking collection also manages a node's machine accounts creation process if they have any collector or consensus nodes. It also allows them to deposit and withdraw tokens from any of their machine accounts through the staking collection.
 
 See the [Staking Collection Docs](/protocol/staking/staking-collection) for more information on the design of the staking collection contract.
 
@@ -57,10 +52,9 @@ Source: [FlowStakingCollection.cdc](https://github.com/onflow/flow-core-contract
 
 Use the following transactions to interact with the StakingCollection.
 
-\_Note: The StakingCollection differentiates between stake and delegation requests through
-passing an optional DelegatorID argument. For example, if you wish to Stake New Tokens for an active node,
-pass `nil` as the optional DelegatorID argument to the Stake New Tokens transaction.
-The same applies for all the other staking operation transactions.
+info
+
+The StakingCollection differentiates between stake and delegation requests through passing an optional DelegatorID argument. For example, if you wish to Stake New Tokens for an active node, pass `nil` as the optional DelegatorID argument to the Stake New Tokens transaction. The same applies for all the other staking operation transactions.
 
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -76,10 +70,7 @@ The same applies for all the other staking operation transactions.
 
 To setup the Staking Collection for an account, use the `SC.01` transaction.
 
-The setup process finds any node or delegator records already stored in the main account's storage,
-as well as any in the associated locked account if an associated locked account exists.
-It connects these node and delegator records with the new Staking Collection, allowing them
-to be interacted with using the Staking Collection API.
+The setup process finds any node or delegator records already stored in the main account's storage, as well as any in the associated locked account if an associated locked account exists. It connects these node and delegator records with the new Staking Collection, and you ue the Staking Collection API to interact with them.
 
 ## Events[​](#events "Direct link to Events")
 
@@ -111,7 +102,7 @@ access(all) event MachineAccountCreated(nodeID: String, role: UInt8, address: Ad
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/core-contracts/11-staking-collection.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Dec 3, 2025** by **cshannon1218**
 
 [Previous
 

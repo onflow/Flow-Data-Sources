@@ -2485,8 +2485,7 @@ A script provides a light-weight method to query chain data.
 
 It is executable Cadence code that can query for Flow execution state data but cannot modify it in any way.
 
-Unlike a Flow transaction, a script is not signed and requires no transaction fees. Also unlike a transaction, a script can return a value back to the caller.
-You can think of executing a script as a read-only operation, very similar to the `eth_call` RPC method on Ethereum.
+Unlike a Flow transaction, a script is not signed and requires no transaction fees. Also unlike a transaction, a script can return a value back to the caller. You can think of script execution as a read-only operation, very similar to the `eth_call` RPC method on Ethereum.
 
 Scripts are currently executed on either the Access Nodes or the Execution Nodes based on the Access node configuration.
 
@@ -2556,22 +2555,22 @@ _10
 
 }`
 
-Scripts can also be run against previous blocks, allowing you to query historic data from the Flow network. This is particularly useful for retrieving historical states of contracts or tracking changes over time.
+Scripts can also be run against previous blocks, which allows you to query historic data from the Flow network. This is particularly useful to retrieve historical states of contracts or track changes over time.
 
 ## When to use a script?[​](#when-to-use-a-script "Direct link to When to use a script?")
 
 Scripts can be used for the following:
 
-1. Validating a transaction before submitting it e.g. checking if the payer has sufficient balance, the receiver account is setup correctly to receive a token or NFT etc.
-2. Collecting chain data over time.
-3. Continuously verifying accounts through a background job e.g. a Discord bot that verifies users by their Flow account.
-4. Querying core contracts e.g. see [staking scripts and events](/protocol/staking/staking-scripts-events) for querying staking and epoch related information, see the scripts directory under each of the [core contract transactions](https://github.com/onflow/flow-core-contracts/tree/master/transactions) for other core contracts related scripts.
+1. Validate a transaction before you submit it (for example, confirm that if the payer has sufficient balance, the receiver account is setup correctly to receive a token or NFT).
+2. Collect chain data over time.
+3. Continuously verify accounts through a background job, such as a Discord bot that verifies users by their Flow account.
+4. Query core contracts. For an example, see how to [query staking and epoch related information](/protocol/staking/staking-scripts-events). Also, see the scripts directory under each of the [core contract transactions](https://github.com/onflow/flow-core-contracts/tree/master/transactions) for other core contracts related scripts.
 
-## Executing Scripts[​](#executing-scripts "Direct link to Executing Scripts")
+## Execute Scripts[​](#execute-scripts "Direct link to Execute Scripts")
 
 ### Access API[​](#access-api "Direct link to Access API")
 
-A script can be executed by submitting it to the Access API provided by access nodes. Currently, there are three API endpoints that allow a user to execute scripts at the latest sealed block, a previous block height, or a previous block ID.
+To execute a script, submit it to the Access API provided by access nodes. Currently, there are three API endpoints that allow a user to execute scripts at the latest sealed block, a previous block height, or a previous block ID.
 
 [**gRPC Script API**](/protocol/access-onchain-data#scripts)
 
@@ -2587,26 +2586,26 @@ Find a list of all SDKs [here](/build/tools/clients)
 
 ### Flow CLI[​](#flow-cli "Direct link to Flow CLI")
 
-You can also execute a script by using the [Flow CLI](/build/tools/flow-cli/scripts/execute-scripts):
+You can also execute a script with the [Flow CLI](/build/tools/flow-cli/scripts/execute-scripts):
 
 `_10
 
 flow scripts execute ./helloWorld.cdc`
 
-A user can define their own scripts or can use already defined scripts by the contract authors that can be found by using the [FLIX](/build/tools/flow-cli/flix) service.
+A user can define their own scripts or can use already defined scripts by the contract authors that can be found with the [FLIX](/build/tools/flow-cli/flix) service.
 
 ## Best Practices[​](#best-practices "Direct link to Best Practices")
 
-Following are some recommendations on how to write efficient scripts:
+The following are some recommendations for how to write efficient scripts:
 
-1. **Simpler and shorter scripts**: Scripts, like transactions, are subject to computation limits (see [limitations](#limitations)). It is recommended to run shorter and simpler scripts which have low time complexity for a faster response. If you have a script with several nested loops, long iteration, or that queries many onchain fields, consider simplifying the script logic.
+1. **Simpler and shorter scripts**: Scripts, like transactions, are subject to computation limits (see [limitations](#limitations)).We recommend that you run shorter and simpler scripts which have low time complexity for a faster response. If you have a script with several nested loops, long iteration, or that queries many onchain fields, we recommend that you simplify the script logic.
 2. **Fewer state reads**: A script reads execution state and to get a faster response, it is best to limit the amount of state that is read by the script.
-3. **Smaller length of array or dictionary type arguments**: If your script requires an array or a dictionary as an argument where each element causes a state lookup, instead of making a single script call passing in a long list, make multiple calls with a smaller subset of the array or dictionary.
+3. **Smaller length of array or dictionary type arguments**: If your script requires an array or a dictionary as an argument where each element causes a state lookup, instead of a single script call that passes in a long list, make multiple calls with a smaller subset of the array or dictionary.
 4. **NFTCatalog**: If your script uses the [NFTCatalog](https://github.com/onflow/nft-catalog) functions, ensure that you use the [latest functions](https://github.com/onflow/nft-catalog?tab=readme-ov-file#using-the-catalog-for-marketplaces-and-other-nft-applications) and do not use any of the deprecated functions such as `getCatalog()`.
 
 ## Limitations[​](#limitations "Direct link to Limitations")
 
-1. **Rate limit** - Script execution is subjected to API rate-limits imposed by the Access nodes and the Execution nodes. The rate limits for the Public Access nodes hosted by QuickNode are outlined [here](https://www.quicknode.com/docs/flow#endpoint-rate-limits).
+1. **Rate limit** - Script execution is subjected to API rate-limits imposed by the Access nodes and the Execution nodes. The rate limits for the Public Access nodes hosted by QuickNode are outlined [outlined here](https://www.quicknode.com/docs/flow#endpoint-rate-limits).
 2. **Computation limit** - Similar to a transaction, each script is also subjected to a computation limit. The specific value can be configured by individual Access and Execution node operators. Currently, the default compute unit (gas) limit for a script is 100,000.
 3. **Historic block data limit**
 
@@ -2615,7 +2614,7 @@ Following are some recommendations on how to write efficient scripts:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/basics/scripts.md)
 
-Last updated on **Nov 12, 2025** by **Brian Doyle**
+Last updated on **Dec 2, 2025** by **cshannon1218**
 
 [Previous
 
@@ -2629,7 +2628,7 @@ Fees](/build/cadence/basics/fees)
 
 Copy as Markdown
 
-* [When to use a script?](#when-to-use-a-script)* [Executing Scripts](#executing-scripts)
+* [When to use a script?](#when-to-use-a-script)* [Execute Scripts](#execute-scripts)
     + [Access API](#access-api)+ [Flow CLI](#flow-cli)* [Best Practices](#best-practices)* [Limitations](#limitations)
 
 Flow
@@ -3453,7 +3452,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -4250,7 +4249,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -5238,8 +5237,9 @@ Search
 
 * * Cadence* [Core Smart Contracts](/build/cadence/core-contracts)* VM Bridge
 
-The Flow VM bridge is the account and series of smart contracts that manage how
-assets are safely bridged between the Cadence and EVM Flow Environments.
+# VM Bridge Contracts
+
+The Flow VM bridge is the account and series of smart contracts that manage how assets are safely bridged between the Cadence and EVM Flow Environments.
 
 |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -5247,35 +5247,44 @@ assets are safely bridged between the Cadence and EVM Flow Environments.
 
 # Contracts
 
-There are many important contracts deployed to the bridge account.
-You should refer to [the bridge repo](https://github.com/onflow/flow-evm-bridge)
-and [the bridge guides](/blockchain-development-tutorials/cross-vm-apps/vm-bridge)
-for more detailed information about the bridge and tutorials for how to use the bridge properly.
+There are many important contracts deployed to the bridge account. You should refer to [the bridge repo](https://github.com/onflow/flow-evm-bridge) and [the bridge guides](/blockchain-development-tutorials/cross-vm-apps/vm-bridge) for more detailed information about the bridge and tutorials for how to use the bridge properly.
 
 Here is a list of each Cadence contract used for the bridge:
 
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Contract Purpose|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `CrossVMNFT` Contract defining cross-VM NFT-related interfaces|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `CrossVMToken` Contract defining cross-VM Fungible Token Vault interface|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `FlowEVMBridgeHandlerInterfaces` Defines interface for custom bridged token handlers|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `IBridgePermissions` Defines an interface to prevent bridging for a specific token|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `ICrossVM` Defines an interface to get EVM contract addresses|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `ICrossVMAsset` Defines an interface to represent a Cadence bridged version of an EVM asset|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `IEVMBridgeNFTMinter` Defines an interface that allows the bridge to mint NFTs|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `IEVMBridgeTokenMinter` Defines an interface that allows the bridge to mint FTs|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `IFlowEVMNFTBridge` Defines core methods for bridging NFTs|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `IFlowEVMTokenBridge` Defines core methods for bridging FTs|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `FlowEVMBridge` The main entrypoint for briding tokens across Flow VMs|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `FlowEVMBridgeAccessor` Defines methods to route bridge requests from the EVM contract to the Flow-EVM bridge contract|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `FlowEVMBridgeConfig` Used to store configuration options for the VM Bridge|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `FlowEVMBridgeCustomAssociations` Stores configuration information about custom bridged asset configurations|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `FlowEVMBridgeCustomAssociationTypes` Defines interfaces used to specify custom bridged asset associations|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `FlowEVMBridgeHandlers` Defines mechanisms for handling assets with custom associations (Deprecated)|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `FlowEVMBridgeNFTEscrow` Handles locking of NFTs that are bridged from Flow to EVM and back|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `FlowEVMBridgeResolver` Defines methods to resolve Metadata Views for bridged assets|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `FlowEVMBridgeTemplates` Serves Cadence code from chunked templates for bridge-deployed assets|  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `FlowEVMBridgeTokenEscrow` Handles locking of FTs that are bridged from Flow to EVM and back|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `FlowEVMBridgeUtils` Defines many different utility methods that are used by bridge contracts|  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `ArrayUtils` Provides useful utility functions for manipulating arrays|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | `ScopedFTProviders` Provides utilities for creating provider capabilities for tokens that are restricted to a specific amount|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | `Serialize` Provides utilities for serializing common types to json-compatible strings|  |  |  |  | | --- | --- | --- | --- | | `SerializeMetadata` Provides methods for serializing NFT metadata as a JSON compatible string|  |  | | --- | --- | | `StringUtils` Provides useful utility functions for manipulating strings | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+| Contract Purpose|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `CrossVMNFT` Contract that defines cross-VM NFT-related interfaces.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `CrossVMToken` Contract that defines cross-VM Fungible Token Vault interfaces.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `FlowEVMBridgeHandlerInterfaces` Defines interface for custom bridged token handlers.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `IBridgePermissions` Defines an interface to prevent bridging for a specific token.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `ICrossVM` Defines an interface to get EVM contract addresses.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `ICrossVMAsset` Defines an interface to represent a Cadence bridged version of an EVM asset.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `IEVMBridgeNFTMinter` Defines an interface that allows the bridge to mint NFTs.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `IEVMBridgeTokenMinter` Defines an interface that allows the bridge to mint FTs.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `IFlowEVMNFTBridge` Defines core methods for bridging NFTs.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `IFlowEVMTokenBridge` Defines core methods for bridging FTs.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `FlowEVMBridge` The main entrypoint for briding tokens across Flow VMs.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `FlowEVMBridgeAccessor` Defines methods to route bridge requests from the EVM contract to the Flow-EVM bridge contract.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `FlowEVMBridgeConfig` Used to store configuration options for the VM Bridge.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `FlowEVMBridgeCustomAssociations` Stores configuration information about custom bridged asset configurations.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `FlowEVMBridgeCustomAssociationTypes` Defines interfaces used to specify custom bridged asset associations.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `FlowEVMBridgeHandlers` Defines mechanisms to handle assets with custom associations (Deprecated).|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `FlowEVMBridgeNFTEscrow` Handles locking of NFTs that are bridged from Flow to EVM and back.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `FlowEVMBridgeResolver` Defines methods to resolve Metadata Views for bridged assets.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `FlowEVMBridgeTemplates` Serves Cadence code from chunked templates for bridge-deployed assets.|  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `FlowEVMBridgeTokenEscrow` Handles locking of FTs that are bridged from Flow to EVM and back.|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `FlowEVMBridgeUtils` Defines many different utility methods that are used by bridge contracts.|  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `ArrayUtils` Provides useful utility functions for array manipulation.|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | `ScopedFTProviders` Provides utilities to create provider capabilities for tokens that are restricted to a specific amount.|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | `Serialize` Provides utilities to serialize common types to JSON compatible strings.|  |  |  |  | | --- | --- | --- | --- | | `SerializeMetadata` Provides methods to serialize NFT metadata as a JSON compatible string.|  |  | | --- | --- | | `StringUtils` Provides useful utility functions for string manipulation. | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
 
-# EVM Bridge Solidity Contracts
+# EVM bridge Solidity contracts
 
 There are also Solidity contracts that are deployed in Flow EVM that are needed for the bridge.
 Here are their addresses:
 
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Contracts Testnet Mainnet|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `FlowEVMBridgeFactory.sol` [`0xf8146b4aef631853f0eb98dbe28706d029e52c52`](https://evm-testnet.flowscan.io/address/0xF8146B4aEF631853F0eB98DBE28706d029e52c52) [`0x1c6dea788ee774cf15bcd3d7a07ede892ef0be40`](https://evm.flowscan.io/address/0x1C6dEa788Ee774CF15bCd3d7A07ede892ef0bE40)| `FlowEVMBridgeDeploymentRegistry.sol` [`0x8781d15904d7e161f421400571dea24cc0db6938`](https://evm-testnet.flowscan.io/address/0x8781d15904d7e161f421400571dea24cc0db6938) [`0x8fdec2058535a2cb25c2f8cec65e8e0d0691f7b0`](https://evm.flowscan.io/address/0x8FDEc2058535A2Cb25C2f8ceC65e8e0D0691f7B0)| `FlowEVMBridgedERC20Deployer.sol` [`0x4d45CaD104A71D19991DE3489ddC5C7B284cf263`](https://evm-testnet.flowscan.io/address/0x4d45CaD104A71D19991DE3489ddC5C7B284cf263) [`0x49631Eac7e67c417D036a4d114AD9359c93491e7`](https://evm.flowscan.io/address/0x49631Eac7e67c417D036a4d114AD9359c93491e7)| `FlowEVMBridgedERC721Deployer.sol` [`0x1B852d242F9c4C4E9Bb91115276f659D1D1f7c56`](https://evm-testnet.flowscan.io/address/0x1B852d242F9c4C4E9Bb91115276f659D1D1f7c56) [`0xe7c2B80a9de81340AE375B3a53940E9aeEAd79Df`](https://evm.flowscan.io/address/0xe7c2B80a9de81340AE375B3a53940E9aeEAd79Df) | | | | | | | | | | | | | | |
+| Contracts Testnet Mainnet|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `FlowEVMBridgeFactory.sol` [`0xf8146b4aef631853f0eb98dbe28706d029e52c52`] [`0x1c6dea788ee774cf15bcd3d7a07ede892ef0be40`]| `FlowEVMBridgeDeploymentRegistry.sol` [`0x8781d15904d7e161f421400571dea24cc0db6938`] [`0x8fdec2058535a2cb25c2f8cec65e8e0d0691f7b0`]| `FlowEVMBridgedERC20Deployer.sol` [`0x4d45CaD104A71D19991DE3489ddC5C7B284cf263`] [`0x49631Eac7e67c417D036a4d114AD9359c93491e7`]| `FlowEVMBridgedERC721Deployer.sol` [`0x1B852d242F9c4C4E9Bb91115276f659D1D1f7c56`] [`0xe7c2B80a9de81340AE375B3a53940E9aeEAd79Df`] | | | | | | | | | | | | | | |
 
-And below are the bridge escrow's EVM addresses. These addresses are [`CadenceOwnedAccount`s (COA)](https://developers.flow.com/blockchain-development-tutorials/cross-vm-apps/interacting-with-coa#coa-interface) and they are stored stored in the same Flow account as you'll find the Cadence contracts (see above).
+And below are the bridge escrow's EVM addresses. These addresses are [`CadenceOwnedAccount`s (COA)] and they are stored in the same Flow account as you'll find the Cadence contracts (see above).
 
 |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- |
-| Network Address|  |  |  |  | | --- | --- | --- | --- | | Testnet [`0x0000000000000000000000023f946ffbc8829bfd`](https://evm-testnet.flowscan.io/address/0x0000000000000000000000023f946FFbc8829BFD)| Mainnet [`0x00000000000000000000000249250a5c27ecab3b`](https://evm.flowscan.io/address/0x00000000000000000000000249250a5C27Ecab3B) | | | | | |
+| Network Address|  |  |  |  | | --- | --- | --- | --- | | Testnet [`0x0000000000000000000000023f946ffbc8829bfd`]| Mainnet [`0x00000000000000000000000249250a5c27ecab3b`] | | | | | |
+
+[`0xf8146b4aef631853f0eb98dbe28706d029e52c52`]: <https://evm-testnet.flowscan.io/address/0xF8146B4aEF631853F0eB98DBE28706d029e52c52>)
+[`0x1c6dea788ee774cf15bcd3d7a07ede892ef0be40`]: <https://evm.flowscan.io/address/0x1C6dEa788Ee774CF15bCd3d7A07ede892ef0bE40>
+[`0x8781d15904d7e161f421400571dea24cc0db6938`]: <https://evm-testnet.flowscan.io/address/0x8781d15904d7e161f421400571dea24cc0db6938>
+[`0x8fdec2058535a2cb25c2f8cec65e8e0d0691f7b0`]: <https://evm.flowscan.io/address/0x8FDEc2058535A2Cb25C2f8ceC65e8e0D0691f7B0>
+[`0x4d45CaD104A71D19991DE3489ddC5C7B284cf263`]: <https://evm-testnet.flowscan.io/address/0x4d45CaD104A71D19991DE3489ddC5C7B284cf263>
+[`0x49631Eac7e67c417D036a4d114AD9359c93491e7`]: <https://evm.flowscan.io/address/0x49631Eac7e67c417D036a4d114AD9359c93491e7>
+[`0x1B852d242F9c4C4E9Bb91115276f659D1D1f7c56`]: <https://evm-testnet.flowscan.io/address/0x1B852d242F9c4C4E9Bb91115276f659D1D1f7c56>
+[`0xe7c2B80a9de81340AE375B3a53940E9aeEAd79Df`]: <https://evm.flowscan.io/address/0xe7c2B80a9de81340AE375B3a53940E9aeEAd79Df>
+[`CadenceOwnedAccount`s (COA)]: <https://developers.flow.com/blockchain-development-tutorials/cross-vm-apps/interacting-with-coa#coa-interface>
+[`0x0000000000000000000000023f946ffbc8829bfd`]: <https://evm-testnet.flowscan.io/address/0x0000000000000000000000023f946FFbc8829BFD>
+[`0x00000000000000000000000249250a5c27ecab3b`]: <https://evm.flowscan.io/address/0x00000000000000000000000249250a5C27Ecab3B>)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/core-contracts/15-bridge.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 3, 2025** by **cshannon1218**
 
 [Previous
 
@@ -8572,7 +8581,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -14230,14 +14239,15 @@ Search
 
 On this page
 
+# Fungible Token Contract
+
 The `FungibleToken` contract implements the Fungible Token Standard. It is the second contract ever deployed on Flow.
 
 * [Basic Fungible Token Tutorial](https://cadence-lang.org/docs/tutorial/fungible-tokens)
 * [Fungible Token Guide](/blockchain-development-tutorials/tokens/fungible-token-cadence)
 * [Fungible Token Standard Repo](https://github.com/onflow/flow-ft)
 
-The `FungibleTokenMetadataViews` and `FungibleTokenSwitchboard` contracts
-are also deployed to the same account as `FungibleToken`.
+The `FungibleTokenMetadataViews` and `FungibleTokenSwitchboard` contracts are also deployed to the same account as `FungibleToken`.
 
 Source: [FungibleToken.cdc](https://github.com/onflow/flow-ft/blob/master/contracts/FungibleToken.cdc)
 
@@ -14247,10 +14257,7 @@ Source: [FungibleToken.cdc](https://github.com/onflow/flow-ft/blob/master/contra
 
 # Transactions
 
-All `FungibleToken` projects are encouraged to use
-the generic token transactions and scripts in the `flow-ft` [repo](https://github.com/onflow/flow-ft/tree/master/transactions).
-They can be used for any token that implements the fungible token standard properly
-without changing any code besides import addresses on different networks.
+All `FungibleToken` projects are encouraged to use the generic token transactions and scripts in the `flow-ft` [repo](https://github.com/onflow/flow-ft/tree/master/transactions). They can be used for any token that implements the fungible token standard properly without any code change besides import addresses on different networks.
 
 # Events
 
@@ -14262,18 +14269,15 @@ A.{contract address}.{contract name}.{event name}`
 
 The components of the format are:
 
-* `contract address` - the address of the account the contract has been deployed to
-* `contract name` - the name of the contract in the source code
-* `event name` - the name of the event as declared in the source code
+* `contract address` - the address of the account the contract has been deployed to.
+* `contract name` - the name of the contract in the source code.
+* `event name` - the name of the event as declared in the source code.
 
-## FungibleToken Events[​](#fungibletoken-events "Direct link to FungibleToken Events")
+## FungibleToken events[​](#fungibletoken-events "Direct link to FungibleToken events")
 
-Contracts that implement the Fungible Token standard get access
-to standard events that are emitted every time a relevant action occurs,
-like depositing and withdrawing tokens.
+Contracts that implement the Fungible Token standard get access to standard events that are emitted every time a relevant action occurs, like deposit and withdraw tokens.
 
-This means that projects do not have to implement their own custom events
-unless the standard events do not satisfy requirements they have for events.
+This means that projects do not have to implement their own custom events unless the standard events do not satisfy requirements they have for events.
 
 The `FungibleToken` events will have the following format:
 
@@ -14285,8 +14289,7 @@ _10
 
 A.{contract address}.FungibleToken.Withdrawn`
 
-Where the `contract address` is the `FungibleToken` address on the network being queried.
-The addresses on the various networks are shown above.
+Where the `contract address` is the `FungibleToken` address on the network being queried. The addresses on the various networks are shown above.
 
 ### FungibleToken.Deposited[​](#fungibletokendeposited "Direct link to FungibleToken.Deposited")
 
@@ -14322,9 +14325,7 @@ _10
 
 )`
 
-Whenever `deposit()` is called on a resource type that implements
-`FungibleToken.Vault`, the `FungibleToken.Deposited` event is emitted
-with the following arguments:
+Whenever `deposit()` is called on a resource type that implements `FungibleToken.Vault`, the `FungibleToken.Deposited` event is emitted with the following arguments:
 
 * `type: String`: The type identifier of the token being deposited.
   + Example: `A.4445e7ad11568276.FlowToken.Vault`
@@ -14374,9 +14375,7 @@ _10
 
 )`
 
-Whenever `withdraw()` is called on a resource type that implements
-`FungibleToken.Vault`, the `FungibleToken.Withdrawn` event is emitted
-with the following arguments:
+Whenever `withdraw()` is called on a resource type that implements `FungibleToken.Vault`, the `FungibleToken.Withdrawn` event is emitted with the following arguments:
 
 * `type: String`: The type identifier of the token being withdrawn.
   + Example: `A.4445e7ad11568276.FlowToken.Vault`
@@ -14415,8 +14414,7 @@ _10
 
 )`
 
-Whenever a fungible token that implements `FungibleToken.Vault` is burned
-via the `Burner.burn()` method, this event is emitted with the following arguments:
+Whenever a fungible token that implements `FungibleToken.Vault` is burned via the `Burner.burn()` method, this event is emitted with the following arguments:
 
 * `type: String`: The type identifier of the token that was burnt.
   + Example: `A.4445e7ad11568276.FlowToken.Vault`
@@ -14427,7 +14425,7 @@ via the `Burner.burn()` method, this event is emitted with the following argumen
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/core-contracts/02-fungible-token.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Dec 3, 2025** by **cshannon1218**
 
 [Previous
 
@@ -14441,7 +14439,7 @@ Flow Token](/build/cadence/core-contracts/flow-token)
 
 Copy as Markdown
 
-* [FungibleToken Events](#fungibletoken-events)
+* [FungibleToken events](#fungibletoken-events)
   + [FungibleToken.Deposited](#fungibletokendeposited)+ [FungibleToken.Withdrawn](#fungibletokenwithdrawn)+ [FungibleToken.Burned](#fungibletokenburned)
 
 Flow
@@ -14488,7 +14486,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -40126,7 +40124,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -47792,18 +47790,13 @@ Search
 
 On this page
 
-# Contract
+# Flow Staking Collection Contract Reference
 
-The `FlowStakingCollection` contract is a contract that manages a resource containing a user's stake and delegation objects.
+The `FlowStakingCollection` contract is a contract that manages a resource which contain a user's stake and delegation objects.
 
-The `FlowStakingCollection` allows a user to manage multiple active nodes or delegators
-and interact with node or delegator objects stored in either their optional locked account
-or in the StakingCollection itself (stored in the main account).
-If a user has locked tokens, StakingCollection allows a user to interact with their locked tokens
-to perform staking actions for any of their nodes or delegators.
+The `FlowStakingCollection` allows a user to manage multiple active nodes or delegators and interact with node or delegator objects stored in either their optional locked account or in the StakingCollection itself (stored in the main account). If a user has locked tokens, StakingCollection allows a user to interact with their locked tokens to perform staking actions for any of their nodes or delegators.
 
-The staking collection also manages creating a node's machine accounts if they have any collector or consensus nodes.
-It also allows them to deposit and withdraw tokens from any of their machine accounts through the staking collection.
+The staking collection also manages a node's machine accounts creation process if they have any collector or consensus nodes. It also allows them to deposit and withdraw tokens from any of their machine accounts through the staking collection.
 
 See the [Staking Collection Docs](/protocol/staking/staking-collection) for more information on the design of the staking collection contract.
 
@@ -47817,10 +47810,9 @@ Source: [FlowStakingCollection.cdc](https://github.com/onflow/flow-core-contract
 
 Use the following transactions to interact with the StakingCollection.
 
-\_Note: The StakingCollection differentiates between stake and delegation requests through
-passing an optional DelegatorID argument. For example, if you wish to Stake New Tokens for an active node,
-pass `nil` as the optional DelegatorID argument to the Stake New Tokens transaction.
-The same applies for all the other staking operation transactions.
+info
+
+The StakingCollection differentiates between stake and delegation requests through passing an optional DelegatorID argument. For example, if you wish to Stake New Tokens for an active node, pass `nil` as the optional DelegatorID argument to the Stake New Tokens transaction. The same applies for all the other staking operation transactions.
 
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -47836,10 +47828,7 @@ The same applies for all the other staking operation transactions.
 
 To setup the Staking Collection for an account, use the `SC.01` transaction.
 
-The setup process finds any node or delegator records already stored in the main account's storage,
-as well as any in the associated locked account if an associated locked account exists.
-It connects these node and delegator records with the new Staking Collection, allowing them
-to be interacted with using the Staking Collection API.
+The setup process finds any node or delegator records already stored in the main account's storage, as well as any in the associated locked account if an associated locked account exists. It connects these node and delegator records with the new Staking Collection, and you ue the Staking Collection API to interact with them.
 
 ## Events[​](#events "Direct link to Events")
 
@@ -47871,7 +47860,7 @@ access(all) event MachineAccountCreated(nodeID: String, role: UInt8, address: Ad
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/core-contracts/11-staking-collection.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Dec 3, 2025** by **cshannon1218**
 
 [Previous
 
@@ -65327,48 +65316,46 @@ On this page
 
 # Blocks
 
-## Overview[​](#overview "Direct link to Overview")
+Blocks are entities that make up the Flow blockchain. Each block contains a list of [transactions](/build/cadence/basics/transactions) that were executed and as a result, changed the global blockchain state. Each block is identified by a unique ID which is a cryptographic hash of the block contents. Block also includes a link to the parent block ID, which creates a linked list of blocks called the Flow blockchain.
 
-Blocks are entities that make up the Flow blockchain. Each block contains a list of [transactions](/build/cadence/basics/transactions) that were executed and as a result, changed the global blockchain state. Each block is identified by a unique ID which is a cryptographic hash of the block contents. Block also includes a link to the parent block ID creating a linked list of blocks called the Flow blockchain.
-
-The unique block ID serves as proof of the block contents which can be independently validated by any observer. Interesting cryptographic properties of the hash that make up the block ID guarantee that if any change is made to the block data it would produce a different hash and because blocks are linked, a different hash would break the link as it would no longer be referenced in the next block.
+The unique block ID serves as proof of the block contents which any oberver can independently validate. Interesting cryptographic properties of the hash that make up the block ID guarantee that if any change is made to the block data, it would produce a different hash. Because blocks are linked, a different hash would break the link as it would no longer be referenced in the next block.
 
 A very basic representation of blocks is:
 
 ![Screenshot 2023-08-16 at 15.16.38.png](/assets/images/Screenshot_2023-08-16_at_15.16.38-148cd864a5ee56f5f4c9b83ce3794e8a.png)
 
-Blocks are ordered starting from the genesis block 0 up to the latest block. Each block contains an ordered list of transactions. This is how the Flow blockchain preserves the complete history of all the changes made to the state from the beginning to the current state.
+Blocks are ordered from the genesis block 0 up to the latest block. Each block contains an ordered list of transactions. This is how the Flow blockchain preserves the complete history of all the changes made to the state from the start to the current state.
 
-Each block contains more data which is divided into **block header** and **block payload**. There are many representations of block data within the Flow protocol. APIs, node types, and specific components within the node may view a block from differing perspectives. For the purpose of this documentation, we will talk about block data we expose through APIs to the clients.
+Each block contains more data which is divided into **block header** and **block payload**. There are many representations of block data within the Flow protocol. APIs, node types, and specific components within the node may view a block from different perspectives. For the purpose of this document, we will talk about block data we expose through APIs to the clients.
 
 ![Screenshot 2023-08-16 at 10.50.53.png](/assets/images/Screenshot_2023-08-16_at_10.50.53-1f1b7b4eefcb77fcb150651d77194346.png)
 
-### Block Header[​](#block-header "Direct link to Block Header")
+### Block header[​](#block-header "Direct link to Block header")
 
 The Block header contains the following fields:
 
-* **ID** represents the block's unique identifier, which is derived from the hashing block header including the payload hash. The algorithm used on Flow to hash the content and get an identifier is SHA3 256. This ID is a commitment to all the values in the block staying the same.
-* **Parent ID** is a link to the previous block ID in the list making up the blockchain.
-* **Height** is the block sequence number, where block 0 was the first block produced, and each next block increments the value by 1.
-* **Timestamp** is the timestamp at which this block was proposed by the consensus node. Depending on your use case this time might not be accurate enough, [read more about measuring time on the Flow blockchain](https://cadence-lang.org/docs/measuring-time#time-on-the-flow-blockchain).
-* **Payload Hash** represents the payload hash that is included when producing the ID of the block. Payload hash is calculated by taking Merkle root hashes of collection guarantees, seals, execution receipts, and execution results and hashing them together. More on each of the values in the block payload section.
+* **ID** represents the block's unique identifier, which is derived from the hashing block header, which includes the payload hash. The algorithm used on Flow to hash the content and get an identifier is SHA3 256. This ID is a commitment to all the values in the block staying the same.
+* **Parent ID** is a link to the previous block ID in the list that makes up the blockchain.
+* **Height** is the block sequence number, where block 0 was the first block produced, and each next block increments the value by one.
+* **Timestamp** is the timestamp at which this block was proposed by the consensus node. Depending on your use case, this time might not be accurate enough, [read more about how to measure time on the Flow blockchain](https://cadence-lang.org/docs/measuring-time#time-on-the-flow-blockchain).
+* **Payload Hash** represents the payload hash that is included when producing the ID of the block. To calculate the payload hash take Merkle root hashes of collection guarantees, seals, execution receipts, and execution results and hash them together. For more information, see the block payload section below.
 
-### Block Payload[​](#block-payload "Direct link to Block Payload")
+### Block payload[​](#block-payload "Direct link to Block payload")
 
 The block payload contains the following fields:
 
-* **Collection Guarantees** is a list of collection IDs with the signatures from the collection nodes that produced the collections. This acts as a guarantee by collection nodes that [transaction data](/build/cadence/basics/transactions) in the collection will be available on the collection node if requested by other nodes at a later time. Flow purposely skips including transaction data in a block, making blocks as small as possible, and the production of new blocks by consensus nodes fast, that is because consensus nodes have to sync the proposed block between nodes, and that data should be the smallest possible. The consensus nodes don't really care what will a transaction do as long as it's valid, they only need to define an order of those transactions in a block.
+* **Collection Guarantees** is a list of collection IDs with the signatures from the collection nodes that produced the collections. This acts as a guarantee by collection nodes that [transactions](/build/cadence/basics/transactions)data in the collection will be available on the collection node if requested by other nodes at a later time. Flow purposely skips including transaction data in a block, makes blocks as small as possible, and produces new blocks by consensus nodes fast, because consensus nodes have to sync the proposed block between nodes, and that data should be the smallest possible. The consensus nodes don't really care what will a transaction do as long as it's valid, they only need to define an order of those transactions in a block.
 * **Block Seals** is the attestation by verification nodes that the transactions in a previously executed block have been verified. This seals a previous block referenced by the block ID. It also references the result ID and execution root hash. It contains signatures of the verification nodes that produced the seal.
 
-## Lifecycle and Status[​](#lifecycle-and-status "Direct link to Lifecycle and Status")
+## Lifecycle and status[​](#lifecycle-and-status "Direct link to Lifecycle and status")
 
-Block status is not a value stored inside the block itself but it represents the lifecycle of a block. We derive this value based on the block inclusion in the Flow blockchain and present it to the user as it acts as an important indicator of the finality of the changes the block contains.
+Block status is not a value stored inside the block itself, but it represents the lifecycle of a block. We derive this value based on the block inclusion in the Flow blockchain and present it to the user as it acts as an important indicator of the finality of the changes the block contains.
 
-Here we'll give an overview of the different phases a block goes through. [More details can be found in the whitepaper](https://flow.com/technical-paper). Also, a lot of the block states are not necessarily important to the developer but only important to the functioning of the Flow blockchain.
+Here, we'll give an overview of the different phases a block goes through. [More details can be found in the whitepaper](https://flow.com/technical-paper). Also, a lot of the block states are not necessarily important to the developer but only important to the Flow blockchain's function.
 
-New blocks are constantly being proposed even if no new transactions are submitted to the network. Consensus nodes are in charge of producing blocks. They use a consensus algorithm (an implementation of HotStuff) to agree on what the new block will be. A block contains the ordered list of collections and each collection contains an ordered list of transactions. This is an important fact to reiterate. A block serves as a list of transitions to the Flow state machine. It documents, as an ordered list, all the changes transactions will make to the state.
+New blocks are constantly being proposed even if no new transactions are submitted to the network. Consensus nodes are in charge of blocks production. They use a consensus algorithm (an implementation of HotStuff) to agree on what the new block will be. A block contains the ordered list of collections and each collection contains an ordered list of transactions. This is an important fact to reiterate. A block serves as a list of transitions to the Flow state machine. It documents, as an ordered list, all the changes transactions will make to the state.
 
-A block that is [agreed upon by the consensus nodes using an implementation of HotStuff consensus algorithm](https://arxiv.org/pdf/2002.07403.pdf) to be the next block is **finalized**. This means the block won't change anymore and it will next be executed by the execution node. Please be careful because until a block is **sealed** the changes are not to be trusted. After verification nodes validate and agree on the correctness of execution results, a block is sealed and consensus nodes will include these seals in the new block.
+A block that is [agreed upon by the consensus nodes via an implementation of HotStuff consensus algorithm](https://arxiv.org/pdf/2002.07403.pdf) to be the next block is **finalized**. This means the block won't change anymore and it will next be executed by the execution node. Be careful because until a block is **sealed** the changes are not to be trusted. After verification nodes validate and agree on the correctness of execution results, a block is sealed and consensus nodes will include these seals in the new block.
 
 In summary, a block can be either **finalized** which guarantees transactions included in the block will stay the same and will be executed, and **sealed** which means the block execution was verified.
 
@@ -65382,7 +65369,7 @@ You can use the Flow CLI to get the block data by running:
 
 flow blocks get latest -network mainnet`
 
-Find [more about the command in the CLI docs](/build/tools/flow-cli/get-flow-data/get-blocks).
+Find [more about the command in the CLI docs](/build/tools/flow-cli/get-flow-data/get-blocks)
 
 Blocks can be obtained from the access node APIs, currently, there are two gRPC and REST APIs. You can find more information about them here:
 
@@ -65390,17 +65377,17 @@ Blocks can be obtained from the access node APIs, currently, there are two gRPC 
 
 [**REST Block API**](/http-api#tag/Blocks)
 
-There are multiple SDKs implementing the above APIs for different languages:
+There are multiple SDKs that implement the above APIs for different languages:
 
 [**Javascript SDK**](/build/tools/clients/fcl-js)
 
 [**Go SDK**](/build/tools/clients/flow-go-sdk)
 
-Find a list of all SDKs [here](/build/tools/clients)
+Find a list of all SDKs [here](/build/tools/clients).
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/basics/blocks.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Dec 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -65414,8 +65401,7 @@ Collections](/build/cadence/basics/collections)
 
 Copy as Markdown
 
-* [Overview](#overview)
-  + [Block Header](#block-header)+ [Block Payload](#block-payload)* [Lifecycle and Status](#lifecycle-and-status)* [Block Retrieval](#block-retrieval)
+* [Block header](#block-header)* [Block payload](#block-payload)* [Lifecycle and status](#lifecycle-and-status)* [Block Retrieval](#block-retrieval)
 
 Flow
 
@@ -86435,7 +86421,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -137055,9 +137041,11 @@ Transactions are cryptographically signed data messages that contain a set of in
 
 tip
 
-Transactions on Flow are fundamentally different from those on Ethereum. The main purpose of a transaction is not to send funds but to contain code that gets executed. This makes transactions very flexible and powerful. In addition to being able to access the authorizing accounts private assets, transactions can also read and call functions in public contracts, and access public domains in other users' accounts Transactions on Flow also feature different roles, such as defining third-party payer accounts, proposer accounts, and authorizers, which we will talk about in detail soon.
+Transactions on Flow are fundamentally different from those on Ethereum. The main purpose of a transaction is not to send funds, but to contain code that gets executed. This makes transactions very flexible and powerful. In addition to being able to access the authorizing accounts private assets, transactions can also read and call functions in public contracts, and access public domains in other users' accounts.
 
-In order for a transaction to be valid and executed it must contain signatures from accounts involved as well as some other information, let's take a look at all the required fields.
+Transactions on Flow also feature different roles, such as define third-party payer accounts, proposer accounts, and authorizers, which we will talk about in detail soon.
+
+In order for a transaction to be valid and executed, it must contain signatures from accounts involved as well as some other information, let's take a look at all the required fields.
 
 ![Screenshot 2023-08-17 at 14.52.56.png](/assets/images/Screenshot_2023-08-17_at_14.52.56-83d61ffc68082f1c93bc2226e347e718.png)
 
@@ -137065,12 +137053,12 @@ In order for a transaction to be valid and executed it must contain signatures f
 
 The script section contains instructions for transaction execution. This is a Cadence program in source code form (human-readable), and encoded as UTF-8. The transaction program must contain a `transaction` declaration.
 
-A transaction includes multiple optional phases `prepare`, `pre`, `execute`, and `post` phase. You can read more about it in the [Cadence reference document on transactions](https://cadence-lang.org/docs/language/transactions). Each phase has a purpose, the two most important phases are `prepare` and `execute`.
+A transaction includes multiple optional phases `prepare`, `pre`, `execute`, and `post` phase. You can read more about it in the Cadence [documentation on transactions](https://cadence-lang.org/docs/language/transactions). Each phase has a purpose, the two most important phases are `prepare` and `execute`.
 
 In the `prepare` phase, we have access to `&Account` objects, which gives us the power to interact with those accounts. The accounts are called authorizers of transactions, so each account we want to interact with in the `prepare` phase must sign the transaction as an authorizer.
 The `execute` phase does exactly what it says, it executes the main logic of the transaction. This phase is optional, but it is a best practice to add your main transaction logic in the section, so it is explicit.
 
-Again make sure to read Cadence [documentation on transactions](https://cadence-lang.org/docs/language/transactions)
+Again, make sure to read Cadence [documentation on transactions](https://cadence-lang.org/docs/language/transactions)
 
 This is an example of a transaction script:
 
@@ -137096,25 +137084,25 @@ _10
 
 ### Arguments[​](#arguments "Direct link to Arguments")
 
-Transactions may declare parameters it needs during execution, these must be provided as input arguments when sending a transaction. You can think of them as function arguments. Currently, we provide [arguments in the JSON-Cadence Data Interchange Format](https://cadencelang.dev/docs/1.0/json-cadence-spec). Which is a human-readable JSON format. The sample script from above accepts a single `String` argument.
+Transactions may declare parameters it needs during execution, these must be provided as input arguments when you send a transaction. You can think of them as function arguments. Currently, we provide [arguments in the JSON-Cadence Data Interchange Format](https://cadencelang.dev/docs/1.0/json-cadence-spec). Which is a human-readable JSON format. The sample script from above accepts a single `String` argument.
 
-### Reference Block[​](#reference-block "Direct link to Reference Block")
+### Reference block[​](#reference-block "Direct link to Reference block")
 
-A reference to a recent block used for expiry. A transaction is considered expired if it is submitted to Flow after reference block height + N, where N is a constant defined by the network. On mainnet current setting for N is 600 which amounts to approximately 10 minutes for expiry (please note this is subject to change).
+A reference to a recent block used for expiry. A transaction is considered expired if it is submitted to Flow after reference block height + N, where N is a constant defined by the network. On mainnet current setting for N is 600 which amounts to approximately 10 minutes for expiry (this is subject to change).
 
 caution
 
-It is recommended to use the latest finalized block as the reference block, as it is the most recent block guaranteed to be included by the network. Using the latest sealed block is not recommended, as sealing occurs after finalization and could cause the transaction to fall outside of the expiration window.
+We recommend that you use the latest finalized block as the reference block, as it is the most recent block guaranteed to be included by the network. We don't recommend that you use the latest sealed block, as sealing occurs after finalization and could cause the transaction to fall outside of the expiration window.
 
-### Gas Limit[​](#gas-limit "Direct link to Gas Limit")
+### Gas limit[​](#gas-limit "Direct link to Gas limit")
 
-When a transaction is executed each operation consumes a predefined amount of computational units (we define more about that in the Fees documentation). This defines the maximum amount of computation that is allowed to be done during this transaction. If a transaction completes execution using fewer computational units than the limit, it remains unaffected. However, if it hits this limit during execution, the transaction will fail, its changes will be reverted, but fees will still be applied. The maximum computational limit for Flow mainnet is currently at 9999, but this might change. The maximum network limit is defined to protect the network from transactions that would run forever.
+When a transaction is executed each operation consumes a predefined amount of computational units (we define more about that in the Fees documentation). This defines the maximum amount of computation that is allowed to be done during this transaction. If a transaction completes execution with fewer computational units than the limit, it remains unaffected. However, if it hits this limit during execution, the transaction will fail, its changes will be reverted, but fees will still be applied. The maximum computational limit for Flow mainnet is currently at 9999, but this might change. The maximum network limit is defined to protect the network from transactions that would run forever.
 
-### Proposal Key[​](#proposal-key "Direct link to Proposal Key")
+### Proposal key[​](#proposal-key "Direct link to Proposal key")
 
 Each transaction must declare a proposal key, which can be an account key from any Flow account (App, User or Wallet). The account that owns the proposal key is referred to as the *proposer*.
 
-Proposer is a role in a transaction that defines who is proposing the transaction, the effect of the transaction being submitted on the proposer is that it will increment the sequence number for the provided proposer key. This is done to ensure transactions are not resubmitted (replay attack) and thus sequencing actions.
+Proposer is a role in a transaction that defines who proposes the transaction, the effect of the transaction being submitted on the proposer is that it will increment the sequence number for the provided proposer key. This is done to ensure transactions are not resubmitted (replay attack) and thus sequence actions.
 
 A proposal key definition declares the address, key ID, and up-to-date sequence number for the account key. A single proposer can have many transactions executed in parallel only limited by the key they use to propose the transaction.
 
@@ -137122,11 +137110,11 @@ A proposal key definition declares the address, key ID, and up-to-date sequence 
 
 * Address identifies the account that will act as a proposer of this transaction.
 * Key ID is an index number (starting at 0) that identifies the key on the account provided in the address.
-* Sequence Number is a number on each key that increments by 1 with each transaction. This ensures that each transaction executes at most once and prevents many unwanted situations, such as [transaction replay attacks](https://en.wikipedia.org/wiki/Replay_attack). Each key in an account has a dedicated sequence number associated with it. Unlike Ethereum, there is no sequence number for the entire account.
+* Sequence Number is a number on each key that increments by one with each transaction. This ensures that each transaction executes at most once and prevents many unwanted situations, such as [transaction replay attacks](https://en.wikipedia.org/wiki/Replay_attack). Each key in an account has a dedicated sequence number associated with it. Unlike Ethereum, there is no sequence number for the entire account.
 
 ### Authorizers[​](#authorizers "Direct link to Authorizers")
 
-Authorizers are accounts that authorize a transaction to read and mutate their state. A transaction can specify zero or more authorizers, depending on how many accounts the transaction needs to access.
+Authorizers are accounts that authorize a transaction to read and mutate their state. A transaction can specify zero or more authorizers, and this depends on how many accounts the transaction needs to access.
 
 The number of authorizers on the transaction must match the number of &Account parameters declared in the prepare statement of the Cadence script.
 
@@ -137144,31 +137132,23 @@ _10
 
 }`
 
-Each account defined as an authorizer must sign the transaction with its own key,
-and by doing so it acknowledges the transaction it signed
-will have access to that account and may modify it.
-How it will modify it is understood from the list of account entitlements
-that are granted in the `prepare` argument list and by reading the transaction script.
-In an transaction, developers should only give the minimum set of account entitlements
-that are required for the transaction to execute properly.
-This ensures that users who are signing transactions can understand
-what parts of their account a transaction can access.
+Each account defined as an authorizer must sign the transaction with its own key, and when it does so, it acknowledges the transaction it signed will have access to that account and may modify it. How it will modify it is understood from the list of account entitlements that are granted in the `prepare` argument list and when it reads the transaction script. In an transaction, developers should only give the minimum set of account entitlements that are required for the transaction to execute properly. This ensures that users who sign transactions can understand what parts of their account a transaction can access.
 
 ### Payer[​](#payer "Direct link to Payer")
 
-A payer is the account that pays the fees for the transaction. A transaction must specify exactly one payer. The payer is only responsible for paying the network and compute unit fees; the transaction is not authorized to access resources or code stored in the payer account.
+A payer is the account that pays the fees for the transaction. A transaction must specify exactly one payer. The payer only has to pay the network and compute unit fees; the transaction is not authorized to access resources or code stored in the payer account.
 
-By explicitly specifying a payer a transaction can be paid by third-party services such as wallet providers.
+When you explicitly specify a payer, third-party services such as wallet providers can pay a transaction.
 
-## Transaction Lifecycle[​](#transaction-lifecycle "Direct link to Transaction Lifecycle")
+## Transaction lifecycle[​](#transaction-lifecycle "Direct link to Transaction lifecycle")
 
-Once a transaction has been submitted to the Flow network using the Access node APIs, it will begin its lifecycle and eventually reach a finality. Each submitted transaction can be identified with an ID.
+After a transaction has been submitted to the Flow network with the Access node APIs, it will begin its lifecycle and eventually reach a finality. Each submitted transaction can be identified with an ID.
 
 **Transaction ID**
 
 A transaction ID is a hash of the encoded transaction payload and can be calculated at any time. We don't submit transaction ID as part of the transaction payload as it can be derived from the data and thus would mean duplication of data.
 
-### Transaction Status[​](#transaction-status "Direct link to Transaction Status")
+### Transaction status[​](#transaction-status "Direct link to Transaction status")
 
 The transaction status represents the state of a transaction on the Flow blockchain. Some statuses are mutable and some are immutable, they usually follow a timeline like so:
 
@@ -137185,9 +137165,9 @@ danger
 
 It is **important to differentiate the transaction status and transaction result**. Transaction status will only provide you with information about the inclusion of the transaction in the blockchain, not whether the transaction was executed the way you intended. **A transaction can still fail to execute the way you intended and be sealed.**
 
-### Transaction Result[​](#transaction-result "Direct link to Transaction Result")
+### Transaction result[​](#transaction-result "Direct link to Transaction result")
 
-Once a transaction is executed, its result will be available, providing details on its success or any errors encountered during execution. It also includes events the transaction may have emitted.
+After a transaction is executed, its result will be available, which provides details on its success or any errors encountered during execution. It also includes events the transaction may have emitted.
 
 ![Screenshot 2023-08-17 at 16.29.30.png](/assets/images/Screenshot_2023-08-17_at_16.29.30-36be73beac741fe649c3bd9aaea2b7d0.png)
 
@@ -137198,20 +137178,20 @@ From a developer perspective, a transaction is only successful if:
 * It is sealed
 * It didn't encounter errors
 
-## Transaction Time[​](#transaction-time "Direct link to Transaction Time")
+## Transaction time[​](#transaction-time "Direct link to Transaction time")
 
-Understanding how transaction times work across different blockchains is crucial for developers and users to optimize their operations and expectations. Flow's multi-node architecture allows for some of the fastest transaction times and finality times across chains. Read on for more detail on how it works and what it means for developers and users.
+It's crucial that developers and users understand how transaction times work across different blockchains to optimize their operations and expectations. Flow's multi-node architecture allows for some of the fastest transaction times and finality times across chains. Read on for more detail on how it works and what it means for developers and users.
 
-### Two Key Transaction Questions[​](#two-key-transaction-questions "Direct link to Two Key Transaction Questions")
+### Two key transaction questions[​](#two-key-transaction-questions "Direct link to Two key transaction questions")
 
 Whenever a transaction is processed, two primary questions come to mind:
 
 1. **Inclusion**: Will this transaction be included in the final chain?
 2. **Result**: What is the outcome of the transaction?
 
-Different blockchains tackle these questions in varied sequences. For instance, Bitcoin and Ethereum provide answers simultaneously. Layer 2 solutions (L2s) can sometimes address the outcome before confirming inclusion. But there's a catch: you can have an answer to those questions that might be wrong. Flow, on the other hand, prioritizes the inclusion question.
+Different blockchains tackle these questions in varied sequences. For instance, Bitcoin and Ethereum provide answers simultaneously. Layer 2 solutions (L2s) can sometimes address the outcome before it confirms inclusion. But, there's a catch: you can have an answer to those questions that might be wrong. Flow, on the other hand, prioritizes the inclusion question.
 
-### Transaction Finality[​](#transaction-finality "Direct link to Transaction Finality")
+### Transaction finality[​](#transaction-finality "Direct link to Transaction finality")
 
 Drawing a parallel to traditional finance, a vendor might instantly know if Visa approves a transaction, but the possibility of chargebacks lingers for weeks. This uncertainty introduces the concept of "finality" in blockchain transactions.
 
@@ -137219,11 +137199,11 @@ In the dominant Proof-of-Stake (PoS) environment, which includes most chains exc
 
 * **Preliminary result**: It's an initial answer to the aforementioned questions. The preliminary result doesn't ensure correctness, and there are no economic penalties (like "slashing") if the informant provides false information.
 * **Soft economic finality**: This stage provides an answer backed by cryptographic proof. If the informant is deceptive, they face economic repercussions or "slashing."
-* **Hard economic finality**: The provided answer either holds true, or the entire blockchain requires a restart. The latter case sees at least one-third of the nodes facing economic penalties.
+* **Hard economic finality**: The provided answer either holds true, or the entire blockchain requires a restart. The latter case sees at least one-third of the nodes face economic penalties.
 
 ![finality.png](/assets/images/finality-1a08778abfbc252b38337a87bc2faf2a.png)
 
-### Chain Comparisons[​](#chain-comparisons "Direct link to Chain Comparisons")
+### Chain comparisons[​](#chain-comparisons "Direct link to Chain comparisons")
 
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -137231,11 +137211,11 @@ In the dominant Proof-of-Stake (PoS) environment, which includes most chains exc
 
 #### Flow[​](#flow "Direct link to Flow")
 
-Flow bypasses preliminary results entirely. It reaches soft finality ("Executed") in about 4 seconds and hard finality ("Sealed") in around 10 seconds. If an Access Node on Flow states a transaction has occurred, it's either correct or cryptographic proof exists that can lead to the node's slashing.
+Flow bypasses preliminary results entirely. It reaches soft finality ("Executed") in about four seconds and hard finality ("Sealed") in around 10 seconds. If an Access Node on Flow states a transaction has occurred, it's either correct or cryptographic proof exists that can lead to the node's slashing.
 
 ![transaction-time.png](/assets/images/chain-comparison-ec137713225ffe02ea3dee3c15ba75c8.png)
 
-## Signing a Transaction[​](#signing-a-transaction "Direct link to Signing a Transaction")
+## Sign a transaction[​](#sign-a-transaction "Direct link to Sign a transaction")
 
 Due to the existence of **weighted keys** and **split signing roles**, Flow transactions sometimes need to be signed multiple times by one or more parties. That is, multiple unique signatures may be needed to authorize a single transaction.
 
@@ -137246,8 +137226,8 @@ A transaction can contain two types of signatures: **payload signatures** and **
 ### Signer Roles[​](#signer-roles "Direct link to Signer Roles")
 
 * **Proposer**: the account that specifies a proposal key.
-* **Payer**: the account paying for the transaction fees.
-* **Authorizers**: zero or more accounts authorizing the transaction to mutate their state.
+* **Payer**: the account that pays for the transaction fees.
+* **Authorizers**: zero or more accounts that authorize the transaction to mutate their state.
 
 ### Payload[​](#payload "Direct link to Payload")
 
@@ -137257,7 +137237,7 @@ warning
 
 ⚠️ The transaction proposer and authorizer are only required to sign the transaction payload. These signatures are the payload signatures.
 
-### Authorization Envelope[​](#authorization-envelope "Direct link to Authorization Envelope")
+### Authorization envelope[​](#authorization-envelope "Direct link to Authorization envelope")
 
 The transaction authorization envelope contains both the transaction payload and the payload signatures.
 
@@ -137267,7 +137247,7 @@ danger
 
 Special case: if an account is both the payer and either a proposer or authorizer, it is required only to sign the envelope.
 
-### Payment Envelope[​](#payment-envelope "Direct link to Payment Envelope")
+### Payment envelope[​](#payment-envelope "Direct link to Payment envelope")
 
 The outermost portion of the transaction, which contains the payload and envelope signatures, is referred to as the payment envelope.
 
@@ -137275,7 +137255,7 @@ danger
 
 Special case: if an account is both the payer and either a proposer or authorizer, it is required only to sign the envelope.
 
-### Payer Signs Last[​](#payer-signs-last "Direct link to Payer Signs Last")
+### Payer signs last[​](#payer-signs-last "Direct link to Payer signs last")
 
 The payer must sign the portion of the transaction that contains the payload signatures, which means that the payer must always sign last. This ensures the payer that they are signing a valid transaction with all of the required payload signatures.
 
@@ -137283,9 +137263,9 @@ danger
 
 Special case: if an account is both the payer and either a proposer or authorizer, it is required only to sign the envelope.
 
-### Signature Structure[​](#signature-structure "Direct link to Signature Structure")
+### Signature structure[​](#signature-structure "Direct link to Signature structure")
 
-A transaction signature is a composite structure containing three fields:
+A transaction signature is a composite structure that contains three fields:
 
 * Address
 * Key ID
@@ -137293,7 +137273,7 @@ A transaction signature is a composite structure containing three fields:
 
 The *address* and *key ID* fields declare the account key that generated the signature, which is required in order to verify the signature against the correct public key.
 
-### Sequence Numbers[​](#sequence-numbers "Direct link to Sequence Numbers")
+### Sequence numbers[​](#sequence-numbers "Direct link to Sequence numbers")
 
 Flow uses sequence numbers to ensure that each transaction executes at most once. This prevents many unwanted situations such as [transaction replay attacks](https://en.wikipedia.org/wiki/Replay_attack).
 
@@ -137306,11 +137286,11 @@ tip
 
 The transaction proposer is only required to specify a sequence number for a single account key, even if it signs with multiple keys. This key is referred to as the proposal key.
 
-Each time an account key is used as a proposal key, its sequence number is incremented by 1. The sequence number is updated after execution, even if the transaction fails (reverts) during execution.
+Each time an account key is used as a proposal key, its sequence number is incremented by one. The sequence number is updated after execution, even if the transaction fails (reverts) during execution.
 
 A transaction is failed if its proposal key does not specify a sequence number equal to the sequence number stored on the account *at execution time.*
 
-## Common Signing Scenarios[​](#common-signing-scenarios "Direct link to Common Signing Scenarios")
+## Common signing scenarios[​](#common-signing-scenarios "Direct link to Common signing scenarios")
 
 Below are several scenarios in which different signature combinations are required to authorize a transaction.
 
@@ -137760,9 +137740,9 @@ _35
 
 }`
 
-## Transaction Submission and Retrieval[​](#transaction-submission-and-retrieval "Direct link to Transaction Submission and Retrieval")
+## Transaction submission and retrieval[​](#transaction-submission-and-retrieval "Direct link to Transaction submission and retrieval")
 
-You can use the Flow CLI to get an existing transaction by ID:
+You can use the Flow CLI to get a current transaction by ID:
 
 `_10
 
@@ -137770,7 +137750,7 @@ flow transactions get 1ec90051e3bc74fc36cbd16fc83df08e463dda8f92e8e2193e061f9d41
 
 Find [more about the command in the CLI docs](/build/tools/flow-cli/get-flow-data/get-blocks).
 
-A user can define their own transactions or it can use already defined transactions by the contract authors that can be found by using the FLIX service.
+A user can define their own transactions or it can use already defined transactions by the contract authors that can be found by with the FLIX service.
 
 Transactions can be submitted and obtained from the access node APIs, currently, there are two gRPC and REST APIs. You can find more information about them here:
 
@@ -137778,7 +137758,7 @@ Transactions can be submitted and obtained from the access node APIs, currently,
 
 [**REST Transaction API**](/http-api#tag/Transactions)
 
-There are multiple SDKs implementing the above APIs for different languages:
+There are multiple SDKs that the above APIs for different languages:
 
 [**Javascript SDK**](/build/tools/clients/fcl-js)
 
@@ -137788,7 +137768,7 @@ Find a list of all SDKs [here](/build/tools/clients)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/basics/transactions.md)
 
-Last updated on **Nov 12, 2025** by **Brian Doyle**
+Last updated on **Dec 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -137802,11 +137782,11 @@ Scripts](/build/cadence/basics/scripts)
 
 Copy as Markdown
 
-* [Script](#script)* [Arguments](#arguments)* [Reference Block](#reference-block)* [Gas Limit](#gas-limit)* [Proposal Key](#proposal-key)* [Authorizers](#authorizers)* [Payer](#payer)* [Transaction Lifecycle](#transaction-lifecycle)
-                + [Transaction Status](#transaction-status)+ [Transaction Result](#transaction-result)* [Transaction Time](#transaction-time)
-                  + [Two Key Transaction Questions](#two-key-transaction-questions)+ [Transaction Finality](#transaction-finality)+ [Chain Comparisons](#chain-comparisons)* [Signing a Transaction](#signing-a-transaction)
-                    + [Signer Roles](#signer-roles)+ [Payload](#payload)+ [Authorization Envelope](#authorization-envelope)+ [Payment Envelope](#payment-envelope)+ [Payer Signs Last](#payer-signs-last)+ [Signature Structure](#signature-structure)+ [Sequence Numbers](#sequence-numbers)* [Common Signing Scenarios](#common-signing-scenarios)
-                      + [Single party, single signature](#single-party-single-signature)+ [Single party, multiple signatures](#single-party-multiple-signatures)+ [Multiple parties](#multiple-parties)+ [Multiple parties, multiple signatures](#multiple-parties-multiple-signatures)* [Transaction Submission and Retrieval](#transaction-submission-and-retrieval)
+* [Script](#script)* [Arguments](#arguments)* [Reference block](#reference-block)* [Gas limit](#gas-limit)* [Proposal key](#proposal-key)* [Authorizers](#authorizers)* [Payer](#payer)* [Transaction lifecycle](#transaction-lifecycle)
+                + [Transaction status](#transaction-status)+ [Transaction result](#transaction-result)* [Transaction time](#transaction-time)
+                  + [Two key transaction questions](#two-key-transaction-questions)+ [Transaction finality](#transaction-finality)+ [Chain comparisons](#chain-comparisons)* [Sign a transaction](#sign-a-transaction)
+                    + [Signer Roles](#signer-roles)+ [Payload](#payload)+ [Authorization envelope](#authorization-envelope)+ [Payment envelope](#payment-envelope)+ [Payer signs last](#payer-signs-last)+ [Signature structure](#signature-structure)+ [Sequence numbers](#sequence-numbers)* [Common signing scenarios](#common-signing-scenarios)
+                      + [Single party, single signature](#single-party-single-signature)+ [Single party, multiple signatures](#single-party-multiple-signatures)+ [Multiple parties](#multiple-parties)+ [Multiple parties, multiple signatures](#multiple-parties-multiple-signatures)* [Transaction submission and retrieval](#transaction-submission-and-retrieval)
 
 Flow
 
@@ -149586,8 +149566,6 @@ On this page
 
 # Flow Fees Contract
 
-## FlowFees[​](#flowfees "Direct link to FlowFees")
-
 The `FlowFees` contract is where all the collected flow fees are gathered.
 
 Source: [FlowFees.cdc](https://github.com/onflow/flow-core-contracts/blob/master/contracts/FlowFees.cdc)
@@ -149672,7 +149650,7 @@ access(all) event MinimumStorageReservationChanged(_ minimumStorageReservation: 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/core-contracts/05-flow-fees.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 3, 2025** by **cshannon1218**
 
 [Previous
 
@@ -149686,8 +149664,7 @@ Staking Table](/build/cadence/core-contracts/staking-contract-reference)
 
 Copy as Markdown
 
-* [FlowFees](#flowfees)
-  + [Events](#events)* [FlowStorageFees](#flowstoragefees)
+* [Events](#events)* [FlowStorageFees](#flowstoragefees)
     + [Events](#events-1)
 
 Flow
@@ -179475,34 +179452,34 @@ Flow [Cadence](https://cadence-lang.org/) is designed with many improvements ove
 
 tip
 
-Remember, Flow also supports full [EVM](/build/evm/quickstart) equivalence! You can start by moving over your existing contracts, then start building new features that take advantage of the power of Cadence.
+Remember, Flow also supports full [EVM](/build/evm/quickstart) equivalence! To start, you can move over your current contracts, then start to build new features that take advantage of the power of Cadence.
 
-## The Flow Cadence Account Model[​](#the-flow-cadence-account-model "Direct link to The Flow Cadence Account Model")
+## The Flow Cadence account model[​](#the-flow-cadence-account-model "Direct link to The Flow Cadence account model")
 
-Key pairs establish ownership on blockchains. In other blockchains (e.g. Bitcoin and Ethereum), the user's address is also calculated based on their public key, making a unique one-to-one relationship between accounts (addresses) and public keys. This also means there is no concrete "account creation" process other than generating a valid key pair.
+Key pairs establish ownership on blockchains. In other blockchains (such as Bitcoin and Ethereum), the user's address is also calculated based on their public key, which establishes a unique one-to-one relationship between accounts (addresses) and public keys. This also means there is no concrete "account creation" process other than to generate a valid key pair.
 
-With the advent of smart contracts, Ethereum introduced a new account type for deploying contracts that can use storage space (i.e., to store contract bytecode). You can learn more about the distinction between EOA and Contract [accounts on Ethereum](https://ethereum.org/en/developers/docs/accounts).
+With the advent of smart contracts, Ethereum introduced a new account type to deploy contracts that can use storage space (for example, to store contract bytecode). You can learn more about the distinction between EOA and Contract [accounts on Ethereum](https://ethereum.org/en/developers/docs/accounts).
 
-The [Flow account model](/build/cadence/basics/accounts) combines the concepts of EOAs and Contract Accounts into a single account model and decouples accounts and public keys. Flow accounts are associated with one or more public keys of varying weights that specify interested parties that need to produce valid cryptographic signatures for each transaction authorized by that account.
+The [Flow account model](/build/cadence/basics/accounts) combines the concepts of EOAs and Contract Accounts into a single account model and decouples accounts and public keys. Flow accounts are associated with one or more public keys of various weights that specify interested parties that need to produce valid cryptographic signatures for each transaction authorized by that account.
 
 ![Screenshot 2023-08-16 at 16.43.07.png](/assets/images/Screenshot_2023-08-16_at_16.43.07-07d19a771bde1467e9b81a71112250c0.png)
 
-This natively enables interesting use cases, like key revocation, rotation, and multi-signature transactions. All Flow accounts can use network storage (e.g., for deploying contracts and storing resources like NFTs) based on the number of FLOW tokens they hold.
+This natively allows interesting use cases, like key revocation, rotation, and multi-signature transactions. All Flow accounts can use network storage (for example, to deploy contracts and store resources like NFTs) based on the number of FLOW tokens they hold.
 
 warning
 
-You must run an explicit account creation transaction on Flow to create a new account. [Flow CLI](/build/tools/flow-cli/accounts/create-accounts) can create an account on any network with a given public key. Doing so requires a [very small fee](/build/cadence/basics/fees#fee-structure) to be paid in FLOW.
+You must run an explicit account creation transaction on Flow to create a new account. [Flow CLI](/build/tools/flow-cli/accounts/create-accounts) can create an account on any network with a given public key. This requires a [very small fee](/build/cadence/basics/fees#fee-structure) to be paid in FLOW.
 
 Another key difference is that [storage](/build/cadence/basics/accounts#storage) for data and assets related to an account are stored in the account, **not** in the contract as with the EVM.
 
 Check out the [Accounts](/build/cadence/basics/accounts) concept document to learn more about Flow accounts.
 
-## Smart Contracts[​](#smart-contracts "Direct link to Smart Contracts")
+## Smart contracts[​](#smart-contracts "Direct link to Smart contracts")
 
 On Flow, smart contracts can be written in [Cadence](https://cadence-lang.org/), or Solidity. Cadence syntax is user-friendly and inspired by modern languages like Swift. Notable features of Cadence that make it unique and the key power of the Flow blockchain are:
 
 * **Resource-oriented**: Cadence introduces a new type called Resources. Resources enable onchain representation of digital assets natively and securely. Resources can only exist in one location at a time and are strictly controlled by the execution environment to avoid common mishandling mistakes. Each resource has a unique `uuid` associated with it on the blockchain. Examples of usage are fungible tokens, NFTs, or any custom data structure representing a real-world asset. Check out [Resources](https://cadence-lang.org/docs/language/resources) to learn more.
-* **Capability-based**: Cadence offers a [Capability-based Security](https://en.wikipedia.org/wiki/Capability-based_security) model. This also enables the use of Resources as structures to build access control. Capabilities and [Entitlements](https://cadence-lang.org/docs/language/access-control#entitlements) can provide fine-grained access to the underlying objects for better security. For example, when users list an NFT on a Flow marketplace, they create a new Capability to the stored NFT in their account so the buyer can withdraw the asset when they provide the tokens. Check out [Capability-based Access Control](https://cadence-lang.org/docs/language/capabilities) to learn more about Capabilities on Cadence.
+* **Capability-based**: Cadence offers a [Capability-based Security](https://en.wikipedia.org/wiki/Capability-based_security) model. This also allows the use of Resources as structures to build access control. Capabilities and [Entitlements](https://cadence-lang.org/docs/language/access-control#entitlements) can provide fine-grained access to the underlying objects for better security. For example, when users list an NFT on a Flow marketplace, they create a new Capability to the stored NFT in their account so the buyer can withdraw the asset when they provide the tokens. Check out [Capability-based Access Control](https://cadence-lang.org/docs/language/capabilities) to learn more about Capabilities on Cadence.
 
 warning
 
@@ -179516,18 +179493,18 @@ Here are some additional resources that can help you get started with Cadence:
 
 * [The Cadence tutorial](https://cadence-lang.org/docs/tutorial/first-steps)
 * ERC-20 equivalent on Flow is the Flow Fungible Token Standard
-  + [Repository](https://github.com/onflow/flow-ft)
-  + [Tutorial](https://cadence-lang.org/docs/tutorial/fungible-tokens)
+  + [Flow FT Repository](https://github.com/onflow/flow-ft)
+  + [FT Tutorial](https://cadence-lang.org/docs/tutorial/fungible-tokens)
 * ERC-721 equivalent on Flow is the Flow Non-Fungible Token Standard
-  + [Repository](https://github.com/onflow/flow-nft)
-  + [Tutorial](https://cadence-lang.org/docs/tutorial/non-fungible-tokens-1)
+  + [Flow NFT Repository](https://github.com/onflow/flow-nft)
+  + [NFT Tutorial](https://cadence-lang.org/docs/tutorial/non-fungible-tokens-1)
 * Asset marketplaces with Cadence
-  + [Tutorial](https://cadence-lang.org/docs/tutorial/marketplace-setup)
+  + [Marketplace Setup Tutorial](https://cadence-lang.org/docs/tutorial/marketplace-setup)
   + [NFT Storefront](https://github.com/onflow/nft-storefront/) is an example marketplace standard
 
-## Transactions and Scripts[​](#transactions-and-scripts "Direct link to Transactions and Scripts")
+## Transactions and scripts[​](#transactions-and-scripts "Direct link to Transactions and scripts")
 
-You can interact with the state on most other blockchains by cryptographically authorizing smart contract function calls. On Flow, transactions offer rich functionality through Cadence code. This allows you to seamlessly combine multiple contracts and function calls into a single transaction that updates the blockchain state - all executing together as one unified operation.
+To interact with the state on most other blockchains, you can cryptographically authorize smart contract function calls. On Flow, transactions offer rich functionality through Cadence code. This allows you to seamlessly combine multiple contracts and function calls into a single transaction that updates the blockchain state - which all execute together as one unified operation.
 
 Here is a sample transaction that mints an NFT from `ExampleNFT` contract on Testnet:
 
@@ -179695,17 +179672,17 @@ _47
 
 }`
 
-### Authorizing Transactions[​](#authorizing-transactions "Direct link to Authorizing Transactions")
+### Authorize transactions[​](#authorize-transactions "Direct link to Authorize transactions")
 
 The process to authorize a transaction on Flow Cadence is more complex, but also much more powerful than an EVM transaction:
 
-* [Accounts](/build/cadence/basics/accounts) can have multiple keys with varying weights
-* Multiple accounts can sign a single transaction (`prepare` takes any number of arguments)
+* [Accounts](/build/cadence/basics/accounts) can have multiple keys with different weights.
+* Multiple accounts can sign a single transaction (`prepare` takes any number of arguments).
 * Transaction computation fees can be paid by a different account, called the `Payer` account.
 * The [transaction nonce](https://ethereum.org/en/developers/docs/accounts/#an-account-examined) is provided by the `Proposer` account. This enables rate control and order to be dictated by a different party if needed.
 * All of the above roles can be the same account.
 
-The same powerful concept also exists for querying the blockchain state using Scripts. Here is a sample script that fetches the `ExampleNFT` IDs owned by a given account on Testnet:
+The same powerful concept also exists to query the blockchain state with Scripts. Here is a sample script that fetches the `ExampleNFT` IDs owned by a given account on Testnet:
 
 `_21
 
@@ -179781,36 +179758,55 @@ _21
 
 Check out [Transactions](/build/cadence/basics/transactions) and [Scripts](/build/cadence/basics/scripts) to learn more about the concepts. You can also read the Cadence language reference on [Transactions](/build/cadence/basics/transactions) to dive deeper.
 
-## Flow Nodes[​](#flow-nodes "Direct link to Flow Nodes")
+## Flow nodes[​](#flow-nodes "Direct link to Flow nodes")
 
 Developers need a blockchain node to send transactions and fetch state. Flow is based on a multi-node architecture that separates tasks like consensus and computation into separate nodes. You can learn more about the Flow architecture in the [Flow Primer](https://flow.com/primer#primer-how-flow-works).
 
 Access Nodes are the node type that are most useful for developers, as they provide access to the Flow network [via an API](/protocol/flow-networks).
 
-## SDKs and Tools[​](#sdks-and-tools "Direct link to SDKs and Tools")
+## SDKs and tools[​](#sdks-and-tools "Direct link to SDKs and tools")
 
 If you're already familiar with blockchain development, here's a comparison between popular software packages and Flow's tooling:
 
-* [Hardhat](https://hardhat.org/) / [Truffle](https://trufflesuite.com/) / [Foundry](https://getfoundry.sh/)
-  + [Flow CLI](https://github.com/onflow/flow-cli/) provides local development tools and the [Flow Emulator](https://github.com/onflow/flow-emulator)
-* [OpenZeppelin](https://www.openzeppelin.com/)
-  + [Emerald OZ](https://oz.ecdao.org/overview)
-* [go-ethereum](https://geth.ethereum.org/)
-  + [Flow Go SDK](https://github.com/onflow/flow-go-sdk/)
-  + [FCL](https://github.com/onflow/fcl-js/) also provides Backend API for Flow in JS
-* [web3.js](https://github.com/web3/web3.js)
-  + [FCL](https://github.com/onflow/fcl-js/)
-  + [flow-cadut](https://github.com/onflow/flow-cadut) provides more utilities for using Flow on Web
-* [Remix](https://remix.ethereum.org/)
-  + [Flow Playground](https://play.flow.com/) provides basic experimentation on the web
-  + [Cadence VSCode Extension](https://marketplace.visualstudio.com/items?itemName=onflow.cadence) is strongly suggested to install for local development
-* [Testing Smart Contracts](https://ethereum.org/en/developers/docs/smart-contracts/testing/)
-  + [Cadence testing framework](https://cadence-lang.org/docs/testing-framework) enables native tests in Cadence.
-  + [overflow](https://github.com/bjartek/overflow) for testing in Go.
+* [Hardhat] / [Truffle] / [Foundry]
+  + [Flow CLI](/build/tools/flow-cli/accounts/create-accounts) provides local development tools and the [Flow Emulator].
+* [OpenZeppelin]
+  + [Emerald OZ]
+* [go-ethereum]
+  + [Flow Go SDK]
+  + [FCL] also provides Backend API for Flow in JS.
+* [web3.js]
+  + [FCL]
+  + [flow-cadut] provides more utilities to use Flow on Web.
+* [Remix]
+  + [Flow Playground] provides basic experimentation on the web
+  + [Cadence VSCode Extension] is strongly suggested to install for local development.
+* [Testing Smart Contracts]
+  + [Cadence testing framework] allows native tests in Cadence.
+  + [overflow] for testing in Go.
+
+[Hardhat]: <https://hardhat.org/>)
+[Truffle]: <https://trufflesuite.com/>)
+[Foundry]: <https://getfoundry.sh/>)
+[Flow CLI](/build/tools/flow-cli/accounts/create-accounts): <https://github.com/onflow/flow-cli/>)
+[Flow Emulator]: <https://github.com/onflow/flow-emulator>)
+[OpenZeppelin]: <https://www.openzeppelin.com/>)
+[Emerald OZ]: <https://oz.ecdao.org/overview>)
+[go-ethereum]: <https://geth.ethereum.org/>)
+[Flow Go SDK]: <https://github.com/onflow/flow-go-sdk/>)
+[FCL]: <https://github.com/onflow/fcl-js/>)
+[web3.js]: <https://github.com/web3/web3.js>)
+[flow-cadut]: <https://github.com/onflow/flow-cadut>)
+[Remix]: <https://remix.ethereum.org/>)
+[Flow Playground]: <https://play.flow.com/>)
+[Cadence VSCode Extension]: <https://marketplace.visualstudio.com/items?itemName=onflow.cadence>)
+[Testing Smart Contracts]: <https://ethereum.org/en/developers/docs/smart-contracts/testing/>)
+[Cadence testing framework]: <https://cadence-lang.org/docs/testing-framework>)
+[overflow]: <https://github.com/bjartek/overflow>)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/differences-vs-evm/index.md)
 
-Last updated on **Sep 3, 2025** by **Brian Doyle**
+Last updated on **Dec 3, 2025** by **cshannon1218**
 
 [Previous
 
@@ -179824,8 +179820,8 @@ Network Architecture ↗️](/build/cadence/basics/network-architecture)
 
 Copy as Markdown
 
-* [The Flow Cadence Account Model](#the-flow-cadence-account-model)* [Smart Contracts](#smart-contracts)* [Transactions and Scripts](#transactions-and-scripts)
-      + [Authorizing Transactions](#authorizing-transactions)* [Flow Nodes](#flow-nodes)* [SDKs and Tools](#sdks-and-tools)
+* [The Flow Cadence account model](#the-flow-cadence-account-model)* [Smart contracts](#smart-contracts)* [Transactions and scripts](#transactions-and-scripts)
+      + [Authorize transactions](#authorize-transactions)* [Flow nodes](#flow-nodes)* [SDKs and tools](#sdks-and-tools)
 
 Flow
 
@@ -215224,8 +215220,7 @@ Search
 
 # NFT Metadata Contract
 
-The `ViewResolver` and `MetadataViews` contracts implement a standard to attach onchain metadata
-to NFTs. This standard was originally proposed in [FLIP-0636](https://github.com/onflow/flips/blob/main/application/20210916-nft-metadata.md).
+The `ViewResolver` and `MetadataViews` contracts implement a standard to attach onchain metadata to NFTs. This standard was originally proposed in [FLIP-0636](https://github.com/onflow/flips/blob/main/application/20210916-nft-metadata.md).
 
 It is deployed at the same address as the `NonFungibleToken` contract interface.
 
@@ -215237,7 +215232,7 @@ Source: [MetadataViews.cdc](https://github.com/onflow/flow-nft/blob/master/contr
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Network Contract Address|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | Emulator `0xf8d6e0586b0a20c7`| Cadence Testing Framework `0x0000000000000001`| Testnet `0x631e88ae7f1d7c20`| Mainnet `0x1d7e57aa55817448` | | | | | | | | | |
 
-There exists a tool, [Flow NFT Catalog](https://flow-nft-catalog.com), which enables dapp developers the ability to unlock interoperability of your NFT collection across the Flow ecosystem. This will help make your NFT collection's metadata more discoverable and interoperable.
+There exists a tool, [Flow NFT Catalog](https://flow-nft-catalog.com), which allows dapp developers to unlock interoperability of your NFT collection across the Flow ecosystem. This will help make your NFT collection's metadata more discoverable and interoperable.
 
 To optimize your NFT collections for this catalog, you'll need to:
 
@@ -215247,7 +215242,7 @@ To optimize your NFT collections for this catalog, you'll need to:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/core-contracts/09-nft-metadata.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Dec 3, 2025** by **cshannon1218**
 
 [Previous
 
@@ -216689,8 +216684,6 @@ On this page
 
 # Flow Staking Contract Reference
 
-## Contract[​](#contract "Direct link to Contract")
-
 The `FlowIDTableStaking` contract is the central table that manages staked nodes, delegation and rewards.
 
 Source: [FlowIDTableStaking.cdc](https://github.com/onflow/flow-core-contracts/blob/master/contracts/FlowIDTableStaking.cdc)
@@ -216699,13 +216692,11 @@ Source: [FlowIDTableStaking.cdc](https://github.com/onflow/flow-core-contracts/b
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Network Contract Address|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | Emulator `0xf8d6e0586b0a20c7`| Cadence Testing Framework `0x0000000000000001`| Testnet `0x9eca2b38b18b5dfe`| Mainnet `0x8624b52f9ddcd04a` | | | | | | | | | |
 
-## Transactions and Scripts[​](#transactions-and-scripts "Direct link to Transactions and Scripts")
+## Transactions and scripts[​](#transactions-and-scripts "Direct link to Transactions and scripts")
 
-Transactions for the staking contract are in the `flow-core-contracts` repo.
-Developers and users are advised to use [the staking collection transactions](/protocol/staking/staking-collection)
-to stake tokens instead of the basic transactions that are used for tests.
+Transactions for the staking contract are in the `flow-core-contracts` repo. Developers and users are advised to use [the staking collection transactions](/protocol/staking/staking-collection) to stake tokens instead of the basic transactions that are used for tests.
 
-### Getting Staking Info with Scripts[​](#getting-staking-info-with-scripts "Direct link to Getting Staking Info with Scripts")
+### Getting staking info with scripts[​](#getting-staking-info-with-scripts "Direct link to Getting staking info with scripts")
 
 These scripts are read-only and get info about the current state of the staking contract.
 
@@ -216713,15 +216704,15 @@ These scripts are read-only and get info about the current state of the staking 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ID Name Source|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **`SC.01`** Get Delegation Cut Percentage [idTableStaking/get\_cut\_percentage.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_cut_percentage.cdc)| **`SC.02`** Get Minimum Stake Requirements [idTableStaking/get\_stake\_requirements.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_stake_requirements.cdc)| **`SC.03`** Get Total Weekly Reward Payout [idTableStaking/get\_weekly\_payout.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_weekly_payout.cdc)| **`SC.04`** Get Current Staked Node Table [idTableStaking/get\_current\_table.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_current_table.cdc)| **`SC.05`** Get Proposed Staked Node Table [idTableStaking/get\_proposed\_table.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_proposed_table.cdc)| **`SC.06`** Get Total Flow Staked [idTableStaking/get\_total\_staked.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_total_staked.cdc)| **`SC.07`** Get Total Flow Staked by Node Type [idTableStaking/get\_total\_staked\_by\_type.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_total_staked_by_type.cdc)| **`SC.08`** Get All Info about a single NodeID [idTableStaking/get\_node\_info.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_node_info.cdc)| **`SC.09`** Get a node's total Commitment (delegators) [idTableStaking/get\_node\_total\_commitment.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_node_total_commitment.cdc)| **`SC.10`** Get All Info about a single Delegator [idTableStaking/delegation/get\_delegator\_info.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/delegation/get_delegator_info.cdc)| **`SC.11`** Get a node's total Commitment [idTableStaking/get\_node\_total\_commitment\_without\_delegators.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_node_total_commitment_without_delegators.cdc) | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
 
-### Delegator Transactions[​](#delegator-transactions "Direct link to Delegator Transactions")
+### Delegator transactions[​](#delegator-transactions "Direct link to Delegator transactions")
 
-Documentation for delegating with tokens is described in the staking documentation
-for [the staking collection](/protocol/staking/staking-collection)
+Documentation for token delegation is described in the staking documentation
+for [the staking collection](/protocol/staking/staking-collection).
 
 ## Events[​](#events "Direct link to Events")
 
 The `FlowIDTableStaking` contract emits an event whenever an important action occurs.
-See the [staking events Documentation](/protocol/staking/staking-scripts-events) for more information about each event.
+See the [staking events Documentation](/protocol/staking/staking-scripts-events)for more information about each event.
 
 `_44
 
@@ -216895,7 +216886,7 @@ access(all) event NewDelegatorStakingMinimum(newMinimum: UFix64)`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/core-contracts/06-staking-contract-reference.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Dec 3, 2025** by **cshannon1218**
 
 [Previous
 
@@ -216909,8 +216900,8 @@ Epoch Contracts](/build/cadence/core-contracts/epoch-contract-reference)
 
 Copy as Markdown
 
-* [Contract](#contract)* [Transactions and Scripts](#transactions-and-scripts)
-    + [Getting Staking Info with Scripts](#getting-staking-info-with-scripts)+ [Delegator Transactions](#delegator-transactions)* [Events](#events)
+* [Transactions and scripts](#transactions-and-scripts)
+  + [Getting staking info with scripts](#getting-staking-info-with-scripts)+ [Delegator transactions](#delegator-transactions)* [Events](#events)
 
 Flow
 
@@ -219059,16 +219050,11 @@ Search
 
 * * Cadence* [Core Smart Contracts](/build/cadence/core-contracts)* Burner
 
-# Contract
+# Flow Burner Contract Address
 
-The [Burner](https://github.com/onflow/flow-ft/blob/master/contracts/utility/Burner.cdc) contract provides a way for resources to define
-custom logic that is executed when the resource is destroyed.
-Resources that want to utilize this functionality should implement
-the `Burner.Burnable` interface which requires that they include
-a `burnCallback()` function that includes the custom logic.
+The [Burner](https://github.com/onflow/flow-ft/blob/master/contracts/utility/Burner.cdc) contract provides a way for resources to define custom logic that is executed when the resource is destroyed. Resources that want to use this functionality should implement the `Burner.Burnable` interface which requires that they include a `burnCallback()` function that includes the custom logic.
 
-It is recommended that regardless of the resource, all users and developers
-should use `Burner.burn()` when destroying a resource instead of `destroy`.
+We recommend that, regardless of the resource, all users and developers should use `Burner.burn()` when they destroy a resource instead of `destroy`.
 
 |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -219076,7 +219062,7 @@ should use `Burner.burn()` when destroying a resource instead of `destroy`.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/core-contracts/14-burner.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 3, 2025** by **cshannon1218**
 
 [Previous
 
@@ -229326,7 +229312,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -235340,7 +235326,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -245755,7 +245741,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -245789,7 +245775,7 @@ Search
 
                             - [account](/build/tools/clients/fcl-js/packages-docs/sdk/account)- [arg](/build/tools/clients/fcl-js/packages-docs/sdk/arg)- [args](/build/tools/clients/fcl-js/packages-docs/sdk/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockId)- [atLatestBlock](/build/tools/clients/fcl-js/packages-docs/sdk/atLatestBlock)- [authorization](/build/tools/clients/fcl-js/packages-docs/sdk/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/sdk/authorizations)- [block](/build/tools/clients/fcl-js/packages-docs/sdk/block)- [build](/build/tools/clients/fcl-js/packages-docs/sdk/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/sdk/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/sdk/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/sdk/config)- [createSdkClient](/build/tools/clients/fcl-js/packages-docs/sdk/createSdkClient)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/createSignableVoucher)- [decode](/build/tools/clients/fcl-js/packages-docs/sdk/decode)- [destroy](/build/tools/clients/fcl-js/packages-docs/sdk/destroy)- [encodeMessageFromSignable](/build/tools/clients/fcl-js/packages-docs/sdk/encodeMessageFromSignable)- [encodeTransactionEnvelope](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionEnvelope)- [encodeTransactionPayload](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionPayload)- [encodeTxIdFromVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher)- [get](/build/tools/clients/fcl-js/packages-docs/sdk/get)- [getAccount](/build/tools/clients/fcl-js/packages-docs/sdk/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/sdk/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/sdk/getBlockHeader)- [getCollection](/build/tools/clients/fcl-js/packages-docs/sdk/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/sdk/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/sdk/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/sdk/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/sdk/getTransactionStatus)- [initInteraction](/build/tools/clients/fcl-js/packages-docs/sdk/initInteraction)- [interaction](/build/tools/clients/fcl-js/packages-docs/sdk/interaction)- [isBad](/build/tools/clients/fcl-js/packages-docs/sdk/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/sdk/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/sdk/limit)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/sdk/param)- [params](/build/tools/clients/fcl-js/packages-docs/sdk/params)- [payer](/build/tools/clients/fcl-js/packages-docs/sdk/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/sdk/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/sdk/pipe)- [proposer](/build/tools/clients/fcl-js/packages-docs/sdk/proposer)- [put](/build/tools/clients/fcl-js/packages-docs/sdk/put)- [ref](/build/tools/clients/fcl-js/packages-docs/sdk/ref)- [resolve](/build/tools/clients/fcl-js/packages-docs/sdk/resolve)- [resolveAccounts](/build/tools/clients/fcl-js/packages-docs/sdk/resolveAccounts)- [resolveArguments](/build/tools/clients/fcl-js/packages-docs/sdk/resolveArguments)- [resolveCadence](/build/tools/clients/fcl-js/packages-docs/sdk/resolveCadence)- [resolveFinalNormalization](/build/tools/clients/fcl-js/packages-docs/sdk/resolveFinalNormalization)- [resolveProposerSequenceNumber](/build/tools/clients/fcl-js/packages-docs/sdk/resolveProposerSequenceNumber)- [resolveRefBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlockId)- [resolveSignatures](/build/tools/clients/fcl-js/packages-docs/sdk/resolveSignatures)- [resolveValidators](/build/tools/clients/fcl-js/packages-docs/sdk/resolveValidators)- [resolveVoucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/resolveVoucherIntercept)- [response](/build/tools/clients/fcl-js/packages-docs/sdk/response)- [script](/build/tools/clients/fcl-js/packages-docs/sdk/script)- [send](/build/tools/clients/fcl-js/packages-docs/sdk/send)- [subscribe](/build/tools/clients/fcl-js/packages-docs/sdk/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeRaw)- [TestUtils](/build/tools/clients/fcl-js/packages-docs/sdk/testUtils)- [transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)- [update](/build/tools/clients/fcl-js/packages-docs/sdk/update)- [validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/sdk/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/sdk/why)+ [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)* send
 
@@ -247366,14 +247352,9 @@ Some practices listed below might overlap with advice in the [Cadence Anti-Patte
 
 [References](https://cadence-lang.org/docs/language/references) are ephemeral values and cannot be stored. If persistence is required, store a capability and borrow it when needed.
 
-References allow freely upcasting and downcasting, e.g. a restricted type can be cast to its unrestricted type which will expose all `access(all)` functions and fields of the type.
-So even if your capability uses an interface to restrict its functionality, it can
-still be downcasted to expose all other public functionality.
+References allow free upcasting and downcasting. For example, a restricted type can cast to its unrestricted type, which exposes all `access(all)` functions and fields of the type. So, even if your capability uses an interface to restrict its functionality, it can still downcast to expose all other public functionality.
 
-Therefore, any privileged functionality in a resource or struct that will have a public
-capability needs to have entitled accecss, for example `access(Owner)`.
-Then, the only way to access that functionality would be through an entitled reference,
-like `<auth(Owner) &MyResource>`.
+Therefore, any privileged functionality in a resource or struct that will have a public capability needs to have entitled accecss, for example `access(Owner)`. Then, the only way to access that functionality would be through an entitled reference, like `<auth(Owner) &MyResource>`.
 
 ## Account Storage[​](#account-storage "Direct link to Account Storage")
 
@@ -247383,25 +247364,21 @@ Always [borrow](https://cadence-lang.org/docs/language/capabilities) with the sp
 
 ## Authorized Accounts[​](#authorized-accounts "Direct link to Authorized Accounts")
 
-Access to an `&Account` gives access to whatever is specified in the account entitlements
-list when that account reference is created.
-Therefore, [avoid using Account references](https://cadence-lang.org/docs/anti-patterns#avoid-using-authaccount-as-a-function-parameter) as a function parameter or field unless absolutely necessary and only use the minimal set of entitlements required
-for the specified functionality so that other account functionality cannot be accessed.
+Access to an `&Account` gives access to whatever is specified in the account entitlements list when that account reference is created. Therefore, [don't use Account references](https://cadence-lang.org/docs/anti-patterns#avoid-using-authaccount-as-a-function-parameter) as a function parameter or field unless absolutely necessary and only use the minimum set of entitlements required for the specified functionality so that other account functionality cannot be accessed.
 
-It is preferable to use capabilities over direct `&Account` references when exposing account data. Using capabilities allows the revocation of access by unlinking and limits the access to a single value with a certain set of functionality.
+It is preferable to use capabilities over direct `&Account` references when you expose account data. Capabilities revoke access by unlinking and limits the access to a single value with a certain set of functionality.
 
 ## Capabilities[​](#capabilities "Direct link to Capabilities")
 
-Don't store anything under the [public capability storage](https://cadence-lang.org/docs/language/capabilities) unless strictly required. Anyone can access your public capability using `Account.capabilities.get`. If something needs to be stored under `/public/`, make sure only read functionality is provided by restricting privileged functions with entitlements.
+Don't store anything under the [public capability storage](https://cadence-lang.org/docs/language/capabilities) unless strictly required. Anyone can access your public capability with `Account.capabilities.get`. If something needs to be stored under `/public/`, restrict privileged functions with entitlements to make sure only read functionality is provided.
 
-When publishing a capability, the capability might already be present at the given `PublicPath`.
-In that case, Cadence will panic with a runtime error to not override the already published capability.
+When you publish a capability, the capability might already be present at the given `PublicPath`. In that case, Cadence will panic with a runtime error to not override the already published capability.
 
-It is a good practice to check if the public capability already exists with `account.capabilities.get().check` before creating it. This function will return `nil` if the capability does not exist.
+It is a good practice to check if the public capability already exists with `account.capabilities.get().check` before you create it. This function will return `nil` if the capability does not exist.
 
-If it is necessary to handle the case where borrowing a capability might fail, the `account.check` function can be used to verify that the target exists and has a valid type.
+If there's a case where borrowing a capability might fail, use the `account.check` function to verify that the target exists and has a valid type.
 
-Ensure capabilities cannot be accessed by unauthorized parties. For example, capabilities should not be accessible through a public field, including public dictionaries or arrays. Exposing a capability in such a way allows anyone to borrow it and perform all actions that the capability allows.
+Ensure that unauthorized parties cannot access capabilities. For example, capabilities should not be accessible through a public field, such as public dictionaries or arrays. When you expose a capability in such a way, anyone can borrow it and perform all actions that the capability allows.
 
 ## Transactions[​](#transactions "Direct link to Transactions")
 
@@ -247427,7 +247404,7 @@ Do not use the `access(all)` modifier on fields and functions unless necessary. 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/smart-contracts/best-practices/security-best-practices.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 4, 2025** by **cshannon1218**
 
 [Previous
 
@@ -253034,76 +253011,75 @@ On this page
 
 # How Flow Suppresses MEV to Ensure Equitable Access
 
-## The Hidden Cost of MEV in Decentralized Systems[​](#the-hidden-cost-of-mev-in-decentralized-systems "Direct link to The Hidden Cost of MEV in Decentralized Systems")
+## The hidden cost of MEV in decentralized systems[​](#the-hidden-cost-of-mev-in-decentralized-systems "Direct link to The hidden cost of MEV in decentralized systems")
 
 One of the most under-discussed benefits of decentralization is **equitable access**. Ideally, the value and quality-of-service you receive from a decentralized platform should not depend on your identity, computing power, or personal connections. However, **Maximal Extractable Value (MEV)** poses a significant threat to this principle.
 
-MEV allows block producers to manipulate transaction ordering for profit—often at the direct expense of users. The ability to front-run, back-run, or sandwich transactions can extract value from ordinary users, reinforcing inequalities rather than eliminating them. In most blockchain networks, MEV is not just an unfortunate side effect; it is structurally embedded in how transactions are processed.
+MEV allows block producers to manipulate transaction ordering for profit—often at the direct expense of users. The ability to front-run, back-run, or sandwich transactions can extract value from ordinary users, which reinforces inequalities instead of eliminating them. In most blockchain networks, MEV is not just an unfortunate side effect; it is structurally embedded in how transactions are processed.
 
-## Why MEV Persists on Most Blockchains[​](#why-mev-persists-on-most-blockchains "Direct link to Why MEV Persists on Most Blockchains")
+## Why MEV persists on most blockchains[​](#why-mev-persists-on-most-blockchains "Direct link to Why MEV persists on most blockchains")
 
 MEV is difficult to prevent on most blockchains because **each block has a single builder**. This builder must have:
 
-* A full copy of the blockchain state
-* The ability to simulate transactions before they are finalized
-* Absolute control over transaction selection and ordering
+* A full copy of the blockchain state.
+* The ability to simulate transactions before they are finalized.
+* Absolute control over transaction selection and ordering.
 
-In practice, this means that **the entity responsible for adding your transaction to the blockchain can first simulate it to identify profit opportunities**. They can test hundreds or thousands of ways to rearrange transactions, inserting their own to extract MEV—often at **your** expense.
+In practice, this means that **the entity who adds your transaction to the blockchain can first simulate it to identify profit opportunities**. They can test hundreds or thousands of ways to rearrange transactions, and insert their own to extract MEV—often at **your** expense.
 
-For example, if a block builder can earn $10 by sandwiching your transaction, it means **you** likely lose $10 in value. This is functionally theft, and the worst part? If your transaction is airtight and offers no MEV opportunities, the block builder has no obligation to include it at all. Pay the toll, or get locked out.
+For example, if a block builder can sandwich your transaction and earn $10, it means **you** likely lose $10 in value. This is functionally theft, and the worst part? If your transaction is airtight and offers no MEV opportunities, the block builder has no obligation to include it at all. Pay the toll, or get locked out.
 
-## How Flow Accomplishes MEV Resilience[​](#how-flow-accomplishes-mev-resilience "Direct link to How Flow Accomplishes MEV Resilience")
+## How Flow accomplishes MEV resilience[​](#how-flow-accomplishes-mev-resilience "Direct link to How Flow accomplishes MEV resilience")
 
 Unlike many blockchains, **Flow was designed from the ground up to minimize MEV** through a unique multi-role architecture. Flow introduces key design choices that break the typical MEV-enabling structure:
 
-### 1. **Separating Transaction Selection from Execution**[​](#1-separating-transaction-selection-from-execution "Direct link to 1-separating-transaction-selection-from-execution")
+### 1. **Separate transaction selection from execution**[​](#1-separate-transaction-selection-from-execution "Direct link to 1-separate-transaction-selection-from-execution")
 
 On Flow, **Collection Nodes** select transactions, but they do not have access to the execution state or computing power to simulate them. Meanwhile, **Execution Nodes** run transactions but cannot choose or reorder them.
 
 This separation significantly reduces the ability of block builders to test transactions before execution. Even if an attacker controls both a Collection Node and an Execution Node, they cannot easily extract MEV.
 
-### 2. **Separating Transaction Ordering from Execution**[​](#2-separating-transaction-ordering-from-execution "Direct link to 2-separating-transaction-ordering-from-execution")
+### 2. **Separate transaction ordering from execution**[​](#2-separate-transaction-ordering-from-execution "Direct link to 2-separate-transaction-ordering-from-execution")
 
 Flow further decentralizes control by introducing **Consensus Nodes** that determine transaction order. These nodes are separate from both Collection Nodes and Execution Nodes.
 
 For an attacker to perform MEV, they would need to:
 
-* Control a **Collection Node** to insert a transaction
-* Control a **Consensus Node** to place it in the desired order
-* Have execution state access to predict its effects
+* Control a **Collection Node** to insert a transaction.
+* Control a **Consensus Node** to place it in the desired order.
+* Have execution state access to predict its effects.
 
 This makes it vastly more difficult to extract MEV compared to traditional blockchains, where a single entity often controls all three functions.
 
-### 3. **Strict Transaction Execution Rules**[​](#3-strict-transaction-execution-rules "Direct link to 3-strict-transaction-execution-rules")
+### 3. **Strict transaction execution rules**[​](#3-strict-transaction-execution-rules "Direct link to 3-strict-transaction-execution-rules")
 
-Execution Nodes on Flow have a **simple, enforceable rule**:  
-They **must** execute transactions exactly as ordered by Consensus Nodes—or they get slashed.
+Execution Nodes on Flow have a **simple, enforceable rule**: They **must** execute transactions exactly as ordered by Consensus Nodes, or they get slashed.
 
 Unlike traditional blockchains, where the same party both orders and executes transactions, Flow ensures that Execution Nodes cannot manipulate transaction order for profit.
 
-### 4. **Parallel Processing for Extra MEV Resistance**[​](#4-parallel-processing-for-extra-mev-resistance "Direct link to 4-parallel-processing-for-extra-mev-resistance")
+### 4. **Parallel processing for extra MEV resistance**[​](#4-parallel-processing-for-extra-mev-resistance "Direct link to 4-parallel-processing-for-extra-mev-resistance")
 
 Flow’s unique **pipelined execution model** adds another layer of complexity for potential attackers.
 
-While one block is being executed, the next block is undergoing consensus, and a third block is still collecting transactions. This means that **to front-run or sandwich attack on Flow, an attacker must successfully predict the outcome of at least two unexecuted blocks—one of which hasn’t even been built yet**.
+While one block is executed, the next block undergoes consensus, and a third block continues to collect transactions. This means that **to front-run or sandwich attack on Flow, an attacker must successfully predict the outcome of at least two unexecuted blocks—one of which hasn’t even been built yet**.
 
 Even with significant resources, this makes profitable MEV attacks incredibly difficult.
 
-## The End Result: A Fairer Blockchain[​](#the-end-result-a-fairer-blockchain "Direct link to The End Result: A Fairer Blockchain")
+## The end result: a fairer blockchain[​](#the-end-result-a-fairer-blockchain "Direct link to The end result: a fairer blockchain")
 
 Flow’s architecture ensures that:
 
-* The nodes selecting transactions **don’t know** their order
-* The nodes ordering transactions **don’t know** the blockchain state
-* The nodes executing transactions **can’t** modify the order
+* The nodes that select transactions **don’t know** their order.
+* The nodes that order transactions **don’t know** the blockchain state.
+* The nodes that execute transactions **can’t** modify the order.
 
-By **intentionally separating powers**, Flow eliminates MEV at its root rather than merely mitigating its effects.
+By **intentionally separating powers**, Flow eliminates MEV at its root rather than merely mitigate its effects.
 
 This level of protection against MEV is not an afterthought—it has been a fundamental design goal of Flow since day one. If equitable access matters, **why settle for anything less?**
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/basics/mev-resistance.md)
 
-Last updated on **Oct 17, 2025** by **Brian Doyle**
+Last updated on **Dec 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -253117,8 +253093,8 @@ Events](/build/cadence/basics/events)
 
 Copy as Markdown
 
-* [The Hidden Cost of MEV in Decentralized Systems](#the-hidden-cost-of-mev-in-decentralized-systems)* [Why MEV Persists on Most Blockchains](#why-mev-persists-on-most-blockchains)* [How Flow Accomplishes MEV Resilience](#how-flow-accomplishes-mev-resilience)
-      + [1. **Separating Transaction Selection from Execution**](#1-separating-transaction-selection-from-execution)+ [2. **Separating Transaction Ordering from Execution**](#2-separating-transaction-ordering-from-execution)+ [3. **Strict Transaction Execution Rules**](#3-strict-transaction-execution-rules)+ [4. **Parallel Processing for Extra MEV Resistance**](#4-parallel-processing-for-extra-mev-resistance)* [The End Result: A Fairer Blockchain](#the-end-result-a-fairer-blockchain)
+* [The hidden cost of MEV in decentralized systems](#the-hidden-cost-of-mev-in-decentralized-systems)* [Why MEV persists on most blockchains](#why-mev-persists-on-most-blockchains)* [How Flow accomplishes MEV resilience](#how-flow-accomplishes-mev-resilience)
+      + [1. **Separate transaction selection from execution**](#1-separate-transaction-selection-from-execution)+ [2. **Separate transaction ordering from execution**](#2-separate-transaction-ordering-from-execution)+ [3. **Strict transaction execution rules**](#3-strict-transaction-execution-rules)+ [4. **Parallel processing for extra MEV resistance**](#4-parallel-processing-for-extra-mev-resistance)* [The end result: a fairer blockchain](#the-end-result-a-fairer-blockchain)
 
 Flow
 
@@ -258293,16 +258269,23 @@ These contracts control the following:
 There are other important contracts that aren't part of the core protocol
 but are nevertheless important to developers on Flow:
 
-* Standard Non-Fungible Token Behavior. ([NonFungibleToken](/build/cadence/core-contracts/non-fungible-token))
-* NFT Metadata Standard. ([MetadataViews, ViewResolver](/build/cadence/core-contracts/nft-metadata))
-* Staking Collection. ([StakingCollection](/build/cadence/core-contracts/staking-collection))
-* NFT Storefronts. ([NFTStorefront](/build/cadence/core-contracts/nft-storefront))
-* Account linking and Hybrid Custody. ([AccountLinking](/build/cadence/core-contracts/hybrid-custody))
-* EVM interfacing contract. ([EVM](/build/cadence/core-contracts/evm))
+* Standard Non-Fungible Token Behavior. ([NonFungibleToken])
+* NFT Metadata Standard. ([MetadataViews, ViewResolver])
+* Staking Collection. ([StakingCollection])
+* NFT Storefronts. ([NFTStorefront])
+* Account linking and Hybrid Custody. ([AccountLinking])
+* EVM interfacing contract. ([EVM])
+
+[NonFungibleToken]: ./08-non-fungible-token.md))
+[MetadataViews, ViewResolver]: ./09-nft-metadata.md))
+[StakingCollection]: ./11-staking-collection.md
+[NFTStorefront]: ./10-nft-storefront.md
+[AccountLinking]: ./12-hybrid-custody.md
+[EVM]: ./13-evm.md)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/core-contracts/index.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 3, 2025** by **cshannon1218**
 
 [Previous
 
@@ -258730,7 +258713,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -258764,7 +258747,7 @@ Search
 
                             - [account](/build/tools/clients/fcl-js/packages-docs/sdk/account)- [arg](/build/tools/clients/fcl-js/packages-docs/sdk/arg)- [args](/build/tools/clients/fcl-js/packages-docs/sdk/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockId)- [atLatestBlock](/build/tools/clients/fcl-js/packages-docs/sdk/atLatestBlock)- [authorization](/build/tools/clients/fcl-js/packages-docs/sdk/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/sdk/authorizations)- [block](/build/tools/clients/fcl-js/packages-docs/sdk/block)- [build](/build/tools/clients/fcl-js/packages-docs/sdk/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/sdk/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/sdk/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/sdk/config)- [createSdkClient](/build/tools/clients/fcl-js/packages-docs/sdk/createSdkClient)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/createSignableVoucher)- [decode](/build/tools/clients/fcl-js/packages-docs/sdk/decode)- [destroy](/build/tools/clients/fcl-js/packages-docs/sdk/destroy)- [encodeMessageFromSignable](/build/tools/clients/fcl-js/packages-docs/sdk/encodeMessageFromSignable)- [encodeTransactionEnvelope](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionEnvelope)- [encodeTransactionPayload](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionPayload)- [encodeTxIdFromVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher)- [get](/build/tools/clients/fcl-js/packages-docs/sdk/get)- [getAccount](/build/tools/clients/fcl-js/packages-docs/sdk/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/sdk/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/sdk/getBlockHeader)- [getCollection](/build/tools/clients/fcl-js/packages-docs/sdk/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/sdk/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/sdk/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/sdk/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/sdk/getTransactionStatus)- [initInteraction](/build/tools/clients/fcl-js/packages-docs/sdk/initInteraction)- [interaction](/build/tools/clients/fcl-js/packages-docs/sdk/interaction)- [isBad](/build/tools/clients/fcl-js/packages-docs/sdk/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/sdk/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/sdk/limit)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/sdk/param)- [params](/build/tools/clients/fcl-js/packages-docs/sdk/params)- [payer](/build/tools/clients/fcl-js/packages-docs/sdk/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/sdk/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/sdk/pipe)- [proposer](/build/tools/clients/fcl-js/packages-docs/sdk/proposer)- [put](/build/tools/clients/fcl-js/packages-docs/sdk/put)- [ref](/build/tools/clients/fcl-js/packages-docs/sdk/ref)- [resolve](/build/tools/clients/fcl-js/packages-docs/sdk/resolve)- [resolveAccounts](/build/tools/clients/fcl-js/packages-docs/sdk/resolveAccounts)- [resolveArguments](/build/tools/clients/fcl-js/packages-docs/sdk/resolveArguments)- [resolveCadence](/build/tools/clients/fcl-js/packages-docs/sdk/resolveCadence)- [resolveFinalNormalization](/build/tools/clients/fcl-js/packages-docs/sdk/resolveFinalNormalization)- [resolveProposerSequenceNumber](/build/tools/clients/fcl-js/packages-docs/sdk/resolveProposerSequenceNumber)- [resolveRefBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlockId)- [resolveSignatures](/build/tools/clients/fcl-js/packages-docs/sdk/resolveSignatures)- [resolveValidators](/build/tools/clients/fcl-js/packages-docs/sdk/resolveValidators)- [resolveVoucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/resolveVoucherIntercept)- [response](/build/tools/clients/fcl-js/packages-docs/sdk/response)- [script](/build/tools/clients/fcl-js/packages-docs/sdk/script)- [send](/build/tools/clients/fcl-js/packages-docs/sdk/send)- [subscribe](/build/tools/clients/fcl-js/packages-docs/sdk/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeRaw)- [TestUtils](/build/tools/clients/fcl-js/packages-docs/sdk/testUtils)- [transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)- [update](/build/tools/clients/fcl-js/packages-docs/sdk/update)- [validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/sdk/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/sdk/why)+ [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)* response
 
@@ -285388,9 +285371,11 @@ getEventsAtBlockIds | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -285424,7 +285409,7 @@ Search
 
                             - [account](/build/tools/clients/fcl-js/packages-docs/sdk/account)- [arg](/build/tools/clients/fcl-js/packages-docs/sdk/arg)- [args](/build/tools/clients/fcl-js/packages-docs/sdk/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockId)- [atLatestBlock](/build/tools/clients/fcl-js/packages-docs/sdk/atLatestBlock)- [authorization](/build/tools/clients/fcl-js/packages-docs/sdk/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/sdk/authorizations)- [block](/build/tools/clients/fcl-js/packages-docs/sdk/block)- [build](/build/tools/clients/fcl-js/packages-docs/sdk/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/sdk/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/sdk/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/sdk/config)- [createSdkClient](/build/tools/clients/fcl-js/packages-docs/sdk/createSdkClient)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/createSignableVoucher)- [decode](/build/tools/clients/fcl-js/packages-docs/sdk/decode)- [destroy](/build/tools/clients/fcl-js/packages-docs/sdk/destroy)- [encodeMessageFromSignable](/build/tools/clients/fcl-js/packages-docs/sdk/encodeMessageFromSignable)- [encodeTransactionEnvelope](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionEnvelope)- [encodeTransactionPayload](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionPayload)- [encodeTxIdFromVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher)- [get](/build/tools/clients/fcl-js/packages-docs/sdk/get)- [getAccount](/build/tools/clients/fcl-js/packages-docs/sdk/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/sdk/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/sdk/getBlockHeader)- [getCollection](/build/tools/clients/fcl-js/packages-docs/sdk/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/sdk/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/sdk/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/sdk/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/sdk/getTransactionStatus)- [initInteraction](/build/tools/clients/fcl-js/packages-docs/sdk/initInteraction)- [interaction](/build/tools/clients/fcl-js/packages-docs/sdk/interaction)- [isBad](/build/tools/clients/fcl-js/packages-docs/sdk/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/sdk/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/sdk/limit)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/sdk/param)- [params](/build/tools/clients/fcl-js/packages-docs/sdk/params)- [payer](/build/tools/clients/fcl-js/packages-docs/sdk/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/sdk/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/sdk/pipe)- [proposer](/build/tools/clients/fcl-js/packages-docs/sdk/proposer)- [put](/build/tools/clients/fcl-js/packages-docs/sdk/put)- [ref](/build/tools/clients/fcl-js/packages-docs/sdk/ref)- [resolve](/build/tools/clients/fcl-js/packages-docs/sdk/resolve)- [resolveAccounts](/build/tools/clients/fcl-js/packages-docs/sdk/resolveAccounts)- [resolveArguments](/build/tools/clients/fcl-js/packages-docs/sdk/resolveArguments)- [resolveCadence](/build/tools/clients/fcl-js/packages-docs/sdk/resolveCadence)- [resolveFinalNormalization](/build/tools/clients/fcl-js/packages-docs/sdk/resolveFinalNormalization)- [resolveProposerSequenceNumber](/build/tools/clients/fcl-js/packages-docs/sdk/resolveProposerSequenceNumber)- [resolveRefBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlockId)- [resolveSignatures](/build/tools/clients/fcl-js/packages-docs/sdk/resolveSignatures)- [resolveValidators](/build/tools/clients/fcl-js/packages-docs/sdk/resolveValidators)- [resolveVoucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/resolveVoucherIntercept)- [response](/build/tools/clients/fcl-js/packages-docs/sdk/response)- [script](/build/tools/clients/fcl-js/packages-docs/sdk/script)- [send](/build/tools/clients/fcl-js/packages-docs/sdk/send)- [subscribe](/build/tools/clients/fcl-js/packages-docs/sdk/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeRaw)- [TestUtils](/build/tools/clients/fcl-js/packages-docs/sdk/testUtils)- [transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)- [update](/build/tools/clients/fcl-js/packages-docs/sdk/update)- [validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/sdk/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/sdk/why)+ [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)* getEventsAtBlockIds
 
@@ -285446,57 +285431,49 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as sdk from '@onflow/sdk';
+import * as sdk from "@onflow/sdk"
 
 _10
 
 _10
 
-sdk.getEventsAtBlockIds(eventType, blockIds);`
+sdk.getEventsAtBlockIds(eventType, blockIds)`
 
 Or import directly the specific function:
 
 `_10
 
-import { getEventsAtBlockIds } from '@onflow/sdk';
+import { getEventsAtBlockIds } from "@onflow/sdk"
 
 _10
 
 _10
 
-getEventsAtBlockIds(eventType, blockIds);`
+getEventsAtBlockIds(eventType, blockIds)`
 
 ## Usage[​](#usage "Direct link to Usage")
 
 `_10
 
-import * as fcl from '@onflow/fcl';
+import * as fcl from "@onflow/fcl";
 
 _10
 
 _10
 
-const events = await fcl
+const events = await fcl.send([
 
 _10
 
-.send([
+fcl.getEventsAtBlockIds("A.7e60df042a9c0868.FlowToken.TokensWithdrawn", [
 
 _10
 
-fcl.getEventsAtBlockIds('A.7e60df042a9c0868.FlowToken.TokensWithdrawn', [
+"c4f239d49e96d1e5fbcf1f31027a6e582e8c03fcd9954177b7723fdb03d938c7",
 
 _10
 
-'c4f239d49e96d1e5fbcf1f31027a6e582e8c03fcd9954177b7723fdb03d938c7',
-
-_10
-
-'5dbaa85922eb194a3dc463c946cc01c866f2ff2b88f3e59e21c0d8d00113273f',
-
-_10
-
-]),
+"5dbaa85922eb194a3dc463c946cc01c866f2ff2b88f3e59e21c0d8d00113273f"
 
 _10
 
@@ -285504,7 +285481,7 @@ _10
 
 _10
 
-.then(fcl.decode);`
+]).then(fcl.decode);`
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
@@ -285526,11 +285503,11 @@ export type InteractionBuilderFn = (
 
 _10
 
-ix: Interaction,
+ix: Interaction
 
 _10
 
-) => Interaction | Promise<Interaction>;`
+) => Interaction | Promise<Interaction>`
 
 A function that processes an interaction object
 
@@ -285538,7 +285515,7 @@ A function that processes an interaction object
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockIds.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Oct 22, 2025** by **Michael Fabozzi**
 
 [Previous
 
@@ -310625,15 +310602,11 @@ Search
 
 * * Cadence* [Core Smart Contracts](/build/cadence/core-contracts)* EVM
 
-# Contract
+# Flow EVM
 
-The `EVM` contract is the entrypoint from Cadence to Flow EVM. While many developers may choose to interact with EVM
-via [EVM-equivalent tooling paths](/build/evm/using), all access to Flow EVM ultimately interfaces via Cadence at
-some level.
+The `EVM` contract is the entrypoint from Cadence to Flow EVM. While many developers may choose to interact with EVM via [EVM-equivalent tooling paths](/build/evm/using), all access to Flow EVM ultimately interfaces via Cadence at some level.
 
-If you would like to interact with EVM directly from Cadence, you can use the `EVM` contract and it's constructs. Read
-more about the EVM contract and its role in Flow's EVM equivalence in [FLIP
-#223](https://github.com/onflow/flips/blob/main/protocol/20231116-evm-support.md).
+If you would like to interact with EVM directly from Cadence, you can use the `EVM` contract and it's constructs. Read more about the EVM contract and its role in Flow's EVM equivalence in [FLIP #223](https://github.com/onflow/flips/blob/main/protocol/20231116-evm-support.md).
 
 Mainnet/Testnet Source: [`EVM.cdc`](https://github.com/onflow/flow-go/blob/master/fvm/evm/stdlib/contract.cdc)
 
@@ -310643,7 +310616,7 @@ Mainnet/Testnet Source: [`EVM.cdc`](https://github.com/onflow/flow-go/blob/maste
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/core-contracts/13-evm.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 3, 2025** by **cshannon1218**
 
 [Previous
 
@@ -315400,7 +315373,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -321493,10 +321466,7 @@ On this page
 
 # NFT Storefront Smart Contract
 
-The NFT Storefront contracts implement a standard way to list NFTs for sale
-and buy them from listings. `NFTStorefrontV2` is the more powerful and full-featured
-version, so developers and users are encouraged to use it instead of `NFTStorefront`
-or their own implementation.
+The NFT Storefront contracts implement a standard way to list NFTs for sale and buy them from listings. `NFTStorefrontV2` is the more powerful and full-featured version, so developers and users are encouraged to use it instead of `NFTStorefront` or their own implementation.
 
 Source: [NFTStorefrontV2.cdc](https://github.com/onflow/nft-storefront/blob/main/contracts/NFTStorefrontV2.cdc)
 
@@ -321514,103 +321484,110 @@ Source: [NFTStorefront.cdc](https://github.com/onflow/nft-storefront/blob/main/c
 
 The `NFTStorefrontV2` contract lets you create a *non-custodial Resource (NFT) marketplace* on the FLOW blockchain.
 
-`NFTStorefrontV2` makes it simple for Sellers to list NFTs in dApp specific marketplaces. DApp developers leverage the APIs provided by the contract to manage listings being offered for sale and to transact NFT trades.
+`NFTStorefrontV2` makes it simple for Sellers to list NFTs in dApp specific marketplaces. dApp developers leverage the APIs provided by the contract to manage listings for sale and to transact NFT trades.
 
 ![dapps_1](https://user-images.githubusercontent.com/14581509/191749748-714f9d8f-cb41-4be4-a3d2-ec84cb8b5ffb.png)
 
-Developers should use the `NFTStorefrontV2` to create their marketplace and to enable p2p purchases. The diagram below shows how dApps can facilitate the creation of NFT listings for different marketplaces and how marketplaces can filter their listings.
+Developers should use the `NFTStorefrontV2` to create their marketplace and to alloq p2p purchases. The diagram below shows how dApps can facilitate the creation of NFT listings for different marketplaces and how marketplaces can filter their listings.
 
-Listings made through a specific dApp storefront can be simultaneously listed on 3rd party marketplaces beyond that dApp. Well known 3rd party marketplaces listen for compatible NFT listing events enabling the automation of listings into their marketplace dashboards.
+Listings made through a specific dApp storefront can be simultaneously listed on 3rd party marketplaces beyond that dApp. Well known 3rd party marketplaces listen for compatible NFT listing events, which allows the automation of listings into their marketplace dashboards.
 
 ![dapps_2](https://user-images.githubusercontent.com/14581509/191753605-e1c48a57-0c3c-4509-808b-8fee4e7d32e8.png)
 
-Using the `NFTStorefrontV2`, marketplaces can instantly and easily tap into the vibrant FLOW NFT ecosystem and allow NFT holders to list their NFTs and enables creator royalties.
+With the `NFTStorefrontV2`, marketplaces can instantly and easily tap into the vibrant FLOW NFT ecosystem and allow NFT holders to list their NFTs and allows creator royalties.
 
-Marketplaces then process an NFT trade by interacting directly with seller storefronts. Flow's account based model ensures that NFTs listed for sale always reside in the Seller account until traded, regardless of how many listings are posted across any number of marketplaces, for the same NFT.
+Marketplaces then interact with seller storefronts directly to process an NFT trade. Flow's account based model ensures that NFTs listed for sale always reside in the Seller account until traded, regardless of how many Listings are posted across any number of marketplaces, for the same NFT.
 
 ![marketplace_1](https://user-images.githubusercontent.com/14581509/191755699-fe0570cb-80a3-408c-8eef-4051e3209481.png)
 
-## Functional Overview[​](#functional-overview "Direct link to Functional Overview")
+## Functional overview[​](#functional-overview "Direct link to Functional overview")
 
-A general purpose sale support contract for NFTs implementing the Flow [`NonFungibleToken`](https://github.com/onflow/flow-nft/blob/master/contracts/NonFungibleToken.cdc) standard.
-Each account that wants to list NFTs for sale creates a `Storefront` resource to store in their account and lists individual sales within that Storefront as Listings. There is usually one Storefront per account held at the `/storage/NFTStorefrontV2`.
+A general purpose sale support contract for NFTs that implement the Flow [`NonFungibleToken`](https://github.com/onflow/flow-nft/blob/master/contracts/NonFungibleToken.cdc) standard. Each account that wants to list NFTs for sale creates a `Storefront` resource to store in their account and lists individual sales within that Storefront as listings. There is usually one Storefront per account held at the `/storage/NFTStorefrontV2`.
 
-Each listing can define one or more sale cuts taken out of the sale price to go to one or more addresses. Listing fees, royalties, or other considerations can be paid using sale cuts. Also, the listing can include a commission as one of these sale cuts is paid to whoever facilitates the purchase.
+Each listing can define one or more sale cuts taken out of the sale price to go to one or more addresses. Listing fees, royalties, or other considerations can be paid with sale cuts. Also, the listing can include a commission as one of these sale cuts is paid to whoever facilitates the purchase.
 
-Listings can have an optional list of marketplace [receiver capabilities](https://cadence-lang.org/docs/language/capabilities) used to receive the commission for fulfilling the listing. An NFT may be listed in one or more Listings, and the validity of each listing can easily be checked.
+Listings can have an optional list of marketplace [receiver capabilities](https://cadence-lang.org/docs/language/capabilities) used to receive the commission after the seller fulfills the listing. An NFT may be listed in one or more listings, and the validity of each listing can easily be checked.
 
-Interested parties can globally track Listing events onchain and filter by NFT types, IDs and other characteristics to determine which to make available for purchase within their own marketplace UIs."
+Interested parties can globally track listing events onchain and filter by NFT types, IDs and other characteristics to determine which to make available for purchase within their own marketplace UIs."
 
-## Selling NFTs[​](#selling-nfts "Direct link to Selling NFTs")
+## Sell NFTs[​](#sell-nfts "Direct link to Sell NFTs")
 
 `NFTStorefrontV2` offers a generic process for creating the listing for an NFT. It provides all the essential APIs to manage those listings independently.
 
-Many marketplaces create a single storefront resource to manage different individual listings. We recommend creating the listing under the user-owned storefront resource to make it trustless and platform-independent. Users should possess the `Storefront` resource under their account to create the listing using the storefront contract.
+Many marketplaces create a single storefront resource to manage different individual listings. We recommend that you create the listing under the user-owned storefront resource to make it trustless and platform-independent. Users should possess the `Storefront` resource under their account to create the listing using the storefront contract.
 
-## Creating a successful listing using the NFTStorefrontV2 contract.[​](#creating-a-successful-listing-using-the-nftstorefrontv2-contract "Direct link to Creating a successful listing using the NFTStorefrontV2 contract.")
+## Create a successful listing with the NFTStorefrontV2 contract.[​](#create-a-successful-listing-with-the-nftstorefrontv2-contract "Direct link to Create a successful listing with the NFTStorefrontV2 contract.")
 
-As recommended above, the first step is to create and store the [Storefront resource](#resource-storefront) in the user account using the [setup\_account](https://github.com/onflow/nft-storefront/blob/main/transactions/setup_account.cdc) transaction.
+As recommended above, the first step is to create and store the [Storefront resource](#resource-storefront) in the user account with the [setup\_account](https://github.com/onflow/nft-storefront/blob/main/transactions/setup_account.cdc) transaction.
 
-The next step is to create a listing under the newly created storefront resource. If the user (repetitive) already holds the storefront resource, then use the existing resource. The seller can come with multiple requirements for listing their NFTs, and We try our best to cover most of them below.
+The next step is to create a listing under the newly-created storefront resource. If the user (repetitive) already holds the storefront resource, then use the current resource. The seller can come with multiple requirements to list their NFTs, and we try our best to cover most of them below.
 
-### **Scenario 1:** Selling NFTs corresponds to more than one cryptocurrency, i.e. FLOW, USDC etc.[​](#scenario-1-selling-nfts-corresponds-to-more-than-one-cryptocurrency-ie-flow-usdc-etc "Direct link to scenario-1-selling-nfts-corresponds-to-more-than-one-cryptocurrency-ie-flow-usdc-etc")
+### **Scenario 1:** Sell NFTs that correspond to more than one cryptocurrency, such as FLOW, USDC etc.[​](#scenario-1-sell-nfts-that-correspond-to-more-than-one-cryptocurrency-such-as-flow-usdc-etc "Direct link to scenario-1-sell-nfts-that-correspond-to-more-than-one-cryptocurrency-such-as-flow-usdc-etc")
 
-The `NFTStorefrontV2` contract doesn't support selling an NFT for multiple different currencies with a single listing. However, this can be achieved by creating multiple listings for the same NFT for each different currency.
+The `NFTStorefrontV2` contract doesn't support an NFT sale for multiple different currencies with a single listing. However, to achieve this, you can create multiple listings for the same NFT for each different currency.
 
-**Example -** Alice wants to sell a kitty and is open to receiving FLOW and USDC
+**Example -** Alice wants to sell a kitty and is open to receive FLOW and USDC
 
 ![scenario_1](/assets/images/scenario_1-5c79ae24c7bf8f32b0da3547b60954b8.png)
 
-Putting an NFT on sell called listing, seller can create a listing using [sell\_item](https://github.com/onflow/nft-storefront/blob/main/transactions/sell_item.cdc) transaction by providing some required details to list an NFT, i.e. Receiving currency type, [Capability](https://cadence-lang.org/docs/language/capabilities) from where NFT will be deducted etc. If interested look [`createListing`](#fun-createlisting) for more details.
+A seller puts an NFT on sale, a process called listing. To create a listing with the [sell\_item](https://github.com/onflow/nft-storefront/blob/main/transactions/sell_item.cdc) transaction, the seller provides some required details to list an NFT, such as the receiving currency type, and the [Capability](https://cadence-lang.org/docs/language/capabilities) from where the network deducts the NFT. For more information, see [`createListing`](#fun-createlisting).
 
-To receive a different currency seller has to provide a different **Receiver currency type** , i.e. `salePaymentVaultType` As depicted in the above diagram, There are two listing formations with almost the same inputs. The only differentiator is the `salePaymentVaultType` parameter that needs to be different when creating duplicate NFT listings with different sale currency types.
+To receive a different currency, the seller must provide a different **Receiver currency type** , such as `salePaymentVaultType`. As depicted in the above diagram, there are two listing formations with almost the same inputs. The only differentiator is the `salePaymentVaultType` parameter that needs to be different when the seller creates duplicate NFT listings with different sale currency types.
 
-### **Scenario 2:** Peer-to-Peer (p2p) listing of NFT: A listing anyone can fulfil.[​](#scenario-2-peer-to-peer-p2p-listing-of-nft-a-listing-anyone-can-fulfil "Direct link to scenario-2-peer-to-peer-p2p-listing-of-nft-a-listing-anyone-can-fulfil")
+### **Scenario 2:** Peer-to-Peer (p2p) listing of NFT: A listing anyone can fulfill.[​](#scenario-2-peer-to-peer-p2p-listing-of-nft-a-listing-anyone-can-fulfill "Direct link to scenario-2-peer-to-peer-p2p-listing-of-nft-a-listing-anyone-can-fulfill")
 
-Dapps can leverage the **NFTStorefrontV2** to facilitate the creation of a listing for the seller independent of any marketplace. Dapps or marketplaces can list those listings on their platforms, or seller can settle it p2p.
+dApps can leverage the **NFTStorefrontV2** to facilitate a listing's creation for the seller independent of any marketplace. dApps or marketplaces can list those listings on their platforms, or seller can settle it p2p.
 
-The seller can use [sell\_item](https://github.com/onflow/nft-storefront/blob/main/transactions/sell_item.cdc) transaction to create a p2p listing, providing the `marketplacesAddress` with an empty array. The seller has a choice of providing [commission](#enabling-marketplace-commissions-for-nft-sales) to the facilitator of sale, which can also act as a discount if the facilitator and the purchaser are the same.
+The seller can use [sell\_item](https://github.com/onflow/nft-storefront/blob/main/transactions/sell_item.cdc) transaction to create a p2p listing. To do this, they provide the `marketplacesAddress` with an empty array. The seller can provide [commission](#enabling-marketplace-commissions-for-nft-sales) to the facilitator of sale, which can also act as a discount if the facilitator and the purchaser are the same.
 
 ### **Scenario 3:** The seller wants to list its NFT in different marketplaces.[​](#scenario-3-the-seller-wants-to-list-its-nft-in-different-marketplaces "Direct link to scenario-3-the-seller-wants-to-list-its-nft-in-different-marketplaces")
 
-`NFTStorefrontV2` offers two different ways of doing it.
+`NFTStorefrontV2` offers two different ways to do it.
 
-* The seller can create a listing and provide the `marketplacesAddress` that it wants to have a listing on using [sell\_item](https://github.com/onflow/nft-storefront/blob/main/transactions/sell_item.cdc) transaction.
+* The seller can create a listing and provide the `marketplacesAddress` that it wants to have a listing on with the [sell\_item](https://github.com/onflow/nft-storefront/blob/main/transactions/sell_item.cdc) transaction.
 
   Marketplaces can listen to `ListingAvailable` events and check whether their address is included in the `commissionReceivers` list; If yes, the marketplace would be rewarded during the successful fulfilment of the listing.
 
-  Example - Bob wants to list on marketplace 0xA, 0xB & 0xC and is willing to offer 10% commission on the sale price of the listing to the marketplaces.
+  Example - Bob wants to list on marketplace 0xA, 0xB & 0xC and will offer 10% commission on the sale price of the listing to the marketplaces.
 
   ![scenario_3](https://user-images.githubusercontent.com/14581509/190966834-8eda4ec4-e9bf-49ef-9dec-3c47a236d281.png)
-* Another way to accomplish this is to create separate listings for each marketplace on which a user wants their listing using [sell\_item\_with\_marketplace\_cut](https://github.com/onflow/nft-storefront/blob/main/transactions/sell_item_with_marketplace_cut.cdc) transaction. In this case, the marketplace would be incentivized by earning one of the parts of the [`saleCut`](https://github.com/onflow/nft-storefront/blob/160e97aa802405ad26a3164bcaff0fde7ee52ad2/contracts/NFTStorefrontV2.cdc#L104) by appending marketplace saleCut in `saleCuts` array during the creation of the listing.
+* Another way to accomplish this is to create separate listings for each marketplace on which a user wants their listing with the [sell\_item\_with\_marketplace\_cut](https://github.com/onflow/nft-storefront/blob/main/transactions/sell_item_with_marketplace_cut.cdc) transaction. In this case, the marketplace would earn one part of the [`saleCut`](https://github.com/onflow/nft-storefront/blob/160e97aa802405ad26a3164bcaff0fde7ee52ad2/contracts/NFTStorefrontV2.cdc#L104) as an incentive. It appends the marketplace saleCut in the `saleCuts` array when it creates the listing.
 
 ### Considerations[​](#considerations "Direct link to Considerations")
 
 1. **Ghost listings -** *Ghost listings are listings which don't have an underlying NFT in the seller's account. However, the listing is still available for buyers to attempt to purchase*. StorefrontV2 is not immune to ghost listings. Usually, ghost listings will cause a purchaser's transaction to fail, which is annoying but isn't a significant problem. Ghost listings become a problem for the seller when the listed NFT comes back to the seller's account after its original sale. The ghost listing will no longer be invalid when it comes back, and anyone can purchase it even if the seller doesn't want to sell it at that price anymore.
 
-   **Note -** *We recommend that marketplaces and p2p dApps create an off-chain notification service that tells their users (i.e., sellers) to remove the listings if they don't hold the NFT anymore in the same account.*
+info
+
+*We recommend that marketplaces and p2p dApps create an off-chain notification service that tells their users (sellers) to remove the listings if they don't hold the NFT anymore in the same account.*
+
 2. **Expired listings -** `NFTStorefrontV2` introduces a safety measure to specify that a listing will expire after a certain period that can be set during the creation so no one can purchase the listing anymore. It is not a fool-proof safety measure, but it does give some safe ground to the sellers for the ghost listings & stale listings.
 
-   **Note -** *We recommended for marketplaces and p2p dApps not to show the expired listings on their dashboards.*
+info
 
-## Purchasing NFTs[​](#purchasing-nfts "Direct link to Purchasing NFTs")
+*We recommended for marketplaces and p2p dApps not to show the expired listings on their dashboards.*
 
-Purchasing NFTs through the `NFTStorefrontV2` is simple. The buyer has to provide the payment vault and the `commissionRecipient` , if applicable, during the purchase. p2p dApps don't need any intermediaries to facilitate the purchase of listings. [`purchase`](#fun-purchase) API offered by the `Listing` resource gets used to facilitate the purchase of NFT.
+## Purchase NFTs[​](#purchase-nfts "Direct link to Purchase NFTs")
 
-During the listing purchase all saleCuts are paid automatically. This also includes distributing royalties for that NFT, if applicable. If the vault provided by the buyer lacks sufficient funds then the transaction will fail.
+To purchase NFTs through the `NFTStorefrontV2` is simple. The buyer has to provide the payment vault and the `commissionRecipient` , if applicable, during the purchase. p2p dApps don't need any intermediaries to facilitate the purchase of listings. [`purchase`](#fun-purchase) API offered by the `Listing` resource gets used to facilitate the purchase of NFT.
+
+During the listing purchase, all saleCuts are paid automatically. This also includes royalty distribution for that NFT, if applicable. If the vault provided by the buyer lacks sufficient funds, then the transaction will fail.
 
 ### Considerations[​](#considerations-1 "Direct link to Considerations")
 
-1. **Auto cleanup -** `NFTStorefrontV2` offers a unique ability to do auto cleanup of duplicate listings during a purchase. It comes with a drawback if one NFT has thousands of duplicate listings. It will become the bottleneck during purchasing one of the listings as it will likely trigger an out-of-compute error.
+1. **Auto cleanup -** `NFTStorefrontV2` offers a unique ability to do auto cleanup of duplicate listings during a purchase. It comes with a drawback if one NFT has thousands of duplicate listings. It will become the bottleneck during purchases one of the listings as it will likely trigger an out-of-compute error.
 
-   **Note -** *We recommended NOT to have more than 50 duplicate listings of any given NFT.*
-2. **Unsupported receiver capability** - A common pitfall during the purchase of an NFT that some saleCut receivers don't have a supported receiver capability because that entitled sale cut would transfer to first valid sale cut receiver. However, it can be partially solved by providing the generic receiver using the [`FungibleTokenSwitchboard`](https://github.com/onflow/flow-ft/blob/master/contracts/FungibleTokenSwitchboard.cdc) contract and adding all the currency capabilities the beneficiary wants to receive. More on the `FungibleTokenSwitchboard` can be read in [Fungible Token Switchboard](https://github.com/onflow/flow-ft#fungible-token-switchboard)
+info
 
-## Enabling creator royalties for NFTs[​](#enabling-creator-royalties-for-nfts "Direct link to Enabling creator royalties for NFTs")
+*We recommended NOT to have more than 50 duplicate listings of any given NFT.*
 
-The `NFTStorefrontV2` contract optionally supports paying royalties to the minter account for secondary resales of that NFT after the original sale. Marketplaces decide for themselves whether to support creator royalties when validating listings for sale eligibility. We encourage all marketplaces to support creator royalties and support community creators in the **FLOW** ecosystem.
+2. **Unsupported receiver capability** - A common pitfall during the purchase of an NFT that some saleCut receivers don't have a supported receiver capability because that entitled sale cut would transfer to first valid sale cut receiver. However, it can be partially solved if you provide the generic receiver with the [`FungibleTokenSwitchboard`](https://github.com/onflow/flow-ft/blob/master/contracts/FungibleTokenSwitchboard.cdc) contract and add all the currency capabilities the beneficiary wants to receive. For more information about the `FungibleTokenSwitchboard`, see [Fungible Token Switchboard](https://github.com/onflow/flow-ft#fungible-token-switchboard)
 
-Providing that a seller's NFT supports the [Royalty Metadata View](https://github.com/onflow/flow-nft/blob/21c254438910c8a4b5843beda3df20e4e2559625/contracts/MetadataViews.cdc#L335) standard, then marketplaces can honor royalties payments at time of purchase. `NFTStorefrontV2` dynamically calculates the royalties owed at the time of listing creation and applies it as a saleCut of the listing at the time of purchase.
+## Allow creator royalties for NFTs[​](#allow-creator-royalties-for-nfts "Direct link to Allow creator royalties for NFTs")
+
+The `NFTStorefrontV2` contract optionally supports royalty payments to the minter account for secondary resales of that NFT after the original sale. Marketplaces decide for themselves whether to support creator royalties when they validate listings for sale eligibility. We encourage all marketplaces to support creator royalties and support community creators in the **FLOW** ecosystem.
+
+If a seller's NFT supports the [Royalty Metadata View](https://github.com/onflow/flow-nft/blob/21c254438910c8a4b5843beda3df20e4e2559625/contracts/MetadataViews.cdc#L335) standard, then marketplaces can honor royalties payments at time of purchase. `NFTStorefrontV2` dynamically calculates the royalties owed at the time of listing creation and applies it as a saleCut of the listing at the time of purchase.
 
 `_16
 
@@ -321674,19 +321651,19 @@ _16
 
 }`
 
-Complete transaction can be viewed in [sell\_item](https://github.com/onflow/nft-storefront/blob/main/transactions/sell_item.cdc).
+You can view a complete transaction in [sell\_item](https://github.com/onflow/nft-storefront/blob/main/transactions/sell_item.cdc).
 
-saleCut only supports a single token receiver type and therefore beneficiaries of a `saleCut` can also only receive the token type used for the purchase. To support different token types for saleCuts we recommend using the [`FungibleTokenSwitchboard`](https://github.com/onflow/flow-ft/blob/master/contracts/FungibleTokenSwitchboard.cdc) contract. The contract defines a generic receiver for fungible tokens which itself handles routing of tokens to the respective vault for that token type. Learn more about this in [Fungible Token Switchboard](https://github.com/onflow/flow-ft#fungible-token-switchboard).
+saleCut only supports a single token receiver type and therefore beneficiaries of a `saleCut` can also only receive the token type used for the purchase. To support different token types for saleCuts, we recommend that you use the [`FungibleTokenSwitchboard`](https://github.com/onflow/flow-ft/blob/master/contracts/FungibleTokenSwitchboard.cdc) contract. The contract defines a generic receiver for fungible tokens which itself handles routing of tokens to the respective vault for that token type. You can learn more about this in [Fungible Token Switchboard](https://github.com/onflow/flow-ft#fungible-token-switchboard).
 
-## Enabling marketplace commissions for NFT sales[​](#enabling-marketplace-commissions-for-nft-sales "Direct link to Enabling marketplace commissions for NFT sales")
+## Allow marketplace commissions for NFT sales[​](#allow-marketplace-commissions-for-nft-sales "Direct link to Allow marketplace commissions for NFT sales")
 
-`NFTStorefrontV2` enables optional commissions on trades for marketplaces which require it as a condition to list a NFT for sale. Commission & commission receivers are set by the seller during initial listing creation. At time of purchase the commission amount is paid once only to the commission receiver matching the marketplace receiver address which facilitated the sale.
+`NFTStorefrontV2` allows optional commissions on trades for marketplaces which require it as a condition to list a NFT for sale. The seller sets commission and commission receivers during initial listing creation. At time of purchase, the commission amount is paid once only to the commission receiver that matches the marketplace receiver address which facilitated the sale.
 
-For NFT listings in marketplaces which don't require commission, commission receivers can be set as nil. Setting the buyer of the NFT and `commissionRecipient` to the same has the effect of applying a discount for the buyer.
+For NFT listings in marketplaces which don't require commission, you can set commission receivers as `nil`. If you set the buyer of the NFT and `commissionRecipient` to `nil`, it applies a discount for the buyer.
 
 ![scenario_2](https://user-images.githubusercontent.com/14581509/190966499-c176203f-b6a6-4422-860f-1bf6f2bcdbb6.png).
 
-## APIs & Events offered by NFTStorefrontV2[​](#apis--events-offered-by-nftstorefrontv2 "Direct link to APIs & Events offered by NFTStorefrontV2")
+## APIs and events offered by NFTStorefrontV2[​](#apis-and-events-offered-by-nftstorefrontv2 "Direct link to APIs and events offered by NFTStorefrontV2")
 
 ## Resource Interface `ListingPublic`[​](#resource-interface-listingpublic "Direct link to resource-interface-listingpublic")
 
@@ -321726,7 +321703,7 @@ _10
 
 }`
 
-An interface providing a useful public interface to a Listing.
+An interface that provides a useful public interface to a Listing.
 
 ### Functions[​](#functions "Direct link to Functions")
 
@@ -321736,8 +321713,7 @@ An interface providing a useful public interface to a Listing.
 
 fun borrowNFT(): &NonFungibleToken.NFT?`
 
-This will assert in the same way as the NFT standard borrowNFT()
-if the NFT is absent, for example if it has been sold via another listing.
+This will assert in the same way as the NFT standard borrowNFT() if the NFT is absent, for example if it has been sold via another listing.
 
 ---
 
@@ -321747,9 +321723,7 @@ if the NFT is absent, for example if it has been sold via another listing.
 
 fun purchase(payment FungibleToken.Vault, commissionRecipient Capability<&{FungibleToken.Receiver}>?): NonFungibleToken.NFT`
 
-Facilitates the purchase of the listing by providing the payment vault
-and the commission recipient capability if there is a non-zero commission for the given listing.
-Respective saleCuts are transferred to beneficiaries and funtion return underlying or listed NFT.
+Facilitates the purchase of the listing by providing the payment vault and the commission recipient capability if there is a non-zero commission for the given listing. Respective saleCuts are transferred to beneficiaries and funtion return underlying or listed NFT.
 
 ---
 
@@ -321759,7 +321733,7 @@ Respective saleCuts are transferred to beneficiaries and funtion return underlyi
 
 fun getDetails(): ListingDetails`
 
-Fetches the details of the listings
+Fetches the details of the listings.
 
 ---
 
@@ -321769,8 +321743,7 @@ Fetches the details of the listings
 
 fun getAllowedCommissionReceivers(): [Capability<&{FungibleToken.Receiver}>]?`
 
-Fetches the allowed marketplaces capabilities or commission receivers for the underlying listing.
-If it returns `nil` then commission is up to grab by anyone.
+Fetches the allowed marketplaces capabilities or commission receivers for the underlying listing. If it returns `nil`, then commission is up for grabs by anyone.
 
 ---
 
@@ -321848,8 +321821,7 @@ _18
 
 }`
 
-A resource that allows its owner to manage a list of Listings, and anyone to interact with them
-in order to query their details and purchase the NFTs that they represent.
+A resource that allows its owner to manage a set of listings, and anyone to interact with them in order to query their details and purchase the NFTs that they represent.
 
 Implemented Interfaces:
 
@@ -321871,7 +321843,7 @@ fun init()`
 fun createListing(nftProviderCapability Capability<&{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>, nftType Type, nftID UInt64, salePaymentVaultType Type, saleCuts [SaleCut], marketplacesCapability [Capability<&{FungibleToken.Receiver}>]?, customID String?, commissionAmount UFix64, expiry UInt64): UInt64`
 
 insert
-Create and publish a Listing for an NFT.
+Create and publish a listing for an NFT.
 
 ---
 
@@ -321882,7 +321854,7 @@ Create and publish a Listing for an NFT.
 fun removeListing(listingResourceID UInt64)`
 
 removeListing
-Remove a Listing that has not yet been purchased from the collection and destroy it.
+Remove a listing that has not yet been purchased from the collection and destroy it.
 
 ---
 
@@ -321893,7 +321865,7 @@ Remove a Listing that has not yet been purchased from the collection and destroy
 fun getListingIDs(): [UInt64]`
 
 getListingIDs
-Returns an array of the Listing resource IDs that are in the collection
+Returns an array of the listing resource IDs that are in the collection.
 
 ---
 
@@ -321915,7 +321887,7 @@ Returns an array of listing IDs that are duplicates of the given `nftType` and `
 fun cleanupExpiredListings(fromIndex UInt64, toIndex UInt64)`
 
 cleanupExpiredListings
-Cleanup the expired listing by iterating over the provided range of indexes.
+Iterate over the provided range of indexes to clean up the expired listings.
 
 ---
 
@@ -321965,8 +321937,7 @@ _10
 }`
 
 StorefrontPublic
-An interface to allow listing and borrowing Listings, and purchasing items via Listings
-in a Storefront.
+An interface to allow listing and borrowing listings, and purchase items via listings in a Storefront.
 
 ### Functions[​](#functions-2 "Direct link to Functions")
 
@@ -321976,7 +321947,8 @@ in a Storefront.
 
 fun getListingIDs(): [UInt64]`
 
-getListingIDs Returns an array of the Listing resource IDs that are in the collection
+getListingIDs
+Returns an array of the listing resource IDs that are in the collection
 
 ---
 
@@ -321986,7 +321958,8 @@ getListingIDs Returns an array of the Listing resource IDs that are in the colle
 
 fun getDuplicateListingIDs(nftType Type, nftID UInt64, listingID UInt64): [UInt64]`
 
-getDuplicateListingIDs Returns an array of listing IDs that are duplicates of the given nftType and nftID.
+getDuplicateListingIDs
+Returns an array of listing IDs that are duplicates of the given nftType and nftID.
 
 ---
 
@@ -321996,7 +321969,8 @@ getDuplicateListingIDs Returns an array of listing IDs that are duplicates of th
 
 fun borrowListing(listingResourceID UInt64): &Listing{ListingPublic}?`
 
-borrowListing Returns a read-only view of the listing for the given listingID if it is contained by this collection.
+borrowListing
+Returns a read-only view of the listing for the given listingID if it is contained by this collection.
 
 ---
 
@@ -322006,7 +321980,8 @@ borrowListing Returns a read-only view of the listing for the given listingID if
 
 fun cleanupExpiredListings(fromIndex UInt64, toIndex UInt64)`
 
-cleanupExpiredListings Cleanup the expired listing by iterating over the provided range of indexes.
+cleanupExpiredListings
+Iterates over the provided range of indexes to clean up the expired listing.
 
 ---
 
@@ -322040,9 +322015,7 @@ Returns an array of listing IDs of the given `nftType` and `nftID`.
 
 event StorefrontInitialized(storefrontResourceID: UInt64)`
 
-A Storefront resource has been created. Consumers can now expect events from this Storefront. Note that we do not specify an address: we cannot and should not. Created resources do not have an owner address, and may be moved
-after creation in ways we cannot check. `ListingAvailable` events can be used to determine the address
-of the owner of the Storefront at the time of the listing but only at that precise moment in that precise transaction. If the seller moves the Storefront while the listing is valid, that is on them.
+A Storefront resource was created. Consumers can now expect events from this Storefront. We do not specify an address: we cannot and should not. Created resources do not have an owner address, and may be moved after creation in ways we cannot check. `ListingAvailable` events can be used to determine the address of the owner of the Storefront at the time of the listing but only at that precise moment in that precise transaction. If the seller moves the Storefront while the listing is valid, that is on them.
 
 ---
 
@@ -322052,8 +322025,7 @@ of the owner of the Storefront at the time of the listing but only at that preci
 
 event StorefrontDestroyed(storefrontResourceID: UInt64)`
 
-A Storefront has been destroyed. Event consumers can now stop processing events from this Storefront.
-Note - we do not specify an address.
+A Storefront has been destroyed. Event consumers can now stop processing events from this Storefront. We do not specify an address.
 
 ---
 
@@ -322063,8 +322035,7 @@ Note - we do not specify an address.
 
 event ListingAvailable(storefrontAddress: Address, listingResourceID: UInt64, nftType: Type, nftUUID: UInt64, nftID: UInt64, salePaymentVaultType: Type, salePrice: UFix64, customID: String?, commissionAmount: UFix64, commissionReceivers: [Address]?, expiry: UInt64)`
 
-Above event gets emitted when a listing has been created and added to a Storefront resource. The Address values here are valid when the event is emitted, but the state of the accounts they refer to may change outside of the
-`NFTStorefrontV2` workflow, so be careful to check when using them.
+Above event gets emitted when a listing is created and added to a Storefront resource. The Address values here are valid when the event is emitted, but the state of the accounts they refer to may change outside of the `NFTStorefrontV2` workflow, so be careful to check when you use them.
 
 ---
 
@@ -322074,7 +322045,7 @@ Above event gets emitted when a listing has been created and added to a Storefro
 
 event ListingCompleted(listingResourceID: UInt64, storefrontResourceID: UInt64, purchased: Bool, nftType: Type, nftUUID: UInt64, nftID: UInt64, salePaymentVaultType: Type, salePrice: UFix64, customID: String?, commissionAmount: UFix64, commissionReceiver: Address?, expiry: UInt64)`
 
-The listing has been resolved. It has either been purchased, removed or destroyed.
+The listing was resolved. It was either purchased, removed or destroyed.
 
 ---
 
@@ -322084,7 +322055,7 @@ The listing has been resolved. It has either been purchased, removed or destroye
 
 event UnpaidReceiver(receiver: Address, entitledSaleCut: UFix64)`
 
-A entitled receiver has not been paid during the sale of the NFT.
+A entitled receiver wasn't paid during the sale of the NFT.
 
 ---
 
@@ -322094,7 +322065,7 @@ A entitled receiver has not been paid during the sale of the NFT.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/core-contracts/10-nft-storefront.md)
 
-Last updated on **Nov 12, 2025** by **Brian Doyle**
+Last updated on **Dec 3, 2025** by **cshannon1218**
 
 [Previous
 
@@ -322108,9 +322079,9 @@ Staking Collection](/build/cadence/core-contracts/staking-collection)
 
 Copy as Markdown
 
-* [Primer](#primer)* [Functional Overview](#functional-overview)* [Selling NFTs](#selling-nfts)* [Creating a successful listing using the NFTStorefrontV2 contract.](#creating-a-successful-listing-using-the-nftstorefrontv2-contract)
-        + [**Scenario 1:** Selling NFTs corresponds to more than one cryptocurrency, i.e. FLOW, USDC etc.](#scenario-1-selling-nfts-corresponds-to-more-than-one-cryptocurrency-ie-flow-usdc-etc)+ [**Scenario 2:** Peer-to-Peer (p2p) listing of NFT: A listing anyone can fulfil.](#scenario-2-peer-to-peer-p2p-listing-of-nft-a-listing-anyone-can-fulfil)+ [**Scenario 3:** The seller wants to list its NFT in different marketplaces.](#scenario-3-the-seller-wants-to-list-its-nft-in-different-marketplaces)+ [Considerations](#considerations)* [Purchasing NFTs](#purchasing-nfts)
-          + [Considerations](#considerations-1)* [Enabling creator royalties for NFTs](#enabling-creator-royalties-for-nfts)* [Enabling marketplace commissions for NFT sales](#enabling-marketplace-commissions-for-nft-sales)* [APIs & Events offered by NFTStorefrontV2](#apis--events-offered-by-nftstorefrontv2)* [Resource Interface `ListingPublic`](#resource-interface-listingpublic)
+* [Primer](#primer)* [Functional overview](#functional-overview)* [Sell NFTs](#sell-nfts)* [Create a successful listing with the NFTStorefrontV2 contract.](#create-a-successful-listing-with-the-nftstorefrontv2-contract)
+        + [**Scenario 1:** Sell NFTs that correspond to more than one cryptocurrency, such as FLOW, USDC etc.](#scenario-1-sell-nfts-that-correspond-to-more-than-one-cryptocurrency-such-as-flow-usdc-etc)+ [**Scenario 2:** Peer-to-Peer (p2p) listing of NFT: A listing anyone can fulfill.](#scenario-2-peer-to-peer-p2p-listing-of-nft-a-listing-anyone-can-fulfill)+ [**Scenario 3:** The seller wants to list its NFT in different marketplaces.](#scenario-3-the-seller-wants-to-list-its-nft-in-different-marketplaces)+ [Considerations](#considerations)* [Purchase NFTs](#purchase-nfts)
+          + [Considerations](#considerations-1)* [Allow creator royalties for NFTs](#allow-creator-royalties-for-nfts)* [Allow marketplace commissions for NFT sales](#allow-marketplace-commissions-for-nft-sales)* [APIs and events offered by NFTStorefrontV2](#apis-and-events-offered-by-nftstorefrontv2)* [Resource Interface `ListingPublic`](#resource-interface-listingpublic)
                   + [Functions](#functions)* [Resource `Storefront`](#resource-storefront)
                     + [Initializer](#initializer)+ [Functions](#functions-1)* [Resource Interface `StorefrontPublic`](#resource-interface-storefrontpublic)
                       + [Functions](#functions-2)* [Events](#events)
@@ -331115,7 +331086,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -351229,19 +351200,19 @@ On this page
 
 # Collections
 
-Collections link blocks and transactions together. Collection node clusters make these collections (using the HotStuff consensus algorithm), made up of an ordered list of one or more hashes of [signed transactions](/build/cadence/basics/transactions). In order to optimize data, blocks don't contain transactions (as they do on Ethereum). The benefits are transaction data does not get transferred to consensus nodes on the network which optimizes transfer speed and this architecture allows scaling of ingestion speed by adding collection clusters. Consensus nodes need to only agree on the order of transactions to be executed, they don't need to know the transaction payload, thus making blocks and collections lightweight. Collection nodes hold transaction payloads for anyone who requests them (e.g. execution nodes).
+Collections link blocks and transactions together. Collection node clusters make these collections (via the HotStuff consensus algorithm), made up of an ordered list of one or more hashes of [signed transactions](/build/cadence/basics/transactions). In order to optimize data, blocks don't contain transactions (as they do on Ethereum). The benefits are transaction data does not get transferred to consensus nodes on the network which optimizes transfer speed, and this architecture allows you to add collection clusters, which scales ingestion speed. Consensus nodes need to only agree on the order of transactions to be executed, they don't need to know the transaction payload, which makes blocks and collections lightweight. Collection nodes hold transaction payloads for anyone who requests them (for example, execution nodes).
 
 ![Screenshot 2023-08-17 at 19.50.39.png](/assets/images/Screenshot_2023-08-17_at_19.50.39-2b14e257fed830fc8a1c9d315ac113ab.png)
 
-## Collection Retrieval[​](#collection-retrieval "Direct link to Collection Retrieval")
+## Collection retrieval[​](#collection-retrieval "Direct link to Collection retrieval")
 
-You can use the Flow CLI to get the collection data by running:
+To use the Flow CLI to get the collection data, run the following command:
 
 `_10
 
 flow collections get caff1a7f4a85534e69badcda59b73428a6824ef8103f09cb9eaeaa216c7d7d3f -n mainnet`
 
-Find [more about the command in the CLI docs](/build/tools/flow-cli/get-flow-data/get-collections).
+Find [more about the command in the CLI docs](/build/tools/flow-cli/get-flow-data/get-blocks).
 
 Collections can be obtained from the access node APIs, currently, there are two gRPC and REST APIs. You can find more information about them here:
 
@@ -351249,17 +351220,17 @@ Collections can be obtained from the access node APIs, currently, there are two 
 
 [**REST Collection API**](/http-api#tag/Collections)
 
-There are multiple SDKs implementing the above APIs for different languages:
+There are multiple SDKs that implement the above APIs for different languages:
 
 [**Javascript SDK**](/build/tools/clients/fcl-js)
 
 [**Go SDK**](/build/tools/clients/flow-go-sdk)
 
-Find a list of all SDKs [here](/build/tools/clients)
+Find a list of all SDKs [here](/build/tools/clients).
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/basics/collections.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Dec 2, 2025** by **cshannon1218**
 
 [Previous
 
@@ -351273,7 +351244,7 @@ Accounts](/build/cadence/basics/accounts)
 
 Copy as Markdown
 
-* [Collection Retrieval](#collection-retrieval)
+* [Collection retrieval](#collection-retrieval)
 
 Flow
 
@@ -357039,72 +357010,72 @@ On this page
 
 info
 
-Are you an EVM developer looking for information about EVM Accounts on Flow? If so, check out the EVM specific documentation [here](/build/evm/fees)
+Are you an EVM developer who wants information about EVM Accounts on Flow? If so, check out the EVM specific documentation [here](/build/evm/fees)
 
 # Fees
 
-## Transaction Fees[​](#transaction-fees "Direct link to Transaction Fees")
+## Transaction fees[​](#transaction-fees "Direct link to Transaction fees")
 
-A transaction fee is a cost paid in Flow by the payer account and is required for a transaction to be included in the Flow blockchain. Fees are necessary for protecting the network against spam/infinite running transactions and to provide monetary incentives for participants that make up the Flow network.
+A transaction fee is a cost paid in Flow by the payer account and is required for a transaction to be included in the Flow blockchain. Fees are necessary to protect the network against spam or infinite running transactions and to provide monetary incentives for participants that make up the Flow network.
 
-On Flow, transaction fees are determined using `compute units (CU)`, a metric that captures the effort needed to include and execute a transaction. Compute units function similarly to gas in EVM systems but are derived differently. The final fee paid by the user is calculated by multiplying the transaction’s total compute units by the current compute-unit price, with all fees payable in FLOW.
+On Flow, transaction fees are determined with `compute units (CU)`, a metric that captures the effort needed to include and execute a transaction. Compute units function similarly to gas in EVM systems but are derived differently. To calculate the final fee paid by the user, multiply the transaction’s total compute units by the current compute-unit price, with all fees payable in FLOW.
 
-A transaction fee is paid regardless of whether a transaction succeeds or fails. If the payer account doesn't have sufficient Flow balance to pay for the transaction fee, the transaction will fail. We can limit the transaction fee to some extent by providing the compute unit limit value when submitting the transaction.
+A transaction fee is paid regardless of whether a transaction succeeds or fails. If the payer account doesn't have sufficient Flow balance to pay for the transaction fee, the transaction will fail. We can provide the compute unit limit value when you submit the transaction, which helps limit the transaction fee.
 
-### Understanding the need for transaction fees[​](#understanding-the-need-for-transaction-fees "Direct link to Understanding the need for transaction fees")
+### Understand the need for transaction fees[​](#understand-the-need-for-transaction-fees "Direct link to Understand the need for transaction fees")
 
 One of the ways that a single computer that no one owns and anyone can use from being monopolized by any part is to charge a fee measured by the amount of computation needed to execute code. All blockchains implement a form of this system.
 
-Segmented transaction fees are essential to ensure fair pricing based on the impact on the network. For instance, more heavy operations will require more resources to process and propagate transactions. Common operations, however, will stay reasonably priced.
+Segmented transaction fees are essential to ensure fair pricing based on the impact on the network. For instance, heavier operations will require more resources to process and propagate transactions. Common operations, however, will stay reasonably priced.
 
-Fees improve the overall security of the network by making malicious actions (eg spam) on the network less viable. They also prevent the computer from crashing in the event that an infinite loop is started maliciously or accidentally.
+To improve the overall security of the network, fees makie malicious actions (such as spam) on the network less viable. They also prevent a computer crash if an infinite loop is started maliciously or accidentally.
 
 The unique Flow architecture is targeted at high throughput. It makes it easier to have slack in the system, so short spikes can be handled more gracefully.
 
-### **Fee Structure**[​](#fee-structure "Direct link to fee-structure")
+### **Fee structure**[​](#fee-structure "Direct link to fee-structure")
 
 Each transaction fee consists of three components: execution fee, inclusion fee, and network surge factor.
 
 ![Screenshot 2023-08-17 at 17.16.32.png](/assets/images/Screenshot_2023-08-17_at_17.16.32-ed2a49d40f589abdee78b49fd0732c4b.png)
 
-**Execution Fee**
+**Execution fee**
 
 The execution effort for a transaction is determined by the code path the transaction takes and the actions it does. The actions that have an associated execution effort cost can be separated into four broad buckets:
 
-* Normal lines of cadence, loops, or function calls
-* Reading data from storage, charged per byte read
-* Writing data to storage, charged per byte written
-* Account creation
+* Normal lines of cadence, loops, or function calls.
+* Reading data from storage, charged per byte read.
+* Writing data to storage, charged per byte written.
+* Account creation.
 
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Computation Units Flow|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | FT transfer 19 8.60E-04|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Mint a small NFT (size-dependent) 25 1.10E-03|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Empty Transaction 0 1.00E-04|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Create 1 Account 45 1.90E-03|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Create 10 Accounts 363 1.46E-02|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | Deploy contract (~50kb) 319 1.29E-02|  |  |  | | --- | --- | --- | | Add key to an account 9 4.60E-04 | | | | | | | | | | | | | | | | | | | | | | | |
 
-**Inclusion Fee**
+**Inclusion fee**
 
-The inclusion effort of a transaction represents the work needed for:
+The inclusion effort of a transaction represents the work needed to:
 
-* Including the transaction in a block
-* Transporting the transaction information from node to node
-* Verifying transaction signatures
+* Include the transaction in a block
+* Transport the transaction information from node to node
+* Verify transaction signatures
 
 Right now, the inclusion effort is always 1.0 and the inclusion effort cost is fixed to `0.0001`.
 
 Fees were last revised as per [FLIP 351](https://github.com/onflow/flips/blob/main/governance/20251119-transaction-fee-update.md)
 
-**Surge Factor**
+**Surge factor**
 
 A network surge factor is applied when the network is busy due to an increased influx of transactions required to be processed or a decrease in the ability to process transactions.
 
 See [FLIP 336](https://github.com/onflow/flips/blob/main/governance/20250727-dynamic-transaction-fees.md) for details on this calculation.
 
-**Estimating transaction costs**
+**Estimat transaction costs**
 
-Cost estimation is a two-step process. First, you need to gather the execution effort with either the emulator, on testnet, or on mainnet. Second, you use the execution effort for a transaction to calculate the final fees using one of the JavaScript or Go FCL SDKs.
+Cost estimation is a two-step process. First, you need to gather the execution effort with either the emulator, on testnet, or on mainnet. Second, you use the execution effort for a transaction to calculate the final fees with one of the JavaScript or Go FCL SDKs.
 
 ## Storage[​](#storage "Direct link to Storage")
 
-Flow's approach to storage capacity is a bit similar to some banks' pricing models, where maintaining a minimum balance prevents monthly account fees. Here, the amount of data in your account determines your minimum balance. If you fall below the minimum balance, you cannot transact with your account, except for deposits or deleting data. The essence of storage fee model is that it ensures data availability without continuously charging fees for storage, while also preventing abuses that could burden the network's storage resources. This distinction between current state and blockchain history is crucial for understanding storage requirements and limitations.
+Flow's approach to storage capacity is a bit similar to some banks' pricing models, where you maintain a minimum balance to prevent monthly account fees. Here, the amount of data in your account determines your minimum balance. If you fall below the minimum balance, you can't transact with your account, except for deposits or data deletion. The essence of storage fee model is that it ensures data availability but doesn't continuously charge fees for storage, and also prevents abuses that could burden the network's storage resources. This distinction between current state and blockchain history is crucial for you to understand storage requirements and limitations.
 
 Each Flow account has associated storage used. The account's storage used is the byte size of all the data stored in the account's storage. Accounts also have a storage capacity, which is directly tied to the amount of Flow tokens an account has. The account can, without any additional cost, use any amount of storage up to its storage capacity.
 
@@ -357112,7 +357083,7 @@ warning
 
 If a transaction puts an account over storage capacity, that transaction fails and is reverted. Likewise, if a transaction would drop an account's balance below 0.001 Flow tokens, which is the minimum an account can have, the transaction would also fail.
 
-**Storage Capacity**
+**Storage capacity**
 
 The storage capacity of an account is dictated by the amount of FLOW it has.
 
@@ -357122,21 +357093,21 @@ The **minimum amount of FLOW an account can have is 0.001**. This minimum is pro
 
 The minimum account reservation ensures that most accounts won't run out of storage capacity if anyone deposits anything (like an NFT) to the account.
 
-Currently, the amount required to store 100 MB in account storage is 1 Flow.
+Currently, the amount required to store 100 MB in account storage is one Flow.
 
 ![Screenshot 2023-08-17 at 17.27.50.png](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAccAAABrCAYAAAACVUmTAAABSGlDQ1BJQ0MgUHJvZmlsZQAAKJFjYGASSSwoyGFhYGDIzSspCnJ3UoiIjFJgf8rAzSDOwMMgysCSmFxc4BgQ4ANUwgCjUcG3awyMIPqyLsis/spH557MYbKQcs3in79R6hWmehTAlZJanAyk/wBxenJBUQkDA2MKkK1cXlIAYncA2SJFQEcB2XNA7HQIewOInQRhHwGrCQlyBrJvANkCyRmJQDMYXwDZOklI4ulIbKi9IMDr4urjoxBqbGFo4RJOwL0kg5LUihIQ7ZxfUFmUmZ5RouAIDKVUBc+8ZD0dBSMDI0MGBlCYQ1R/DgSHJaPYGYRY/iIGBouvDAzMExBiSTMZGLa3MjBI3EKIqSxgYOBvYWDYdr4gsSgR7gDGbyzFacZGEDaPEwMD673//z+rMTCwT2Zg+Dvh///fi/7//7sYaP4dBoYDeQB8EGCs2A3Z9wAAAFZlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA5KGAAcAAAASAAAARKACAAQAAAABAAABx6ADAAQAAAABAAAAawAAAABBU0NJSQAAAFNjcmVlbnNob3RoEnuNAAAB1mlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNi4wLjAiPgogICA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAgICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgICAgICAgICB4bWxuczpleGlmPSJodHRwOi8vbnMuYWRvYmUuY29tL2V4aWYvMS4wLyI+CiAgICAgICAgIDxleGlmOlBpeGVsWURpbWVuc2lvbj4xMDc8L2V4aWY6UGl4ZWxZRGltZW5zaW9uPgogICAgICAgICA8ZXhpZjpQaXhlbFhEaW1lbnNpb24+NDU1PC9leGlmOlBpeGVsWERpbWVuc2lvbj4KICAgICAgICAgPGV4aWY6VXNlckNvbW1lbnQ+U2NyZWVuc2hvdDwvZXhpZjpVc2VyQ29tbWVudD4KICAgICAgPC9yZGY6RGVzY3JpcHRpb24+CiAgIDwvcmRmOlJERj4KPC94OnhtcG1ldGE+CpGZiREAABddSURBVHgB7Z0FrBxVF8dvsYe2aNHiwYpLoLhLcAqkQJFgISEBgjvFUixoCBBcA4VSXBKCQ3Ar7i5Fixf99nfp2e/uvNmd2ffu7NvZ9z/JvvEz9/5m3j33nCsz4N+KOIkIiIAIiIAIiECVwBTVNa2IgAiIgAiIgAh4AjKOehFEQAREQAREIEFAxjEBRJsiIAIiIAIiIOOod0AEREAEREAEEgRkHBNAtCkCIiACIiACMo56B0RABERABEQgQUDGMQFEmyIgAiIgAiIwVVkRTHr5ZZ/0ruWWy5UFO5+TJ40f3+2armWWcVm6frzuum7XhTt+f+01N2jEiFx6OLeRTDt0qBs4cmSjUxzpaZWe3uaL/CAxOKMniw3nIOFz/29P7d+sZ157trZEQAT6C4EBRUwCEBqReoV3VuFPoTbxxhvdpDffbPgsBg0f3rCgRM+EUaMa6rCDQ8aNs9XU5Sfbbpu6P7mzkZ5Y6elUPbBsJeeuJZZwg0ePTj7C6jacqUxNHDu2uo8Vrgslb+UhvCZtPU/lgetIFyLj7jHojwhEJ1CI55gsSNJSjdHLqv1nGUb0YnwHpt2gyX0Y2SyhQKyXJisszUOqp4vCjHvVqzTYdWXUYwwsD+HSuPWWs+nMo8fObbS0dDU6J+19Tl5HRW5wgygGxixNT7f7VoxwjMoVfLL+v5KRh7R3Lq+x7pYP7RCBkhOI6jmm1bLrFZhZniNcTV89xs3841pNG12qbdcj2nn7w+eelrs870Lae5is3OR5nyccdVTdypWlLcuokZY8kRD+77I84jx6SBdpIr+N9Fn6tRSBTiEQ1TjaP3/WP3inwFM+RKAvCIQGP639nDRleY2cw/+rSdITtv0YWTvWyKO187UUgU4hUEhYNVaos1MgKx8iEJNA6O2G683eI48nSOjVjGOz+nW+CJSZgIZylPnpKe0iUDCBZPi44NtJvQi0DQEZx7Z5FEqICLQvgXp9B9o3xUqZCPSOgIxj7/jpahEQAREQgQ4kIOPYgQ9VWRKBWASsvTFtmEese0iPCLQjgajGUf9A7fiIlSYREAEREIFmCUQ1jn7cYaXrt4xks49B54tA+xEIh4zwvy0Rgf5EIOo4x/4ETnkVgf5AwKby0xjH/vC0lceQgIxjSEPrIiACIiACIlAhEDWsKqIiIAIiIAIi0AkEZBw74SkqDyIgAiIgAlEJyDhGxSllIiACIiACnUBAxrETnqLyIAIiIAIiEJWAjGNUnFImAiIgAiLQCQSiG0c/i//kr5R3AiDlQQREQAREoP8RiPrJKvueYxcfRm3wVfT+h1k5FgEREAERKBOBqJ6jzYxj8zGWCYTSKgIiUEuAKFD4QeTao9oSgc4mENU4djYq5U4E+g8Bpo6bOHas/9BxOI1c/yGgnPZ3AjKO/f0NUP5FQAREQAS6EZBx7IYk344///zTffTRR/lO1lkiIAIiIAKlIiDj2MPHddttt7k999zTjRkzpocadJkIiIAIiEC7EpBx7OGT+emnn/yV48eP76EGXSYC5SDQpZ7n5XhQSmVUAjKOPcT577//+it/+eWXHmrQZWkEfv/9d/fHH3+kHcq9L4aO3DeLcOI777zjPvnkE0eovl1kkip97fIolI4+IhB1nKPloavyweNOFzOOv/32W6dntWX5e+CBB9w555zjhg0b5o499lgHY35TTJG/DhdDR8syXLnRy5VeoQcffLC/5bTTTuuGDh3q5plnHjfvvPO6BRdc0P/mmGOOViZJ9xIBEagQiGoc+Vo4EwDYeMeyEqZApjZPwfXhhx+6b7/91k2cONH9+uuvbv7553e77rqr++eff3z2pp566rJms63S/dZbb7nRo0f7NL3wwgvukEMOcW+++abDC1ym8l5tueWWboMNNmiY5hg6Gt6g4IPk9fnnn/e/8FYYTRiss846/jf99NOHh7UuAiJQAIHSfuz49ttvd4899pjbd9993WKLLdYrNBg6jCHth/bDGNYTavdLVLzjsZVxYKussoo77bTT6p2q/ZMJECq9/PLL3QcffOBOOeUUN80009SwOf74490TTzxRsy+5gXE45phj3JRTTpk85Ldj6EhVnGMnho2w6EwzzZTj7NpTHn30UffGG2+4r7/+2j300EO1BxNbGMq99trLbbvttm7AgAGJo/E2mQCAcY5EgQZPrrTE0y5NItD+BKJ6jq3K7g033OALWu43YcKEHhlHDOL999/vnnzySYenQuFWT+aaay4399xz+xDfSy+95AtBaxfr6uqqd5n2TyYA6xNOOME988wzfs+kSZNqjCNDYpKGcckll3QLL7yw+/zzz92LL77or3vkkUf8sx4xYkQ3tjF0dFPaxA5Co3iuhx56qNtss81qrrz11lvdxx9/7PcvvvjiNcfYWHvttf3v/fff98aR9+366693P/74o3v33Xe9B817igHlPb3wwgt9JYN7FmUgB44c6XwkSJ1xuj0v7egfBEpnHJ999tmqYezNI7rrrrvceeed103FoEGD3KqrrupWW201t/TSS7tZZ521pgDCGFPYX3vttf7a6aabrpsO7aglcNVVV1UNY+2R/7YYFhMK7Y7LLrtsddfTTz/tjj76aL996aWXum222cbhQYUSQ0eor5l1ei5jGJGzzjrLRxUWWmghv00lCmOG3Hnnne6WW25xs8wyi99O/sFzRL788ku/HDhwoFtxxRX9b+edd3bPPfecu+CCC9ynn37q7rnnHu9BH3TQQf7cIv6ol2oRVKWzLATy93RogxxhmEaNGhUlJd98802NHtqzKJQpvI444gjftjPbbLPVGEYuGDx4sKNmbz0Lk4V0jVJteM8cL6ie/P333w6PEIHtLrvsUmMY2U9l5bDDDmPVC22RocTQEeprdp2QfCh4iiZm6Gw76SHbfpY2PIh1KmBJWXnllb1xXGCBBfwhjC3epkQERCA+gdIYRzrJnH766Q3Dn83goSaOl4gQ1sIzwVvJ2zPyr7/+8teqc4THkPqHdls8qUZCSNvad/GCmFghTTbaaKPq83r11VdrTomho0ZhkxtJA4UBNOOWnEXJvMO0W9g7xbF6YX68ySOPPLJ6edIwVw9oRQREoFcEShNWZciEFaKLLLKIe++993qVcTy+mWee2etMdg7Jo9g8xzK2OX7//feOX1K+++47386Fx4wXN+ecc+auLCR1sW1eE5UQws+2HZ5rHVA4B8+ontAJh45XhNVfq/SIDiWGjlBfs+tJA8h7igGnsvX444/XqMPLrSehcbT3K+3c8Nk10pd2rfaJgAjkI1Aa44iHdtlll/lchWPD8mWz8VmNCqJ6VzKsA2nkOVL7ZxjIVFNN5dsuYw/7oC2PTkX77befDwPXS2tyP8MkkgV68hzb3n333d1uu+1mm00t6XxiIcZrrrnGXX311TXX411ZSJVev/V6odpFtP8iofcVQ4fp7+nS2hvD6+lAM2TIEMe4y7wS5p9OS2mC3rPPPrt6KK2DT/WgVkRABHpMILpxpAt40b3cwoH3ecOgjQj9/PPP3Q7TU/Dtt9/2M5fgUSFrrbVWtWestQ+ldcghzIYhSHoNa6yxhtt00019G1pYED788MOOHrizzz67YzhCnnZMhkVwDVLkLD3kY2Sl52JvOac9M7x/Cx8yNCZLjHlYIYmhI+u+jY7TDp4WxcDo8w4lpVFFLHwn6BXNe8A7gR7G2z711FN+qJHpZGgLURSJCIhAfAJRjaN9A64yANANGTcufmonazSvjc08hiQrIXSXv+iii3zo77PPPnOvv/56aggQj/X888/36swghQU1Bf0VV1zhxz+m3ZO2KH4MUzj11FN9Gxqez8knn+xPp5DFC1kuo/s8bWxmGAl/rrnmmmm3q7uPTk0MNk+G5GjXpbAnn1bg77TTTr02jCTEeLFuYewvvviCTS95xqoyHAJh5hiTGDpMV0+WeHImG264oSM9hH3hiFeflNDrTR4zLuynfb2RMNaWjmMSERCBYgjENY4tmo/RvA2QxDCOtBHRSzVN0I9XQ/iKmrqJeUKhccTghYUl5zKzC93xGfz+4IMP+m74jFcjFHrmmWd6z8B0sjS94b5w/YcffvCD6G0f96STRjPCLD/80gTPhjYtvJgZZpghCl/uE+bLwsvkxcRCpradXOLFM4QBWWmllaqHY+ioKuvBCl6/Ccbxq6++6tYmSgUGw0f609pd7XrC73mFClSR7d02CUCRldy8edV5ItAXBPL/N/ZF6urcMyxo08KadS7LvRvPjs4hjHXEo0kLKVqbUHh/2hdDIURqBpUesUw7hzdBD048C5YMHwmFge8IA98JpW2yySbVdk08PbxM65jEbDF2fqgjax0PESOIPow2YWA8RX7Jzi50lNliiy182s2oZelPO24VmrAyg/E1wcgx0UKakM4zzjijemiFFVaorsfQUVXW5Aq87Kss5Gv55Zd3dKohCmH5RSUz2uDtYxxp64V/2uD9JN/55pvPT8LOu5IUIgdw2WeffVJ1Jc9vZrsaAapcxLrGOzZDT+d2CoHCjGOR/1RhwZMsUHryYDAAGEIKN0KUoTdYT5+lISzs6d1pnTNsrGR4PUaW2VPwHq6rtM1SsNKeiQ70MX8mXsbNN9/sLr74Yn8pY/qOOuoov37JJZc42qKQHXfc0a2//vp+vZk/eIUMmTAvLOtaDDHjFPHWssK9jXRZZSL0dkJvkVAulZI0ueOOO7wR59h2221X4ynH0JF2zzz7xgVNB1tvvbXjXeR3wAEHVI057xYVJGb6QXjOhFZ5zkkJp55jqBFGFcEI8rwYtsGECEQgkJtuusn3KObeEhEQgbgEpoipjo44rRAraLlXM6GoemnjKwiHH36423jjjXMZRmr+JmYk2Q69gfXWW89O6ba0qec4EOqiLY32VOvhyXHr1MOMPMzlimCo8Bh6IniGeQ0jRpsB53TIqWe48qbBOIVeONxNmCs3jAjYfrxx66XMvh122MEO+WUMHTUKc27gAd57773VszfffPPqOt4+UQJC8Uybh8FcdNFFq8eT4yLtAIbUxKIDbBPi5jkQtiVaQGcsq5TRYSp8h+x6LUVABHpHoDDPsXfJanx1aFzCwrbxVfWPhvrqn5V+JGzzCnsb0sOQ8YJJYZzemDFj/G6mGKM3ogntUnyZIgyjYVSYqNvG8hFqO+6441JDvaan0ZLhBaEQomSaPIwfBTBhSn4xuIb3MeMYeo542nijeI3kmXCkfb6Ja9lPONWuZUhJ0uOKoSNMZ551es2eeOKJ1VOZwYdPTIWyxx57OH4mRCVM6AxFpCIpoRfcqOMOlaitttrKv0cY0XqeaFK/tkVABPITKKVxtMKSbMYIq9JDtRkJPUTrQcn1DPWwkBdh1b333tu3CdK+R49YjpknSCFvPRIxkHhz5hkm02KGEc+Ca8LwW/LcrG0MoM3PmTeEnKUzz3Hz9pOe/vbbb++NIDruvvtuN+OMM7p1113X3XfffQ5v0gRPvN54yxg67D55loxdDMeJ4llnCaF6epjiufM8999/f38JXh/GjXeA9msLsVsYNk0vPX/Djl9MZiERARGIS6CUxjH0rJKFbTN4euMd4cFh0BjPRggNYRwjHXjoWUlHF0JgaYJhZCC3eZZ0qglDnRSQDL6njTEUPEjmde2tLLXUUo5fK8Xyl6zMrL766n7cJ21pCO1o/ELBMyPsHVZKwuMxdIT6stbD8Cch7rwsmegA40i7L+2HeJuEx60Hazgkh7l/CbHDi/cUbxWD+corr1Q9RtJJ23M4BCQr7TouAiKQj0BU49iqXm3hVw3CMF2+LP//LEKKGLE8A9D/f9V/a3SCsE8HEVql9k5YlW870pOQb/SFRhyDR4cbwmGE1ELDPHz4cH8+mjG6J510kg9xovPKK6/04/oI0ZV5NhQqBPBI83Lo1YtHDLNQYHbggQf6tuBwf9p6DB1petP24dnyFRAmjzAPMO285D56LF9VmdUIoV2ZCpAZRvZZVIF1oiMMA2okdPThe6YSERCB+ASif+yY8VEI34MrShjigHeBseDzRT0VauYUSMOGDWs6VEk7JWFACvDk9/ssPbQHcQ9q9uYl2rHkEo+AgpLQbDg8JHleWbcJAxJWZlhI2P5m+SG8SE9czqPNk3lJ8cjgm1di6Mh7r56eR09hG/5BG+u5555b7eGcVyftw/TaxTiG7dx5r886j57mE0aN8qcNrixbVenNSpeOi0ArCUQ3jq1MvO4lAmUjQEctZlFiFia8ZdpYCbFSMSJ0So9dKlR4jlTAOE4Y136EYokuFCmhcdQkAEWSlu52JiDj2M5PR2kTAREQARHoEwJRxzn2SQ50UxEQAREQARGITEDGMTJQqRMBERABESg/ARnH8j9D5UAEREAERCAyARnHyEClTgREQAREoPwEZBzL/wyVAxEQAREQgcgECjGOdAWXiIAIiIAIiEBZCUQ3jhMqn1diALFNBlBWMEq3CPRnAqrg9uenr7xDILpxnFT5/qBEBESgvARsEgBVcMv7DJXy3hOIbhx7nyRpEAER6EsCkyof4UYmTv5+aF+mRfcWgb4iEN04di2xhM/L75WvD0hEQATKR8D+d+1/uXw5UIpFoPcEohvH3idJGkRABERABESgbwnIOPYtf91dBERABESgDQnIOLbhQ1GSREAEREAE+paAjGPf8tfdRUAEREAE2pBAdOM47dChbZhNJUkEREAEREAE8hOIbhy7llnG0ctNRjL/Q9CZIiACIiAC7UVgqtjJ6VpuOTe48pOIgAiUkwAVWybzGDRiRDkzoFSLQAQCA/6tSAQ9UiECItBBBJglh4quRAT6KwEZx/765JVvERABERCBugSitznWvZMOiIAIiIAIiEBJCMg4luRBKZkiIAIiIAKtIyDj2DrWupMIiIAIiEBJCMg4luRBKZkiIAIiIAKtI1CIceQ7cHz0WCICIiACIiACZSRQiHHkkzeMk9LHUsv4SijNIuAcQzkkItCfCRRiHDGMEhEQgXIS8JGfUaNUuS3n41OqIxEoxDjaR1Lto6mR0io1IiACLSBg/7e2bMEtdQsRaDsC0aePa7scKkEi0CYEskKVeWekydJDdvPoyqOnTdApGSLQcgIyjk0izypQ8hRK3DKGnqw2XT8JfI4pwOrpCT0H5tlslDfyM2n8eBdek4Y2Sw9pCXWkheiJTOTRM3Hs2LQkVPehZ/Do0dXttBXSk6WH64aMG5d2eXVfXj2DK+HMRpzz6hk0fLgbOHJk9f7JlTx6rN9AIz1JvdoWgU4hUKhx5J+rXq/VrMKtXmGbLCyzCgH0TKgUOFlSRj2ZhXbFOGQZgDyFJOwwfI0KbY5npieHHgxj8hknnx3Hs9ITGtjk9bbt9WTMIZpHD/p4zxrxsXu2aknFKIbE0hMjLdIhAq0kEN04UtiGhVu4HmZs4o03Nvx6R97ClsJrYKg4sY6ePNJuerLSnDdfWZ8O895lHYNkbcekJauQND2N0k1asrwQKk28Gyb10p9HTx5GWQYNz9IqapamtGWWHtKbyTCHl99KPeQzK19pLLRPBDqBQPSJxylIKNzMKIYFrAGjwPOFaUZhgKENa+5pBWVWIck98xRuefVYHuot8xQmpCdL8ujJ0qHjIiACIiACPSMQ3TiSDAp/C2VmtcX0LNm6SgREQAREQASKIxA9rEpS8Xpow5OIgAiIgAiIQBkJFOI5lhGE0iwCIiACIiACRqCQSQBMuZYiIAIiIAIiUEYCMo5lfGpKswiIgAiIQKEEZBwLxSvlIiACIiACZSQg41jGp6Y0i4AIiIAIFEpAxrFQvFIuAiIgAiJQRgIyjmV8akqzCIiACIhAoQRkHAvFK+UiIAIiIAJlJCDjWManpjSLgAiIgAgUSkDGsVC8Ui4CIiACIlBGAjKOZXxqSrMIiIAIiEChBGQcC8Ur5SIgAiIgAmUkIONYxqemNIuACIiACBRKQMaxULxSLgIiIAIiUEYCMo5lfGpKswiIgAiIQKEE/gfRx6529fh61AAAAABJRU5ErkJggg==)
 
-Please note that storing data in an account on Flow doesn't charge tokens from the account, it just makes sure you will keep the tokens as a reserve. Once the storage is freed up you can transfer the Flow tokens.
+When you store data in an account on Flow, it doesn't charge tokens from the account. Rather, it just makes sure you will keep the tokens as a reserve. After the storage is freed up, you can transfer the Flow tokens.
 
-### Storage Capacity of the Payer[​](#storage-capacity-of-the-payer "Direct link to Storage Capacity of the Payer")
+### Storage capacity of the payer[​](#storage-capacity-of-the-payer "Direct link to Storage capacity of the payer")
 
-The storage capacity of the Payer of a transaction is generally computed the same way as the capacity of any other account, however, the system needs to account for the transaction fees the payer will incur at the end of the transaction. The final transaction fee amount is not fully known at this step, only when accounts are checked for storage compliance. If their storage used is more than their storage capacity, the transaction will fail.
+The storage capacity of the Payer of a transaction is generally computed the same way as the capacity of any other account. However, the system needs to account for the transaction fees the payer will incur at the end of the transaction. The final transaction fee amount is not fully known at this step, only when accounts are checked for storage compliance. If their storage used is more than their storage capacity, the transaction will fail.
 
 Because of this, the payer's balance is conservatively considered to be lower by the maximum possible transaction fees, when checking for storage compliance. The maximum transaction fee of a specific transaction is the transaction fee as if the transaction would have used up all of its execution effort limit.
 
-### Storage Used[​](#storage-used "Direct link to Storage Used")
+### Storage used[​](#storage-used "Direct link to Storage used")
 
-All data that is in an account's storage counts towards storage used. Even when an account is newly created it is not empty. There are already some items in its storage:
+All data that is in an account's storage counts towards storage used. Even when an account is newly created, it is not empty. There are already some items in its storage:
 
 * Metadata that marks that the account exists.
 * An empty FLOW vault, and stored receiver capability.
@@ -357144,7 +357115,7 @@ All data that is in an account's storage counts towards storage used. Even when 
 * Smart contracts deployed on the account if the account was created with contracts.
 * The value of the account's storage used as an unsigned integer.
 
-Adding additional keys, smart contracts, capabilities, resources, etc. to the account counts towards storage used.
+When you add additional keys, smart contracts, capabilities, resources, and so on to the account, it counts towards storage used.
 
 Data stored on the Flow blockchain is stored in a key-value ledger. Each item's key contains the address that owns the item and the path to the item. An account can have many keys, therefore flow considers the account key items are stored with. This means that the storage used by each item is the byte length of the item plus the byte length of the item's key.
 
@@ -357194,11 +357165,11 @@ _10
 
 }`
 
-## Practical Understanding of Fees[​](#practical-understanding-of-fees "Direct link to Practical Understanding of Fees")
+## Practically understand fees[​](#practically-understand-fees "Direct link to Practically understand fees")
 
-**Using Flow Emulator**
+**Use the Flow emulator**
 
-You can start the [emulator using the Flow CLI](/build/tools/emulator#running-the-emulator-with-the-flow-cli). Run your transaction and take a look at the events emitted:
+You can start the [emulator with the Flow CLI](/build/tools/emulator#running-the-emulator-with-the-flow-cli). Run your transaction and take a look at the events emitted:
 
 `_10
 
@@ -357208,11 +357179,11 @@ You should see the `computationUsed` field. Take a note of the value, you will u
 
 **On testnet or mainnet**
 
-Once a transaction is completed, you can use an explorer like [Flowscan](https://flowscan.io/) to review the transaction details and events emitted. For Flowscan, you can open the transaction in question and look for the event `FeesDeducted` from the [`FlowFees`](https://github.com/onflow/flow-core-contracts/blob/master/contracts/FlowFees.cdc) contract:
+When a transaction is completed, you can use an explorer like [Flowscan](https://flowscan.io/) to review the transaction details and events emitted. For Flowscan, you can open the transaction in question and look for the event `FeesDeducted` from the [`FlowFees`](https://github.com/onflow/flow-core-contracts/blob/master/contracts/FlowFees.cdc:) contract:
 
 ![flowscan-fees](/assets/images/flowscan-fees-cb6b2a52450fcbbef7f20f30c4130453.png)
 
-In the event data on the right side, you will see a set of fields representing [the fees for a specific transaction.](https://github.com/onflow/flow-core-contracts/blob/master/contracts/FlowFees.cdc#L14):
+In the event data on the right side, you will see a set of fields that represent [the fees for a specific transaction.](https://github.com/onflow/flow-core-contracts/blob/master/contracts/FlowFees.cdc#L14):
 
 * Total Fees Paid
 * Inclusion Effort
@@ -357220,9 +357191,9 @@ In the event data on the right side, you will see a set of fields representing [
 
 Take a note of the last value in the list - the `executionEffort` value. You will use it in the next step.
 
-### Calculating final costs[​](#calculating-final-costs "Direct link to Calculating final costs")
+### Calculate final costs[​](#calculate-final-costs "Direct link to Calculate final costs")
 
-The cost for transactions can be calculated using the following FCL scripts on mainnet/testnet respectively.
+The cost for transactions can be calculated with the following FCL scripts on mainnet/testnet respectively.
 
 **On mainnet**
 
@@ -357284,15 +357255,17 @@ _10
 
 }`
 
-## Configuring execution limits[​](#configuring-execution-limits "Direct link to Configuring execution limits")
+## Configure execution limits[​](#configure-execution-limits "Direct link to Configure execution limits")
 
 FCL SDKs allow you to set the execution effort limit for each transaction. Based on the execution effort limit determined in the previous step, you should set a reasonable maximum to avoid unexpected behavior and protect your users. The final transaction fee is computed from the actual execution effort used up to this maximum.
 
-> **Note**: Keep in mind that the limits are not for the final fees that the user will have to pay. The limits are for the execution efforts specifically.
+info
 
-It is important to set a limit that isn't too high or too low. If it is set too high, the payer needs to have more funds in their account before sending the transaction. If it is too low, the execution could fail and all state changes are dropped.
+Keep in mind that the limits are not for the final fees that the user will have to pay. The limits are for the execution efforts specifically.
 
-**Using FCL JS SDK**
+It is important to set a limit that isn't too high or too low. If it is set too high, the payer needs to have more funds in their account before they send the transaction. If it is too low, the execution could fail and all state changes are dropped.
+
+**Use FCL JS SDK**
 
 You need to set the `limit` parameter for the `mutate` function, for example:
 
@@ -357360,7 +357333,7 @@ _17
 
 console.log(transaction;) ``
 
-**Using FCL Go SDK**
+**Use FCL Go SDK**
 
 You need to call the `SetComputeLimit` method to set the fee limit, for example:
 
@@ -357426,11 +357399,11 @@ SetPayer(myAddress)`
 
 ### Maximum transaction fees of a transaction[​](#maximum-transaction-fees-of-a-transaction "Direct link to Maximum transaction fees of a transaction")
 
-The maximum possible fee imposed on the payer for a transaction can be calculated as the **inclusion cost plus the execution cost**. The execution cost is the fee calculated for running the transaction based on the [execution effort limit maximum specified](#configuring-execution-limits).
+The maximum possible fee imposed on the payer for a transaction can be calculated as the **inclusion cost plus the execution cost**. The execution cost is the fee calculated to run the transaction based on the [execution effort limit maximum specified](#configuring-execution-limits).
 
 The payer will never pay more than this amount for the transaction.
 
-## Optimizing Cadence code to reduce effort[​](#optimizing-cadence-code-to-reduce-effort "Direct link to Optimizing Cadence code to reduce effort")
+## Optimize Cadence code to reduce effort[​](#optimize-cadence-code-to-reduce-effort "Direct link to Optimize Cadence code to reduce effort")
 
 Several optimizations can lead to reduced execution time of transactions. Below is a list of some practices. This list is not exhaustive but rather exemplary.
 
@@ -357660,25 +357633,25 @@ _14
 
 **Limit accounts created per transaction**
 
-Creating accounts and adding keys are associated with costs. Try to only create accounts and keys when necessary.
+Try to only create accounts and add keys when necessary, because there are costs associated with these actions.
 
-**Check user's balance before executing transactions**
+**Check user's balance before you execute transactions**
 
 You should ensure that the user's balance has enough balance to cover the highest possible fees. For FT transfers, you need to cover the amount to transfer in addition to the highest possible fees.
 
-## Educating users[​](#educating-users "Direct link to Educating users")
+## Educate users[​](#educate-users "Direct link to Educate users")
 
-Wallets will handle the presentation of the final transaction costs but you can still facilitate the user experience by educating them within your application.
+Wallets will handle the presentation of the final transaction costs, but you can still facilitate the user experience when you educate them within your application.
 
-If your user is using self-custody wallets, they may have to pay the transaction and want to understand the fees. Here are some suggestions.
+If your user has self-custody wallets, they may have to pay the transaction and want to understand the fees. Here are some suggestions.
 
 **Explain that costs can vary depending on the network usage**
 
 Suggested message: "Fees improve the security of the network. They are flexible to ensure fair pricing based on the impact on the network."
 
-**Explain that waiting for the network surge to pass is an option**
+**Explain that they can wait for the network surge to pass**
 
-Inevitably, network surges will cause higher fees. Users who might want to submit a transaction while the network usage is surging should consider sending the transaction at a later time to reduce costs.
+Inevitably, network surges will cause higher fees. Users who might want to submit a transaction while the network usage surges may want to send the transaction at a later time to reduce costs.
 
 **Explain that the wallet might not allow the transaction due to a lack of funds**
 
@@ -357692,17 +357665,19 @@ There are several places to learn more about transaction fees:
 * [FLIP-753](https://github.com/onflow/flow/pull/753)
 * [Flow Fees Contract](https://github.com/onflow/flow-core-contracts/blob/master/contracts/FlowFees.cdc)
 
-> **Note**: If you have thoughts on the implementation of transaction fees on Flow, you can [leave feedback on this forum post](https://forum.flow.com/t/variable-transaction-fees-are-coming-to-flow/2941).
+info
+
+If you have thoughts on the implementation of transaction fees on Flow, you can [leave feedback on this forum post](https://forum.flow.com/t/variable-transaction-fees-are-coming-to-flow/2941).
 
 ## FAQs[​](#faqs "Direct link to FAQs")
 
 **When will the fee update go into effect?**
 
-The updates were rolled out with the [Spork on April 6, 2022](/protocol/node-ops/node-operation/past-upgrades#mainnet-17), and were enabled on [June 1st](https://forum.flow.com/t/permissionless-contract-deployment-progress/2981) during the [weekly epoch transition](https://github.com/onflow/service-account/tree/main/transactions/set-execution-effort-weights/2022/jun-1).
+The updates were rolled out with the [Spork on April 6, 2022](/protocol/node-ops/node-operation/past-upgrades#mainnet-17), and were turned on [June 1st](https://forum.flow.com/t/permissionless-contract-deployment-progress/2981) during the [weekly epoch transition](https://github.com/onflow/service-account/tree/main/transactions/set-execution-effort-weights/2022/jun-1).
 
 **Why are fees collected even when transactions fail?**
 
-Broadcasting and verifying a transaction requires execution, so costs are deducted appropriately.
+Costs are deducted appropriately when you or your users broadcast and verify a transaction.
 
 **What execution costs are considered above average?**
 
@@ -357714,11 +357689,14 @@ Yes.
 
 **What is the lowest execution cost?**
 
-The lowest execution cost is 1. This means your transaction included one function call or loop that didn't read or write any date.
+The lowest execution cost is one. This means your transaction included one function call or loop that didn't read or write any date.
 
 **Can I determine how much a transaction will cost on mainnet without actually paying?**
 
-You can estimate the costs in a two-way process: 1) determine execution costs for transactions (emulator or testnet) and 2) use an FCL SDK method to calculate the final transaction fees.
+You can estimate the costs in a two-way process:
+
+1. Determine execution costs for transactions (emulator or testnet).
+2. Use an FCL SDK method to calculate the final transaction fees.
 
 **How accurate will testnet fees be to mainnet fees?**
 
@@ -357726,7 +357704,7 @@ Final fees are determined by the surge factor on the network. The surge factor f
 
 **I use Blocto and I haven't paid any fees yet. Why is that?**
 
-That is because Blocto is acting as the payer for transactions. Self-custody wallets may have the user pay the transaction. Additionally, apps can sponsor the transaction if they choose.
+That is because Blocto acts as the payer for transactions. Self-custody wallets may have the user pay the transaction. Additionally, apps can sponsor the transaction if they choose.
 
 **Why would the same transaction have different fees when executed for different accounts?**
 
@@ -357734,15 +357712,15 @@ Execution costs, among other things, include the cost to read data from account 
 
 Additional Details:
 
-* The most expensive operations in Cadence are reading and writing to storage. This isn't punitive! Every read needs to be sent to all Verification nodes for verification (with Merkel proofs), and every write requires a path of Merkel hashes to be updated. Reading and writing to storage is inherently expensive on any blockchain.
+* The most expensive operations in Cadence are reading and writing to storage. This isn't punitive! Every read needs to be sent to all Verification nodes for verification (with Merkel proofs), and every write requires a path of Merkel hashes to be updated. It's inherently expensive to read and write on any blockchain.
 * The way data is stored in accounts is as a tree (the hint is in the name "atree" 😉). So, the more elements in the account, the more levels of the tree, and therefore the more nodes of that tree that need to be read and updated. So, looking at the byte size of an account is a decent proxy for figuring out how much it's going to cost.
 * Because it's a tree, the cost of reads and writes grows with log(n), but does scale.
-* atree has an update queued up for [Crescendo](https://flow.com/upgrade/crescendo) that will improve this. The previous version erred on the side of adding new levels to the tree (to keep the code simple), while the new version tries to pack more data at each level. This should result in fewer levels for the same byte size. Additionally, it includes a more compact encoding leading to a reduction in the byte size of most accounts.
-* Even with these improvements, this relationship is likely to remain indefinitely. The bigger the account, the more bookkeeping the nodes have to do, which will result in somewhat larger tx fees.
+* atree has an update queued up for [Crescendo](https://flow.com/upgrade/crescendo) that will improve this. The previous version erred on the side of adding new levels to the tree (to keep the code simple), while the new version tries to pack more data at each level. This will result in fewer levels for the same byte size. Additionally, it includes a more compact encoding leading to a reduction in the byte size of most accounts.
+* Even with these improvements, this relationship is likely to remain indefinitely. The bigger the account, the more maintenance the nodes have to do, which will result in somewhat larger tx fees.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/basics/fees.md)
 
-Last updated on **Dec 5, 2025** by **Vishal**
+Last updated on **Dec 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -357756,11 +357734,11 @@ MEV Resistance](/build/cadence/basics/mev-resistance)
 
 Copy as Markdown
 
-* [Transaction Fees](#transaction-fees)
-  + [Understanding the need for transaction fees](#understanding-the-need-for-transaction-fees)+ [**Fee Structure**](#fee-structure)* [Storage](#storage)
-    + [Storage Capacity of the Payer](#storage-capacity-of-the-payer)+ [Storage Used](#storage-used)+ [Maximum available balance](#maximum-available-balance)* [Practical Understanding of Fees](#practical-understanding-of-fees)
-      + [Calculating final costs](#calculating-final-costs)* [Configuring execution limits](#configuring-execution-limits)
-        + [Maximum transaction fees of a transaction](#maximum-transaction-fees-of-a-transaction)* [Optimizing Cadence code to reduce effort](#optimizing-cadence-code-to-reduce-effort)* [Educating users](#educating-users)* [How to learn more](#how-to-learn-more)* [FAQs](#faqs)
+* [Transaction fees](#transaction-fees)
+  + [Understand the need for transaction fees](#understand-the-need-for-transaction-fees)+ [**Fee structure**](#fee-structure)* [Storage](#storage)
+    + [Storage capacity of the payer](#storage-capacity-of-the-payer)+ [Storage used](#storage-used)+ [Maximum available balance](#maximum-available-balance)* [Practically understand fees](#practically-understand-fees)
+      + [Calculate final costs](#calculate-final-costs)* [Configure execution limits](#configure-execution-limits)
+        + [Maximum transaction fees of a transaction](#maximum-transaction-fees-of-a-transaction)* [Optimize Cadence code to reduce effort](#optimize-cadence-code-to-reduce-effort)* [Educate users](#educate-users)* [How to learn more](#how-to-learn-more)* [FAQs](#faqs)
 
 Flow
 
@@ -360435,7 +360413,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -388488,7 +388466,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -391660,7 +391638,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -393885,7 +393863,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -394973,43 +394951,43 @@ On this page
 
 # Deploying Contracts
 
-Deploying smart contracts to Flow's networks is the final step in bringing your blockchain application to life. This guide covers everything you need to know to deploy your Cadence contracts to both Flow Testnet and Mainnet, from account creation to contract updates.
+Deploying smart contracts to Flow's networks is the final step for you to bring your blockchain application to life. This guide covers everything you need to know to deploy your Cadence contracts to both Flow Testnet and Mainnet, from account creation to contract updates.
 
-## What You'll Learn[​](#what-youll-learn "Direct link to What You'll Learn")
+## What you'll learn[​](#what-youll-learn "Direct link to What you'll learn")
 
-After completing this guide, you'll be able to:
+After you complete this guide, you'll be able to:
 
-* **Create and fund accounts** on Flow Testnet and Mainnet
-* **Deploy contracts** using Flow CLI with proper configuration
-* **Update existing contracts** while preserving their addresses
-* **Understand the differences** between testnet and mainnet deployment
-* **Follow security best practices** for production deployments
+* **Create and fund accounts** on Flow Testnet and Mainnet.
+* **Deploy contracts** with Flow CLI with proper configuration.
+* **Update current contracts** and preserve their addresses.
+* **Understand the differences** between testnet and mainnet deployment.
+* **Follow security best practices** for production deployments.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-Before deploying contracts, make sure you have:
+Before you deploy contracts, make sure you have:
 
-* **Flow CLI installed** and configured
-* **A Flow project** with contracts ready for deployment
-* **Basic understanding** of Cadence smart contracts
-* **Completed testing** of your contracts locally
+* **Flow CLI installed** and configured.
+* **A Flow project** with contracts ready for deployment.
+* **Basic understanding** of Cadence smart contracts.
+* **Completed testing** of your contracts locally.
 
 ## Deployment Workflow[​](#deployment-workflow "Direct link to Deployment Workflow")
 
 The recommended deployment workflow follows this progression:
 
-1. **Emulator Deployment** - Deploy and test your contracts locally (free, instant)
-2. **Testnet Deployment** - Deploy and test your contracts on Flow Testnet (free)
-3. **Mainnet Deployment** - Deploy to Flow Mainnet once testing is complete (costs FLOW tokens)
-4. **Contract Updates** - Update contracts as needed using the update command
+1. **Emulator Deployment** - Deploy and test your contracts locally (free, instant).
+2. **Testnet Deployment** - Deploy and test your contracts on Flow Testnet (free).
+3. **Mainnet Deployment** - Deploy to Flow Mainnet after testing is complete (costs FLOW tokens).
+4. **Contract Updates** - Update contracts as needed with the `update` command.
 
-This approach ensures your contracts work correctly before committing real resources to mainnet deployment.
+This approach ensures your contracts work correctly before you commit real resources to mainnet deployment.
 
-## Deploy to Emulator[​](#deploy-to-emulator "Direct link to Deploy to Emulator")
+## Deploy to emulator[​](#deploy-to-emulator "Direct link to Deploy to emulator")
 
 The Flow Emulator is your local development environment where you can deploy and test contracts instantly without any network costs or delays. This is the first step in your deployment journey.
 
-### Start the Emulator[​](#start-the-emulator "Direct link to Start the Emulator")
+### Start the emulator[​](#start-the-emulator "Direct link to Start the emulator")
 
 First, start the [Flow Emulator](/build/tools/emulator). In a second terminal:
 
@@ -395017,7 +394995,7 @@ First, start the [Flow Emulator](/build/tools/emulator). In a second terminal:
 
 flow emulator start`
 
-### Create an Emulator Account[​](#create-an-emulator-account "Direct link to Create an Emulator Account")
+### Create an emulator account[​](#create-an-emulator-account "Direct link to Create an emulator account")
 
 Create a local account for testing:
 
@@ -395032,7 +395010,7 @@ When prompted:
 
 This creates a new account on the emulator and adds it to your `flow.json` configuration.
 
-### Configure Emulator Deployment[​](#configure-emulator-deployment "Direct link to Configure Emulator Deployment")
+### Configure emulator deployment[​](#configure-emulator-deployment "Direct link to Configure emulator deployment")
 
 Update your `flow.json` to include emulator deployment configuration:
 
@@ -395077,7 +395055,7 @@ _10
 
 }`
 
-### Deploy Contract to Emulator[​](#deploy-contract-to-emulator "Direct link to Deploy Contract to Emulator")
+### Deploy contract to emulator[​](#deploy-contract-to-emulator "Direct link to Deploy contract to emulator")
 
 Deploy your contract to the local emulator:
 
@@ -395111,9 +395089,9 @@ _10
 
 🎉 All contracts deployed successfully`
 
-### Test Your Emulator Deployment[​](#test-your-emulator-deployment "Direct link to Test Your Emulator Deployment")
+### Test your emulator deployment[​](#test-your-emulator-deployment "Direct link to Test your emulator deployment")
 
-Verify your contract works by running scripts and transactions:
+Verify your contract works via these scripts and transactions:
 
 `_10
 
@@ -395144,7 +395122,7 @@ For a more complete quickstart, visit the [Getting Started](/blockchain-developm
 * You should test your contracts, transactions and scripts on Testnet, have strong smart contract test coverage and follow the additional guidelines set out here: [Smart Contract Testing Guidelines](/build/cadence/smart-contracts/testing).
 * Use `flow init` to [Create a Project](/build/tools/flow-cli) if you need one to practice deployment with.
 
-### Create a Testnet Account[​](#create-a-testnet-account "Direct link to Create a Testnet Account")
+### Create a Testnet account[​](#create-a-testnet-account "Direct link to Create a Testnet account")
 
 First, you'll need a testnet account to deploy your contracts. Create one with:
 
@@ -395161,13 +395139,13 @@ When prompted:
 1. **Account name**: Enter `testnet-account`
 2. Select `testnet` as the network when prompted
 
-This creates a new account on testnet and adds it to your `flow.json` configuration. It also saves the private key for the new account in `<account-name>.pkey` and uses this file to import the key because `flow.json` will be visible in the repo.
+This creates a new account on testnet and adds it to your `flow.json` configuration. It also saves the private key for the new account in `<account-name>.pkey` and uses this file to import the key because `flow.json` is visible in the repo.
 
 danger
 
-As with any other blockchain network, **anyone** with access to the private key for an account can access that account at any time without you knowing.
+As with any other blockchain network, **anyone** with access to the private key for an account can access that account at any time without your knowledge.
 
-### Fund Your Testnet Account[​](#fund-your-testnet-account "Direct link to Fund Your Testnet Account")
+### Fund your Testnet account[​](#fund-your-testnet-account "Direct link to Fund your Testnet account")
 
 To deploy contracts and send transactions on testnet, you need FLOW tokens. Flow provides a faucet service to get free testnet tokens.
 
@@ -395177,10 +395155,10 @@ flow accounts fund testnet-account`
 
 This will open the faucet in your browser. You can also navigate there manually.
 
-1. Visit the [Testnet Faucet](https://faucet.flow.com/)
-2. Enter your testnet account address
-3. Complete any required verification (captcha, etc.)
-4. Request tokens (you'll receive 100000 testnet FLOW tokens)
+1. Visit the [Testnet Faucet](https://faucet.flow.com/).
+2. Enter your testnet account address.
+3. Complete any required verification (captcha, and so on).
+4. Request tokens (you'll receive 100000 testnet FLOW tokens).
 
 Check your account balance:
 
@@ -395190,7 +395168,7 @@ flow accounts list`
 
 You will see your account details with a balance of FLOW tokens.
 
-### Configure Testnet Deployment[​](#configure-testnet-deployment "Direct link to Configure Testnet Deployment")
+### Configure Testnet deployment[​](#configure-testnet-deployment "Direct link to Configure Testnet deployment")
 
 Update your `flow.json` to include testnet deployment configuration:
 
@@ -395235,7 +395213,7 @@ _10
 
 }`
 
-### Deploy Contract to Testnet[​](#deploy-contract-to-testnet "Direct link to Deploy Contract to Testnet")
+### Deploy contract to Testnet[​](#deploy-contract-to-testnet "Direct link to Deploy contract to Testnet")
 
 Deploy your contract to the public testnet:
 
@@ -395263,9 +395241,9 @@ _10
 
 ## Deploy to Mainnet[​](#deploy-to-mainnet "Direct link to Deploy to Mainnet")
 
-Once you've successfully tested your contracts on testnet, you can deploy to mainnet. You'll need a mainnet account with real FLOW tokens.
+After you've successfully tested your contracts on testnet, you can deploy to mainnet. You'll need a mainnet account with real FLOW tokens.
 
-### Create a Mainnet Account[​](#create-a-mainnet-account "Direct link to Create a Mainnet Account")
+### Create a Mainnet account[​](#create-a-mainnet-account "Direct link to Create a Mainnet account")
 
 For mainnet, you'll need to acquire FLOW tokens through exchanges or other means, as there's no faucet.
 
@@ -395278,11 +395256,11 @@ When prompted:
 1. **Account name**: Enter `mainnet-account`
 2. **Select "Mainnet" Network**
 
-### Acquire FLOW Tokens[​](#acquire-flow-tokens "Direct link to Acquire FLOW Tokens")
+### Acquire FLOW tokens[​](#acquire-flow-tokens "Direct link to Acquire FLOW tokens")
 
 You can purchase FLOW tokens from major exchanges. Make sure your mainnet account has sufficient FLOW tokens to cover deployment costs. Flow is a very efficient network, so even 1.0 FLOW is sufficient to deploy large numbers of contracts.
 
-### Configure Mainnet Deployment[​](#configure-mainnet-deployment "Direct link to Configure Mainnet Deployment")
+### Configure Mainnet deployment[​](#configure-mainnet-deployment "Direct link to Configure Mainnet deployment")
 
 Add mainnet deployment configuration to your `flow.json`:
 
@@ -395297,7 +395275,7 @@ Follow the prompts:
 3. **Contract**: `YourContract`
 4. **Deploy more contracts**: `no` (or `yes` if you have multiple contracts)
 
-Your `flow.json` should now include mainnet configuration:
+Your `flow.json` will now include mainnet configuration:
 
 `_10
 
@@ -395337,9 +395315,9 @@ flow project deploy --network mainnet`
 
 warning
 
-This deployment costs (a relatively small amount of) real FLOW tokens and cannot be undone. You can however redeploy your contracts to update them, or delete them.
+This deployment costs (a relatively small amount of) real FLOW tokens and you cannot undo it. You can, however, redeploy your contracts to update them, or delete them.
 
-You should see output similar to:
+You will see output similar to:
 
 `_10
 
@@ -395363,7 +395341,7 @@ All your contract deployment addresses are stored in `flow.json`. Mainnet, Testn
 
 ## Deploy updated contracts on mainnet[​](#deploy-updated-contracts-on-mainnet "Direct link to Deploy updated contracts on mainnet")
 
-Contracts can be updated and retain the contract address. You can use the [Flow CLI contract update command](/build/tools/flow-cli/accounts/account-update-contract) to redeploy an updated version of your contract:
+You can update contracts and retain the contract address. To do this, use the [Flow CLI contract update command](/build/tools/flow-cli/accounts/account-update-contract) to redeploy an updated version of your contract:
 
 `_10
 
@@ -395371,7 +395349,7 @@ flow accounts update-contract ./YourContract.cdc --signer mainnet-account --netw
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/smart-contracts/deploying.md)
 
-Last updated on **Oct 9, 2025** by **Brian Doyle**
+Last updated on **Dec 4, 2025** by **cshannon1218**
 
 [Previous
 
@@ -395385,10 +395363,10 @@ Testing Smart Contracts](/build/cadence/smart-contracts/testing-strategy)
 
 Copy as Markdown
 
-* [What You'll Learn](#what-youll-learn)* [Prerequisites](#prerequisites)* [Deployment Workflow](#deployment-workflow)* [Deploy to Emulator](#deploy-to-emulator)
-        + [Start the Emulator](#start-the-emulator)+ [Create an Emulator Account](#create-an-emulator-account)+ [Configure Emulator Deployment](#configure-emulator-deployment)+ [Deploy Contract to Emulator](#deploy-contract-to-emulator)+ [Test Your Emulator Deployment](#test-your-emulator-deployment)* [Deploy to Testnet](#deploy-to-testnet)
-          + [Create a Testnet Account](#create-a-testnet-account)+ [Fund Your Testnet Account](#fund-your-testnet-account)+ [Configure Testnet Deployment](#configure-testnet-deployment)+ [Deploy Contract to Testnet](#deploy-contract-to-testnet)* [Deploy to Mainnet](#deploy-to-mainnet)
-            + [Create a Mainnet Account](#create-a-mainnet-account)+ [Acquire FLOW Tokens](#acquire-flow-tokens)+ [Configure Mainnet Deployment](#configure-mainnet-deployment)+ [Deploy to Mainnet](#deploy-to-mainnet-1)* [Deploy updated contracts on mainnet](#deploy-updated-contracts-on-mainnet)
+* [What you'll learn](#what-youll-learn)* [Prerequisites](#prerequisites)* [Deployment Workflow](#deployment-workflow)* [Deploy to emulator](#deploy-to-emulator)
+        + [Start the emulator](#start-the-emulator)+ [Create an emulator account](#create-an-emulator-account)+ [Configure emulator deployment](#configure-emulator-deployment)+ [Deploy contract to emulator](#deploy-contract-to-emulator)+ [Test your emulator deployment](#test-your-emulator-deployment)* [Deploy to Testnet](#deploy-to-testnet)
+          + [Create a Testnet account](#create-a-testnet-account)+ [Fund your Testnet account](#fund-your-testnet-account)+ [Configure Testnet deployment](#configure-testnet-deployment)+ [Deploy contract to Testnet](#deploy-contract-to-testnet)* [Deploy to Mainnet](#deploy-to-mainnet)
+            + [Create a Mainnet account](#create-a-mainnet-account)+ [Acquire FLOW tokens](#acquire-flow-tokens)+ [Configure Mainnet deployment](#configure-mainnet-deployment)+ [Deploy to Mainnet](#deploy-to-mainnet-1)* [Deploy updated contracts on mainnet](#deploy-updated-contracts-on-mainnet)
 
 Flow
 
@@ -397649,26 +397627,20 @@ On this page
 
 # FLOW Coin
 
-## Introduction[​](#introduction "Direct link to Introduction")
-
 This section contains information about the FLOW Coin for individual backers, wallet providers, custodians and node operators.
 
 ### FLOW as a Native Coin[​](#flow-as-a-native-coin "Direct link to FLOW as a Native Coin")
 
-FLOW is the default coin for the Flow protocol, meaning it is used for all protocol-level fee payments,
-rewards and staking transactions. FLOW implements the standard [Flow Fungible Token interface](https://github.com/onflow/flow-ft),
-which all other onchain fungible tokens also conform to. This interface is defined in Cadence,
-Flow's native smart-contract programming language, which makes it easy to write applications that
-interact with FLOW.
+FLOW is the default coin for the Flow protocol, meaning it is used for all protocol-level fee payments, rewards and staking transactions. FLOW implements the standard [Flow Fungible Token interface](https://github.com/onflow/flow-ft), which all other onchain fungible tokens also conform to. This interface is defined in Cadence, Flow's native smart-contract programming language, which makes it easy to write applications that interact with FLOW.
 
 ## How to Get FLOW[​](#how-to-get-flow "Direct link to How to Get FLOW")
 
 There are two ways to acquire FLOW Coins as yield:
 
-1. [Earn FLOW as a Validator or Delegator](/protocol/staking/technical-overview): Receive newly-minted FLOW as a reward for running a node.
+1. [Earn FLOW as a Validator or Delegator](/protocol/staking/technical-overview): Receive newly-minted FLOW as a reward when you run a node.
 2. [Earn FLOW as a Community Contributor](https://github.com/onflow/developer-grants): Flow offers grants for selected proposals as well as RFPs for teams to submit proposals for funded development
 
-## How to Use FLOW[​](#how-to-use-flow "Direct link to How to Use FLOW")
+## How to use FLOW[​](#how-to-use-flow "Direct link to How to use FLOW")
 
 With FLOW, you can:
 
@@ -397680,83 +397652,66 @@ With FLOW, you can:
 * Send and share
 * Create, develop, and grow your dapp
 
-### Spending FLOW[​](#spending-flow "Direct link to Spending FLOW")
+### Spend FLOW[​](#spend-flow "Direct link to Spend FLOW")
 
-All you need to spend FLOW is an account and a tool for signing transactions
-(a wallet, custodian, or other signing service).
-The FCL (Flow Client Library) makes it super duper easy to go to any dapp,
-login with your account, have a great time,
-and then sign with the wallet of your choice only once you decide to make a purchase.
+All you need to spend FLOW is an account and a tool to sign transactions (a wallet, custodian, or other signing service). The FCL (Flow Client Library) makes it super duper easy to go to any dapp, login with your account, have a great time, and then sign with the wallet of your choice only once you decide to make a purchase.
 
-### Staking FLOW[​](#staking-flow "Direct link to Staking FLOW")
+### Stake FLOW[​](#stake-flow "Direct link to Stake FLOW")
 
-[You can use FLOW to operate a staked node.](/protocol/staking/technical-overview) Node operators receive newly-minted FLOW
-as a reward for helping to secure the network.
+[You can use FLOW to operate a staked node.](/protocol/staking/technical-overview) Node operators receive newly-minted FLOW as a reward for helping to secure the network.
 
-### Delegating FLOW[​](#delegating-flow "Direct link to Delegating FLOW")
+### Delegate FLOW[​](#delegate-flow "Direct link to Delegate FLOW")
 
-[You can use FLOW for stake delegation.](/protocol/staking/technical-overview) Delegators receive newly-minted FLOW
-as a reward for helping to secure the network.
+[You can use FLOW for stake delegation.](/protocol/staking/technical-overview) Delegators receive newly-minted FLOW as a reward for helping to secure the network.
 
-### Holding FLOW[​](#holding-flow "Direct link to Holding FLOW")
+### Hold FLOW[​](#hold-flow "Direct link to Hold FLOW")
 
 If you have already purchased FLOW and wish to hold it, you have a couple of options:
 
 * For relatively small, short term holdings - most people use a wallet.
-  Wallets are used to help you sign transactions (verify your actions) when using your FLOW tokens.
+  Wallets are used to help you sign transactions (verify your actions) when you use your FLOW tokens.
 * For larger, long term holdings - you may want to use a custody provider to keep your funds safe.
 
-You can find wallets and custodians supporting Flow in the [Flow Port](https://port.flow.com/)
+You can find wallets and custodians that support Flow in the [Flow Port](https://port.flow.com/)
 
-### Voting with FLOW[​](#voting-with-flow "Direct link to Voting with FLOW")
+### Vote with FLOW[​](#vote-with-flow "Direct link to Vote with FLOW")
 
-Participating in the Flow community is more than just running a node or building a dapp.
-It's also about engaging in discussion, debate, and decision making about the protocol,
-the content on it, and the people impacted by it.
-You can use your Flow account to submit votes to community polls and other governance related activities.
+Participation in the Flow community means more than just run a node or build a dapp. It's also about engaging in discussion, debate, and decision making about the protocol, the content on it, and the people that it impacts. You can use your Flow account to submit votes to community polls and other governance related activities.
 
-### Sending and Sharing FLOW[​](#sending-and-sharing-flow "Direct link to Sending and Sharing FLOW")
+### Send and share FLOW[​](#send-and-share-flow "Direct link to Send and share FLOW")
 
 If you simply want to share the love and bring your friends to Flow, it's easier than an edible arrangement.
 
-It is possible to use the Flow blockchain without holding any FLOW coins yourself.
-Free to play games, trials, community polls,
-and other community activities can all take place with only an account
-(which may be created on a person's behalf)
-and a small fixed fee which may be paid by a user agent.
+It is possible to use the Flow blockchain and not hold any FLOW coins yourself. Free to play games, trials, community polls, and other community activities can all take place with only an account (which may be created on a person's behalf) and a small fixed fee which may be paid by a user agent.
 
-The protocol requires some FLOW coins to process these transactions,
-but (and this is the cool part!) a product can support users who do not themselves hold FLOW
-while still providing that user with all the underlying security guarantees the Flow protocol provides.
+The protocol requires some FLOW coins to process these transactions, but (and this is the cool part!) a product can support users who do not themselves hold FLOW and still provide that user with all the underlying security guarantees the Flow protocol provides.
 
-Transferring FLOW, creating accounts, and updating keys are all actions made easy on [Flow Port](https://port.flow.com/)
+It's easy to transfer FLOW, create accounts, and update keys on [Flow Port](https://port.flow.com/)
 
-### Submitting Transactions and Updating Users[​](#submitting-transactions-and-updating-users "Direct link to Submitting Transactions and Updating Users")
+### Submit transactions and update users[​](#submit-transactions-and-update-users "Direct link to Submit transactions and update users")
 
-Transactions are submitted using a Flow SDK via the Access API.
+Transactions are submitted with a Flow SDK via the Access API.
 
-On Flow, a transaction is identified by its hash - the hash that exists as soon as that transaction is signed and submitted to an Access or Collection node.
-Results of transactions can be queried by transaction hash through the Access API.
-A user can check the status of a transaction at any time via the [Flow Block Explorer](https://flowscan.io/).
+On Flow, a transaction is identified by its hash - the hash that exists as soon as that transaction is signed and submitted to an Access or Collection node. Results of transactions can be queried by transaction hash through the Access API. A user can check the status of a transaction at any time via the [Flow Block Explorer](https://flowscan.io/).
 
-To expose these results natively in your app, you can use a Flow SDK to fetch transaction results,
-[for example using the Flow Go SDK](https://github.com/onflow/flow-go-sdk#querying-transaction-results).
+To expose these results natively in your app, you can use a Flow SDK to [fetch transaction results](https://github.com/onflow/flow-go-sdk#querying-transaction-results).
 
-Using a Flow SDK you can also fetch account state by address from a Flow Access API,
-[for example using the Flow Go SDK](https://github.com/onflow/flow-go-sdk#querying-accounts).
+With a Flow SDK, you can also [fetch account state by address](https://github.com/onflow/flow-go-sdk#querying-accounts) from a Flow Access API.
 
-Once the transaction is sealed, an event is emitted and you will be able to read transaction events and update the user.
+After the transaction is sealed, an event is emitted and you will be able to read transaction events and update the user.
 
-The Flow SDKs also allow polling for events using the Flow Access API,
-[for example using the Flow Go SDK](https://github.com/onflow/flow-go-sdk#querying-events).
+The Flow SDKs also allow [polling for events] with the Flow Access API.
 
-## How to Build with FLOW[​](#how-to-build-with-flow "Direct link to How to Build with FLOW")
+## How to build with FLOW[​](#how-to-build-with-flow "Direct link to How to build with FLOW")
 
-To get started building on Flow, please see the [Flow App Quickstart](/blockchain-development-tutorials/cadence/getting-started/building-a-frontend-app)
+To get started with Flow, see the [Flow App Quickstart]
+
+[polling for events]: <https://github.com/onflow/flow-go-sdk#querying-events>)
+[Flow App Quickstart]: ../../../blockchain-development-tutorials/cadence/getting-started/building-a-frontend-app.md
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/basics/flow-token.md)
 
-Last updated on **Sep 24, 2025** by **Felipe Cevallos**
+Last updated on **Dec 2, 2025** by **cshannon1218**
 
 [Previous
 
@@ -397770,9 +397725,8 @@ Smart Contracts ↙](/build/cadence/basics/smart-contracts)
 
 Copy as Markdown
 
-* [Introduction](#introduction)
-  + [FLOW as a Native Coin](#flow-as-a-native-coin)* [How to Get FLOW](#how-to-get-flow)* [How to Use FLOW](#how-to-use-flow)
-      + [Spending FLOW](#spending-flow)+ [Staking FLOW](#staking-flow)+ [Delegating FLOW](#delegating-flow)+ [Holding FLOW](#holding-flow)+ [Voting with FLOW](#voting-with-flow)+ [Sending and Sharing FLOW](#sending-and-sharing-flow)+ [Submitting Transactions and Updating Users](#submitting-transactions-and-updating-users)* [How to Build with FLOW](#how-to-build-with-flow)
+* [FLOW as a Native Coin](#flow-as-a-native-coin)* [How to Get FLOW](#how-to-get-flow)* [How to use FLOW](#how-to-use-flow)
+      + [Spend FLOW](#spend-flow)+ [Stake FLOW](#stake-flow)+ [Delegate FLOW](#delegate-flow)+ [Hold FLOW](#hold-flow)+ [Vote with FLOW](#vote-with-flow)+ [Send and share FLOW](#send-and-share-flow)+ [Submit transactions and update users](#submit-transactions-and-update-users)* [How to build with FLOW](#how-to-build-with-flow)
 
 Flow
 
@@ -403570,7 +403524,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -435331,12 +435285,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **9ab054c0ae7eeace**
+Cloudflare Ray ID: **9ab892a52c94f457**
 •
 
 Your IP:
 Click to reveal
-172.183.94.135
+172.184.209.154
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 

@@ -30,15 +30,11 @@ Search
 
 * * Cadence* [Core Smart Contracts](/build/cadence/core-contracts)* EVM
 
-# Contract
+# Flow EVM
 
-The `EVM` contract is the entrypoint from Cadence to Flow EVM. While many developers may choose to interact with EVM
-via [EVM-equivalent tooling paths](/build/evm/using), all access to Flow EVM ultimately interfaces via Cadence at
-some level.
+The `EVM` contract is the entrypoint from Cadence to Flow EVM. While many developers may choose to interact with EVM via [EVM-equivalent tooling paths](/build/evm/using), all access to Flow EVM ultimately interfaces via Cadence at some level.
 
-If you would like to interact with EVM directly from Cadence, you can use the `EVM` contract and it's constructs. Read
-more about the EVM contract and its role in Flow's EVM equivalence in [FLIP
-#223](https://github.com/onflow/flips/blob/main/protocol/20231116-evm-support.md).
+If you would like to interact with EVM directly from Cadence, you can use the `EVM` contract and it's constructs. Read more about the EVM contract and its role in Flow's EVM equivalence in [FLIP #223](https://github.com/onflow/flips/blob/main/protocol/20231116-evm-support.md).
 
 Mainnet/Testnet Source: [`EVM.cdc`](https://github.com/onflow/flow-go/blob/master/fvm/evm/stdlib/contract.cdc)
 
@@ -48,7 +44,7 @@ Mainnet/Testnet Source: [`EVM.cdc`](https://github.com/onflow/flow-go/blob/maste
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/core-contracts/13-evm.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 3, 2025** by **cshannon1218**
 
 [Previous
 

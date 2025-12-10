@@ -38,9 +38,11 @@ Transactions are cryptographically signed data messages that contain a set of in
 
 tip
 
-Transactions on Flow are fundamentally different from those on Ethereum. The main purpose of a transaction is not to send funds but to contain code that gets executed. This makes transactions very flexible and powerful. In addition to being able to access the authorizing accounts private assets, transactions can also read and call functions in public contracts, and access public domains in other users' accounts Transactions on Flow also feature different roles, such as defining third-party payer accounts, proposer accounts, and authorizers, which we will talk about in detail soon.
+Transactions on Flow are fundamentally different from those on Ethereum. The main purpose of a transaction is not to send funds, but to contain code that gets executed. This makes transactions very flexible and powerful. In addition to being able to access the authorizing accounts private assets, transactions can also read and call functions in public contracts, and access public domains in other users' accounts.
 
-In order for a transaction to be valid and executed it must contain signatures from accounts involved as well as some other information, let's take a look at all the required fields.
+Transactions on Flow also feature different roles, such as define third-party payer accounts, proposer accounts, and authorizers, which we will talk about in detail soon.
+
+In order for a transaction to be valid and executed, it must contain signatures from accounts involved as well as some other information, let's take a look at all the required fields.
 
 ![Screenshot 2023-08-17 at 14.52.56.png](/assets/images/Screenshot_2023-08-17_at_14.52.56-83d61ffc68082f1c93bc2226e347e718.png)
 
@@ -48,12 +50,12 @@ In order for a transaction to be valid and executed it must contain signatures f
 
 The script section contains instructions for transaction execution. This is a Cadence program in source code form (human-readable), and encoded as UTF-8. The transaction program must contain a `transaction` declaration.
 
-A transaction includes multiple optional phases `prepare`, `pre`, `execute`, and `post` phase. You can read more about it in the [Cadence reference document on transactions](https://cadence-lang.org/docs/language/transactions). Each phase has a purpose, the two most important phases are `prepare` and `execute`.
+A transaction includes multiple optional phases `prepare`, `pre`, `execute`, and `post` phase. You can read more about it in the Cadence [documentation on transactions](https://cadence-lang.org/docs/language/transactions). Each phase has a purpose, the two most important phases are `prepare` and `execute`.
 
 In the `prepare` phase, we have access to `&Account` objects, which gives us the power to interact with those accounts. The accounts are called authorizers of transactions, so each account we want to interact with in the `prepare` phase must sign the transaction as an authorizer.
 The `execute` phase does exactly what it says, it executes the main logic of the transaction. This phase is optional, but it is a best practice to add your main transaction logic in the section, so it is explicit.
 
-Again make sure to read Cadence [documentation on transactions](https://cadence-lang.org/docs/language/transactions)
+Again, make sure to read Cadence [documentation on transactions](https://cadence-lang.org/docs/language/transactions)
 
 This is an example of a transaction script:
 
@@ -79,25 +81,25 @@ _10
 
 ### Arguments[​](#arguments "Direct link to Arguments")
 
-Transactions may declare parameters it needs during execution, these must be provided as input arguments when sending a transaction. You can think of them as function arguments. Currently, we provide [arguments in the JSON-Cadence Data Interchange Format](https://cadencelang.dev/docs/1.0/json-cadence-spec). Which is a human-readable JSON format. The sample script from above accepts a single `String` argument.
+Transactions may declare parameters it needs during execution, these must be provided as input arguments when you send a transaction. You can think of them as function arguments. Currently, we provide [arguments in the JSON-Cadence Data Interchange Format](https://cadencelang.dev/docs/1.0/json-cadence-spec). Which is a human-readable JSON format. The sample script from above accepts a single `String` argument.
 
-### Reference Block[​](#reference-block "Direct link to Reference Block")
+### Reference block[​](#reference-block "Direct link to Reference block")
 
-A reference to a recent block used for expiry. A transaction is considered expired if it is submitted to Flow after reference block height + N, where N is a constant defined by the network. On mainnet current setting for N is 600 which amounts to approximately 10 minutes for expiry (please note this is subject to change).
+A reference to a recent block used for expiry. A transaction is considered expired if it is submitted to Flow after reference block height + N, where N is a constant defined by the network. On mainnet current setting for N is 600 which amounts to approximately 10 minutes for expiry (this is subject to change).
 
 caution
 
-It is recommended to use the latest finalized block as the reference block, as it is the most recent block guaranteed to be included by the network. Using the latest sealed block is not recommended, as sealing occurs after finalization and could cause the transaction to fall outside of the expiration window.
+We recommend that you use the latest finalized block as the reference block, as it is the most recent block guaranteed to be included by the network. We don't recommend that you use the latest sealed block, as sealing occurs after finalization and could cause the transaction to fall outside of the expiration window.
 
-### Gas Limit[​](#gas-limit "Direct link to Gas Limit")
+### Gas limit[​](#gas-limit "Direct link to Gas limit")
 
-When a transaction is executed each operation consumes a predefined amount of computational units (we define more about that in the Fees documentation). This defines the maximum amount of computation that is allowed to be done during this transaction. If a transaction completes execution using fewer computational units than the limit, it remains unaffected. However, if it hits this limit during execution, the transaction will fail, its changes will be reverted, but fees will still be applied. The maximum computational limit for Flow mainnet is currently at 9999, but this might change. The maximum network limit is defined to protect the network from transactions that would run forever.
+When a transaction is executed each operation consumes a predefined amount of computational units (we define more about that in the Fees documentation). This defines the maximum amount of computation that is allowed to be done during this transaction. If a transaction completes execution with fewer computational units than the limit, it remains unaffected. However, if it hits this limit during execution, the transaction will fail, its changes will be reverted, but fees will still be applied. The maximum computational limit for Flow mainnet is currently at 9999, but this might change. The maximum network limit is defined to protect the network from transactions that would run forever.
 
-### Proposal Key[​](#proposal-key "Direct link to Proposal Key")
+### Proposal key[​](#proposal-key "Direct link to Proposal key")
 
 Each transaction must declare a proposal key, which can be an account key from any Flow account (App, User or Wallet). The account that owns the proposal key is referred to as the *proposer*.
 
-Proposer is a role in a transaction that defines who is proposing the transaction, the effect of the transaction being submitted on the proposer is that it will increment the sequence number for the provided proposer key. This is done to ensure transactions are not resubmitted (replay attack) and thus sequencing actions.
+Proposer is a role in a transaction that defines who proposes the transaction, the effect of the transaction being submitted on the proposer is that it will increment the sequence number for the provided proposer key. This is done to ensure transactions are not resubmitted (replay attack) and thus sequence actions.
 
 A proposal key definition declares the address, key ID, and up-to-date sequence number for the account key. A single proposer can have many transactions executed in parallel only limited by the key they use to propose the transaction.
 
@@ -105,11 +107,11 @@ A proposal key definition declares the address, key ID, and up-to-date sequence 
 
 * Address identifies the account that will act as a proposer of this transaction.
 * Key ID is an index number (starting at 0) that identifies the key on the account provided in the address.
-* Sequence Number is a number on each key that increments by 1 with each transaction. This ensures that each transaction executes at most once and prevents many unwanted situations, such as [transaction replay attacks](https://en.wikipedia.org/wiki/Replay_attack). Each key in an account has a dedicated sequence number associated with it. Unlike Ethereum, there is no sequence number for the entire account.
+* Sequence Number is a number on each key that increments by one with each transaction. This ensures that each transaction executes at most once and prevents many unwanted situations, such as [transaction replay attacks](https://en.wikipedia.org/wiki/Replay_attack). Each key in an account has a dedicated sequence number associated with it. Unlike Ethereum, there is no sequence number for the entire account.
 
 ### Authorizers[​](#authorizers "Direct link to Authorizers")
 
-Authorizers are accounts that authorize a transaction to read and mutate their state. A transaction can specify zero or more authorizers, depending on how many accounts the transaction needs to access.
+Authorizers are accounts that authorize a transaction to read and mutate their state. A transaction can specify zero or more authorizers, and this depends on how many accounts the transaction needs to access.
 
 The number of authorizers on the transaction must match the number of &Account parameters declared in the prepare statement of the Cadence script.
 
@@ -127,31 +129,23 @@ _10
 
 }`
 
-Each account defined as an authorizer must sign the transaction with its own key,
-and by doing so it acknowledges the transaction it signed
-will have access to that account and may modify it.
-How it will modify it is understood from the list of account entitlements
-that are granted in the `prepare` argument list and by reading the transaction script.
-In an transaction, developers should only give the minimum set of account entitlements
-that are required for the transaction to execute properly.
-This ensures that users who are signing transactions can understand
-what parts of their account a transaction can access.
+Each account defined as an authorizer must sign the transaction with its own key, and when it does so, it acknowledges the transaction it signed will have access to that account and may modify it. How it will modify it is understood from the list of account entitlements that are granted in the `prepare` argument list and when it reads the transaction script. In an transaction, developers should only give the minimum set of account entitlements that are required for the transaction to execute properly. This ensures that users who sign transactions can understand what parts of their account a transaction can access.
 
 ### Payer[​](#payer "Direct link to Payer")
 
-A payer is the account that pays the fees for the transaction. A transaction must specify exactly one payer. The payer is only responsible for paying the network and compute unit fees; the transaction is not authorized to access resources or code stored in the payer account.
+A payer is the account that pays the fees for the transaction. A transaction must specify exactly one payer. The payer only has to pay the network and compute unit fees; the transaction is not authorized to access resources or code stored in the payer account.
 
-By explicitly specifying a payer a transaction can be paid by third-party services such as wallet providers.
+When you explicitly specify a payer, third-party services such as wallet providers can pay a transaction.
 
-## Transaction Lifecycle[​](#transaction-lifecycle "Direct link to Transaction Lifecycle")
+## Transaction lifecycle[​](#transaction-lifecycle "Direct link to Transaction lifecycle")
 
-Once a transaction has been submitted to the Flow network using the Access node APIs, it will begin its lifecycle and eventually reach a finality. Each submitted transaction can be identified with an ID.
+After a transaction has been submitted to the Flow network with the Access node APIs, it will begin its lifecycle and eventually reach a finality. Each submitted transaction can be identified with an ID.
 
 **Transaction ID**
 
 A transaction ID is a hash of the encoded transaction payload and can be calculated at any time. We don't submit transaction ID as part of the transaction payload as it can be derived from the data and thus would mean duplication of data.
 
-### Transaction Status[​](#transaction-status "Direct link to Transaction Status")
+### Transaction status[​](#transaction-status "Direct link to Transaction status")
 
 The transaction status represents the state of a transaction on the Flow blockchain. Some statuses are mutable and some are immutable, they usually follow a timeline like so:
 
@@ -168,9 +162,9 @@ danger
 
 It is **important to differentiate the transaction status and transaction result**. Transaction status will only provide you with information about the inclusion of the transaction in the blockchain, not whether the transaction was executed the way you intended. **A transaction can still fail to execute the way you intended and be sealed.**
 
-### Transaction Result[​](#transaction-result "Direct link to Transaction Result")
+### Transaction result[​](#transaction-result "Direct link to Transaction result")
 
-Once a transaction is executed, its result will be available, providing details on its success or any errors encountered during execution. It also includes events the transaction may have emitted.
+After a transaction is executed, its result will be available, which provides details on its success or any errors encountered during execution. It also includes events the transaction may have emitted.
 
 ![Screenshot 2023-08-17 at 16.29.30.png](/assets/images/Screenshot_2023-08-17_at_16.29.30-36be73beac741fe649c3bd9aaea2b7d0.png)
 
@@ -181,20 +175,20 @@ From a developer perspective, a transaction is only successful if:
 * It is sealed
 * It didn't encounter errors
 
-## Transaction Time[​](#transaction-time "Direct link to Transaction Time")
+## Transaction time[​](#transaction-time "Direct link to Transaction time")
 
-Understanding how transaction times work across different blockchains is crucial for developers and users to optimize their operations and expectations. Flow's multi-node architecture allows for some of the fastest transaction times and finality times across chains. Read on for more detail on how it works and what it means for developers and users.
+It's crucial that developers and users understand how transaction times work across different blockchains to optimize their operations and expectations. Flow's multi-node architecture allows for some of the fastest transaction times and finality times across chains. Read on for more detail on how it works and what it means for developers and users.
 
-### Two Key Transaction Questions[​](#two-key-transaction-questions "Direct link to Two Key Transaction Questions")
+### Two key transaction questions[​](#two-key-transaction-questions "Direct link to Two key transaction questions")
 
 Whenever a transaction is processed, two primary questions come to mind:
 
 1. **Inclusion**: Will this transaction be included in the final chain?
 2. **Result**: What is the outcome of the transaction?
 
-Different blockchains tackle these questions in varied sequences. For instance, Bitcoin and Ethereum provide answers simultaneously. Layer 2 solutions (L2s) can sometimes address the outcome before confirming inclusion. But there's a catch: you can have an answer to those questions that might be wrong. Flow, on the other hand, prioritizes the inclusion question.
+Different blockchains tackle these questions in varied sequences. For instance, Bitcoin and Ethereum provide answers simultaneously. Layer 2 solutions (L2s) can sometimes address the outcome before it confirms inclusion. But, there's a catch: you can have an answer to those questions that might be wrong. Flow, on the other hand, prioritizes the inclusion question.
 
-### Transaction Finality[​](#transaction-finality "Direct link to Transaction Finality")
+### Transaction finality[​](#transaction-finality "Direct link to Transaction finality")
 
 Drawing a parallel to traditional finance, a vendor might instantly know if Visa approves a transaction, but the possibility of chargebacks lingers for weeks. This uncertainty introduces the concept of "finality" in blockchain transactions.
 
@@ -202,11 +196,11 @@ In the dominant Proof-of-Stake (PoS) environment, which includes most chains exc
 
 * **Preliminary result**: It's an initial answer to the aforementioned questions. The preliminary result doesn't ensure correctness, and there are no economic penalties (like "slashing") if the informant provides false information.
 * **Soft economic finality**: This stage provides an answer backed by cryptographic proof. If the informant is deceptive, they face economic repercussions or "slashing."
-* **Hard economic finality**: The provided answer either holds true, or the entire blockchain requires a restart. The latter case sees at least one-third of the nodes facing economic penalties.
+* **Hard economic finality**: The provided answer either holds true, or the entire blockchain requires a restart. The latter case sees at least one-third of the nodes face economic penalties.
 
 ![finality.png](/assets/images/finality-1a08778abfbc252b38337a87bc2faf2a.png)
 
-### Chain Comparisons[​](#chain-comparisons "Direct link to Chain Comparisons")
+### Chain comparisons[​](#chain-comparisons "Direct link to Chain comparisons")
 
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -214,11 +208,11 @@ In the dominant Proof-of-Stake (PoS) environment, which includes most chains exc
 
 #### Flow[​](#flow "Direct link to Flow")
 
-Flow bypasses preliminary results entirely. It reaches soft finality ("Executed") in about 4 seconds and hard finality ("Sealed") in around 10 seconds. If an Access Node on Flow states a transaction has occurred, it's either correct or cryptographic proof exists that can lead to the node's slashing.
+Flow bypasses preliminary results entirely. It reaches soft finality ("Executed") in about four seconds and hard finality ("Sealed") in around 10 seconds. If an Access Node on Flow states a transaction has occurred, it's either correct or cryptographic proof exists that can lead to the node's slashing.
 
 ![transaction-time.png](/assets/images/chain-comparison-ec137713225ffe02ea3dee3c15ba75c8.png)
 
-## Signing a Transaction[​](#signing-a-transaction "Direct link to Signing a Transaction")
+## Sign a transaction[​](#sign-a-transaction "Direct link to Sign a transaction")
 
 Due to the existence of **weighted keys** and **split signing roles**, Flow transactions sometimes need to be signed multiple times by one or more parties. That is, multiple unique signatures may be needed to authorize a single transaction.
 
@@ -229,8 +223,8 @@ A transaction can contain two types of signatures: **payload signatures** and **
 ### Signer Roles[​](#signer-roles "Direct link to Signer Roles")
 
 * **Proposer**: the account that specifies a proposal key.
-* **Payer**: the account paying for the transaction fees.
-* **Authorizers**: zero or more accounts authorizing the transaction to mutate their state.
+* **Payer**: the account that pays for the transaction fees.
+* **Authorizers**: zero or more accounts that authorize the transaction to mutate their state.
 
 ### Payload[​](#payload "Direct link to Payload")
 
@@ -240,7 +234,7 @@ warning
 
 ⚠️ The transaction proposer and authorizer are only required to sign the transaction payload. These signatures are the payload signatures.
 
-### Authorization Envelope[​](#authorization-envelope "Direct link to Authorization Envelope")
+### Authorization envelope[​](#authorization-envelope "Direct link to Authorization envelope")
 
 The transaction authorization envelope contains both the transaction payload and the payload signatures.
 
@@ -250,7 +244,7 @@ danger
 
 Special case: if an account is both the payer and either a proposer or authorizer, it is required only to sign the envelope.
 
-### Payment Envelope[​](#payment-envelope "Direct link to Payment Envelope")
+### Payment envelope[​](#payment-envelope "Direct link to Payment envelope")
 
 The outermost portion of the transaction, which contains the payload and envelope signatures, is referred to as the payment envelope.
 
@@ -258,7 +252,7 @@ danger
 
 Special case: if an account is both the payer and either a proposer or authorizer, it is required only to sign the envelope.
 
-### Payer Signs Last[​](#payer-signs-last "Direct link to Payer Signs Last")
+### Payer signs last[​](#payer-signs-last "Direct link to Payer signs last")
 
 The payer must sign the portion of the transaction that contains the payload signatures, which means that the payer must always sign last. This ensures the payer that they are signing a valid transaction with all of the required payload signatures.
 
@@ -266,9 +260,9 @@ danger
 
 Special case: if an account is both the payer and either a proposer or authorizer, it is required only to sign the envelope.
 
-### Signature Structure[​](#signature-structure "Direct link to Signature Structure")
+### Signature structure[​](#signature-structure "Direct link to Signature structure")
 
-A transaction signature is a composite structure containing three fields:
+A transaction signature is a composite structure that contains three fields:
 
 * Address
 * Key ID
@@ -276,7 +270,7 @@ A transaction signature is a composite structure containing three fields:
 
 The *address* and *key ID* fields declare the account key that generated the signature, which is required in order to verify the signature against the correct public key.
 
-### Sequence Numbers[​](#sequence-numbers "Direct link to Sequence Numbers")
+### Sequence numbers[​](#sequence-numbers "Direct link to Sequence numbers")
 
 Flow uses sequence numbers to ensure that each transaction executes at most once. This prevents many unwanted situations such as [transaction replay attacks](https://en.wikipedia.org/wiki/Replay_attack).
 
@@ -289,11 +283,11 @@ tip
 
 The transaction proposer is only required to specify a sequence number for a single account key, even if it signs with multiple keys. This key is referred to as the proposal key.
 
-Each time an account key is used as a proposal key, its sequence number is incremented by 1. The sequence number is updated after execution, even if the transaction fails (reverts) during execution.
+Each time an account key is used as a proposal key, its sequence number is incremented by one. The sequence number is updated after execution, even if the transaction fails (reverts) during execution.
 
 A transaction is failed if its proposal key does not specify a sequence number equal to the sequence number stored on the account *at execution time.*
 
-## Common Signing Scenarios[​](#common-signing-scenarios "Direct link to Common Signing Scenarios")
+## Common signing scenarios[​](#common-signing-scenarios "Direct link to Common signing scenarios")
 
 Below are several scenarios in which different signature combinations are required to authorize a transaction.
 
@@ -743,9 +737,9 @@ _35
 
 }`
 
-## Transaction Submission and Retrieval[​](#transaction-submission-and-retrieval "Direct link to Transaction Submission and Retrieval")
+## Transaction submission and retrieval[​](#transaction-submission-and-retrieval "Direct link to Transaction submission and retrieval")
 
-You can use the Flow CLI to get an existing transaction by ID:
+You can use the Flow CLI to get a current transaction by ID:
 
 `_10
 
@@ -753,7 +747,7 @@ flow transactions get 1ec90051e3bc74fc36cbd16fc83df08e463dda8f92e8e2193e061f9d41
 
 Find [more about the command in the CLI docs](/build/tools/flow-cli/get-flow-data/get-blocks).
 
-A user can define their own transactions or it can use already defined transactions by the contract authors that can be found by using the FLIX service.
+A user can define their own transactions or it can use already defined transactions by the contract authors that can be found by with the FLIX service.
 
 Transactions can be submitted and obtained from the access node APIs, currently, there are two gRPC and REST APIs. You can find more information about them here:
 
@@ -761,7 +755,7 @@ Transactions can be submitted and obtained from the access node APIs, currently,
 
 [**REST Transaction API**](/http-api#tag/Transactions)
 
-There are multiple SDKs implementing the above APIs for different languages:
+There are multiple SDKs that the above APIs for different languages:
 
 [**Javascript SDK**](/build/tools/clients/fcl-js)
 
@@ -771,7 +765,7 @@ Find a list of all SDKs [here](/build/tools/clients)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/basics/transactions.md)
 
-Last updated on **Nov 12, 2025** by **Brian Doyle**
+Last updated on **Dec 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -785,11 +779,11 @@ Scripts](/build/cadence/basics/scripts)
 
 Copy as Markdown
 
-* [Script](#script)* [Arguments](#arguments)* [Reference Block](#reference-block)* [Gas Limit](#gas-limit)* [Proposal Key](#proposal-key)* [Authorizers](#authorizers)* [Payer](#payer)* [Transaction Lifecycle](#transaction-lifecycle)
-                + [Transaction Status](#transaction-status)+ [Transaction Result](#transaction-result)* [Transaction Time](#transaction-time)
-                  + [Two Key Transaction Questions](#two-key-transaction-questions)+ [Transaction Finality](#transaction-finality)+ [Chain Comparisons](#chain-comparisons)* [Signing a Transaction](#signing-a-transaction)
-                    + [Signer Roles](#signer-roles)+ [Payload](#payload)+ [Authorization Envelope](#authorization-envelope)+ [Payment Envelope](#payment-envelope)+ [Payer Signs Last](#payer-signs-last)+ [Signature Structure](#signature-structure)+ [Sequence Numbers](#sequence-numbers)* [Common Signing Scenarios](#common-signing-scenarios)
-                      + [Single party, single signature](#single-party-single-signature)+ [Single party, multiple signatures](#single-party-multiple-signatures)+ [Multiple parties](#multiple-parties)+ [Multiple parties, multiple signatures](#multiple-parties-multiple-signatures)* [Transaction Submission and Retrieval](#transaction-submission-and-retrieval)
+* [Script](#script)* [Arguments](#arguments)* [Reference block](#reference-block)* [Gas limit](#gas-limit)* [Proposal key](#proposal-key)* [Authorizers](#authorizers)* [Payer](#payer)* [Transaction lifecycle](#transaction-lifecycle)
+                + [Transaction status](#transaction-status)+ [Transaction result](#transaction-result)* [Transaction time](#transaction-time)
+                  + [Two key transaction questions](#two-key-transaction-questions)+ [Transaction finality](#transaction-finality)+ [Chain comparisons](#chain-comparisons)* [Sign a transaction](#sign-a-transaction)
+                    + [Signer Roles](#signer-roles)+ [Payload](#payload)+ [Authorization envelope](#authorization-envelope)+ [Payment envelope](#payment-envelope)+ [Payer signs last](#payer-signs-last)+ [Signature structure](#signature-structure)+ [Sequence numbers](#sequence-numbers)* [Common signing scenarios](#common-signing-scenarios)
+                      + [Single party, single signature](#single-party-single-signature)+ [Single party, multiple signatures](#single-party-multiple-signatures)+ [Multiple parties](#multiple-parties)+ [Multiple parties, multiple signatures](#multiple-parties-multiple-signatures)* [Transaction submission and retrieval](#transaction-submission-and-retrieval)
 
 Flow
 
