@@ -30,7 +30,7 @@ Search
 
 * * Cadence* [Core Smart Contracts](/build/cadence/core-contracts)* Account Linking
 
-# Contract
+# Flow Account Linking Contract Address
 
 The Account Linking contracts manage ChildAccounts to permit hybrid custody in scenarios where apps only want to share a subset of resources on their accounts with various parents. In many cases, this will be a user's primary wallet outside of the application a child account came from.
 
@@ -42,7 +42,7 @@ You can see the docs for account linking [here](https://developers.flow.com/buil
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/core-contracts/12-hybrid-custody.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 3, 2025** by **cshannon1218**
 
 [Previous
 

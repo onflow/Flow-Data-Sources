@@ -34,8 +34,7 @@ On this page
 
 # Contract
 
-The `FlowEpoch` contract is the state machine that manages Epoch phases and emits service events.
-The `FlowClusterQC` and `FlowDKG` contracts manage the processes that happen during the Epoch Setup phase.
+The `FlowEpoch` contract is the state machine that manages Epoch phases and emits service events. The `FlowClusterQC` and `FlowDKG` contracts manage the processes that happen during the Epoch Setup phase.
 
 These contracts are all deployed to the same account as the `FlowIDTableStaking` contract.
 
@@ -49,36 +48,54 @@ Sources:
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Network Contract Address|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | Emulator `0xf8d6e0586b0a20c7`| Cadence Testing Framework `0x0000000000000001`| Testnet `0x9eca2b38b18b5dfe`| Mainnet `0x8624b52f9ddcd04a` | | | | | | | | | |
 
-# Transactions
+## Transactions[​](#transactions "Direct link to Transactions")
 
-## Getting Epoch Info[​](#getting-epoch-info "Direct link to Getting Epoch Info")
+### Get epoch info[​](#get-epoch-info "Direct link to Get epoch info")
 
 These scripts are read-only and get info about the current state of the epoch contract.
 
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ID Name Source|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **`EP.01`** Get Epoch Metadata [epoch/get\_epoch\_metadata.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/epoch/scripts/get_epoch_metadata.cdc)| **`EP.02`** Get Configurable Metadata [epoch/get\_config\_metadata.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/epoch/scripts/get_config_metadata.cdc)| **`EP.03`** Get Epoch Counter [epoch/get\_epoch\_counter.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/epoch/scripts/get_epoch_counter.cdc)| **`EP.04`** Get Epoch Phase [epoch/get\_epoch\_phase.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/epoch/scripts/get_epoch_phase.cdc) | | | | | | | | | | | | | | |
+| ID Name Source|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **`EP.01`** Get Epoch Metadata [epoch/get\_epoch\_metadata.cdc]|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **`EP.02`** Get Configurable Metadata [epoch/get\_config\_metadata.cdc]|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | **`EP.03`** Get Epoch Counter [epoch/get\_epoch\_counter.cdc]|  |  |  | | --- | --- | --- | | **`EP.04`** Get Epoch Phase [epoch/get\_epoch\_phase.cdc] | | | | | | | | | | | | | | |
 
-## Quorum Certificate Transactions and Scripts[​](#quorum-certificate-transactions-and-scripts "Direct link to Quorum Certificate Transactions and Scripts")
+## Quorum certificate transactions and scripts[​](#quorum-certificate-transactions-and-scripts "Direct link to Quorum certificate transactions and scripts")
 
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ID Name Source|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **`QC.01`** Create QC Voter [quorumCertificate/get\_epoch\_metadata.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/quorumCertificate/create_voter.cdc)| **`QC.02`** Submit QC Vote [quorumCertificate/get\_config\_metadata.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/quorumCertificate/submit_vote.cdc)| **`QC.03`** Get Collector Cluster [quorumCertificate/scripts/get\_cluster.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/quorumCertificate/scripts/get_cluster.cdc)| **`QC.04`** Get QC Enabled [quorumCertificate/scripts/get\_qc\_enabled.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/quorumCertificate/scripts/get_qc_enabled.cdc)| **`QC.05`** Get Node Has Voted [quorumCertificate/scripts/get\_node\_has\_voted.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/quorumCertificate/scripts/get_node_has_voted.cdc)| **`QC.06`** Get QC Voting Complete [quorumCertificate/scripts/get\_voting\_completed.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/quorumCertificate/scripts/get_voting_completed.cdc) | | | | | | | | | | | | | | | | | | | | |
+| ID Name Source|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **`QC.01`** Create QC Voter [quorumCertificate/get\_epoch\_metadata.cdc]|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **`QC.02`** Submit QC Vote [quorumCertificate/get\_config\_metadata.cdc]|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **`QC.03`** Get Collector Cluster [quorumCertificate/scripts/get\_cluster.cdc]|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **`QC.04`** Get QC Enabled [quorumCertificate/scripts/get\_qc\_enabled.cdc]|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | **`QC.05`** Get Node Has Voted [quorumCertificate/scripts/get\_node\_has\_voted.cdc]|  |  |  | | --- | --- | --- | | **`QC.06`** Get QC Voting Complete [quorumCertificate/scripts/get\_voting\_completed.cdc] | | | | | | | | | | | | | | | | | | | | |
 
-## DKG Transactions and Scripts[​](#dkg-transactions-and-scripts "Direct link to DKG Transactions and Scripts")
+## DKG transactions and scripts[​](#dkg-transactions-and-scripts "Direct link to DKG transactions and scripts")
 
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ID Name Source|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **`DKG.01`** Create DKG Participant [dkg/create\_participant.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/create_participant.cdc)| **`DKG.02`** Get Configurable Metadata [dkg/send\_whiteboard\_message.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/send_whiteboard_message.cdc)| **`DKG.03`** Send Final Submission [dkg/send\_final\_submission.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/send_final_submission.cdc)| **`DKG.04`** Get DKG Enabled [dkg/scripts/get\_dkg\_enabled.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/scripts/get_dkg_enabled.cdc)| **`DKG.05`** Get DKG Completed [dkg/scripts/get\_dkg\_completed.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/scripts/get_dkg_completed.cdc)| **`DKG.06`** Get Whiteboard Messages [dkg/scripts/get\_whiteboard\_messages.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/scripts/get_whiteboard_messages.cdc)| **`DKG.07`** Get Final Submissions [dkg/scripts/get\_final\_submissions.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/scripts/get_final_submissions.cdc)| **`DKG.08`** Get Node Has Submitted [dkg/scripts/get\_node\_has\_submitted.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/scripts/get_node_has_submitted.cdc) | | | | | | | | | | | | | | | | | | | | | | | | | | |
+| ID Name Source|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **`DKG.01`** Create DKG Participant [dkg/create\_participant.cdc]|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **`DKG.02`** Get Configurable Metadata [dkg/send\_whiteboard\_message.cdc]|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **`DKG.03`** Send Final Submission [dkg/send\_final\_submission.cdc]|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **`DKG.04`** Get DKG Enabled [dkg/scripts/get\_dkg\_enabled.cdc]|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **`DKG.05`** Get DKG Completed [dkg/scripts/get\_dkg\_completed.cdc]|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **`DKG.06`** Get Whiteboard Messages [dkg/scripts/get\_whiteboard\_messages.cdc]|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | **`DKG.07`** Get Final Submissions [dkg/scripts/get\_final\_submissions.cdc]|  |  |  | | --- | --- | --- | | **`DKG.08`** Get Node Has Submitted [dkg/scripts/get\_node\_has\_submitted.cdc] | | | | | | | | | | | | | | | | | | | | | | | | | | |
 
 # Events
 
-See the [epoch documentation](/protocol/staking/epoch-scripts-events)
-for a list and documentation for important `FlowEpoch` events.
+See the [epoch documentation](/protocol/staking/epoch-scripts-events) for a list and documentation for important `FlowEpoch` events.
+
+[epoch/get\_epoch\_metadata.cdc]: <https://github.com/onflow/flow-core-contracts/blob/master/transactions/epoch/scripts/get_epoch_metadata.cdc>)
+[epoch/get\_config\_metadata.cdc]: <https://github.com/onflow/flow-core-contracts/blob/master/transactions/epoch/scripts/get_config_metadata.cdc>
+[epoch/get\_epoch\_counter.cdc]: <https://github.com/onflow/flow-core-contracts/blob/master/transactions/epoch/scripts/get_epoch_counter.cdc>
+[epoch/get\_epoch\_phase.cdc]: <https://github.com/onflow/flow-core-contracts/blob/master/transactions/epoch/scripts/get_epoch_phase.cdc>)  
+[quorumCertificate/get\_epoch\_metadata.cdc]: <https://github.com/onflow/flow-core-contracts/blob/master/transactions/quorumCertificate/create_voter.cdc>)
+[quorumCertificate/get\_config\_metadata.cdc]: <https://github.com/onflow/flow-core-contracts/blob/master/transactions/quorumCertificate/submit_vote.cdc>
+[quorumCertificate/scripts/get\_cluster.cdc]: <https://github.com/onflow/flow-core-contracts/blob/master/transactions/quorumCertificate/scripts/get_cluster.cdc>
+[quorumCertificate/scripts/get\_qc\_enabled.cdc]: <https://github.com/onflow/flow-core-contracts/blob/master/transactions/quorumCertificate/scripts/get_qc_enabled.cdc>
+[quorumCertificate/scripts/get\_node\_has\_voted.cdc]: <https://github.com/onflow/flow-core-contracts/blob/master/transactions/quorumCertificate/scripts/get_node_has_voted.cdc>
+[quorumCertificate/scripts/get\_voting\_completed.cdc]: <https://github.com/onflow/flow-core-contracts/blob/master/transactions/quorumCertificate/scripts/get_voting_completed.cdc>
+[dkg/create\_participant.cdc]: <https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/create_participant.cdc>
+[dkg/send\_whiteboard\_message.cdc]: <https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/send_whiteboard_message.cdc>
+[dkg/send\_final\_submission.cdc]: <https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/send_final_submission.cdc>
+[dkg/scripts/get\_dkg\_enabled.cdc]: <https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/scripts/get_dkg_enabled.cdc>
+[dkg/scripts/get\_dkg\_completed.cdc]: <https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/scripts/get_dkg_completed.cdc>
+[dkg/scripts/get\_whiteboard\_messages.cdc]: <https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/scripts/get_whiteboard_messages.cdc>
+[dkg/scripts/get\_final\_submissions.cdc]: <https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/scripts/get_final_submissions.cdc>
+[dkg/scripts/get\_node\_has\_submitted.cdc]: <https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/scripts/get_node_has_submitted.cdc>
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/core-contracts/07-epoch-contract-reference.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Dec 3, 2025** by **cshannon1218**
 
 [Previous
 
@@ -92,7 +109,8 @@ Non-Fungible Token](/build/cadence/core-contracts/non-fungible-token)
 
 Copy as Markdown
 
-* [Getting Epoch Info](#getting-epoch-info)* [Quorum Certificate Transactions and Scripts](#quorum-certificate-transactions-and-scripts)* [DKG Transactions and Scripts](#dkg-transactions-and-scripts)
+* [Transactions](#transactions)
+  + [Get epoch info](#get-epoch-info)* [Quorum certificate transactions and scripts](#quorum-certificate-transactions-and-scripts)* [DKG transactions and scripts](#dkg-transactions-and-scripts)
 
 Flow
 

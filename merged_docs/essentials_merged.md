@@ -30898,7 +30898,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -30932,7 +30932,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* isOk
 
@@ -68703,8 +68703,7 @@ On this page
 
 # Contract
 
-The `FlowEpoch` contract is the state machine that manages Epoch phases and emits service events.
-The `FlowClusterQC` and `FlowDKG` contracts manage the processes that happen during the Epoch Setup phase.
+The `FlowEpoch` contract is the state machine that manages Epoch phases and emits service events. The `FlowClusterQC` and `FlowDKG` contracts manage the processes that happen during the Epoch Setup phase.
 
 These contracts are all deployed to the same account as the `FlowIDTableStaking` contract.
 
@@ -68718,36 +68717,54 @@ Sources:
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Network Contract Address|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | Emulator `0xf8d6e0586b0a20c7`| Cadence Testing Framework `0x0000000000000001`| Testnet `0x9eca2b38b18b5dfe`| Mainnet `0x8624b52f9ddcd04a` | | | | | | | | | |
 
-# Transactions
+## Transactions[​](#transactions "Direct link to Transactions")
 
-## Getting Epoch Info[​](#getting-epoch-info "Direct link to Getting Epoch Info")
+### Get epoch info[​](#get-epoch-info "Direct link to Get epoch info")
 
 These scripts are read-only and get info about the current state of the epoch contract.
 
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ID Name Source|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **`EP.01`** Get Epoch Metadata [epoch/get\_epoch\_metadata.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/epoch/scripts/get_epoch_metadata.cdc)| **`EP.02`** Get Configurable Metadata [epoch/get\_config\_metadata.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/epoch/scripts/get_config_metadata.cdc)| **`EP.03`** Get Epoch Counter [epoch/get\_epoch\_counter.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/epoch/scripts/get_epoch_counter.cdc)| **`EP.04`** Get Epoch Phase [epoch/get\_epoch\_phase.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/epoch/scripts/get_epoch_phase.cdc) | | | | | | | | | | | | | | |
+| ID Name Source|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **`EP.01`** Get Epoch Metadata [epoch/get\_epoch\_metadata.cdc]|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **`EP.02`** Get Configurable Metadata [epoch/get\_config\_metadata.cdc]|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | **`EP.03`** Get Epoch Counter [epoch/get\_epoch\_counter.cdc]|  |  |  | | --- | --- | --- | | **`EP.04`** Get Epoch Phase [epoch/get\_epoch\_phase.cdc] | | | | | | | | | | | | | | |
 
-## Quorum Certificate Transactions and Scripts[​](#quorum-certificate-transactions-and-scripts "Direct link to Quorum Certificate Transactions and Scripts")
+## Quorum certificate transactions and scripts[​](#quorum-certificate-transactions-and-scripts "Direct link to Quorum certificate transactions and scripts")
 
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ID Name Source|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **`QC.01`** Create QC Voter [quorumCertificate/get\_epoch\_metadata.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/quorumCertificate/create_voter.cdc)| **`QC.02`** Submit QC Vote [quorumCertificate/get\_config\_metadata.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/quorumCertificate/submit_vote.cdc)| **`QC.03`** Get Collector Cluster [quorumCertificate/scripts/get\_cluster.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/quorumCertificate/scripts/get_cluster.cdc)| **`QC.04`** Get QC Enabled [quorumCertificate/scripts/get\_qc\_enabled.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/quorumCertificate/scripts/get_qc_enabled.cdc)| **`QC.05`** Get Node Has Voted [quorumCertificate/scripts/get\_node\_has\_voted.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/quorumCertificate/scripts/get_node_has_voted.cdc)| **`QC.06`** Get QC Voting Complete [quorumCertificate/scripts/get\_voting\_completed.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/quorumCertificate/scripts/get_voting_completed.cdc) | | | | | | | | | | | | | | | | | | | | |
+| ID Name Source|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **`QC.01`** Create QC Voter [quorumCertificate/get\_epoch\_metadata.cdc]|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **`QC.02`** Submit QC Vote [quorumCertificate/get\_config\_metadata.cdc]|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **`QC.03`** Get Collector Cluster [quorumCertificate/scripts/get\_cluster.cdc]|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **`QC.04`** Get QC Enabled [quorumCertificate/scripts/get\_qc\_enabled.cdc]|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | **`QC.05`** Get Node Has Voted [quorumCertificate/scripts/get\_node\_has\_voted.cdc]|  |  |  | | --- | --- | --- | | **`QC.06`** Get QC Voting Complete [quorumCertificate/scripts/get\_voting\_completed.cdc] | | | | | | | | | | | | | | | | | | | | |
 
-## DKG Transactions and Scripts[​](#dkg-transactions-and-scripts "Direct link to DKG Transactions and Scripts")
+## DKG transactions and scripts[​](#dkg-transactions-and-scripts "Direct link to DKG transactions and scripts")
 
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ID Name Source|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **`DKG.01`** Create DKG Participant [dkg/create\_participant.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/create_participant.cdc)| **`DKG.02`** Get Configurable Metadata [dkg/send\_whiteboard\_message.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/send_whiteboard_message.cdc)| **`DKG.03`** Send Final Submission [dkg/send\_final\_submission.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/send_final_submission.cdc)| **`DKG.04`** Get DKG Enabled [dkg/scripts/get\_dkg\_enabled.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/scripts/get_dkg_enabled.cdc)| **`DKG.05`** Get DKG Completed [dkg/scripts/get\_dkg\_completed.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/scripts/get_dkg_completed.cdc)| **`DKG.06`** Get Whiteboard Messages [dkg/scripts/get\_whiteboard\_messages.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/scripts/get_whiteboard_messages.cdc)| **`DKG.07`** Get Final Submissions [dkg/scripts/get\_final\_submissions.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/scripts/get_final_submissions.cdc)| **`DKG.08`** Get Node Has Submitted [dkg/scripts/get\_node\_has\_submitted.cdc](https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/scripts/get_node_has_submitted.cdc) | | | | | | | | | | | | | | | | | | | | | | | | | | |
+| ID Name Source|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **`DKG.01`** Create DKG Participant [dkg/create\_participant.cdc]|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **`DKG.02`** Get Configurable Metadata [dkg/send\_whiteboard\_message.cdc]|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **`DKG.03`** Send Final Submission [dkg/send\_final\_submission.cdc]|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **`DKG.04`** Get DKG Enabled [dkg/scripts/get\_dkg\_enabled.cdc]|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **`DKG.05`** Get DKG Completed [dkg/scripts/get\_dkg\_completed.cdc]|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **`DKG.06`** Get Whiteboard Messages [dkg/scripts/get\_whiteboard\_messages.cdc]|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | **`DKG.07`** Get Final Submissions [dkg/scripts/get\_final\_submissions.cdc]|  |  |  | | --- | --- | --- | | **`DKG.08`** Get Node Has Submitted [dkg/scripts/get\_node\_has\_submitted.cdc] | | | | | | | | | | | | | | | | | | | | | | | | | | |
 
 # Events
 
-See the [epoch documentation](/protocol/staking/epoch-scripts-events)
-for a list and documentation for important `FlowEpoch` events.
+See the [epoch documentation](/protocol/staking/epoch-scripts-events) for a list and documentation for important `FlowEpoch` events.
+
+[epoch/get\_epoch\_metadata.cdc]: <https://github.com/onflow/flow-core-contracts/blob/master/transactions/epoch/scripts/get_epoch_metadata.cdc>)
+[epoch/get\_config\_metadata.cdc]: <https://github.com/onflow/flow-core-contracts/blob/master/transactions/epoch/scripts/get_config_metadata.cdc>
+[epoch/get\_epoch\_counter.cdc]: <https://github.com/onflow/flow-core-contracts/blob/master/transactions/epoch/scripts/get_epoch_counter.cdc>
+[epoch/get\_epoch\_phase.cdc]: <https://github.com/onflow/flow-core-contracts/blob/master/transactions/epoch/scripts/get_epoch_phase.cdc>)  
+[quorumCertificate/get\_epoch\_metadata.cdc]: <https://github.com/onflow/flow-core-contracts/blob/master/transactions/quorumCertificate/create_voter.cdc>)
+[quorumCertificate/get\_config\_metadata.cdc]: <https://github.com/onflow/flow-core-contracts/blob/master/transactions/quorumCertificate/submit_vote.cdc>
+[quorumCertificate/scripts/get\_cluster.cdc]: <https://github.com/onflow/flow-core-contracts/blob/master/transactions/quorumCertificate/scripts/get_cluster.cdc>
+[quorumCertificate/scripts/get\_qc\_enabled.cdc]: <https://github.com/onflow/flow-core-contracts/blob/master/transactions/quorumCertificate/scripts/get_qc_enabled.cdc>
+[quorumCertificate/scripts/get\_node\_has\_voted.cdc]: <https://github.com/onflow/flow-core-contracts/blob/master/transactions/quorumCertificate/scripts/get_node_has_voted.cdc>
+[quorumCertificate/scripts/get\_voting\_completed.cdc]: <https://github.com/onflow/flow-core-contracts/blob/master/transactions/quorumCertificate/scripts/get_voting_completed.cdc>
+[dkg/create\_participant.cdc]: <https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/create_participant.cdc>
+[dkg/send\_whiteboard\_message.cdc]: <https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/send_whiteboard_message.cdc>
+[dkg/send\_final\_submission.cdc]: <https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/send_final_submission.cdc>
+[dkg/scripts/get\_dkg\_enabled.cdc]: <https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/scripts/get_dkg_enabled.cdc>
+[dkg/scripts/get\_dkg\_completed.cdc]: <https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/scripts/get_dkg_completed.cdc>
+[dkg/scripts/get\_whiteboard\_messages.cdc]: <https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/scripts/get_whiteboard_messages.cdc>
+[dkg/scripts/get\_final\_submissions.cdc]: <https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/scripts/get_final_submissions.cdc>
+[dkg/scripts/get\_node\_has\_submitted.cdc]: <https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/scripts/get_node_has_submitted.cdc>
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/core-contracts/07-epoch-contract-reference.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Dec 3, 2025** by **cshannon1218**
 
 [Previous
 
@@ -68761,7 +68778,8 @@ Non-Fungible Token](/build/cadence/core-contracts/non-fungible-token)
 
 Copy as Markdown
 
-* [Getting Epoch Info](#getting-epoch-info)* [Quorum Certificate Transactions and Scripts](#quorum-certificate-transactions-and-scripts)* [DKG Transactions and Scripts](#dkg-transactions-and-scripts)
+* [Transactions](#transactions)
+  + [Get epoch info](#get-epoch-info)* [Quorum certificate transactions and scripts](#quorum-certificate-transactions-and-scripts)* [DKG transactions and scripts](#dkg-transactions-and-scripts)
 
 Flow
 
@@ -85971,7 +85989,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -105707,7 +105725,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -105741,7 +105759,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* build
 
@@ -118298,7 +118316,7 @@ Search
 
 * * Cadence* [Core Smart Contracts](/build/cadence/core-contracts)* Account Linking
 
-# Contract
+# Flow Account Linking Contract Address
 
 The Account Linking contracts manage ChildAccounts to permit hybrid custody in scenarios where apps only want to share a subset of resources on their accounts with various parents. In many cases, this will be a user's primary wallet outside of the application a child account came from.
 
@@ -118310,7 +118328,7 @@ You can see the docs for account linking [here](https://developers.flow.com/buil
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/core-contracts/12-hybrid-custody.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 3, 2025** by **cshannon1218**
 
 [Previous
 
@@ -166764,7 +166782,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -225274,7 +225292,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -230998,13 +231016,12 @@ Are you an EVM developer looking for information about EVM Accounts on Flow? If 
 
 An account on Flow is a record in the chain state that holds the following information:
 
-* Address: unique identifier for the account
-* Public Keys: public keys authorized on the account
-* Code: Cadence contracts deployed to the account
+* Address: unique identifier for the account.
+* Public Keys: public keys authorized on the account.
+* Code: Cadence contracts deployed to the account.
 * Storage: area of the account used to store resource assets.
 
-Accounts and their keys are needed to sign transactions that change the Flow blockchain state. To execute a transaction, a small amount of Flow, called a ["Fee"](/build/cadence/basics/fees) must be paid by the account or subsidized by a wallet or service. Flow allocates a fixed amount of storage to each account for saving data structures and Resources. Flow allocates a [fixed amount of storage](/build/cadence/basics/fees#storage) to each account for saving data structures and Resources.
-An account may also contain contract code which transactions and scripts can interact with to query or mutate the state of the blockchain.
+Accounts and their keys are needed to sign transactions that change the Flow blockchain state. To execute a transaction, a small amount of Flow, called a ["Fee"](/build/cadence/basics/fees) must be paid by the account or subsidized by a wallet or service. Flow allocates a [fixed amount of storage](/build/cadence/basics/fees#storage) to each account to save data structures and Resources. An account may also contain contract code which transactions and scripts can interact with to query or mutate the state of the blockchain.
 
 A simple representation of an account:
 
@@ -231012,19 +231029,19 @@ A simple representation of an account:
 
 ## Address[​](#address "Direct link to Address")
 
-A Flow address is represented as 16 hex-encoded characters (usually prefixed with `0x` to indicate hex encoding). Unlike Bitcoin and Ethereum, Flow addresses are not derived from cryptographic public keys. Instead, each Flow address is assigned by the Flow protocol using an onchain deterministic sequence. The sequence uses an error detection code to guarantee that all addresses differ with at least 2 hex characters. This makes typos resulting in accidental loss of assets not possible.
+A Flow address is represented as 16 hex-encoded characters (usually prefixed with `0x` to indicate hex encoding). Unlike Bitcoin and Ethereum, Flow addresses are not derived from cryptographic public keys. Instead, each Flow address is assigned by the Flow protocol via an onchain deterministic sequence. The sequence uses an error detection code to guarantee that all addresses differ with at least two hex characters. This makes typos that result in accidental loss of assets impossible.
 
-This decoupling is a unique advantage of Flow, allowing for multiple public keys to be associated with one account, or for a single public key to be used across several accounts.
+This decoupling is a unique advantage of Flow, as it allows for multiple public keys to be associated with one account, or for a single public key to be used across several accounts.
 
 ## Balance[​](#balance "Direct link to Balance")
 
-Each Flow account created on Mainnet will by default [hold a Flow vault that holds a balance and is part of the FungibleToken standard](/build/cadence/basics/flow-token). This balance is used to pay for [transaction fees and storage fees](/build/cadence/basics/fees). More on that in the fees document.
+Each Flow account created on Mainnet will by default [hold a Flow vault that holds a balance and is part of the FungibleToken standard](/build/cadence/basics/flow-token). This balance is used to pay for [transaction fees and storage fees](/build/cadence/basics/fees).
 
 warning
 
 The minimum amount of FLOW an account can have is **0.001**.
 
-This minimum storage fee is provided by the account creator and covers the cost of storing up to 100kB of data in perpetuity. This fee is applied only once and can be "topped up" to add additional storage to an account. The minimum account reservation ensures that most accounts won't run out of storage capacity if anyone deposits anything (like an NFT) to the account.
+This minimum storage fee is provided by the account creator and covers the cost of storage up to 100kB of data in perpetuity. This fee is applied only once and can be "topped up" to add additional storage to an account. The minimum account reservation ensures that most accounts won't run out of storage capacity if anyone deposits anything (like an NFT) to the account.
 
 ### Maximum available balance[​](#maximum-available-balance "Direct link to Maximum available balance")
 
@@ -231078,13 +231095,13 @@ An account can optionally store multiple [Cadence contracts](https://cadence-lan
 
 ## Storage[​](#storage "Direct link to Storage")
 
-Each Flow account has an associated storage and capacity. The account's storage used is the byte size of all the data stored in the account's storage. An account's [storage capacity is directly tied to the balance of Flow tokens](/build/cadence/basics/fees#storage) an account has. An account can, without any additional cost, use any amount of storage up to its storage capacity. If a transaction puts an account over storage capacity or drops an account's balance below the minimum 0.001 Flow tokens, that transaction fails and is reverted.
+Each Flow account has an associated storage and capacity. The account's storage used is the byte size of all the data stored in the account's storage. An account's [storage capacity is directly tied to the balance of Flow tokens](/build/cadence/basics/fees#storage) an account has. An account can, without any additional cost, use any amount of storage up to its storage capacity. If a transaction puts an account over storage capacity or drops an account's balance below the minimum 0.001 Flow tokens, that transaction fails and reverts.
 
-## Account **Keys**[​](#account-keys "Direct link to account-keys")
+## Account **keys**[​](#account-keys "Direct link to account-keys")
 
 Flow accounts can be configured with multiple public keys that are used to control access. Owners of the associated private keys can sign transactions to mutate the account's state.
 
-During account creation, public keys can be provided which will be used when interacting with the account. Account keys can be added, removed, or revoked by sending a transaction. This is radically different from blockchains like Ethereum where an account is tied to a single public/private key pair.
+During account creation, public keys can be provided which will be used when owners interact with the account. You can send a transaction to add, remove, or revoke account keys. This is radically different from blockchains like Ethereum where an account is tied to a single public/private key pair.
 
 Each account key has a weight that determines the signing power it holds.
 
@@ -231092,33 +231109,33 @@ warning
 
 A transaction is not authorized to access an account unless it has a total signature weight greater than or equal to **1000**, the weight threshold.
 
-For example, an account might contain 3 keys, each with 500 weight:
+For example, an account might contain three keys, each with 500 weight:
 
 ![Screenshot 2023-08-16 at 16.28.58.png](/assets/images/Screenshot_2023-08-16_at_16.28.58-3baa0e5f8892393f17f3b129198679bc.png)
 
-This represents a 2-of-3 multi-sig quorum, in which a transaction is authorized to access the account if it receives signatures from *at least* 2 out of 3 keys.
+This represents a 2-of-3 multi-sig quorum, in which a transaction is authorized to access the account if it receives signatures from *at least* two out of three keys.
 
 An account key contains the following attributes:
 
-* **ID** used to identify keys within an account
-* **Public Key** raw public key (encoded as bytes)
-* **Signature algorithm** (see below)
-* **Hash algorithm** (see below)
-* **Weight** integer between 0-1000
-* **Revoked** whether the key has been revoked or it's active
-* **Sequence Number** is a number that increases with each submitted transaction signed by this key
+* **ID** used to identify keys within an account.
+* **Public Key** raw public key (encoded as bytes).
+* **Signature algorithm** (see below).
+* **Hash algorithm** (see below).
+* **Weight** integer between 0-1000.
+* **Revoked** whether the key has been revoked or it's active.
+* **Sequence Number** is a number that increases with each submitted transaction signed by this key.
 
-### Signature and Hash Algorithms[​](#signature-and-hash-algorithms "Direct link to Signature and Hash Algorithms")
+### Signature and hash algorithms[​](#signature-and-hash-algorithms "Direct link to Signature and hash algorithms")
 
 The signature and hashing algorithms are used during the transaction signing process and can be set to certain predefined values.
 
-There are two curves commonly used with the ECDSA algorithm, secp256r1 ([OID 1.2.840.10045.3.1.7](http://oid-info.com/get/1.2.840.10045.3.1.7), also called the "NIST P-256." this curve is common for mobile secure enclave support), and secp256k1 ([OID 1.3.132.0.10](http://oid-info.com/get/1.3.132.0.10), the curve used by "Bitcoin"). Please be sure to double-check which parameters you are using before registering a key, as presenting a key using one of the curves under the code and format of the other will generate an error.
+There are two curves commonly used with the ECDSA algorithm, secp256r1 ([OID 1.2.840.10045.3.1.7](http://oid-info.com/get/1.2.840.10045.3.1.7), also called the "NIST P-256." this curve is common for mobile secure enclave support), and secp256k1 ([OID 1.3.132.0.10](http://oid-info.com/get/1.3.132.0.10), the curve used by "Bitcoin"). Be sure to double-check which parameters you use before you register a key, because if you present a key that uses one of the curves under the code and format of the other, an error will occur.
 
 |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Algorithm Curve ID Code|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | ECDSA P-256 ECDSA\_P256 2|  |  |  |  | | --- | --- | --- | --- | | ECDSA secp256k1 ECDSA\_secp256k1 3 | | | | | | | | | | | |
 
-*Please note that the codes listed here are for the signature algorithms as used by the node API, and they are different from the ones [defined in Cadence](https://cadence-lang.org/docs/language/crypto#signing-algorithms)*
+*Note that the codes listed here are for the signature algorithms as used by the node API, and they are different from the ones [defined in Cadence](https://cadence-lang.org/docs/language/crypto#signing-algorithms)*
 
 |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -231126,21 +231143,21 @@ There are two curves commonly used with the ECDSA algorithm, secp256r1 ([OID 1.2
 
 Both hashing and signature algorithms are compatible with each other, so you can freely choose from the set.
 
-### **Locked / Keyless Accounts**[​](#locked--keyless-accounts "Direct link to locked--keyless-accounts")
+### **Locked / keyless accounts**[​](#locked--keyless-accounts "Direct link to locked--keyless-accounts")
 
-An account on Flow doesn't require keys in order to exist, but this makes the account immutable since no transaction can be signed that can change the account. This can be useful if we want to freeze an account contract code and it elegantly solves the problem of having multiple account types (as that is the case for Ethereum).
+An account on Flow doesn't require keys in order to exist, but this makes the account immutable since no transaction can be signed that can change the account. This can be useful if we want to freeze an account contract code and it elegantly solves the problem of when you have multiple account types (as that is the case for Ethereum).
 
 ![Screenshot 2023-08-16 at 18.59.10.png](/assets/images/Screenshot_2023-08-16_at_18.59.10-e9f4a40f84719ce04fd22ce24ebb0a2f.png)
 
-You can achieve keyless accounts by either removing an existing public key from an account signing with that same key and repeating that action until an account has no keys left, or you can create a new account that has no keys assigned. With account linking you can also have a child account that has no keys but is controlled by the parent.
+To achieve keyless accounts, you can remove a public key from an account signing with that same key and repeat that action until an account has no keys left. You can also create a new account that has no keys assigned. With account linking, you can also have a child account that has no keys, but that the parent controls.
 
 danger
 
-Be careful when removing keys from an existing account, because once an account's total key weights sum to less than 1000, it can no longer be modified.
+Be careful when you remove keys from an account, because after an account's total key weights sum to less than 1000, it can no longer be modified.
 
-### **Multi-Sig Accounts**[​](#multi-sig-accounts "Direct link to multi-sig-accounts")
+### **Multi-sig accounts**[​](#multi-sig-accounts "Direct link to multi-sig-accounts")
 
-Creating a multi-signature account is easily done by managing the account keys and their corresponding weight. To repeat, in order to sign a transaction the keys used to sign it must have weights that sum up to at least 1000. Using this information we can easily see how we can achieve the following cases:
+To create a multi-signature account, you can manage the account keys and their corresponding weight. To repeat, in order to sign a transaction the keys used to sign it must have weights that sum up to at least 1000. With this information, we can easily see how we can achieve the following cases:
 
 #### 2-of-3 multi-sig quorum[​](#2-of-3-multi-sig-quorum "Direct link to 2-of-3 multi-sig quorum")
 
@@ -231154,79 +231171,82 @@ Creating a multi-signature account is easily done by managing the account keys a
 
 ![Screenshot 2023-08-16 at 19.34.51.png](/assets/images/Screenshot_2023-08-16_at_19.34.51-e7e94edc38a346ac30ea436fa0cb2322.png)
 
-### Key Format[​](#key-format "Direct link to Key Format")
+### Key format[​](#key-format "Direct link to Key format")
 
-We are supporting ECDSA with the curves `P-256` and `secp256k1`. For these curves, the public key is encoded into 64 bytes as `X||Y` where `||` is the concatenation operator.
+We support ECDSA with the curves `P-256` and `secp256k1`. For these curves, the public key is encoded into 64 bytes as `X||Y` where `||` is the concatenation operator.
 
 * `X` is 32 bytes and is the big endian byte encoding of the `x`-coordinate of the public key padded to 32, i.e. `X=x_31||x_30||...||x_0` or `X = x_31*256^31 + ... + x_i*256^i + ... + x_0`.
 * `Y` is 32 bytes and is the big endian byte encoding of the `y`-coordinate of the public key padded to 32, i.e. `Y=y_31||y_30||...||y_0` or `Y = y_31*256^31 + ... + y_i*256^i + ... + y_0`
 
-## Account Creation[​](#account-creation "Direct link to Account Creation")
+## Account creation[​](#account-creation "Direct link to Account creation")
 
-Accounts are created on the Flow blockchain by calling a special [create account Cadence function](https://cadence-lang.org/docs/language/accounts#account-creation). Once an account is created we can associate a new key with that account. Of course, all that can be done within a single transaction. Keep in mind that there is an account creation fee that needs to be paid. Account creation fees are relatively low, and we expect that wallet providers and exchanges will cover the cost when a user converts fiat to crypto for the first time.
+To create accounts on the Flow blockchain, we call a special [create account Cadence function](https://cadence-lang.org/docs/language/accounts#account-creation). After an account is created, we can associate a new key with that account. Of course, all that can be done within a single transaction. Keep in mind that there is an account creation fee that needs to be paid. Account creation fees are relatively low, and we expect that wallet providers and exchanges will cover the cost when a user converts fiat to crypto for the first time.
 
-For development purposes, [you can use Flow CLI to easily create emulator, testnet and mainnet accounts.](/build/tools/flow-cli/accounts/create-accounts) The account creation fee is paid by a funding wallet so you don't need a pre-existing account to create it.
+For development purposes, [you can use Flow CLI to easily create emulator, testnet and mainnet accounts](/build/tools/flow-cli/accounts/create-accounts). The account creation fee is paid by a funding wallet, so you don't need a pre-existing account to create it.
 
-### **Key Generation**[​](#key-generation "Direct link to key-generation")
+### **Key generation**[​](#key-generation "Direct link to key-generation")
 
-Keys should be generated in a secure manner. Depending on the purpose of the keys different levels of caution need to be taken.
+You should generate keys in a secure manner, and take different levels of caution for each key's purpose.
 
 warning
 
-Anyone obtaining access to a private key can modify the account the key is associated with (assuming it has enough weight). Be very careful how you store the keys.
+Anyone who obtains access to a private key can modify the account the key is associated with (assuming it has enough weight). Be very careful how you store the keys.
 
-For secure production keys, we suggest using key management services such as [Google key management](https://cloud.google.com/security-key-management) or [Amazon KMS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.Keys.html), which are also supported by our CLI and SDKs. Those services are mostly great when integrated into your application. However, for personal use, you can securely use any [existing wallets](/ecosystem/wallets) as well as a [hardware Ledger wallet](/ecosystem/wallets).
+For secure production keys, we suggest that you use key management services such as [Google key management](https://cloud.google.com/security-key-management) or [Amazon KMS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.Keys.html), which are also supported by our CLI and SDKs. Those services are mostly great when integrated into your application. However, for personal use, you can securely use any [existing wallets](/ecosystem/wallets) as well as a [hardware Ledger wallet].
 
-## Service Accounts[​](#service-accounts "Direct link to Service Accounts")
+## Service accounts[​](#service-accounts "Direct link to Service accounts")
 
 ### Flow Service Account[​](#flow-service-account "Direct link to Flow Service Account")
 
 The Service Account is a special account in Flow that has special permissions to manage system contracts. It is able to mint tokens, set fees, and update network-level contracts.
 
-### Tokens & Fees[​](#tokens--fees "Direct link to Tokens & Fees")
+### Tokens and fees[​](#tokens--and-fees "Direct link to Tokens and fees")
 
 The Service Account has administrator access to the FLOW token smart contract, so it has authorization to mint and burn tokens. It also has access to the transaction fee smart contract and can adjust the fees charged for transactions execution on Flow.
 
-### Network Management[​](#network-management "Direct link to Network Management")
+### Network management[​](#network-management "Direct link to Network management")
 
 The Service Account administers other smart contracts that manage various aspects of the Flow network, such as epochs and (in the future) validator staking auctions.
 
 ### Governance[​](#governance "Direct link to Governance")
 
-Besides its special permissions, the Service Account is an account like any other in Flow.
-The service account is currently controlled by a smart contract governed by the Flow community.
-No single entity has the ability to unilaterally execute a transaction
-from the service account because it requires four signatures from controlling keys.
-The Flow foundation only controls 3 of the keys and the others are controlled
-by trusted community members and organizations.
+Besides its special permissions, the Service Account is an account like any other in Flow. The service account is currently controlled by a smart contract governed by the Flow community. No single entity has the ability to unilaterally execute a transaction from the service account because it requires four signatures from controlling keys. The Flow foundation only controls three of the keys and the others are controlled by trusted community members and organizations.
 
-## Accounts Retrieval[​](#accounts-retrieval "Direct link to Accounts Retrieval")
+## Accounts retrieval[​](#accounts-retrieval "Direct link to Accounts retrieval")
 
-You can use the Flow CLI to get account data by running:
+You can use the Flow Command Line Interface (CLI) to get account data. To do this, run the following command:
 
 `_10
 
 flow accounts get 0xf919ee77447b7497 -n mainnet`
 
-Find [more about the command in the CLI docs](/build/tools/flow-cli/accounts/get-accounts).
+Find [more about the command in the CLI docs].
 
 Accounts can be obtained from the access node APIs, currently, there are two gRPC and REST APIs. You can find more information about them here:
 
-**gRPC API** [building-on-flow/nodes/access-api#accounts](/protocol/access-onchain-data#accounts)
+**gRPC API** [building-on-flow/nodes/access-api#accounts]
 
-**REST API** [http-api#tag/Accounts](/http-api#tag/Accounts)
+**REST API** [http-api#tag/Accounts]
 
 There are multiple SDKs implementing the above APIs for different languages:
 
-**Javascript SDK** [tools/clients/fcl-js](/build/tools/clients/fcl-js)
+**Javascript SDK** [tools/clients/fcl-js]
 
-**Go SDK** [tools/clients/flow-go-sdk](/build/tools/clients/flow-go-sdk)
+**Go SDK** [tools/clients/flow-go-sdk]
 
-Find a list of all SDKs here: [tools/clients](/build/tools/clients)
+Find a list of all SDKs here: [tools/clients]
+
+[hardware Ledger wallet]: ../../../ecosystem/wallets.md)
+[more about the command in the CLI docs]: ../../../build/tools/flow-cli/accounts/get-accounts.md
+[building-on-flow/nodes/access-api#accounts]: ../../../protocol/access-onchain-data/index.md#accounts
+[http-api#tag/Accounts]: /http-api#tag/Accounts
+[tools/clients/fcl-js]: ../../../build/tools/clients/fcl-js/index.md
+[tools/clients/flow-go-sdk]: ../../../build/tools/clients/flow-go-sdk/index.md
+[tools/clients]: ../../../build/tools/clients/index.md
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/basics/accounts.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Dec 2, 2025** by **cshannon1218**
 
 [Previous
 
@@ -231241,10 +231261,10 @@ Transactions](/build/cadence/basics/transactions)
 Copy as Markdown
 
 * [Address](#address)* [Balance](#balance)
-    + [Maximum available balance](#maximum-available-balance)* [Contracts](#contracts)* [Storage](#storage)* [Account **Keys**](#account-keys)
-          + [Signature and Hash Algorithms](#signature-and-hash-algorithms)+ [**Locked / Keyless Accounts**](#locked--keyless-accounts)+ [**Multi-Sig Accounts**](#multi-sig-accounts)+ [Key Format](#key-format)* [Account Creation](#account-creation)
-            + [**Key Generation**](#key-generation)* [Service Accounts](#service-accounts)
-              + [Flow Service Account](#flow-service-account)+ [Tokens & Fees](#tokens--fees)+ [Network Management](#network-management)+ [Governance](#governance)* [Accounts Retrieval](#accounts-retrieval)
+    + [Maximum available balance](#maximum-available-balance)* [Contracts](#contracts)* [Storage](#storage)* [Account **keys**](#account-keys)
+          + [Signature and hash algorithms](#signature-and-hash-algorithms)+ [**Locked / keyless accounts**](#locked--keyless-accounts)+ [**Multi-sig accounts**](#multi-sig-accounts)+ [Key format](#key-format)* [Account creation](#account-creation)
+            + [**Key generation**](#key-generation)* [Service accounts](#service-accounts)
+              + [Flow Service Account](#flow-service-account)+ [Tokens and fees](#tokens--and-fees)+ [Network management](#network-management)+ [Governance](#governance)* [Accounts retrieval](#accounts-retrieval)
 
 Flow
 
@@ -266838,7 +266858,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -314514,27 +314534,25 @@ Search
 
 On this page
 
-The `NonFungibleToken` contract interface implements the Fungible Token Standard.
-All NFT contracts are encouraged to import and implement this standard.
+# Non-Fungible Token Contract
 
-* [Basic Non-Fungible Token Tutorial](https://cadence-lang.org/docs/tutorial/non-fungible-tokens-1)
-* [Non Fungible Token Guide](/blockchain-development-tutorials/tokens/nft-cadence)
-* [Non Fungible Token Standard Repo](https://github.com/onflow/flow-nft)
+The `NonFungibleToken` contract interface implements the Fungible Token Standard. All NFT contracts are encouraged to import and implement this standard.
 
-Source: [NonFungibleToken.cdc](https://github.com/onflow/flow-nft/blob/master/contracts/NonFungibleToken.cdc)
+* [Basic Non-Fungible Token Tutorial]
+* [Non Fungible Token Guide]
+* [Non Fungible Token Standard Repo]
+
+Source: [NonFungibleToken.cdc]
 
 |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Network Contract Address|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | Emulator `0xf8d6e0586b0a20c7`| Cadence Testing Framework `0x0000000000000001`| Testnet `0x631e88ae7f1d7c20`| Mainnet `0x1d7e57aa55817448` | | | | | | | | | |
 
-# Transactions
+## Transactions[​](#transactions "Direct link to Transactions")
 
-All `NonFungibleToken` projects are encouraged to use
-the generic token transactions and scripts in the `flow-nft` [repo](https://github.com/onflow/flow-nft/tree/master/transactions).
-They can be used for any token that implements the non-fungible token standard properly
-without changing any code besides import addresses on different networks.
+All `NonFungibleToken` projects are encouraged to use the generic token transactions and scripts in the `flow-nft` [repo](https://github.com/onflow/flow-nft/tree/master/transactions). You can use them for any token that implements the non-fungible token standard properly, and you won't have to change any code besides import addresses on different networks.
 
-# Events
+## Events[​](#events "Direct link to Events")
 
 Events emitted from all contracts follow a standard format:
 
@@ -314544,18 +314562,15 @@ A.{contract address}.{contract name}.{event name}`
 
 The components of the format are:
 
-* `contract address` - the address of the account the contract has been deployed to
-* `contract name` - the name of the contract in the source code
-* `event name` - the name of the event as declared in the source code
+* `contract address` - the address of the account the contract has been deployed to.
+* `contract name` - the name of the contract in the source code.
+* `event name` - the name of the event as declared in the source code.
 
-## NonFungibleToken Events[​](#nonfungibletoken-events "Direct link to NonFungibleToken Events")
+## NonFungibleToken events[​](#nonfungibletoken-events "Direct link to NonFungibleToken events")
 
-Contracts that implement the Non-Fungible Token standard get access
-to standard events that are emitted every time a relevant action occurs,
-like depositing and withdrawing tokens.
+Contracts that implement the Non-Fungible Token standard get access to standard events that are emitted every time a relevant action occurs, like token deposits and withdrawls.
 
-This means that projects do not have to implement their own custom events
-unless the standard events do not satisfy requirements they have for events.
+This means that projects do not have to implement their own custom events unless the standard events do not satisfy requirements they have for events.
 
 The `NonFungibleToken` events will have the following format:
 
@@ -314567,8 +314582,7 @@ _10
 
 A.{contract address}.NonFungibleToken.Withdrawn`
 
-Where the `contract address` is the `NonFungibleToken` address on the network being queried.
-The addresses on the various networks are shown above.
+Where the `contract address` is the `NonFungibleToken` address on the network being queried. The addresses on the various networks are shown above.
 
 ### NonFungibleToken.Deposited[​](#nonfungibletokendeposited "Direct link to NonFungibleToken.Deposited")
 
@@ -314600,9 +314614,7 @@ _10
 
 )`
 
-Whenever `deposit()` is called on a resource type that implements
-`NonFungibleToken.Collection`, the `NonFungibleToken.Deposited` event is emitted
-with the following arguments:
+Whenever `deposit()` is called on a resource type that implements `NonFungibleToken.Collection`, the `NonFungibleToken.Deposited` event is emitted with the following arguments:
 
 * `type: String`: The type identifier of the token being deposited.
   + Example: `A.4445e7ad11568276.TopShot.NFT`
@@ -314610,8 +314622,7 @@ with the following arguments:
   + Example: `173838`
 * `uuid: UInt64`: The UUID of the token that was deposited.
   + Example: `177021372071991`
-* `to: Address?`: The address of the account that owns the Collection that received
-  the token. If the collection is not stored in an account, `to` will be `nil`.
+* `to: Address?`: The address of the account that owns the Collection that received the token. If the collection is not stored in an account, `to` will be `nil`.
   + Example: `0x4445e7ad11568276`
 * `collectionUUID: UInt64`: The UUID of the Collection that received the token.
   + Example: `177021372071991`
@@ -314646,9 +314657,7 @@ _10
 
 )`
 
-Whenever `withdraw()` is called on a resource type that implements
-`NonFungibleToken.Collection`, the `NonFungibleToken.Withdrawn` event is emitted
-with the following arguments:
+Whenever `withdraw()` is called on a resource type that implements `NonFungibleToken.Collection`, the `NonFungibleToken.Withdrawn` event is emitted with the following arguments:
 
 * `type: String`: The type identifier of the token being withdrawn.
   + Example: `A.4445e7ad11568276.TopShot.NFT`
@@ -314656,8 +314665,7 @@ with the following arguments:
   + Example: `113838`
 * `uuid: UInt64`: The UUID of the token that was withdrawn.
   + Example: `177021372071991`
-* `from: Address?`: The address of the account that owns the Collection that
-  the token was withdrawn from. If the collection is not stored in an account, `to` will be `nil`.
+* `from: Address?`: The address of the account that owns the Collection that the token was withdrawn from. If the collection is not stored in an account, `to` will be `nil`.
   + Example: `0x4445e7ad11568276`
 * `providerUUID: UInt64`: The UUID of the Collection that the token was withdrawn from.
   + Example: `177021372071991`
@@ -314688,24 +314696,25 @@ _10
 
 )`
 
-Whenever a non-fungible token is updated for whatever reason,
-projects should call the `NonFungibleToken.emitNFTUpdated()` function
-to emit this event. It indicates to event listeners that they should query
-the NFT to update any stored information they have about the NFT in their database.
+Whenever a non-fungible token is updated for whatever reason, projects should call the `NonFungibleToken.emitNFTUpdated()` function to emit this event. It indicates to event listeners that they should query the NFT to update any stored information they have about the NFT in their database.
 
 * `type: String`: The type identifier of the token that was updated.
   + Example: `A.4445e7ad11568276.TopShot.NFT`
-* `id: UInt64`: The ID of the token that was updated. Note: This may or may not be the UUID.
+* `id: UInt64`: The ID of the token that was updated. This may or may not be the UUID.
   + Example: `173838`
 * `uuid: UInt64`: The UUID of the token that was updated.
   + Example: `177021372071991`
-* `owner: Address?`: The address of the account that owns the Collection that owns
-  the token. If the collection is not stored in an account, `to` will be `nil`.
+* `owner: Address?`: The address of the account that owns the Collection that owns the token. If the collection is not stored in an account, `to` will be `nil`.
   + Example: `0x4445e7ad11568276`
+
+[Basic Non-Fungible Token Tutorial]: <https://cadence-lang.org/docs/tutorial/non-fungible-tokens-1>)
+[Non Fungible Token Guide]: ../../../blockchain-development-tutorials/tokens/nft-cadence.md)
+[Non Fungible Token Standard Repo]: <https://github.com/onflow/flow-nft>)
+[NonFungibleToken.cdc]: <https://github.com/onflow/flow-nft/blob/master/contracts/NonFungibleToken.cdc>)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/core-contracts/08-non-fungible-token.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Dec 3, 2025** by **cshannon1218**
 
 [Previous
 
@@ -314719,8 +314728,8 @@ NFT Metadata](/build/cadence/core-contracts/nft-metadata)
 
 Copy as Markdown
 
-* [NonFungibleToken Events](#nonfungibletoken-events)
-  + [NonFungibleToken.Deposited](#nonfungibletokendeposited)+ [NonFungibleToken.Withdrawn](#nonfungibletokenwithdrawn)+ [NonFungibleToken.Updated](#nonfungibletokenupdated)
+* [Transactions](#transactions)* [Events](#events)* [NonFungibleToken events](#nonfungibletoken-events)
+      + [NonFungibleToken.Deposited](#nonfungibletokendeposited)+ [NonFungibleToken.Withdrawn](#nonfungibletokenwithdrawn)+ [NonFungibleToken.Updated](#nonfungibletokenupdated)
 
 Flow
 
@@ -328932,6 +328941,8 @@ Search
 
 On this page
 
+# Service Account Contracts
+
 The service account is the account that manages the core protocol requirements of Flow.
 
 |  |  |  |  |  |  |  |  |  |  |
@@ -328940,14 +328951,13 @@ The service account is the account that manages the core protocol requirements o
 
 Here are three important contracts deployed to the service account:
 
-# FlowServiceAccount
+## FlowServiceAccount[​](#flowserviceaccount "Direct link to FlowServiceAccount")
 
-`FlowServiceAccount` tracks transaction fees, deployment permissions, and provides
-some convenience methods for Flow Token operations.
+`FlowServiceAccount` tracks transaction fees, deployment permissions, and provides some convenience methods for Flow Token operations.
 
 Source: [FlowServiceAccount.cdc](https://github.com/onflow/flow-core-contracts/blob/master/contracts/FlowServiceAccount.cdc)
 
-## Events[​](#events "Direct link to Events")
+### Events[​](#events "Direct link to Events")
 
 Important events from `FlowServiceAccount` are:
 
@@ -328959,16 +328969,13 @@ _10
 
 access(all) event AccountCreationFeeUpdated(newFee: UFix64)`
 
-# RandomBeaconHistory
+## RandomBeaconHistory[​](#randombeaconhistory "Direct link to RandomBeaconHistory")
 
-* `RandomBeaconHistory` stores the history of random sources generated by
-  the Flow network. The defined Heartbeat resource is
-  updated by the Flow Service Account at the end of every block
-  with that block's source of randomness.
+* `RandomBeaconHistory` stores the history of random sources generated by the Flow network. The defined Heartbeat resource is updated by the Flow Service Account at the end of every block with that block's source of randomness.
 
 Source: [RandomBeaconHistory.cdc](https://github.com/onflow/flow-core-contracts/blob/master/contracts/RandomBeaconHistory.cdc)
 
-## Events[​](#events-1 "Direct link to Events")
+### Events[​](#events-1 "Direct link to Events")
 
 Important events from `RandomBeaconHistory` are:
 
@@ -329018,15 +329025,13 @@ _12
 
 access(all) event RandomHistoryBackfilled(blockHeight: UInt64, gapStartHeight: UInt64, count: UInt64) ``
 
-# NodeVersionBeacon
+## NodeVersionBeacon[​](#nodeversionbeacon "Direct link to NodeVersionBeacon")
 
-* `NodeVersionBeacon` holds the past
-  and future protocol versions that should be used
-  to execute/handle blocks at a given block height.
+* `NodeVersionBeacon` holds the past and future protocol versions that should be used to execute or handle blocks at a given block height.
 
 Source: [NodeVersionBeacon.cdc](https://github.com/onflow/flow-core-contracts/blob/master/contracts/NodeVersionBeacon.cdc)
 
-## Events[​](#events-2 "Direct link to Events")
+### Events[​](#events-2 "Direct link to Events")
 
 Important events from `NodeVersionBeacon` are:
 
@@ -329082,7 +329087,7 @@ access(all) event NodeVersionBoundaryFreezePeriodChanged(freezePeriod: UInt64)`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/core-contracts/04-service-account.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 3, 2025** by **cshannon1218**
 
 [Previous
 
@@ -329096,7 +329101,10 @@ Flow Fees](/build/cadence/core-contracts/flow-fees)
 
 Copy as Markdown
 
-* [Events](#events)* [Events](#events-1)* [Events](#events-2)
+* [FlowServiceAccount](#flowserviceaccount)
+  + [Events](#events)* [RandomBeaconHistory](#randombeaconhistory)
+    + [Events](#events-1)* [NodeVersionBeacon](#nodeversionbeacon)
+      + [Events](#events-2)
 
 Flow
 
@@ -365810,7 +365818,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -435285,12 +435293,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **9ab892a52c94f457**
+Cloudflare Ray ID: **9ac0cfd009567fa6**
 •
 
 Your IP:
 Click to reveal
-172.184.209.154
+172.208.127.194
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 
