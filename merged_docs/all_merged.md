@@ -155943,7 +155943,7 @@ Built-in Functions](/docs/language/built-in-functions)
 
 
 
-# Source: https://cadence-lang.org/docs/language/
+# Source: https://cadence-lang.org/docs/language
 
 The Cadence Programming Language | Cadence
 
@@ -188403,29 +188403,17 @@ Here are their addresses:
 
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Contracts Testnet Mainnet|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `FlowEVMBridgeFactory.sol` [`0xf8146b4aef631853f0eb98dbe28706d029e52c52`] [`0x1c6dea788ee774cf15bcd3d7a07ede892ef0be40`]| `FlowEVMBridgeDeploymentRegistry.sol` [`0x8781d15904d7e161f421400571dea24cc0db6938`] [`0x8fdec2058535a2cb25c2f8cec65e8e0d0691f7b0`]| `FlowEVMBridgedERC20Deployer.sol` [`0x4d45CaD104A71D19991DE3489ddC5C7B284cf263`] [`0x49631Eac7e67c417D036a4d114AD9359c93491e7`]| `FlowEVMBridgedERC721Deployer.sol` [`0x1B852d242F9c4C4E9Bb91115276f659D1D1f7c56`] [`0xe7c2B80a9de81340AE375B3a53940E9aeEAd79Df`] | | | | | | | | | | | | | | |
+| Contracts Testnet Mainnet|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `FlowEVMBridgeFactory.sol` [`0xf8146b4aef631853f0eb98dbe28706d029e52c52`](https://evm-testnet.flowscan.io/address/0xF8146B4aEF631853F0eB98DBE28706d029e52c52) [`0x1c6dea788ee774cf15bcd3d7a07ede892ef0be40`](https://evm.flowscan.io/address/0x1C6dEa788Ee774CF15bCd3d7A07ede892ef0bE40)| `FlowEVMBridgeDeploymentRegistry.sol` [`0x8781d15904d7e161f421400571dea24cc0db6938`](https://evm-testnet.flowscan.io/address/0x8781d15904d7e161f421400571dea24cc0db6938) [`0x8fdec2058535a2cb25c2f8cec65e8e0d0691f7b0`](https://evm.flowscan.io/address/0x8FDEc2058535A2Cb25C2f8ceC65e8e0D0691f7B0)| `FlowEVMBridgedERC20Deployer.sol` [`0x4d45CaD104A71D19991DE3489ddC5C7B284cf263`](https://evm-testnet.flowscan.io/address/0x4d45CaD104A71D19991DE3489ddC5C7B284cf263) [`0x49631Eac7e67c417D036a4d114AD9359c93491e7`](https://evm.flowscan.io/address/0x49631Eac7e67c417D036a4d114AD9359c93491e7)| `FlowEVMBridgedERC721Deployer.sol` [`0x1B852d242F9c4C4E9Bb91115276f659D1D1f7c56`](https://evm-testnet.flowscan.io/address/0x1B852d242F9c4C4E9Bb91115276f659D1D1f7c56) [`0xe7c2B80a9de81340AE375B3a53940E9aeEAd79Df`](https://evm.flowscan.io/address/0xe7c2B80a9de81340AE375B3a53940E9aeEAd79Df) | | | | | | | | | | | | | | |
 
-And below are the bridge escrow's EVM addresses. These addresses are [`CadenceOwnedAccount`s (COA)] and they are stored in the same Flow account as you'll find the Cadence contracts (see above).
+And below are the bridge escrow's EVM addresses. These addresses are [`CadenceOwnedAccount`s (COA)](https://developers.flow.com/blockchain-development-tutorials/cross-vm-apps/interacting-with-coa#coa-interface) and they are stored in the same Flow account as you'll find the Cadence contracts (see above).
 
 |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- |
-| Network Address|  |  |  |  | | --- | --- | --- | --- | | Testnet [`0x0000000000000000000000023f946ffbc8829bfd`]| Mainnet [`0x00000000000000000000000249250a5c27ecab3b`] | | | | | |
-
-[`0xf8146b4aef631853f0eb98dbe28706d029e52c52`]: <https://evm-testnet.flowscan.io/address/0xF8146B4aEF631853F0eB98DBE28706d029e52c52>)
-[`0x1c6dea788ee774cf15bcd3d7a07ede892ef0be40`]: <https://evm.flowscan.io/address/0x1C6dEa788Ee774CF15bCd3d7A07ede892ef0bE40>
-[`0x8781d15904d7e161f421400571dea24cc0db6938`]: <https://evm-testnet.flowscan.io/address/0x8781d15904d7e161f421400571dea24cc0db6938>
-[`0x8fdec2058535a2cb25c2f8cec65e8e0d0691f7b0`]: <https://evm.flowscan.io/address/0x8FDEc2058535A2Cb25C2f8ceC65e8e0D0691f7B0>
-[`0x4d45CaD104A71D19991DE3489ddC5C7B284cf263`]: <https://evm-testnet.flowscan.io/address/0x4d45CaD104A71D19991DE3489ddC5C7B284cf263>
-[`0x49631Eac7e67c417D036a4d114AD9359c93491e7`]: <https://evm.flowscan.io/address/0x49631Eac7e67c417D036a4d114AD9359c93491e7>
-[`0x1B852d242F9c4C4E9Bb91115276f659D1D1f7c56`]: <https://evm-testnet.flowscan.io/address/0x1B852d242F9c4C4E9Bb91115276f659D1D1f7c56>
-[`0xe7c2B80a9de81340AE375B3a53940E9aeEAd79Df`]: <https://evm.flowscan.io/address/0xe7c2B80a9de81340AE375B3a53940E9aeEAd79Df>
-[`CadenceOwnedAccount`s (COA)]: <https://developers.flow.com/blockchain-development-tutorials/cross-vm-apps/interacting-with-coa#coa-interface>
-[`0x0000000000000000000000023f946ffbc8829bfd`]: <https://evm-testnet.flowscan.io/address/0x0000000000000000000000023f946FFbc8829BFD>
-[`0x00000000000000000000000249250a5c27ecab3b`]: <https://evm.flowscan.io/address/0x00000000000000000000000249250a5C27Ecab3B>)
+| Network Address|  |  |  |  | | --- | --- | --- | --- | | Testnet [`0x0000000000000000000000023f946ffbc8829bfd`](https://evm-testnet.flowscan.io/address/0x0000000000000000000000023f946FFbc8829BFD)| Mainnet [`0x00000000000000000000000249250a5c27ecab3b`](https://evm.flowscan.io/address/0x00000000000000000000000249250a5C27Ecab3B) | | | | | |
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/core-contracts/15-bridge.md)
 
-Last updated on **Dec 3, 2025** by **cshannon1218**
+Last updated on **Dec 10, 2025** by **cshannon1218**
 
 [Previous
 
@@ -195811,6 +195799,8 @@ Search
 
 On this page
 
+# Flow Token Contract
+
 The `FlowToken` contract defines the FLOW network token.
 
 Source: [FlowToken.cdc](https://github.com/onflow/flow-core-contracts/blob/master/contracts/FlowToken.cdc)
@@ -195819,18 +195809,16 @@ Source: [FlowToken.cdc](https://github.com/onflow/flow-core-contracts/blob/maste
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Network Contract Address|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | Emulator `0x0ae53cb6e3f42a79`| Cadence Testing Framework `0x0000000000000003`| Testnet `0x7e60df042a9c0868`| Mainnet `0x1654653399040a61` | | | | | | | | | |
 
-# Transactions
+## Transactions[​](#transactions "Direct link to Transactions")
 
 Transactions and scripts for `FlowToken` are in the `flow-core-contracts` [repo](https://github.com/onflow/flow-core-contracts/tree/master/transactions/flowToken).
 
 As mentioned in the `FungibleToken` page, developers are encouraged to use
-the generic token transactions in the `flow-ft` [repo](https://github.com/onflow/flow-ft/tree/master/transactions) instead.
+the generic token transactions in the [`flow-ft` repo](https://github.com/onflow/flow-ft/tree/master/transactions) instead.
 
-# Events
+## Events[​](#events "Direct link to Events")
 
-Flow relies on a set of core contracts that define key portions of the Flow protocol. Those contracts are core contracts
-and are made to emit the events documented below. You can read about the [core contracts here](/build/cadence/core-contracts)
-and view their source code and event definitions.
+Flow relies on a set of core contracts that define key portions of the Flow protocol. Those contracts are core contracts and are made to emit the events documented below. You can read about the [core contracts here](/build/cadence/core-contracts) and view their source code and event definitions.
 
 Events emitted from core contracts follow a standard format:
 
@@ -195840,18 +195828,17 @@ A.{contract address}.{contract name}.{event name}`
 
 The components of the format are:
 
-* `contract address` - the address of the account the contract has been deployed to
-* `contract name` - the name of the contract in the source code
-* `event name` - the name of the event as declared in the source code
+* `contract address` - the address of the account the contract has been deployed to.
+* `contract name` - the name of the contract in the source code.
+* `event name` - the name of the event as declared in the source code.
 
-### Flow Token Contract[​](#flow-token-contract "Direct link to Flow Token Contract")
+### Flow token contract[​](#flow-token-contract-1 "Direct link to Flow token contract")
 
 Description of events emitted from the [FLOW Token contract](/build/cadence/core-contracts/flow-token).
-The contract defines the fungible FLOW token. Please note that events for the fungible token contracts are the same
-if deployed to a different account but the `contract address` is
-changed to the address of the account the contract has been deployed to.
 
-### Tokens Initialized[​](#tokens-initialized "Direct link to Tokens Initialized")
+The contract defines the fungible FLOW token. Please note that events for the fungible token contracts are the same if deployed to a different account but the `contract address` is changed to the address of the account the contract has been deployed to.
+
+### Tokens initialized[​](#tokens-initialized "Direct link to Tokens initialized")
 
 Event that is emitted when the contract gets created.
 
@@ -195867,7 +195854,7 @@ access(all) event TokensInitialized(initialSupply: UFix64)`
 | --- | --- | --- | --- | --- | --- |
 | Field Type Description|  |  |  | | --- | --- | --- | | initialSupply UFix64 The initial supply of the tokens | | | | | |
 
-### Tokens Withdrawn[​](#tokens-withdrawn "Direct link to Tokens Withdrawn")
+### Tokens withdrawn[​](#tokens-withdrawn "Direct link to Tokens withdrawn")
 
 Event that is emitted when tokens get withdrawn from a Vault.
 
@@ -195883,7 +195870,7 @@ access(all) event TokensWithdrawn(amount: UFix64, from: Address?)`
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Field Type Description|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | amount UFix64 The amount of tokens withdrawn|  |  |  | | --- | --- | --- | | from Address? Optional address of the account that owns the vault where tokens were withdrawn from. `nil` if the vault is not in an account's storage | | | | | | | | |
 
-### Tokens Deposited[​](#tokens-deposited "Direct link to Tokens Deposited")
+### Tokens deposited[​](#tokens-deposited "Direct link to Tokens deposited")
 
 Event that is emitted when tokens get deposited to a Vault.
 
@@ -195899,7 +195886,7 @@ access(all) event TokensDeposited(amount: UFix64, to: Address?)`
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Field Type Description|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | amount UFix64 The amount of tokens withdrawn|  |  |  | | --- | --- | --- | | to Address? Optional address of the account that owns the vault where tokens were deposited to. `nil` if the vault is not in an account's storage | | | | | | | | |
 
-### Tokens Minted[​](#tokens-minted "Direct link to Tokens Minted")
+### Tokens minted[​](#tokens-minted "Direct link to Tokens minted")
 
 Event that is emitted when new tokens gets minted.
 
@@ -195915,7 +195902,7 @@ access(all) event TokensMinted(amount: UFix64)`
 | --- | --- | --- | --- | --- | --- |
 | Field Type Description|  |  |  | | --- | --- | --- | | amount UFix64 The amount of tokens to mint | | | | | |
 
-### Tokens Burned[​](#tokens-burned "Direct link to Tokens Burned")
+### Tokens burned[​](#tokens-burned "Direct link to Tokens burned")
 
 Event that is emitted when tokens get destroyed.
 
@@ -195931,7 +195918,7 @@ access(all) event TokensBurned(amount: UFix64)`
 | --- | --- | --- | --- | --- | --- |
 | Field Type Description|  |  |  | | --- | --- | --- | | amount UFix64 The amount of tokens to burn | | | | | |
 
-### Minter Created[​](#minter-created "Direct link to Minter Created")
+### Minter created[​](#minter-created "Direct link to Minter created")
 
 Event that is emitted when a new minter resource gets created.
 
@@ -195959,13 +195946,13 @@ Event that is emitted when a new burner Resource gets created.
 
 access(all) event BurnerCreated()`
 
-### Staking Events[​](#staking-events "Direct link to Staking Events")
+### Staking events[​](#staking-events "Direct link to Staking events")
 
 To learn more about staking events, read [staking/events/](/protocol/staking/staking-scripts-events)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/core-contracts/03-flow-token.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Dec 3, 2025** by **cshannon1218**
 
 [Previous
 
@@ -195979,7 +195966,8 @@ Service Account](/build/cadence/core-contracts/service-account)
 
 Copy as Markdown
 
-* [Flow Token Contract](#flow-token-contract)* [Tokens Initialized](#tokens-initialized)* [Tokens Withdrawn](#tokens-withdrawn)* [Tokens Deposited](#tokens-deposited)* [Tokens Minted](#tokens-minted)* [Tokens Burned](#tokens-burned)* [Minter Created](#minter-created)* [Burner Created](#burner-created)* [Staking Events](#staking-events)
+* [Transactions](#transactions)* [Events](#events)
+    + [Flow token contract](#flow-token-contract-1)+ [Tokens initialized](#tokens-initialized)+ [Tokens withdrawn](#tokens-withdrawn)+ [Tokens deposited](#tokens-deposited)+ [Tokens minted](#tokens-minted)+ [Tokens burned](#tokens-burned)+ [Minter created](#minter-created)+ [Burner Created](#burner-created)+ [Staking events](#staking-events)
 
 Flow
 
@@ -219482,7 +219470,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -237536,11 +237524,12 @@ On this page
 
 ## Configuration[​](#configuration "Direct link to Configuration")
 
-FCL provides a mechanism to configure various aspects of its behavior. The key principle is that when switching between different Flow Blockchain environments (e.g., Local Emulator → Testnet → Mainnet), the only required change should be your FCL configuration.
+Flow Client Library (FCL) provides a mechanism to configure various aspects of its behavior. The key principle is that when you switch between different Flow Blockchain environments (for example, Local Emulator → Testnet → Mainnet), the only required change should be your FCL configuration.
 
-## Setting Configuration Values[​](#setting-configuration-values "Direct link to Setting Configuration Values")
+## Set configuration values[​](#set-configuration-values "Direct link to Set configuration values")
 
-Values only need to be set once. We recommend doing this once and as early in the life cycle as possible.
+Values only need to be set once. We recommend that you do this once and as early in the life cycle as possible.
+
 To set a configuration value, the `put` method on the `config` instance needs to be called, the `put` method returns the `config` instance so they can be chained.
 
 `_10
@@ -237565,11 +237554,13 @@ _10
 
 .put('baz', 'buz'); // configures "baz" to be "buz"`
 
-> **Note**: For advanced use cases requiring scoped configuration, isolated client instances, or multi-tenancy support, see the [`createFlowClient` reference documentation](/build/tools/clients/fcl-js/packages-docs/fcl/createFlowClient).
+info
 
-## Getting Configuration Values[​](#getting-configuration-values "Direct link to Getting Configuration Values")
+For advanced use cases that require scoped configuration, isolated client instances, or multi-tenancy support, see the [`createFlowClient` reference documentation](/build/tools/clients/fcl-js/packages-docs/fcl/createFlowClient).
 
-The `config` instance has an asynchronous `get` method. You can also pass it a fallback value incase the configuration state does not include what you are wanting.
+## Get configuration values[​](#get-configuration-values "Direct link to Get configuration values")
+
+The `config` instance has an asynchronous `get` method. You can also pass it a fallback value in case the configuration state does not include what you want.
 
 `_15
 
@@ -237621,13 +237612,13 @@ _15
 
 addStuff().then((d) => console.log(d)); // 13 (5 + 7 + 1)`
 
-## Common Configuration Keys[​](#common-configuration-keys "Direct link to Common Configuration Keys")
+## Common configuration keys[​](#common-configuration-keys "Direct link to Common configuration keys")
 
-* `accessNode.api` -- Api URL for the Flow Blockchain Access Node you want to be communicating with.
-* `app.detail.title` - **(INTRODUCED `@onflow/fcl@0.0.68`)** Your applications title, can be requested by wallets and other services. Used by WalletConnect plugin & Wallet Discovery service.
-* `app.detail.icon` - **(INTRODUCED `@onflow/fcl@0.0.68`)** Url for your applications icon, can be requested by wallets and other services. Used by WalletConnect plugin & Wallet Discovery service.
-* `app.detail.description` - **(INTRODUCED `@onflow/fcl@1.11.0`)** Your applications description, can be requested by wallets and other services. Used by WalletConnect plugin & Wallet Discovery service.
-* `app.detail.url` - **(INTRODUCED `@onflow/fcl@1.11.0`)** Your applications url, can be requested by wallets and other services. Used by WalletConnect plugin & Wallet Discovery service.
+* `accessNode.api` -- API URL for the Flow Blockchain Access Node you want to communicate with.
+* `app.detail.title` - **(INTRODUCED `@onflow/fcl@0.0.68`)** Your applications title, can be requested by wallets and other services. Used by WalletConnect plugin and Wallet Discovery service.
+* `app.detail.icon` - **(INTRODUCED `@onflow/fcl@0.0.68`)** URL for your applications icon, can be requested by wallets and other services. Used by WalletConnect plugin and Wallet Discovery service.
+* `app.detail.description` - **(INTRODUCED `@onflow/fcl@1.11.0`)** Your applications description, can be requested by wallets and other services. Used by WalletConnect plugin and Wallet Discovery service.
+* `app.detail.url` - **(INTRODUCED `@onflow/fcl@1.11.0`)** Your applications URL, can be requested by wallets and other services. Used by WalletConnect plugin and Wallet Discovery service.
 * `challenge.handshake` -- **(DEPRECATED `@onflow/fcl@0.0.68`)** Points FCL at the Wallet or Wallet Discovery mechanism.
 * `discovery.wallet` -- **(INTRODUCED `@onflow/fcl@0.0.68`)** Points FCL at the Wallet or Wallet Discovery mechanism.
 * `discovery.wallet.method` -- Describes which service strategy a wallet should use: `IFRAME/RPC`, `POP/RPC`, `TAB/RPC`, `HTTP/POST`, `EXT/RPC`
@@ -237638,11 +237629,11 @@ addStuff().then((d) => console.log(d)); // 13 (5 + 7 + 1)`
 * `walletconnect.projectId` -- **(INTRODUCED `@onflow/fcl@1.11.0`)** Your app's WalletConnect project ID. See [WalletConnect Cloud](https://cloud.walletconnect.com/sign-in) to obtain a project ID for your application.
 * `walletconnect.disableNotifications` -- **(INTRODUCED `@onflow/fcl@1.13.0`)** Flag to disable pending WalletConnect request notifications within the application's UI. Default is `false`.
 
-## Using Contracts in Scripts and Transactions[​](#using-contracts-in-scripts-and-transactions "Direct link to Using Contracts in Scripts and Transactions")
+## Use contracts in scripts and transactions[​](#use-contracts-in-scripts-and-transactions "Direct link to Use contracts in scripts and transactions")
 
-### Address Replacement[​](#address-replacement "Direct link to Address Replacement")
+### Address replacement[​](#address-replacement "Direct link to Address replacement")
 
-Configuration keys that start with `0x` will be replaced in FCL scripts and transactions, this allows you to write your script or transaction Cadence code once and not have to change it when you point your application at a difference instance of the Flow Blockchain.
+Configuration keys that start with `0x` will be replaced in FCL scripts and transactions. This allows you to write your script or transaction Cadence code once and not have to change it when you point your application at a difference instance of the Flow Blockchain.
 
 `` _27
 
@@ -237794,9 +237785,9 @@ _13
 
 .put('0xFlowToken', '0x7e60df042a9c0868');`
 
-### Using `flow.json`[​](#using-flowjson "Direct link to using-flowjson")
+### Use `flow.json`[​](#use-flowjson "Direct link to use-flowjson")
 
-A simpler way to import contracts in scripts and transactions is to use the `config.load` method to ingest your contracts from your `flow.json` file. This keeps the import syntax unified across tools and lets FCL figure out which address to use for what network based on the network provided in config. To use `config.load` you must first import your `flow.json` file and then pass it to `config.load` as a parameter.
+A simpler way to import contracts in scripts and transactions is to use the `config.load` method to ingest your contracts from your `flow.json` file. This keeps the import syntax unified across tools and lets FCL figure out which address to use for what network based on the network provided in the config. To use `config.load` you must first import your `flow.json` file and then pass it to `config.load` as a parameter.
 
 `` _10
 
@@ -237856,13 +237847,15 @@ Then in your scripts and transactions, all you have to do is:
 
 import "HelloWorld"`
 
-FCL will automatically replace the contract name with the address for the network you are using.
+FCL will automatically replace the contract name with the address for the network you use.
 
-> Note: never put private keys in your `flow.json`. You should use the [key/location syntax](/build/tools/flow-cli/flow.json/security) to separate your keys into a separate git ignored file.
+info
+
+Never put private keys in your `flow.json`. Instead, use the [key/location syntax](/build/tools/flow-cli/flow.json/security) to separate your keys into a separate git ignored file.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/configure-fcl.md)
 
-Last updated on **Nov 10, 2025** by **Chase Fleming**
+Last updated on **Dec 9, 2025** by **cshannon1218**
 
 [Previous
 
@@ -237876,8 +237869,8 @@ Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
 Copy as Markdown
 
-* [Configuration](#configuration)* [Setting Configuration Values](#setting-configuration-values)* [Getting Configuration Values](#getting-configuration-values)* [Common Configuration Keys](#common-configuration-keys)* [Using Contracts in Scripts and Transactions](#using-contracts-in-scripts-and-transactions)
-          + [Address Replacement](#address-replacement)+ [Using `flow.json`](#using-flowjson)
+* [Configuration](#configuration)* [Set configuration values](#set-configuration-values)* [Get configuration values](#get-configuration-values)* [Common configuration keys](#common-configuration-keys)* [Use contracts in scripts and transactions](#use-contracts-in-scripts-and-transactions)
+          + [Address replacement](#address-replacement)+ [Use `flow.json`](#use-flowjson)
 
 Flow
 
@@ -298586,19 +298579,19 @@ On this page
 
 # Deploy a Contract
 
-Deploy a new contract to a Flow account using the Flow CLI.
+Deploy a new contract to a Flow account with the Flow CLI.
 
 `_10
 
 flow accounts add-contract <filename> [<argument> <argument>...] [flags]`
 
-⚠️ Deprecation notice: using name argument in adding contract command will be deprecated soon.
+⚠️ Deprecation notice: we will deprecate the name argument in adding contract command soon.
 
 `_10
 
 flow accounts add-contract <name> <filename> [<argument> <argument>...] [flags]`
 
-## Example Usage[​](#example-usage "Direct link to Example Usage")
+## Example usage[​](#example-usage "Direct link to Example usage")
 
 `_18
 
@@ -298664,7 +298657,7 @@ _18
 
 Contract: 'FungibleToken'`
 
-**Testnet Example**
+**Testnet example**
 
 `_18
 
@@ -298754,9 +298747,9 @@ Path to the file containing the contract source code.
 
 * Name: `argument`
 * Valid inputs: valid [cadence values](https://cadencelang.dev/docs/1.0/json-cadence-spec)
-  matching argument type in transaction code.
+  that match argument type in transaction code.
 
-Input arguments values matching corresponding types in the source code and passed in the same order.
+Input arguments values that match corresponding types in the source code and passed in the same order.
 
 Example:
 
@@ -298801,7 +298794,7 @@ Arguments passed to the Cadence transaction in Cadence JSON format.
 Cadence JSON format contains `type` and `value` keys and is
 [documented here](https://cadencelang.dev/docs/1.0/json-cadence-spec).
 
-### Include Fields[​](#include-fields "Direct link to Include Fields")
+### Include fields[​](#include-fields "Direct link to Include fields")
 
 * Flag: `--include`
 * Valid inputs: `contracts`
@@ -298814,17 +298807,14 @@ Specify fields to include in the result output. Applies only to the text output.
 * Valid inputs: an IP address or hostname.
 * Default: `127.0.0.1:3569` (Flow Emulator)
 
-Specify the hostname of the Access API that will be
-used to execute the command. This flag overrides
-any host defined by the `--network` flag.
+Specify the hostname of the Access API that will be used to execute the command. This flag overrides any host defined by the `--network` flag.
 
-### Network Key[​](#network-key "Direct link to Network Key")
+### Network key[​](#network-key "Direct link to Network key")
 
 * Flag: `--network-key`
 * Valid inputs: A valid network public key of the host in hex string format
 
-Specify the network public key of the Access API that will be
-used to create a secure GRPC client when executing the command.
+Specify the network public key of the Access API that will be used to create a secure GRPC client when you execute the command.
 
 ### Network[​](#network "Direct link to Network")
 
@@ -298876,10 +298866,10 @@ Specify the log level. Control how much output you want to see during command ex
 * Default: `flow.json`
 
 Specify the path to the `flow.json` configuration file.
-You can use the `-f` flag multiple times to merge
-several configuration files.
 
-### Version Check[​](#version-check "Direct link to Version Check")
+You can use the `-f` flag multiple times to merge several configuration files.
+
+### Version check[​](#version-check "Direct link to Version check")
 
 * Flag: `--skip-version-check`
 * Default: `false`
@@ -298888,7 +298878,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/accounts/account-add-contract.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 10, 2025** by **cshannon1218**
 
 [Previous
 
@@ -298902,9 +298892,9 @@ Update a Contract](/build/tools/flow-cli/accounts/account-update-contract)
 
 Copy as Markdown
 
-* [Example Usage](#example-usage)* [Arguments](#arguments)
+* [Example usage](#example-usage)* [Arguments](#arguments)
     + [Name](#name)+ [Filename](#filename)+ [Arguments](#arguments-1)* [Flags](#flags)
-      + [Signer](#signer)+ [Arguments JSON](#arguments-json)+ [Include Fields](#include-fields)+ [Host](#host)+ [Network Key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version Check](#version-check)
+      + [Signer](#signer)+ [Arguments JSON](#arguments-json)+ [Include fields](#include-fields)+ [Host](#host)+ [Network key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version check](#version-check)
 
 Flow
 
@@ -319464,9 +319454,9 @@ On this page
 
 Flow events are special values that are emitted on the network during the execution of a Cadence program and can be observed by off-chain observers.
 
-Events are defined as Cadence code and you should [read Cadence documentation](https://cadence-lang.org/docs/language/events) to understand how to define them.
+Events are defined as Cadence code and you should [read the Cadence documentation](https://cadence-lang.org/docs/language/events) to understand how to define them.
 
-Since transactions don't have return values you can leverage events to broadcast certain changes the transaction caused. Clients listening on Flow networks (apps) can listen to these events being emitted and react.
+Since transactions don't have return values you can leverage events to broadcast certain changes the transaction caused. Clients taht listen on Flow networks (apps) can listen to these events that are emitted and react.
 
 ![Screenshot 2023-08-18 at 14.09.33.png](/assets/images/Screenshot_2023-08-18_at_14.09.33-5a94d1214f7016737c79587c24373313.png)
 
@@ -319479,7 +319469,7 @@ Events consist of the **event name** and an optional **payload**.
 
 ![Screenshot 2023-08-18 at 13.59.01.png](/assets/images/Screenshot_2023-08-18_at_13.59.01-8d9f5c4cb0bfebd04b3e864a34bdc79b.png)
 
-## Core Events[​](#core-events "Direct link to Core Events")
+## Core events[​](#core-events "Direct link to Core events")
 
 Core events are events emitted directly from the FVM (Flow Virtual Machine). The events have the same name on all networks and do not follow the same naming as user-defined events (they have no address).
 
@@ -319493,7 +319483,7 @@ For more details [on the core events, you can read Cadence reference documentati
 
 ## User-defined events[​](#user-defined-events "Direct link to User-defined events")
 
-Events that are defined inside contracts and when emitted follow a common naming schema. The schema consists of 4 parts:
+Events that are defined inside contracts and when emitted follow a common naming schema. The schema consists of four parts:
 
 `_10
 
@@ -319503,21 +319493,17 @@ An example event would look like:
 
 ![Screenshot 2023-08-18 at 14.30.36.png](/assets/images/Screenshot_2023-08-18_at_14.30.36-b0570852e01e8ef1d9b340c5cc162c3e.png)
 
-The first `A` means the event is originating from a contract, which will always be the case for user-defined events. The contract address as the name implies is the location of a contract deployed on the Flow network. Next, is the name of the contracted event originates from, and last is the event type defined in the contract.
+The first `A` means the event originates from a contract, which will always be the case for user-defined events. The contract address as the name implies is the location of a contract deployed on the Flow network. Next, is the name of the contracted event originates from, and last is the event type defined in the contract.
 
 There is an unlimited amount of events that can be defined on Flow, but you should know about the most common ones.
 
-### Fungible Token Events[​](#fungible-token-events "Direct link to Fungible Token Events")
+### Fungible token events[​](#fungible-token-events "Direct link to Fungible token events")
 
-All fungible token contracts, including [The FLOW Token contract](/build/cadence/core-contracts/flow-token),
-use the [fungible token standard on Flow](/build/cadence/core-contracts/fungible-token).
-As with any contract, the standard emits events when interacted with.
-When any fungible token is transferred, standard events are emitted.
-You can find a lot of details on the events emitted in the [Fungible Token documentation](/build/cadence/core-contracts/fungible-token).
+All fungible token contracts, which includes [The FLOW Token contract](/build/cadence/core-contracts/flow-token), use the [fungible token standard on Flow](/build/cadence/core-contracts/fungible-token). As with any contract, the standard emits events when interacted with. When any fungible token is transferred, standard events are emitted. You can find a lot of details on the events emitted in the [Fungible Token documentation](/build/cadence/core-contracts/fungible-token).
 
-The most common events are when tokens are transferred which is accomplished with two actions: withdrawing tokens from the payer and depositing tokens in the receiver. Each of those actions has a corresponding event:
+The most common events are when tokens are transferred which is accomplished with two actions: withdraw tokens from the payer and deposit tokens in the receiver. Each of those actions has a corresponding event:
 
-**Withdraw Tokens**
+**Withdraw tokens**
 
 Event name: `FungibleToken.Withdrawn`
 
@@ -319549,7 +319535,7 @@ Mainnet event: `A.f233dcee88fe0abe.FungibleToken.Withdrawn`
 
 Testnet event: `A.9a0766d93b6608b7.FungibleToken.Withdrawn`
 
-**Deposit Tokens**
+**Deposit tokens**
 
 `_10
 
@@ -319689,7 +319675,7 @@ _24
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/basics/events.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 2, 2025** by **cshannon1218**
 
 [Previous
 
@@ -319703,8 +319689,8 @@ FLOW Coin](/build/cadence/basics/flow-token)
 
 Copy as Markdown
 
-* [Core Events](#core-events)* [User-defined events](#user-defined-events)
-    + [Fungible Token Events](#fungible-token-events)+ [**Fee Events**](#fee-events)
+* [Core events](#core-events)* [User-defined events](#user-defined-events)
+    + [Fungible token events](#fungible-token-events)+ [**Fee Events**](#fee-events)
 
 Flow
 
@@ -332352,21 +332338,21 @@ On this page
 
 Transactions let you send Cadence code to the Flow blockchain that permanently alters its state.
 
-We are assuming you have read the [Scripts Documentation](/build/tools/clients/fcl-js/scripts) before this, as transactions are sort of scripts with more required things.
+We assume you have read the [Scripts Documentation](/build/tools/clients/fcl-js/scripts): ./scripts.md before this, as transactions are sort of scripts with more required things.
 
-While `query` is used for sending scripts to the chain, `mutate` is used for building and sending transactions. Just like [scripts](/build/tools/clients/fcl-js/scripts), `fcl.mutate` is a [JavaScript Tagged Template Literal](https://styled-components.com/docs/advanced#tagged-template-literals) that we can pass Cadence code into.
+While `query` is used to send scripts to the chain, `mutate` is used to build and send transactions. Just like [scripts](/build/tools/clients/fcl-js/scripts), `fcl.mutate` is a [JavaScript Tagged Template Literal](https://styled-components.com/docs/advanced#tagged-template-literals) that we can pass Cadence code into.
 
 Unlike scripts, they require a little more information, things like a proposer, authorizations and a payer, which may be a little confusing and overwhelming.
 
-## Sending Your First Transaction[​](#sending-your-first-transaction "Direct link to Sending Your First Transaction")
+## Send your first transaction[​](#send-your-first-transaction "Direct link to Send your first transaction")
 
-There is a lot to unpack in the following code snippet.
-It sends a transaction to the Flow blockchain. For the transaction, the current user is authorizing it as both the `proposer` and the `payer`.
-Something that is unique to Flow is the one paying for the transaction doesn't always need to be the one performing the transaction.
-Proposers and Payers are special kinds of authorizations that are always required for a transaction.
-The `proposer` acts similar to the `nonce` in Ethereum transactions, and helps prevent repeat attacks.
-The `payer` is who will be paying for the transaction.
-If these are not set, FCL defaults to using the current user for all roles.
+There is a lot to unpack in the following code snippet. It sends a transaction to the Flow blockchain. For the transaction, the current user authorizes it as both the `proposer` and the `payer`.
+
+Something that is unique to Flow is the one who pays for the transaction doesn't always need to be the one who performs the transaction. Proposers and Payers are special kinds of authorizations that are always required for a transaction.
+
+* The `proposer` acts similar to the `nonce` in Ethereum transactions, and helps prevent repeat attacks.
+* The `payer` is who will be paying for the transaction.
+  If these are not set, Flow Client Library (FCL) defaults to the current user for all roles.
 
 `fcl.mutate` will return a `transactionId`. We can pass the response directly to `fcl.tx` and then use the `onceExecuted` method which resolves a promise when a transaction result is available.
 
@@ -332434,15 +332420,13 @@ _17
 
 console.log(transaction); // The transactions status and events after being executed ``
 
-## Authorizing a Transaction[​](#authorizing-a-transaction "Direct link to Authorizing a Transaction")
+## Authorize a transaction[​](#authorize-a-transaction "Direct link to Authorize a transaction")
 
-The below code snippet is the same as the above one, except for one extremely important difference.
-Our Cadence code this time has a prepare statement, and we are using the `fcl.currentUser` when constructing our transaction.
+The below code snippet is the same as the above one, except for one extremely important difference. Our Cadence code this time has a prepare statement, and we use the `fcl.currentUser` when constructing our transaction.
 
-The `prepare` statement's arguments directly map to the order of the authorizations in the `authorizations` array.
-Four authorizations means four `&Account`s as arguments passed to `prepare`. In this case though there is only one, and it is the `currentUser`.
+The `prepare` statement's arguments directly map to the order of the authorizations in the `authorizations` array. Four authorizations means four `&Account`s as arguments passed to `prepare`. In this case though there is only one, and it is the `currentUser`.
 
-These authorizations are important as you can only access/modify an accounts storage if you have the said accounts authorization.
+These authorizations are important as you can only access or modify an account's storage if you have that account's authorization.
 
 `` _21
 
@@ -332526,20 +332510,20 @@ console.log(transaction); // The transactions status and events after being exec
 
 To learn more about `mutate`, check out the [API documentation](/build/tools/clients/fcl-js/packages-docs/fcl/mutate).
 
-## Querying Transaction Results[​](#querying-transaction-results "Direct link to Querying Transaction Results")
+## Query transaction results[​](#query-transaction-results "Direct link to Query transaction results")
 
-When querying transaction results (e.g., via HTTP/REST endpoints like `GET /v1/transaction_results/{id}`), you can provide either:
+When you query transaction results (for example, via HTTP/REST endpoints like `GET /v1/transaction_results/{id}`), you can provide either:
 
-* A **transaction ID** (256-bit hash as hex string)
-* A **scheduled transaction ID** (UInt64 as decimal string)
+* A **transaction ID** (256-bit hash as hex string).
+* A **scheduled transaction ID** (UInt64 as decimal string).
 
 The returned result always includes `transaction_id` as the underlying native transaction ID. For scheduled transactions, this will be the system transaction ID that executed the scheduled callback.
 
 Learn more about [Scheduled Transactions](/build/cadence/advanced-concepts/scheduled-transactions).
 
-## Transaction Finality[​](#transaction-finality "Direct link to Transaction Finality")
+## Transaction finality[​](#transaction-finality "Direct link to Transaction finality")
 
-As of **FCL v1.15.0**, it is now recommended to use use `onceExecuted` in most cases, leading to a 2.5x reduction in latency when waiting for a transaction result. For example, the following code snippet should be updated from:
+As of **FCL v1.15.0**, it is now recommended to use use `onceExecuted` in most cases, which leads to a 2.5x reduction in latency when you wait for a transaction result. For example, the following code snippet should be updated from:
 
 `_10
 
@@ -332559,7 +332543,7 @@ _10
 
 const result = await fcl.tx(txId).onceExecuted();`
 
-Developers manually subscribing to transaction statuses should update their listeners to treat "executed" as the final status (see the release notes [here](https://github.com/onflow/fcl-js/releases/tag/%40onflow%2Ffcl%401.15.0)). For example, the following code snippet should be updated from:
+Developers who manually subscribe to transaction statuses should update their listeners to treat "executed" as the final status (see the [release notes](https://github.com/onflow/fcl-js/releases/tag/%40onflow%2Ffcl%401.15.0)). For example, the following code snippet should be updated from:
 
 `_10
 
@@ -332633,13 +332617,13 @@ _11
 
 });`
 
-The "executed" status corresponds to soft finality, indicating that the transaction has been included in a block and a transaction status is available, backed by a cryptographic proof. Only in rare cases should a developer need to wait for "sealed" status in their applications and you can learn more about the different transaction statuses on Flow [here](/build/cadence/basics/transactions#transaction-status).
+The "executed" status corresponds to soft finality, which indicates that the transaction has been included in a block and a transaction status is available, backed by a cryptographic proof. Only in rare cases should a developer need to wait for "sealed" status in their applications and you can learn more about the different transaction statuses on Flow [here](/build/cadence/basics/transactions#transaction-status).
 
 See the following video for demonstration of how to update your code to wait for "executed" status:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/transactions.md)
 
-Last updated on **Nov 26, 2025** by **Jordan Ribbink**
+Last updated on **Dec 9, 2025** by **cshannon1218**
 
 [Previous
 
@@ -332653,7 +332637,7 @@ Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signature
 
 Copy as Markdown
 
-* [Sending Your First Transaction](#sending-your-first-transaction)* [Authorizing a Transaction](#authorizing-a-transaction)* [Querying Transaction Results](#querying-transaction-results)* [Transaction Finality](#transaction-finality)
+* [Send your first transaction](#send-your-first-transaction)* [Authorize a transaction](#authorize-a-transaction)* [Query transaction results](#query-transaction-results)* [Transaction finality](#transaction-finality)
 
 Flow
 
@@ -332910,17 +332894,17 @@ On this page
 
 info
 
-If you're building a frontend, use the [React SDK](/build/tools/react-sdk). If you're familiar with Solidity and the EVM world, the [React SDK] is to wagmi as FCL is to viem.
+If you want to build a frontend, use the [React SDK](/build/tools/react-sdk). If you're familiar with Solidity and the EVM world, the [React SDK](/build/tools/react-sdk) is to wagmi as FCL is to viem.
 
 ## What is FCL?[​](#what-is-fcl "Direct link to What is FCL?")
 
-The **Flow Client Library (FCL) JS** is a package designed to facilitate interactions between dapps, wallets, and the Flow blockchain. It provides a standardized way for applications to connect with users and their wallets, **eliminating the need for custom integrations**.
+The **Flow Client Library (FCL) JS** is a package designed to facilitate interactions between apps, wallets, and the Flow blockchain. It provides a standardized way for applications to connect with users and their wallets, **eliminating the need for custom integrations**.
 
 ### Key Features:[​](#key-features "Direct link to Key Features:")
 
-* **Universal Wallet Support** Works seamlessly with all FCL-compatible wallets, making authentication simple.
+* **Universal Wallet Support** Works seamlessly with all FCL-compatible wallets, which makes authentication simple.
 * **Secure Authentication** Standardized authentication flow ensures a smooth user experience.
-* **Blockchain Interactions** Enables querying, mutating, and interacting with smart contracts on Flow.
+* **Blockchain Interactions** Allows querying, mutating, and interacting with smart contracts on Flow.
 * **Full-Featured Utilities** Offers built-in functions to streamline blockchain development.
 * **Flexible Environment** Can run in both browser and server environments, though wallet interactions are browser-only.
 
@@ -332930,7 +332914,7 @@ For iOS, we also offer [FCL Swift](https://github.com/Outblock/fcl-swift).
 
 ---
 
-## Getting Started[​](#getting-started "Direct link to Getting Started")
+## Get started[​](#get-started "Direct link to Get started")
 
 ### Requirements[​](#requirements "Direct link to Requirements")
 
@@ -332938,7 +332922,7 @@ For iOS, we also offer [FCL Swift](https://github.com/Outblock/fcl-swift).
 
 ### Installation[​](#installation "Direct link to Installation")
 
-To use the FCL JS in your application, install using **yarn** or **npm**
+To use the FCL JS in your application, install with **yarn** or **npm**
 
 `_10
 
@@ -332948,7 +332932,7 @@ npm i -S @onflow/fcl`
 
 yarn add @onflow/fcl`
 
-#### Importing[​](#importing "Direct link to Importing")
+#### Import[​](#import "Direct link to Import")
 
 **ES6**
 
@@ -332964,11 +332948,11 @@ const fcl = require('@onflow/fcl');`
 
 ---
 
-## FCL for Dapps[​](#fcl-for-dapps "Direct link to FCL for Dapps")
+## FCL for dApps[​](#fcl-for-dapps "Direct link to FCL for dApps")
 
-#### Wallet Interactions[​](#wallet-interactions "Direct link to Wallet Interactions")
+#### Wallet interactions[​](#wallet-interactions "Direct link to Wallet interactions")
 
-* *Wallet Discovery* and *Sign-up/Login*: Onboard users with ease. Never worry about supporting multiple wallets.
+* *Wallet Discovery* and *Sign-up/Login*: Onboard users with ease. Never worry about how to support multiple wallets.
   Authenticate users with any [FCL compatible wallet](#current-wallet-providers).
 
 `_10
@@ -332999,16 +332983,18 @@ _10
 
 fcl.authenticate();`
 
-> **Note**: For advanced configuration patterns including scoped clients and multi-tenancy, see the [`createFlowClient` reference documentation](/build/tools/clients/fcl-js/packages-docs/fcl/createFlowClient).
+info
+
+For advanced configuration patterns including scoped clients and multi-tenancy, see the [`createFlowClient` reference documentation](/build/tools/clients/fcl-js/packages-docs/fcl/createFlowClient).
 
 ![FCL Default Discovery UI](/assets/images/discovery-c2c95d28a66e86c570491a36e37e0afa.png)
 
-> **Note**: A [Dapper Wallet](https://meetdapper.com/developers) developer account is required.
+A [Dapper Wallet](https://meetdapper.com/developers) developer account is required.
 
-* *Interact with smart contracts*: Authorize transactions via the user's chosen wallet
-* *Prove ownership of a wallet address*: Signing and verifying user signed data
+* *Interact with smart contracts*: Authorize transactions via the user's chosen wallet.
+* *Prove ownership of a wallet address*: Sign and verify user signed data.
 
-#### Blockchain Interactions[​](#blockchain-interactions "Direct link to Blockchain Interactions")
+#### Blockchain interactions[​](#blockchain-interactions "Direct link to Blockchain interactions")
 
 * *Query the chain*: Send arbitrary Cadence scripts to the chain and receive back decoded values
 
@@ -333142,7 +333128,7 @@ _14
 * Event polling
 * Custom authorization functions
 
-## Typescript Support[​](#typescript-support "Direct link to Typescript Support")
+## Typescript support[​](#typescript-support "Direct link to Typescript support")
 
 FCL JS supports TypeScript. If you need to import specific types, you can do so via the [@onflow/typedefs](https://github.com/onflow/fcl-js/tree/master/packages/typedefs) package.
 
@@ -333199,49 +333185,51 @@ For all type definitions available, see [this file](https://github.com/onflow/fc
 
 ---
 
-## FCL for Wallet Providers[​](#fcl-for-wallet-providers "Direct link to FCL for Wallet Providers")
+## FCL for wallet providers[​](#fcl-for-wallet-providers "Direct link to FCL for wallet providers")
 
 Wallet providers on Flow have the flexibility to build their user interactions and UI through a variety of ways:
 
-* Front channel communication via Iframe, pop-up, tab, or extension
-* Back channel communication via HTTP
+* Front channel communication via Iframe, pop-up, tab, or extension.
+* Back channel communication via HTTP.
 
-FCL is agnostic to the communication channel and be configured to create both custodial and non-custodial wallets. This enables users to interact with wallet providers without needing to download an app or extension.
+FCL is agnostic to the communication channel and be configured to create both custodial and non-custodial wallets. This allows users to interact with wallet providers without the need to download an app or extension.
 
-The communication channels involve responding to a set of pre-defined FCL messages to deliver the requested information to the dapp. Implementing a FCL compatible wallet on Flow is as simple as filling in the responses with the appropriate data when FCL requests them. If using any of the front-channel communication methods, FCL also provides a set of [wallet utilities](https://github.com/onflow/fcl-js/blob/master/packages/fcl-core/src/wallet-utils/index.js) to simplify this process.
+The communication channels involve responding to a set of pre-defined FCL messages to deliver the requested information to the dApp. To implement a FCL compatible wallet on Flow is as simple as filling in the responses with the appropriate data when FCL requests them. If you use any of the front-channel communication methods, FCL also provides a set of [wallet utilities](https://github.com/onflow/fcl-js/blob/master/packages/fcl-core/src/wallet-utils/index.js) to simplify this process.
 
-### Current Wallet Providers[​](#current-wallet-providers "Direct link to Current Wallet Providers")
+### Current wallet providers[​](#current-wallet-providers "Direct link to Current wallet providers")
 
 * [Flow Wallet](https://wallet.flow.com/)
 * [NuFi Wallet](https://nu.fi/)
 * [Blocto](https://blocto.portto.io/en/)
 * [Ledger](https://ledger.com) (limited transaction support)
-* [Dapper Wallet](https://www.meetdapper.com/)
+* [Dapper Wallet](https://meetdapper.com/developers)
 
-### Wallet Discovery[​](#wallet-discovery "Direct link to Wallet Discovery")
+### Wallet discovery[​](#wallet-discovery "Direct link to Wallet discovery")
 
 It can be difficult to get users to discover new wallets on a chain. To solve this, we created a [wallet discovery service](https://github.com/onflow/fcl-discovery) that can be configured and accessed through FCL to display all available Flow wallet providers to the user. This means:
 
-* Dapps can display and support all FCL compatible wallets that launch on Flow without needing to change any code
-* Users don't need to sign up for new wallets - they can carry over their existing one to any dapp that uses FCL for authentication and authorization.
+* dApps can display and support all FCL compatible wallets that launch on Flow without the need to change any code.
+* Users don't need to sign up for new wallets - they can carry over their current one to any dApp that uses FCL for authentication and authorization.
 
 The discovery feature can be used via API allowing you to customize your own UI or you can use the default UI without any additional configuration.
 
-> Note: To get your wallet added to the discovery service, make a PR in [fcl-discovery](https://github.com/onflow/fcl-discovery).
+info
 
-### Building a FCL compatible wallet[​](#building-a-fcl-compatible-wallet "Direct link to Building a FCL compatible wallet")
+To get your wallet added to the discovery service, make a PR in [fcl-discovery](https://github.com/onflow/fcl-discovery).
+
+### Build a FCL compatible wallet[​](#build-a-fcl-compatible-wallet "Direct link to Build a FCL compatible wallet")
 
 * Read the [wallet guide](https://github.com/onflow/fcl-js/blob/master/packages/fcl-core/src/wallet-provider-spec/draft-v4.md) to understand the implementation details.
 * Review the architecture of the [FCL dev wallet](https://github.com/onflow/fcl-dev-wallet) for an overview.
-* If building a non-custodial wallet, see the [Account API](https://github.com/onflow/flow-account-api) and the [FLIP](https://github.com/onflow/flow/pull/727) on derivation paths and key generation.
+* If you want to build a non-custodial wallet, see the [Account API](https://github.com/onflow/flow-account-api) and the [FLIP](https://github.com/onflow/flow/pull/727) on derivation paths and key generation.
 
 ---
 
-## 🛠 Want to Use the Flow SDK Directly?[​](#-want-to-use-the-flow-sdk-directly "Direct link to 🛠 Want to Use the Flow SDK Directly?")
+## 🛠 Want to use the Flow SDK directly?[​](#-want-to-use-the-flow-sdk-directly "Direct link to 🛠 Want to use the Flow SDK directly?")
 
-If you prefer to interact with Flow at a **lower level** without using FCL, you can use the [Flow JavaScript SDK](/build/tools/clients/fcl-js/packages-docs/sdk) directly. The SDK provides raw access to Flow's API for sending transactions, executing scripts, and managing accounts.
+If you prefer to interact with Flow at a **lower level** without FCL, you can use the [Flow JavaScript SDK](/build/tools/clients/fcl-js/packages-docs/sdk) directly. The SDK provides raw access to Flow's API to send transactions, execute scripts, and manage accounts.
 
-FCL is built **on top of the Flow SDK**, making it easier to handle authentication, wallet interactions, and dapp connectivity. Choose the approach that best fits your use case.
+FCL is built **on top of the Flow SDK**, which makes it easier to handle authentication, wallet interactions, and dApp connectivity. Choose the approach that best fits your use case.
 
 ## Support[​](#support "Direct link to Support")
 
@@ -333251,7 +333239,7 @@ FCL is built **on top of the Flow SDK**, making it easier to handle authenticati
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/index.md)
 
-Last updated on **Nov 10, 2025** by **Chase Fleming**
+Last updated on **Dec 11, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -333266,9 +333254,9 @@ Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 Copy as Markdown
 
 * [What is FCL?](#what-is-fcl)
-  + [Key Features:](#key-features)* [Getting Started](#getting-started)
-    + [Requirements](#requirements)+ [Installation](#installation)* [FCL for Dapps](#fcl-for-dapps)* [Typescript Support](#typescript-support)* [Next Steps](#next-steps)* [FCL for Wallet Providers](#fcl-for-wallet-providers)
-            + [Current Wallet Providers](#current-wallet-providers)+ [Wallet Discovery](#wallet-discovery)+ [Building a FCL compatible wallet](#building-a-fcl-compatible-wallet)* [🛠 Want to Use the Flow SDK Directly?](#-want-to-use-the-flow-sdk-directly)* [Support](#support)
+  + [Key Features:](#key-features)* [Get started](#get-started)
+    + [Requirements](#requirements)+ [Installation](#installation)* [FCL for dApps](#fcl-for-dapps)* [Typescript support](#typescript-support)* [Next Steps](#next-steps)* [FCL for wallet providers](#fcl-for-wallet-providers)
+            + [Current wallet providers](#current-wallet-providers)+ [Wallet discovery](#wallet-discovery)+ [Build a FCL compatible wallet](#build-a-fcl-compatible-wallet)* [🛠 Want to use the Flow SDK directly?](#-want-to-use-the-flow-sdk-directly)* [Support](#support)
 
 Flow
 
@@ -335968,19 +335956,19 @@ On this page
 
 # Update a Contract
 
-Update an existing contract deployed to a Flow account using the Flow CLI.
+Update a contract deployed to a Flow account with the Flow CLI.
 
 `_10
 
 flow accounts update-contract <filename> [<argument> <argument>...] [flags]`
 
-⚠️ Deprecation notice: using name argument in update contract command will be deprecated soon.
+⚠️ Deprecation notice: We will depreate the name argument in update contract command soon.
 
 `_10
 
 flow accounts update-contract <name> <filename> [<argument> <argument>...] [flags]`
 
-## Example Usage[​](#example-usage "Direct link to Example Usage")
+## Example usage[​](#example-usage "Direct link to Example usage")
 
 `_18
 
@@ -336046,7 +336034,7 @@ _18
 
 Contract: 'FungibleToken'`
 
-**Testnet Example**
+**Testnet example**
 
 `_18
 
@@ -336130,15 +336118,14 @@ Name of the contract as it is defined in the contract source code.
 * Name: `filename`
 * Valid inputs: Any filename and path valid on the system.
 
-Filename of the file containing contract source code.
+Filename of the file that contains contract source code.
 
 ### Arguments[​](#arguments-1 "Direct link to Arguments")
 
 * Name: `argument`
-* Valid inputs: valid [cadence values](https://cadencelang.dev/docs/1.0/json-cadence-spec)
-  matching argument type in transaction code.
+* Valid inputs: valid [cadence values](https://cadencelang.dev/docs/1.0/json-cadence-spec) that match thr argument type in transaction code.
 
-Input arguments values matching corresponding types in the source code and passed in the same order.
+Input arguments values that match corresponding types in the source code and passed in the same order.
 
 Example:
 
@@ -336178,7 +336165,7 @@ Specify the name of the account that will be used to sign the transaction.
 * Flag: `--show-diff`
 * Valid inputs: `true`, `false`
 
-Shows a diff to approve before updating between deployed contract and new contract updates.
+Shows a diff to approve before you update between deployed contract and new contract updates.
 
 ### Arguments JSON[​](#arguments-json "Direct link to Arguments JSON")
 
@@ -336187,8 +336174,8 @@ Shows a diff to approve before updating between deployed contract and new contra
 * Example: `flow accounts update-contract ./tx.cdc '[{"type": "String", "value": "Hello"}]'`
 
 Arguments passed to the Cadence transaction in Cadence JSON format.
-Cadence JSON format contains `type` and `value` keys and is
-[documented here](https://cadencelang.dev/docs/1.0/json-cadence-spec).
+
+Cadence JSON format contains `type` and `value` keys and is [documented here](https://cadencelang.dev/docs/1.0/json-cadence-spec).
 
 ### Include Fields[​](#include-fields "Direct link to Include Fields")
 
@@ -336203,17 +336190,14 @@ Specify fields to include in the result output. Applies only to the text output.
 * Valid inputs: an IP address or hostname.
 * Default: `127.0.0.1:3569` (Flow Emulator)
 
-Specify the hostname of the Access API that will be
-used to execute the command. This flag overrides
-any host defined by the `--network` flag.
+Specify the hostname of the Access API that will be used to execute the command. This flag overrides any host defined by the `--network` flag.
 
-### Network Key[​](#network-key "Direct link to Network Key")
+### Network key[​](#network-key "Direct link to Network key")
 
 * Flag: `--network-key`
 * Valid inputs: A valid network public key of the host in hex string format
 
-Specify the network public key of the Access API that will be
-used to create a secure GRPC client when executing the command.
+Specify the network public key of the Access API that will be used to create a secure GRPC client when you execute the command.
 
 ### Network[​](#network "Direct link to Network")
 
@@ -336265,8 +336249,8 @@ Specify the log level. Control how much output you want to see during command ex
 * Default: `flow.json`
 
 Specify the path to the `flow.json` configuration file.
-You can use the `-f` flag multiple times to merge
-several configuration files.
+
+You can use the `-f` flag multiple times to merge several configuration files.
 
 ### Version Check[​](#version-check "Direct link to Version Check")
 
@@ -336277,7 +336261,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/accounts/account-update-contract.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 10, 2025** by **cshannon1218**
 
 [Previous
 
@@ -336291,9 +336275,9 @@ Remove a Contract](/build/tools/flow-cli/accounts/account-remove-contract)
 
 Copy as Markdown
 
-* [Example Usage](#example-usage)* [Arguments](#arguments)
+* [Example usage](#example-usage)* [Arguments](#arguments)
     + [Name](#name)+ [Filename](#filename)+ [Arguments](#arguments-1)* [Flags](#flags)
-      + [Signer](#signer)+ [Show Diff](#show-diff)+ [Arguments JSON](#arguments-json)+ [Include Fields](#include-fields)+ [Host](#host)+ [Network Key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version Check](#version-check)
+      + [Signer](#signer)+ [Show Diff](#show-diff)+ [Arguments JSON](#arguments-json)+ [Include Fields](#include-fields)+ [Host](#host)+ [Network key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version Check](#version-check)
 
 Flow
 
@@ -340841,24 +340825,24 @@ This starts a local Flow network with:
 * REST API on `http://localhost:8888`
 * Admin API on port `8080`
 
-## Available Commands[​](#available-commands "Direct link to Available Commands")
+## Available commands[​](#available-commands "Direct link to Available commands")
 
 * `snapshot`: Create/Load/List emulator snapshots. See: [Create Emulator Snapshot](/build/tools/flow-cli/utils/snapshot-save)
 
-## Key Flags[​](#key-flags "Direct link to Key Flags")
+## Key flags[​](#key-flags "Direct link to Key flags")
 
 * **Networking**
 
-  + `--host <string>`: Host to listen on for gRPC/REST/Admin (default: all interfaces)
+  + `--host <string>`: Host to listen on for gRPC, REST, and Admin (default: all interfaces)
   + `--port, -p <int>`: gRPC port (default `3569`)
   + `--rest-port <int>`: REST API port (default `8888`)
   + `--admin-port <int>`: Admin API port (default `8080`)
   + `--debugger-port <int>`: Debug Adapter Protocol port (default `2345`)
-  + `--grpc-debug`: Enable gRPC server reflection
-  + `--rest-debug`: Enable REST API debug output
-* **State & Persistence**
+  + `--grpc-debug`: Turn on gRPC server reflection
+  + `--rest-debug`: Turn on REST API debug output
+* **State and Persistence**
 
-  + `--persist`: Enable persistent storage (default disabled)
+  + `--persist`: Turn on persistent storage (default disabled)
   + `--dbpath <path>`: Directory for on-disk state (default `./flowdb`)
   + `--sqlite-url <url>`: Use SQLite storage backend
   + `--redis-url <url>`: Use Redis storage backend
@@ -340867,15 +340851,15 @@ This starts a local Flow network with:
 * **Forking**
 
   + `--fork <string>`: Start the emulator in fork mode using a network from `flow.json`. If provided without a value, defaults to `mainnet`.
-  + `--fork-host <host>`: Access node to query when forking Mainnet/Testnet
-  + `--fork-height <uint>`: Starting block height when forking
-* **Cadence & VM**
+  + `--fork-host <host>`: Access node to query when you fork Mainnet or Testnet
+  + `--fork-height <uint>`: Starting block height when you fork
+* **Cadence and VM**
 
-  + `--block-time, -b <duration>`: Time between sealed blocks (e.g. `1s`, `300ms`)
-  + `--coverage-reporting`: Enable code coverage reporting
-  + `--computation-reporting`: Enable computation reporting
-  + `--legacy-upgrade`: Enable legacy contract upgrade behavior
-  + `--scheduled-transactions`: Enable scheduled transactions (default true)
+  + `--block-time, -b <duration>`: Time between sealed blocks (for exxample, `1s`, `300ms`)
+  + `--coverage-reporting`: Turn on code coverage reporting
+  + `--computation-reporting`: Turn on computation reporting
+  + `--legacy-upgrade`: Turn on legacy contract upgrade behavior
+  + `--scheduled-transactions`: Turn on scheduled transactions (default true)
   + `--script-compute-limit <int>`: Compute unit limit for scripts (default `100000`)
   + `--transaction-max-compute-limit <int>`: Max transaction compute unit limit (default `9999`)
   + `--transaction-expiry <int>`: Transaction expiry in blocks (default `10`)
@@ -340884,20 +340868,20 @@ This starts a local Flow network with:
   + `--storage-limit`: Enforce account storage limit (default true)
   + `--storage-per-flow <decimal>`: MB of storage per 1 FLOW token
   + `--token-supply <decimal>`: Initial FLOW token supply (default `1000000000.0`)
-  + `--transaction-fees`: Enable transaction fees
+  + `--transaction-fees`: Turn on transaction fees
   + `--setup-evm`: Deploy EVM contracts (default true)
   + `--setup-vm-bridge`: Deploy VM Bridge contracts (default true)
-* **Service Account & Identity**
+* **Service Account and Identity**
 
   + `--chain-id <emulator|testnet|mainnet>`: Address generation chain (default `emulator`)
   + `--service-priv-key <hex>` / `--service-pub-key <hex>`: Service account keys
   + `--service-sig-algo <ECDSA_P256|ECDSA_secp256k1>`: Service key signature algo (default `ECDSA_P256`)
   + `--service-hash-algo <SHA3_256|SHA2_256>`: Service key hash algo (default `SHA3_256`)
-  + `--min-account-balance <decimal>`: Minimum account balance / account creation cost
+  + `--min-account-balance <decimal>`: Minimum account balance or account creation cost
   + `--contracts`: Deploy common contracts on start
   + `--contract-removal`: Allow contract removal for development (default true)
   + `--init`: Initialize a new account profile
-* **Logging & Output**
+* **Logging and Output**
 
   + `--verbose, -v`: Verbose logging
   + `--log-format <text|JSON>`: Logging output format (default `text`)
@@ -341021,15 +341005,15 @@ For the complete and current list of flags, run:
 
 flow emulator --help`
 
-## Debugging & Testing[​](#debugging--testing "Direct link to Debugging & Testing")
+## Debugging and Testing[​](#debugging-and-testing "Direct link to Debugging and Testing")
 
 * **Code Coverage**: Add `--coverage-reporting` flag and visit `http://localhost:8080/emulator/codeCoverage`
 * **Debugging**: Use `#debugger()` pragma in Cadence code for breakpoints
-* **Fork mode note**: When using `flow emulator --fork`, only Flow chain state is available. External oracles/APIs and cross-chain reads are not live; mock these or run local stub services for E2E.
+* **Fork mode note**: When you use `flow emulator --fork`, only Flow chain state is available. External oracles/APIs and cross-chain reads are not live; mock these or run local stub services for E2E.
 
 ## Snapshots[​](#snapshots "Direct link to Snapshots")
 
-The Flow CLI provides a command to create emulator snapshots, which are points in blockchain history you can later jump to and reset the state to that moment. This can be useful for testing where you establish a beginning state, run tests and after revert back to the initial state.
+The Flow CLI provides a command to create emulator snapshots, which are points in blockchain history you can later jump to and reset the state to that moment. This can be useful to test where you establish a beginning state, run tests and after revert back to the initial state.
 
 ### Quick snapshot workflow[​](#quick-snapshot-workflow "Direct link to Quick snapshot workflow")
 
@@ -341075,7 +341059,7 @@ Create a new emulator snapshot at the current block with a name of `myInitialSta
 
 flow emulator snapshot create myInitialState`
 
-### Load an existing snapshot[​](#load-an-existing-snapshot "Direct link to Load an existing snapshot")
+### Load a current snapshot[​](#load-a-current-snapshot "Direct link to Load a current snapshot")
 
 To jump to a previously created snapshot we use the load command in combination with the name.
 
@@ -341083,21 +341067,21 @@ To jump to a previously created snapshot we use the load command in combination 
 
 flow emulator snapshot load myInitialState`
 
-### List all existing snapshots[​](#list-all-existing-snapshots "Direct link to List all existing snapshots")
+### List all snapshots[​](#list-all-snapshots "Direct link to List all snapshots")
 
-To list all the existing snapshots we previously created and can load to run:
+To list all the snapshots we previously created and can load to run:
 
 `_10
 
 flow emulator list`
 
-## Additional Resources[​](#additional-resources "Direct link to Additional Resources")
+## Additional resources[​](#additional-resources "Direct link to Additional resources")
 
-To learn more about using the Emulator, please have a look at the [public GitHub repository](https://github.com/onflow/flow-emulator).
+To learn more about how to use the Emulator, have a look at the [public GitHub repository](https://github.com/onflow/flow-emulator).
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/emulator/index.md)
 
-Last updated on **Nov 12, 2025** by **Brian Doyle**
+Last updated on **Dec 10, 2025** by **cshannon1218**
 
 [Previous
 
@@ -341111,8 +341095,8 @@ Flow CLI](/build/tools/flow-cli)
 
 Copy as Markdown
 
-* [Installation](#installation)* [Quick Start](#quick-start)* [Available Commands](#available-commands)* [Key Flags](#key-flags)* [Examples](#examples)* [Debugging & Testing](#debugging--testing)* [Snapshots](#snapshots)
-              + [Quick snapshot workflow](#quick-snapshot-workflow)+ [Create a new snapshot](#create-a-new-snapshot)+ [Load an existing snapshot](#load-an-existing-snapshot)+ [List all existing snapshots](#list-all-existing-snapshots)* [Additional Resources](#additional-resources)
+* [Installation](#installation)* [Quick Start](#quick-start)* [Available commands](#available-commands)* [Key flags](#key-flags)* [Examples](#examples)* [Debugging and Testing](#debugging-and-testing)* [Snapshots](#snapshots)
+              + [Quick snapshot workflow](#quick-snapshot-workflow)+ [Create a new snapshot](#create-a-new-snapshot)+ [Load a current snapshot](#load-a-current-snapshot)+ [List all snapshots](#list-all-snapshots)* [Additional resources](#additional-resources)
 
 Flow
 
@@ -375565,7 +375549,7 @@ On this page
 
 ## Generate a Contract[​](#generate-a-contract "Direct link to Generate a Contract")
 
-Create a new contract file using the Flow CLI:
+Create a new contract file with the Flow CLI:
 
 `_10
 
@@ -375573,9 +375557,9 @@ flow generate contract Foo`
 
 This command creates `cadence/contracts/Foo.cdc` with a basic contract template and automatically adds it to your `flow.json` configuration.
 
-## Add a Contract to Configuration[​](#add-a-contract-to-configuration "Direct link to Add a Contract to Configuration")
+## Add a contract to configuration[​](#add-a-contract-to-configuration "Direct link to Add a contract to configuration")
 
-If you have an existing contract file, add it to your project configuration using the CLI:
+If you have a contract file, add it to your project configuration with the CLI:
 
 `_10
 
@@ -375583,8 +375567,8 @@ flow config add contract`
 
 Follow the interactive prompts:
 
-1. **Contract name**: Enter the contract name (e.g., `Foo`)
-2. **Contract filename**: Enter the path to your contract file (e.g., `./cadence/contracts/Foo.cdc`)
+1. **Contract name**: Enter the contract name (for exxample, `Foo`)
+2. **Contract filename**: Enter the path to your contract file (for example, `./cadence/contracts/Foo.cdc`)
 3. **Add aliases**: Optionally add network aliases for dependencies
 
 You can also use flags to specify all details at once:
@@ -375623,9 +375607,9 @@ _10
 
 }`
 
-## Configure Contract Deployment Targets[​](#configure-contract-deployment-targets "Direct link to Configure Contract Deployment Targets")
+## Configure contract deployment targets[​](#configure-contract-deployment-targets "Direct link to Configure contract deployment targets")
 
-Once a contract is added to your configuration, configure deployment targets using the CLI:
+After a contract is added to your configuration, configure deployment targets with the CLI:
 
 `_10
 
@@ -375633,9 +375617,9 @@ flow config add deployment`
 
 Follow the interactive prompts:
 
-1. **Network**: Select the network (e.g., `testnet`, `mainnet`, `emulator`)
-2. **Account**: Select the account to deploy to (e.g., `my-testnet-account`)
-3. **Contract**: Select the contract to deploy (e.g., `Foo`)
+1. **Network**: Select the network (for example, `testnet`, `mainnet`, `emulator`)
+2. **Account**: Select the account to deploy to (for example, `my-testnet-account`)
+3. **Contract**: Select the contract to deploy (for example, `Foo`)
 4. **Deploy more contracts**: Choose `yes` to add additional contracts to the same deployment
 
 You can also use flags to specify all details:
@@ -375686,7 +375670,7 @@ _10
 
 }`
 
-## Add Multiple Contracts to a Deployment[​](#add-multiple-contracts-to-a-deployment "Direct link to Add Multiple Contracts to a Deployment")
+## Add multiple contracts to a deployment[​](#add-multiple-contracts-to-a-deployment "Direct link to Add multiple contracts to a deployment")
 
 To deploy multiple contracts to the same account, run the deployment configuration command multiple times or use the interactive prompt to add more contracts:
 
@@ -375724,7 +375708,7 @@ _10
 
 }`
 
-## Remove Contracts and Deployments[​](#remove-contracts-and-deployments "Direct link to Remove Contracts and Deployments")
+## Remove contracts and deployments[​](#remove-contracts-and-deployments "Direct link to Remove contracts and deployments")
 
 Remove contracts or deployments using the CLI:
 
@@ -375748,7 +375732,7 @@ flow config remove deployment testnet my-testnet-account Foo`
 
 ## Best Practices[​](#best-practices "Direct link to Best Practices")
 
-* **Use CLI commands**: Always use `flow config add` and `flow config remove` instead of manually editing `flow.json`
+* **Use CLI commands**: Always use `flow config add` and `flow config remove` rather than manually edit `flow.json`
 * **Generate contracts**: Use `flow generate contract` to create new contracts with proper structure
 * **Verify configuration**: Use `flow accounts list` and check your `flow.json` to verify your configuration
 * **Network-specific deployments**: Configure separate deployments for each network (emulator, testnet, mainnet)
@@ -375757,7 +375741,7 @@ For more information, see [Manage Configuration](/build/tools/flow-cli/flow.json
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/deployment/project-contracts.md)
 
-Last updated on **Nov 21, 2025** by **Brian Doyle**
+Last updated on **Dec 10, 2025** by **cshannon1218**
 
 [Previous
 
@@ -375771,7 +375755,7 @@ Deploy a Project](/build/tools/flow-cli/deployment/deploy-project-contracts)
 
 Copy as Markdown
 
-* [Generate a Contract](#generate-a-contract)* [Add a Contract to Configuration](#add-a-contract-to-configuration)* [Configure Contract Deployment Targets](#configure-contract-deployment-targets)* [Add Multiple Contracts to a Deployment](#add-multiple-contracts-to-a-deployment)* [Remove Contracts and Deployments](#remove-contracts-and-deployments)* [Best Practices](#best-practices)
+* [Generate a Contract](#generate-a-contract)* [Add a contract to configuration](#add-a-contract-to-configuration)* [Configure contract deployment targets](#configure-contract-deployment-targets)* [Add multiple contracts to a deployment](#add-multiple-contracts-to-a-deployment)* [Remove contracts and deployments](#remove-contracts-and-deployments)* [Best Practices](#best-practices)
 
 Flow
 
@@ -380911,7 +380895,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -392257,24 +392241,24 @@ On this page
 
 # Authentication
 
-Authentication in FCL is closely tied to the concept of `currentUser`. In fact, `fcl.authenticate` and `fcl.unauthenticate` are simply aliases for `fcl.currentUser.authenticate()` and `fcl.currentUser.unauthenticate()`, respectively. So, let’s take a closer look at `currentUser`.
+Authentication in Flow Client Library (FCL) is closely tied to the concept of `currentUser`. In fact, `fcl.authenticate` and `fcl.unauthenticate` are simply aliases for `fcl.currentUser.authenticate()` and `fcl.currentUser.unauthenticate()`, respectively. So, let’s take a closer look at `currentUser`.
 
-As an onchain app developer using FCL, the primary authentication functionalities revolve around:
+As an onchain app developer who uses FCL, the primary authentication functionalities revolve around how to:
 
-* Determining the `currentUser` and whether they are logged in.
-* Logging a user in.
-* Logging a user out.
+* Determine the `currentUser` and whether they are logged in.
+* Log a user in.
+* Log a user out.
 
-Due to the way FCL works, logging in and signing up are essentially the same process.
+Due to the way FCL works, to log in and sign up are essentially the same process.
 
-# Retrieving Information About the Current User
+# Retrieve information about the current user
 
 FCL provides two ways to get information about the current user:
 
 1. **A promise-based method** that returns a snapshot of the user’s data.
 2. **A subscription-based method** that triggers a callback function with the latest user information whenever it changes.
 
-### Snapshot of the Current User[​](#snapshot-of-the-current-user "Direct link to Snapshot of the Current User")
+### Snapshot of the current user[​](#snapshot-of-the-current-user "Direct link to Snapshot of the current user")
 
 `_10
 
@@ -392314,21 +392298,21 @@ _10
 
 });`
 
-# Authenticating and Unauthenticating
+# Authenticate and unauthenticate
 
 The TL;DR: Call `fcl.authenticate()` to log in and `fcl.unauthenticate()` to log out.
 
-On Flow mainnet, no additional configuration is needed—your app’s users will go through the authentication process and be able to use any FCL-compatible wallet provider.
+On Flow mainnet, no additional configuration is needed, because your app’s users will go through the authentication process and can use any FCL-compatible wallet provider.
 
-During development, you’ll likely want to configure your app to use [`@onflow/dev-wallet`](https://github.com/onflow/fcl-dev-wallet). The [Quick Start](/blockchain-development-tutorials/cadence/getting-started) guide will walk you through setting it up.
+During development, you’ll likely want to configure your app to use [`@onflow/dev-wallet`](https://github.com/onflow/fcl-dev-wallet). The [Quick Start](/blockchain-development-tutorials/cadence/getting-started) guide will walk you through how to set it up.
 
-We also recommend using the [FCL Discovery Service](/build/tools/clients/fcl-js/discovery) to help users discover and connect to FCL-compatible wallets.
+We also recommend that you use the [FCL Discovery Service](/build/tools/clients/fcl-js/discovery) to help users discover and connect to FCL-compatible wallets.
 
 Whether you're new to building onchain, or an established veteran, we’re here to help. If you run into any issues, reach out to us on [Discord](https://discord.gg/flow) — we’re happy to assist!
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/authentication.md)
 
-Last updated on **Sep 24, 2025** by **Felipe Cevallos**
+Last updated on **Dec 11, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -392342,7 +392326,7 @@ How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)
 
 Copy as Markdown
 
-* [Snapshot of the Current User](#snapshot-of-the-current-user)* [Subscribe to the Current User](#subscribe-to-the-current-user)
+* [Snapshot of the current user](#snapshot-of-the-current-user)* [Subscribe to the Current User](#subscribe-to-the-current-user)
 
 Flow
 
@@ -413057,52 +413041,52 @@ On this page
 
 # Testing Smart Contracts
 
-A single, pragmatic strategy for testing on Flow. Use layers that are deterministic and isolated by default, add realism with forks when needed, and keep a minimal set of live network checks before release.
+This document describes a single, pragmatic strategy to test on Flow. Use layers that are deterministic and isolated by default, add realism with forks when needed, and keep a minimal set of live network checks before release.
 
 ## At a glance[​](#at-a-glance "Direct link to At a glance")
 
-* **Unit & Property — Test Framework**: Hermetic correctness and invariants
-* **Integration — Fork Testing**: Real contracts and data; mutations stay local
-* **Local integration sandbox (interactive, `flow emulator --fork`)**: Drive apps/E2E against production-like state
-* **Staging (testnet)**: Final plumbing and config checks
-* **Post-deploy (read-only)**: Invariant dashboards and alerts
+* **Unit & Property — Test Framework**: Hermetic correctness and invariants.
+* **Integration — Fork Testing**: Real contracts and data; mutations stay local.
+* **Local integration sandbox (interactive, `flow emulator --fork`)**: Drive apps/E2E against production-like state.
+* **Staging (testnet)**: Final plumbing and config checks.
+* **Post-deploy (read-only)**: Invariant dashboards and alerts.
 
 ## Layers[​](#layers "Direct link to Layers")
 
-### Unit & Property — Test Framework[​](#unit--property--test-framework "Direct link to Unit & Property — Test Framework")
+### Unit and property — test framework[​](#unit-and-property--test-framework "Direct link to Unit and property — test framework")
 
 * Use `flow test`
-* **Use when**: Validating Cadence logic, invariants, access control, error paths, footprint
-* **Why**: Fully deterministic and isolated; highest-regression signal
-* **Run**: Every commit/PR; wide parallelism
-* **Notes**: Write clear success/failure tests, add simple “this should always hold” rules when helpful, and avoid external services
+* **Use when**: You validate Cadence logic, invariants, access control, error paths, footprint.
+* **Why**: Fully deterministic and isolated; highest-regression signal.
+* **Run**: Every commit/PR; wide parallelism.
+* **Notes**: Write clear success andfailure tests, add simple “this should always hold” rules when helpful, and avoid external services.
 
 See also: [Running Cadence Tests](/build/tools/flow-cli/tests).
 
-### Integration — Fork Testing[​](#integration--fork-testing "Direct link to Integration — Fork Testing")
+### Integration — fork testing[​](#integration--fork-testing "Direct link to Integration — fork testing")
 
-* **Use when**: Interacting with real on-chain contracts/data (FT/NFT standards, AMMs, wallets, oracles, bridges), upgrade checks, historical repro
-* **Why**: Real addresses, capability paths, and resource schemas; catches drift early
-* **Run**: On PRs, run the full forked suite if practical (pinned), or a small quick set; run more cases nightly or on main
-* **How**: Configure with `#test_fork(network: "mainnet", height: nil)` in your test file, or use `flow test --fork` CLI flags
+* **Use when**: You interact with real on-chain contracts or data (FTand NFT standards, AMMs, wallets, oracles, bridges), upgrade checks, historical repro.
+* **Why**: Real addresses, capability paths, and resource schemas; catches drift early.
+* **Run**: On Pull Requests (PRs), run the full forked suite if practical (pinned), or a small quick set; run more cases nightly or on main.
+* **How**: Configure with `#test_fork(network: "mainnet", height: nil)` in your test file, or use `flow test --fork` CLI flags.
 * **Notes**:
-  + Pin with `height: 85432100` in the pragma (or `--fork-height` CLI flag) where reproducibility matters
-  + Prefer local deployment + impersonation over real mainnet accounts
-  + Mutations are local to the forked runtime; the live network is never changed
-  + Be mindful of access-node availability and rate limits
-  + External oracles/protocols: forked tests do not call off-chain services or other chains; mock these or run a local stub
+  + Pin with `height: 85432100` in the pragma (or `--fork-height` CLI flag) where reproducibility matters.
+  + Prefer local deployment + impersonation over real mainnet accounts.
+  + Mutations are local to the forked runtime; the live network is never changed.
+  + Be mindful of access-node availability and rate limits.
+  + External oracles and protocols: forked tests do not call off-chain services or other chains; mock these or run a local stub.
 
 See also: [Fork Testing with Cadence](/blockchain-development-tutorials/cadence/fork-testing), [Fork Testing Flags](/build/tools/flow-cli/tests#fork-testing-flags).
 
-### Local Integration Sandbox — `flow emulator --fork`[​](#local-integration-sandbox--flow-emulator---fork "Direct link to local-integration-sandbox--flow-emulator---fork")
+### Local integration sandbox — `flow emulator --fork`[​](#local-integration-sandbox--flow-emulator---fork "Direct link to local-integration-sandbox--flow-emulator---fork")
 
-* **Use when**: Driving dapps, wallets, bots, indexers, or exploratory debugging outside the test framework
-* **Why**: Production-like state with local, disposable control; great for E2E and migrations
-* **Run**: Dev machines and focused E2E CI jobs
+* **Use when**: You drive dApps, wallets, bots, indexers, or exploratory debugging outside the test framework.
+* **Why**: Production-like state with local, disposable control; great for end to end (E2E) and migrations.
+* **Run**: Dev machines and focused E2E CI jobs.
 * **Notes**:
 
   + Pin height; run on dedicated ports; impersonation is built-in; mutations are local; off-chain/oracle calls are not live—mock or run local stubs
-  + What to run: Manual exploration and debugging of flows against a forked state; frontend connected to the emulator (e.g., `npm run dev` pointed at `http://localhost:8888`); automated E2E/FE suites (e.g., Cypress/Playwright) against the local fork; headless clients, wallets/bots/indexers, and migration scripts
+  + What to run: Manual exploration and debugging of flows against a forked state; frontend connected to the emulator (for example, `npm run dev` pointed at `http://localhost:8888`); automated E2E/FE suites (for example, Cypress or Playwright) against the local fork; headless clients, wallets/bots/indexers, and migration scripts.
   + Not for the canonical Cadence test suite—prefer fork testing with `flow test` for scripted Cadence tests (see [Fork Testing Flags](/build/tools/flow-cli/tests#fork-testing-flags) and [Running Cadence Tests](/build/tools/flow-cli/tests))
 
   Quick start example:
@@ -413175,13 +413159,13 @@ See also: [Flow Emulator](/build/tools/emulator).
 
 ### Staging — Testnet[​](#staging--testnet "Direct link to Staging — Testnet")
 
-* **Use when**: Final network plumbing and configuration checks before release
-* **Why**: Validates infra differences you cannot fully simulate
-* **Run**: Pre-release and on infra changes
+* **Use when**: Final network plumbing and configuration checks before release.
+* **Why**: Validates infra differences you cannot fully simulate.
+* **Run**: Pre-release and on infra changes.
 * **Notes**:
 
-  + Keep canaries minimal and time-boxed; protocol/partner support may be limited on testnet (not all third-party contracts are deployed or up to date)
-  + What to run: Minimal app smoke tests (login/auth, key flows, mint/transfer, event checks); frontend connected to Testnet with a small Cypress/Playwright smoke set; infra/config checks (endpoints, contract addresses/aliases, env vars, service/test accounts)
+  + Keep canaries minimal and time-boxed; protocol and partner support may be limited on testnet (not all third-party contracts are deployed or up to date).
+  + What to run: Minimal app smoke tests (login and auth, key flows, mint and transfer, event checks); frontend connected to Testnet with a small Cypress/Playwright smoke set; infra or config checks (endpoints, contract addresses oraliases, env vars, service or test accounts)
   + Not for the canonical Cadence test suite — prefer fork testing with `flow test` for scripted tests (see [Fork Testing Flags](/build/tools/flow-cli/tests#fork-testing-flags) and [Running Cadence Tests](/build/tools/flow-cli/tests))
 
   Quick start example:
@@ -413252,43 +413236,43 @@ See also: [Flow Emulator](/build/tools/emulator).
 
 See also: [Flow Networks](/protocol/flow-networks).
 
-### Post-deploy Monitoring (read-only)[​](#post-deploy-monitoring-read-only "Direct link to Post-deploy Monitoring (read-only)")
+### Post-deploy monitoring (read-only)[​](#post-deploy-monitoring-read-only "Direct link to Post-deploy monitoring (read-only)")
 
-* **Use when**: After releases to confirm invariants and event rates
-* **Why**: Detects real-world anomalies quickly
-* **Run**: Continuous dashboards/alerts tied to invariants
+* **Use when**: After releases to confirm invariants and event rates.
+* **Why**: Detects real-world anomalies quickly.
+* **Run**: Continuous dashboards and alerts tied to invariants.
 
 ## Reproducibility and data management[​](#reproducibility-and-data-management "Direct link to Reproducibility and data management")
 
 * **Pin where reproducibility matters**: Use `--fork-height <block>` for both `flow test --fork` and `flow emulator --fork`. Pins are per‑spork; historical data beyond spork boundaries is unavailable. For best results, keep a per‑spork stable pin and also run a "latest" freshness job.
-* **Named snapshots**: Maintain documented pin heights (e.g., in CI vars or a simple file) with names per dependency/protocol
+* **Named snapshots**: Maintain documented pin heights (for example, in CI vars or a simple file) with names per dependency or protocol
 * **Refresh policy**: Advance pins via a dedicated “freshness” PR; compare old vs. new pins
-* **Goldens**: Save a few canonical samples (e.g., event payloads, resource layouts, key script outputs) as JSON in your repo, and compare them in CI to catch accidental schema/shape changes. Update the samples intentionally as part of upgrades.
+* **Goldens**: Save a few canonical samples (for example, event payloads, resource layouts, key script outputs) as JSON in your repo, and compare them in CI to catch accidental schema/shape changes. Update the samples intentionally as part of upgrades.
 
 ## CI tips[​](#ci-tips "Direct link to CI tips")
 
-* PRs: Run emulator unit/property and forked integration (pinned). Full suite is fine if practical; otherwise a small quick set.
+* PRs: Run emulator unit or property and forked integration (pinned). Full suite is fine if practical; otherwise a small quick set.
 * Nightly/Main: Add a latest pin job and expand fork coverage as needed.
 * E2E (optional): Use `flow emulator --fork` at a stable pin and run your browser tests.
 
 ## Test selection and tagging[​](#test-selection-and-tagging "Direct link to Test selection and tagging")
 
-* **Optional naming helpers**: Use simple suffixes in test names like `_fork`, `_smoke`, `_e2e` if helpful
-* Run the tests you care about by passing files/directories: `flow test FILE1 FILE2 DIR1 ...` (most common)
-* Optionally, use `--name <substring>` to match test functions when it’s convenient
-* **Defaults**: PRs can run the full fork suite (pinned) or a small quick set; nightly runs broader coverage (+ optional E2E)
+* **Optional naming helpers**: Use simple suffixes in test names like `_fork`, `_smoke`, `_e2e` if helpful.
+* Pass files and directories to run the tests you care about: `flow test FILE1 FILE2 DIR1 ...` (most common).
+* Optionally, use `--name <substring>` to match test functions when it’s convenient.
+* **Defaults**: PRs can run the full fork suite (pinned) or a small quick set; nightly runs broader coverage (and optional E2E).
 
 ## Troubleshooting tips[​](#troubleshooting-tips "Direct link to Troubleshooting tips")
 
 * Re-run at the same `--fork-height`, then at latest
 * Compare contract addresses/aliases in `flow.json`
-* Diff event/resource shapes against your stored samples
-* Check access-node health and CI parallelism/sharding
+* Diff event or resource shapes against your stored samples
+* Check access-node health and CI parallelism or sharding
 
-## Do / Don’t[​](#do--dont "Direct link to Do / Don’t")
+## Dos and Don’ts[​](#dos-and-donts "Direct link to Dos and Don’ts")
 
-* **Do**: Keep a fast, hermetic base; pin forks; tag tests; maintain tiny PR smoke sets; document pins and set a simple refresh schedule (e.g., after each spork or monthly)
-* **Don't**: Make "latest" your default in CI; create or rely on real mainnet accounts; conflate fork testing (`flow test`) with the emulator's fork mode (`flow emulator --fork`)
+* **Do**: Keep a fast, hermetic base; pin forks; tag tests; maintain tiny PR smoke sets; document pins and set a simple refresh schedule (for example, after each spork or monthly).
+* **Don't**: Make "latest" your default in CI; create or rely on real mainnet accounts; conflate fork testing (`flow test`) with the emulator's fork mode (`flow emulator --fork`).
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
@@ -413300,7 +413284,7 @@ See also: [Flow Networks](/protocol/flow-networks).
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/smart-contracts/testing-strategy.md)
 
-Last updated on **Nov 19, 2025** by **Jordan Ribbink**
+Last updated on **Dec 4, 2025** by **cshannon1218**
 
 [Previous
 
@@ -413315,7 +413299,7 @@ Cadence Testing Framework](/build/cadence/smart-contracts/testing)
 Copy as Markdown
 
 * [At a glance](#at-a-glance)* [Layers](#layers)
-    + [Unit & Property — Test Framework](#unit--property--test-framework)+ [Integration — Fork Testing](#integration--fork-testing)+ [Local Integration Sandbox — `flow emulator --fork`](#local-integration-sandbox--flow-emulator---fork)+ [Staging — Testnet](#staging--testnet)+ [Post-deploy Monitoring (read-only)](#post-deploy-monitoring-read-only)* [Reproducibility and data management](#reproducibility-and-data-management)* [CI tips](#ci-tips)* [Test selection and tagging](#test-selection-and-tagging)* [Troubleshooting tips](#troubleshooting-tips)* [Do / Don’t](#do--dont)* [Related docs](#related-docs)
+    + [Unit and property — test framework](#unit-and-property--test-framework)+ [Integration — fork testing](#integration--fork-testing)+ [Local integration sandbox — `flow emulator --fork`](#local-integration-sandbox--flow-emulator---fork)+ [Staging — Testnet](#staging--testnet)+ [Post-deploy monitoring (read-only)](#post-deploy-monitoring-read-only)* [Reproducibility and data management](#reproducibility-and-data-management)* [CI tips](#ci-tips)* [Test selection and tagging](#test-selection-and-tagging)* [Troubleshooting tips](#troubleshooting-tips)* [Dos and Don’ts](#dos-and-donts)* [Related docs](#related-docs)
 
 Flow
 
@@ -489684,19 +489668,20 @@ On this page
 
 # Create an Account
 
-The Flow CLI provides a command to submit an account creation
-transaction to any Flow Access API. There are two options how to create an account, you can use the
-interactive mode which guides you through the process and creates the account for you or by using
-the manual process which requires a pre-existing account on the network you chose.
+The Flow CLI provides a command to submit an account creation transaction to any Flow Access API.
+
+There are two options how to create an account:
+
+* Use the interactive mode which guides you through the process and creates the account for you.
+* Use the manual process which requires a current account on the network you chose.
 
 ## Interactive Mode[​](#interactive-mode "Direct link to Interactive Mode")
 
-Creating the account in interactive mode prompts you for an account name and network selection.
-After you enter the required information the account will be created for you and saved to `flow.json`.
-If account creation is done on testnet or mainnet the account key will be saved to a separate key file,
-which will also be put in `.gitignore`. You can [read more about key security here](/build/tools/flow-cli/flow.json/security).
+When you create the account in interactive mode, the system prompts you for an account name and network selection.
 
-💡 *Please note that the account creation process can take up to a minute so please be patient.*
+After you enter the required information, the system creates the account for you and saves it to `flow.json`. If account creation is done on testnet or mainnet the account key is saved to a separate key file, which will also be put in `.gitignore`. You can [read more about key security here](/build/tools/flow-cli/flow.json/security).
+
+💡 *The account creation process can take up to a minute, so please be patient.*
 
 `_11
 
@@ -489736,11 +489721,11 @@ _11
 
 - Added mike.pkey to .gitignore.`
 
-## Manual Mode[​](#manual-mode "Direct link to Manual Mode")
+## Manual mode[​](#manual-mode "Direct link to Manual mode")
 
-Manual mode requires you to have a pre-existing account on the network which you will have to provide as a signer.
-That account must be added to `flow.json` for the command to work. You also have to generate a key pair, we
-suggest using the `flow keys generate` command, [which you can read more about here](/build/tools/flow-cli/keys/generate-keys).
+Manual mode requires you to have a current account on the network, which you will have to provide as a signer. You must add that account to `flow.json` for the command to work.
+
+You also have to generate a key pair, we suggest you use the `flow keys generate` command, [which you can read more about here](/build/tools/flow-cli/keys/generate-keys).
 
 `_15
 
@@ -489832,15 +489817,14 @@ _10
 
 ## Flags[​](#flags "Direct link to Flags")
 
-### Public Key[​](#public-key "Direct link to Public Key")
+### Public key[​](#public-key "Direct link to Public key")
 
 * Flag: `--key`
 * Valid inputs: a hex-encoded public key in raw form.
 
-Specify the public key that will be added to the new account
-upon creation.
+Specify the public key that the system adds to the new account upon creation.
 
-### Key Weight[​](#key-weight "Direct link to Key Weight")
+### Key weight[​](#key-weight "Direct link to Key weight")
 
 * Flag: `--key-weight`
 * Valid inputs: number between 0 and 1000
@@ -489848,46 +489832,41 @@ upon creation.
 
 Specify the weight of the public key being added to the new account.
 
-When opting to use this flag, you must specify a `--key-weight` flag for each public `--key` flag provided.
+When you use this flag, you must specify a `--key-weight` flag for each public `--key` flag provided.
 
-### Public Key Signature Algorithm[​](#public-key-signature-algorithm "Direct link to Public Key Signature Algorithm")
+### Public key signature algorithm[​](#public-key-signature-algorithm "Direct link to Public key signature algorithm")
 
 * Flag: `--sig-algo`
 * Valid inputs: `"ECDSA_P256", "ECDSA_secp256k1"`
 * Default: `"ECDSA_P256"`
 
-Specify the ECDSA signature algorithm for the provided public key.
-This option can only be used together with the `--key` flag.
+Specify the ECDSA signature algorithm for the provided public key. This option can only be used together with the `--key` flag.
 
 Flow supports the secp256k1 and P-256 curves.
 
-### Public Key Hash Algorithm[​](#public-key-hash-algorithm "Direct link to Public Key Hash Algorithm")
+### Public key hash algorithm[​](#public-key-hash-algorithm "Direct link to Public key hash algorithm")
 
 * Flag: `--hash-algo`
 * Valid inputs: `"SHA2_256", "SHA3_256"`
 * Default: `"SHA3_256"`
 
-Specify the hash algorithm that will be paired with the public key
-upon account creation.
+Specify the hash algorithm that will be paired with the public key upon account creation.
 
 ### Signer[​](#signer "Direct link to Signer")
 
 * Flag: `--signer`
 * Valid inputs: the name of an account defined in `flow.json`.
 
-Specify the name of the account that will be used to sign the transaction
-and pay the account creation fee.
+Specify the name of the account that will be used to sign the transaction and pay the account creation fee.
 
 ### Contract[​](#contract "Direct link to Contract")
 
 * Flag: `--contract`
-* Valid inputs: String with format `name:filename`, where `name` is
-  name of the contract as it is defined in the contract source code
-  and `filename` is the filename of the contract source code.
+* Valid inputs: String with format `name:filename`, where `name` is the name of the contract as it is defined in the contract source code, and `filename` is the filename of the contract source code.
 
 Specify one or more contracts to be deployed during account creation.
 
-### Include Fields[​](#include-fields "Direct link to Include Fields")
+### Include fields[​](#include-fields "Direct link to Include fields")
 
 * Flag: `--include`
 * Valid inputs: `contracts`
@@ -489900,17 +489879,14 @@ Specify fields to include in the result output. Applies only to the text output.
 * Valid inputs: an IP address or hostname.
 * Default: `127.0.0.1:3569` (Flow Emulator)
 
-Specify the hostname of the Access API that will be
-used to execute the command. This flag overrides
-any host defined by the `--network` flag.
+Specify the hostname of the Access API that will be used to execute the command. This flag overrides any host defined by the `--network` flag.
 
-### Network Key[​](#network-key "Direct link to Network Key")
+### Network key[​](#network-key "Direct link to Network key")
 
 * Flag: `--network-key`
 * Valid inputs: A valid network public key of the host in hex string format
 
-Specify the network public key of the Access API that will be
-used to create a secure GRPC client when executing the command.
+Specify the network public key of the Access API that will be used to create a secure GRPC client when you execute the command.
 
 ### Network[​](#network "Direct link to Network")
 
@@ -489943,7 +489919,7 @@ Specify the format of the command results.
 * Short Flag: `-s`
 * Valid inputs: a path in the current filesystem.
 
-Specify the filename where you want the result to be saved
+Specify the filename where you want the result to be saved.
 
 ### Log[​](#log "Direct link to Log")
 
@@ -489961,11 +489937,9 @@ Specify the log level. Control how much output you want to see during command ex
 * Valid inputs: a path in the current filesystem.
 * Default: `flow.json`
 
-Specify the path to the `flow.json` configuration file.
-You can use the `-f` flag multiple times to merge
-several configuration files.
+Specify the path to the `flow.json` configuration file. You can use the `-f` flag multiple times to merge several configuration files.
 
-### Version Check[​](#version-check "Direct link to Version Check")
+### Version check[​](#version-check "Direct link to Version check")
 
 * Flag: `--skip-version-check`
 * Default: `false`
@@ -489974,7 +489948,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/accounts/create-accounts.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 10, 2025** by **cshannon1218**
 
 [Previous
 
@@ -489988,8 +489962,8 @@ Deploy a Contract](/build/tools/flow-cli/accounts/account-add-contract)
 
 Copy as Markdown
 
-* [Interactive Mode](#interactive-mode)* [Manual Mode](#manual-mode)* [Flags](#flags)
-      + [Public Key](#public-key)+ [Key Weight](#key-weight)+ [Public Key Signature Algorithm](#public-key-signature-algorithm)+ [Public Key Hash Algorithm](#public-key-hash-algorithm)+ [Signer](#signer)+ [Contract](#contract)+ [Include Fields](#include-fields)+ [Host](#host)+ [Network Key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version Check](#version-check)
+* [Interactive Mode](#interactive-mode)* [Manual mode](#manual-mode)* [Flags](#flags)
+      + [Public key](#public-key)+ [Key weight](#key-weight)+ [Public key signature algorithm](#public-key-signature-algorithm)+ [Public key hash algorithm](#public-key-hash-algorithm)+ [Signer](#signer)+ [Contract](#contract)+ [Include fields](#include-fields)+ [Host](#host)+ [Network key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version check](#version-check)
 
 Flow
 
@@ -508075,15 +508049,15 @@ Below is a list of commonly used DeFi contracts on Flow Mainnet:
 
 #### Flow EVM Mainnet[​](#flow-evm-mainnet "Direct link to Flow EVM Mainnet")
 
-|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Token Name Flow EVM Mainnet Address|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [WFLOW](https://evm.flowscan.io/token/0xd3bF53DAC106A0290B0483EcBC89d40FcC961f3e) `0xd3bF53DAC106A0290B0483EcBC89d40FcC961f3e`| [USDC (stgUSDC)](https://evm.flowscan.io/token/0xF1815bd50389c46847f0Bda824eC8da914045D14) `0xF1815bd50389c46847f0Bda824eC8da914045D14`| [USDT (stgUSDT)](https://evm.flowscan.io/token/0x674843C06FF83502ddb4D37c2E09C01cdA38cbc8) `0x674843C06FF83502ddb4D37c2E09C01cdA38cbc8`| [USDF (USD Flow)](https://evm.flowscan.io/token/0x2aaBea2058b5aC2D339b163C6Ab6f2b6d53aabED) `0x2aaBea2058b5aC2D339b163C6Ab6f2b6d53aabED`| [USDC.e (Celer)](https://evm.flowscan.io/token/0x7f27352D5F83Db87a5A3E00f4B07Cc2138D8ee52) `0x7f27352D5F83Db87a5A3E00f4B07Cc2138D8ee52`| [stFlow (Increment Staked FLOW)](https://evm.flowscan.io/token/0x5598c0652B899EB40f169Dd5949BdBE0BF36ffDe) `0x5598c0652B899EB40f169Dd5949BdBE0BF36ffDe`| [ankrFLOWEVM (Ankr Staked FLOW)](https://evm.flowscan.io/token/0x1b97100eA1D7126C4d60027e231EA4CB25314bdb) `0x1b97100eA1D7126C4d60027e231EA4CB25314bdb`| [WETH](https://evm.flowscan.io/token/0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590) `0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590`| [cbBTC](https://evm.flowscan.io/token/0xA0197b2044D28b08Be34d98b23c9312158Ea9A18) `0xA0197b2044D28b08Be34d98b23c9312158Ea9A18` | | | | | | | | | | | | | | | | | | | |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Token Name Flow EVM Mainnet Address|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [WFLOW](https://evm.flowscan.io/token/0xd3bF53DAC106A0290B0483EcBC89d40FcC961f3e) `0xd3bF53DAC106A0290B0483EcBC89d40FcC961f3e`| [USDC (stgUSDC)](https://evm.flowscan.io/token/0xF1815bd50389c46847f0Bda824eC8da914045D14) `0xF1815bd50389c46847f0Bda824eC8da914045D14`| [USDT (stgUSDT)](https://evm.flowscan.io/token/0x674843C06FF83502ddb4D37c2E09C01cdA38cbc8) `0x674843C06FF83502ddb4D37c2E09C01cdA38cbc8`| [USDF (USD Flow)](https://evm.flowscan.io/token/0x2aaBea2058b5aC2D339b163C6Ab6f2b6d53aabED) `0x2aaBea2058b5aC2D339b163C6Ab6f2b6d53aabED`| [USDC.e (Celer)](https://evm.flowscan.io/token/0x7f27352D5F83Db87a5A3E00f4B07Cc2138D8ee52) `0x7f27352D5F83Db87a5A3E00f4B07Cc2138D8ee52`| [stFlow (Increment Staked FLOW)](https://evm.flowscan.io/token/0x5598c0652B899EB40f169Dd5949BdBE0BF36ffDe) `0x5598c0652B899EB40f169Dd5949BdBE0BF36ffDe`| [ankrFLOWEVM (Ankr Staked FLOW)](https://evm.flowscan.io/token/0x1b97100eA1D7126C4d60027e231EA4CB25314bdb) `0x1b97100eA1D7126C4d60027e231EA4CB25314bdb`| [WBTC](https://evm.flowscan.io/token/0x717DAE2BaF7656BE9a9B01deE31d571a9d4c9579) `0x717DAE2BaF7656BE9a9B01deE31d571a9d4c9579`| [WETH](https://evm.flowscan.io/token/0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590) `0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590`| [cbBTC](https://evm.flowscan.io/token/0xA0197b2044D28b08Be34d98b23c9312158Ea9A18) `0xA0197b2044D28b08Be34d98b23c9312158Ea9A18` | | | | | | | | | | | | | | | | | | | | | |
 
 #### Flow Cadence Mainnet[​](#flow-cadence-mainnet "Direct link to Flow Cadence Mainnet")
 
-|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Token Name Flow Cadence Mainnet Address Flow Cadence Contract Name|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [FLOW](https://www.flowscan.io/ft/token/A.1654653399040a61.FlowToken.Vault) `0x1654653399040a61` FlowToken|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [USDC (stgUSDC)](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_f1815bd50389c46847f0bda824ec8da914045d14.Vault) `0x1e4aa0b87d10b141` EVMVMBridgedToken\_f1815bd50389c46847f0bda824ec8da914045d14|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [USDT (stgUSDT)](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_674843c06ff83502ddb4d37c2e09c01cda38cbc8.Vault) `0x1e4aa0b87d10b141` EVMVMBridgedToken\_674843c06ff83502ddb4d37c2e09c01cda38cbc8|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [USDF (USD Flow)](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_2aabea2058b5ac2d339b163c6ab6f2b6d53aabed.Vault) `0x1e4aa0b87d10b141` EVMVMBridgedToken\_2aabea2058b5ac2d339b163c6ab6f2b6d53aabed|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [USDC.e (Celer)](https://flowscan.io/ft/token/A.f1ab99c82dee3526.USDCFlow.Vault) `0xf1ab99c82dee3526` USDCFlow|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [stFlow (Increment Staked FLOW)](https://flowscan.io/ft/token/A.d6f80565193ad727.stFlowToken.Vault) `0xd6f80565193ad727` stFlowToken|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [ankrFLOWEVM (Ankr Staked FLOW)](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_1b97100ea1d7126c4d60027e231ea4cb25314bdb.Vault) `0x1e4aa0b87d10b141` EVMVMBridgedToken\_1b97100ea1d7126c4d60027e231ea4cb25314bdb|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | [WETH](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_2f6f07cdcf3588944bf4c42ac74ff24bf56e7590.Vault) `0x1e4aa0b87d10b141` EVMVMBridgedToken\_2f6f07cdcf3588944bf4c42ac74ff24bf56e7590|  |  |  | | --- | --- | --- | | [cbBTC](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_a0197b2044d28b08be34d98b23c9312158ea9a18.Vault) `0x1e4aa0b87d10b141` EVMVMBridgedToken\_a0197b2044d28b08be34d98b23c9312158ea9a18 | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Token Name Flow Cadence Mainnet Address Flow Cadence Contract Name|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [FLOW](https://www.flowscan.io/ft/token/A.1654653399040a61.FlowToken.Vault) `0x1654653399040a61` FlowToken|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [USDC (stgUSDC)](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_f1815bd50389c46847f0bda824ec8da914045d14.Vault) `0x1e4aa0b87d10b141` EVMVMBridgedToken\_f1815bd50389c46847f0bda824ec8da914045d14|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [USDT (stgUSDT)](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_674843c06ff83502ddb4d37c2e09c01cda38cbc8.Vault) `0x1e4aa0b87d10b141` EVMVMBridgedToken\_674843c06ff83502ddb4d37c2e09c01cda38cbc8|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [USDF (USD Flow)](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_2aabea2058b5ac2d339b163c6ab6f2b6d53aabed.Vault) `0x1e4aa0b87d10b141` EVMVMBridgedToken\_2aabea2058b5ac2d339b163c6ab6f2b6d53aabed|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [USDC.e (Celer)](https://flowscan.io/ft/token/A.f1ab99c82dee3526.USDCFlow.Vault) `0xf1ab99c82dee3526` USDCFlow|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [stFlow (Increment Staked FLOW)](https://flowscan.io/ft/token/A.d6f80565193ad727.stFlowToken.Vault) `0xd6f80565193ad727` stFlowToken|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [ankrFLOWEVM (Ankr Staked FLOW)](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_1b97100ea1d7126c4d60027e231ea4cb25314bdb.Vault) `0x1e4aa0b87d10b141` EVMVMBridgedToken\_1b97100ea1d7126c4d60027e231ea4cb25314bdb|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [WBTC](https://www.flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_717dae2baf7656be9a9b01dee31d571a9d4c9579.Vault) `0x1e4aa0b87d10b141` EVMVMBridgedToken\_717dae2baf7656be9a9b01dee31d571a9d4c9579|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | [WETH](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_2f6f07cdcf3588944bf4c42ac74ff24bf56e7590.Vault) `0x1e4aa0b87d10b141` EVMVMBridgedToken\_2f6f07cdcf3588944bf4c42ac74ff24bf56e7590|  |  |  | | --- | --- | --- | | [cbBTC](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_a0197b2044d28b08be34d98b23c9312158ea9a18.Vault) `0x1e4aa0b87d10b141` EVMVMBridgedToken\_a0197b2044d28b08be34d98b23c9312158ea9a18 | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
 
 #### Flow Cadence Testnet[​](#flow-cadence-testnet "Direct link to Flow Cadence Testnet")
 
@@ -582261,7 +582235,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -585408,14 +585382,16 @@ On this page
 
 flow project deploy`
 
-This command automatically deploys your project's contracts based on the
-configuration defined in your `flow.json` file.
+This command automatically deploys your project's contracts based on the configuration defined in your `flow.json` file.
 
-**Important:** Use Flow CLI commands to configure your project instead of manually editing `flow.json`.
-Before using this command, read about how to
-[configure project contracts and deployment targets](/build/tools/flow-cli/deployment/project-contracts) using CLI commands.
+info
 
-## Example Usage[​](#example-usage "Direct link to Example Usage")
+Use Flow CLI commands to configure your project rather than manually edit `flow.json`.
+
+Before you use this command, read about how to
+[configure project contracts and deployment targets](/build/tools/flow-cli/deployment/project-contracts) with CLI commands.
+
+## Example usage[​](#example-usage "Direct link to Example usage")
 
 `_10
 
@@ -585443,9 +585419,9 @@ _10
 
 ✨ All contracts deployed successfully`
 
-**Note:** The `flow.json` configuration shown below is created automatically when you use CLI commands.
-You should use `flow config add contract` and `flow config add deployment` to configure your project
-rather than manually editing the file. See [Add Project Contracts](/build/tools/flow-cli/deployment/project-contracts) for details.
+info
+
+The `flow.json` configuration shown below is created automatically when you use CLI commands. You should use `flow config add contract` and `flow config add deployment` to configure your project rather than manually edit the file. See [Add Project Contracts](/build/tools/flow-cli/deployment/project-contracts) for details.
 
 Your `flow.json` file might look something like this:
 
@@ -585537,16 +585513,16 @@ _10
 
 }`
 
-## Initialization Arguments[​](#initialization-arguments "Direct link to Initialization Arguments")
+## Initialization arguments[​](#initialization-arguments "Direct link to Initialization arguments")
 
-Deploying contracts that take initialization arguments requires adding those arguments to the deployment configuration.
+To deploy contracts that take initialization arguments, you must add those arguments to the deployment configuration.
 
-**Note:** For basic deployments, use `flow config add deployment` to configure your contracts.
-Initialization arguments are an advanced feature that may require manual editing of `flow.json`
-after the basic deployment is configured with CLI commands.
+info
 
-Each deployment can be specified as an object containing
-`name` and `args` keys specifying arguments to be
+For basic deployments, use `flow config add deployment` to configure your contracts. Initialization arguments are an advanced feature that may require you to manually edit `flow.json` after the basic deployment is configured with CLI commands.
+
+You can specify each deployment as an object that contains
+`name` and `args` keys that specify arguments to be
 used during the deployment. Example:
 
 `_16
@@ -585613,30 +585589,26 @@ _16
 
 }`
 
-⚠️ **Security Warning:** Never put raw private keys in `flow.json`. Always use `.pkey` files for key storage.
-Before proceeding, we recommend reading the [Flow CLI security guidelines](/build/tools/flow-cli/flow.json/security)
+danger
+
+⚠️ **Never** put raw private keys in `flow.json`. Always use `.pkey` files for key storage. Before you proceed, we recommend that you read the [Flow CLI security guidelines](/build/tools/flow-cli/flow.json/security)
 to learn about the best practices for private key storage.
 
-## Dependency Resolution[​](#dependency-resolution "Direct link to Dependency Resolution")
+## Dependency resolution[​](#dependency-resolution "Direct link to Dependency resolution")
 
 The `deploy` command attempts to resolve the import statements in all contracts being deployed.
 
-After the dependencies are found, the CLI will deploy the contracts in a deterministic order
-such that no contract is deployed until all of its dependencies are deployed.
-The command will return an error if no such ordering exists due to one or more cyclic dependencies.
+After the dependencies are found, the CLI will deploy the contracts in a deterministic order such that no contract is deployed until all of its dependencies are deployed. The command will return an error if no such ordering exists due to one or more cyclic dependencies.
 
 In the example above, `NonFungibleToken` will always be deployed before `KittyItems` since `KittyItems` imports `NonFungibleToken`.
 
-## Address Replacement[​](#address-replacement "Direct link to Address Replacement")
+## Address replacement[​](#address-replacement "Direct link to Address replacement")
 
-After resolving all dependencies, the `deploy` command rewrites each contract so
-that its dependencies are imported from their *target addresses* rather than their
-source file location.
+After it resolves all dependencies, the `deploy` command rewrites each contract so that its dependencies are imported from their *target addresses* rather than their source file location.
 
-The rewritten versions are then deployed to their respective targets,
-leaving the original contract files unchanged.
+The rewritten versions are then deployed to their respective targets, which leaves the original contract files unchanged.
 
-### Contracts Importing from Other Contracts[​](#contracts-importing-from-other-contracts "Direct link to Contracts Importing from Other Contracts")
+### Contracts that import from other contracts[​](#contracts-that-import-from-other-contracts "Direct link to Contracts that import from other contracts")
 
 In the example above, the `KittyItems` contract would be rewritten like this:
 
@@ -585660,7 +585632,7 @@ _10
 
 }`
 
-### Contracts Importing from Dependencies[​](#contracts-importing-from-dependencies "Direct link to Contracts Importing from Dependencies")
+### Contracts that import from dependencies[​](#contracts-that-import-from-dependencies "Direct link to Contracts that import from dependencies")
 
 When your contracts import from the `dependencies` section, the deploy command uses the network-specific aliases defined in those dependencies.
 
@@ -585886,18 +585858,19 @@ _10
 
 The deploy command automatically uses the addresses from the `dependencies` section's aliases for the target network. Notice how the addresses change based on the network—testnet uses `0x9a0766d93b6608b7` for `FungibleToken`, while mainnet uses `0xf233dcee88fe0abe`. Contracts in the `dependencies` section are not deployed—they're assumed to already exist on the network at the addresses specified in their aliases.
 
-## Merging Multiple Configuration Files[​](#merging-multiple-configuration-files "Direct link to Merging Multiple Configuration Files")
+## Merge multiple configuration files[​](#merge-multiple-configuration-files "Direct link to Merge multiple configuration files")
 
 You can use the `-f` flag multiple times to merge several configuration files.
 
-If there is an overlap in any of the fields in the configuration between two or more configuration files, the value of
-the overlapped field in the resulting configuration will come from the configuration file that is on the further right
-order in the list of configuration files specified in the `-f` flag.
+If there is an overlap in any of the fields in the configuration between two or more configuration files, the value of the overlapped field in the configuration that results will come from the configuration file that is on the further right order in the list of configuration files specified in the `-f` flag.
 
-**Important:** Never put raw private keys in `flow.json`. Always use `.pkey` files for key storage.
+danger
 
-**Note:** Use `flow config add account` to create accounts in your main `flow.json` file.
-The merging feature is useful for separating sensitive account information into a separate file that you can exclude from version control.
+**Never** put raw private keys in `flow.json`. Always use `.pkey` files for key storage.
+
+info
+
+Use `flow config add account` to create accounts in your main `flow.json` file. The merging feature is useful to separate sensitive account information into a separate file that you can exclude from version control.
 
 **Example usage:**
 
@@ -586027,8 +586000,8 @@ _11
 
 }`
 
-When using multiple configuration files with overlapping fields, the rightmost file takes precedence.
-In this example, the resulting merged configuration will be:
+When you use multiple configuration files with overlapping fields, the rightmost file takes precedence.
+In this example, the merged configuration that results will be:
 
 `_18
 
@@ -586106,22 +586079,21 @@ _18
 
 ## Flags[​](#flags "Direct link to Flags")
 
-### Allow Updates[​](#allow-updates "Direct link to Allow Updates")
+### Allow updates[​](#allow-updates "Direct link to Allow updates")
 
 * Flag: `--update`
 * Valid inputs: `true`, `false`
 * Default: `false`
 
-Indicate whether to overwrite and upgrade existing contracts. Only contracts with difference with existing contracts
-will be overwritten.
+Indicate whether to overwrite and upgrade current contracts. The system will only overwrite contracts that are different from current contracts.
 
-### Show Update Diff[​](#show-update-diff "Direct link to Show Update Diff")
+### Show update diff[​](#show-update-diff "Direct link to Show update diff")
 
 * Flag: `--show-diff`
 * Valid inputs: `true`, `false`
 * Default: `false`
 
-Shows a diff to approve before updating between deployed contract and new contract updates.
+Shows a diff to approve before an update between deployed contract and new contract updates.
 
 ### Host[​](#host "Direct link to Host")
 
@@ -586129,17 +586101,14 @@ Shows a diff to approve before updating between deployed contract and new contra
 * Valid inputs: an IP address or hostname.
 * Default: `127.0.0.1:3569` (Flow Emulator)
 
-Specify the hostname of the Access API that will be
-used to execute the command. This flag overrides
-any host defined by the `--network` flag.
+Specify the hostname of the Access API that will be used to execute the command. This flag overrides any host defined by the `--network` flag.
 
-### Network Key[​](#network-key "Direct link to Network Key")
+### Network key[​](#network-key "Direct link to Network key")
 
 * Flag: `--network-key`
 * Valid inputs: A valid network public key of the host in hex string format
 
-Specify the network public key of the Access API that will be
-used to create a secure GRPC client when executing the command.
+Specify the network public key of the Access API that will be used to create a secure GRPC client when executing the command.
 
 ### Network[​](#network "Direct link to Network")
 
@@ -586203,7 +586172,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/deployment/deploy-project-contracts.md)
 
-Last updated on **Nov 20, 2025** by **Brian Doyle**
+Last updated on **Dec 10, 2025** by **cshannon1218**
 
 [Previous
 
@@ -586217,9 +586186,9 @@ Execute a Script](/build/tools/flow-cli/scripts/execute-scripts)
 
 Copy as Markdown
 
-* [Example Usage](#example-usage)* [Initialization Arguments](#initialization-arguments)* [Dependency Resolution](#dependency-resolution)* [Address Replacement](#address-replacement)
-        + [Contracts Importing from Other Contracts](#contracts-importing-from-other-contracts)+ [Contracts Importing from Dependencies](#contracts-importing-from-dependencies)* [Merging Multiple Configuration Files](#merging-multiple-configuration-files)* [Flags](#flags)
-            + [Allow Updates](#allow-updates)+ [Show Update Diff](#show-update-diff)+ [Host](#host)+ [Network Key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version Check](#version-check)
+* [Example usage](#example-usage)* [Initialization arguments](#initialization-arguments)* [Dependency resolution](#dependency-resolution)* [Address replacement](#address-replacement)
+        + [Contracts that import from other contracts](#contracts-that-import-from-other-contracts)+ [Contracts that import from dependencies](#contracts-that-import-from-dependencies)* [Merge multiple configuration files](#merge-multiple-configuration-files)* [Flags](#flags)
+            + [Allow updates](#allow-updates)+ [Show update diff](#show-update-diff)+ [Host](#host)+ [Network key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version Check](#version-check)
 
 Flow
 
@@ -596044,7 +596013,7 @@ The Flow CLI provides a command to fetch any account by its address from the Flo
 
 flow accounts get <address>`
 
-## Example Usage[​](#example-usage "Direct link to Example Usage")
+## Example usage[​](#example-usage "Direct link to Example usage")
 
 `_10
 
@@ -596119,7 +596088,7 @@ Flow [account address](/build/cadence/basics/accounts) (prefixed with `0x` or no
 
 ## Flags[​](#flags "Direct link to Flags")
 
-### Include Fields[​](#include-fields "Direct link to Include Fields")
+### Include fields[​](#include-fields "Direct link to Include fields")
 
 * Flag: `--include`
 * Valid inputs: `contracts`
@@ -596132,17 +596101,14 @@ Specify fields to include in the result output. Applies only to the text output.
 * Valid inputs: an IP address or hostname.
 * Default: `127.0.0.1:3569` (Flow Emulator)
 
-Specify the hostname of the Access API that will be
-used to execute the command. This flag overrides
-any host defined by the `--network` flag.
+Specify the hostname of the Access API that will be used to execute the command. This flag overrides any host defined by the `--network` flag.
 
-### Network Key[​](#network-key "Direct link to Network Key")
+### Network key[​](#network-key "Direct link to Network key")
 
 * Flag: `--network-key`
 * Valid inputs: A valid network public key of the host in hex string format
 
-Specify the network public key of the Access API that will be
-used to create a secure GRPC client when executing the command.
+Specify the network public key of the Access API that will be used to create a secure GRPC client when you execute the command.
 
 ### Network[​](#network "Direct link to Network")
 
@@ -596175,7 +596141,7 @@ Specify the format of the command results.
 * Short Flag: `-s`
 * Valid inputs: a path in the current filesystem.
 
-Specify the filename where you want the result to be saved
+Specify the filename where you want the result to be saved.
 
 ### Log[​](#log "Direct link to Log")
 
@@ -596194,10 +596160,10 @@ Specify the log level. Control how much output you want to see during command ex
 * Default: `flow.json`
 
 Specify the path to the `flow.json` configuration file.
-You can use the `-f` flag multiple times to merge
-several configuration files.
 
-### Version Check[​](#version-check "Direct link to Version Check")
+You can use the `-f` flag multiple times to merge several configuration files.
+
+### Version check[​](#version-check "Direct link to Version check")
 
 * Flag: `--skip-version-check`
 * Default: `false`
@@ -596206,7 +596172,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/accounts/get-accounts.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 10, 2025** by **cshannon1218**
 
 [Previous
 
@@ -596220,10 +596186,10 @@ Create an Account](/build/tools/flow-cli/accounts/create-accounts)
 
 Copy as Markdown
 
-* [Example Usage](#example-usage)
+* [Example usage](#example-usage)
   + [Example response](#example-response)* [Arguments](#arguments)
     + [Address](#address)* [Flags](#flags)
-      + [Include Fields](#include-fields)+ [Host](#host)+ [Network Key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version Check](#version-check)
+      + [Include fields](#include-fields)+ [Host](#host)+ [Network key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version check](#version-check)
 
 Flow
 
@@ -605686,7 +605652,7 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
-# Source: https://developers.flow.com/
+# Source: https://developers.flow.com
 
 Flow Developer Portal
 
@@ -618477,12 +618443,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **9ac0cfd009567fa6**
+Cloudflare Ray ID: **9ac90e931d608b33**
 •
 
 Your IP:
 Click to reveal
-172.208.127.194
+57.151.137.153
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 

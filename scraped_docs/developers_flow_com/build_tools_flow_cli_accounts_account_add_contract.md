@@ -56,19 +56,19 @@ On this page
 
 # Deploy a Contract
 
-Deploy a new contract to a Flow account using the Flow CLI.
+Deploy a new contract to a Flow account with the Flow CLI.
 
 `_10
 
 flow accounts add-contract <filename> [<argument> <argument>...] [flags]`
 
-⚠️ Deprecation notice: using name argument in adding contract command will be deprecated soon.
+⚠️ Deprecation notice: we will deprecate the name argument in adding contract command soon.
 
 `_10
 
 flow accounts add-contract <name> <filename> [<argument> <argument>...] [flags]`
 
-## Example Usage[​](#example-usage "Direct link to Example Usage")
+## Example usage[​](#example-usage "Direct link to Example usage")
 
 `_18
 
@@ -134,7 +134,7 @@ _18
 
 Contract: 'FungibleToken'`
 
-**Testnet Example**
+**Testnet example**
 
 `_18
 
@@ -224,9 +224,9 @@ Path to the file containing the contract source code.
 
 * Name: `argument`
 * Valid inputs: valid [cadence values](https://cadencelang.dev/docs/1.0/json-cadence-spec)
-  matching argument type in transaction code.
+  that match argument type in transaction code.
 
-Input arguments values matching corresponding types in the source code and passed in the same order.
+Input arguments values that match corresponding types in the source code and passed in the same order.
 
 Example:
 
@@ -271,7 +271,7 @@ Arguments passed to the Cadence transaction in Cadence JSON format.
 Cadence JSON format contains `type` and `value` keys and is
 [documented here](https://cadencelang.dev/docs/1.0/json-cadence-spec).
 
-### Include Fields[​](#include-fields "Direct link to Include Fields")
+### Include fields[​](#include-fields "Direct link to Include fields")
 
 * Flag: `--include`
 * Valid inputs: `contracts`
@@ -284,17 +284,14 @@ Specify fields to include in the result output. Applies only to the text output.
 * Valid inputs: an IP address or hostname.
 * Default: `127.0.0.1:3569` (Flow Emulator)
 
-Specify the hostname of the Access API that will be
-used to execute the command. This flag overrides
-any host defined by the `--network` flag.
+Specify the hostname of the Access API that will be used to execute the command. This flag overrides any host defined by the `--network` flag.
 
-### Network Key[​](#network-key "Direct link to Network Key")
+### Network key[​](#network-key "Direct link to Network key")
 
 * Flag: `--network-key`
 * Valid inputs: A valid network public key of the host in hex string format
 
-Specify the network public key of the Access API that will be
-used to create a secure GRPC client when executing the command.
+Specify the network public key of the Access API that will be used to create a secure GRPC client when you execute the command.
 
 ### Network[​](#network "Direct link to Network")
 
@@ -346,10 +343,10 @@ Specify the log level. Control how much output you want to see during command ex
 * Default: `flow.json`
 
 Specify the path to the `flow.json` configuration file.
-You can use the `-f` flag multiple times to merge
-several configuration files.
 
-### Version Check[​](#version-check "Direct link to Version Check")
+You can use the `-f` flag multiple times to merge several configuration files.
+
+### Version check[​](#version-check "Direct link to Version check")
 
 * Flag: `--skip-version-check`
 * Default: `false`
@@ -358,7 +355,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/accounts/account-add-contract.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 10, 2025** by **cshannon1218**
 
 [Previous
 
@@ -372,9 +369,9 @@ Update a Contract](/build/tools/flow-cli/accounts/account-update-contract)
 
 Copy as Markdown
 
-* [Example Usage](#example-usage)* [Arguments](#arguments)
+* [Example usage](#example-usage)* [Arguments](#arguments)
     + [Name](#name)+ [Filename](#filename)+ [Arguments](#arguments-1)* [Flags](#flags)
-      + [Signer](#signer)+ [Arguments JSON](#arguments-json)+ [Include Fields](#include-fields)+ [Host](#host)+ [Network Key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version Check](#version-check)
+      + [Signer](#signer)+ [Arguments JSON](#arguments-json)+ [Include fields](#include-fields)+ [Host](#host)+ [Network key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version check](#version-check)
 
 Flow
 

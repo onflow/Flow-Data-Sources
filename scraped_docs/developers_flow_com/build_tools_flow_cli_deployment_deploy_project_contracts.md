@@ -60,14 +60,16 @@ On this page
 
 flow project deploy`
 
-This command automatically deploys your project's contracts based on the
-configuration defined in your `flow.json` file.
+This command automatically deploys your project's contracts based on the configuration defined in your `flow.json` file.
 
-**Important:** Use Flow CLI commands to configure your project instead of manually editing `flow.json`.
-Before using this command, read about how to
-[configure project contracts and deployment targets](/build/tools/flow-cli/deployment/project-contracts) using CLI commands.
+info
 
-## Example Usage[​](#example-usage "Direct link to Example Usage")
+Use Flow CLI commands to configure your project rather than manually edit `flow.json`.
+
+Before you use this command, read about how to
+[configure project contracts and deployment targets](/build/tools/flow-cli/deployment/project-contracts) with CLI commands.
+
+## Example usage[​](#example-usage "Direct link to Example usage")
 
 `_10
 
@@ -95,9 +97,9 @@ _10
 
 ✨ All contracts deployed successfully`
 
-**Note:** The `flow.json` configuration shown below is created automatically when you use CLI commands.
-You should use `flow config add contract` and `flow config add deployment` to configure your project
-rather than manually editing the file. See [Add Project Contracts](/build/tools/flow-cli/deployment/project-contracts) for details.
+info
+
+The `flow.json` configuration shown below is created automatically when you use CLI commands. You should use `flow config add contract` and `flow config add deployment` to configure your project rather than manually edit the file. See [Add Project Contracts](/build/tools/flow-cli/deployment/project-contracts) for details.
 
 Your `flow.json` file might look something like this:
 
@@ -189,16 +191,16 @@ _10
 
 }`
 
-## Initialization Arguments[​](#initialization-arguments "Direct link to Initialization Arguments")
+## Initialization arguments[​](#initialization-arguments "Direct link to Initialization arguments")
 
-Deploying contracts that take initialization arguments requires adding those arguments to the deployment configuration.
+To deploy contracts that take initialization arguments, you must add those arguments to the deployment configuration.
 
-**Note:** For basic deployments, use `flow config add deployment` to configure your contracts.
-Initialization arguments are an advanced feature that may require manual editing of `flow.json`
-after the basic deployment is configured with CLI commands.
+info
 
-Each deployment can be specified as an object containing
-`name` and `args` keys specifying arguments to be
+For basic deployments, use `flow config add deployment` to configure your contracts. Initialization arguments are an advanced feature that may require you to manually edit `flow.json` after the basic deployment is configured with CLI commands.
+
+You can specify each deployment as an object that contains
+`name` and `args` keys that specify arguments to be
 used during the deployment. Example:
 
 `_16
@@ -265,30 +267,26 @@ _16
 
 }`
 
-⚠️ **Security Warning:** Never put raw private keys in `flow.json`. Always use `.pkey` files for key storage.
-Before proceeding, we recommend reading the [Flow CLI security guidelines](/build/tools/flow-cli/flow.json/security)
+danger
+
+⚠️ **Never** put raw private keys in `flow.json`. Always use `.pkey` files for key storage. Before you proceed, we recommend that you read the [Flow CLI security guidelines](/build/tools/flow-cli/flow.json/security)
 to learn about the best practices for private key storage.
 
-## Dependency Resolution[​](#dependency-resolution "Direct link to Dependency Resolution")
+## Dependency resolution[​](#dependency-resolution "Direct link to Dependency resolution")
 
 The `deploy` command attempts to resolve the import statements in all contracts being deployed.
 
-After the dependencies are found, the CLI will deploy the contracts in a deterministic order
-such that no contract is deployed until all of its dependencies are deployed.
-The command will return an error if no such ordering exists due to one or more cyclic dependencies.
+After the dependencies are found, the CLI will deploy the contracts in a deterministic order such that no contract is deployed until all of its dependencies are deployed. The command will return an error if no such ordering exists due to one or more cyclic dependencies.
 
 In the example above, `NonFungibleToken` will always be deployed before `KittyItems` since `KittyItems` imports `NonFungibleToken`.
 
-## Address Replacement[​](#address-replacement "Direct link to Address Replacement")
+## Address replacement[​](#address-replacement "Direct link to Address replacement")
 
-After resolving all dependencies, the `deploy` command rewrites each contract so
-that its dependencies are imported from their *target addresses* rather than their
-source file location.
+After it resolves all dependencies, the `deploy` command rewrites each contract so that its dependencies are imported from their *target addresses* rather than their source file location.
 
-The rewritten versions are then deployed to their respective targets,
-leaving the original contract files unchanged.
+The rewritten versions are then deployed to their respective targets, which leaves the original contract files unchanged.
 
-### Contracts Importing from Other Contracts[​](#contracts-importing-from-other-contracts "Direct link to Contracts Importing from Other Contracts")
+### Contracts that import from other contracts[​](#contracts-that-import-from-other-contracts "Direct link to Contracts that import from other contracts")
 
 In the example above, the `KittyItems` contract would be rewritten like this:
 
@@ -312,7 +310,7 @@ _10
 
 }`
 
-### Contracts Importing from Dependencies[​](#contracts-importing-from-dependencies "Direct link to Contracts Importing from Dependencies")
+### Contracts that import from dependencies[​](#contracts-that-import-from-dependencies "Direct link to Contracts that import from dependencies")
 
 When your contracts import from the `dependencies` section, the deploy command uses the network-specific aliases defined in those dependencies.
 
@@ -538,18 +536,19 @@ _10
 
 The deploy command automatically uses the addresses from the `dependencies` section's aliases for the target network. Notice how the addresses change based on the network—testnet uses `0x9a0766d93b6608b7` for `FungibleToken`, while mainnet uses `0xf233dcee88fe0abe`. Contracts in the `dependencies` section are not deployed—they're assumed to already exist on the network at the addresses specified in their aliases.
 
-## Merging Multiple Configuration Files[​](#merging-multiple-configuration-files "Direct link to Merging Multiple Configuration Files")
+## Merge multiple configuration files[​](#merge-multiple-configuration-files "Direct link to Merge multiple configuration files")
 
 You can use the `-f` flag multiple times to merge several configuration files.
 
-If there is an overlap in any of the fields in the configuration between two or more configuration files, the value of
-the overlapped field in the resulting configuration will come from the configuration file that is on the further right
-order in the list of configuration files specified in the `-f` flag.
+If there is an overlap in any of the fields in the configuration between two or more configuration files, the value of the overlapped field in the configuration that results will come from the configuration file that is on the further right order in the list of configuration files specified in the `-f` flag.
 
-**Important:** Never put raw private keys in `flow.json`. Always use `.pkey` files for key storage.
+danger
 
-**Note:** Use `flow config add account` to create accounts in your main `flow.json` file.
-The merging feature is useful for separating sensitive account information into a separate file that you can exclude from version control.
+**Never** put raw private keys in `flow.json`. Always use `.pkey` files for key storage.
+
+info
+
+Use `flow config add account` to create accounts in your main `flow.json` file. The merging feature is useful to separate sensitive account information into a separate file that you can exclude from version control.
 
 **Example usage:**
 
@@ -679,8 +678,8 @@ _11
 
 }`
 
-When using multiple configuration files with overlapping fields, the rightmost file takes precedence.
-In this example, the resulting merged configuration will be:
+When you use multiple configuration files with overlapping fields, the rightmost file takes precedence.
+In this example, the merged configuration that results will be:
 
 `_18
 
@@ -758,22 +757,21 @@ _18
 
 ## Flags[​](#flags "Direct link to Flags")
 
-### Allow Updates[​](#allow-updates "Direct link to Allow Updates")
+### Allow updates[​](#allow-updates "Direct link to Allow updates")
 
 * Flag: `--update`
 * Valid inputs: `true`, `false`
 * Default: `false`
 
-Indicate whether to overwrite and upgrade existing contracts. Only contracts with difference with existing contracts
-will be overwritten.
+Indicate whether to overwrite and upgrade current contracts. The system will only overwrite contracts that are different from current contracts.
 
-### Show Update Diff[​](#show-update-diff "Direct link to Show Update Diff")
+### Show update diff[​](#show-update-diff "Direct link to Show update diff")
 
 * Flag: `--show-diff`
 * Valid inputs: `true`, `false`
 * Default: `false`
 
-Shows a diff to approve before updating between deployed contract and new contract updates.
+Shows a diff to approve before an update between deployed contract and new contract updates.
 
 ### Host[​](#host "Direct link to Host")
 
@@ -781,17 +779,14 @@ Shows a diff to approve before updating between deployed contract and new contra
 * Valid inputs: an IP address or hostname.
 * Default: `127.0.0.1:3569` (Flow Emulator)
 
-Specify the hostname of the Access API that will be
-used to execute the command. This flag overrides
-any host defined by the `--network` flag.
+Specify the hostname of the Access API that will be used to execute the command. This flag overrides any host defined by the `--network` flag.
 
-### Network Key[​](#network-key "Direct link to Network Key")
+### Network key[​](#network-key "Direct link to Network key")
 
 * Flag: `--network-key`
 * Valid inputs: A valid network public key of the host in hex string format
 
-Specify the network public key of the Access API that will be
-used to create a secure GRPC client when executing the command.
+Specify the network public key of the Access API that will be used to create a secure GRPC client when executing the command.
 
 ### Network[​](#network "Direct link to Network")
 
@@ -855,7 +850,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/deployment/deploy-project-contracts.md)
 
-Last updated on **Nov 20, 2025** by **Brian Doyle**
+Last updated on **Dec 10, 2025** by **cshannon1218**
 
 [Previous
 
@@ -869,9 +864,9 @@ Execute a Script](/build/tools/flow-cli/scripts/execute-scripts)
 
 Copy as Markdown
 
-* [Example Usage](#example-usage)* [Initialization Arguments](#initialization-arguments)* [Dependency Resolution](#dependency-resolution)* [Address Replacement](#address-replacement)
-        + [Contracts Importing from Other Contracts](#contracts-importing-from-other-contracts)+ [Contracts Importing from Dependencies](#contracts-importing-from-dependencies)* [Merging Multiple Configuration Files](#merging-multiple-configuration-files)* [Flags](#flags)
-            + [Allow Updates](#allow-updates)+ [Show Update Diff](#show-update-diff)+ [Host](#host)+ [Network Key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version Check](#version-check)
+* [Example usage](#example-usage)* [Initialization arguments](#initialization-arguments)* [Dependency resolution](#dependency-resolution)* [Address replacement](#address-replacement)
+        + [Contracts that import from other contracts](#contracts-that-import-from-other-contracts)+ [Contracts that import from dependencies](#contracts-that-import-from-dependencies)* [Merge multiple configuration files](#merge-multiple-configuration-files)* [Flags](#flags)
+            + [Allow updates](#allow-updates)+ [Show update diff](#show-update-diff)+ [Host](#host)+ [Network key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version Check](#version-check)
 
 Flow
 

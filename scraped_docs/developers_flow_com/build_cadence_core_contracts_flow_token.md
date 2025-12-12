@@ -32,6 +32,8 @@ Search
 
 On this page
 
+# Flow Token Contract
+
 The `FlowToken` contract defines the FLOW network token.
 
 Source: [FlowToken.cdc](https://github.com/onflow/flow-core-contracts/blob/master/contracts/FlowToken.cdc)
@@ -40,18 +42,16 @@ Source: [FlowToken.cdc](https://github.com/onflow/flow-core-contracts/blob/maste
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Network Contract Address|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | Emulator `0x0ae53cb6e3f42a79`| Cadence Testing Framework `0x0000000000000003`| Testnet `0x7e60df042a9c0868`| Mainnet `0x1654653399040a61` | | | | | | | | | |
 
-# Transactions
+## Transactions[​](#transactions "Direct link to Transactions")
 
 Transactions and scripts for `FlowToken` are in the `flow-core-contracts` [repo](https://github.com/onflow/flow-core-contracts/tree/master/transactions/flowToken).
 
 As mentioned in the `FungibleToken` page, developers are encouraged to use
-the generic token transactions in the `flow-ft` [repo](https://github.com/onflow/flow-ft/tree/master/transactions) instead.
+the generic token transactions in the [`flow-ft` repo](https://github.com/onflow/flow-ft/tree/master/transactions) instead.
 
-# Events
+## Events[​](#events "Direct link to Events")
 
-Flow relies on a set of core contracts that define key portions of the Flow protocol. Those contracts are core contracts
-and are made to emit the events documented below. You can read about the [core contracts here](/build/cadence/core-contracts)
-and view their source code and event definitions.
+Flow relies on a set of core contracts that define key portions of the Flow protocol. Those contracts are core contracts and are made to emit the events documented below. You can read about the [core contracts here](/build/cadence/core-contracts) and view their source code and event definitions.
 
 Events emitted from core contracts follow a standard format:
 
@@ -61,18 +61,17 @@ A.{contract address}.{contract name}.{event name}`
 
 The components of the format are:
 
-* `contract address` - the address of the account the contract has been deployed to
-* `contract name` - the name of the contract in the source code
-* `event name` - the name of the event as declared in the source code
+* `contract address` - the address of the account the contract has been deployed to.
+* `contract name` - the name of the contract in the source code.
+* `event name` - the name of the event as declared in the source code.
 
-### Flow Token Contract[​](#flow-token-contract "Direct link to Flow Token Contract")
+### Flow token contract[​](#flow-token-contract-1 "Direct link to Flow token contract")
 
 Description of events emitted from the [FLOW Token contract](/build/cadence/core-contracts/flow-token).
-The contract defines the fungible FLOW token. Please note that events for the fungible token contracts are the same
-if deployed to a different account but the `contract address` is
-changed to the address of the account the contract has been deployed to.
 
-### Tokens Initialized[​](#tokens-initialized "Direct link to Tokens Initialized")
+The contract defines the fungible FLOW token. Please note that events for the fungible token contracts are the same if deployed to a different account but the `contract address` is changed to the address of the account the contract has been deployed to.
+
+### Tokens initialized[​](#tokens-initialized "Direct link to Tokens initialized")
 
 Event that is emitted when the contract gets created.
 
@@ -88,7 +87,7 @@ access(all) event TokensInitialized(initialSupply: UFix64)`
 | --- | --- | --- | --- | --- | --- |
 | Field Type Description|  |  |  | | --- | --- | --- | | initialSupply UFix64 The initial supply of the tokens | | | | | |
 
-### Tokens Withdrawn[​](#tokens-withdrawn "Direct link to Tokens Withdrawn")
+### Tokens withdrawn[​](#tokens-withdrawn "Direct link to Tokens withdrawn")
 
 Event that is emitted when tokens get withdrawn from a Vault.
 
@@ -104,7 +103,7 @@ access(all) event TokensWithdrawn(amount: UFix64, from: Address?)`
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Field Type Description|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | amount UFix64 The amount of tokens withdrawn|  |  |  | | --- | --- | --- | | from Address? Optional address of the account that owns the vault where tokens were withdrawn from. `nil` if the vault is not in an account's storage | | | | | | | | |
 
-### Tokens Deposited[​](#tokens-deposited "Direct link to Tokens Deposited")
+### Tokens deposited[​](#tokens-deposited "Direct link to Tokens deposited")
 
 Event that is emitted when tokens get deposited to a Vault.
 
@@ -120,7 +119,7 @@ access(all) event TokensDeposited(amount: UFix64, to: Address?)`
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Field Type Description|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | amount UFix64 The amount of tokens withdrawn|  |  |  | | --- | --- | --- | | to Address? Optional address of the account that owns the vault where tokens were deposited to. `nil` if the vault is not in an account's storage | | | | | | | | |
 
-### Tokens Minted[​](#tokens-minted "Direct link to Tokens Minted")
+### Tokens minted[​](#tokens-minted "Direct link to Tokens minted")
 
 Event that is emitted when new tokens gets minted.
 
@@ -136,7 +135,7 @@ access(all) event TokensMinted(amount: UFix64)`
 | --- | --- | --- | --- | --- | --- |
 | Field Type Description|  |  |  | | --- | --- | --- | | amount UFix64 The amount of tokens to mint | | | | | |
 
-### Tokens Burned[​](#tokens-burned "Direct link to Tokens Burned")
+### Tokens burned[​](#tokens-burned "Direct link to Tokens burned")
 
 Event that is emitted when tokens get destroyed.
 
@@ -152,7 +151,7 @@ access(all) event TokensBurned(amount: UFix64)`
 | --- | --- | --- | --- | --- | --- |
 | Field Type Description|  |  |  | | --- | --- | --- | | amount UFix64 The amount of tokens to burn | | | | | |
 
-### Minter Created[​](#minter-created "Direct link to Minter Created")
+### Minter created[​](#minter-created "Direct link to Minter created")
 
 Event that is emitted when a new minter resource gets created.
 
@@ -180,13 +179,13 @@ Event that is emitted when a new burner Resource gets created.
 
 access(all) event BurnerCreated()`
 
-### Staking Events[​](#staking-events "Direct link to Staking Events")
+### Staking events[​](#staking-events "Direct link to Staking events")
 
 To learn more about staking events, read [staking/events/](/protocol/staking/staking-scripts-events)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/core-contracts/03-flow-token.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Dec 3, 2025** by **cshannon1218**
 
 [Previous
 
@@ -200,7 +199,8 @@ Service Account](/build/cadence/core-contracts/service-account)
 
 Copy as Markdown
 
-* [Flow Token Contract](#flow-token-contract)* [Tokens Initialized](#tokens-initialized)* [Tokens Withdrawn](#tokens-withdrawn)* [Tokens Deposited](#tokens-deposited)* [Tokens Minted](#tokens-minted)* [Tokens Burned](#tokens-burned)* [Minter Created](#minter-created)* [Burner Created](#burner-created)* [Staking Events](#staking-events)
+* [Transactions](#transactions)* [Events](#events)
+    + [Flow token contract](#flow-token-contract-1)+ [Tokens initialized](#tokens-initialized)+ [Tokens withdrawn](#tokens-withdrawn)+ [Tokens deposited](#tokens-deposited)+ [Tokens minted](#tokens-minted)+ [Tokens burned](#tokens-burned)+ [Minter created](#minter-created)+ [Burner Created](#burner-created)+ [Staking events](#staking-events)
 
 Flow
 

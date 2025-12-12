@@ -58,7 +58,7 @@ On this page
 
 ## Generate a Contract[​](#generate-a-contract "Direct link to Generate a Contract")
 
-Create a new contract file using the Flow CLI:
+Create a new contract file with the Flow CLI:
 
 `_10
 
@@ -66,9 +66,9 @@ flow generate contract Foo`
 
 This command creates `cadence/contracts/Foo.cdc` with a basic contract template and automatically adds it to your `flow.json` configuration.
 
-## Add a Contract to Configuration[​](#add-a-contract-to-configuration "Direct link to Add a Contract to Configuration")
+## Add a contract to configuration[​](#add-a-contract-to-configuration "Direct link to Add a contract to configuration")
 
-If you have an existing contract file, add it to your project configuration using the CLI:
+If you have a contract file, add it to your project configuration with the CLI:
 
 `_10
 
@@ -76,8 +76,8 @@ flow config add contract`
 
 Follow the interactive prompts:
 
-1. **Contract name**: Enter the contract name (e.g., `Foo`)
-2. **Contract filename**: Enter the path to your contract file (e.g., `./cadence/contracts/Foo.cdc`)
+1. **Contract name**: Enter the contract name (for exxample, `Foo`)
+2. **Contract filename**: Enter the path to your contract file (for example, `./cadence/contracts/Foo.cdc`)
 3. **Add aliases**: Optionally add network aliases for dependencies
 
 You can also use flags to specify all details at once:
@@ -116,9 +116,9 @@ _10
 
 }`
 
-## Configure Contract Deployment Targets[​](#configure-contract-deployment-targets "Direct link to Configure Contract Deployment Targets")
+## Configure contract deployment targets[​](#configure-contract-deployment-targets "Direct link to Configure contract deployment targets")
 
-Once a contract is added to your configuration, configure deployment targets using the CLI:
+After a contract is added to your configuration, configure deployment targets with the CLI:
 
 `_10
 
@@ -126,9 +126,9 @@ flow config add deployment`
 
 Follow the interactive prompts:
 
-1. **Network**: Select the network (e.g., `testnet`, `mainnet`, `emulator`)
-2. **Account**: Select the account to deploy to (e.g., `my-testnet-account`)
-3. **Contract**: Select the contract to deploy (e.g., `Foo`)
+1. **Network**: Select the network (for example, `testnet`, `mainnet`, `emulator`)
+2. **Account**: Select the account to deploy to (for example, `my-testnet-account`)
+3. **Contract**: Select the contract to deploy (for example, `Foo`)
 4. **Deploy more contracts**: Choose `yes` to add additional contracts to the same deployment
 
 You can also use flags to specify all details:
@@ -179,7 +179,7 @@ _10
 
 }`
 
-## Add Multiple Contracts to a Deployment[​](#add-multiple-contracts-to-a-deployment "Direct link to Add Multiple Contracts to a Deployment")
+## Add multiple contracts to a deployment[​](#add-multiple-contracts-to-a-deployment "Direct link to Add multiple contracts to a deployment")
 
 To deploy multiple contracts to the same account, run the deployment configuration command multiple times or use the interactive prompt to add more contracts:
 
@@ -217,7 +217,7 @@ _10
 
 }`
 
-## Remove Contracts and Deployments[​](#remove-contracts-and-deployments "Direct link to Remove Contracts and Deployments")
+## Remove contracts and deployments[​](#remove-contracts-and-deployments "Direct link to Remove contracts and deployments")
 
 Remove contracts or deployments using the CLI:
 
@@ -241,7 +241,7 @@ flow config remove deployment testnet my-testnet-account Foo`
 
 ## Best Practices[​](#best-practices "Direct link to Best Practices")
 
-* **Use CLI commands**: Always use `flow config add` and `flow config remove` instead of manually editing `flow.json`
+* **Use CLI commands**: Always use `flow config add` and `flow config remove` rather than manually edit `flow.json`
 * **Generate contracts**: Use `flow generate contract` to create new contracts with proper structure
 * **Verify configuration**: Use `flow accounts list` and check your `flow.json` to verify your configuration
 * **Network-specific deployments**: Configure separate deployments for each network (emulator, testnet, mainnet)
@@ -250,7 +250,7 @@ For more information, see [Manage Configuration](/build/tools/flow-cli/flow.json
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/deployment/project-contracts.md)
 
-Last updated on **Nov 21, 2025** by **Brian Doyle**
+Last updated on **Dec 10, 2025** by **cshannon1218**
 
 [Previous
 
@@ -264,7 +264,7 @@ Deploy a Project](/build/tools/flow-cli/deployment/deploy-project-contracts)
 
 Copy as Markdown
 
-* [Generate a Contract](#generate-a-contract)* [Add a Contract to Configuration](#add-a-contract-to-configuration)* [Configure Contract Deployment Targets](#configure-contract-deployment-targets)* [Add Multiple Contracts to a Deployment](#add-multiple-contracts-to-a-deployment)* [Remove Contracts and Deployments](#remove-contracts-and-deployments)* [Best Practices](#best-practices)
+* [Generate a Contract](#generate-a-contract)* [Add a contract to configuration](#add-a-contract-to-configuration)* [Configure contract deployment targets](#configure-contract-deployment-targets)* [Add multiple contracts to a deployment](#add-multiple-contracts-to-a-deployment)* [Remove contracts and deployments](#remove-contracts-and-deployments)* [Best Practices](#best-practices)
 
 Flow
 

@@ -48,21 +48,21 @@ On this page
 
 Transactions let you send Cadence code to the Flow blockchain that permanently alters its state.
 
-We are assuming you have read the [Scripts Documentation](/build/tools/clients/fcl-js/scripts) before this, as transactions are sort of scripts with more required things.
+We assume you have read the [Scripts Documentation](/build/tools/clients/fcl-js/scripts): ./scripts.md before this, as transactions are sort of scripts with more required things.
 
-While `query` is used for sending scripts to the chain, `mutate` is used for building and sending transactions. Just like [scripts](/build/tools/clients/fcl-js/scripts), `fcl.mutate` is a [JavaScript Tagged Template Literal](https://styled-components.com/docs/advanced#tagged-template-literals) that we can pass Cadence code into.
+While `query` is used to send scripts to the chain, `mutate` is used to build and send transactions. Just like [scripts](/build/tools/clients/fcl-js/scripts), `fcl.mutate` is a [JavaScript Tagged Template Literal](https://styled-components.com/docs/advanced#tagged-template-literals) that we can pass Cadence code into.
 
 Unlike scripts, they require a little more information, things like a proposer, authorizations and a payer, which may be a little confusing and overwhelming.
 
-## Sending Your First Transaction[​](#sending-your-first-transaction "Direct link to Sending Your First Transaction")
+## Send your first transaction[​](#send-your-first-transaction "Direct link to Send your first transaction")
 
-There is a lot to unpack in the following code snippet.
-It sends a transaction to the Flow blockchain. For the transaction, the current user is authorizing it as both the `proposer` and the `payer`.
-Something that is unique to Flow is the one paying for the transaction doesn't always need to be the one performing the transaction.
-Proposers and Payers are special kinds of authorizations that are always required for a transaction.
-The `proposer` acts similar to the `nonce` in Ethereum transactions, and helps prevent repeat attacks.
-The `payer` is who will be paying for the transaction.
-If these are not set, FCL defaults to using the current user for all roles.
+There is a lot to unpack in the following code snippet. It sends a transaction to the Flow blockchain. For the transaction, the current user authorizes it as both the `proposer` and the `payer`.
+
+Something that is unique to Flow is the one who pays for the transaction doesn't always need to be the one who performs the transaction. Proposers and Payers are special kinds of authorizations that are always required for a transaction.
+
+* The `proposer` acts similar to the `nonce` in Ethereum transactions, and helps prevent repeat attacks.
+* The `payer` is who will be paying for the transaction.
+  If these are not set, Flow Client Library (FCL) defaults to the current user for all roles.
 
 `fcl.mutate` will return a `transactionId`. We can pass the response directly to `fcl.tx` and then use the `onceExecuted` method which resolves a promise when a transaction result is available.
 
@@ -130,15 +130,13 @@ _17
 
 console.log(transaction); // The transactions status and events after being executed ``
 
-## Authorizing a Transaction[​](#authorizing-a-transaction "Direct link to Authorizing a Transaction")
+## Authorize a transaction[​](#authorize-a-transaction "Direct link to Authorize a transaction")
 
-The below code snippet is the same as the above one, except for one extremely important difference.
-Our Cadence code this time has a prepare statement, and we are using the `fcl.currentUser` when constructing our transaction.
+The below code snippet is the same as the above one, except for one extremely important difference. Our Cadence code this time has a prepare statement, and we use the `fcl.currentUser` when constructing our transaction.
 
-The `prepare` statement's arguments directly map to the order of the authorizations in the `authorizations` array.
-Four authorizations means four `&Account`s as arguments passed to `prepare`. In this case though there is only one, and it is the `currentUser`.
+The `prepare` statement's arguments directly map to the order of the authorizations in the `authorizations` array. Four authorizations means four `&Account`s as arguments passed to `prepare`. In this case though there is only one, and it is the `currentUser`.
 
-These authorizations are important as you can only access/modify an accounts storage if you have the said accounts authorization.
+These authorizations are important as you can only access or modify an account's storage if you have that account's authorization.
 
 `` _21
 
@@ -222,20 +220,20 @@ console.log(transaction); // The transactions status and events after being exec
 
 To learn more about `mutate`, check out the [API documentation](/build/tools/clients/fcl-js/packages-docs/fcl/mutate).
 
-## Querying Transaction Results[​](#querying-transaction-results "Direct link to Querying Transaction Results")
+## Query transaction results[​](#query-transaction-results "Direct link to Query transaction results")
 
-When querying transaction results (e.g., via HTTP/REST endpoints like `GET /v1/transaction_results/{id}`), you can provide either:
+When you query transaction results (for example, via HTTP/REST endpoints like `GET /v1/transaction_results/{id}`), you can provide either:
 
-* A **transaction ID** (256-bit hash as hex string)
-* A **scheduled transaction ID** (UInt64 as decimal string)
+* A **transaction ID** (256-bit hash as hex string).
+* A **scheduled transaction ID** (UInt64 as decimal string).
 
 The returned result always includes `transaction_id` as the underlying native transaction ID. For scheduled transactions, this will be the system transaction ID that executed the scheduled callback.
 
 Learn more about [Scheduled Transactions](/build/cadence/advanced-concepts/scheduled-transactions).
 
-## Transaction Finality[​](#transaction-finality "Direct link to Transaction Finality")
+## Transaction finality[​](#transaction-finality "Direct link to Transaction finality")
 
-As of **FCL v1.15.0**, it is now recommended to use use `onceExecuted` in most cases, leading to a 2.5x reduction in latency when waiting for a transaction result. For example, the following code snippet should be updated from:
+As of **FCL v1.15.0**, it is now recommended to use use `onceExecuted` in most cases, which leads to a 2.5x reduction in latency when you wait for a transaction result. For example, the following code snippet should be updated from:
 
 `_10
 
@@ -255,7 +253,7 @@ _10
 
 const result = await fcl.tx(txId).onceExecuted();`
 
-Developers manually subscribing to transaction statuses should update their listeners to treat "executed" as the final status (see the release notes [here](https://github.com/onflow/fcl-js/releases/tag/%40onflow%2Ffcl%401.15.0)). For example, the following code snippet should be updated from:
+Developers who manually subscribe to transaction statuses should update their listeners to treat "executed" as the final status (see the [release notes](https://github.com/onflow/fcl-js/releases/tag/%40onflow%2Ffcl%401.15.0)). For example, the following code snippet should be updated from:
 
 `_10
 
@@ -329,13 +327,13 @@ _11
 
 });`
 
-The "executed" status corresponds to soft finality, indicating that the transaction has been included in a block and a transaction status is available, backed by a cryptographic proof. Only in rare cases should a developer need to wait for "sealed" status in their applications and you can learn more about the different transaction statuses on Flow [here](/build/cadence/basics/transactions#transaction-status).
+The "executed" status corresponds to soft finality, which indicates that the transaction has been included in a block and a transaction status is available, backed by a cryptographic proof. Only in rare cases should a developer need to wait for "sealed" status in their applications and you can learn more about the different transaction statuses on Flow [here](/build/cadence/basics/transactions#transaction-status).
 
 See the following video for demonstration of how to update your code to wait for "executed" status:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/transactions.md)
 
-Last updated on **Nov 26, 2025** by **Jordan Ribbink**
+Last updated on **Dec 9, 2025** by **cshannon1218**
 
 [Previous
 
@@ -349,7 +347,7 @@ Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signature
 
 Copy as Markdown
 
-* [Sending Your First Transaction](#sending-your-first-transaction)* [Authorizing a Transaction](#authorizing-a-transaction)* [Querying Transaction Results](#querying-transaction-results)* [Transaction Finality](#transaction-finality)
+* [Send your first transaction](#send-your-first-transaction)* [Authorize a transaction](#authorize-a-transaction)* [Query transaction results](#query-transaction-results)* [Transaction finality](#transaction-finality)
 
 Flow
 
