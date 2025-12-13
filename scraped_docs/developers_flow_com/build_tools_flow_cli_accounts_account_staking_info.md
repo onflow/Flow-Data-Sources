@@ -56,13 +56,13 @@ On this page
 
 # Account Staking Info
 
-Retrieve staking information for the account on the Flow network using Flow CLI.
+Retrieve staking information for the account on the Flow network with Flow CLI.
 
 `_10
 
 flow accounts staking-info <address>`
 
-## Example Usage[​](#example-usage "Direct link to Example Usage")
+## Example usage[​](#example-usage "Direct link to Example usage")
 
 `_26
 
@@ -173,7 +173,7 @@ Flow [account address](/build/cadence/basics/accounts) (prefixed with `0x` or no
 
 ## Flags[​](#flags "Direct link to Flags")
 
-### Include Fields[​](#include-fields "Direct link to Include Fields")
+### Include fields[​](#include-fields "Direct link to Include fields")
 
 * Flag: `--include`
 * Valid inputs: `contracts`
@@ -186,17 +186,14 @@ Specify fields to include in the result output. Applies only to the text output.
 * Valid inputs: an IP address or hostname.
 * Default: `127.0.0.1:3569` (Flow Emulator)
 
-Specify the hostname of the Access API that will be
-used to execute the command. This flag overrides
-any host defined by the `--network` flag.
+Specify the hostname of the Access API that will be used to execute the command. This flag overrides any host defined by the `--network` flag.
 
-### Network Key[​](#network-key "Direct link to Network Key")
+### Network key[​](#network-key "Direct link to Network key")
 
 * Flag: `--network-key`
 * Valid inputs: A valid network public key of the host in hex string format
 
-Specify the network public key of the Access API that will be
-used to create a secure GRPC client when executing the command.
+Specify the network public key of the Access API that will be used to create a secure GRPC client when you execute the command.
 
 ### Network[​](#network "Direct link to Network")
 
@@ -251,7 +248,7 @@ Specify the path to the `flow.json` configuration file.
 You can use the `-f` flag multiple times to merge
 several configuration files.
 
-### Version Check[​](#version-check "Direct link to Version Check")
+### Version check[​](#version-check "Direct link to Version check")
 
 * Flag: `--skip-version-check`
 * Default: `false`
@@ -260,7 +257,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/accounts/account-staking-info.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 10, 2025** by **cshannon1218**
 
 [Previous
 
@@ -274,9 +271,9 @@ Funding a Testnet Account](/build/tools/flow-cli/accounts/account-fund)
 
 Copy as Markdown
 
-* [Example Usage](#example-usage)* [Arguments](#arguments)
+* [Example usage](#example-usage)* [Arguments](#arguments)
     + [Address](#address)* [Flags](#flags)
-      + [Include Fields](#include-fields)+ [Host](#host)+ [Network Key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version Check](#version-check)
+      + [Include fields](#include-fields)+ [Host](#host)+ [Network key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version check](#version-check)
 
 Flow
 

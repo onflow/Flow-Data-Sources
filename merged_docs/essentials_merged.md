@@ -7003,7 +7003,7 @@ Search
 
                 + [Mobile Development on Flow](/blockchain-development-tutorials/cadence/mobile)
 
-                  + [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
+                  + [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)+ [Emulator Fork Testing](/blockchain-development-tutorials/cadence/emulator-fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
 
             * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 
@@ -22145,7 +22145,7 @@ Search
 
                 + [Mobile Development on Flow](/blockchain-development-tutorials/cadence/mobile)
 
-                  + [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
+                  + [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)+ [Emulator Fork Testing](/blockchain-development-tutorials/cadence/emulator-fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
 
             * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 
@@ -34970,6 +34970,1903 @@ More
 * [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://developers.flow.com/blockchain-development-tutorials/cadence/emulator-fork-testing
+
+Interactive Testing with Forked Emulator | Flow Developer Portal
+
+
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Blockchain Development Tutorials](/blockchain-development-tutorials)* [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)* [Forte Network Upgrade](/blockchain-development-tutorials/forte)
+
+      * [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
+
+        * [Cadence Tutorials](/blockchain-development-tutorials/cadence)
+
+          + [Getting Started with Cadence](/blockchain-development-tutorials/cadence/getting-started)
+
+            + [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)
+
+              + [Account Linking](/blockchain-development-tutorials/cadence/account-management)
+
+                + [Mobile Development on Flow](/blockchain-development-tutorials/cadence/mobile)
+
+                  + [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)+ [Emulator Fork Testing](/blockchain-development-tutorials/cadence/emulator-fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
+
+            * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
+
+              * [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
+
+                * [Token Development and Registration](/blockchain-development-tutorials/tokens)
+
+                  * [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
+
+                    * [Third-Party Integrations](/blockchain-development-tutorials/integrations)
+
+* * [Cadence Tutorials](/blockchain-development-tutorials/cadence)* Emulator Fork Testing
+
+On this page
+
+# Interactive Testing with Forked Emulator
+
+This tutorial teaches you how to run your app, E2E tests, and manual explorations against a snapshot of Flow mainnet using `flow emulator --fork`. You'll learn how to connect your frontend to production-like state, test user flows with real contracts and data, and debug issues interactively—all without deploying to a live network.
+
+The forked emulator creates a local Flow network that mirrors mainnet or testnet state. It's perfect for manual testing, running E2E test suites, and exploring contract interactions in a production-like environment with full control.
+
+## What You'll Learn[​](#what-youll-learn "Direct link to What You'll Learn")
+
+After you complete this tutorial, you'll be able to:
+
+* **Start the emulator in fork mode** with `flow emulator --fork`.
+* **Connect your app frontend** to the forked emulator.
+* **Test against real mainnet contracts** and production data interactively.
+* **Run E2E tests** (Cypress, Playwright) against forked state.
+* **Use account impersonation** to test as any mainnet account.
+* **Pin to specific block heights** for reproducible testing.
+* **Debug and explore** contract interactions manually.
+
+## What You'll Build[​](#what-youll-build "Direct link to What You'll Build")
+
+You'll create a complete forked emulator setup that demonstrates:
+
+* Starting the emulator with forked mainnet state.
+* A React app connected to the forked emulator reading real FlowToken data.
+* Manual testing flows using account impersonation.
+* Automating tests with E2E frameworks against forked state.
+* A reusable pattern for interactive testing and debugging.
+
+## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+
+### Flow CLI[​](#flow-cli "Direct link to Flow CLI")
+
+This tutorial requires [Flow CLI](/build/tools/flow-cli) v1.8.0 or later installed. If you haven't installed it yet and have [homebrew](https://brew.sh) installed, run:
+
+`_10
+
+brew install flow-cli`
+
+For other operating systems, refer to the [installation guide](/build/tools/flow-cli/install).
+
+### Node.js and npm[​](#nodejs-and-npm "Direct link to Node.js and npm")
+
+You'll need Node.js (v16+) and npm to run the React frontend examples. Check your installation:
+
+`_10
+
+node --version
+
+_10
+
+npm --version`
+
+### Frontend development knowledge[​](#frontend-development-knowledge "Direct link to Frontend development knowledge")
+
+Basic familiarity with React and JavaScript is helpful but not required. The examples use the [Flow React SDK](/build/tools/react-sdk) for Flow blockchain integration.
+
+tip
+
+This tutorial uses `@onflow/react-sdk` for all React examples. The React SDK provides hooks and components that make Flow development feel native to React. For non-React applications, you can use `@onflow/fcl` directly.
+
+### Network access[​](#network-access "Direct link to Network access")
+
+You'll need network access to Flow's public access nodes:
+
+* Mainnet: `access.mainnet.nodes.onflow.org:9000`
+* Testnet: `access.devnet.nodes.onflow.org:9000`
+
+info
+
+This tutorial covers `flow emulator --fork` (interactive testing with a forked emulator), which is different from `flow test --fork` (running Cadence test files against forked state). For testing Cadence contracts with test files, see [Fork Testing with Cadence](/blockchain-development-tutorials/cadence/fork-testing).
+
+## Understanding Emulator Fork Mode[​](#understanding-emulator-fork-mode "Direct link to Understanding Emulator Fork Mode")
+
+### What is `flow emulator --fork`?[​](#what-is-flow-emulator---fork "Direct link to what-is-flow-emulator---fork")
+
+The emulator's fork mode starts a local Flow blockchain that connects to a real network (mainnet or testnet) and fetches state on-demand. Your app, scripts, and transactions run locally but can read from and interact with real network data.
+
+**Key capabilities:**
+
+* Full gRPC and REST API servers running locally
+* On-demand fetching of accounts, contracts, and state from the live network
+* Disabled signature validation. You can impersonate any mainnet account to execute transactions
+* All mutations stay local—never affect the real network
+* Perfect for E2E tests, manual exploration, and debugging
+
+### When to Use This[​](#when-to-use-this "Direct link to When to Use This")
+
+Use `flow emulator --fork` for:
+
+* **E2E and frontend testing**: Run Cypress/Playwright tests against production-like state
+* **Manual exploration**: Interact with your app connected to forked mainnet
+* **Debugging user issues**: Reproduce bugs at specific block heights
+* **Migration testing**: Test contract upgrades with real account state
+* **Wallet integration**: Test wallet connect flows and transactions
+* **Bot and indexer testing**: Run automated tools against forked data
+
+**Don't use this for:**
+
+* Cadence unit/integration tests (use `flow test --fork` instead—see [Fork Testing with Cadence](/blockchain-development-tutorials/cadence/fork-testing))
+
+### Emulator Fork vs Test Framework Fork[​](#emulator-fork-vs-test-framework-fork "Direct link to Emulator Fork vs Test Framework Fork")
+
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Feature `flow emulator --fork` `flow test --fork`|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **Use for** App E2E, manual testing, debugging Cadence unit/integration tests|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **Connects to** Frontend, wallets, bots, E2E tools Cadence Testing Framework|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **Run with** FCL, Cypress, Playwright, manual clicks `flow test` command| **Best for** User flows, UI testing, exploration Contract logic validation|  |  |  | | --- | --- | --- | | **Examples** React app, wallet flows, E2E suites `*_test.cdc` files | | | | | | | | | | | | | | | | | |
+
+Both modes are valuable—use the right tool for the job.
+
+## Quick Start: Run in 60 Seconds[​](#quick-start-run-in-60-seconds "Direct link to Quick Start: Run in 60 Seconds")
+
+Want to see it work immediately? Here's the fastest path:
+
+`_11
+
+# 1. Initialize a Flow project
+
+_11
+
+flow init
+
+_11
+
+_11
+
+# 2. Install FlowToken dependency
+
+_11
+
+flow dependencies install FlowToken FungibleToken
+
+_11
+
+_11
+
+# 3. Start forked emulator (in a separate terminal)
+
+_11
+
+flow emulator --fork mainnet
+
+_11
+
+_11
+
+# 4. Create a script to check the forked state
+
+_11
+
+flow generate script getFlowSupply`
+
+Add the following to `cadence/scripts/getFlowSupply.cdc`:
+
+`_10
+
+import "FlowToken"
+
+_10
+
+_10
+
+access(all) fun main(): UFix64 {
+
+_10
+
+return FlowToken.totalSupply
+
+_10
+
+}`
+
+In another terminal, run the script:
+
+`_10
+
+flow scripts execute cadence/scripts/getFlowSupply.cdc --network mainnet-fork`
+
+You'll see the real mainnet FlowToken supply! Now let's build a complete example with a frontend.
+
+## Create Your Project[​](#create-your-project "Direct link to Create Your Project")
+
+Navigate to your development directory and create a new Flow project:
+
+`_10
+
+mkdir emulator-fork-demo
+
+_10
+
+cd emulator-fork-demo
+
+_10
+
+flow init --yes`
+
+The `--yes` flag accepts defaults non-interactively.
+
+## Configure Fork Network in flow.json[​](#configure-fork-network-in-flowjson "Direct link to Configure Fork Network in flow.json")
+
+Before starting the emulator, configure a fork network in your `flow.json`. This enables automatic contract alias inheritance from mainnet, so you don't need to manually duplicate aliases.
+
+Open `flow.json` and add a `mainnet-fork` network:
+
+`_11
+
+{
+
+_11
+
+"networks": {
+
+_11
+
+"emulator": "127.0.0.1:3569",
+
+_11
+
+"mainnet": "access.mainnet.nodes.onflow.org:9000",
+
+_11
+
+"testnet": "access.devnet.nodes.onflow.org:9000",
+
+_11
+
+"mainnet-fork": {
+
+_11
+
+"host": "127.0.0.1:3569",
+
+_11
+
+"fork": "mainnet"
+
+_11
+
+}
+
+_11
+
+}
+
+_11
+
+}`
+
+**What this does:**
+
+* `host`: Points to your local emulator
+* `fork`: Tells the CLI to automatically inherit contract aliases from mainnet
+
+Now any contract with a `mainnet` alias will automatically work on `mainnet-fork` without manual configuration!
+
+tip
+
+**Why forking is powerful:**
+
+The emulator fork mode gives you access to **real production state**:
+
+* ✅ Test against actual deployed contracts (FT, NFT, DEXs, marketplaces)
+* ✅ Read real account balances, storage, and capabilities
+* ✅ Query production data without setting up test fixtures
+* ✅ Catch integration issues with real-world contract implementations
+* ✅ Debug with historical state by pinning block heights
+
+**Plus, fork networks simplify configuration:**
+
+* ✅ No need to duplicate 30+ contract aliases
+* ✅ Automatic inheritance from source network
+* ✅ Can override specific contracts if needed
+
+**Example of automatic inheritance:**
+
+`_11
+
+{
+
+_11
+
+"dependencies": {
+
+_11
+
+"FlowToken": {
+
+_11
+
+"aliases": {
+
+_11
+
+"mainnet": "0x1654653399040a61"
+
+_11
+
+// ✅ mainnet-fork automatically inherits this!
+
+_11
+
+// No need for: "mainnet-fork": "0x1654653399040a61"
+
+_11
+
+}
+
+_11
+
+}
+
+_11
+
+}
+
+_11
+
+}`
+
+When you run commands with `--network mainnet-fork`, the CLI automatically resolves contract imports to their mainnet addresses.
+
+## Start the Forked Emulator[​](#start-the-forked-emulator "Direct link to Start the Forked Emulator")
+
+Start the emulator in fork mode, connected to mainnet:
+
+`_10
+
+flow emulator --fork mainnet`
+
+You'll see output like:
+
+`_10
+
+INFO[0000] ⚙️ Using service account 0xf8d6e0586b0a20c7
+
+_10
+
+INFO[0000] 🌱 Starting Flow Emulator in fork mode (mainnet)
+
+_10
+
+INFO[0000] 🛠 GRPC server started on 127.0.0.1:3569
+
+_10
+
+INFO[0000] 📡 REST server started on 127.0.0.1:8888
+
+_10
+
+INFO[0000] 🌐 Forking from access.mainnet.nodes.onflow.org:9000`
+
+**Leave this terminal running.** The emulator is now serving:
+
+* **REST API**: `http://localhost:8888` (for FCL/frontend)
+* **gRPC API**: `localhost:3569` (for Flow CLI)
+
+tip
+
+Pin to a specific block height for reproducibility:
+
+`_10
+
+flow emulator --fork mainnet --fork-height <BLOCK_HEIGHT>`
+
+This ensures the forked state is consistent across runs—essential for E2E tests in CI.
+
+## Mocking Mainnet Contracts[​](#mocking-mainnet-contracts "Direct link to Mocking Mainnet Contracts")
+
+Just like mocking dependencies in unit tests, you can **mock real mainnet contracts** by deploying modified versions—perfect for testing upgrades, bug fixes, or alternative implementations against real production state.
+
+Configure the mock in `flow.json`, then deploy to the forked emulator. Your mock takes precedence while other contracts use real mainnet versions.
+
+### Example[​](#example "Direct link to Example")
+
+**1. Configure in `flow.json`:**
+
+`_21
+
+{
+
+_21
+
+"accounts": {
+
+_21
+
+"flow-token-mainnet": {
+
+_21
+
+"address": "0x1654653399040a61",
+
+_21
+
+"key": "0000000000000000000000000000000000000000000000000000000000000000"
+
+_21
+
+}
+
+_21
+
+},
+
+_21
+
+"contracts": {
+
+_21
+
+"FlowToken": {
+
+_21
+
+"source": "./contracts/FlowTokenModified.cdc",
+
+_21
+
+"aliases": {
+
+_21
+
+"mainnet": "0x1654653399040a61"
+
+_21
+
+}
+
+_21
+
+}
+
+_21
+
+},
+
+_21
+
+"deployments": {
+
+_21
+
+"mainnet-fork": {
+
+_21
+
+"flow-token-mainnet": ["FlowToken"]
+
+_21
+
+}
+
+_21
+
+}
+
+_21
+
+}`
+
+**2. Deploy the mock:**
+
+`_10
+
+flow emulator --fork mainnet
+
+_10
+
+flow project deploy --network mainnet-fork --update`
+
+Your app now uses the mocked FlowToken while FungibleToken, USDC, and all other contracts use real mainnet versions.
+
+## Install Dependencies[​](#install-dependencies "Direct link to Install Dependencies")
+
+Use the [Dependency Manager](/build/tools/flow-cli/dependency-manager) to install common Flow contracts. This adds them to your `flow.json` with mainnet aliases that will automatically work on the fork:
+
+`_10
+
+flow dependencies install FlowToken FungibleToken`
+
+Your `flow.json` now includes:
+
+`_20
+
+{
+
+_20
+
+"dependencies": {
+
+_20
+
+"FlowToken": {
+
+_20
+
+"source": "mainnet://1654653399040a61.FlowToken",
+
+_20
+
+"aliases": {
+
+_20
+
+"emulator": "0x0ae53cb6e3f42a79",
+
+_20
+
+"mainnet": "0x1654653399040a61",
+
+_20
+
+"testnet": "0x7e60df042a9c0868"
+
+_20
+
+}
+
+_20
+
+},
+
+_20
+
+"FungibleToken": {
+
+_20
+
+"source": "mainnet://f233dcee88fe0abe.FungibleToken",
+
+_20
+
+"aliases": {
+
+_20
+
+"emulator": "0xee82856bf20e2aa6",
+
+_20
+
+"mainnet": "0xf233dcee88fe0abe",
+
+_20
+
+"testnet": "0x9a0766d93b6608b7"
+
+_20
+
+}
+
+_20
+
+}
+
+_20
+
+}
+
+_20
+
+}`
+
+**Key insight:** Notice there's no `mainnet-fork` alias. That's the beauty—`mainnet-fork` automatically inherits the `mainnet` aliases thanks to the fork configuration!
+
+## Test with Flow CLI Scripts[​](#test-with-flow-cli-scripts "Direct link to Test with Flow CLI Scripts")
+
+Before connecting a frontend, verify the fork works with a simple script.
+
+Generate a script file using the Flow CLI:
+
+`_10
+
+flow generate script getFlowSupply`
+
+Add the following to `cadence/scripts/getFlowSupply.cdc`:
+
+`_10
+
+import "FlowToken"
+
+_10
+
+_10
+
+access(all) fun main(): UFix64 {
+
+_10
+
+return FlowToken.totalSupply
+
+_10
+
+}`
+
+Notice we're using the import shorthand `import "FlowToken"` instead of an address. The CLI will automatically resolve this to the mainnet address on the fork.
+
+First, verify the script works against real mainnet:
+
+`_10
+
+flow scripts execute cadence/scripts/getFlowSupply.cdc --network mainnet`
+
+Then, in a **new terminal** (keep the emulator running), execute the script against the fork:
+
+`_10
+
+flow scripts execute cadence/scripts/getFlowSupply.cdc --network mainnet-fork`
+
+You should see the real mainnet FlowToken supply (e.g., `Result: 1523456789.00000000`).
+
+**What happened:**
+
+1. Your script ran on the local emulator
+2. The CLI resolved `"FlowToken"` to the mainnet address (`0x1654653399040a61`)
+3. The emulator fetched FlowToken contract state from mainnet on-demand
+4. The script returned real production data
+
+Now let's connect a frontend.
+
+## Create a React App[​](#create-a-react-app "Direct link to Create a React App")
+
+Create a React app with Flow integration:
+
+`_10
+
+npx create-react-app flow-fork-app
+
+_10
+
+cd flow-fork-app
+
+_10
+
+npm install @onflow/react-sdk`
+
+Copy your project's `flow.json` into the React app's `src` directory:
+
+`_10
+
+# From your flow-fork-app directory
+
+_10
+
+cp ../flow.json src/`
+
+This allows the `FlowProvider` to resolve contract imports.
+
+Replace `src/index.js` with:
+
+`_22
+
+import React from 'react';
+
+_22
+
+import ReactDOM from 'react-dom/client';
+
+_22
+
+import App from './App';
+
+_22
+
+import { FlowProvider } from '@onflow/react-sdk';
+
+_22
+
+import flowJSON from './flow.json';
+
+_22
+
+_22
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+_22
+
+root.render(
+
+_22
+
+<React.StrictMode>
+
+_22
+
+<FlowProvider
+
+_22
+
+config={{
+
+_22
+
+accessNodeUrl: 'http://localhost:8888', // Point to forked emulator REST endpoint
+
+_22
+
+flowNetwork: 'mainnet-fork', // Use fork network (inherits mainnet aliases)
+
+_22
+
+appDetailTitle: 'Flow Fork Demo',
+
+_22
+
+discoveryWallet: 'http://localhost:8701/fcl/authn', // Dev wallet
+
+_22
+
+}}
+
+_22
+
+flowJson={flowJSON}
+
+_22
+
+>
+
+_22
+
+<App />
+
+_22
+
+</FlowProvider>
+
+_22
+
+</React.StrictMode>,
+
+_22
+
+);`
+
+Replace `src/App.js` with:
+
+```` _74
+
+import { useState } from 'react';
+
+_74
+
+import { useFlowCurrentUser, useFlowQuery, Connect } from '@onflow/react-sdk';
+
+_74
+
+_74
+
+function App() {
+
+_74
+
+const { user } = useFlowCurrentUser();
+
+_74
+
+const [shouldFetch, setShouldFetch] = useState(false);
+
+_74
+
+_74
+
+// Query FlowToken supply from forked mainnet
+
+_74
+
+const {
+
+_74
+
+data: flowSupply,
+
+_74
+
+isLoading,
+
+_74
+
+error,
+
+_74
+
+} = useFlowQuery({
+
+_74
+
+cadence: `
+
+_74
+
+import "FlowToken"
+
+_74
+
+_74
+
+access(all) fun main(): UFix64 {
+
+_74
+
+return FlowToken.totalSupply
+
+_74
+
+}
+
+_74
+
+`,
+
+_74
+
+args: (arg, t) => [],
+
+_74
+
+query: {
+
+_74
+
+enabled: shouldFetch, // Only run when button is clicked
+
+_74
+
+},
+
+_74
+
+});
+
+_74
+
+_74
+
+return (
+
+_74
+
+<div style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
+
+_74
+
+<h1>🌊 Flow Emulator Fork Demo</h1>
+
+_74
+
+<p>
+
+_74
+
+Connected to: <strong>Forked Mainnet (localhost:8888)</strong>
+
+_74
+
+</p>
+
+_74
+
+_74
+
+<div style={{ marginTop: '2rem' }}>
+
+_74
+
+<h2>FlowToken Supply (Real Mainnet Data)</h2>
+
+_74
+
+<button onClick={() => setShouldFetch(true)} disabled={isLoading}>
+
+_74
+
+{isLoading ? 'Loading...' : 'Get FlowToken Supply'}
+
+_74
+
+</button>
+
+_74
+
+{error && <p style={{ color: 'red' }}>Error: {error.message}</p>}
+
+_74
+
+{flowSupply && (
+
+_74
+
+<p style={{ fontSize: '1.5rem', color: 'green' }}>
+
+_74
+
+Total Supply: {Number(flowSupply).toLocaleString()} FLOW
+
+_74
+
+</p>
+
+_74
+
+)}
+
+_74
+
+</div>
+
+_74
+
+_74
+
+<div style={{ marginTop: '2rem' }}>
+
+_74
+
+<h2>Wallet Connection</h2>
+
+_74
+
+<Connect />
+
+_74
+
+{user?.loggedIn && (
+
+_74
+
+<p style={{ marginTop: '1rem' }}>
+
+_74
+
+Connected: <code>{user.addr}</code>
+
+_74
+
+</p>
+
+_74
+
+)}
+
+_74
+
+</div>
+
+_74
+
+</div>
+
+_74
+
+);
+
+_74
+
+}
+
+_74
+
+_74
+
+export default App;
+
+_74
+
+# 2. Configure fork network (add to flow.json)
+
+_74
+
+# Add this in "networks":
+
+_74
+
+# "mainnet-fork": {
+
+_74
+
+# "host": "127.0.0.1:3569",
+
+_74
+
+# "fork": "mainnet"
+
+_74
+
+# }
+
+_74
+
+This starts the dev wallet at `http://localhost:8701`.
+
+_74
+
+_74
+
+### Run your app
+
+_74
+
+_74
+
+Start the React app:
+
+_74
+
+_74
+
+```bash
+
+_74
+
+npm start ````
+
+Your browser will open to `http://localhost:3000`. Click "Get FlowToken Supply" to see real mainnet data!
+
+**What's happening:**
+
+1. `FlowProvider` receives `flow.json` and configures import resolution
+2. The string import `import "FlowToken"` resolves to the mainnet address automatically
+3. `useFlowQuery` executes the Cadence script via the local emulator
+4. The emulator fetches FlowToken state from mainnet on-demand
+5. Your app displays real production data—all running locally!
+
+**Key React SDK features used:**
+
+* `FlowProvider` – Wraps your app, configures the Flow connection, and resolves contract imports from `flow.json`
+* `useFlowCurrentUser` – Provides wallet authentication state
+* `useFlowQuery` – Executes Cadence scripts with automatic caching and loading states
+* `Connect` – Pre-built wallet connection UI component
+
+Contract Import Resolution
+
+By passing `flowJson` to the `FlowProvider`, string imports like `import "FlowToken"` automatically resolve to the correct network addresses.
+
+**How it works:**
+
+1. SDK looks up contract aliases for the specified `flowNetwork`
+2. For fork networks, it checks if the network has a `fork` property and inherits aliases from the parent network
+3. Contract imports in your Cadence code are replaced with the resolved addresses
+
+**Example:** With `flowNetwork: 'mainnet-fork'` (which has `fork: 'mainnet'`), `import "FlowToken"` resolves to `0x1654653399040a61` (the mainnet FlowToken address).
+
+## Account Impersonation[​](#account-impersonation "Direct link to Account Impersonation")
+
+The forked emulator's superpower: you can execute transactions as **any mainnet account** because signature validation is disabled.
+
+### Read Account Balance[​](#read-account-balance "Direct link to Read Account Balance")
+
+Generate a script to read account balances:
+
+`_10
+
+flow generate script getBalance`
+
+Add the following to `cadence/scripts/getBalance.cdc`:
+
+`_11
+
+import "FlowToken"
+
+_11
+
+import "FungibleToken"
+
+_11
+
+_11
+
+access(all) fun main(address: Address): UFix64 {
+
+_11
+
+let account = getAccount(address)
+
+_11
+
+let vaultRef = account.capabilities
+
+_11
+
+.borrow<&{FungibleToken.Balance}>(/public/flowTokenBalance)
+
+_11
+
+?? panic("Could not borrow FlowToken Balance reference")
+
+_11
+
+_11
+
+return vaultRef.balance
+
+_11
+
+}`
+
+Check the Flow service account balance (a real mainnet account):
+
+`_10
+
+flow scripts execute cadence/scripts/getBalance.cdc 0x1654653399040a61 --network mainnet-fork`
+
+You'll see the service account's actual mainnet balance! The imports automatically resolved to mainnet addresses because you're using the `mainnet-fork` network.
+
+### Execute Transaction as Any Account[​](#execute-transaction-as-any-account "Direct link to Execute Transaction as Any Account")
+
+Generate a transaction to transfer tokens:
+
+`_10
+
+flow generate transaction transferTokens`
+
+Add the following to `cadence/transactions/transferTokens.cdc`:
+
+`_23
+
+import "FungibleToken"
+
+_23
+
+import "FlowToken"
+
+_23
+
+_23
+
+transaction(amount: UFix64, to: Address) {
+
+_23
+
+let sentVault: @{FungibleToken.Vault}
+
+_23
+
+_23
+
+prepare(signer: auth(Storage) &Account) {
+
+_23
+
+let vaultRef = signer.storage.borrow<auth(FungibleToken.Withdraw) &FlowToken.Vault>(
+
+_23
+
+from: /storage/flowTokenVault
+
+_23
+
+) ?? panic("Could not borrow reference to the owner's Vault")
+
+_23
+
+_23
+
+self.sentVault <- vaultRef.withdraw(amount: amount)
+
+_23
+
+}
+
+_23
+
+_23
+
+execute {
+
+_23
+
+let recipient = getAccount(to)
+
+_23
+
+let receiverRef = recipient.capabilities
+
+_23
+
+.borrow<&{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+
+_23
+
+?? panic("Could not borrow receiver reference")
+
+_23
+
+_23
+
+receiverRef.deposit(from: <-self.sentVault)
+
+_23
+
+}
+
+_23
+
+}`
+
+The forked emulator disables transaction signature validation, allowing you to send transactions as any address without valid signatures.
+
+Now let's test transferring tokens from a mainnet account using impersonation.
+
+### CLI-Based Impersonation[​](#cli-based-impersonation "Direct link to CLI-Based Impersonation")
+
+To use impersonation with the CLI, you need to add the mainnet account to your `flow.json` (signature validation is disabled, so the key value doesn't matter):
+
+`_10
+
+{
+
+_10
+
+"accounts": {
+
+_10
+
+"mainnet-service": {
+
+_10
+
+"address": "0x1654653399040a61",
+
+_10
+
+"key": "0000000000000000000000000000000000000000000000000000000000000000"
+
+_10
+
+}
+
+_10
+
+}
+
+_10
+
+}`
+
+Transfer tokens from the mainnet service account to another mainnet account:
+
+`_10
+
+# Transfer from mainnet service account to any mainnet address (impersonation!)
+
+_10
+
+flow transactions send cadence/transactions/transferTokens.cdc 100.0 0xRECIPIENT_ADDRESS \
+
+_10
+
+--signer mainnet-service \
+
+_10
+
+--network mainnet-fork
+
+_10
+
+_10
+
+# Verify the transfer
+
+_10
+
+flow scripts execute cadence/scripts/getBalance.cdc 0xRECIPIENT_ADDRESS \
+
+_10
+
+--network mainnet-fork`
+
+### Dev Wallet Authentication with Impersonation[​](#dev-wallet-authentication-with-impersonation "Direct link to Dev Wallet Authentication with Impersonation")
+
+The most powerful feature: when connecting your app to the forked emulator with the dev wallet, **you can authenticate as ANY mainnet account** directly in the UI.
+
+Start the dev wallet:
+
+`_10
+
+flow dev-wallet`
+
+In your app (running against the forked emulator), click the wallet connect button. In the dev wallet UI:
+
+1. **Enter any mainnet address** in the address field (e.g., a whale wallet, NFT collector, or protocol account)
+2. Click "Authenticate"
+3. Your app is now authenticated as that mainnet account with all its real balances, NFTs, and storage!
+
+**Additional dev wallet features in fork mode:**
+
+* **Fund accounts**: The dev wallet can add FLOW tokens to any account, even real mainnet accounts
+* **No configuration needed**: The dev wallet handles impersonation automatically when connected to a forked emulator
+* **Full account state**: Access all assets, storage, and capabilities from the real mainnet account
+
+This lets you:
+
+* Test your app as a user with specific assets or permissions
+* Debug issues reported by specific mainnet accounts
+* Verify flows work for accounts with large balances or many NFTs
+* Test edge cases with real account states
+* Add test funds to accounts that need more FLOW for testing
+
+How "Impersonation" Works
+
+The forked emulator simply skips signature verification. You can specify any mainnet address as the signer, and the emulator will execute the transaction as that account. Empty or invalid signatures are accepted. This lets you test with real account balances, storage, and capabilities without needing private keys. For frontend flows with the dev wallet, it works the same way—the wallet can "sign" as any address because the emulator doesn't validate signatures.
+
+## Automating with E2E Testing[​](#automating-with-e2e-testing "Direct link to Automating with E2E Testing")
+
+The forked emulator works with any E2E testing framework (Cypress, Playwright, Puppeteer, etc.). This lets you automate your app tests against production-like state.
+
+### Quick Example with Cypress[​](#quick-example-with-cypress "Direct link to Quick Example with Cypress")
+
+`_10
+
+npm install --save-dev cypress`
+
+Create `cypress/e2e/flowFork.cy.js`:
+
+`_10
+
+describe('Flow Fork Test', () => {
+
+_10
+
+it('reads real mainnet data', () => {
+
+_10
+
+cy.visit('http://localhost:3000');
+
+_10
+
+cy.contains('Get FlowToken Supply').click();
+
+_10
+
+cy.contains('Total Supply:', { timeout: 10000 }).should('be.visible');
+
+_10
+
+});
+
+_10
+
+});`
+
+### Running E2E Tests[​](#running-e2e-tests "Direct link to Running E2E Tests")
+
+Run three terminals:
+
+1. **Terminal 1**: `flow emulator --fork mainnet --fork-height <BLOCK_HEIGHT>`
+2. **Terminal 2**: `npm start` (your React app)
+3. **Terminal 3**: `npx cypress run`
+
+Your tests now run against forked mainnet—**perfect for CI/CD pipelines** with pinned block heights ensuring deterministic results.
+
+tip
+
+Use the same approach with Playwright, Puppeteer, or any browser automation tool. The key is having your app connect to the forked emulator (`http://localhost:8888`) while your E2E framework tests the UI.
+
+## Common Use Cases[​](#common-use-cases "Direct link to Common Use Cases")
+
+### Testing Contract Upgrades[​](#testing-contract-upgrades "Direct link to Testing Contract Upgrades")
+
+Test a contract upgrade against real mainnet state by mocking the contract with your upgraded version:
+
+1. Configure the mock in `flow.json` (see [Mocking Mainnet Contracts](#mocking-mainnet-contracts))
+2. Start the forked emulator
+3. Deploy your upgraded contract: `flow project deploy --network mainnet-fork --update`
+4. Test your app against the upgraded contract with all real mainnet state intact
+5. Verify existing integrations and users aren't broken by the upgrade
+
+### Debugging User-Reported Issues[​](#debugging-user-reported-issues "Direct link to Debugging User-Reported Issues")
+
+Reproduce a bug at the exact block height it occurred:
+
+`_10
+
+flow emulator --fork mainnet --fork-height <BLOCK_HEIGHT>`
+
+Then manually interact with your app or run specific transactions to reproduce the issue.
+
+### Testing Wallet Integrations[​](#testing-wallet-integrations "Direct link to Testing Wallet Integrations")
+
+Test wallet connect flows, transaction signing, and account creation against production-like state:
+
+1. Start forked emulator and dev wallet
+2. Use your app to authenticate
+3. Sign transactions as real mainnet accounts (via impersonation)
+4. Verify balance updates, event emissions, etc.
+
+### Running Bots and Indexers[​](#running-bots-and-indexers "Direct link to Running Bots and Indexers")
+
+Test automated tools against forked data by pointing your SDK to the local emulator:
+
+**Any Flow SDK works:**
+
+* **JavaScript/TypeScript**: `@onflow/fcl`
+* **Go**: `flow-go-sdk`
+* **Python**: `flow-py-sdk`
+* **Other languages**: Configure to connect to `http://localhost:8888`
+
+**Example with JavaScript:**
+
+`_11
+
+// Node.js bot that monitors FlowToken transfers
+
+_11
+
+const fcl = require('@onflow/fcl');
+
+_11
+
+_11
+
+fcl.config({
+
+_11
+
+'accessNode.api': 'http://localhost:8888', // Point to forked emulator
+
+_11
+
+});
+
+_11
+
+_11
+
+async function monitorTransfers() {
+
+_11
+
+// Subscribe to blocks and process FlowToken events
+
+_11
+
+// Bot reads real mainnet data but runs locally
+
+_11
+
+}`
+
+**Example with Go:**
+
+`_10
+
+import "github.com/onflow/flow-go-sdk/client"
+
+_10
+
+_10
+
+// Connect to forked emulator
+
+_10
+
+flowClient, err := client.New("localhost:3569", grpc.WithInsecure())
+
+_10
+
+_10
+
+// Your bot/indexer logic reads from forked mainnet state`
+
+## Best Practices[​](#best-practices "Direct link to Best Practices")
+
+### 1. Pin Block Heights for Reproducibility[​](#1-pin-block-heights-for-reproducibility "Direct link to 1. Pin Block Heights for Reproducibility")
+
+Always pin heights in E2E tests and CI:
+
+`_10
+
+flow emulator --fork mainnet --fork-height 85432100`
+
+**Why:** Ensures tests run against identical state every time.
+
+### 2. Keep Emulator Running During Development[​](#2-keep-emulator-running-during-development "Direct link to 2. Keep Emulator Running During Development")
+
+Start the forked emulator once and leave it running. Restart only when you need to change the fork height or network.
+
+### 3. Use Testnet Before Mainnet[​](#3-use-testnet-before-mainnet "Direct link to 3. Use Testnet Before Mainnet")
+
+Test against testnet first to avoid mainnet access node rate limits:
+
+`_10
+
+flow emulator --fork testnet --fork-height <BLOCK_HEIGHT>`
+
+### 4. Mock External Dependencies[​](#4-mock-external-dependencies "Direct link to 4. Mock External Dependencies")
+
+The forked emulator only mirrors Flow blockchain state. External APIs, oracles, and cross-chain data won't work. Mock them in your E2E tests:
+
+`_10
+
+// In Cypress: Mock external oracle response
+
+_10
+
+cy.intercept('GET', 'https://api.example.com/price', {
+
+_10
+
+statusCode: 200,
+
+_10
+
+body: { price: 123.45 },
+
+_10
+
+});`
+
+In your React app, you can mock API calls during testing while keeping real implementations for production.
+
+### 5. Test Against Real User Accounts[​](#5-test-against-real-user-accounts "Direct link to 5. Test Against Real User Accounts")
+
+The forked emulator disables signature validation, so you can transact as any mainnet account. Just reference the address—empty or invalid signatures are accepted:
+
+`_10
+
+# Execute a transaction as any mainnet account
+
+_10
+
+flow transactions send my_transaction.cdc \
+
+_10
+
+--signer 0x1234567890abcdef \
+
+_10
+
+--network mainnet-fork`
+
+This lets you test with real NFT collector accounts, whale wallets, or any address that has interesting state on mainnet.
+
+### 6. Document Your Fork Heights[​](#6-document-your-fork-heights "Direct link to 6. Document Your Fork Heights")
+
+Keep a log of which block heights you use for testing and why:
+
+`_10
+
+# .env.test
+
+_10
+
+FORK_HEIGHT_STABLE=<BLOCK_HEIGHT_1> # Known stable state
+
+_10
+
+FORK_HEIGHT_LATEST=<BLOCK_HEIGHT_2> # Latest tested state`
+
+## Limitations and Considerations[​](#limitations-and-considerations "Direct link to Limitations and Considerations")
+
+### Network State Fetching[​](#network-state-fetching "Direct link to Network State Fetching")
+
+Fork mode fetches state from the access node on-demand. The first access to an account or contract fetches data over the network; subsequent accesses benefit from caching. With pinned block heights, caching is very effective.
+
+### Spork Boundaries[​](#spork-boundaries "Direct link to Spork Boundaries")
+
+Historical data is only available within the current spork. You cannot fork to block heights from previous sporks via public access nodes.
+
+See: [Network Upgrade (Spork) Process](/protocol/node-ops/node-operation/network-upgrade).
+
+### Off-Chain Services[​](#off-chain-services "Direct link to Off-Chain Services")
+
+The fork only includes Flow blockchain state. External services don't work:
+
+* **Oracles**: Mock responses
+* **IPFS/Arweave**: Mock or run local nodes
+* **Cross-chain bridges**: Mock or test separately
+
+## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
+
+### Emulator Won't Start[​](#emulator-wont-start "Direct link to Emulator Won't Start")
+
+**Error:** `network "mainnet" not found in flow.json`
+
+**Solution:** Make sure your `flow.json` includes the mainnet network:
+
+`_10
+
+{
+
+_10
+
+"networks": {
+
+_10
+
+"mainnet": "access.mainnet.nodes.onflow.org:9000"
+
+_10
+
+}
+
+_10
+
+}`
+
+Or use `--fork-host` directly:
+
+`_10
+
+flow emulator --fork-host access.mainnet.nodes.onflow.org:9000`
+
+### Contract Import Fails[​](#contract-import-fails "Direct link to Contract Import Fails")
+
+**Error:** `import "FlowToken" could not be resolved`
+
+**Solution:** Ensure your fork network is properly configured:
+
+```` _12
+
+{
+
+_12
+
+# 2. Configure fork network (add to flow.json)
+
+_12
+
+# Add this in "networks":
+
+_12
+
+# "mainnet-fork": {
+
+_12
+
+# "host": "127.0.0.1:3569",
+
+_12
+
+# "fork": "mainnet"
+
+_12
+
+# }
+
+_12
+
+_12
+
+And that you've installed dependencies with the mainnet alias:
+
+_12
+
+_12
+
+```bash
+
+_12
+
+flow dependencies install ````
+
+Verify the contract has a mainnet alias that the fork can inherit.
+
+### App Can't Connect[​](#app-cant-connect "Direct link to App Can't Connect")
+
+**Error:** Frontend can't reach the emulator
+
+**Solution:** Verify FlowProvider is configured correctly:
+
+`_10
+
+<FlowProvider
+
+_10
+
+config={{
+
+_10
+
+accessNodeUrl: 'http://localhost:8888', // Must match emulator REST port
+
+_10
+
+flowNetwork: 'mainnet-fork', // Use your fork network from flow.json
+
+_10
+
+}}
+
+_10
+
+flowJson={flowJSON}
+
+_10
+
+>
+
+_10
+
+<App />
+
+_10
+
+</FlowProvider>`
+
+Check the emulator is running and serving on port 8888.
+
+**Common mistakes:**
+
+1. **Wrong network:** Using `flowNetwork: 'emulator'` when forking mainnet will use emulator contract addresses (`0x0ae53cb6...`) instead of mainnet addresses. Use your fork network name (`'mainnet-fork'`).
+2. **Missing fork network in flow.json:** Make sure your `flow.json` has the fork network configured:
+
+   `_10
+
+   "networks": {
+
+   _10
+
+   "mainnet-fork": {
+
+   _10
+
+   "host": "127.0.0.1:3569",
+
+   _10
+
+   "fork": "mainnet"
+
+   _10
+
+   }
+
+   _10
+
+   }`
+3. **Missing flowJson prop:** The `flowJson` prop is required for contract import resolution. Make sure you're importing and passing your `flow.json` file.
+
+### Script Returns Stale Data[​](#script-returns-stale-data "Direct link to Script Returns Stale Data")
+
+**Issue:** Script returns unexpected/old values
+
+**Solution:** The fork fetches state at the pinned height or latest. Verify:
+
+`_10
+
+# Check which block the emulator is at
+
+_10
+
+flow blocks get latest --network emulator`
+
+If you need fresher data, restart without `--fork-height`.
+
+### E2E Tests Flaky[​](#e2e-tests-flaky "Direct link to E2E Tests Flaky")
+
+**Issue:** Tests pass sometimes but fail randomly
+
+**Solution:**
+
+1. Pin block height for consistency
+2. Add longer timeouts for network calls
+3. Check for race conditions in async code
+
+## When to Use Emulator Fork vs Test Framework Fork[​](#when-to-use-emulator-fork-vs-test-framework-fork "Direct link to When to Use Emulator Fork vs Test Framework Fork")
+
+Choose the right tool:
+
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Use Case Tool|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Cadence unit tests `flow test` (no fork)| Cadence integration tests with real contracts `flow test --fork`| Manual testing with app `flow emulator --fork`| E2E testing (Cypress/Playwright) `flow emulator --fork`| Debugging frontend issues `flow emulator --fork`| Testing wallets/bots/indexers `flow emulator --fork` | | | | | | | | | | | | | |
+
+Both modes complement each other. See [Testing Strategy](/build/cadence/smart-contracts/testing-strategy) for the full picture.
+
+## Conclusion[​](#conclusion "Direct link to Conclusion")
+
+In this tutorial, you learned how to use the forked emulator for interactive testing, E2E test automation, and manual exploration. You created a React app using the Flow React SDK connected to forked mainnet, used account impersonation to test with real account states, and saw how to automate tests with E2E frameworks—all without deploying to a live network.
+
+Now that you have completed this tutorial, you can:
+
+* **Start the emulator in fork mode** with `flow emulator --fork`.
+* **Connect your app frontend** to the forked emulator.
+* **Test against real mainnet contracts** and production data interactively.
+* **Run E2E tests** (Cypress, Playwright) against forked state.
+* **Use account impersonation** to test as any mainnet account.
+* **Pin to specific block heights** for reproducible testing.
+* **Debug and explore** contract interactions manually.
+
+The forked emulator bridges the gap between local development and testnet/mainnet deployments. Use it to catch integration issues early, test against real-world conditions, and validate your app before going live.
+
+### Next Steps[​](#next-steps "Direct link to Next Steps")
+
+* Add E2E tests to your CI/CD pipeline using pinned fork heights
+* Test your app's upgrade flows against forked mainnet
+* Explore [Flow React SDK](/build/tools/react-sdk) hooks and components (events, mutations, Cross-VM features)
+* For Cadence contract testing, see [Fork Testing with Cadence](/blockchain-development-tutorials/cadence/fork-testing)
+* Review the [Testing Strategy](/build/cadence/smart-contracts/testing-strategy) for the full testing approach
+* Check [Flow Emulator](/build/tools/emulator) docs for advanced emulator flags
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/emulator-fork-testing/index.md)
+
+Last updated on **Dec 12, 2025** by **Jordan Ribbink**
+
+[Previous
+
+Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)[Next
+
+Flow EVM Guides](/blockchain-development-tutorials/evm)
+
+###### Rate this page
+
+😞😐😊
+
+Copy as Markdown
+
+* [What You'll Learn](#what-youll-learn)* [What You'll Build](#what-youll-build)* [Prerequisites](#prerequisites)
+      + [Flow CLI](#flow-cli)+ [Node.js and npm](#nodejs-and-npm)+ [Frontend development knowledge](#frontend-development-knowledge)+ [Network access](#network-access)* [Understanding Emulator Fork Mode](#understanding-emulator-fork-mode)
+        + [What is `flow emulator --fork`?](#what-is-flow-emulator---fork)+ [When to Use This](#when-to-use-this)+ [Emulator Fork vs Test Framework Fork](#emulator-fork-vs-test-framework-fork)* [Quick Start: Run in 60 Seconds](#quick-start-run-in-60-seconds)* [Create Your Project](#create-your-project)* [Configure Fork Network in flow.json](#configure-fork-network-in-flowjson)* [Start the Forked Emulator](#start-the-forked-emulator)* [Mocking Mainnet Contracts](#mocking-mainnet-contracts)
+                  + [Example](#example)* [Install Dependencies](#install-dependencies)* [Test with Flow CLI Scripts](#test-with-flow-cli-scripts)* [Create a React App](#create-a-react-app)* [Account Impersonation](#account-impersonation)
+                          + [Read Account Balance](#read-account-balance)+ [Execute Transaction as Any Account](#execute-transaction-as-any-account)+ [CLI-Based Impersonation](#cli-based-impersonation)+ [Dev Wallet Authentication with Impersonation](#dev-wallet-authentication-with-impersonation)* [Automating with E2E Testing](#automating-with-e2e-testing)
+                            + [Quick Example with Cypress](#quick-example-with-cypress)+ [Running E2E Tests](#running-e2e-tests)* [Common Use Cases](#common-use-cases)
+                              + [Testing Contract Upgrades](#testing-contract-upgrades)+ [Debugging User-Reported Issues](#debugging-user-reported-issues)+ [Testing Wallet Integrations](#testing-wallet-integrations)+ [Running Bots and Indexers](#running-bots-and-indexers)* [Best Practices](#best-practices)
+                                + [1. Pin Block Heights for Reproducibility](#1-pin-block-heights-for-reproducibility)+ [2. Keep Emulator Running During Development](#2-keep-emulator-running-during-development)+ [3. Use Testnet Before Mainnet](#3-use-testnet-before-mainnet)+ [4. Mock External Dependencies](#4-mock-external-dependencies)+ [5. Test Against Real User Accounts](#5-test-against-real-user-accounts)+ [6. Document Your Fork Heights](#6-document-your-fork-heights)* [Limitations and Considerations](#limitations-and-considerations)
+                                  + [Network State Fetching](#network-state-fetching)+ [Spork Boundaries](#spork-boundaries)+ [Off-Chain Services](#off-chain-services)* [Troubleshooting](#troubleshooting)
+                                    + [Emulator Won't Start](#emulator-wont-start)+ [Contract Import Fails](#contract-import-fails)+ [App Can't Connect](#app-cant-connect)+ [Script Returns Stale Data](#script-returns-stale-data)+ [E2E Tests Flaky](#e2e-tests-flaky)* [When to Use Emulator Fork vs Test Framework Fork](#when-to-use-emulator-fork-vs-test-framework-fork)* [Conclusion](#conclusion)
+                                        + [Next Steps](#next-steps)
+
+Flow
+
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
+
+Cadence
+
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
+
+Solidity (EVM)
+
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
+
+Community & Support
+
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
+
+Network & Resources
+
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow Foundation. All Rights Reserved.
 
 
 
@@ -52562,7 +54459,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -85842,7 +87739,7 @@ Search
 
                 + [Mobile Development on Flow](/blockchain-development-tutorials/cadence/mobile)
 
-                  - [IOS Development](/blockchain-development-tutorials/cadence/mobile/ios-quickstart)- [React Native Development](/blockchain-development-tutorials/cadence/mobile/react-native-quickstart)- [Build a Walletless Mobile App (PWA)](/blockchain-development-tutorials/cadence/mobile/walletless-pwa)+ [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
+                  - [IOS Development](/blockchain-development-tutorials/cadence/mobile/ios-quickstart)- [React Native Development](/blockchain-development-tutorials/cadence/mobile/react-native-quickstart)- [Build a Walletless Mobile App (PWA)](/blockchain-development-tutorials/cadence/mobile/walletless-pwa)+ [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)+ [Emulator Fork Testing](/blockchain-development-tutorials/cadence/emulator-fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
 
             * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 
@@ -112232,7 +114129,7 @@ Search
 
                 + [Mobile Development on Flow](/blockchain-development-tutorials/cadence/mobile)
 
-                  - [IOS Development](/blockchain-development-tutorials/cadence/mobile/ios-quickstart)- [React Native Development](/blockchain-development-tutorials/cadence/mobile/react-native-quickstart)- [Build a Walletless Mobile App (PWA)](/blockchain-development-tutorials/cadence/mobile/walletless-pwa)+ [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
+                  - [IOS Development](/blockchain-development-tutorials/cadence/mobile/ios-quickstart)- [React Native Development](/blockchain-development-tutorials/cadence/mobile/react-native-quickstart)- [Build a Walletless Mobile App (PWA)](/blockchain-development-tutorials/cadence/mobile/walletless-pwa)+ [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)+ [Emulator Fork Testing](/blockchain-development-tutorials/cadence/emulator-fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
 
             * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 
@@ -157870,6 +159767,10 @@ flow emulator --help`
 * **Debugging**: Use `#debugger()` pragma in Cadence code for breakpoints
 * **Fork mode note**: When you use `flow emulator --fork`, only Flow chain state is available. External oracles/APIs and cross-chain reads are not live; mock these or run local stub services for E2E.
 
+### Fork Mode Tutorial[​](#fork-mode-tutorial "Direct link to Fork Mode Tutorial")
+
+For a complete guide on using the emulator in fork mode with dapps, E2E tests, and account impersonation, see: [Interactive Testing with Forked Emulator](/blockchain-development-tutorials/cadence/emulator-fork-testing).
+
 ## Snapshots[​](#snapshots "Direct link to Snapshots")
 
 The Flow CLI provides a command to create emulator snapshots, which are points in blockchain history you can later jump to and reset the state to that moment. This can be useful to test where you establish a beginning state, run tests and after revert back to the initial state.
@@ -157940,7 +159841,7 @@ To learn more about how to use the Emulator, have a look at the [public GitHub r
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/emulator/index.md)
 
-Last updated on **Dec 10, 2025** by **cshannon1218**
+Last updated on **Dec 12, 2025** by **Jordan Ribbink**
 
 [Previous
 
@@ -157954,7 +159855,8 @@ Flow CLI](/build/tools/flow-cli)
 
 Copy as Markdown
 
-* [Installation](#installation)* [Quick Start](#quick-start)* [Available commands](#available-commands)* [Key flags](#key-flags)* [Examples](#examples)* [Debugging and Testing](#debugging-and-testing)* [Snapshots](#snapshots)
+* [Installation](#installation)* [Quick Start](#quick-start)* [Available commands](#available-commands)* [Key flags](#key-flags)* [Examples](#examples)* [Debugging and Testing](#debugging-and-testing)
+            + [Fork Mode Tutorial](#fork-mode-tutorial)* [Snapshots](#snapshots)
               + [Quick snapshot workflow](#quick-snapshot-workflow)+ [Create a new snapshot](#create-a-new-snapshot)+ [Load a current snapshot](#load-a-current-snapshot)+ [List all snapshots](#list-all-snapshots)* [Additional resources](#additional-resources)
 
 Flow
@@ -170897,7 +172799,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -175535,7 +177437,7 @@ Last updated on **Nov 6, 2025** by **cshannon1218**
 
 [Previous
 
-Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)[Next
+Emulator Fork Testing](/blockchain-development-tutorials/cadence/emulator-fork-testing)[Next
 
 Flow EVM Setup](/blockchain-development-tutorials/evm/setup)
 
@@ -190353,7 +192255,7 @@ Search
 
                 + [Mobile Development on Flow](/blockchain-development-tutorials/cadence/mobile)
 
-                  + [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
+                  + [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)+ [Emulator Fork Testing](/blockchain-development-tutorials/cadence/emulator-fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
 
             * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 
@@ -191665,7 +193567,7 @@ On this page
 A common desire that application developers have is to be able to prove that a
 user controls an onchain account. Proving ownership of an onchain account is a
 way to authenticate a user with an application backend. Fortunately,
-FCL provides a way to achieve this.
+Flow Client Library (FCL) provides a way to achieve this.
 
 During user authentication, some FCL compatible wallets will choose to support
 the FCL `account-proof` service. If a wallet chooses to support this service, and
@@ -191678,7 +193580,7 @@ authenticate a user.
 > Are you an FCL Wallet Developer? Check out the wallet provider specific docs
 > [here](https://github.com/onflow/fcl-js/blob/master/packages/fcl-core/src/wallet-provider-spec/provable-authn.md)
 
-### Authenticating a user using `account-proof`[​](#authenticating-a-user-using-account-proof "Direct link to authenticating-a-user-using-account-proof")
+### Authenticate a user with `account-proof`[​](#authenticate-a-user-with-account-proof "Direct link to authenticate-a-user-with-account-proof")
 
 In order to authenticate your users via a wallet provider's account-proof service, your application needs to
 configure FCL by setting `fcl.accountProof.resolver` and providing two pieces of information.
@@ -191744,11 +193646,11 @@ _12
 Here is the suggested order of operations of how your application might use the
 `account-proof` service:
 
-* A user would like to authenticate via your application client using FCL. The process is triggered
+* A user would like to authenticate via your application client with FCL. The process is triggered
   by a call to `fcl.authenticate()`. If `fcl.accountProof.resolver` is configured, FCL will attempt
   to retrieve the account proof data (`nonce`) and trigger your server to start a new
   account proof authentication process.
-* Your application server generates a **minimum 32-byte random nonce** using a local source of entropy and
+* Your application server generates a **minimum 32-byte random nonce** with a local source of entropy and
   sends it to the client. The server saves the challenge for future look-ups.
 * If FCL successfully retrieves the `account-proof` data, it continues the authentication process over a secure channel with the wallet.
   FCL includes the `appIdentifier` and `nonce` as part of the `FCL:VIEW:READY:RESPONSE` or HTTP POST request body. The `appIdentifier`
@@ -191851,7 +193753,7 @@ _19
 **Verification**
 
 Your application can verify the signature against the data from `account-proof`
-data using FCL's provided utility:
+data with FCL's provided utility:
 
 `_13
 
@@ -191901,28 +193803,28 @@ _13
 
 ## Implementation considerations:[​](#implementation-considerations "Direct link to Implementation considerations:")
 
-* The authentication assumes the Flow address is the identifier of the user's application account.
-  If an existing user doesn't have a Flow address in their profile, or if they decide to authenticate using
-  a Flow address different than the one saved in their profile, the user's account won't be found and the
-  process would consider a new user creating an account. It is useful for your application to consider
-  other authentication methods that allow an existing user to update the Flow address in their profile so
+* The authentication assumes the Flow address is user's application account identifier.
+  If a current user doesn't have a Flow address in their profile, or if they decide to authenticate with
+  a Flow address different than the one saved in their profile, the system won't find the user's account and the
+  process considers a new user creating an account. It is useful for your application to consider
+  other authentication methods that allow a current user to update the Flow address in their profile so
   they are able to use FCL authentication.
-* In the `account-proof` flow as described in this document,
-  the backend doesn't know the user's account address at the moment of generating a nonce.
+* In the `account-proof` flow as this document describes,
+  the backend doesn't know the user's account address at the moment it generates a nonce.
   This results in the nonces not being tied to particular Flow addresses. The backend should
   enforce an expiry window for each nonce to avoid the pool of valid nonces from growing indefinitely.
-  Your application is encouraged to implement further mitigations against malicious attempts and
+  We encourage your application to implement further mitigations against malicious attempts and
   maintain a scalable authentication process.
 * FCL `account-proof` provides functionality to prove a user is in control of
   a Flow address. All other aspects of authentication, authorization and session management
-  are up to the application. There are many resources available for setting up secure user
+  are up to the application. There are many resources available to set up secure user
   authentication systems. Application developers should carefully consider what's best for their use
   case and follow industry best practices.
-* It is important to use a secure source of entropy to generate the random nonces. The source should insure
-  nonces are not predictable by looking at previously generated nonces. Moreover, backend should use its own
-  local source and not rely on a publicly available source. Using a nonce of at least 32-bytes insures
-  it is extremely unlikely to have a nonce collision.
-* The origin / `appIdentifier` is a tuple ⟨scheme, host, port⟩ computed per RFC 6454 (i.e. the value returned
+* It is important to use a secure source of entropy to generate the random nonces. The source should look at
+  previously generated nonces to make sure that future nonces aren't predictible. Moreover, backend should use its own
+  local source and not rely on a publicly available source. Use a nonce of at least 32-bytes to try and prevent a
+  nonce collision.
+* The origin / `appIdentifier` is a tuple ⟨scheme, host, port⟩ computed per RFC 6454 (that is, the value returned
   by window.location.origin in conforming user agents). Wallets will embed this origin into the RLP-encoded payload
   which is cryptographically signed. The resulting signature serves as an attestation that the authentication request
   originated from the specified application origin (which is known through verification with supporting Browser APIs)
@@ -191932,7 +193834,7 @@ _13
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/proving-authentication.mdx)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Dec 9, 2025** by **cshannon1218**
 
 [Previous
 
@@ -191947,7 +193849,7 @@ Scripts](/build/tools/clients/fcl-js/scripts)
 Copy as Markdown
 
 * [Proving Ownership of a Flow Account](#proving-ownership-of-a-flow-account)
-  + [Authenticating a user using `account-proof`](#authenticating-a-user-using-account-proof)* [Implementation considerations:](#implementation-considerations)
+  + [Authenticate a user with `account-proof`](#authenticate-a-user-with-account-proof)* [Implementation considerations:](#implementation-considerations)
 
 Flow
 
@@ -195899,7 +197801,7 @@ Search
 
                 + [Mobile Development on Flow](/blockchain-development-tutorials/cadence/mobile)
 
-                  - [IOS Development](/blockchain-development-tutorials/cadence/mobile/ios-quickstart)- [React Native Development](/blockchain-development-tutorials/cadence/mobile/react-native-quickstart)- [Build a Walletless Mobile App (PWA)](/blockchain-development-tutorials/cadence/mobile/walletless-pwa)+ [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
+                  - [IOS Development](/blockchain-development-tutorials/cadence/mobile/ios-quickstart)- [React Native Development](/blockchain-development-tutorials/cadence/mobile/react-native-quickstart)- [Build a Walletless Mobile App (PWA)](/blockchain-development-tutorials/cadence/mobile/walletless-pwa)+ [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)+ [Emulator Fork Testing](/blockchain-development-tutorials/cadence/emulator-fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
 
             * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 
@@ -226433,7 +228335,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -229958,41 +231860,69 @@ See also: [Fork Testing with Cadence](/blockchain-development-tutorials/cadence/
 
   flow emulator --fork mainnet --fork-height <BLOCK>`
 
-  `_10
+  `_17
 
   // In your root component (e.g., App.tsx)
 
-  _10
+  _17
 
   import { FlowProvider } from '@onflow/react-sdk';
 
-  _10
+  _17
 
-  _10
+  import flowJSON from './flow.json';
+
+  _17
+
+  _17
 
   function App() {
 
-  _10
+  _17
 
   return (
 
-  _10
+  _17
 
-  <FlowProvider config={{ accessNodeUrl: 'http://localhost:8888' }}>
+  <FlowProvider
 
-  _10
+  _17
+
+  config={{
+
+  _17
+
+  accessNodeUrl: 'http://localhost:8888',
+
+  _17
+
+  flowNetwork: 'mainnet-fork', // Uses fork network with inherited aliases
+
+  _17
+
+  }}
+
+  _17
+
+  flowJson={flowJSON}
+
+  _17
+
+  >
+
+  _17
 
   {/* Your app components */}
 
-  _10
+  _17
 
   </FlowProvider>
 
-  _10
+  _17
 
   );
 
-  _10
+  _17
 
   }`
 
@@ -230014,7 +231944,7 @@ See also: [Fork Testing with Cadence](/blockchain-development-tutorials/cadence/
 
   npx cypress run`
 
-See also: [Flow Emulator](/build/tools/emulator).
+See also: [Interactive Testing with Forked Emulator](/blockchain-development-tutorials/cadence/emulator-fork-testing), [Flow Emulator](/build/tools/emulator).
 
 ### Staging — Testnet[​](#staging--testnet "Direct link to Staging — Testnet")
 
@@ -230143,7 +232073,7 @@ See also: [Flow Networks](/protocol/flow-networks).
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/smart-contracts/testing-strategy.md)
 
-Last updated on **Dec 4, 2025** by **cshannon1218**
+Last updated on **Dec 12, 2025** by **Jordan Ribbink**
 
 [Previous
 
@@ -233829,7 +235759,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -279746,29 +281676,31 @@ On this page
 
 # Signing and Verifying Arbitrary Data
 
-## Signing Arbitrary Data[​](#signing-arbitrary-data "Direct link to Signing Arbitrary Data")
+## Signing and Verifying Arbitrary Data[​](#signing-and-verifying-arbitrary-data "Direct link to Signing and Verifying Arbitrary Data")
 
-Cryptographic signatures are a key part of the blockchain. They are used to prove ownership of an address without exposing its private key. While primarily used for signing transactions, cryptographic signatures can also be used to sign arbitrary messages.
+Cryptographic signatures are a key part of the blockchain. They prove ownership of an address without exposing its private key. While primarily used to sign transactions, you can also use cryptographic signatures to sign arbitrary messages.
 
-FCL has a feature that lets you send arbitrary data to a configured wallet/service where the user may approve signing it with their private key/s.
+FCL has a feature that lets you send arbitrary data to a configured wallet or service. The user may approve signing it with their private keys.
 
-## Verifying User Signatures[​](#verifying-user-signatures "Direct link to Verifying User Signatures")
+## Verify user signatures[​](#verify-user-signatures "Direct link to Verify user signatures")
 
 What makes message signatures more interesting is that we can use Flow blockchain to verify the signatures. Cadence has a built-in function `publicKey.verify` that will verify a signature against a Flow account given the account address.
 
-FCL includes a utility function, `AppUtils.verifyUserSignatures`, for verifying one or more signatures against an account's public key on the Flow blockchain.
+FCL includes a utility function, `AppUtils.verifyUserSignatures`, that verifies one or more signatures against an account's public key on the Flow blockchain.
 
 You can use both in tandem to prove a user is in control of a private key or keys.
 
-This enables cryptographically-secure login flow using a message-signing-based authentication mechanism with a user’s public address as their identifier.
+This allows cryptographically-secure login flow with a message-signing-based authentication mechanism with a user’s public address as their identifier.
 
 ---
 
 ## `currentUser.signUserMessage()`[​](#currentusersignusermessage "Direct link to currentusersignusermessage")
 
-A method to use allowing the user to personally sign data via FCL Compatible Wallets/Services.
+A method that allows the user to personally sign data via FCL Compatible Wallets or Services.
 
-> :Note: **Requires authentication/configuration with an authorized signing service.**
+info
+
+> **Requires authentication/configuration with an authorized signing service.**
 
 ### Arguments[​](#arguments "Direct link to Arguments")
 
@@ -279826,11 +281758,11 @@ _10
 
 ## `AppUtils.verifyUserSignatures`[​](#apputilsverifyusersignatures "Direct link to apputilsverifyusersignatures")
 
-#### Note[​](#note "Direct link to Note")
+info
 
 ⚠️ `fcl.config.flow.network` or options override is required to use this API. See [FCL Configuration](/build/tools/clients/fcl-js/configure-fcl).
 
-A method allowing applications to cryptographically verify the ownership of a Flow account by verifying a message was signed by a user's private key/s. This is typically used with the response from `currentUser.signUserMessage`.
+A method to verify that a user's private keys signed a message, which allows applications to cryptographically verify Flow account ownership. This is typically used with the response from `currentUser.signUserMessage`.
 
 ### Arguments[​](#arguments-1 "Direct link to Arguments")
 
@@ -279934,7 +281866,7 @@ Use cases include cryptographic login, message validation, verifiable credential
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/user-signatures.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 9, 2025** by **cshannon1218**
 
 [Previous
 
@@ -279948,7 +281880,7 @@ Flow Go SDK](/build/tools/clients/flow-go-sdk)
 
 Copy as Markdown
 
-* [Signing Arbitrary Data](#signing-arbitrary-data)* [Verifying User Signatures](#verifying-user-signatures)* [`currentUser.signUserMessage()`](#currentusersignusermessage)
+* [Signing and Verifying Arbitrary Data](#signing-and-verifying-arbitrary-data)* [Verify user signatures](#verify-user-signatures)* [`currentUser.signUserMessage()`](#currentusersignusermessage)
       + [Arguments](#arguments)* [`AppUtils.verifyUserSignatures`](#apputilsverifyusersignatures)
         + [Arguments](#arguments-1)
 
@@ -288228,7 +290160,7 @@ Search
 
                 + [Mobile Development on Flow](/blockchain-development-tutorials/cadence/mobile)
 
-                  + [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
+                  + [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)+ [Emulator Fork Testing](/blockchain-development-tutorials/cadence/emulator-fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
 
             * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 
@@ -297218,7 +299150,7 @@ Search
 
                 - [Building Walletless Applications Using Child Accounts](/blockchain-development-tutorials/cadence/account-management/child-accounts)- [Working With Parent Accounts](/blockchain-development-tutorials/cadence/account-management/parent-accounts)- [Account Linking With NBA Top Shot](/blockchain-development-tutorials/cadence/account-management/account-linking-with-dapper)+ [Mobile Development on Flow](/blockchain-development-tutorials/cadence/mobile)
 
-                  + [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
+                  + [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)+ [Emulator Fork Testing](/blockchain-development-tutorials/cadence/emulator-fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
 
             * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 
@@ -309566,7 +311498,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -331944,13 +333876,13 @@ On this page
 
 # Account Staking Info
 
-Retrieve staking information for the account on the Flow network using Flow CLI.
+Retrieve staking information for the account on the Flow network with Flow CLI.
 
 `_10
 
 flow accounts staking-info <address>`
 
-## Example Usage[​](#example-usage "Direct link to Example Usage")
+## Example usage[​](#example-usage "Direct link to Example usage")
 
 `_26
 
@@ -332061,7 +333993,7 @@ Flow [account address](/build/cadence/basics/accounts) (prefixed with `0x` or no
 
 ## Flags[​](#flags "Direct link to Flags")
 
-### Include Fields[​](#include-fields "Direct link to Include Fields")
+### Include fields[​](#include-fields "Direct link to Include fields")
 
 * Flag: `--include`
 * Valid inputs: `contracts`
@@ -332074,17 +334006,14 @@ Specify fields to include in the result output. Applies only to the text output.
 * Valid inputs: an IP address or hostname.
 * Default: `127.0.0.1:3569` (Flow Emulator)
 
-Specify the hostname of the Access API that will be
-used to execute the command. This flag overrides
-any host defined by the `--network` flag.
+Specify the hostname of the Access API that will be used to execute the command. This flag overrides any host defined by the `--network` flag.
 
-### Network Key[​](#network-key "Direct link to Network Key")
+### Network key[​](#network-key "Direct link to Network key")
 
 * Flag: `--network-key`
 * Valid inputs: A valid network public key of the host in hex string format
 
-Specify the network public key of the Access API that will be
-used to create a secure GRPC client when executing the command.
+Specify the network public key of the Access API that will be used to create a secure GRPC client when you execute the command.
 
 ### Network[​](#network "Direct link to Network")
 
@@ -332139,7 +334068,7 @@ Specify the path to the `flow.json` configuration file.
 You can use the `-f` flag multiple times to merge
 several configuration files.
 
-### Version Check[​](#version-check "Direct link to Version Check")
+### Version check[​](#version-check "Direct link to Version check")
 
 * Flag: `--skip-version-check`
 * Default: `false`
@@ -332148,7 +334077,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/accounts/account-staking-info.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 10, 2025** by **cshannon1218**
 
 [Previous
 
@@ -332162,9 +334091,9 @@ Funding a Testnet Account](/build/tools/flow-cli/accounts/account-fund)
 
 Copy as Markdown
 
-* [Example Usage](#example-usage)* [Arguments](#arguments)
+* [Example usage](#example-usage)* [Arguments](#arguments)
     + [Address](#address)* [Flags](#flags)
-      + [Include Fields](#include-fields)+ [Host](#host)+ [Network Key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version Check](#version-check)
+      + [Include fields](#include-fields)+ [Host](#host)+ [Network key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version check](#version-check)
 
 Flow
 
@@ -332474,7 +334403,7 @@ Search
 
                 - [Building Walletless Applications Using Child Accounts](/blockchain-development-tutorials/cadence/account-management/child-accounts)- [Working With Parent Accounts](/blockchain-development-tutorials/cadence/account-management/parent-accounts)- [Account Linking With NBA Top Shot](/blockchain-development-tutorials/cadence/account-management/account-linking-with-dapper)+ [Mobile Development on Flow](/blockchain-development-tutorials/cadence/mobile)
 
-                  + [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
+                  + [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)+ [Emulator Fork Testing](/blockchain-development-tutorials/cadence/emulator-fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
 
             * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 
@@ -350606,24 +352535,26 @@ On this page
 
 ## Wallet Discovery[​](#wallet-discovery "Direct link to Wallet Discovery")
 
-Knowing all the wallets available to users on a blockchain can be challenging. FCL's Discovery mechanism relieves much of the burden of integrating with Flow compatible wallets and let's developers focus on building their dapp and providing as many options as possible to their users.
+It's a challenge to know all the wallets available to users on a blockchain. Flow Client Library's (FCL) Discovery mechanism relieves much of the burden of Flow compatible wallet integration and lets developers focus on building their dApp and providing as many options as possible to their users.
 
 There are two ways an app can use Discovery:
 
 1. The **UI version** which can be configured for display via iFrame, Popup, or Tab.
 2. The **API version** which allows you to access authentication services directly in your code via `fcl.discovery.authn` method which we'll describe below.
 
-## UI Version[​](#ui-version "Direct link to UI Version")
+## UI version[​](#ui-version "Direct link to UI version")
 
-When authenticating via FCL using Discovery UI, a user is shown a list of services they can use to login.
+When a user authenticates via FCL with Discovery UI, they receive a list of services they can use to login.
 
 ![FCL Default Discovery UI](/assets/images/discovery-c2c95d28a66e86c570491a36e37e0afa.png)
 
 This method is the simplest way to integrate Discovery and its wallets and services into your app. All you have to do is configure `discovery.wallet` with the host endpoint for testnet or mainnet.
 
-> **Note**: Opt-in wallets, like Ledger and Dapper Wallet, require you to explicitly state you'd like to use them. For more information on including opt-in wallets, [see these docs](/build/tools/clients/fcl-js/packages-docs/fcl#configuration).
->
-> A [Dapper Wallet](https://meetdapper.com/developers) developer account is required. To enable Dapper Wallet inside FCL, you need to [follow this guide](https://docs.meetdapper.com/quickstart).
+info
+
+Opt-in wallets, like Ledger and Dapper Wallet, require you to explicitly state you'd like to use them. For more information on how to include opt-in wallets, [see these docs](/build/tools/clients/fcl-js/packages-docs/fcl#configuration).
+
+A [Dapper Wallet](https://meetdapper.com/developers) developer account is required. To turn on Dapper Wallet inside FCL, you need to [follow this guide](https://docs.meetdapper.com/quickstart).
 
 `_10
 
@@ -350649,11 +352580,11 @@ _10
 
 Any time you call `fcl.authenticate` the user will be presented with that screen.
 
-To change the default view from iFrame to popup or tab set `discovery.wallet.method` to `POP/RPC` (opens as a popup) or `TAB/RPC` (opens in a new tab). More info about service methods can be [found here](https://github.com/onflow/fcl-js/blob/9bce741d3b32fde18b07084b62ea15f9bbdb85bc/packages/fcl/src/wallet-provider-spec/draft-v3.md).
+To change the default view from iFrame to popup or tab set `discovery.wallet.method` to `POP/RPC` (opens as a popup) or `TAB/RPC` (opens in a new tab). For more info about service methods, see [here](https://github.com/onflow/fcl-js/blob/9bce741d3b32fde18b07084b62ea15f9bbdb85bc/packages/fcl/src/wallet-provider-spec/draft-v3.md).
 
 ### Branding Discovery UI[​](#branding-discovery-ui "Direct link to Branding Discovery UI")
 
-Starting in version 0.0.79-alpha.4, dapps now have the ability to display app a title and app icon in the Discovery UI by setting a few values in their FCL app config. This branding provides users with messaging that has clear intent before authenticating to add a layer of trust.
+As of version 0.0.79-alpha.4, dApps can now display an app title and app icon in the Discovery UI when you a few values in their FCL app config. This branding provides users with messaging that has clear intent before they authenticate to add a layer of trust.
 
 All you have to do is set `app.detail.icon` and `app.detail.title` like this:
 
@@ -350679,13 +352610,15 @@ _10
 
 });`
 
-**Note:** If these configuration options aren't set, Dapps using the Discovery API will still display a default icon and "Unknown App" as the title when attempting to authorize a user who is not logged in. It is highly recommended to set these values accurately before going live.
+info
 
-## API Version[​](#api-version "Direct link to API Version")
+If these configuration options aren't set, dApps that use the Discovery API will still display a default icon and "Unknown App" as the title when they attempt to authorize a user who is not logged in. We highly recommended that you set these values accurately before you go live.
+
+## API version[​](#api-version "Direct link to API version")
 
 If you want more control over your authentication UI, the Discovery API is also simple to use as it exposes Discovery directly in your code via `fcl`.
 
-Setup still requires configuration of the Discovery endpoint, but when using the API it is set via `discovery.authn.endpoint` as shown below.
+Setup still requires configuration of the Discovery endpoint, but when you use the API, it is set via `discovery.authn.endpoint` as shown below.
 
 `_10
 
@@ -350737,7 +352670,7 @@ _10
 
 fcl.discovery.authn.snapshot();`
 
-In order to authenticate with a service (for example, when a user click's "login"), pass the selected service to the `fcl.authenticate` method described here [in the API reference](/build/tools/clients/fcl-js/packages-docs/fcl/authenticate):
+To authenticate with a service (for example, when a user click's "login"), pass the selected service to the `fcl.authenticate` method described in [the API reference](/build/tools/clients/fcl-js/packages-docs/fcl/authenticate):
 
 `_10
 
@@ -350891,7 +352824,7 @@ _13
 
 }`
 
-## Network Configuration[​](#network-configuration "Direct link to Network Configuration")
+## Network configuration[​](#network-configuration "Direct link to Network configuration")
 
 ### Discovery UI URLs[​](#discovery-ui-urls "Direct link to Discovery UI URLs")
 
@@ -350899,27 +352832,31 @@ _13
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Environment Example|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | Mainnet `https://fcl-discovery.onflow.org/authn`| Testnet `https://fcl-discovery.onflow.org/testnet/authn`| Local `https://fcl-discovery.onflow.org/local/authn` | | | | | | | |
 
-### Discovery API Endpoints[​](#discovery-api-endpoints "Direct link to Discovery API Endpoints")
+### Discovery API endpoints[​](#discovery-api-endpoints "Direct link to Discovery API endpoints")
 
 |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Environment Example|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | Mainnet `https://fcl-discovery.onflow.org/api/authn`| Testnet `https://fcl-discovery.onflow.org/api/testnet/authn`| Local `https://fcl-discovery.onflow.org/api/local/authn` | | | | | | | |
 
-> Note: Local will return [Dev Wallet](https://github.com/onflow/fcl-dev-wallet) on emulator for developing locally with the default port of 8701. If you'd like to override the default port add ?port=0000 with the port being whatever you'd like to override it to.
+info
 
-## Other Configuration[​](#other-configuration "Direct link to Other Configuration")
+Local will return [Dev Wallet](https://github.com/onflow/fcl-dev-wallet) on emulator for local development with the default port of 8701. If you'd like to override the default port, add `?port=0000` and set the port to whatever you'd like to override it to.
 
-> Note: Configuration works across both UI and API versions of Discovery.
+## Other configuration[​](#other-configuration "Direct link to Other configuration")
 
-### Include Opt-In Wallets[​](#include-opt-in-wallets "Direct link to Include Opt-In Wallets")
+info
 
-**Starting in FCL v0.0.78-alpha.10**
+Configuration works across both UI and API versions of Discovery.
+
+### Include opt-in wallets[​](#include-opt-in-wallets "Direct link to Include opt-in wallets")
+
+**Start in FCL v0.0.78-alpha.10**
 
 Opt-in wallets are those that don't have support for authentication, authorization, and user signature services. Or, support only a limited set of transactions.
 
-You can include opt-in wallets using either **wallet UIDs** (recommended) or service account addresses:
+You can include opt-in wallets with either **wallet UIDs** (recommended) or service account addresses:
 
-**Using Wallet UIDs (Recommended):**
+**Use wallet UIDs (recommended):**
 
 `_10
 
@@ -350951,7 +352888,7 @@ _10
 
 });`
 
-**Using Service Account Addresses:**
+**Use service Aacount addresses:**
 
 `_10
 
@@ -350991,11 +352928,11 @@ _10
 
 To learn more about other possible configurations, check out the [Discovery Github Repo](https://github.com/onflow/fcl-discovery).
 
-### Exclude Wallets[​](#exclude-wallets "Direct link to Exclude Wallets")
+### Exclude wallets[​](#exclude-wallets "Direct link to Exclude wallets")
 
-To exclude wallets from FCL Discovery, you can use the `discovery.authn.exclude` configuration option. You can specify wallets using either **wallet UIDs** (recommended) or service account addresses:
+To exclude wallets from FCL Discovery, you can use the `discovery.authn.exclude` configuration option. You can specify wallets with either **wallet UIDs** (recommended) or service account addresses:
 
-**Using Wallet UIDs (Recommended):**
+**Use wallet UIDs (recommended):**
 
 `_10
 
@@ -351027,7 +352964,7 @@ _10
 
 });`
 
-**Using Service Account Addresses:**
+**Use service account addresses:**
 
 `_10
 
@@ -351059,7 +352996,7 @@ _10
 
 });`
 
-**Available Wallet UIDs**
+**Available wallet UIDs**
 
 You can use any of the following wallet identifiers with `discovery.authn.include` or `discovery.authn.exclude`:
 
@@ -351067,11 +353004,13 @@ You can use any of the following wallet identifiers with `discovery.authn.includ
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Wallet UID Mainnet Address Testnet Address Type|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Flow Wallet `flow-wallet` 0x33f75ff0b830dcec 0x33f75ff0b830dcec Default|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | NuFi `nufi` 0x95b85a9ef4daabb1 - Default|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Blocto `blocto` 0x55ad22f01ef568a1 0x55ad22f01ef568a1 Default|  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Dapper Wallet `dapper-wallet` 0xead892083b3e2c6c 0x82ec283f88a62e65 Opt-in|  |  |  |  |  | | --- | --- | --- | --- | --- | | Ledger `ledger` 0xe5cd26afebe62781 0x9d2e44203cb13051 Opt-in | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
 
-> **Note**: Default wallets appear in Discovery by default. Opt-in wallets must be explicitly included using `discovery.authn.include`. You can use either the wallet UID or the service account address for filtering.
->
-> For the most up-to-date list of available wallets, see the [fcl-discovery wallet data](https://github.com/onflow/fcl-discovery/tree/master/data/wallets) in the official repository.
+info
 
-### WalletConnect Configuration[​](#walletconnect-configuration "Direct link to WalletConnect Configuration")
+Default wallets appear in Discovery by default. Opt-in wallets must be explicitly included with `discovery.authn.include`. You can use either the wallet UID or the service account address to filter.
+
+For the most up-to-date list of available wallets, see the [fcl-discovery wallet data](https://github.com/onflow/fcl-discovery/tree/master/data/wallets) in the official repository.
+
+### WalletConnect configuration[​](#walletconnect-configuration "Direct link to WalletConnect configuration")
 
 To configure WalletConnect, add a WalletConnect project ID to the FCL config:
 
@@ -351095,7 +353034,7 @@ _10
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/discovery.md)
 
-Last updated on **Nov 26, 2025** by **Jordan Ribbink**
+Last updated on **Dec 9, 2025** by **cshannon1218**
 
 [Previous
 
@@ -351109,10 +353048,10 @@ Installation](/build/tools/clients/fcl-js/installation)
 
 Copy as Markdown
 
-* [Wallet Discovery](#wallet-discovery)* [UI Version](#ui-version)
-    + [Branding Discovery UI](#branding-discovery-ui)* [API Version](#api-version)* [Network Configuration](#network-configuration)
-        + [Discovery UI URLs](#discovery-ui-urls)+ [Discovery API Endpoints](#discovery-api-endpoints)* [Other Configuration](#other-configuration)
-          + [Include Opt-In Wallets](#include-opt-in-wallets)+ [Exclude Wallets](#exclude-wallets)+ [WalletConnect Configuration](#walletconnect-configuration)
+* [Wallet Discovery](#wallet-discovery)* [UI version](#ui-version)
+    + [Branding Discovery UI](#branding-discovery-ui)* [API version](#api-version)* [Network configuration](#network-configuration)
+        + [Discovery UI URLs](#discovery-ui-urls)+ [Discovery API endpoints](#discovery-api-endpoints)* [Other configuration](#other-configuration)
+          + [Include opt-in wallets](#include-opt-in-wallets)+ [Exclude wallets](#exclude-wallets)+ [WalletConnect configuration](#walletconnect-configuration)
 
 Flow
 
@@ -378500,13 +380439,13 @@ On this page
 
 *This feature is only found in the Emulator. You **cannot** remove a contract on Testnet or Mainnet.*
 
-Remove an existing contract deployed to a Flow account using the Flow CLI.
+Remove a contract deployed to a Flow account with the Flow CLI.
 
 `_10
 
 flow accounts remove-contract <name>`
 
-## Example Usage[​](#example-usage "Direct link to Example Usage")
+## Example usage[​](#example-usage "Direct link to Example usage")
 
 `_17
 
@@ -378568,7 +380507,7 @@ _17
 
 Contracts Deployed: 0`
 
-**Testnet Example**
+**Testnet example**
 
 `_17
 
@@ -378650,7 +380589,7 @@ Name of the contract as it is defined in the contract source code.
 
 Specify the name of the account that will be used to sign the transaction.
 
-### Include Fields[​](#include-fields "Direct link to Include Fields")
+### Include fields[​](#include-fields "Direct link to Include fields")
 
 * Flag: `--include`
 * Valid inputs: `contracts`
@@ -378663,17 +380602,14 @@ Specify fields to include in the result output. Applies only to the text output.
 * Valid inputs: an IP address or hostname.
 * Default: `127.0.0.1:3569` (Flow Emulator)
 
-Specify the hostname of the Access API that will be
-used to execute the command. This flag overrides
-any host defined by the `--network` flag.
+Specify the hostname of the Access API that will be used to execute the command. This flag overrides any host defined by the `--network` flag.
 
-### Network Key[​](#network-key "Direct link to Network Key")
+### Network key[​](#network-key "Direct link to Network key")
 
 * Flag: `--network-key`
 * Valid inputs: A valid network public key of the host in hex string format
 
-Specify the network public key of the Access API that will be
-used to create a secure GRPC client when executing the command.
+Specify the network public key of the Access API that will be used to create a secure GRPC client when executing the command.
 
 ### Network[​](#network "Direct link to Network")
 
@@ -378724,9 +380660,7 @@ Specify the log level. Control how much output you want to see during command ex
 * Valid inputs: a path in the current filesystem
 * Default: `flow.json`
 
-Specify the path to the `flow.json` configuration file.
-You can use the `-f` flag multiple times to merge
-several configuration files.
+Specify the path to the `flow.json` configuration file. You can use the `-f` flag multiple times to merge several configuration files.
 
 ### Version Check[​](#version-check "Direct link to Version Check")
 
@@ -378737,7 +380671,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/accounts/account-remove-contract.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 10, 2025** by **cshannon1218**
 
 [Previous
 
@@ -378751,9 +380685,9 @@ Account Staking Info](/build/tools/flow-cli/accounts/account-staking-info)
 
 Copy as Markdown
 
-* [Example Usage](#example-usage)* [Arguments](#arguments)
+* [Example usage](#example-usage)* [Arguments](#arguments)
     + [Name](#name)* [Flags](#flags)
-      + [Signer](#signer)+ [Include Fields](#include-fields)+ [Host](#host)+ [Network Key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version Check](#version-check)
+      + [Signer](#signer)+ [Include fields](#include-fields)+ [Host](#host)+ [Network key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version Check](#version-check)
 
 Flow
 
@@ -390786,7 +392720,7 @@ Search
 
                 + [Mobile Development on Flow](/blockchain-development-tutorials/cadence/mobile)
 
-                  + [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
+                  + [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)+ [Emulator Fork Testing](/blockchain-development-tutorials/cadence/emulator-fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
 
             * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 
@@ -398200,7 +400134,7 @@ Search
 
                 - [Building Walletless Applications Using Child Accounts](/blockchain-development-tutorials/cadence/account-management/child-accounts)- [Working With Parent Accounts](/blockchain-development-tutorials/cadence/account-management/parent-accounts)- [Account Linking With NBA Top Shot](/blockchain-development-tutorials/cadence/account-management/account-linking-with-dapper)+ [Mobile Development on Flow](/blockchain-development-tutorials/cadence/mobile)
 
-                  + [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
+                  + [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)+ [Emulator Fork Testing](/blockchain-development-tutorials/cadence/emulator-fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
 
             * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 
@@ -399832,7 +401766,7 @@ Search
 
                 + [Mobile Development on Flow](/blockchain-development-tutorials/cadence/mobile)
 
-                  + [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
+                  + [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)+ [Emulator Fork Testing](/blockchain-development-tutorials/cadence/emulator-fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
 
             * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 
@@ -406709,21 +408643,21 @@ On this page
 
 # Installation
 
-This chapter explains the installation of the FCL JS library in your system. However, before moving to the installation, let us verify the prerequisite first.
+This chapter explains the installation of the Flow CLient Library (FCL) JS library in your system. However, before we move to the installation, let's verify the prerequisite first.
 
 ## Prerequisite[​](#prerequisite "Direct link to Prerequisite")
 
 * Node.js version v12.0.0 or higher.
 
-FCL JS depends on Node.js version v12.0.0 or higher. You can check your currently installed version using the below command:
+FCL JS depends on Node.js version v12.0.0 or higher. You can check your currently-installed version with the below command:
 
 `_10
 
 node --version`
 
-If Node.js is not installed on your system, you can download and install it by visiting [Node.js Download](https://nodejs.org/en/download/).
+If Node.js is not installed on your system, you can visit [Node.js Download](https://nodejs.org/en/download/) to download and install it.
 
-Install FCL JS using **npm** or **yarn**
+Install FCL JS with **npm** or **yarn**
 
 `_10
 
@@ -406749,7 +408683,7 @@ const fcl = require("@onflow/fcl");`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/installation.mdx)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 9, 2025** by **cshannon1218**
 
 [Previous
 
@@ -406829,7 +408763,7 @@ Search
 
                 + [Mobile Development on Flow](/blockchain-development-tutorials/cadence/mobile)
 
-                  + [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
+                  + [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)+ [Emulator Fork Testing](/blockchain-development-tutorials/cadence/emulator-fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
 
             * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 
@@ -407957,6 +409891,104 @@ Configuring fork tests in the file keeps the configuration with your test code, 
 
 You can also run specific test files or change the network/block height in the pragma as needed. See the [Fork Testing Flags](/build/tools/flow-cli/tests#fork-testing-flags) reference for more options.
 
+## Mocking Mainnet Contracts in Tests[​](#mocking-mainnet-contracts-in-tests "Direct link to Mocking Mainnet Contracts in Tests")
+
+Just like mocking dependencies in unit tests, you can **mock real mainnet contracts** by deploying modified versions—perfect for testing upgrades, bug fixes, or alternative implementations against real production state.
+
+Use `Test.deployContract()` to deploy your mock to any mainnet account address. Your mock takes precedence while other contracts continue using real mainnet versions.
+
+### Example[​](#example "Direct link to Example")
+
+`_24
+
+#test_fork(network: "mainnet", height: nil)
+
+_24
+
+_24
+
+import Test
+
+_24
+
+_24
+
+access(all) fun setup() {
+
+_24
+
+// Deploy mock FlowToken to the real mainnet address
+
+_24
+
+let err = Test.deployContract(
+
+_24
+
+name: "FlowToken",
+
+_24
+
+path: "../contracts/FlowTokenModified.cdc",
+
+_24
+
+arguments: []
+
+_24
+
+)
+
+_24
+
+Test.expect(err, Test.beNil())
+
+_24
+
+}
+
+_24
+
+_24
+
+access(all) fun testMockedFlowToken() {
+
+_24
+
+// Test now uses mocked FlowToken
+
+_24
+
+// All other contracts (FungibleToken, USDC, etc.) use real mainnet versions
+
+_24
+
+_24
+
+let scriptResult = Test.executeScript(
+
+_24
+
+Test.readFile("../scripts/CheckBalance.cdc"),
+
+_24
+
+[Address(0x1654653399040a61)]
+
+_24
+
+)
+
+_24
+
+Test.expect(scriptResult, Test.beSucceeded())
+
+_24
+
+}`
+
+This validates your contract changes against real production state and integrations.
+
 ## Pinning block heights for reproducibility[​](#pinning-block-heights-for-reproducibility "Direct link to Pinning block heights for reproducibility")
 
 For reproducible test results, pin your tests to a specific block height:
@@ -408017,13 +410049,13 @@ Fork testing bridges the gap between local unit tests and testnet deployments, w
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/fork-testing/index.md)
 
-Last updated on **Dec 2, 2025** by **Brian Doyle**
+Last updated on **Dec 12, 2025** by **Jordan Ribbink**
 
 [Previous
 
 Build a Walletless Mobile App (PWA)](/blockchain-development-tutorials/cadence/mobile/walletless-pwa)[Next
 
-Flow EVM Guides](/blockchain-development-tutorials/evm)
+Emulator Fork Testing](/blockchain-development-tutorials/cadence/emulator-fork-testing)
 
 ###### Rate this page
 
@@ -408035,8 +410067,9 @@ Copy as Markdown
       + [Flow CLI](#flow-cli)+ [Basic Cadence testing knowledge](#basic-cadence-testing-knowledge)+ [Network access](#network-access)* [Create your project](#create-your-project)* [Install dependencies](#install-dependencies)* [Test reading live state](#test-reading-live-state)* [Deploy and test Your contract](#deploy-and-test-your-contract)
               + [Create a test account](#create-a-test-account)+ [Create a contract that uses `FlowToken`](#create-a-contract-that-uses-flowtoken)+ [Configure contract in flow.json](#configure-contract-in-flowjson)+ [Create scripts for testing](#create-scripts-for-testing)+ [Test Your contract with forked state](#test-your-contract-with-forked-state)+ [What's happening here](#whats-happening-here)* [Execute transactions with account impersonation](#execute-transactions-with-account-impersonation)
                 + [Create transactions](#create-transactions)+ [Test transaction execution with impersonation](#test-transaction-execution-with-impersonation)+ [Key points about account impersonation](#key-points-about-account-impersonation)* [Run all tests together](#run-all-tests-together)
-                  + [Best Practices: In-File Configuration vs CLI Flags](#best-practices-in-file-configuration-vs-cli-flags)* [Pinning block heights for reproducibility](#pinning-block-heights-for-reproducibility)* [When to use fork testing](#when-to-use-fork-testing)* [Conclusion](#conclusion)
-                        + [Next Steps](#next-steps)
+                  + [Best Practices: In-File Configuration vs CLI Flags](#best-practices-in-file-configuration-vs-cli-flags)* [Mocking Mainnet Contracts in Tests](#mocking-mainnet-contracts-in-tests)
+                    + [Example](#example)* [Pinning block heights for reproducibility](#pinning-block-heights-for-reproducibility)* [When to use fork testing](#when-to-use-fork-testing)* [Conclusion](#conclusion)
+                          + [Next Steps](#next-steps)
 
 Flow
 
@@ -418653,7 +420686,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -420596,7 +422629,7 @@ Search
 
                 + [Mobile Development on Flow](/blockchain-development-tutorials/cadence/mobile)
 
-                  + [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
+                  + [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)+ [Emulator Fork Testing](/blockchain-development-tutorials/cadence/emulator-fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
 
             * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 
@@ -422511,7 +424544,7 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
-# Source: https://developers.flow.com
+# Source: https://developers.flow.com/
 
 Flow Developer Portal
 
@@ -428368,7 +430401,7 @@ They always need to contain a `access(all) fun main()` function as an entry poin
 
 The `cadence` key inside the object sent to the `query` function is a [JavaScript Tagged Template Literal](https://styled-components.com/docs/advanced#tagged-template-literals) that we can pass Cadence code into.
 
-### Sending Your First Script[​](#sending-your-first-script "Direct link to Sending Your First Script")
+### Send your first script[​](#send-your-first-script "Direct link to Send your first script")
 
 The following example demonstrates how to send a script to the Flow blockchain. This script adds two numbers and returns the result.
 
@@ -428412,13 +430445,13 @@ _11
 
 console.log(response) // 3 ``
 
-### A More Complex Script[​](#a-more-complex-script "Direct link to A More Complex Script")
+### A more complex script[​](#a-more-complex-script "Direct link to A more complex script")
 
 [Resources](https://cadence-lang.org/docs/language/resources) and [Structs](https://cadence-lang.org/docs/language/composite-types#structures) are complex data types that are fairly common place in Cadence.
 
 In the following code snippet, our script defines a struct called `Point`, it then returns a list of them.
 
-The closest thing to a Structure in JavaScript is an object. In this case when we decode this response, we would be expecting to get back an array of objects, where the objects have an `x` and `y` value.
+The closest thing to a Structure in JavaScript is an object. In this case when we decode this response, we would expect to get back an array of objects, where the objects have an `x` and `y` value.
 
 `` _21
 
@@ -428496,16 +430529,15 @@ _21
 
 console.log(response) // [{x:1, y:1}, {x:2, y:2}] ``
 
-### Transforming Data with Custom Decoders[​](#transforming-data-with-custom-decoders "Direct link to Transforming Data with Custom Decoders")
+### Transform data with custom decoders[​](#transform-data-with-custom-decoders "Direct link to Transform data with custom decoders")
 
-In our app, we probably have a way of representing these Cadence values internally. In the above example it might be a `Point` class.
+In our app, we probably have a way to represent these Cadence values internally. In the above example it might be a `Point` class.
 
-FCL enables us to provide custom decoders that we can use to transform the data we receive from the Flow blockchain at the edge, before anything else in our dapp gets a chance to look at it.
+FCL allows us to provide custom decoders that we can use to transform the data we receive from the Flow blockchain at the edge, before anything else in our dApp gets a chance to look at it.
 
-We add these custom decoders by [Configuring FCL](/build/tools/clients/fcl-js/configure-fcl).
-This lets us set it once when our dapp starts up and use our normalized data through out the rest of our dapp.
+To add these custom decoders, we [configure FCL](/build/tools/clients/fcl-js/configure-fcl). This lets us set it once when our dApp starts up and use our normalized data through out the rest of our dapp.
 
-In the below example we will use the concept of a `Point` again, but this time, we will add a custom decoder, that enables `fcl.decode` to transform it into a custom JavaScript `Point` class.
+In the below example, we will use the concept of a `Point` again, but this time, we will add a custom decoder, that allows `fcl.decode` to transform it into a custom JavaScript `Point` class.
 
 `` _31
 
@@ -428623,7 +430655,7 @@ To learn more about `query`, check out the [API documentation](/build/tools/clie
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/scripts.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 9, 2025** by **cshannon1218**
 
 [Previous
 
@@ -428637,7 +430669,7 @@ Transactions](/build/tools/clients/fcl-js/transactions)
 
 Copy as Markdown
 
-* [Sending Your First Script](#sending-your-first-script)* [A More Complex Script](#a-more-complex-script)* [Transforming Data with Custom Decoders](#transforming-data-with-custom-decoders)
+* [Send your first script](#send-your-first-script)* [A more complex script](#a-more-complex-script)* [Transform data with custom decoders](#transform-data-with-custom-decoders)
 
 Flow
 
@@ -435259,12 +437291,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **9ac90e931d608b33**
+Cloudflare Ray ID: **9ad14a25b8031148**
 •
 
 Your IP:
 Click to reveal
-57.151.137.153
+52.173.181.17
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 

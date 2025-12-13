@@ -54,7 +54,7 @@ They always need to contain a `access(all) fun main()` function as an entry poin
 
 The `cadence` key inside the object sent to the `query` function is a [JavaScript Tagged Template Literal](https://styled-components.com/docs/advanced#tagged-template-literals) that we can pass Cadence code into.
 
-### Sending Your First Script[​](#sending-your-first-script "Direct link to Sending Your First Script")
+### Send your first script[​](#send-your-first-script "Direct link to Send your first script")
 
 The following example demonstrates how to send a script to the Flow blockchain. This script adds two numbers and returns the result.
 
@@ -98,13 +98,13 @@ _11
 
 console.log(response) // 3 ``
 
-### A More Complex Script[​](#a-more-complex-script "Direct link to A More Complex Script")
+### A more complex script[​](#a-more-complex-script "Direct link to A more complex script")
 
 [Resources](https://cadence-lang.org/docs/language/resources) and [Structs](https://cadence-lang.org/docs/language/composite-types#structures) are complex data types that are fairly common place in Cadence.
 
 In the following code snippet, our script defines a struct called `Point`, it then returns a list of them.
 
-The closest thing to a Structure in JavaScript is an object. In this case when we decode this response, we would be expecting to get back an array of objects, where the objects have an `x` and `y` value.
+The closest thing to a Structure in JavaScript is an object. In this case when we decode this response, we would expect to get back an array of objects, where the objects have an `x` and `y` value.
 
 `` _21
 
@@ -182,16 +182,15 @@ _21
 
 console.log(response) // [{x:1, y:1}, {x:2, y:2}] ``
 
-### Transforming Data with Custom Decoders[​](#transforming-data-with-custom-decoders "Direct link to Transforming Data with Custom Decoders")
+### Transform data with custom decoders[​](#transform-data-with-custom-decoders "Direct link to Transform data with custom decoders")
 
-In our app, we probably have a way of representing these Cadence values internally. In the above example it might be a `Point` class.
+In our app, we probably have a way to represent these Cadence values internally. In the above example it might be a `Point` class.
 
-FCL enables us to provide custom decoders that we can use to transform the data we receive from the Flow blockchain at the edge, before anything else in our dapp gets a chance to look at it.
+FCL allows us to provide custom decoders that we can use to transform the data we receive from the Flow blockchain at the edge, before anything else in our dApp gets a chance to look at it.
 
-We add these custom decoders by [Configuring FCL](/build/tools/clients/fcl-js/configure-fcl).
-This lets us set it once when our dapp starts up and use our normalized data through out the rest of our dapp.
+To add these custom decoders, we [configure FCL](/build/tools/clients/fcl-js/configure-fcl). This lets us set it once when our dApp starts up and use our normalized data through out the rest of our dapp.
 
-In the below example we will use the concept of a `Point` again, but this time, we will add a custom decoder, that enables `fcl.decode` to transform it into a custom JavaScript `Point` class.
+In the below example, we will use the concept of a `Point` again, but this time, we will add a custom decoder, that allows `fcl.decode` to transform it into a custom JavaScript `Point` class.
 
 `` _31
 
@@ -309,7 +308,7 @@ To learn more about `query`, check out the [API documentation](/build/tools/clie
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/scripts.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 9, 2025** by **cshannon1218**
 
 [Previous
 
@@ -323,7 +322,7 @@ Transactions](/build/tools/clients/fcl-js/transactions)
 
 Copy as Markdown
 
-* [Sending Your First Script](#sending-your-first-script)* [A More Complex Script](#a-more-complex-script)* [Transforming Data with Custom Decoders](#transforming-data-with-custom-decoders)
+* [Send your first script](#send-your-first-script)* [A more complex script](#a-more-complex-script)* [Transform data with custom decoders](#transform-data-with-custom-decoders)
 
 Flow
 

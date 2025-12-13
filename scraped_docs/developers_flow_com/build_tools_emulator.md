@@ -270,6 +270,10 @@ flow emulator --help`
 * **Debugging**: Use `#debugger()` pragma in Cadence code for breakpoints
 * **Fork mode note**: When you use `flow emulator --fork`, only Flow chain state is available. External oracles/APIs and cross-chain reads are not live; mock these or run local stub services for E2E.
 
+### Fork Mode Tutorial[​](#fork-mode-tutorial "Direct link to Fork Mode Tutorial")
+
+For a complete guide on using the emulator in fork mode with dapps, E2E tests, and account impersonation, see: [Interactive Testing with Forked Emulator](/blockchain-development-tutorials/cadence/emulator-fork-testing).
+
 ## Snapshots[​](#snapshots "Direct link to Snapshots")
 
 The Flow CLI provides a command to create emulator snapshots, which are points in blockchain history you can later jump to and reset the state to that moment. This can be useful to test where you establish a beginning state, run tests and after revert back to the initial state.
@@ -340,7 +344,7 @@ To learn more about how to use the Emulator, have a look at the [public GitHub r
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/emulator/index.md)
 
-Last updated on **Dec 10, 2025** by **cshannon1218**
+Last updated on **Dec 12, 2025** by **Jordan Ribbink**
 
 [Previous
 
@@ -354,7 +358,8 @@ Flow CLI](/build/tools/flow-cli)
 
 Copy as Markdown
 
-* [Installation](#installation)* [Quick Start](#quick-start)* [Available commands](#available-commands)* [Key flags](#key-flags)* [Examples](#examples)* [Debugging and Testing](#debugging-and-testing)* [Snapshots](#snapshots)
+* [Installation](#installation)* [Quick Start](#quick-start)* [Available commands](#available-commands)* [Key flags](#key-flags)* [Examples](#examples)* [Debugging and Testing](#debugging-and-testing)
+            + [Fork Mode Tutorial](#fork-mode-tutorial)* [Snapshots](#snapshots)
               + [Quick snapshot workflow](#quick-snapshot-workflow)+ [Create a new snapshot](#create-a-new-snapshot)+ [Load a current snapshot](#load-a-current-snapshot)+ [List all snapshots](#list-all-snapshots)* [Additional resources](#additional-resources)
 
 Flow

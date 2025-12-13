@@ -46,21 +46,21 @@ On this page
 
 # Installation
 
-This chapter explains the installation of the FCL JS library in your system. However, before moving to the installation, let us verify the prerequisite first.
+This chapter explains the installation of the Flow CLient Library (FCL) JS library in your system. However, before we move to the installation, let's verify the prerequisite first.
 
 ## Prerequisite[​](#prerequisite "Direct link to Prerequisite")
 
 * Node.js version v12.0.0 or higher.
 
-FCL JS depends on Node.js version v12.0.0 or higher. You can check your currently installed version using the below command:
+FCL JS depends on Node.js version v12.0.0 or higher. You can check your currently-installed version with the below command:
 
 `_10
 
 node --version`
 
-If Node.js is not installed on your system, you can download and install it by visiting [Node.js Download](https://nodejs.org/en/download/).
+If Node.js is not installed on your system, you can visit [Node.js Download](https://nodejs.org/en/download/) to download and install it.
 
-Install FCL JS using **npm** or **yarn**
+Install FCL JS with **npm** or **yarn**
 
 `_10
 
@@ -86,7 +86,7 @@ const fcl = require("@onflow/fcl");`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/installation.mdx)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 9, 2025** by **cshannon1218**
 
 [Previous
 

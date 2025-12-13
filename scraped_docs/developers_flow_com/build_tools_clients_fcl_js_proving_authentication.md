@@ -51,7 +51,7 @@ On this page
 A common desire that application developers have is to be able to prove that a
 user controls an onchain account. Proving ownership of an onchain account is a
 way to authenticate a user with an application backend. Fortunately,
-FCL provides a way to achieve this.
+Flow Client Library (FCL) provides a way to achieve this.
 
 During user authentication, some FCL compatible wallets will choose to support
 the FCL `account-proof` service. If a wallet chooses to support this service, and
@@ -64,7 +64,7 @@ authenticate a user.
 > Are you an FCL Wallet Developer? Check out the wallet provider specific docs
 > [here](https://github.com/onflow/fcl-js/blob/master/packages/fcl-core/src/wallet-provider-spec/provable-authn.md)
 
-### Authenticating a user using `account-proof`[​](#authenticating-a-user-using-account-proof "Direct link to authenticating-a-user-using-account-proof")
+### Authenticate a user with `account-proof`[​](#authenticate-a-user-with-account-proof "Direct link to authenticate-a-user-with-account-proof")
 
 In order to authenticate your users via a wallet provider's account-proof service, your application needs to
 configure FCL by setting `fcl.accountProof.resolver` and providing two pieces of information.
@@ -130,11 +130,11 @@ _12
 Here is the suggested order of operations of how your application might use the
 `account-proof` service:
 
-* A user would like to authenticate via your application client using FCL. The process is triggered
+* A user would like to authenticate via your application client with FCL. The process is triggered
   by a call to `fcl.authenticate()`. If `fcl.accountProof.resolver` is configured, FCL will attempt
   to retrieve the account proof data (`nonce`) and trigger your server to start a new
   account proof authentication process.
-* Your application server generates a **minimum 32-byte random nonce** using a local source of entropy and
+* Your application server generates a **minimum 32-byte random nonce** with a local source of entropy and
   sends it to the client. The server saves the challenge for future look-ups.
 * If FCL successfully retrieves the `account-proof` data, it continues the authentication process over a secure channel with the wallet.
   FCL includes the `appIdentifier` and `nonce` as part of the `FCL:VIEW:READY:RESPONSE` or HTTP POST request body. The `appIdentifier`
@@ -237,7 +237,7 @@ _19
 **Verification**
 
 Your application can verify the signature against the data from `account-proof`
-data using FCL's provided utility:
+data with FCL's provided utility:
 
 `_13
 
@@ -287,28 +287,28 @@ _13
 
 ## Implementation considerations:[​](#implementation-considerations "Direct link to Implementation considerations:")
 
-* The authentication assumes the Flow address is the identifier of the user's application account.
-  If an existing user doesn't have a Flow address in their profile, or if they decide to authenticate using
-  a Flow address different than the one saved in their profile, the user's account won't be found and the
-  process would consider a new user creating an account. It is useful for your application to consider
-  other authentication methods that allow an existing user to update the Flow address in their profile so
+* The authentication assumes the Flow address is user's application account identifier.
+  If a current user doesn't have a Flow address in their profile, or if they decide to authenticate with
+  a Flow address different than the one saved in their profile, the system won't find the user's account and the
+  process considers a new user creating an account. It is useful for your application to consider
+  other authentication methods that allow a current user to update the Flow address in their profile so
   they are able to use FCL authentication.
-* In the `account-proof` flow as described in this document,
-  the backend doesn't know the user's account address at the moment of generating a nonce.
+* In the `account-proof` flow as this document describes,
+  the backend doesn't know the user's account address at the moment it generates a nonce.
   This results in the nonces not being tied to particular Flow addresses. The backend should
   enforce an expiry window for each nonce to avoid the pool of valid nonces from growing indefinitely.
-  Your application is encouraged to implement further mitigations against malicious attempts and
+  We encourage your application to implement further mitigations against malicious attempts and
   maintain a scalable authentication process.
 * FCL `account-proof` provides functionality to prove a user is in control of
   a Flow address. All other aspects of authentication, authorization and session management
-  are up to the application. There are many resources available for setting up secure user
+  are up to the application. There are many resources available to set up secure user
   authentication systems. Application developers should carefully consider what's best for their use
   case and follow industry best practices.
-* It is important to use a secure source of entropy to generate the random nonces. The source should insure
-  nonces are not predictable by looking at previously generated nonces. Moreover, backend should use its own
-  local source and not rely on a publicly available source. Using a nonce of at least 32-bytes insures
-  it is extremely unlikely to have a nonce collision.
-* The origin / `appIdentifier` is a tuple ⟨scheme, host, port⟩ computed per RFC 6454 (i.e. the value returned
+* It is important to use a secure source of entropy to generate the random nonces. The source should look at
+  previously generated nonces to make sure that future nonces aren't predictible. Moreover, backend should use its own
+  local source and not rely on a publicly available source. Use a nonce of at least 32-bytes to try and prevent a
+  nonce collision.
+* The origin / `appIdentifier` is a tuple ⟨scheme, host, port⟩ computed per RFC 6454 (that is, the value returned
   by window.location.origin in conforming user agents). Wallets will embed this origin into the RLP-encoded payload
   which is cryptographically signed. The resulting signature serves as an attestation that the authentication request
   originated from the specified application origin (which is known through verification with supporting Browser APIs)
@@ -318,7 +318,7 @@ _13
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/proving-authentication.mdx)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Dec 9, 2025** by **cshannon1218**
 
 [Previous
 
@@ -333,7 +333,7 @@ Scripts](/build/tools/clients/fcl-js/scripts)
 Copy as Markdown
 
 * [Proving Ownership of a Flow Account](#proving-ownership-of-a-flow-account)
-  + [Authenticating a user using `account-proof`](#authenticating-a-user-using-account-proof)* [Implementation considerations:](#implementation-considerations)
+  + [Authenticate a user with `account-proof`](#authenticate-a-user-with-account-proof)* [Implementation considerations:](#implementation-considerations)
 
 Flow
 

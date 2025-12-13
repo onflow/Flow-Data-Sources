@@ -72,7 +72,7 @@ Last updated on **Nov 6, 2025** by **cshannon1218**
 
 [Previous
 
-Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)[Next
+Emulator Fork Testing](/blockchain-development-tutorials/cadence/emulator-fork-testing)[Next
 
 Flow EVM Setup](/blockchain-development-tutorials/evm/setup)
 

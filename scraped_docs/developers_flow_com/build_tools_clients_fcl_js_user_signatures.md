@@ -46,29 +46,31 @@ On this page
 
 # Signing and Verifying Arbitrary Data
 
-## Signing Arbitrary Data[​](#signing-arbitrary-data "Direct link to Signing Arbitrary Data")
+## Signing and Verifying Arbitrary Data[​](#signing-and-verifying-arbitrary-data "Direct link to Signing and Verifying Arbitrary Data")
 
-Cryptographic signatures are a key part of the blockchain. They are used to prove ownership of an address without exposing its private key. While primarily used for signing transactions, cryptographic signatures can also be used to sign arbitrary messages.
+Cryptographic signatures are a key part of the blockchain. They prove ownership of an address without exposing its private key. While primarily used to sign transactions, you can also use cryptographic signatures to sign arbitrary messages.
 
-FCL has a feature that lets you send arbitrary data to a configured wallet/service where the user may approve signing it with their private key/s.
+FCL has a feature that lets you send arbitrary data to a configured wallet or service. The user may approve signing it with their private keys.
 
-## Verifying User Signatures[​](#verifying-user-signatures "Direct link to Verifying User Signatures")
+## Verify user signatures[​](#verify-user-signatures "Direct link to Verify user signatures")
 
 What makes message signatures more interesting is that we can use Flow blockchain to verify the signatures. Cadence has a built-in function `publicKey.verify` that will verify a signature against a Flow account given the account address.
 
-FCL includes a utility function, `AppUtils.verifyUserSignatures`, for verifying one or more signatures against an account's public key on the Flow blockchain.
+FCL includes a utility function, `AppUtils.verifyUserSignatures`, that verifies one or more signatures against an account's public key on the Flow blockchain.
 
 You can use both in tandem to prove a user is in control of a private key or keys.
 
-This enables cryptographically-secure login flow using a message-signing-based authentication mechanism with a user’s public address as their identifier.
+This allows cryptographically-secure login flow with a message-signing-based authentication mechanism with a user’s public address as their identifier.
 
 ---
 
 ## `currentUser.signUserMessage()`[​](#currentusersignusermessage "Direct link to currentusersignusermessage")
 
-A method to use allowing the user to personally sign data via FCL Compatible Wallets/Services.
+A method that allows the user to personally sign data via FCL Compatible Wallets or Services.
 
-> :Note: **Requires authentication/configuration with an authorized signing service.**
+info
+
+> **Requires authentication/configuration with an authorized signing service.**
 
 ### Arguments[​](#arguments "Direct link to Arguments")
 
@@ -126,11 +128,11 @@ _10
 
 ## `AppUtils.verifyUserSignatures`[​](#apputilsverifyusersignatures "Direct link to apputilsverifyusersignatures")
 
-#### Note[​](#note "Direct link to Note")
+info
 
 ⚠️ `fcl.config.flow.network` or options override is required to use this API. See [FCL Configuration](/build/tools/clients/fcl-js/configure-fcl).
 
-A method allowing applications to cryptographically verify the ownership of a Flow account by verifying a message was signed by a user's private key/s. This is typically used with the response from `currentUser.signUserMessage`.
+A method to verify that a user's private keys signed a message, which allows applications to cryptographically verify Flow account ownership. This is typically used with the response from `currentUser.signUserMessage`.
 
 ### Arguments[​](#arguments-1 "Direct link to Arguments")
 
@@ -234,7 +236,7 @@ Use cases include cryptographic login, message validation, verifiable credential
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/user-signatures.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 9, 2025** by **cshannon1218**
 
 [Previous
 
@@ -248,7 +250,7 @@ Flow Go SDK](/build/tools/clients/flow-go-sdk)
 
 Copy as Markdown
 
-* [Signing Arbitrary Data](#signing-arbitrary-data)* [Verifying User Signatures](#verifying-user-signatures)* [`currentUser.signUserMessage()`](#currentusersignusermessage)
+* [Signing and Verifying Arbitrary Data](#signing-and-verifying-arbitrary-data)* [Verify user signatures](#verify-user-signatures)* [`currentUser.signUserMessage()`](#currentusersignusermessage)
       + [Arguments](#arguments)* [`AppUtils.verifyUserSignatures`](#apputilsverifyusersignatures)
         + [Arguments](#arguments-1)
 

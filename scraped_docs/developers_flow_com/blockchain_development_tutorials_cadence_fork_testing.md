@@ -28,7 +28,7 @@ Search
 
                 + [Mobile Development on Flow](/blockchain-development-tutorials/cadence/mobile)
 
-                  + [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
+                  + [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)+ [Emulator Fork Testing](/blockchain-development-tutorials/cadence/emulator-fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
 
             * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 
@@ -1156,6 +1156,104 @@ Configuring fork tests in the file keeps the configuration with your test code, 
 
 You can also run specific test files or change the network/block height in the pragma as needed. See the [Fork Testing Flags](/build/tools/flow-cli/tests#fork-testing-flags) reference for more options.
 
+## Mocking Mainnet Contracts in Tests[​](#mocking-mainnet-contracts-in-tests "Direct link to Mocking Mainnet Contracts in Tests")
+
+Just like mocking dependencies in unit tests, you can **mock real mainnet contracts** by deploying modified versions—perfect for testing upgrades, bug fixes, or alternative implementations against real production state.
+
+Use `Test.deployContract()` to deploy your mock to any mainnet account address. Your mock takes precedence while other contracts continue using real mainnet versions.
+
+### Example[​](#example "Direct link to Example")
+
+`_24
+
+#test_fork(network: "mainnet", height: nil)
+
+_24
+
+_24
+
+import Test
+
+_24
+
+_24
+
+access(all) fun setup() {
+
+_24
+
+// Deploy mock FlowToken to the real mainnet address
+
+_24
+
+let err = Test.deployContract(
+
+_24
+
+name: "FlowToken",
+
+_24
+
+path: "../contracts/FlowTokenModified.cdc",
+
+_24
+
+arguments: []
+
+_24
+
+)
+
+_24
+
+Test.expect(err, Test.beNil())
+
+_24
+
+}
+
+_24
+
+_24
+
+access(all) fun testMockedFlowToken() {
+
+_24
+
+// Test now uses mocked FlowToken
+
+_24
+
+// All other contracts (FungibleToken, USDC, etc.) use real mainnet versions
+
+_24
+
+_24
+
+let scriptResult = Test.executeScript(
+
+_24
+
+Test.readFile("../scripts/CheckBalance.cdc"),
+
+_24
+
+[Address(0x1654653399040a61)]
+
+_24
+
+)
+
+_24
+
+Test.expect(scriptResult, Test.beSucceeded())
+
+_24
+
+}`
+
+This validates your contract changes against real production state and integrations.
+
 ## Pinning block heights for reproducibility[​](#pinning-block-heights-for-reproducibility "Direct link to Pinning block heights for reproducibility")
 
 For reproducible test results, pin your tests to a specific block height:
@@ -1216,13 +1314,13 @@ Fork testing bridges the gap between local unit tests and testnet deployments, w
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/fork-testing/index.md)
 
-Last updated on **Dec 2, 2025** by **Brian Doyle**
+Last updated on **Dec 12, 2025** by **Jordan Ribbink**
 
 [Previous
 
 Build a Walletless Mobile App (PWA)](/blockchain-development-tutorials/cadence/mobile/walletless-pwa)[Next
 
-Flow EVM Guides](/blockchain-development-tutorials/evm)
+Emulator Fork Testing](/blockchain-development-tutorials/cadence/emulator-fork-testing)
 
 ###### Rate this page
 
@@ -1234,8 +1332,9 @@ Copy as Markdown
       + [Flow CLI](#flow-cli)+ [Basic Cadence testing knowledge](#basic-cadence-testing-knowledge)+ [Network access](#network-access)* [Create your project](#create-your-project)* [Install dependencies](#install-dependencies)* [Test reading live state](#test-reading-live-state)* [Deploy and test Your contract](#deploy-and-test-your-contract)
               + [Create a test account](#create-a-test-account)+ [Create a contract that uses `FlowToken`](#create-a-contract-that-uses-flowtoken)+ [Configure contract in flow.json](#configure-contract-in-flowjson)+ [Create scripts for testing](#create-scripts-for-testing)+ [Test Your contract with forked state](#test-your-contract-with-forked-state)+ [What's happening here](#whats-happening-here)* [Execute transactions with account impersonation](#execute-transactions-with-account-impersonation)
                 + [Create transactions](#create-transactions)+ [Test transaction execution with impersonation](#test-transaction-execution-with-impersonation)+ [Key points about account impersonation](#key-points-about-account-impersonation)* [Run all tests together](#run-all-tests-together)
-                  + [Best Practices: In-File Configuration vs CLI Flags](#best-practices-in-file-configuration-vs-cli-flags)* [Pinning block heights for reproducibility](#pinning-block-heights-for-reproducibility)* [When to use fork testing](#when-to-use-fork-testing)* [Conclusion](#conclusion)
-                        + [Next Steps](#next-steps)
+                  + [Best Practices: In-File Configuration vs CLI Flags](#best-practices-in-file-configuration-vs-cli-flags)* [Mocking Mainnet Contracts in Tests](#mocking-mainnet-contracts-in-tests)
+                    + [Example](#example)* [Pinning block heights for reproducibility](#pinning-block-heights-for-reproducibility)* [When to use fork testing](#when-to-use-fork-testing)* [Conclusion](#conclusion)
+                          + [Next Steps](#next-steps)
 
 Flow
 

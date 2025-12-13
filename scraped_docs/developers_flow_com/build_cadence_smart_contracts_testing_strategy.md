@@ -90,41 +90,69 @@ See also: [Fork Testing with Cadence](/blockchain-development-tutorials/cadence/
 
   flow emulator --fork mainnet --fork-height <BLOCK>`
 
-  `_10
+  `_17
 
   // In your root component (e.g., App.tsx)
 
-  _10
+  _17
 
   import { FlowProvider } from '@onflow/react-sdk';
 
-  _10
+  _17
 
-  _10
+  import flowJSON from './flow.json';
+
+  _17
+
+  _17
 
   function App() {
 
-  _10
+  _17
 
   return (
 
-  _10
+  _17
 
-  <FlowProvider config={{ accessNodeUrl: 'http://localhost:8888' }}>
+  <FlowProvider
 
-  _10
+  _17
+
+  config={{
+
+  _17
+
+  accessNodeUrl: 'http://localhost:8888',
+
+  _17
+
+  flowNetwork: 'mainnet-fork', // Uses fork network with inherited aliases
+
+  _17
+
+  }}
+
+  _17
+
+  flowJson={flowJSON}
+
+  _17
+
+  >
+
+  _17
 
   {/* Your app components */}
 
-  _10
+  _17
 
   </FlowProvider>
 
-  _10
+  _17
 
   );
 
-  _10
+  _17
 
   }`
 
@@ -146,7 +174,7 @@ See also: [Fork Testing with Cadence](/blockchain-development-tutorials/cadence/
 
   npx cypress run`
 
-See also: [Flow Emulator](/build/tools/emulator).
+See also: [Interactive Testing with Forked Emulator](/blockchain-development-tutorials/cadence/emulator-fork-testing), [Flow Emulator](/build/tools/emulator).
 
 ### Staging — Testnet[​](#staging--testnet "Direct link to Staging — Testnet")
 
@@ -275,7 +303,7 @@ See also: [Flow Networks](/protocol/flow-networks).
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/smart-contracts/testing-strategy.md)
 
-Last updated on **Dec 4, 2025** by **cshannon1218**
+Last updated on **Dec 12, 2025** by **Jordan Ribbink**
 
 [Previous
 
