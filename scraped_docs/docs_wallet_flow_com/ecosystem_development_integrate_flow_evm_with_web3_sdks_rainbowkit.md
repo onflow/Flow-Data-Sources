@@ -99,7 +99,7 @@ See more detail on <https://github.com/Outblock/flow-evm-rainbow>
 
 [PreviousWagmi](/ecosystem-development/integrate-flow-evm-with-web3-sdks/wagmi)[NextEtherjs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/etherjs)
 
-Last updated 10 months ago
+Last updated 11 months ago
 
 Copy
 

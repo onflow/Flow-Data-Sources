@@ -54,23 +54,23 @@ On this page
 
 Interaction Templates establish a format for metadata that exists about an interaction. Interaction Templates can include:
 
-* Human readable, internationalized messages about the interaction
-* The Cadence code to carry out the interaction
-* Information about arguments such as internationalized human readable messages and what the arguments act upon
-* Contract dependencies the Interaction engages with, pinned to a version of them and their dependency tree
+* Human readable, internationalized messages about the interaction.
+* The Cadence code to carry out the interaction.
+* Information about arguments such as internationalized human readable messages and what the arguments act upon.
+* Contract dependencies the Interaction engages with, pinned to a version of them and their dependency tree.
 
-Applications and Wallets can use Interaction Templates and it's interaction metadata.
+Applications and Wallets can use Interaction Templates and its interaction metadata.
 
-For example Applications and Wallets can extract the internationalized human readable messaging from an Interaction Template to display to their users prior to execution of the interaction.
+For example, Applications and Wallets can extract the internationalized human readable messaging from an Interaction Template to display to their users prior to execution of the interaction.
 
 ## For Applications[​](#for-applications "Direct link to For Applications")
 
-FCL `mutate` and `query` can accept an Interaction Template. FCL `mutate` and `query` will use the Interaction Template to:
+Flow Client Library (FCL) `mutate` and `query` can accept an Interaction Template. FCL `mutate` and `query` will use the Interaction Template to:
 
-* Extract the Cadence code to carry out the interaction
-* Extract dependency configuration for the interaction (eg: Information about contract import addresses)
+* Extract the Cadence code to carry out the interaction.
+* Extract dependency configuration for the interaction (for example, Information about contract import addresses)
 
-Here is an example of using `mutate` with an Interaction Template:
+Here is an example of how to use `mutate` with an Interaction Template:
 
 `_10
 
@@ -156,11 +156,11 @@ _10
 
 })`
 
-FCL will resolve the template from the remote location before using it to execute its underlying transaction or script.
+FCL will resolve the template from the remote location before it uses it to execute its underlying transaction or script.
 
-> 💡 By requesting an Interaction Template from an external location, applications have a mechanism to always retrieve the most up to date way of accomplishing an interaction.
+> 💡 When apps use an Interaction Template from an external location, they have a mechanism to always retrieve the most up to date way of accomplishing an interaction.
 
-By default FCL supports resolving Interaction Templates over http/https, but FCL can also be configured with various other ways to resolve Interaction Templates:
+By default, FCL supports resolving Interaction Templates over http or https, but FCL can also be configured with various other ways to resolve Interaction Templates:
 
 `_10
 
@@ -202,11 +202,11 @@ _10
 
 Wallets can use Interaction Templates to:
 
-* Display internationalized human readable information about a transaction to their users during signing
-* Verify the dependencies of an Interaction Template have not changed since when the Interaction Template was created
-* Using Interaction Template Audits, gain confidence in the correctness and safety of an Interaction Template and it's underlying transaction
+* Display internationalized human readable information about a transaction to their users during signing.
+* Verify the dependencies of an Interaction Template have not changed since when the Interaction Template was created.
+* With Interaction Template Audits, gain confidence in the correctness and safety of an Interaction Template and it's underlying transaction.
 
-When recieving a transaction to sign, wallets can query for an Interaction Template that corresponds to it.
+When wallets receive a transaction to sign, they can query for an Interaction Template that corresponds to it.
 
 Flow operates an "Interaction Template Discovery Service" which wallets can use to query for Interaction Templates. Anyone can run an "Interaction Template Discovery Service" and wallets can choose to query from any of them.
 
@@ -282,9 +282,9 @@ _18
 
 > ❗️ Not all transactions will have a corresponding Interaction Template. Wallets are encouraged to always support signing transactions that do not have a corresponding Interaction Template, or if they fail to discover one.
 
-Once a wallet has a corresponding Interaction Template for a given transaction, they may also may wish to verify that the transaction it represents is safe to sign, and that the Interaction Template is accurate for that transaction.
+When a wallet has a corresponding Interaction Template for a given transaction, they may also may wish to verify that the transaction it represents is safe to sign, and that the Interaction Template is accurate for that transaction.
 
-To do so, wallets can rely on themselves, along with external Interaction Template Auditors to gain confidence in the Interaction Template and it's underlying transaction. Interaction Template Auditors are entities that audit Interaction Templates for correctness and safety.
+To do so, wallets can rely on themselves, along with external Interaction Template Auditors to gain confidence in the Interaction Template and its underlying transaction. Interaction Template Auditors are entities that audit Interaction Templates for correctness and safety.
 
 > 💡 Anyone can be an Interaction Template Auditor. Wallets can choose auditors they trust, if any.
 
@@ -422,7 +422,7 @@ _10
 
 If the dependency tree has changed, wallets may choose to disregard the Interaction Template (and it's audits).
 
-Once the Interaction Template has been sufficiently audited by auditors the wallet trusts, and it's dependency tree determined unchanged since the interaction was created and audited against, then the wallet can use the Interaction Template with greater confidence in it's correctness and safety.
+After auditors that the wallet trusts sufficiently audits the Interaction Template, and it's dependency tree determined unchanged since the interaction was created and audited against, then the wallet can use the Interaction Template with greater confidence in its correctness and safety.
 
 The wallet may then decide to render human readable information about the transaction such as:
 
@@ -701,7 +701,7 @@ _66
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/interaction-templates.mdx)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 9, 2025** by **cshannon1218**
 
 [Previous
 

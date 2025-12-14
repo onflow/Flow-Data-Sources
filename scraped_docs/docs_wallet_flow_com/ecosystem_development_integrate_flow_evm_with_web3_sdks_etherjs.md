@@ -99,4 +99,4 @@ See more detail on <https://github.com/Outblock/etherjs-flow-evm-demo>
 
 [PreviousRainbowkit](/ecosystem-development/integrate-flow-evm-with-web3-sdks/rainbowkit)[NextWeb3js](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3js)
 
-Last updated 10 months ago
+Last updated 11 months ago
