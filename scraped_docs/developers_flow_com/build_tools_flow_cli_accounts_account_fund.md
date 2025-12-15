@@ -58,17 +58,17 @@ On this page
 
 info
 
-The [Flow Testnet Faucet](https://testnet-faucet.onflow.org/) allows users to create accounts and receive 1,000 Testnet FLOW tokens for testing and development purposes. You can also fund an existing Testnet accounts without needing to create one through the site, or through the CLI.
+The [Flow Testnet Faucet](https://testnet-faucet.onflow.org/) allows users to create accounts and receive 1,000 Testnet FLOW tokens for testing and development purposes. You can also fund a current Testnet account without the need to create one through the site, or through the CLI.
 
-Fund a valid Testnet Flow Account using the Flow CLI.
+Fund a valid Testnet Flow Account with the Flow CLI.
 
 `_10
 
 flow accounts fund [address|name]`
 
-## Example Usage[​](#example-usage "Direct link to Example Usage")
+## Example usage[​](#example-usage "Direct link to Example usage")
 
-### Fund by Address[​](#fund-by-address "Direct link to Fund by Address")
+### Fund by address[​](#fund-by-address "Direct link to Fund by address")
 
 `_10
 
@@ -86,7 +86,7 @@ _10
 
 If there is an issue, please use this link instead: https://testnet-faucet.onflow.org/fund-account?address=8e94eaa81771313a`
 
-### Fund by Account Name[​](#fund-by-account-name "Direct link to Fund by Account Name")
+### Fund by account name[​](#fund-by-account-name "Direct link to Fund by account name")
 
 `_10
 
@@ -104,7 +104,7 @@ _10
 
 If there is an issue, please use this link instead: https://testnet-faucet.onflow.org/fund-account?address=8e94eaa81771313a`
 
-### Interactive Prompt[​](#interactive-prompt "Direct link to Interactive Prompt")
+### Interactive prompt[​](#interactive-prompt "Direct link to Interactive prompt")
 
 `_10
 
@@ -126,7 +126,7 @@ emulator-account (0x0ae53cb6e3f42a79)`
 
 ## Arguments[​](#arguments "Direct link to Arguments")
 
-### Address or Account Name (Optional)[​](#address-or-account-name-optional "Direct link to Address or Account Name (Optional)")
+### Address or account name (optional)[​](#address-or-account-name-optional "Direct link to Address or account name (optional)")
 
 * Name: `address|name`
 * Valid Input: Flow Testnet account address or account name from `flow.json`
@@ -139,7 +139,7 @@ You can provide:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/accounts/account-fund.md)
 
-Last updated on **Sep 22, 2025** by **Chase Fleming**
+Last updated on **Dec 10, 2025** by **cshannon1218**
 
 [Previous
 
@@ -153,9 +153,9 @@ Generate Keys](/build/tools/flow-cli/keys/generate-keys)
 
 Copy as Markdown
 
-* [Example Usage](#example-usage)
-  + [Fund by Address](#fund-by-address)+ [Fund by Account Name](#fund-by-account-name)+ [Interactive Prompt](#interactive-prompt)* [Arguments](#arguments)
-    + [Address or Account Name (Optional)](#address-or-account-name-optional)
+* [Example usage](#example-usage)
+  + [Fund by address](#fund-by-address)+ [Fund by account name](#fund-by-account-name)+ [Interactive prompt](#interactive-prompt)* [Arguments](#arguments)
+    + [Address or account name (optional)](#address-or-account-name-optional)
 
 Flow
 

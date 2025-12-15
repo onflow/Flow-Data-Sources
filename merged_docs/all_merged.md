@@ -155943,7 +155943,7 @@ Built-in Functions](/docs/language/built-in-functions)
 
 
 
-# Source: https://cadence-lang.org/docs/language/
+# Source: https://cadence-lang.org/docs/language
 
 The Cadence Programming Language | Cadence
 
@@ -220838,13 +220838,13 @@ Looking for high‑level guidance on when to use emulator, forks, or testnet? Se
 
 ## Install Flow CLI[​](#install-flow-cli "Direct link to Install Flow CLI")
 
-The [Flow CLI](/build/tools/flow-cli) is the primary tool for developing, testing, and deploying smart contracts to the Flow network.
+The [Flow CLI](/build/tools/flow-cli) is the primary tool for you to develop, test, and deploy smart contracts to the Flow network.
 
 If you haven't installed the Flow CLI yet and have [homebrew](https://brew.sh/) installed, simply run `brew install flow-cli`. Alternatively, refer to the Flow CLI [installation instructions](/build/tools/flow-cli/install).
 
 ## Create a new project[​](#create-a-new-project "Direct link to Create a new project")
 
-In your preferred code editor, create a new directory for your project and navigate to it in the terminal. Then initialize a new Flow project by running the command `flow init`. This will create a `flow.json` config file that contains the [project's configuration](/build/tools/flow-cli/flow.json/configuration).
+In your preferred code editor, create a new directory for your project and navigate to it in the terminal. Then initialize a new Flow project with the `flow init` command. This will create a `flow.json` config file that contains the [project's configuration](/build/tools/flow-cli/flow.json/configuration).
 
 `_10
 
@@ -221090,7 +221090,7 @@ This code:
 * defines two test cases: `testAdd()` and `testSubtract()`
 * calls `add()` and `subtract()` methods with different input values respectively.
 
-## Running the test cases[​](#running-the-test-cases "Direct link to Running the test cases")
+## Run the test cases[​](#run-the-test-cases "Direct link to Run the test cases")
 
 To run the test cases, use the following command in the terminal:
 
@@ -221098,7 +221098,7 @@ To run the test cases, use the following command in the terminal:
 
 flow test --cover --covercode="contracts" calculator_test.cdc`
 
-This command uses the Flow CLI to run the test cases and display the output. You should see the following output:
+This command uses the Flow CLI to run the test cases and display the output. You will see the following output:
 
 `_10
 
@@ -221116,7 +221116,7 @@ _10
 
 Coverage: 66.7% of statements`
 
-This output indicates that both test cases ran successfully, and the two smart contract methods are functioning as expected. With the supplied flags (`--cover` & `--covercode="contracts"`), we also get code coverage insights for the contracts under testing. The code coverage percentage is `66.7%`, because we have not added a test case for the `multiply` method. By viewing the auto-generated `coverage.json` file, we see:
+This output indicates that both test cases ran successfully, and the two smart contract methods work as expected. With the supplied flags (`--cover` & `--covercode="contracts"`), we also get code coverage insights for the contracts under testing. The code coverage percentage is `66.7%`, because we have not added a test case for the `multiply` method. When we view the auto-generated `coverage.json` file, we see:
 
 `_14
 
@@ -221182,7 +221182,7 @@ return a * b`
 
 which is the `multiply` method.
 
-By adding a test case for the above method:
+When we add a test case for the above method:
 
 calculator\_test.cdc
 
@@ -221236,19 +221236,19 @@ _10
 
 Coverage: 100.0% of statements`
 
-## Advanced Testing Techniques[​](#advanced-testing-techniques "Direct link to Advanced Testing Techniques")
+## Advanced testing techniques[​](#advanced-testing-techniques "Direct link to Advanced testing techniques")
 
-The Cadence testing framework provides various features and techniques for writing comprehensive test scenarios. Some of these include:
+The Cadence testing framework provides various features and techniques used to write comprehensive test scenarios. Some of these include:
 
-* [**Code Coverage**](https://github.com/m-Peter/flow-code-coverage): You can use the `--cover` flag with the `flow test` command to view code coverage results when running your tests. This allows you to identify areas of your code that are not adequately covered by your test inputs.
-* **Test Helpers**: Test helpers are reusable functions that help you set up the initial state for your test files. You can define test helpers in a Cadence program and use them in your test files by importing it whenever needed.
+* [**Code Coverage**](https://github.com/m-Peter/flow-code-coverage): You can use the `--cover` flag with the `flow test` command to view code coverage results when you run your tests. This allows you to identify areas of your code that are not adequately covered by your test inputs.
+* **Test Helpers**: Test helpers are reusable functions that help you set up the initial state for your test files. You can define test helpers in a Cadence program and use them in your test files by importing it whenever you need it.
 * [**Assertions**](https://cadence-lang.org/docs/testing-framework#assertions): The testing framework provides built-in assertion functions, such as `assertEqual`, `beNil`, `beEmpty`, `contain`, to help you verify the expected behavior of your smart contracts.
 * **Test Suites**: You can organize your test files into test suites to improve the readability and maintainability of your test code. Test suites allow you to group related test cases and set up common test helpers for all the tests in the suite.
-* [**Integration tests**](https://github.com/bjartek/overflow): In our previous example, we would directly call the available methods on the contract under test. This is generally categorized as unit testing. You can also write integration tests, by executing scripts & transactions to interact with the contracts under testing. If you would like to write your tests in Go, instead of Cadence, you can use [Overflow tool](https://github.com/bjartek/overflow) to run integration tests against either an local emulator, testnet, mainnet or an in memory instance of the flow-emulator.
+* [**Integration tests**](https://github.com/bjartek/overflow): In our previous example, we would directly call the available methods on the contract under test. This is generally categorized as unit testing. You can also write integration testswhen you execute scripts and transactions to interact with the contracts under testing. If you would like to write your tests in Go, instead of Cadence, you can use [Overflow tool](https://github.com/bjartek/overflow) to run integration tests against either an local emulator, testnet, mainnet or an in memory instance of the flow-emulator.
 
-By leveraging these advanced testing techniques, you can write more robust and reliable smart contracts in Cadence. In this example, we set up a basic testing environment, wrote a simple smart contract in Cadence, and created a test file to verify its functionality. We then used the Flow CLI to run the test file and confirm that the smart contract is working correctly.
+When you leverage these advanced testing techniques, you can write more robust and reliable smart contracts in Cadence. In this example, we set up a basic testing environment, wrote a simple smart contract in Cadence, and created a test file to verify its functionality. We then used the Flow CLI to run the test file and confirm that the smart contract works correctly.
 
-This is a basic example, and there are many more advanced features and techniques you can explore when working with the Cadence Testing Framework.
+This is a basic example, and there are many more advanced features and techniques you can explore when you work with the Cadence Testing Framework.
 
 For more in-depth tutorials and documentation, refer to the official [Cadence language documentation](https://cadence-lang.org/) and the [Flow CLI documentation](/build/tools/flow-cli).
 
@@ -221263,19 +221263,18 @@ It is suggested to follow the following best practices:
 Make sure you test all contracts - and the integration into your application extensively before proceeding to the mainnet.
 You should aim to replicate all conditions as closely as possible to the usage patterns on mainnet.
 
-## Writing Tests[​](#writing-tests "Direct link to Writing Tests")
+## Write Tests[​](#write-tests "Direct link to Write Tests")
 
-There are official SDKs/frameworks for Flow in Cadence, Go and JavaScript.
+There are official SDKsand frameworks for Flow in Cadence, Go and JavaScript.
 
-In all three cases, the test code will need to deploy the contracts, configure accounts to interact with them and send transactions to them. It will then have to wait for the transactions to be sealed and check the results by catching exceptions, checking for events, and querying state using scripts.
+In all three cases, the test code will need to deploy the contracts, configure accounts to interact with them and send transactions to them. It will then have to wait for the transactions to be sealed and check the results. To do this, it catches exceptions, checks for events, and querys state via scripts.
 
 ### Cadence tests[​](#cadence-tests "Direct link to Cadence tests")
 
-Cadence comes with built-in support for code coverage, as well as a native testing framework which allows developers to write their tests using Cadence.
-This framework is bundled with the [Flow CLI](/build/tools/flow-cli) tool, which includes a dedicated command for running tests (`flow test`).
+Cadence comes with built-in support for code coverage, as well as a native testing framework which allows developers to write their tests with Cadence. This framework is bundled with the [Flow CLI](/build/tools/flow-cli) tool, which includes a dedicated command to run tests (`flow test`).
 
 You can find examples of Cadence tests in the following projects: [hybrid-custody](https://github.com/onflow/hybrid-custody/tree/main/test), [flow-nft](https://github.com/onflow/flow-nft/tree/master/tests), [flow-ft](https://github.com/onflow/flow-ft/tree/master/tests).
-Visit the [documentation](https://cadence-lang.org/docs/testing-framework) to view all the available features.
+Visit the [Cadence documentation](https://cadence-lang.org/docs/testing-framework) to view all the available features.
 
 The [Hybrid Custody](https://github.com/onflow/hybrid-custody#readme) project is a prime example which utilizes both the Cadence testing framework and code coverage in its CI.
 
@@ -221297,16 +221296,16 @@ For running tests against a fork of mainnet/testnet, see the dedicated tutorial:
 
 ## References[​](#references "Direct link to References")
 
-* [Reference documentation for Cadence testing](https://cadence-lang.org/docs/testing-framework)
-* [Overflow](https://github.com/bjartek/overflow) is a powerful Golang-based DSL for efficient testing and execution of blockchain interactions
-* projects that have good examples of robust test cases:
-  + [hybrid-custody](https://github.com/onflow/hybrid-custody/tree/main/test),
-  + [flow-nft](https://github.com/onflow/flow-nft/tree/master/tests),
-  + [flow-ft](https://github.com/onflow/flow-ft/tree/master/tests).
+* [Cadence documentation](https://cadence-lang.org/docs/testing-framework) for testing.
+* [Overflow tool](https://github.com/bjartek/overflow) is a powerful Golang-based DSL for efficient testing and execution of blockchain interactions
+* Projects that have good examples of robust test cases:
+  + [hybrid-custody](https://github.com/onflow/hybrid-custody/tree/main/test)
+  + [flow-nft](https://github.com/onflow/flow-nft/tree/master/tests)
+  + [flow-ft](https://github.com/onflow/flow-ft/tree/master/tests)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/smart-contracts/testing.md)
 
-Last updated on **Oct 29, 2025** by **Jordan Ribbink**
+Last updated on **Dec 4, 2025** by **cshannon1218**
 
 [Previous
 
@@ -221320,7 +221319,7 @@ Security Best Practices](/build/cadence/smart-contracts/best-practices/security-
 
 Copy as Markdown
 
-* [Install Flow CLI](#install-flow-cli)* [Create a new project](#create-a-new-project)* [Write a simple smart contract](#write-a-simple-smart-contract)* [Add the smart contract to the config](#add-the-smart-contract-to-the-config)* [Write unit tests](#write-unit-tests)* [Running the test cases](#running-the-test-cases)* [Advanced Testing Techniques](#advanced-testing-techniques)* [Testing Requirements](#testing-requirements)* [Writing Tests](#writing-tests)
+* [Install Flow CLI](#install-flow-cli)* [Create a new project](#create-a-new-project)* [Write a simple smart contract](#write-a-simple-smart-contract)* [Add the smart contract to the config](#add-the-smart-contract-to-the-config)* [Write unit tests](#write-unit-tests)* [Run the test cases](#run-the-test-cases)* [Advanced testing techniques](#advanced-testing-techniques)* [Testing Requirements](#testing-requirements)* [Write Tests](#write-tests)
                   + [Cadence tests](#cadence-tests)+ [Fork testing (overview)](#fork-testing-overview)* [References](#references)
 
 Flow
@@ -326979,17 +326978,17 @@ On this page
 
 info
 
-The [Flow Testnet Faucet](https://testnet-faucet.onflow.org/) allows users to create accounts and receive 1,000 Testnet FLOW tokens for testing and development purposes. You can also fund an existing Testnet accounts without needing to create one through the site, or through the CLI.
+The [Flow Testnet Faucet](https://testnet-faucet.onflow.org/) allows users to create accounts and receive 1,000 Testnet FLOW tokens for testing and development purposes. You can also fund a current Testnet account without the need to create one through the site, or through the CLI.
 
-Fund a valid Testnet Flow Account using the Flow CLI.
+Fund a valid Testnet Flow Account with the Flow CLI.
 
 `_10
 
 flow accounts fund [address|name]`
 
-## Example Usage[​](#example-usage "Direct link to Example Usage")
+## Example usage[​](#example-usage "Direct link to Example usage")
 
-### Fund by Address[​](#fund-by-address "Direct link to Fund by Address")
+### Fund by address[​](#fund-by-address "Direct link to Fund by address")
 
 `_10
 
@@ -327007,7 +327006,7 @@ _10
 
 If there is an issue, please use this link instead: https://testnet-faucet.onflow.org/fund-account?address=8e94eaa81771313a`
 
-### Fund by Account Name[​](#fund-by-account-name "Direct link to Fund by Account Name")
+### Fund by account name[​](#fund-by-account-name "Direct link to Fund by account name")
 
 `_10
 
@@ -327025,7 +327024,7 @@ _10
 
 If there is an issue, please use this link instead: https://testnet-faucet.onflow.org/fund-account?address=8e94eaa81771313a`
 
-### Interactive Prompt[​](#interactive-prompt "Direct link to Interactive Prompt")
+### Interactive prompt[​](#interactive-prompt "Direct link to Interactive prompt")
 
 `_10
 
@@ -327047,7 +327046,7 @@ emulator-account (0x0ae53cb6e3f42a79)`
 
 ## Arguments[​](#arguments "Direct link to Arguments")
 
-### Address or Account Name (Optional)[​](#address-or-account-name-optional "Direct link to Address or Account Name (Optional)")
+### Address or account name (optional)[​](#address-or-account-name-optional "Direct link to Address or account name (optional)")
 
 * Name: `address|name`
 * Valid Input: Flow Testnet account address or account name from `flow.json`
@@ -327060,7 +327059,7 @@ You can provide:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/accounts/account-fund.md)
 
-Last updated on **Sep 22, 2025** by **Chase Fleming**
+Last updated on **Dec 10, 2025** by **cshannon1218**
 
 [Previous
 
@@ -327074,9 +327073,9 @@ Generate Keys](/build/tools/flow-cli/keys/generate-keys)
 
 Copy as Markdown
 
-* [Example Usage](#example-usage)
-  + [Fund by Address](#fund-by-address)+ [Fund by Account Name](#fund-by-account-name)+ [Interactive Prompt](#interactive-prompt)* [Arguments](#arguments)
-    + [Address or Account Name (Optional)](#address-or-account-name-optional)
+* [Example usage](#example-usage)
+  + [Fund by address](#fund-by-address)+ [Fund by account name](#fund-by-account-name)+ [Interactive prompt](#interactive-prompt)* [Arguments](#arguments)
+    + [Address or account name (optional)](#address-or-account-name-optional)
 
 Flow
 
@@ -448587,7 +448586,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -448635,19 +448634,20 @@ On this page
 
 # Create an Account
 
-The Flow CLI provides a command to submit an account creation
-transaction to any Flow Access API. There are two options how to create an account, you can use the
-interactive mode which guides you through the process and creates the account for you or by using
-the manual process which requires a pre-existing account on the network you chose.
+The Flow CLI provides a command to submit an account creation transaction to any Flow Access API.
+
+There are two options how to create an account:
+
+* Use the interactive mode which guides you through the process and creates the account for you.
+* Use the manual process which requires a current account on the network you chose.
 
 ## Interactive Mode[​](#interactive-mode "Direct link to Interactive Mode")
 
-Creating the account in interactive mode prompts you for an account name and network selection.
-After you enter the required information the account will be created for you and saved to `flow.json`.
-If account creation is done on testnet or mainnet the account key will be saved to a separate key file,
-which will also be put in `.gitignore`. You can [read more about key security here](/build/tools/flow-cli/flow.json/security).
+When you create the account in interactive mode, the system prompts you for an account name and network selection.
 
-💡 *Please note that the account creation process can take up to a minute so please be patient.*
+After you enter the required information, the system creates the account for you and saves it to `flow.json`. If account creation is done on testnet or mainnet the account key is saved to a separate key file, which will also be put in `.gitignore`. You can [read more about key security here](/build/tools/flow-cli/flow.json/security).
+
+💡 *The account creation process can take up to a minute, so please be patient.*
 
 `_11
 
@@ -448687,11 +448687,11 @@ _11
 
 - Added mike.pkey to .gitignore.`
 
-## Manual Mode[​](#manual-mode "Direct link to Manual Mode")
+## Manual mode[​](#manual-mode "Direct link to Manual mode")
 
-Manual mode requires you to have a pre-existing account on the network which you will have to provide as a signer.
-That account must be added to `flow.json` for the command to work. You also have to generate a key pair, we
-suggest using the `flow keys generate` command, [which you can read more about here](/build/tools/flow-cli/keys/generate-keys).
+Manual mode requires you to have a current account on the network, which you will have to provide as a signer. You must add that account to `flow.json` for the command to work.
+
+You also have to generate a key pair, we suggest you use the `flow keys generate` command, [which you can read more about here](/build/tools/flow-cli/keys/generate-keys).
 
 `_15
 
@@ -448783,15 +448783,14 @@ _10
 
 ## Flags[​](#flags "Direct link to Flags")
 
-### Public Key[​](#public-key "Direct link to Public Key")
+### Public key[​](#public-key "Direct link to Public key")
 
 * Flag: `--key`
 * Valid inputs: a hex-encoded public key in raw form.
 
-Specify the public key that will be added to the new account
-upon creation.
+Specify the public key that the system adds to the new account upon creation.
 
-### Key Weight[​](#key-weight "Direct link to Key Weight")
+### Key weight[​](#key-weight "Direct link to Key weight")
 
 * Flag: `--key-weight`
 * Valid inputs: number between 0 and 1000
@@ -448799,46 +448798,41 @@ upon creation.
 
 Specify the weight of the public key being added to the new account.
 
-When opting to use this flag, you must specify a `--key-weight` flag for each public `--key` flag provided.
+When you use this flag, you must specify a `--key-weight` flag for each public `--key` flag provided.
 
-### Public Key Signature Algorithm[​](#public-key-signature-algorithm "Direct link to Public Key Signature Algorithm")
+### Public key signature algorithm[​](#public-key-signature-algorithm "Direct link to Public key signature algorithm")
 
 * Flag: `--sig-algo`
 * Valid inputs: `"ECDSA_P256", "ECDSA_secp256k1"`
 * Default: `"ECDSA_P256"`
 
-Specify the ECDSA signature algorithm for the provided public key.
-This option can only be used together with the `--key` flag.
+Specify the ECDSA signature algorithm for the provided public key. This option can only be used together with the `--key` flag.
 
 Flow supports the secp256k1 and P-256 curves.
 
-### Public Key Hash Algorithm[​](#public-key-hash-algorithm "Direct link to Public Key Hash Algorithm")
+### Public key hash algorithm[​](#public-key-hash-algorithm "Direct link to Public key hash algorithm")
 
 * Flag: `--hash-algo`
 * Valid inputs: `"SHA2_256", "SHA3_256"`
 * Default: `"SHA3_256"`
 
-Specify the hash algorithm that will be paired with the public key
-upon account creation.
+Specify the hash algorithm that will be paired with the public key upon account creation.
 
 ### Signer[​](#signer "Direct link to Signer")
 
 * Flag: `--signer`
 * Valid inputs: the name of an account defined in `flow.json`.
 
-Specify the name of the account that will be used to sign the transaction
-and pay the account creation fee.
+Specify the name of the account that will be used to sign the transaction and pay the account creation fee.
 
 ### Contract[​](#contract "Direct link to Contract")
 
 * Flag: `--contract`
-* Valid inputs: String with format `name:filename`, where `name` is
-  name of the contract as it is defined in the contract source code
-  and `filename` is the filename of the contract source code.
+* Valid inputs: String with format `name:filename`, where `name` is the name of the contract as it is defined in the contract source code, and `filename` is the filename of the contract source code.
 
 Specify one or more contracts to be deployed during account creation.
 
-### Include Fields[​](#include-fields "Direct link to Include Fields")
+### Include fields[​](#include-fields "Direct link to Include fields")
 
 * Flag: `--include`
 * Valid inputs: `contracts`
@@ -448851,17 +448845,14 @@ Specify fields to include in the result output. Applies only to the text output.
 * Valid inputs: an IP address or hostname.
 * Default: `127.0.0.1:3569` (Flow Emulator)
 
-Specify the hostname of the Access API that will be
-used to execute the command. This flag overrides
-any host defined by the `--network` flag.
+Specify the hostname of the Access API that will be used to execute the command. This flag overrides any host defined by the `--network` flag.
 
-### Network Key[​](#network-key "Direct link to Network Key")
+### Network key[​](#network-key "Direct link to Network key")
 
 * Flag: `--network-key`
 * Valid inputs: A valid network public key of the host in hex string format
 
-Specify the network public key of the Access API that will be
-used to create a secure GRPC client when executing the command.
+Specify the network public key of the Access API that will be used to create a secure GRPC client when you execute the command.
 
 ### Network[​](#network "Direct link to Network")
 
@@ -448894,7 +448885,7 @@ Specify the format of the command results.
 * Short Flag: `-s`
 * Valid inputs: a path in the current filesystem.
 
-Specify the filename where you want the result to be saved
+Specify the filename where you want the result to be saved.
 
 ### Log[​](#log "Direct link to Log")
 
@@ -448912,11 +448903,9 @@ Specify the log level. Control how much output you want to see during command ex
 * Valid inputs: a path in the current filesystem.
 * Default: `flow.json`
 
-Specify the path to the `flow.json` configuration file.
-You can use the `-f` flag multiple times to merge
-several configuration files.
+Specify the path to the `flow.json` configuration file. You can use the `-f` flag multiple times to merge several configuration files.
 
-### Version Check[​](#version-check "Direct link to Version Check")
+### Version check[​](#version-check "Direct link to Version check")
 
 * Flag: `--skip-version-check`
 * Default: `false`
@@ -448925,7 +448914,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/accounts/create-accounts.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 10, 2025** by **cshannon1218**
 
 [Previous
 
@@ -448939,8 +448928,8 @@ Deploy a Contract](/build/tools/flow-cli/accounts/account-add-contract)
 
 Copy as Markdown
 
-* [Interactive Mode](#interactive-mode)* [Manual Mode](#manual-mode)* [Flags](#flags)
-      + [Public Key](#public-key)+ [Key Weight](#key-weight)+ [Public Key Signature Algorithm](#public-key-signature-algorithm)+ [Public Key Hash Algorithm](#public-key-hash-algorithm)+ [Signer](#signer)+ [Contract](#contract)+ [Include Fields](#include-fields)+ [Host](#host)+ [Network Key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version Check](#version-check)
+* [Interactive Mode](#interactive-mode)* [Manual mode](#manual-mode)* [Flags](#flags)
+      + [Public key](#public-key)+ [Key weight](#key-weight)+ [Public key signature algorithm](#public-key-signature-algorithm)+ [Public key hash algorithm](#public-key-hash-algorithm)+ [Signer](#signer)+ [Contract](#contract)+ [Include fields](#include-fields)+ [Host](#host)+ [Network key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version check](#version-check)
 
 Flow
 
@@ -492087,7 +492076,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -497582,7 +497571,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -620475,12 +620464,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **9ad98a8d2be8c947**
+Cloudflare Ray ID: **9ae1c804f84157b2**
 •
 
 Your IP:
 Click to reveal
-145.132.101.194
+135.119.239.48
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 
