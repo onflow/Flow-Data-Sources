@@ -155943,7 +155943,7 @@ Built-in Functions](/docs/language/built-in-functions)
 
 
 
-# Source: https://cadence-lang.org/docs/language
+# Source: https://cadence-lang.org/docs/language/
 
 The Cadence Programming Language | Cadence
 
@@ -200889,7 +200889,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -260508,7 +260508,7 @@ Search
 
                 + [Mobile Development on Flow](/blockchain-development-tutorials/cadence/mobile)
 
-                  + [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
+                  + [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)+ [Emulator Fork Testing](/blockchain-development-tutorials/cadence/emulator-fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
 
             * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 
@@ -293544,7 +293544,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -607674,7 +607674,7 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
-# Source: https://developers.flow.com/
+# Source: https://developers.flow.com
 
 Flow Developer Portal
 
@@ -620464,12 +620464,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **9ae1c804f84157b2**
+Cloudflare Ray ID: **9aea0400bf734f40**
 •
 
 Your IP:
 Click to reveal
-135.119.239.48
+52.176.138.179
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 
