@@ -2352,7 +2352,7 @@ Search
 
                                 - [Utils](/build/tools/flow-cli/utils/signature-generate)
 
-                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Fork Testing](/build/tools/flow-cli/fork-testing)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
 
                     + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
@@ -2373,6 +2373,7 @@ With Flow CLI, developers can:
 * **Query Chain State**: Retrieve data from the Flow blockchain, including account balances, event logs, and the status of specific transactions.
 * **Deploy Smart Contracts**: Easily deploy and update Cadence smart contracts on any Flow environment (emulator, testnet, or mainnet).
 * **Use the Emulator:** Set up a local Flow blockchain instance with the Flow emulator to test and debug smart contracts in a development environment before deploying them on the network.
+* **Test with Fork Mode**: Use [fork testing](/build/tools/flow-cli/fork-testing) to run tests and development environments against a local copy of mainnet or testnet state, giving you access to real contracts and data without affecting production.
 * **Interact with the [Flow Access API](/http-api)**: Automate complex workflows using configuration files and command-line scripting, which allows for greater flexibility in continuous integration (CI) or custom development tools.
 * **Access Flow’s Tooling Ecosystem**: Integrate Flow CLI with other developer tools like the [Cadence Extension for VSCode](https://marketplace.visualstudio.com/items?itemName=onflow.cadence) to enhance your development experience.
 
@@ -2397,7 +2398,7 @@ To learn more about Flow CLI commands and how to use them, please refer to the [
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/index.md)
 
-Last updated on **Oct 22, 2025** by **Chase Fleming**
+Last updated on **Dec 16, 2025** by **Jordan Ribbink**
 
 [Previous
 
@@ -4447,7 +4448,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -15274,7 +15275,7 @@ Search
 
                                 - [Utils](/build/tools/flow-cli/utils/signature-generate)
 
-                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Fork Testing](/build/tools/flow-cli/fork-testing)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
 
                     + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
@@ -27903,7 +27904,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -31733,7 +31734,7 @@ Search
 
                                 - [Utils](/build/tools/flow-cli/utils/signature-generate)
 
-                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Fork Testing](/build/tools/flow-cli/fork-testing)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
 
                     + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
@@ -37033,6 +37034,376 @@ More
 * [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://developers.flow.com/build/tools/flow-cli/fork-testing
+
+Fork Testing | Flow Developer Portal
+
+
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Why Flow](/build/flow)* [Cadence](/build/cadence/quickstart)
+
+    + [Quickstart ↙](/build/cadence/quickstart)+ [Differences vs. EVM](/build/cadence/differences-vs-evm)+ [Basics](/build/cadence/basics/network-architecture)
+
+          + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
+
+            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+
+              + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
+
+      + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
+
+        + [Flow React SDK](/build/tools/react-sdk)
+
+          + [Flow Emulator](/build/tools/emulator)+ [Flow CLI](/build/tools/flow-cli)
+
+              - [Install Instructions](/build/tools/flow-cli/install)- [Commands Overview](/build/tools/flow-cli/commands)- [Accounts](/build/tools/flow-cli/accounts/get-accounts)
+
+                    - [Keys](/build/tools/flow-cli/keys/generate-keys)
+
+                      - [Deploy Project](/build/tools/flow-cli/deployment/project-contracts)
+
+                        - [Scripts](/build/tools/flow-cli/scripts/execute-scripts)
+
+                          - [Transactions](/build/tools/flow-cli/transactions/send-transactions)
+
+                            - [Flow.json](/build/tools/flow-cli/flow.json/initialize-configuration)
+
+                              - [Flow Entities](/build/tools/flow-cli/get-flow-data/get-blocks)
+
+                                - [Utils](/build/tools/flow-cli/utils/signature-generate)
+
+                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Fork Testing](/build/tools/flow-cli/fork-testing)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+
+                    + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+
+* * [Tools & SDKs](/build/tools)* [Flow CLI](/build/tools/flow-cli)* Fork Testing
+
+On this page
+
+# Fork Testing
+
+Fork testing allows you to run tests and development environments against a **local copy of mainnet or testnet state**. This gives you access to real contracts, accounts, and data without deploying to live networks or affecting production state.
+
+## What is Fork Testing?[​](#what-is-fork-testing "Direct link to What is Fork Testing?")
+
+Fork testing creates a local Flow network that mirrors the state of a real network (mainnet or testnet). Your code runs locally, but can read from and interact with production contract implementations, real account balances, and actual on-chain data.
+
+**Key Benefits:**
+
+* ✅ **Test against real production contracts** - No need to mock complex dependencies
+* ✅ **Access real account state** - Test with actual balances, NFTs, and storage
+* ✅ **Reproduce production issues** - Debug problems at specific block heights
+* ✅ **Test contract upgrades safely** - Verify changes work with real mainnet state
+* ✅ **Safe testing environment** - All changes stay local, never affect the real network
+* ✅ **Fast iteration** - No deployment costs or wait times
+
+Fork testing is an essential part of a comprehensive testing strategy. It complements unit tests and integration tests by letting you validate your contracts against real-world state and dependencies. Learn more about building a complete testing approach in the [Testing Strategy guide](/build/cadence/smart-contracts/testing-strategy).
+
+## Two Fork Testing Modes[​](#two-fork-testing-modes "Direct link to Two Fork Testing Modes")
+
+The Flow CLI provides two different fork testing modes for different use cases:
+
+### 1. Emulator Fork Mode (`flow emulator --fork`)[​](#1-emulator-fork-mode-flow-emulator---fork "Direct link to 1-emulator-fork-mode-flow-emulator---fork")
+
+**Best for:**
+
+* Frontend and app development
+* E2E testing (Cypress, Playwright)
+* Manual testing and exploration
+* Wallet integration testing
+* Bot and indexer development
+
+**How it works:**
+Starts a full emulator with REST and gRPC APIs that you can connect to with FCL, dev wallet, or any Flow SDK.
+
+`_10
+
+flow emulator --fork mainnet`
+
+**Learn more:** [Interactive Testing with Forked Emulator](/blockchain-development-tutorials/cadence/emulator-fork-testing)
+
+### 2. Test Framework Fork Mode (`flow test` + `#test_fork`)[​](#2-test-framework-fork-mode-flow-test--test_fork "Direct link to 2-test-framework-fork-mode-flow-test--test_fork")
+
+**Best for:**
+
+* Cadence integration tests
+* Contract testing against real dependencies
+* Testing contract logic with real mainnet state
+
+**How it works:**
+Runs your `*_test.cdc` files against a forked network using the [Cadence Testing Framework](/build/cadence/smart-contracts/testing). Add the `#test_fork` pragma to your test file, then run:
+
+`_10
+
+flow test`
+
+**Learn more:** [Fork Testing with Cadence](/blockchain-development-tutorials/cadence/fork-testing)
+
+## Quick Comparison[​](#quick-comparison "Direct link to Quick Comparison")
+
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Feature `flow emulator --fork` `flow test` + `#test_fork`|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **Use for** App E2E, manual testing, debugging Cadence integration tests|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **Connects to** Frontend, wallets, bots, E2E tools Cadence Testing Framework|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **Run with** FCL, Cypress, Playwright, manual clicks `flow test` command| **Best for** User flows, UI testing, exploration Contract logic validation|  |  |  | | --- | --- | --- | | **Examples** React app, wallet flows, E2E suites `*_test.cdc` files | | | | | | | | | | | | | | | | | |
+
+## Common Use Cases[​](#common-use-cases "Direct link to Common Use Cases")
+
+### DeFi Protocol Testing[​](#defi-protocol-testing "Direct link to DeFi Protocol Testing")
+
+Test your DeFi contracts against real mainnet state - real DEX liquidity, real oracle prices, real token supplies.
+
+### Contract Upgrade Testing[​](#contract-upgrade-testing "Direct link to Contract Upgrade Testing")
+
+Deploy your upgraded contract to a fork and verify it works with real mainnet state before deploying to production.
+
+### Bug Reproduction[​](#bug-reproduction "Direct link to Bug Reproduction")
+
+Fork to the exact block height where a bug occurred and debug with the actual state that caused the issue.
+
+### Integration Testing[​](#integration-testing "Direct link to Integration Testing")
+
+Test how your contracts interact with production versions of core contracts (FungibleToken, NFT standards, etc).
+
+## Getting Started[​](#getting-started "Direct link to Getting Started")
+
+### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+
+* [Flow CLI](/build/tools/flow-cli/install) v2.12.0 or later
+* Basic understanding of Flow development
+
+### Quick Start: Emulator Fork[​](#quick-start-emulator-fork "Direct link to Quick Start: Emulator Fork")
+
+`_11
+
+# 1. Initialize a Flow project
+
+_11
+
+flow init
+
+_11
+
+_11
+
+# 2. Install dependencies (e.g., FlowToken)
+
+_11
+
+flow dependencies install FlowToken FungibleToken
+
+_11
+
+_11
+
+# 3. Start the forked emulator
+
+_11
+
+flow emulator --fork mainnet
+
+_11
+
+_11
+
+# 4. In another terminal, run scripts/transactions
+
+_11
+
+flow scripts execute myScript.cdc --network mainnet-fork`
+
+**Next steps:** Follow the [complete emulator fork tutorial](/blockchain-development-tutorials/cadence/emulator-fork-testing)
+
+### Quick Start: Cadence Test Fork[​](#quick-start-cadence-test-fork "Direct link to Quick Start: Cadence Test Fork")
+
+Add the fork pragma to your test file:
+
+`_10
+
+#test_fork(network: "mainnet", height: nil)
+
+_10
+
+_10
+
+import Test
+
+_10
+
+_10
+
+access(all) fun testExample() {
+
+_10
+
+// Your test code here
+
+_10
+
+}`
+
+Then run the test:
+
+`_10
+
+flow test tests/MyContract_test.cdc`
+
+**Next steps:** Follow the [complete Cadence fork testing tutorial](/blockchain-development-tutorials/cadence/fork-testing)
+
+## Key Features[​](#key-features "Direct link to Key Features")
+
+### Pin to Block Heights[​](#pin-to-block-heights "Direct link to Pin to Block Heights")
+
+Fork to specific block heights for reproducible testing:
+
+`_10
+
+# Emulator fork with block height
+
+_10
+
+flow emulator --fork mainnet --fork-height <BLOCK_HEIGHT>`
+
+`_10
+
+// Test with block height - add to your test file
+
+_10
+
+#test_fork(network: "mainnet", height: <BLOCK_HEIGHT>)`
+
+`_10
+
+# Then run the test
+
+_10
+
+flow test test_file.cdc`
+
+Replace `<BLOCK_HEIGHT>` with the specific block number you want to test against. Note that block heights are only available within the current spork.
+
+### Account Impersonation[​](#account-impersonation "Direct link to Account Impersonation")
+
+Fork mode disables signature verification, allowing you to execute transactions as any mainnet account for testing.
+
+### Dependency Mocking[​](#dependency-mocking "Direct link to Dependency Mocking")
+
+Override specific mainnet contracts with your own versions while keeping all other contracts unchanged - perfect for testing contract upgrades.
+
+### Automatic Configuration[​](#automatic-configuration "Direct link to Automatic Configuration")
+
+Fork networks are automatically configured when you run fork commands. Contract aliases from the parent network (mainnet/testnet) are automatically inherited.
+
+Learn more: [flow.json Configuration - Fork Networks](/build/tools/flow-cli/flow.json/configuration#networks)
+
+## Best Practices[​](#best-practices "Direct link to Best Practices")
+
+1. **Pin block heights in CI/CD** - Ensures reproducible test results
+2. **Test on testnet first** - Avoid mainnet rate limits during development
+3. **Use the right mode** - Emulator fork for apps, test fork for Cadence contracts
+4. **Mock external services** - Fork only mirrors Flow state, not external APIs
+5. **Document your fork heights** - Keep track of which blocks work for testing
+
+## Network Requirements[​](#network-requirements "Direct link to Network Requirements")
+
+Fork testing requires network access to Flow's public access nodes:
+
+* **Mainnet:** `access.mainnet.nodes.onflow.org:9000`
+* **Testnet:** `access.devnet.nodes.onflow.org:9000`
+
+Data is fetched on-demand and cached locally for performance.
+
+## Limitations[​](#limitations "Direct link to Limitations")
+
+* **Spork boundaries:** Historical data is only available within the current spork
+* **Off-chain services:** Oracles, IPFS, and cross-chain bridges must be mocked
+* **Network latency:** First access to accounts/contracts requires network fetch
+
+Learn more: [Network Upgrade (Spork) Process](/protocol/node-ops/node-operation/network-upgrade)
+
+## Tutorials[​](#tutorials "Direct link to Tutorials")
+
+* [Interactive Testing with Forked Emulator](/blockchain-development-tutorials/cadence/emulator-fork-testing) - Complete guide to `flow emulator --fork`
+* [Fork Testing with Cadence](/blockchain-development-tutorials/cadence/fork-testing) - Complete guide to `flow test` with `#test_fork`
+
+## Related Documentation[​](#related-documentation "Direct link to Related Documentation")
+
+* [Flow Emulator](/build/tools/emulator) - Learn more about the Flow emulator
+* [Cadence Testing Framework](/build/cadence/smart-contracts/testing) - Write and run Cadence tests
+* [flow.json Configuration](/build/tools/flow-cli/flow.json/configuration) - Configure fork networks
+* [Testing Strategy](/build/cadence/smart-contracts/testing-strategy) - Overall testing approach
+* [Dependency Manager](/build/tools/flow-cli/dependency-manager) - Install and manage contract dependencies
+
+## Need Help?[​](#need-help "Direct link to Need Help?")
+
+* Review the [complete tutorials](/blockchain-development-tutorials/cadence/emulator-fork-testing) for step-by-step guidance
+* Check the [troubleshooting sections](/blockchain-development-tutorials/cadence/emulator-fork-testing#troubleshooting) in the tutorials
+* Ask questions in the [Flow Discord](https://discord.gg/flow)
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/fork-testing.md)
+
+Last updated on **Dec 16, 2025** by **Jordan Ribbink**
+
+[Previous
+
+Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)[Next
+
+Data Collection](/build/tools/flow-cli/data-collection)
+
+###### Rate this page
+
+😞😐😊
+
+Copy as Markdown
+
+* [What is Fork Testing?](#what-is-fork-testing)* [Two Fork Testing Modes](#two-fork-testing-modes)
+    + [1. Emulator Fork Mode (`flow emulator --fork`)](#1-emulator-fork-mode-flow-emulator---fork)+ [2. Test Framework Fork Mode (`flow test` + `#test_fork`)](#2-test-framework-fork-mode-flow-test--test_fork)* [Quick Comparison](#quick-comparison)* [Common Use Cases](#common-use-cases)
+        + [DeFi Protocol Testing](#defi-protocol-testing)+ [Contract Upgrade Testing](#contract-upgrade-testing)+ [Bug Reproduction](#bug-reproduction)+ [Integration Testing](#integration-testing)* [Getting Started](#getting-started)
+          + [Prerequisites](#prerequisites)+ [Quick Start: Emulator Fork](#quick-start-emulator-fork)+ [Quick Start: Cadence Test Fork](#quick-start-cadence-test-fork)* [Key Features](#key-features)
+            + [Pin to Block Heights](#pin-to-block-heights)+ [Account Impersonation](#account-impersonation)+ [Dependency Mocking](#dependency-mocking)+ [Automatic Configuration](#automatic-configuration)* [Best Practices](#best-practices)* [Network Requirements](#network-requirements)* [Limitations](#limitations)* [Tutorials](#tutorials)* [Related Documentation](#related-documentation)* [Need Help?](#need-help)
+
+Flow
+
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
+
+Cadence
+
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
+
+Solidity (EVM)
+
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
+
+Community & Support
+
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
+
+Network & Resources
+
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow Foundation. All Rights Reserved.
 
 
 
@@ -44855,7 +45226,7 @@ Search
 
                                 - [Utils](/build/tools/flow-cli/utils/signature-generate)
 
-                                  * [Generate a Signature](/build/tools/flow-cli/utils/signature-generate)* [Verify Signature](/build/tools/flow-cli/utils/signature-verify)* [Snapshot Save](/build/tools/flow-cli/utils/snapshot-save)* [Development Tools](/build/tools/flow-cli/utils/tools)- [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+                                  * [Generate a Signature](/build/tools/flow-cli/utils/signature-generate)* [Verify Signature](/build/tools/flow-cli/utils/signature-verify)* [Snapshot Save](/build/tools/flow-cli/utils/snapshot-save)* [Development Tools](/build/tools/flow-cli/utils/tools)- [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Fork Testing](/build/tools/flow-cli/fork-testing)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
 
                     + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
@@ -65186,7 +65557,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -65225,88 +65596,414 @@ With Flow EVM, EVM operations can now be called within Cadence transactions. EVM
 Transaction fee on EVM = surge x [inclusion fee + (execution effort * unit cost)]`
 
 * `Surge' factor` dynamically accounts for network pressure and market conditions.
-* `Inclusion fee` accounts for the resources required to process a transaction due to its core properties (byte size, signatures). This is currently constant at 1E-6 FLOW, but subject to change with community approval.
-* `Execution fee` The fee that accounts for the operational cost of running the transaction script, processing the results, sending results for verification, generating verification receipts, etc. and is calculated as a product of `execution effort units` and the `cost per unit`.
-  + `Execution Effort (computation)` is based on transaction type and operations that are called during the execution of a transaction. The weights determine how costly (time consuming) each operation is.
-  + `Execution Effort Unit Cost` = `2.49E-07 FLOW` (currently constant, but subject to change with community approval)
+* `Inclusion fee` accounts for the resources required to process a transaction due to its core properties (byte size, signatures). This is currently constant at 1E-4 FLOW, but subject to change with community approval.
+* `Execution fee` The fee that accounts for the operational cost of running the transaction script, processing the results, sending results for verification, generating verification receipts, etc. and is calculated as a product of `computation units` and the `cost per unit`.
+  + `Execution Effort (measured in computation units)` is based on transaction type and operations that are called during the execution of a transaction. The weights determine how costly (time-consuming) each operation is.
+  + `Execution Effort Unit Cost` = `4E-05 FLOW` (currently constant, but subject to change with community approval)
 
 ### Calculation of Execution Effort
 
-`_10
+`_44
 
 Execution Effort (computation) =
 
-_10
+_44
 
-0.00478 * function_or_loop_call +
+3.271E+01 * create_account +
 
-_10
+_44
 
-0.00246 * GetValue +
+2.348E+01 * blsverify_pop +
 
-_10
+_44
 
-0.00234 * SetValue +
+7.408E+00 * get_account_balance +
 
-_10
+_44
 
-8.65988 * CreateAccount +
+6.145E+00 * blsaggregate_public_keys +
 
-_10
+_44
 
-EVMGasUsageCost * EVMGasUsage`
+6.059E+00 * get_storage_capacity +
+
+_44
+
+5.726E+00 * get_account_available_balance +
+
+_44
+
+5.637E+00 * update_account_contract_code +
+
+_44
+
+4.964E+00 * blsaggregate_signatures +
+
+_44
+
+1.152E+00 * generate_account_local_id +
+
+_44
+
+5.000E-01 * get_account_contract_names +
+
+_44
+
+3.878E-01 * get_storage_used +
+
+_44
+
+3.770E-01 * account_keys_count +
+
+_44
+
+2.346E-01 * allocate_slab_index +
+
+_44
+
+1.348E-01 * atree_map_get +
+
+_44
+
+1.125E-01 * atree_map_remove +
+
+_44
+
+6.659E-02 * create_array_value +
+
+_44
+
+5.826E-02 * create_dictionary_value +
+
+_44
+
+5.579E-02 * atree_map_set +
+
+_44
+
+5.573E-02 * atree_array_insert +
+
+_44
+
+5.074E-02 * atree_map_read_iteration +
+
+_44
+
+4.442E-02 * encode_event +
+
+_44
+
+3.598E-02 * transfer_composite_value +
+
+_44
+
+2.910E-02 * atree_array_append +
+
+_44
+
+2.701E-02 * statement +
+
+_44
+
+2.650E-02 * atree_array_set +
+
+_44
+
+2.135E-02 * function_invocation +
+
+_44
+
+1.846E-02 * atree_map_pop_iteration +
+
+_44
+
+1.123E-02 * atree_array_pop_iteration +
+
+_44
+
+7.874E-03 * rlpdecoding +
+
+_44
+
+4.242E-03 * graphemes_iteration +
+
+_44
+
+3.922E-03 * ufix_parse +
+
+_44
+
+3.403E-03 * fix_parse +
+
+_44
+
+2.731E-03 * loop +
+
+_44
+
+2.701E-03 * atree_array_batch_construction +
+
+_44
+
+1.907E-03 * transfer_dictionary_value +
+
+_44
+
+1.053E-03 * big_int_parse +
+
+_44
+
+7.324E-04 * transfer_array_value +
+
+_44
+
+7.324E-04 * set_value +
+
+_44
+
+4.730E-04 * uint_parse +
+
+_44
+
+4.272E-04 * int_parse +
+
+_44
+
+3.510E-04 * get_value +
+
+_44
+
+7.629E-05 * string_to_lower +
+
+_44
+
+4.578E-05 * evmgas_usage`
 
 where
 
 `` _10
 
-`EVMGasUsage` is reported by EVM as the cost in gas for executing the transaction within the EVM, for instance, 21K gas for a simple send transaction. ``
-
-`` _10
-
-`EVMGasUsageCost` - The ratio that converts EVM gas into Flow compute units (execution effort) is currently set at `1/5000` but subject to revision by community approval ``
+`evmgas_usage` is reported by EVM as the cost in gas for executing the transaction within the EVM, for instance, 21K gas for a simple send transaction. ``
 
 
 
 ## Demonstration of Transaction Fees on EVM
 
-Assume a simple NFT transfer transaction that makes 31 cadence loop calls, reads 5668 bytes from the storage register, and saves 1668 bytes to the storage register.
-
-* 'function\_or\_loop\_call' = 31
-* 'GetValue' = 5688
-* 'SetValue' = 1668
-* 'CreateAccount' = 0
+Assume a simple Token transfer transaction:
 
 **Scenario 1 - Cadence-only Transaction**
 
-`_10
+The token transfer transaction:
 
-Compute Units = 0.00478 * (31) + 0.00246 * (5668) + 0.00234 *(1668) + 8.65988 *(0) + EVMGasUsageCost * EVMGasUsage`
+* makes 76 atree\_map\_get calls,
+* reads 9431 bytes (get\_value),
+* sets 2448 bytes (set\_value),
+* invokes 55 cadence statements,
+* makes 2 get\_storage\_used calls,
+* makes 28 cadence function\_invocation calls,
+* makes 8 transfer\_composite\_value calls,
+* makes 5 atree\_map\_set calls,
+* makes 4 encode\_event calls,
+* makes 2 create\_array\_value calls,
+* makes 2 atree\_array\_append calls,
+* makes 4 atree\_array\_batch\_construction calls,
+* makes 2 loop calls,
+* makes 2 transfer\_array\_value calls
+
+`_15
+
+Compute Units =
+
+_15
+
+76 * 0.135 +
+
+_15
+
+9431 * 0.000 +
+
+_15
+
+2448 * 0.001 +
+
+_15
+
+55 * 0.027 +
+
+_15
+
+2 * 0.388 +
+
+_15
+
+28 * 0.021 +
+
+_15
+
+8 * 0.036 +
+
+_15
+
+5 * 0.056 +
+
+_15
+
+4 * 0.044 +
+
+_15
+
+2 * 0.067 +
+
+_15
+
+2 * 0.029 +
+
+_15
+
+4 * 0.003 +
+
+_15
+
+2 * 0.003 +
+
+_15
+
+2 * 0.001`
 
 But since `EVMGasUsage` is 0 for a Cadence transaction,
 
 `_10
 
-Compute Units = 18.04378`
+Compute Units = 19.2`
 
 Thus
 
 `_10
 
-Transaction fee = [1E-6 FLOW + (18.04378 * 2.49E-07 FLOW)] x 1 = 5.5E-06 FLOW`
+Transaction fee = [1E-4 FLOW + (19.2 * 4E-05 FLOW)] x 1 = 8.68E-04`
 
 **Scenario 2 - EVM Transaction**
-If the EVMGasUsage can be assumed to be 21,000 gas (typical for a simple transfer),
+If the EVMGasUsage can be assumed to be 21,000 gas (typical for a simple transfer):
 
-`_10
+* uses 377806 evm gas (evmgas\_usage),
+* reads 22840 bytes (get\_value),
+* makes 1676 atree\_array\_batch\_construction calls,
+* makes 30 atree\_map\_get calls,
+* makes 325 atree\_array\_pop\_iteration calls,
+* sets 3182 bytes (set\_value),
+* makes 273 rlpdecoding calls,
+* makes 20 atree\_map\_read\_iteration calls,
+* makes 1329 transfer\_array\_value calls,
+* invokes 25 cadence statements,
+* makes 12 atree\_map\_set calls,
+* makes 17 transfer\_composite\_value calls,
+* makes 8 create\_array\_value calls,
+* makes 19 function\_invocation calls,
+* makes 1 get\_storage\_used calls,
+* makes 87 graphemes\_iteration calls,
+* makes 2 encode\_event calls,
+* makes 2 atree\_array\_append calls,
+* makes 1 atree\_map\_pop\_iteration calls,
+* makes 2 loop calls,
+* makes 40 string\_to\_lower calls
 
-Compute Units = 0.00478 * (31) + 0.00246 * (5668) + 0.00234 *(1668) + 8.65988 *(0) + 1/5000 * 21000 = 22.24378`
+`_23
+
+Compute Units =
+
+_23
+
+377806 * 0.00005 +
+
+_23
+
+22840 * 0.00035 +
+
+_23
+
+1676 * 0.00270 +
+
+_23
+
+30 * 0.13484 +
+
+_23
+
+325 * 0.01123 +
+
+_23
+
+3182 * 0.00073 +
+
+_23
+
+273 * 0.00787 +
+
+_23
+
+20 * 0.05074 +
+
+_23
+
+1329 * 0.00073 +
+
+_23
+
+25 * 0.02701 +
+
+_23
+
+12 * 0.05579 +
+
+_23
+
+17 * 0.03598 +
+
+_23
+
+8 * 0.06659 +
+
+_23
+
+19 * 0.02135 +
+
+_23
+
+1 * 0.38782 +
+
+_23
+
+87 * 0.00424 +
+
+_23
+
+2 * 0.04442 +
+
+_23
+
+2 * 0.02910 +
+
+_23
+
+1 * 0.01846 +
+
+_23
+
+2 * 0.00273 +
+
+_23
+
+40 * 0.00008
+
+_23
+
+= 47.8`
 
 Thus
 
 `_10
 
-Transaction fee = [1E-6 FLOW + (110.97 * 2.49E-07 FLOW)] x 1 = 6.55E-06 FLOW`
+Transaction fee = [1E-4 FLOW + (47.8 * 4E-05 FLOW)] x 1 = 2.012E-03 FLOW`
 
 **Note**: Please be aware that this example serves solely for illustrative purposes to elucidate the calculations. Actual transaction fees may differ due to various factors, including the byte size of the transaction.
 
@@ -65318,7 +66015,7 @@ To learn more about storage fee and transaction fee, visit [Flow Tokenomics page
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/evm/fees.md)
 
-Last updated on **Nov 12, 2025** by **Brian Doyle**
+Last updated on **Dec 5, 2025** by **Vishal**
 
 [Previous
 
@@ -65666,7 +66363,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -67532,7 +68229,7 @@ Search
 
                                 - [Utils](/build/tools/flow-cli/utils/signature-generate)
 
-                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Fork Testing](/build/tools/flow-cli/fork-testing)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
 
                     + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
@@ -67668,6 +68365,37 @@ _10
 _10
 
 }`
+
+**Fork Networks:**
+Fork networks allow you to test against a local emulator that mirrors mainnet or testnet state. When you run `flow emulator --fork mainnet`, the CLI automatically creates a `mainnet-fork` network configuration that inherits contract aliases from the parent network:
+
+`_10
+
+"networks": {
+
+_10
+
+"mainnet-fork": {
+
+_10
+
+"host": "127.0.0.1:3569",
+
+_10
+
+"fork": "mainnet"
+
+_10
+
+}
+
+_10
+
+}`
+
+The `fork` property tells the CLI to inherit all contract aliases from the specified network (e.g., `mainnet`), so you don't need to manually duplicate aliases for forked networks.
+
+Learn more: [Fork Testing Overview](/build/tools/flow-cli/fork-testing)
 
 ### Accounts[​](#accounts "Direct link to Accounts")
 
@@ -68241,7 +68969,7 @@ flow config remove account my-account`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/flow.json/configuration.md)
 
-Last updated on **Nov 20, 2025** by **Chase Fleming**
+Last updated on **Dec 16, 2025** by **Jordan Ribbink**
 
 [Previous
 
@@ -96428,7 +97156,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -96462,7 +97190,7 @@ Search
 
                             - [account](/build/tools/clients/fcl-js/packages-docs/sdk/account)- [arg](/build/tools/clients/fcl-js/packages-docs/sdk/arg)- [args](/build/tools/clients/fcl-js/packages-docs/sdk/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockId)- [atLatestBlock](/build/tools/clients/fcl-js/packages-docs/sdk/atLatestBlock)- [authorization](/build/tools/clients/fcl-js/packages-docs/sdk/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/sdk/authorizations)- [block](/build/tools/clients/fcl-js/packages-docs/sdk/block)- [build](/build/tools/clients/fcl-js/packages-docs/sdk/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/sdk/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/sdk/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/sdk/config)- [createSdkClient](/build/tools/clients/fcl-js/packages-docs/sdk/createSdkClient)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/createSignableVoucher)- [decode](/build/tools/clients/fcl-js/packages-docs/sdk/decode)- [destroy](/build/tools/clients/fcl-js/packages-docs/sdk/destroy)- [encodeMessageFromSignable](/build/tools/clients/fcl-js/packages-docs/sdk/encodeMessageFromSignable)- [encodeTransactionEnvelope](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionEnvelope)- [encodeTransactionPayload](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionPayload)- [encodeTxIdFromVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher)- [get](/build/tools/clients/fcl-js/packages-docs/sdk/get)- [getAccount](/build/tools/clients/fcl-js/packages-docs/sdk/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/sdk/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/sdk/getBlockHeader)- [getCollection](/build/tools/clients/fcl-js/packages-docs/sdk/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/sdk/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/sdk/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/sdk/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/sdk/getTransactionStatus)- [initInteraction](/build/tools/clients/fcl-js/packages-docs/sdk/initInteraction)- [interaction](/build/tools/clients/fcl-js/packages-docs/sdk/interaction)- [isBad](/build/tools/clients/fcl-js/packages-docs/sdk/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/sdk/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/sdk/limit)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/sdk/param)- [params](/build/tools/clients/fcl-js/packages-docs/sdk/params)- [payer](/build/tools/clients/fcl-js/packages-docs/sdk/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/sdk/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/sdk/pipe)- [proposer](/build/tools/clients/fcl-js/packages-docs/sdk/proposer)- [put](/build/tools/clients/fcl-js/packages-docs/sdk/put)- [ref](/build/tools/clients/fcl-js/packages-docs/sdk/ref)- [resolve](/build/tools/clients/fcl-js/packages-docs/sdk/resolve)- [resolveAccounts](/build/tools/clients/fcl-js/packages-docs/sdk/resolveAccounts)- [resolveArguments](/build/tools/clients/fcl-js/packages-docs/sdk/resolveArguments)- [resolveCadence](/build/tools/clients/fcl-js/packages-docs/sdk/resolveCadence)- [resolveFinalNormalization](/build/tools/clients/fcl-js/packages-docs/sdk/resolveFinalNormalization)- [resolveProposerSequenceNumber](/build/tools/clients/fcl-js/packages-docs/sdk/resolveProposerSequenceNumber)- [resolveRefBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlockId)- [resolveSignatures](/build/tools/clients/fcl-js/packages-docs/sdk/resolveSignatures)- [resolveValidators](/build/tools/clients/fcl-js/packages-docs/sdk/resolveValidators)- [resolveVoucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/resolveVoucherIntercept)- [response](/build/tools/clients/fcl-js/packages-docs/sdk/response)- [script](/build/tools/clients/fcl-js/packages-docs/sdk/script)- [send](/build/tools/clients/fcl-js/packages-docs/sdk/send)- [subscribe](/build/tools/clients/fcl-js/packages-docs/sdk/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeRaw)- [TestUtils](/build/tools/clients/fcl-js/packages-docs/sdk/testUtils)- [transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)- [update](/build/tools/clients/fcl-js/packages-docs/sdk/update)- [validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/sdk/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/sdk/why)+ [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)* param
 
@@ -131534,7 +132262,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -131568,7 +132296,7 @@ Search
 
                             - [account](/build/tools/clients/fcl-js/packages-docs/sdk/account)- [arg](/build/tools/clients/fcl-js/packages-docs/sdk/arg)- [args](/build/tools/clients/fcl-js/packages-docs/sdk/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockId)- [atLatestBlock](/build/tools/clients/fcl-js/packages-docs/sdk/atLatestBlock)- [authorization](/build/tools/clients/fcl-js/packages-docs/sdk/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/sdk/authorizations)- [block](/build/tools/clients/fcl-js/packages-docs/sdk/block)- [build](/build/tools/clients/fcl-js/packages-docs/sdk/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/sdk/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/sdk/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/sdk/config)- [createSdkClient](/build/tools/clients/fcl-js/packages-docs/sdk/createSdkClient)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/createSignableVoucher)- [decode](/build/tools/clients/fcl-js/packages-docs/sdk/decode)- [destroy](/build/tools/clients/fcl-js/packages-docs/sdk/destroy)- [encodeMessageFromSignable](/build/tools/clients/fcl-js/packages-docs/sdk/encodeMessageFromSignable)- [encodeTransactionEnvelope](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionEnvelope)- [encodeTransactionPayload](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionPayload)- [encodeTxIdFromVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher)- [get](/build/tools/clients/fcl-js/packages-docs/sdk/get)- [getAccount](/build/tools/clients/fcl-js/packages-docs/sdk/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/sdk/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/sdk/getBlockHeader)- [getCollection](/build/tools/clients/fcl-js/packages-docs/sdk/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/sdk/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/sdk/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/sdk/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/sdk/getTransactionStatus)- [initInteraction](/build/tools/clients/fcl-js/packages-docs/sdk/initInteraction)- [interaction](/build/tools/clients/fcl-js/packages-docs/sdk/interaction)- [isBad](/build/tools/clients/fcl-js/packages-docs/sdk/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/sdk/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/sdk/limit)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/sdk/param)- [params](/build/tools/clients/fcl-js/packages-docs/sdk/params)- [payer](/build/tools/clients/fcl-js/packages-docs/sdk/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/sdk/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/sdk/pipe)- [proposer](/build/tools/clients/fcl-js/packages-docs/sdk/proposer)- [put](/build/tools/clients/fcl-js/packages-docs/sdk/put)- [ref](/build/tools/clients/fcl-js/packages-docs/sdk/ref)- [resolve](/build/tools/clients/fcl-js/packages-docs/sdk/resolve)- [resolveAccounts](/build/tools/clients/fcl-js/packages-docs/sdk/resolveAccounts)- [resolveArguments](/build/tools/clients/fcl-js/packages-docs/sdk/resolveArguments)- [resolveCadence](/build/tools/clients/fcl-js/packages-docs/sdk/resolveCadence)- [resolveFinalNormalization](/build/tools/clients/fcl-js/packages-docs/sdk/resolveFinalNormalization)- [resolveProposerSequenceNumber](/build/tools/clients/fcl-js/packages-docs/sdk/resolveProposerSequenceNumber)- [resolveRefBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlockId)- [resolveSignatures](/build/tools/clients/fcl-js/packages-docs/sdk/resolveSignatures)- [resolveValidators](/build/tools/clients/fcl-js/packages-docs/sdk/resolveValidators)- [resolveVoucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/resolveVoucherIntercept)- [response](/build/tools/clients/fcl-js/packages-docs/sdk/response)- [script](/build/tools/clients/fcl-js/packages-docs/sdk/script)- [send](/build/tools/clients/fcl-js/packages-docs/sdk/send)- [subscribe](/build/tools/clients/fcl-js/packages-docs/sdk/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeRaw)- [TestUtils](/build/tools/clients/fcl-js/packages-docs/sdk/testUtils)- [transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)- [update](/build/tools/clients/fcl-js/packages-docs/sdk/update)- [validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/sdk/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/sdk/why)+ [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)* createSdkClient
 
@@ -154701,7 +155429,7 @@ Search
 
                                 - [Utils](/build/tools/flow-cli/utils/signature-generate)
 
-                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Fork Testing](/build/tools/flow-cli/fork-testing)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
 
                     + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
@@ -168051,7 +168779,7 @@ Search
 
                                 - [Utils](/build/tools/flow-cli/utils/signature-generate)
 
-                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Fork Testing](/build/tools/flow-cli/fork-testing)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
 
                     + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
@@ -174767,7 +175495,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -174801,7 +175529,7 @@ Search
 
                             - [account](/build/tools/clients/fcl-js/packages-docs/sdk/account)- [arg](/build/tools/clients/fcl-js/packages-docs/sdk/arg)- [args](/build/tools/clients/fcl-js/packages-docs/sdk/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockId)- [atLatestBlock](/build/tools/clients/fcl-js/packages-docs/sdk/atLatestBlock)- [authorization](/build/tools/clients/fcl-js/packages-docs/sdk/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/sdk/authorizations)- [block](/build/tools/clients/fcl-js/packages-docs/sdk/block)- [build](/build/tools/clients/fcl-js/packages-docs/sdk/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/sdk/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/sdk/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/sdk/config)- [createSdkClient](/build/tools/clients/fcl-js/packages-docs/sdk/createSdkClient)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/createSignableVoucher)- [decode](/build/tools/clients/fcl-js/packages-docs/sdk/decode)- [destroy](/build/tools/clients/fcl-js/packages-docs/sdk/destroy)- [encodeMessageFromSignable](/build/tools/clients/fcl-js/packages-docs/sdk/encodeMessageFromSignable)- [encodeTransactionEnvelope](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionEnvelope)- [encodeTransactionPayload](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionPayload)- [encodeTxIdFromVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher)- [get](/build/tools/clients/fcl-js/packages-docs/sdk/get)- [getAccount](/build/tools/clients/fcl-js/packages-docs/sdk/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/sdk/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/sdk/getBlockHeader)- [getCollection](/build/tools/clients/fcl-js/packages-docs/sdk/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/sdk/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/sdk/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/sdk/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/sdk/getTransactionStatus)- [initInteraction](/build/tools/clients/fcl-js/packages-docs/sdk/initInteraction)- [interaction](/build/tools/clients/fcl-js/packages-docs/sdk/interaction)- [isBad](/build/tools/clients/fcl-js/packages-docs/sdk/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/sdk/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/sdk/limit)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/sdk/param)- [params](/build/tools/clients/fcl-js/packages-docs/sdk/params)- [payer](/build/tools/clients/fcl-js/packages-docs/sdk/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/sdk/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/sdk/pipe)- [proposer](/build/tools/clients/fcl-js/packages-docs/sdk/proposer)- [put](/build/tools/clients/fcl-js/packages-docs/sdk/put)- [ref](/build/tools/clients/fcl-js/packages-docs/sdk/ref)- [resolve](/build/tools/clients/fcl-js/packages-docs/sdk/resolve)- [resolveAccounts](/build/tools/clients/fcl-js/packages-docs/sdk/resolveAccounts)- [resolveArguments](/build/tools/clients/fcl-js/packages-docs/sdk/resolveArguments)- [resolveCadence](/build/tools/clients/fcl-js/packages-docs/sdk/resolveCadence)- [resolveFinalNormalization](/build/tools/clients/fcl-js/packages-docs/sdk/resolveFinalNormalization)- [resolveProposerSequenceNumber](/build/tools/clients/fcl-js/packages-docs/sdk/resolveProposerSequenceNumber)- [resolveRefBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlockId)- [resolveSignatures](/build/tools/clients/fcl-js/packages-docs/sdk/resolveSignatures)- [resolveValidators](/build/tools/clients/fcl-js/packages-docs/sdk/resolveValidators)- [resolveVoucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/resolveVoucherIntercept)- [response](/build/tools/clients/fcl-js/packages-docs/sdk/response)- [script](/build/tools/clients/fcl-js/packages-docs/sdk/script)- [send](/build/tools/clients/fcl-js/packages-docs/sdk/send)- [subscribe](/build/tools/clients/fcl-js/packages-docs/sdk/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeRaw)- [TestUtils](/build/tools/clients/fcl-js/packages-docs/sdk/testUtils)- [transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)- [update](/build/tools/clients/fcl-js/packages-docs/sdk/update)- [validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/sdk/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/sdk/why)+ [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)* get
 
@@ -175003,242 +175731,139 @@ On this page
 
 ## Context[​](#context "Direct link to Context")
 
-Smart Contracts are the bedrock piece of security for many important parts
-of the Flow blockchain, as well as for any project that is deployed to a blockchain.
+Smart Contracts are the bedrock piece of security for many important parts of the Flow blockchain, as well as for any project that is deployed to a blockchain.
 
-They are also the most visible technical parts of any project,
-since users will be querying them for data, building other smart contracts that interact with them,
-and using them as learning materials and templates for future projects.
-Furthermore, when deployed they are publicly available code on the blockchain
-and often also in public Github repos.
+They are also the most visible technical parts of any project, since users will query them for data, build other smart contracts that interact with them, and use them as materials to learn and templates for future projects. Furthermore, when deployed they are publicly available code on the blockchain and often also in public Github repos.
 
-Therefore, the process around designing, building, testing, documenting,
-and managing these projects needs to reflect the critical importance they hold in the ecosystem.
+Therefore, the process to design, build, test, document, and manage these projects needs to reflect the critical importance they hold in the ecosystem.
 
-Every software project strikes a balance between effort spent on product/feature delivery
-vs the many other demands of the software development lifecycle, whether testing, technical debt,
-automation, refactoring, or documentation etc. Building in Web3 we face the same trade-offs,
-but in a higher risk and consequence environment than what is typical for most software.
-A mismanaged or untested smart contract may result in **significant** financial losses
-as a result of vulnerabilities which were overlooked then exploited.
-We highly recommend builders adopt these best practices to help mitigate these risks.
+Every software project strikes a balance between effort spent on product or feature delivery versus the many other demands of the software development lifecycle, whether testing, technical debt, automation, refactoring, or documentation. Since we build in Web3, we face the same trade-offs, but in a higher risk and consequence environment than what is typical for most software. A mismanaged or untested smart contract may result in **significant** financial losses because of overlooked and exploited vulnerabilities. We highly recommend builders adopt these best practices to help mitigate these risks.
 
-If they do so, they will be able to build better smart contracts, avoid potential bugs,
-support user and third-party adoption of their projects, and increase their chances of success
-by being a model for good software design. Additionally, the more projects that adopt
-good software design and management standards normalizes this behavior,
-encouraging other projects in the ecosystem to do the same which creates a healthier
-and more vibrant community.
+If they do so, they can build better smart contracts, avoid potential bugs, support user and third-party adoption of their projects, and increase their chances of success as a model for good software design. Additionally, the more projects that adopt good software design and management standards normalizes this behavior, and encourages other projects in the ecosystem to do the same, which creates a healthier and more vibrant community.
 
-Ensuring appropriate levels of testing results in better smart contracts which have
-pro-actively modeled threats and engineered against them. Ensuring appropriate levels
-of standards adoption ([FungibleToken](https://github.com/onflow/flow-ft),
-[NFT Metadata](/build/cadence/advanced-concepts/metadata-views), [NFT StoreFront](https://github.com/onflow/nft-storefront), etc) by dapp
-builders amplifies the network effects for all in the ecosystem. NFTs in one dapp can be
-readily consumed by other dapps through onchain events with no new integration
-required. With your help and participation we can further accelerate healthy and vibrant
-network effects across the Flow ecosystem!
+When you ensure appropriate levels of testing, it results in better smart contracts which have pro-actively modeled threats and engineered against them. dApp builders who ensure appropriate levels of standards adoption ([FungibleToken](https://github.com/onflow/flow-ft), [NFT Metadata], [NFT StoreFront], and so on) amplify the network effects for all in the ecosystem. NFTs in one dApp can be readily consumed by other dApps through onchain events with no new integration required. With your help and participation, we can further accelerate healthy and vibrant network effects across the Flow ecosystem!
 
-Some of these suggestions might seem somewhat unnecessary,
-but it is important to model what a project can do to manage its smart contracts the best
-so that hopefully all of the other projects follow suit.
+Some of these suggestions might seem somewhat unnecessary, but it is important to model what a project can do to manage its smart contracts the best so that hopefully all of the other projects follow suit.
 
-This also assumes standard software design best practices also apply.
-Indeed, many of these suggestions are more general software design best practices,
-but there may be others that are assumed but not included here.
+This also assumes standard software design best practices also apply. Indeed, many of these suggestions are more general software design best practices, but there may be others that are assumed but not included here.
 
-### Implementing These Practices[​](#implementing-these-practices "Direct link to Implementing These Practices")
+### Implement These Practices[​](#implement-these-practices "Direct link to Implement These Practices")
 
-This document serves as mostly an outline of best practices the projects should follow.
-As with all best practices, teams will choose which applies to them and their work process,
-however, we recommend that teams explicitly define a minimum acceptable set of standards
-for themselves along with the mechanisms to ensure they are being observed.
+This document serves as mostly an outline of best practices the projects should follow. As with all best practices, teams will choose which applies to them and their work process. However, we recommend that teams explicitly define a minimum acceptable set of standards for themselves along with the mechanisms to ensure that they are observed.
 
-Some teams may also have their own set of development standards that achieve a similar goal
-to these. These recommendations are not meant to be the only paths to success,
-so if a team disagrees with some of these and wants to do things their own way,
-they are welcome to pursue that. This document just shows some generic suggestions
-for teams who might not know how they want to manage their project.
+Some teams may also have their own set of development standards that achieve a similar goal to these. These recommendations are not meant to be the only paths to success, so if a team disagrees with some of these and wants to do things their own way, they are welcome to pursue that. This document just shows some generic suggestions for teams who might not know how they want to manage their project.
 
 ## Design Process[​](#design-process "Direct link to Design Process")
 
-Smart contracts usually manage a lot of value, have many users, and are difficult to upgrade
-for a variety of reasons. Therefore, it is important to have a clearly defined design
-process for the smart contracts before much code is written so that the team
+Smart contracts usually manage a lot of value, have many users, and are difficult to upgrade for a variety of reasons. Therefore, it is important to have a clearly defined design process for the smart contracts before much code is written so that the team
 can set themselves up for success.
 
 Here are some recommendations for how projects can organize the foundations of their projects.
 
 ### Projects should ensure that there is strong technical leadership for their smart contracts[​](#projects-should-ensure-that-there-is-strong-technical-leadership-for-their-smart-contracts "Direct link to Projects should ensure that there is strong technical leadership for their smart contracts")
 
-Developing a dapp requires a clear vision for the role of the smart contract and how it's integrated.
-Security vulnerabilities may arise from bugs directly in smart contract code (and elsewhere in the system).
-Asynchronous interaction vectors may lead to forms of malicious abuse,
-DOS etc in a contract triggering explosive compute unit costs for the developer or other problems.
+To develop a dApp requires a clear vision for the role of the smart contract and how it's integrated. Security vulnerabilities may arise from bugs directly in smart contract code (and elsewhere in the system). Asynchronous interaction vectors may lead to forms of malicious abuse, Denial of Service (DOS), and so on in a contract that trigger explosive compute unit costs for the developer or other problems.
 
-We recommend that engineers leading a project and deploying to mainnet have an understanding
-of software and security engineering fundamentals and have been thorough
-in their Cadence skills development. More in-depth resources for learning Cadence
-are available [here](https://cadence-lang.org/docs/).
+We recommend that engineers who lead a project and deploy to mainnet understand software and security engineering fundamentals and have been thorough in their Cadence skills development. For more in-depth resources to help learn Cadence, see the [Cadence documentation].
 
-The technical leader should be someone who understands Cadence well and has written Cadence smart contracts
-before. Production-level smart contracts are not the place for beginners to get their start.
+The technical leader should be someone who understands Cadence well and has written Cadence smart contracts before. Production-level smart contracts are not the place for beginners to get their start.
 
-It should be this person's responsibility to lead design discussions
-with product managers and the community, write most of the code and tests,
-solicit reviews, make requested changes and make sure the project gets completed in a timely manner.
+It should be this person's responsibility to lead design discussions with product managers and the community, write most of the code and tests, solicit reviews, make requested changes and make sure the project gets completed in a timely manner.
 
-The leader should also understand how to sign transactions with the CLI
-to deploy/upgrade smart contracts, run admin transactions, and troubleshoot problems, etc.
-If something goes wrong in relation to the smart contract
-that needs to be handled with a bespoke transaction, it is important that the owner
-knows how to build and run transactions and scripts safely to address the issues
-and/or upgrade the smart contracts.
+The leader should also understand how to sign transactions with the CLI to deploy and upgrade smart contracts, run admin transactions, troubleshoot problems, and so on. If something goes wrong in relation to the smart contract that needs to be handled with a bespoke transaction, it is important that the owner knows how to build and run transactions and scripts safely to address the issues and upgrade the smart contracts.
 
-The project should also have a clear plan of succession in case the original owner
-is not available or leaves the project. It is important that there are others who
-can fill in who have a clear understanding of the code and requirements so they can give good feedback,
-perform effective reviews, and make changes where needed.
+The project should also have a clear plan of succession in case the original owner is not available or leaves the project. It is important that there are others who can fill in who clearly understand the code and requirements so they can give good feedback, perform effective reviews, and make changes where needed.
 
 ### Projects should maintain a well-organized open source Repo for their smart contracts[​](#projects-should-maintain-a-well-organized-open-source-repo-for-their-smart-contracts "Direct link to Projects should maintain a well-organized open source Repo for their smart contracts")
 
-As projects like NBA Topshot have shown, when a blockchain product becomes successful
-others can and do to build on top of what you are doing.
-Whether that is analytics, tools, or other value adds that could help grow your project ecosystem,
-composability is key and that depends on open source development.
-If there isn't already an open source repo, builders should consider creating one.
+As projects like NBA Topshot have shown, when a blockchain product becomes successful others can and do to build on top of what you are doing. Whether that is analytics, tools, or other value adds that could help grow your project ecosystem, composability is key and that depends on open source development. If there isn't already an open source repo, builders should consider creating one.
 
-Builders can start from the [the Flow open source template](https://github.com/onflow/open-source-template)
-and make sure all of their repo is set up with some initial documentation for what the repo is for
-before any code is written. External developers and users should have an easily accessible home page
-to go to to understand any given project.
+Builders can start from the [the Flow open source template] and make sure all of their repo is set up with some initial documentation for what the repo is for before any code is written. External developers and users should have an easily accessible home page to go to to understand any given project.
 
-The repo should also have some sort of high-level design document that lays out
-the intended design and architecture of the smart contract.
-The project leads should determine what is best for them to include in the document,
-but some useful things to include are basic user stories, architecture of the smart contracts,
-and any questions that still need to be answered about it. - Where applicable, diagrams should be made describing state machines, user flows, etc. - This document should be shared in an issue in the open source repo
-where the contracts or features are being developed,
-then later moved to the README or another important docs page.
+The repo should also have some sort of high-level design document that lays out the intended design and architecture of the smart contract. The project leads should determine what is best for them to include in the document, but some useful things to include are basic user stories, architecture of the smart contracts, and any questions that still need to be answered about it.
 
-A high level design is a key opportunity to model threats
-and understand the risks of the system. The process of collaborating
-and reviewing designs together helps ensure that more edge-cases are captured and addressed.
-It's also a lot less effort to iterate on a design than on hundreds of lines of Cadence.
+Where applicable, diagrams should be made that describe state machines, user flows, etc. - This document should be shared in an issue in the open source repo where the contracts or features are developed, then later moved to the `.README` or another important docs page.
 
-## Development Process Recommendations[​](#development-process-recommendations "Direct link to Development Process Recommendations")
+A high level design is a key opportunity to model threats and understand the risks of the system. When we collaborate and review designs together, it helps ensure that we capture and address more edge-cases. It's also a lot less effort to iterate on a design than on hundreds of lines of Cadence.
 
-### The Development process should be iterative, if possible[​](#the-development-process-should-be-iterative-if-possible "Direct link to The Development process should be iterative, if possible")
+## Development process recommendations[​](#development-process-recommendations "Direct link to Development process recommendations")
 
-The project should develop an MVP first, get reviews, and test thoroughly,
-then add additional features with tests. This ensures that the core features are designed
-thoughtfully and makes the review process easier because they can focus on each feature
-one at a time instead of being overwhelmed by a huge block of code.
+### The development process should be iterative, if possible[​](#the-development-process-should-be-iterative-if-possible "Direct link to The development process should be iterative, if possible")
 
-### Comments and field/function descriptions are essential![​](#comments-and-fieldfunction-descriptions-are-essential "Direct link to Comments and field/function descriptions are essential!")
+The project should develop an MVP first, get reviews, and test thoroughly, then add additional features with tests. This ensures that the core features are designed thoughtfully and makes the review process easier because they can focus on each feature one at a time, rather than get overwhelmed by a huge block of code.
 
-Our experience writing many Cadence smart contracts has taught us how important documentation
-is. It especially matters what is documented and for whom, and in that way we are no different from
-any software language. The Why is super important, if for example something - an event - that
-happens in one contract leads to outcomes in a different contract. The What helps give context,
-the reason for the code turning out the way it is. The How, you don't document - you've written
-the code. Comments should be directed to those who will follow after you in changing the code.
+### Comments and field or function descriptions are essential![​](#comments-and-field-or-function-descriptions-are-essential "Direct link to Comments and field or function descriptions are essential!")
 
-Comments should be written at the same time (or even before) the code is written.
-This helps the developer and reviewers understand the work-in-progress code better,
-as well as the intentions of the design (for testing and reviewing).
-Functions should be commented with a - Description - Parameter descriptions - Return value descriptions
+Our experience writing many Cadence smart contracts has taught us how important documentation is. It especially matters what is documented and for whom, and in that way we are no different from any software language. The "why" is super important, if for example something - an event - that happens in one contract leads to outcomes in a different contract. The "what" helps give context, the reason that the code turned out the way it is. The "how" you don't document - you've written the code. Comments should be directed to those who will change the code after you.
 
-Top Level comments and comments for types, fields, events,
-and functions should use `///` (three slashes) to be recognised by the
-[Cadence Documentation Generator](https://github.com/onflow/cadence-tools/tree/master/docgen).
-Regular comments within functions should only use two slashes (`//`)
+Write comments at the same time (or even before) the code is written. This helps the developer and reviewers understand the work-in-progress code better, as well as the intentions of the design (for test and review). Comment functions with:
 
-## Testing Recommendations[​](#testing-recommendations "Direct link to Testing Recommendations")
+* A description
+* Parameter descriptions
+* Return value descriptions
 
-Summarized below is a list of testing related recommendations
-which are noteworthy to mention for a typical smart contract project.
+Top-Level comments and comments for types, fields, events, and functions should use `///` (three slashes) to be recognised by the [Cadence Documentation Generator]. Regular comments within functions should only use two slashes (`//`)
 
-Popular testing frameworks to use for cadence are listed here:
+## Test Recommendations[​](#test-recommendations "Direct link to Test Recommendations")
 
-* Cadence: [Cadence Testing Framework](/build/cadence/smart-contracts/testing)
-* Go: [Overflow](https://github.com/bjartek/overflow)
+Summarized below is a list of test-related recommendations for a typical smart contract project.
 
-The same person who writes the code should also write the tests.
-They have the clearest understanding of the code paths and edge cases.
+Popular testing frameworks to use for Cadence are listed here:
 
-Tests should be **mandatory**, not optional, even if the contract is copied from somewhere else.
-There should be thorough emulator unit tests in the public repo.
-[See the flow fungible token repo](https://github.com/onflow/flow-ft/tree/master/lib/js/test)
-for an example of unit tests in javascript.
+* Cadence: [Cadence Testing Framework]
+* Go: [Overflow]
 
-Every time there is a new Cadence version or emulator version,
-the dependencies of the repo should be updated to make sure the tests are all still passing.
+The same person who writes the code should also write the tests. They have the clearest knowledge of the code paths and edge cases.
 
-Tests should avoid being monolithic;
-Individual test cases should be set up for each part of the contract to test them in isolation.
-There are some exceptions, like contracts that have to run through a state machine
-to test different cases. Positive and negative cases need to be tested.
+Tests should be **mandatory**, not optional, even if the contract is copied from somewhere else. There should be thorough emulator unit tests in the public repo. [See the flow fungible token repo] for an example of unit tests in javascript.
 
-Integration tests should also be written to ensure that your app and/or backend can interact
-properly with the smart contracts.
+Every time there is a new Cadence version or emulator version, make sure to update the repo dependencies to confirm the tests all still pass.
 
-## Managing Project Keys and Deployments[​](#managing-project-keys-and-deployments "Direct link to Managing Project Keys and Deployments")
+Tests should avoid being monolithic; you should set up individual test cases for each part of the contract to test them in isolation There are some exceptions, like contracts that have to run through a state machine to test different cases. Positive and negative cases need to be tested.
+
+You should also write integration tests to ensure that your app or backend can interact properly with the smart contracts.
+
+## Manage Project Keys and deployments[​](#manage-project-keys-and-deployments "Direct link to Manage Project Keys and deployments")
 
 Smart contract keys and deployments are very important and need to be treated as such.
 
-### Private Keys should be stored securely[​](#private-keys-should-be-stored-securely "Direct link to Private Keys should be stored securely")
+### Store Private Keys securely[​](#store-private-keys-securely "Direct link to Store Private Keys securely")
 
-Private Keys for the contract and/or admin accounts should not be kept in plain text format anywhere.
-Projects should determine a secure solution that works best for them to store their private keys.
-We recommend storing them in a secure key store such as google KMS or something similar.
+Do not keep Private Keys for the contract and admin accounts in plain text format anywhere. Projects should determine a secure solution that works best for them to store their private keys. We recommend that you them in a secure key store such as Google KMS or something similar.
 
-### Deployments to Testnet or Mainnet should be handled transparently[​](#deployments-to-testnet-or-mainnet-should-be-handled-transparently "Direct link to Deployments to Testnet or Mainnet should be handled transparently")
+### Handle deployments to Testnet or Mainnet[​](#handle-deployments-to-testnet-or-mainnet "Direct link to Handle deployments to Testnet or Mainnet")
 
-As projects become more successful, communities around them grow.
-In a trustless ecosystem, that also means more of others building on your contracts.
-Before deploying or upgrading a contract, it is important to maintain
-clear community communications with sufficient notice, since changes will always bring added risk.
-Giving community members time to review and address issues with upgrades
-before they happen builds trust and confidence in projects.
-Here are a few suggestions for how to manage a deployment or upgrade.
+As projects become more successful, communities around them grow. In a trustless ecosystem, that also means more of others building on your contracts. Before you deploy or upgrade a contract, it is important to maintain clear community communications with sufficient notice, since changes will always bring added risk. When you give community members time to review and address issues with upgrades before they happen, it builds trust and confidence in projects.
+
+Here are a few suggestions for how to manage a deployment or upgrade:
 
 * Communicate to all stake-holders well in advance
-  + Share the proposal with the community at least a week in advance (unless it is a critical bug fix)
-    - Examples of places to share are your project's chat, forum, blog, email list, etc.
-    - This will allow the community and other stakeholders to have plenty of time
-      to view the upcoming changes and provide feedback if necessary.
-  + Share the time of the deployment and the deployment transaction with branch/commit hash information to ensure the transaction itself is correct.
+  + Share the proposal with the community at least a week in advance (unless it is a critical bug fix).
+    - Examples of places to share are your project's chat, forum, blog, email list, and so on.
+    - This will allow the community and other stakeholders to have plenty of time to view the upcoming changes and provide feedback if necessary.
+  + Share the time of the deployment and the deployment transaction with branch and commit hash information to ensure the transaction itself is correct.
   + Coordinate deployment with stakeholders to make sure it is done correctly and on time.
 
 ## Responsibilities to the Community[​](#responsibilities-to-the-community "Direct link to Responsibilities to the Community")
 
-Web3 brings tremendous possibilities for engineering applications with trustlessness
-and composability in mind, with Cadence and Flow offering unique features to achieve this.
-If every project treats their community and the Flow community with respect and care,
-the things we can all build together will be very powerful.
+Web3 brings tremendous possibilities for engineering applications with trustlessness and composability in mind, and Cadence and Flow offer unique features to achieve this. If every project treats their community and the Flow community with respect and care, the things we can all build together will be very powerful.
 
 ### Projects should have thorough documentation[​](#projects-should-have-thorough-documentation "Direct link to Projects should have thorough documentation")
 
-Encouraging adoption of project contracts to the broader ecosystem
-raises the bar around code providing clear high-level descriptions,
-with detailed and useful comments within contracts, transactions, and scripts.
-The more that a project can be understood, that it adheres to standards,
-and can be built upon with ease, the more likely others will build against it in turn.
+Encouraging adoption of project contracts to the broader ecosystem raises the bar around code to provides clear high-level descriptions, with detailed and useful comments within contracts, transactions, and scripts. The more that users can understand a project, that it adheres to standards, and can be built upon with ease, the more likely others will build against it in turn.
 
-Each project should have a detailed README.md with these sections: - Explanation of the project itself with links to the app - Addresses on various networks - High-level technical description of the contracts with emphasis on important types and functionality - Architecture diagram (if applicable) - Include links to tutorials if they are external - Flow smart contract standards that a project implements
+Each project should have a detailed README.md with these sections:
 
-Additionally, each contract, transaction, and script should have high-level descriptions
-at the top of their files. This way, anyone in the community can easily
-come in and understand what each one is doing without having to parse confusing code.
+* Explanation of the project itself with links to the app.
+* Addresses on various networks.
+* High-level technical description of the contracts with emphasis on important types and functionality
+* Architecture diagram (if applicable) - Include links to tutorials if they are external - Flow smart contract standards that a project implements
+
+Additionally, each contract, transaction, and script should have high-level descriptions at the top of their files. This way, anyone in the community can easily come in and understand what each one is doing without the need to parse confusing code.
 
 ### Projects should engage with and respond to their own Community[​](#projects-should-engage-with-and-respond-to-their-own-community "Direct link to Projects should engage with and respond to their own Community")
 
-Once a contract is deployed, the work doesn't stop there.
-Project communities require ongoing nurturing and support.
-As the developer of a public project on a public blockchain,
-the owners have an obligation to be helpful and responsive to the community
-so that they can encourage composability and third party interactions.
+After a contract is deployed, the work doesn't stop there. Project communities require continuous nurturing and support. As the developer of a public project on a public blockchain, the owners have an obligation to be helpful and responsive to the community so that they can encourage composability and third party interactions.
 
 * Keep issues open in the repo.
 * The owner should turn on email notifications for new issue creation in the repo.
@@ -175247,36 +175872,37 @@ so that they can encourage composability and third party interactions.
 
 ### Projects should contribute to the greater Flow and Cadence community[​](#projects-should-contribute-to-the-greater-flow-and-cadence-community "Direct link to Projects should contribute to the greater Flow and Cadence community")
 
-Flow has a vibrant and growing community of contributors around the world.
-Through our mutual collaboration we've had numerous community Flow Improvement Proposals
-([FLIP](https://github.com/onflow/flow/tree/master/flips)s) shipped.
-If you have an interest in a particular improvement for Flow or Cadence,
-we host open meetings which you are welcome to join (announced on discord)
-and can participate anytime on any of the FLIPs
-[already proposed](https://github.com/onflow/flow/pulls?q=is%3Aopen+is%3Apr+label%3AFLIP).
+Flow has a vibrant and growing community of contributors around the world. Through our mutual collaboration, we've had numerous community Flow Improvement Proposals ([FLIP]s) shipped. If you have an interest in a particular improvement for Flow or Cadence, we host open meetings which you are welcome to join (announced on discord) and can participate anytime on any of the FLIPs [already proposed].
 
-Responsible project maintainers should contribute to discussions
-about important proposals (new cadence features, standard smart contracts, metadata, etc)
-and generally be aware about evolving best practices and anti-pattern understandings.
-Projects who contribute to these discussions are able to influence them to ensure
-that the language/protocol changes are favorable to them
-and the rest of the app developers in the ecosystem.
-It also helps the owner to promote the project and themselves.
+Responsible project maintainers should contribute to discussions about important proposals (new cadence features, standard smart contracts, metadata, and so on), and generally be aware about current best practices and anti-pattern knowledge. Projects who contribute to these discussions are able to influence them to ensure that the language and protocol changes are favorable to them and the rest of the app developers in the ecosystem. It also helps the owner to promote the project and themselves.
 
 Resources for Best Practices:
 
 * [cadence/design-pattern](https://cadence-lang.org/docs/design-patterns)
 * [cadence/anti-patterns](https://cadence-lang.org/docs/anti-patterns)
-* [cadence/security-best-practices](/build/cadence/smart-contracts/best-practices/security-best-practices)
+* [cadence/security-best-practices]
 
-Composability and extensibility should also be priorities while designing, developing,
-and documenting their projects.
+Composability and extensibility should also be priorities while they design, develop, and document their projects.
 
-If you have any feedback about these guidelines, please create an issue in the onflow/cadence-style-guide repo or make a PR updating the guidelines so we can start a discussion.
+If you have any feedback about these guidelines, create an issue in the [onflow/cadence-style-guide] repo or make a PR to update the guidelines so we can start a discussion.
+
+[cadence/security-best-practices]: ./security-best-practices.md)
+[FLIP]: <https://github.com/onflow/flow/tree/master/flips>
+[already proposed]: <https://github.com/onflow/flow/pulls?q=is%3Aopen+is%3Apr+label%3AFLIP>
+[onflow/cadence-style-guide]: <https://github.com/onflow/cadence-style-guide>
+[See the flow fungible token repo]: <https://github.com/onflow/flow-ft/tree/master/lib/js/test>
+[Cadence Testing Framework]: ../../smart-contracts/testing.md
+[Overflow]: <https://github.com/bjartek/overflow>
+[Cadence Documentation Generator]: <https://github.com/onflow/cadence-tools/tree/master/docgen>
+[the Flow open source template]: <https://github.com/onflow/open-source-template>
+[Cadence documentation]: <https://cadence-lang.org/docs/>
+[FungibleToken]: <https://github.com/onflow/flow-ft>
+[NFT Metadata]: ../../advanced-concepts/metadata-views.md
+[NFT StoreFront]: <https://github.com/onflow/nft-storefront>
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/smart-contracts/best-practices/project-development-tips.md)
 
-Last updated on **Nov 12, 2025** by **Brian Doyle**
+Last updated on **Dec 4, 2025** by **cshannon1218**
 
 [Previous
 
@@ -175291,10 +175917,10 @@ Build Faster with Flow’s Native Account Abstraction](/build/cadence/advanced-c
 Copy as Markdown
 
 * [Context](#context)
-  + [Implementing These Practices](#implementing-these-practices)* [Design Process](#design-process)
-    + [Projects should ensure that there is strong technical leadership for their smart contracts](#projects-should-ensure-that-there-is-strong-technical-leadership-for-their-smart-contracts)+ [Projects should maintain a well-organized open source Repo for their smart contracts](#projects-should-maintain-a-well-organized-open-source-repo-for-their-smart-contracts)* [Development Process Recommendations](#development-process-recommendations)
-      + [The Development process should be iterative, if possible](#the-development-process-should-be-iterative-if-possible)+ [Comments and field/function descriptions are essential!](#comments-and-fieldfunction-descriptions-are-essential)* [Testing Recommendations](#testing-recommendations)* [Managing Project Keys and Deployments](#managing-project-keys-and-deployments)
-          + [Private Keys should be stored securely](#private-keys-should-be-stored-securely)+ [Deployments to Testnet or Mainnet should be handled transparently](#deployments-to-testnet-or-mainnet-should-be-handled-transparently)* [Responsibilities to the Community](#responsibilities-to-the-community)
+  + [Implement These Practices](#implement-these-practices)* [Design Process](#design-process)
+    + [Projects should ensure that there is strong technical leadership for their smart contracts](#projects-should-ensure-that-there-is-strong-technical-leadership-for-their-smart-contracts)+ [Projects should maintain a well-organized open source Repo for their smart contracts](#projects-should-maintain-a-well-organized-open-source-repo-for-their-smart-contracts)* [Development process recommendations](#development-process-recommendations)
+      + [The development process should be iterative, if possible](#the-development-process-should-be-iterative-if-possible)+ [Comments and field or function descriptions are essential!](#comments-and-field-or-function-descriptions-are-essential)* [Test Recommendations](#test-recommendations)* [Manage Project Keys and deployments](#manage-project-keys-and-deployments)
+          + [Store Private Keys securely](#store-private-keys-securely)+ [Handle deployments to Testnet or Mainnet](#handle-deployments-to-testnet-or-mainnet)* [Responsibilities to the Community](#responsibilities-to-the-community)
             + [Projects should have thorough documentation](#projects-should-have-thorough-documentation)+ [Projects should engage with and respond to their own Community](#projects-should-engage-with-and-respond-to-their-own-community)+ [Projects should contribute to the greater Flow and Cadence community](#projects-should-contribute-to-the-greater-flow-and-cadence-community)
 
 Flow
@@ -184386,7 +185012,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -184420,7 +185046,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* send
 
@@ -193332,7 +193958,7 @@ Search
 
                                 - [Utils](/build/tools/flow-cli/utils/signature-generate)
 
-                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Fork Testing](/build/tools/flow-cli/fork-testing)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
 
                     + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
@@ -194297,7 +194923,7 @@ Search
 
                                 - [Utils](/build/tools/flow-cli/utils/signature-generate)
 
-                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Fork Testing](/build/tools/flow-cli/fork-testing)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
 
                     + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
@@ -199919,7 +200545,7 @@ Search
 
                                 - [Utils](/build/tools/flow-cli/utils/signature-generate)
 
-                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Fork Testing](/build/tools/flow-cli/fork-testing)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
 
                     + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
@@ -201121,7 +201747,7 @@ Last updated on **Nov 12, 2025** by **Brian Doyle**
 
 Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)[Next
 
-Data Collection](/build/tools/flow-cli/data-collection)
+Fork Testing](/build/tools/flow-cli/fork-testing)
 
 ###### Rate this page
 
@@ -226946,7 +227572,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -230899,7 +231525,7 @@ Search
 
                                 - [Utils](/build/tools/flow-cli/utils/signature-generate)
 
-                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Fork Testing](/build/tools/flow-cli/fork-testing)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
 
                     + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
@@ -237608,7 +238234,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -265172,7 +265798,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -276724,7 +277350,7 @@ Search
 
                                 - [Utils](/build/tools/flow-cli/utils/signature-generate)
 
-                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Fork Testing](/build/tools/flow-cli/fork-testing)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
 
                     + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
@@ -287539,7 +288165,7 @@ Search
 
                                 - [Utils](/build/tools/flow-cli/utils/signature-generate)
 
-                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Fork Testing](/build/tools/flow-cli/fork-testing)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
 
                     + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
@@ -294038,7 +294664,7 @@ Search
 
                                 * [Get Block](/build/tools/flow-cli/get-flow-data/get-blocks)* [Get Events](/build/tools/flow-cli/get-flow-data/get-events)* [Get Collection](/build/tools/flow-cli/get-flow-data/get-collections)* [Network Status](/build/tools/flow-cli/get-flow-data/get-status)- [Utils](/build/tools/flow-cli/utils/signature-generate)
 
-                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Fork Testing](/build/tools/flow-cli/fork-testing)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
 
                     + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
@@ -302998,7 +303624,7 @@ Search
 
                                 - [Utils](/build/tools/flow-cli/utils/signature-generate)
 
-                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Fork Testing](/build/tools/flow-cli/fork-testing)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
 
                     + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
@@ -303039,7 +303665,7 @@ Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)[Next
+Fork Testing](/build/tools/flow-cli/fork-testing)[Next
 
 Cadence VS Code Extension](/build/tools/vscode-extension)
 
@@ -308438,7 +309064,7 @@ Search
 
                                 - [Utils](/build/tools/flow-cli/utils/signature-generate)
 
-                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Fork Testing](/build/tools/flow-cli/fork-testing)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
 
                     + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
@@ -318074,7 +318700,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -333855,7 +334481,7 @@ Search
 
                                 - [Utils](/build/tools/flow-cli/utils/signature-generate)
 
-                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Fork Testing](/build/tools/flow-cli/fork-testing)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
 
                     + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
@@ -380416,7 +381042,7 @@ Search
 
                                 - [Utils](/build/tools/flow-cli/utils/signature-generate)
 
-                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Fork Testing](/build/tools/flow-cli/fork-testing)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
 
                     + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
@@ -397646,7 +398272,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -397684,7 +398310,7 @@ Search
 
                                 - [Utils](/build/tools/flow-cli/utils/signature-generate)
 
-                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Fork Testing](/build/tools/flow-cli/fork-testing)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
 
                     + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
@@ -397705,6 +398331,7 @@ With Flow CLI, developers can:
 * **Query Chain State**: Retrieve data from the Flow blockchain, including account balances, event logs, and the status of specific transactions.
 * **Deploy Smart Contracts**: Easily deploy and update Cadence smart contracts on any Flow environment (emulator, testnet, or mainnet).
 * **Use the Emulator:** Set up a local Flow blockchain instance with the Flow emulator to test and debug smart contracts in a development environment before deploying them on the network.
+* **Test with Fork Mode**: Use [fork testing](/build/tools/flow-cli/fork-testing) to run tests and development environments against a local copy of mainnet or testnet state, giving you access to real contracts and data without affecting production.
 * **Interact with the [Flow Access API](/http-api)**: Automate complex workflows using configuration files and command-line scripting, which allows for greater flexibility in continuous integration (CI) or custom development tools.
 * **Access Flow’s Tooling Ecosystem**: Integrate Flow CLI with other developer tools like the [Cadence Extension for VSCode](https://marketplace.visualstudio.com/items?itemName=onflow.cadence) to enhance your development experience.
 
@@ -397729,7 +398356,7 @@ To learn more about Flow CLI commands and how to use them, please refer to the [
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/index.md)
 
-Last updated on **Oct 22, 2025** by **Chase Fleming**
+Last updated on **Dec 16, 2025** by **Jordan Ribbink**
 
 [Previous
 
@@ -404150,7 +404777,7 @@ Search
 
                                 - [Utils](/build/tools/flow-cli/utils/signature-generate)
 
-                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Fork Testing](/build/tools/flow-cli/fork-testing)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
 
                     + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
@@ -405016,7 +405643,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -405050,7 +405677,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* getBlock
 
@@ -407881,7 +408508,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -414878,7 +415505,7 @@ Search
 
                                 - [Utils](/build/tools/flow-cli/utils/signature-generate)
 
-                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Fork Testing](/build/tools/flow-cli/fork-testing)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
 
                     + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
@@ -426061,7 +426688,7 @@ Search
 
                 + [Mobile Development on Flow](/blockchain-development-tutorials/cadence/mobile)
 
-                  + [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
+                  + [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)+ [Emulator Fork Testing](/blockchain-development-tutorials/cadence/emulator-fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
 
             * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 
@@ -437280,12 +437907,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **9aea0400bf734f40**
+Cloudflare Ray ID: **9af23f4f883ae615**
 •
 
 Your IP:
 Click to reveal
-52.176.138.179
+40.79.245.17
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 

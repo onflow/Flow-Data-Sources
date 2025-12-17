@@ -46,7 +46,7 @@ Search
 
                                 - [Utils](/build/tools/flow-cli/utils/signature-generate)
 
-                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Fork Testing](/build/tools/flow-cli/fork-testing)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
 
                     + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
@@ -182,6 +182,37 @@ _10
 _10
 
 }`
+
+**Fork Networks:**
+Fork networks allow you to test against a local emulator that mirrors mainnet or testnet state. When you run `flow emulator --fork mainnet`, the CLI automatically creates a `mainnet-fork` network configuration that inherits contract aliases from the parent network:
+
+`_10
+
+"networks": {
+
+_10
+
+"mainnet-fork": {
+
+_10
+
+"host": "127.0.0.1:3569",
+
+_10
+
+"fork": "mainnet"
+
+_10
+
+}
+
+_10
+
+}`
+
+The `fork` property tells the CLI to inherit all contract aliases from the specified network (e.g., `mainnet`), so you don't need to manually duplicate aliases for forked networks.
+
+Learn more: [Fork Testing Overview](/build/tools/flow-cli/fork-testing)
 
 ### Accounts[​](#accounts "Direct link to Accounts")
 
@@ -755,7 +786,7 @@ flow config remove account my-account`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/flow.json/configuration.md)
 
-Last updated on **Nov 20, 2025** by **Chase Fleming**
+Last updated on **Dec 16, 2025** by **Jordan Ribbink**
 
 [Previous
 
