@@ -46,9 +46,9 @@ On this page
 
 # Interactive Testing with Forked Emulator
 
-This tutorial teaches you how to run your app, E2E tests, and manual explorations against a snapshot of Flow mainnet using `flow emulator --fork`. You'll learn how to connect your frontend to production-like state, test user flows with real contracts and data, and debug issues interactively—all without deploying to a live network.
+Fork testing gives you a local copy of mainnet state that you can freely modify and reset instantly. Test your DeFi app against real DEX liquidity pools and lending protocols without risking funds, verify integrations with existing mainnet contracts before deploying, and debug production issues at specific block heights with exact mainnet state.
 
-The forked emulator creates a local Flow network that mirrors mainnet or testnet state. It's perfect for manual testing, running E2E test suites, and exploring contract interactions in a production-like environment with full control.
+This tutorial teaches you how to run your app and E2E tests against Flow mainnet using `flow emulator --fork`. You'll connect your frontend to production-like state, impersonate any mainnet account, and test with real balances and assets—all running locally.
 
 ## What You'll Learn[​](#what-youll-learn "Direct link to What You'll Learn")
 
@@ -56,9 +56,10 @@ After you complete this tutorial, you'll be able to:
 
 * **Start the emulator in fork mode** with `flow emulator --fork`.
 * **Connect your app frontend** to the forked emulator.
+* **Test DeFi integrations** against real liquidity pools, DEXs, and protocols.
 * **Test against real mainnet contracts** and production data interactively.
 * **Run E2E tests** (Cypress, Playwright) against forked state.
-* **Use account impersonation** to test as any mainnet account.
+* **Use account impersonation** to test as any mainnet account with real balances and assets.
 * **Pin to specific block heights** for reproducible testing.
 * **Debug and explore** contract interactions manually.
 
@@ -113,7 +114,7 @@ You'll need network access to Flow's public access nodes:
 
 info
 
-This tutorial covers `flow emulator --fork` (interactive testing with a forked emulator), which is different from `flow test --fork` (running Cadence test files against forked state). For testing Cadence contracts with test files, see [Fork Testing with Cadence](/blockchain-development-tutorials/cadence/fork-testing).
+This tutorial covers `flow emulator --fork` (interactive testing with a forked emulator), which is different from `flow test --fork` (running Cadence test files against forked state). For an overview of both modes, see [Fork Testing](/build/tools/flow-cli/fork-testing). For testing Cadence contracts with test files, see [Fork Testing with Cadence](/blockchain-development-tutorials/cadence/fork-testing).
 
 ## Understanding Emulator Fork Mode[​](#understanding-emulator-fork-mode "Direct link to Understanding Emulator Fork Mode")
 
@@ -133,6 +134,7 @@ The emulator's fork mode starts a local Flow blockchain that connects to a real 
 
 Use `flow emulator --fork` for:
 
+* **DeFi application testing**: Test against real liquidity pools, DEXs, and lending protocols with production state
 * **E2E and frontend testing**: Run Cypress/Playwright tests against production-like state
 * **Manual exploration**: Interact with your app connected to forked mainnet
 * **Debugging user issues**: Reproduce bugs at specific block heights
@@ -214,7 +216,13 @@ _10
 
 }`
 
-In another terminal, run the script:
+First, verify the script works against real mainnet:
+
+`_10
+
+flow scripts execute cadence/scripts/getFlowSupply.cdc --network mainnet`
+
+Then, in another terminal, run the script against the fork:
 
 `_10
 
@@ -238,130 +246,7 @@ _10
 
 flow init --yes`
 
-The `--yes` flag accepts defaults non-interactively.
-
-## Configure Fork Network in flow.json[​](#configure-fork-network-in-flowjson "Direct link to Configure Fork Network in flow.json")
-
-Before starting the emulator, configure a fork network in your `flow.json`. This enables automatic contract alias inheritance from mainnet, so you don't need to manually duplicate aliases.
-
-Open `flow.json` and add a `mainnet-fork` network:
-
-`_11
-
-{
-
-_11
-
-"networks": {
-
-_11
-
-"emulator": "127.0.0.1:3569",
-
-_11
-
-"mainnet": "access.mainnet.nodes.onflow.org:9000",
-
-_11
-
-"testnet": "access.devnet.nodes.onflow.org:9000",
-
-_11
-
-"mainnet-fork": {
-
-_11
-
-"host": "127.0.0.1:3569",
-
-_11
-
-"fork": "mainnet"
-
-_11
-
-}
-
-_11
-
-}
-
-_11
-
-}`
-
-**What this does:**
-
-* `host`: Points to your local emulator
-* `fork`: Tells the CLI to automatically inherit contract aliases from mainnet
-
-Now any contract with a `mainnet` alias will automatically work on `mainnet-fork` without manual configuration!
-
-tip
-
-**Why forking is powerful:**
-
-The emulator fork mode gives you access to **real production state**:
-
-* ✅ Test against actual deployed contracts (FT, NFT, DEXs, marketplaces)
-* ✅ Read real account balances, storage, and capabilities
-* ✅ Query production data without setting up test fixtures
-* ✅ Catch integration issues with real-world contract implementations
-* ✅ Debug with historical state by pinning block heights
-
-**Plus, fork networks simplify configuration:**
-
-* ✅ No need to duplicate 30+ contract aliases
-* ✅ Automatic inheritance from source network
-* ✅ Can override specific contracts if needed
-
-**Example of automatic inheritance:**
-
-`_11
-
-{
-
-_11
-
-"dependencies": {
-
-_11
-
-"FlowToken": {
-
-_11
-
-"aliases": {
-
-_11
-
-"mainnet": "0x1654653399040a61"
-
-_11
-
-// ✅ mainnet-fork automatically inherits this!
-
-_11
-
-// No need for: "mainnet-fork": "0x1654653399040a61"
-
-_11
-
-}
-
-_11
-
-}
-
-_11
-
-}
-
-_11
-
-}`
-
-When you run commands with `--network mainnet-fork`, the CLI automatically resolves contract imports to their mainnet addresses.
+This creates an empty Flow project with default configuration.
 
 ## Start the Forked Emulator[​](#start-the-forked-emulator "Direct link to Start the Forked Emulator")
 
@@ -398,6 +283,12 @@ INFO[0000] 🌐 Forking from access.mainnet.nodes.onflow.org:9000`
 * **REST API**: `http://localhost:8888` (for FCL/frontend)
 * **gRPC API**: `localhost:3569` (for Flow CLI)
 
+Fork Network Configuration
+
+When you run `flow init`, the CLI automatically configures a `mainnet-fork` network in your `flow.json` that inherits all contract aliases from mainnet. This means you don't need to manually configure fork networks—it just works!
+
+For details on fork network configuration, see the [Fork Testing Overview](/build/tools/flow-cli/fork-testing) and [flow.json Configuration Reference](/build/tools/flow-cli/flow.json/configuration#networks).
+
 tip
 
 Pin to a specific block height for reproducibility:
@@ -408,111 +299,315 @@ flow emulator --fork mainnet --fork-height <BLOCK_HEIGHT>`
 
 This ensures the forked state is consistent across runs—essential for E2E tests in CI.
 
-## Mocking Mainnet Contracts[​](#mocking-mainnet-contracts "Direct link to Mocking Mainnet Contracts")
+## Deploy Your Contracts Against Mainnet State[​](#deploy-your-contracts-against-mainnet-state "Direct link to Deploy Your Contracts Against Mainnet State")
 
-Just like mocking dependencies in unit tests, you can **mock real mainnet contracts** by deploying modified versions—perfect for testing upgrades, bug fixes, or alternative implementations against real production state.
+The most common use case: deploy your NEW contracts to the forked emulator so they can interact with real mainnet contracts and data. This lets you test your DeFi protocol against live DEXs, lending protocols, liquidity pools, and other production DeFi infrastructure.
 
-Configure the mock in `flow.json`, then deploy to the forked emulator. Your mock takes precedence while other contracts use real mainnet versions.
+### Example: Deploy and Test Your Contract[​](#example-deploy-and-test-your-contract "Direct link to Example: Deploy and Test Your Contract")
 
-### Example[​](#example "Direct link to Example")
-
-**1. Configure in `flow.json`:**
-
-`_21
-
-{
-
-_21
-
-"accounts": {
-
-_21
-
-"flow-token-mainnet": {
-
-_21
-
-"address": "0x1654653399040a61",
-
-_21
-
-"key": "0000000000000000000000000000000000000000000000000000000000000000"
-
-_21
-
-}
-
-_21
-
-},
-
-_21
-
-"contracts": {
-
-_21
-
-"FlowToken": {
-
-_21
-
-"source": "./contracts/FlowTokenModified.cdc",
-
-_21
-
-"aliases": {
-
-_21
-
-"mainnet": "0x1654653399040a61"
-
-_21
-
-}
-
-_21
-
-}
-
-_21
-
-},
-
-_21
-
-"deployments": {
-
-_21
-
-"mainnet-fork": {
-
-_21
-
-"flow-token-mainnet": ["FlowToken"]
-
-_21
-
-}
-
-_21
-
-}
-
-_21
-
-}`
-
-**2. Deploy the mock:**
+**1. Create your contract:**
 
 `_10
 
-flow emulator --fork mainnet
+flow generate contract MyDeFiProtocol`
+
+Edit `cadence/contracts/MyDeFiProtocol.cdc`:
+
+`_10
+
+import "FlowToken"
 
 _10
 
+_10
+
+access(all) contract MyDeFiProtocol {
+
+_10
+
+// Your DeFi logic that reads real mainnet FlowToken data
+
+_10
+
+access(all) fun getTotalSupply(): UFix64 {
+
+_10
+
+return FlowToken.totalSupply
+
+_10
+
+}
+
+_10
+
+}`
+
+**2. Start the forked emulator:**
+
+`_10
+
+flow emulator --fork mainnet`
+
+When the emulator starts, note the service account address in the logs:
+
+`_10
+
+⚙️ Using service account 0xe467b9dd11fa00df`
+
+**3. Configure the service account:**
+
+Add the forked emulator's service account (use the address from the startup logs and a dummy key).
+
+First, create a dummy key file:
+
+`_10
+
+echo "0000000000000000000000000000000000000000000000000000000000000000" > blank-key.pkey`
+
+Then manually add to your `flow.json`:
+
+`_11
+
+{
+
+_11
+
+"accounts": {
+
+_11
+
+"mainnet-fork-service": {
+
+_11
+
+"address": "0xe467b9dd11fa00df",
+
+_11
+
+"key": {
+
+_11
+
+"type": "file",
+
+_11
+
+"location": "blank-key.pkey"
+
+_11
+
+}
+
+_11
+
+}
+
+_11
+
+}
+
+_11
+
+}`
+
+Since signature validation is disabled in fork mode, the key value doesn't matter.
+
+**4. Configure deployment:**
+
+`_10
+
+flow config add deployment \
+
+_10
+
+--network mainnet-fork \
+
+_10
+
+--account mainnet-fork-service \
+
+_10
+
+--contract MyDeFiProtocol`
+
+**5. Deploy your contract:**
+
+`_10
+
 flow project deploy --network mainnet-fork --update`
 
-Your app now uses the mocked FlowToken while FungibleToken, USDC, and all other contracts use real mainnet versions.
+tip
+
+Use `--update` if you're working on an existing project that's already deployed to mainnet. The forked emulator mirrors mainnet state, so if your contract already exists at that address on mainnet, it will exist in the fork too. The `--update` flag replaces the mainnet version with your local changes.
+
+**6. Test your contract:**
+
+Your contract can now interact with real mainnet contracts! Create a script to test it:
+
+`_10
+
+flow generate script getTotalSupply`
+
+Add the following to `cadence/scripts/getTotalSupply.cdc`:
+
+`_10
+
+import "MyDeFiProtocol"
+
+_10
+
+_10
+
+access(all) fun main(): UFix64 {
+
+_10
+
+return MyDeFiProtocol.getTotalSupply()
+
+_10
+
+}`
+
+Run the script:
+
+`_10
+
+flow scripts execute cadence/scripts/getTotalSupply.cdc --network mainnet-fork`
+
+You'll see something like `Result: 1628083999.54686045` - the real mainnet FlowToken supply! Your contract runs locally but reads production data. Perfect for testing integrations before mainnet deployment.
+
+## Mock Existing Mainnet Contracts[​](#mock-existing-mainnet-contracts "Direct link to Mock Existing Mainnet Contracts")
+
+You can override existing mainnet contracts with your own versions for testing. This is useful for testing contract upgrades, fixing bugs, or adding test functionality to mainnet contracts.
+
+### Example: Mock a Mainnet Contract[​](#example-mock-a-mainnet-contract "Direct link to Example: Mock a Mainnet Contract")
+
+Let's say you want to test how your DeFi protocol behaves with a modified version of an existing mainnet contract.
+
+**1. Create your mock oracle contract:**
+
+`_10
+
+flow generate contract PriceOracle`
+
+Edit `cadence/contracts/PriceOracle.cdc` to match the interface of the mainnet oracle you want to mock:
+
+`_10
+
+// Mock implementation of mainnet PriceOracle with fixed test prices
+
+_10
+
+access(all) contract PriceOracle {
+
+_10
+
+access(all) fun getPrice(): UFix64 {
+
+_10
+
+return 123.45 // Fixed test price for predictable testing
+
+_10
+
+}
+
+_10
+
+}`
+
+**2. Deploy to the SAME address as the mainnet oracle:**
+
+In your `flow.json`, configure deployment to use the mainnet oracle's address:
+
+`_19
+
+{
+
+_19
+
+"contracts": {
+
+_19
+
+"PriceOracle": "cadence/contracts/PriceOracle.cdc"
+
+_19
+
+},
+
+_19
+
+"deployments": {
+
+_19
+
+"mainnet-fork": {
+
+_19
+
+"mainnet-oracle-account": ["PriceOracle"]
+
+_19
+
+}
+
+_19
+
+},
+
+_19
+
+"accounts": {
+
+_19
+
+"mainnet-oracle-account": {
+
+_19
+
+"address": "0x1654653399040a61",
+
+_19
+
+"key": {
+
+_19
+
+"type": "file",
+
+_19
+
+"location": "blank-key.pkey"
+
+_19
+
+}
+
+_19
+
+}
+
+_19
+
+}
+
+_19
+
+}`
+
+**3. Deploy with `--update` flag:**
+
+`_10
+
+flow project deploy --network mainnet-fork --update`
+
+Now your mock oracle replaces the mainnet oracle at that address. All imports and references to the original oracle will use your mocked version with fixed test prices instead!
+
+tip
+
+This is how you test contract upgrades or modifications against real mainnet state without affecting the live network.
 
 ## Install Dependencies[​](#install-dependencies "Direct link to Install Dependencies")
 
@@ -663,13 +758,21 @@ Now let's connect a frontend.
 
 ## Create a React App[​](#create-a-react-app "Direct link to Create a React App")
 
-Create a React app with Flow integration:
+Create a Next.js app with Flow integration:
 
 `_10
 
-npx create-react-app flow-fork-app
+npx create-next-app@latest flow-fork-app`
 
-_10
+During setup, choose:
+
+* **Use TypeScript**: Yes
+* **Use src directory**: Yes
+* **Use App Router**: Yes
+
+Then install the Flow React SDK:
+
+`_10
 
 cd flow-fork-app
 
@@ -677,7 +780,7 @@ _10
 
 npm install @onflow/react-sdk`
 
-Copy your project's `flow.json` into the React app's `src` directory:
+Copy your project's `flow.json` into the app's `src` directory:
 
 `_10
 
@@ -689,373 +792,417 @@ cp ../flow.json src/`
 
 This allows the `FlowProvider` to resolve contract imports.
 
-Replace `src/index.js` with:
+### Configure for Fork Testing[​](#configure-for-fork-testing "Direct link to Configure for Fork Testing")
 
-`_22
+Since Next.js uses the App Router with server components, create a client component wrapper. First, create the components directory:
 
-import React from 'react';
+`_10
 
-_22
+mkdir -p src/components`
 
-import ReactDOM from 'react-dom/client';
+Then create `src/components/FlowProviderWrapper.tsx`:
 
-_22
+`_24
 
-import App from './App';
+'use client';
 
-_22
+_24
+
+_24
 
 import { FlowProvider } from '@onflow/react-sdk';
 
-_22
+_24
 
-import flowJSON from './flow.json';
+import flowJSON from '../flow.json';
 
-_22
+_24
 
-_22
+_24
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+export default function FlowProviderWrapper({
 
-_22
+_24
 
-root.render(
+children,
 
-_22
+_24
 
-<React.StrictMode>
+}: {
 
-_22
+_24
 
-<FlowProvider
+children: React.ReactNode;
 
-_22
+_24
 
-config={{
+}) {
 
-_22
-
-accessNodeUrl: 'http://localhost:8888', // Point to forked emulator REST endpoint
-
-_22
-
-flowNetwork: 'mainnet-fork', // Use fork network (inherits mainnet aliases)
-
-_22
-
-appDetailTitle: 'Flow Fork Demo',
-
-_22
-
-discoveryWallet: 'http://localhost:8701/fcl/authn', // Dev wallet
-
-_22
-
-}}
-
-_22
-
-flowJson={flowJSON}
-
-_22
-
->
-
-_22
-
-<App />
-
-_22
-
-</FlowProvider>
-
-_22
-
-</React.StrictMode>,
-
-_22
-
-);`
-
-Replace `src/App.js` with:
-
-```` _74
-
-import { useState } from 'react';
-
-_74
-
-import { useFlowCurrentUser, useFlowQuery, Connect } from '@onflow/react-sdk';
-
-_74
-
-_74
-
-function App() {
-
-_74
-
-const { user } = useFlowCurrentUser();
-
-_74
-
-const [shouldFetch, setShouldFetch] = useState(false);
-
-_74
-
-_74
-
-// Query FlowToken supply from forked mainnet
-
-_74
-
-const {
-
-_74
-
-data: flowSupply,
-
-_74
-
-isLoading,
-
-_74
-
-error,
-
-_74
-
-} = useFlowQuery({
-
-_74
-
-cadence: `
-
-_74
-
-import "FlowToken"
-
-_74
-
-_74
-
-access(all) fun main(): UFix64 {
-
-_74
-
-return FlowToken.totalSupply
-
-_74
-
-}
-
-_74
-
-`,
-
-_74
-
-args: (arg, t) => [],
-
-_74
-
-query: {
-
-_74
-
-enabled: shouldFetch, // Only run when button is clicked
-
-_74
-
-},
-
-_74
-
-});
-
-_74
-
-_74
+_24
 
 return (
 
-_74
+_24
 
-<div style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
+<FlowProvider
 
-_74
+_24
 
-<h1>🌊 Flow Emulator Fork Demo</h1>
+config={{
 
-_74
+_24
 
-<p>
+accessNodeUrl: 'http://localhost:8888', // Point to forked emulator REST endpoint
 
-_74
+_24
 
-Connected to: <strong>Forked Mainnet (localhost:8888)</strong>
+flowNetwork: 'mainnet-fork', // Use fork network (inherits mainnet aliases)
 
-_74
+_24
 
-</p>
+appDetailTitle: 'Flow Fork Demo',
 
-_74
+_24
 
-_74
+discoveryWallet: 'http://localhost:8701/fcl/authn', // Dev wallet
 
-<div style={{ marginTop: '2rem' }}>
+_24
 
-_74
+}}
 
-<h2>FlowToken Supply (Real Mainnet Data)</h2>
+_24
 
-_74
+flowJson={flowJSON}
 
-<button onClick={() => setShouldFetch(true)} disabled={isLoading}>
+_24
 
-_74
+>
 
-{isLoading ? 'Loading...' : 'Get FlowToken Supply'}
+_24
 
-_74
+{children}
 
-</button>
+_24
 
-_74
+</FlowProvider>
 
-{error && <p style={{ color: 'red' }}>Error: {error.message}</p>}
-
-_74
-
-{flowSupply && (
-
-_74
-
-<p style={{ fontSize: '1.5rem', color: 'green' }}>
-
-_74
-
-Total Supply: {Number(flowSupply).toLocaleString()} FLOW
-
-_74
-
-</p>
-
-_74
-
-)}
-
-_74
-
-</div>
-
-_74
-
-_74
-
-<div style={{ marginTop: '2rem' }}>
-
-_74
-
-<h2>Wallet Connection</h2>
-
-_74
-
-<Connect />
-
-_74
-
-{user?.loggedIn && (
-
-_74
-
-<p style={{ marginTop: '1rem' }}>
-
-_74
-
-Connected: <code>{user.addr}</code>
-
-_74
-
-</p>
-
-_74
-
-)}
-
-_74
-
-</div>
-
-_74
-
-</div>
-
-_74
+_24
 
 );
 
-_74
+_24
+
+}`
+
+Then update `src/app/layout.tsx` to use the wrapper:
+
+`_15
+
+import FlowProviderWrapper from '@/components/FlowProviderWrapper';
+
+_15
+
+_15
+
+export default function RootLayout({
+
+_15
+
+children,
+
+_15
+
+}: {
+
+_15
+
+children: React.ReactNode;
+
+_15
+
+}) {
+
+_15
+
+return (
+
+_15
+
+<html lang="en">
+
+_15
+
+<body>
+
+_15
+
+<FlowProviderWrapper>{children}</FlowProviderWrapper>
+
+_15
+
+</body>
+
+_15
+
+</html>
+
+_15
+
+);
+
+_15
+
+}`
+
+### Create a Demo Component[​](#create-a-demo-component "Direct link to Create a Demo Component")
+
+Create a simple demo that queries FlowToken supply from the forked mainnet. Update `src/app/page.tsx`:
+
+`` _60
+
+'use client';
+
+_60
+
+_60
+
+import { useState } from 'react';
+
+_60
+
+import { useFlowCurrentUser, useFlowQuery, Connect } from '@onflow/react-sdk';
+
+_60
+
+_60
+
+export default function Home() {
+
+_60
+
+const { user } = useFlowCurrentUser();
+
+_60
+
+const [shouldFetch, setShouldFetch] = useState(false);
+
+_60
+
+_60
+
+// Query FlowToken supply from forked mainnet
+
+_60
+
+const {
+
+_60
+
+data: flowSupply,
+
+_60
+
+isLoading,
+
+_60
+
+error,
+
+_60
+
+} = useFlowQuery({
+
+_60
+
+cadence: `
+
+_60
+
+import "FlowToken"
+
+_60
+
+_60
+
+access(all) fun main(): UFix64 {
+
+_60
+
+return FlowToken.totalSupply
+
+_60
 
 }
 
-_74
+_60
 
-_74
+`,
 
-export default App;
+_60
 
-_74
+args: (arg, t) => [],
 
-# 2. Configure fork network (add to flow.json)
+_60
 
-_74
+query: {
 
-# Add this in "networks":
+_60
 
-_74
+enabled: shouldFetch, // Only run when button is clicked
 
-# "mainnet-fork": {
+_60
 
-_74
+},
 
-# "host": "127.0.0.1:3569",
+_60
 
-_74
+});
 
-# "fork": "mainnet"
+_60
 
-_74
+_60
 
-# }
+return (
 
-_74
+_60
+
+<div style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
+
+_60
+
+<h1>🌊 Flow Emulator Fork Demo</h1>
+
+_60
+
+<p>
+
+_60
+
+Connected to: <strong>Forked Mainnet (localhost:8888)</strong>
+
+_60
+
+</p>
+
+_60
+
+_60
+
+<div style={{ marginTop: '2rem' }}>
+
+_60
+
+<h2>FlowToken Supply (Real Mainnet Data)</h2>
+
+_60
+
+<button onClick={() => setShouldFetch(true)} disabled={isLoading}>
+
+_60
+
+{isLoading ? 'Loading...' : 'Get FlowToken Supply'}
+
+_60
+
+</button>
+
+_60
+
+{error && <p style={{ color: 'red' }}>Error: {(error as Error).message}</p>}
+
+_60
+
+{flowSupply && (
+
+_60
+
+<p style={{ fontSize: '1.5rem', color: 'green' }}>
+
+_60
+
+Total Supply: {Number(flowSupply).toLocaleString()} FLOW
+
+_60
+
+</p>
+
+_60
+
+)}
+
+_60
+
+</div>
+
+_60
+
+_60
+
+<div style={{ marginTop: '2rem' }}>
+
+_60
+
+<h2>Wallet Connection</h2>
+
+_60
+
+<Connect />
+
+_60
+
+{user?.loggedIn && (
+
+_60
+
+<p style={{ marginTop: '1rem' }}>
+
+_60
+
+Connected: <code>{user.addr}</code>
+
+_60
+
+</p>
+
+_60
+
+)}
+
+_60
+
+</div>
+
+_60
+
+</div>
+
+_60
+
+);
+
+_60
+
+} ``
+
+### Start the dev wallet (optional)[​](#start-the-dev-wallet-optional "Direct link to Start the dev wallet (optional)")
+
+For wallet authentication flows, start the FCL dev wallet in another terminal:
+
+`_10
+
+flow dev-wallet`
 
 This starts the dev wallet at `http://localhost:8701`.
 
-_74
+### Run your app[​](#run-your-app "Direct link to Run your app")
 
-_74
+Start the Next.js dev server:
 
-### Run your app
+`_10
 
-_74
+npm run dev`
 
-_74
-
-Start the React app:
-
-_74
-
-_74
-
-```bash
-
-_74
-
-npm start ````
-
-Your browser will open to `http://localhost:3000`. Click "Get FlowToken Supply" to see real mainnet data!
+Navigate to `http://localhost:3000`. Click "Get FlowToken Supply" to see real mainnet data!
 
 **What's happening:**
 
@@ -1244,37 +1391,51 @@ Now let's test transferring tokens from a mainnet account using impersonation.
 
 ### CLI-Based Impersonation[​](#cli-based-impersonation "Direct link to CLI-Based Impersonation")
 
-To use impersonation with the CLI, you need to add the mainnet account to your `flow.json` (signature validation is disabled, so the key value doesn't matter):
+To use impersonation with the CLI, you need to add the mainnet account to your `flow.json` (signature validation is disabled, so the key value doesn't matter).
 
-`_10
+Manually add to your `flow.json` (using the same `blank-key.pkey` file):
+
+`_11
 
 {
 
-_10
+_11
 
 "accounts": {
 
-_10
+_11
 
 "mainnet-service": {
 
-_10
+_11
 
 "address": "0x1654653399040a61",
 
-_10
+_11
 
-"key": "0000000000000000000000000000000000000000000000000000000000000000"
+"key": {
 
-_10
+_11
+
+"type": "file",
+
+_11
+
+"location": "blank-key.pkey"
+
+_11
 
 }
 
-_10
+_11
 
 }
 
-_10
+_11
+
+}
+
+_11
 
 }`
 
@@ -1322,9 +1483,9 @@ flow dev-wallet`
 
 In your app (running against the forked emulator), click the wallet connect button. In the dev wallet UI:
 
-1. **Enter any mainnet address** in the address field (e.g., a whale wallet, NFT collector, or protocol account)
+1. **Enter any mainnet address** in the address field (e.g., a whale wallet, liquidity provider, or DeFi protocol account)
 2. Click "Authenticate"
-3. Your app is now authenticated as that mainnet account with all its real balances, NFTs, and storage!
+3. Your app is now authenticated as that mainnet account with all its real balances, liquidity positions, and storage!
 
 **Additional dev wallet features in fork mode:**
 
@@ -1336,7 +1497,7 @@ This lets you:
 
 * Test your app as a user with specific assets or permissions
 * Debug issues reported by specific mainnet accounts
-* Verify flows work for accounts with large balances or many NFTs
+* Verify flows work for accounts with large balances or complex liquidity positions
 * Test edge cases with real account states
 * Add test funds to accounts that need more FLOW for testing
 
@@ -1399,6 +1560,42 @@ tip
 Use the same approach with Playwright, Puppeteer, or any browser automation tool. The key is having your app connect to the forked emulator (`http://localhost:8888`) while your E2E framework tests the UI.
 
 ## Common Use Cases[​](#common-use-cases "Direct link to Common Use Cases")
+
+### Testing DeFi Applications[​](#testing-defi-applications "Direct link to Testing DeFi Applications")
+
+Test your DeFi application against real mainnet liquidity and protocols:
+
+1. Fork mainnet at a specific block height
+2. Impersonate accounts with large token balances or LP positions
+3. Test your swap, lending, or yield farming logic against real DEX state
+4. Verify slippage calculations with actual liquidity pool reserves
+5. Test edge cases like low liquidity scenarios using real market conditions
+
+**Example: Testing a swap integration**
+
+`_10
+
+# Fork at a known block with specific liquidity conditions
+
+_10
+
+flow emulator --fork mainnet --fork-height <BLOCK_HEIGHT>
+
+_10
+
+_10
+
+# In your test, impersonate a whale account
+
+_10
+
+# Execute swaps against real DEX contracts (IncrementFi, etc.)
+
+_10
+
+# Verify your price calculations match actual execution`
+
+This lets you test against production liquidity without spending real tokens or affecting live markets.
 
 ### Testing Contract Upgrades[​](#testing-contract-upgrades "Direct link to Testing Contract Upgrades")
 
@@ -1574,7 +1771,7 @@ _10
 
 --network mainnet-fork`
 
-This lets you test with real NFT collector accounts, whale wallets, or any address that has interesting state on mainnet.
+This lets you test with real whale wallets, liquidity provider accounts, or any address that has interesting DeFi state on mainnet.
 
 ### 6. Document Your Fork Heights[​](#6-document-your-fork-heights "Direct link to 6. Document Your Fork Heights")
 
@@ -1650,51 +1847,11 @@ flow emulator --fork-host access.mainnet.nodes.onflow.org:9000`
 
 **Error:** `import "FlowToken" could not be resolved`
 
-**Solution:** Ensure your fork network is properly configured:
+**Solution:** Make sure you've installed dependencies with the mainnet alias:
 
-```` _12
+`_10
 
-{
-
-_12
-
-# 2. Configure fork network (add to flow.json)
-
-_12
-
-# Add this in "networks":
-
-_12
-
-# "mainnet-fork": {
-
-_12
-
-# "host": "127.0.0.1:3569",
-
-_12
-
-# "fork": "mainnet"
-
-_12
-
-# }
-
-_12
-
-_12
-
-And that you've installed dependencies with the mainnet alias:
-
-_12
-
-_12
-
-```bash
-
-_12
-
-flow dependencies install ````
+flow dependencies install FlowToken FungibleToken`
 
 Verify the contract has a mainnet alias that the fork can inherit.
 
@@ -1745,32 +1902,7 @@ Check the emulator is running and serving on port 8888.
 **Common mistakes:**
 
 1. **Wrong network:** Using `flowNetwork: 'emulator'` when forking mainnet will use emulator contract addresses (`0x0ae53cb6...`) instead of mainnet addresses. Use your fork network name (`'mainnet-fork'`).
-2. **Missing fork network in flow.json:** Make sure your `flow.json` has the fork network configured:
-
-   `_10
-
-   "networks": {
-
-   _10
-
-   "mainnet-fork": {
-
-   _10
-
-   "host": "127.0.0.1:3569",
-
-   _10
-
-   "fork": "mainnet"
-
-   _10
-
-   }
-
-   _10
-
-   }`
-3. **Missing flowJson prop:** The `flowJson` prop is required for contract import resolution. Make sure you're importing and passing your `flow.json` file.
+2. **Missing flowJson prop:** The `flowJson` prop is required for contract import resolution. Make sure you're importing and passing your `flow.json` file.
 
 ### Script Returns Stale Data[​](#script-returns-stale-data "Direct link to Script Returns Stale Data")
 
@@ -1828,14 +1960,15 @@ The forked emulator bridges the gap between local development and testnet/mainne
 
 * Add E2E tests to your CI/CD pipeline using pinned fork heights
 * Test your app's upgrade flows against forked mainnet
-* Explore [Flow React SDK](/build/tools/react-sdk) hooks and components (events, mutations, Cross-VM features)
+* Review the [Fork Testing Overview](/build/tools/flow-cli/fork-testing) for both emulator and test framework fork modes
 * For Cadence contract testing, see [Fork Testing with Cadence](/blockchain-development-tutorials/cadence/fork-testing)
+* Explore [Flow React SDK](/build/tools/react-sdk) hooks and components (events, mutations, Cross-VM features)
 * Review the [Testing Strategy](/build/cadence/smart-contracts/testing-strategy) for the full testing approach
 * Check [Flow Emulator](/build/tools/emulator) docs for advanced emulator flags
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/emulator-fork-testing/index.md)
 
-Last updated on **Dec 12, 2025** by **Jordan Ribbink**
+Last updated on **Dec 16, 2025** by **Jordan Ribbink**
 
 [Previous
 
@@ -1851,11 +1984,13 @@ Copy as Markdown
 
 * [What You'll Learn](#what-youll-learn)* [What You'll Build](#what-youll-build)* [Prerequisites](#prerequisites)
       + [Flow CLI](#flow-cli)+ [Node.js and npm](#nodejs-and-npm)+ [Frontend development knowledge](#frontend-development-knowledge)+ [Network access](#network-access)* [Understanding Emulator Fork Mode](#understanding-emulator-fork-mode)
-        + [What is `flow emulator --fork`?](#what-is-flow-emulator---fork)+ [When to Use This](#when-to-use-this)+ [Emulator Fork vs Test Framework Fork](#emulator-fork-vs-test-framework-fork)* [Quick Start: Run in 60 Seconds](#quick-start-run-in-60-seconds)* [Create Your Project](#create-your-project)* [Configure Fork Network in flow.json](#configure-fork-network-in-flowjson)* [Start the Forked Emulator](#start-the-forked-emulator)* [Mocking Mainnet Contracts](#mocking-mainnet-contracts)
-                  + [Example](#example)* [Install Dependencies](#install-dependencies)* [Test with Flow CLI Scripts](#test-with-flow-cli-scripts)* [Create a React App](#create-a-react-app)* [Account Impersonation](#account-impersonation)
+        + [What is `flow emulator --fork`?](#what-is-flow-emulator---fork)+ [When to Use This](#when-to-use-this)+ [Emulator Fork vs Test Framework Fork](#emulator-fork-vs-test-framework-fork)* [Quick Start: Run in 60 Seconds](#quick-start-run-in-60-seconds)* [Create Your Project](#create-your-project)* [Start the Forked Emulator](#start-the-forked-emulator)* [Deploy Your Contracts Against Mainnet State](#deploy-your-contracts-against-mainnet-state)
+                + [Example: Deploy and Test Your Contract](#example-deploy-and-test-your-contract)* [Mock Existing Mainnet Contracts](#mock-existing-mainnet-contracts)
+                  + [Example: Mock a Mainnet Contract](#example-mock-a-mainnet-contract)* [Install Dependencies](#install-dependencies)* [Test with Flow CLI Scripts](#test-with-flow-cli-scripts)* [Create a React App](#create-a-react-app)
+                        + [Configure for Fork Testing](#configure-for-fork-testing)+ [Create a Demo Component](#create-a-demo-component)+ [Start the dev wallet (optional)](#start-the-dev-wallet-optional)+ [Run your app](#run-your-app)* [Account Impersonation](#account-impersonation)
                           + [Read Account Balance](#read-account-balance)+ [Execute Transaction as Any Account](#execute-transaction-as-any-account)+ [CLI-Based Impersonation](#cli-based-impersonation)+ [Dev Wallet Authentication with Impersonation](#dev-wallet-authentication-with-impersonation)* [Automating with E2E Testing](#automating-with-e2e-testing)
                             + [Quick Example with Cypress](#quick-example-with-cypress)+ [Running E2E Tests](#running-e2e-tests)* [Common Use Cases](#common-use-cases)
-                              + [Testing Contract Upgrades](#testing-contract-upgrades)+ [Debugging User-Reported Issues](#debugging-user-reported-issues)+ [Testing Wallet Integrations](#testing-wallet-integrations)+ [Running Bots and Indexers](#running-bots-and-indexers)* [Best Practices](#best-practices)
+                              + [Testing DeFi Applications](#testing-defi-applications)+ [Testing Contract Upgrades](#testing-contract-upgrades)+ [Debugging User-Reported Issues](#debugging-user-reported-issues)+ [Testing Wallet Integrations](#testing-wallet-integrations)+ [Running Bots and Indexers](#running-bots-and-indexers)* [Best Practices](#best-practices)
                                 + [1. Pin Block Heights for Reproducibility](#1-pin-block-heights-for-reproducibility)+ [2. Keep Emulator Running During Development](#2-keep-emulator-running-during-development)+ [3. Use Testnet Before Mainnet](#3-use-testnet-before-mainnet)+ [4. Mock External Dependencies](#4-mock-external-dependencies)+ [5. Test Against Real User Accounts](#5-test-against-real-user-accounts)+ [6. Document Your Fork Heights](#6-document-your-fork-heights)* [Limitations and Considerations](#limitations-and-considerations)
                                   + [Network State Fetching](#network-state-fetching)+ [Spork Boundaries](#spork-boundaries)+ [Off-Chain Services](#off-chain-services)* [Troubleshooting](#troubleshooting)
                                     + [Emulator Won't Start](#emulator-wont-start)+ [Contract Import Fails](#contract-import-fails)+ [App Can't Connect](#app-cant-connect)+ [Script Returns Stale Data](#script-returns-stale-data)+ [E2E Tests Flaky](#e2e-tests-flaky)* [When to Use Emulator Fork vs Test Framework Fork](#when-to-use-emulator-fork-vs-test-framework-fork)* [Conclusion](#conclusion)
