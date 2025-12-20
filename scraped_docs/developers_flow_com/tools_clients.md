@@ -8,7 +8,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -26,15 +26,17 @@ Search
 
       + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
 
-        + [Flow React SDK](/build/tools/react-sdk)
+        + [Flow React Native SDK](/build/tools/react-native-sdk)
 
-          + [Flow Emulator](/build/tools/emulator)+ [Flow CLI](/build/tools/flow-cli)
+          + [Flow React SDK](/build/tools/react-sdk)
 
-              + [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+            + [Flow Emulator](/build/tools/emulator)+ [Flow CLI](/build/tools/flow-cli)
 
-                    - [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
+                + [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
 
-                      - [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                      - [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
+
+                        - [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* Client Tools
 
@@ -43,6 +45,15 @@ On this page
 # Client Tools
 
 Flow provides a comprehensive suite of client tools and SDKs designed to help developers build applications that interact with the Flow blockchain. These tools support various programming languages and platforms, offering different levels of abstraction and functionality.
+
+> Terminology note
+>
+> Anywhere an API or SDK accepts a Flow transaction ID, you may also provide a scheduled transaction ID:
+>
+> * Transaction ID: 256-bit hash represented as a 64-character hex string
+> * Scheduled transaction ID: UInt64 represented as a decimal string
+>
+> For REST endpoints like `/v1/transactions/{id}` and `/v1/transaction_results/{id}`, the server treats the `id` as a transaction ID if it parses as hex; otherwise, as a scheduled transaction ID if it parses as a decimal UInt64. Both return identical response schemas. See the Protocol docs for details (`docs/protocol/access-onchain-data/index.md`).
 
 ## JavaScript (FCL)[​](#javascript-fcl "Direct link to JavaScript (FCL)")
 
@@ -74,16 +85,6 @@ Flow provides a comprehensive suite of client tools and SDKs designed to help de
 * Event monitoring
 * Easy integration with Python applications
 
-## Ruby[​](#ruby "Direct link to Ruby")
-
-[FlowClient](https://github.com/glucode/flow_client) is a Ruby gRPC client that enables:
-
-* Direct blockchain communication
-* Transaction processing
-* Account management
-* Event handling
-* Ruby-native blockchain integration
-
 ## JVM[​](#jvm "Direct link to JVM")
 
 [Flow JVM SDK](https://github.com/onflow/flow-jvm-sdk) supports JVM-compatible languages (Java, Kotlin, Scala) with:
@@ -93,36 +94,6 @@ Flow provides a comprehensive suite of client tools and SDKs designed to help de
 * Account handling
 * Event subscription
 * Cross-platform compatibility
-
-## Swift[​](#swift "Direct link to Swift")
-
-[flow-swift](https://github.com/Outblock/flow-swift) is designed for iOS development, offering:
-
-* Native iOS integration
-* Wallet connectivity
-* Transaction management
-* Account handling
-* SwiftUI support
-
-## .NET[​](#net "Direct link to .NET")
-
-[flow.net](https://github.com/tyronbrand/flow.net) provides .NET developers with:
-
-* C# and .NET Core support
-* Transaction management
-* Account handling
-* Event monitoring
-* Cross-platform compatibility
-
-## Rust[​](#rust "Direct link to Rust")
-
-[Rust SDK](https://github.com/fee1-dead/flow.rs) offers Rust developers:
-
-* High-performance blockchain interaction
-* Type-safe transaction handling
-* Account management
-* Event subscription
-* Memory safety guarantees
 
 ## PHP[​](#php "Direct link to PHP")
 
@@ -158,7 +129,7 @@ Each client tool is designed with specific use cases and developer needs in mind
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/index.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Nov 26, 2025** by **Jordan Ribbink**
 
 [Previous
 
@@ -172,7 +143,7 @@ Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 
 Copy as Markdown
 
-* [JavaScript (FCL)](#javascript-fcl)* [Go SDK](#go-sdk)* [Python SDK](#python-sdk)* [Ruby](#ruby)* [JVM](#jvm)* [Swift](#swift)* [.NET](#net)* [Rust](#rust)* [PHP](#php)* [Elixir](#elixir)* [HTTP API](#http-api)
+* [JavaScript (FCL)](#javascript-fcl)* [Go SDK](#go-sdk)* [Python SDK](#python-sdk)* [JVM](#jvm)* [PHP](#php)* [Elixir](#elixir)* [HTTP API](#http-api)
 
 Flow
 
