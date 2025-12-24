@@ -42,15 +42,15 @@ Learn more](/build/flow)
 
 [![flow-client-library](/images/icons/flow-client-library.svg)
 
-### React SDK
+### React SDK→
 
 Build a modern frontend for your Flow Cadence app using React hooks and components with `@onflow/react-sdk`. Easily access user accounts, sign transactions, and more.](/blockchain-development-tutorials/integrations)[![faucet](/images/icons/Faucet.svg)
 
-### Get 100k testnet $FLOW
+### Get 100k testnet $FLOW→
 
 Other chains drip testnet tokens, the Flow faucet gives you 100k $FLOW to play with.](https://faucet.flow.com/fund-account)[![tools](/images/icons/flow-tools.svg)
 
-### Build and ship with Flow CLI
+### Build and ship with Flow CLI→
 
 Stop wrestling with setup and boilerplate. Flow CLI lets you initialize projects, manage accounts and contracts, send transactions, and query chain state from one simple tool. Test locally, deploy to testnet or mainnet, and keep dependencies in sync.](/build/tools/flow-cli)
 
@@ -60,45 +60,45 @@ Stop wrestling with setup and boilerplate. Flow CLI lets you initialize projects
 
 [![vcs-&-funds](/images/icons/vcs-&-funds.svg)
 
-### Developer Support Hub
+### Developer Support Hub→
 
 Access builder perks, grants, and VCs and funds. Get comprehensive support including technical guidance, marketing resources, and ecosystem connections.](/ecosystem/developer-support-hub)[![dev-office-hours](/images/icons/dev-office-hours.svg)
 
-### Dev Office Hours
+### Dev Office Hours→
 
 Join our weekly developer office hours to get direct support from the Flow team and connect with other builders.](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)[![flow-client-library](/images/icons/flow-client-library.svg)
 
-### Use your favorite platforms
+### Use your favorite platforms→
 
 Connect with Thirdweb, Crossmint, Dynamic, Privy, and other popular blockchain infrastructure platforms to enhance user experience and reduce development complexity.](/blockchain-development-tutorials/integrations)
 
 ## Browse by category
 
-[Defi](/defi)
+[Defi→](/defi)
 
 * [DeFi Contracts Mainnet](/defi/defi-contracts-mainnet)* [DeFi Contracts Testnet](/defi/defi-contracts-testnet)* [Cross-chain Swaps](/defi/cross-chain-swaps)* [Add Token to MetaMask](/defi/add-token-to-metamask)* [Band Oracle](/defi/band-oracle)* [FAQ](/defi/faq)
 
-[Tutorials](/tutorials)
+[Tutorials→](/tutorials)
 
 * [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)* [Token Launch](/blockchain-development-tutorials/token-launch)* [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)* [FlowtoBooth](/blockchain-development-tutorials/flowtobooth)* [Native VRF](/blockchain-development-tutorials/native-vrf)
 
-[Cadence](/build/flow)
+[Cadence→](/build/flow)
 
 * [Differences vs. EVM](/build/cadence/differences-vs-evm)* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Basics](/build/cadence/basics/blocks)* [Writing and Deploying Smart Contracts](/build/cadence/smart-contracts/overview)* [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)* [Guides](/build/cadence/advanced-concepts/account-abstraction)* [Core Smart Contracts](/build/cadence/core-contracts)* [Explore More](/build/cadence/explore-more)
 
-[EVM](/evm/quickstart)
+[EVM→](/evm/quickstart)
 
 * [How it Works](/evm/how-it-works)* [Using Flow EVM](/evm/using)* [Network Information](/evm/networks)* [Fees](/evm/fees)* [Accounts](/evm/accounts)* [Cross-chain Bridges](/ecosystem/bridges)* [Faucets](/ecosystem/faucets)* [Block Explorers](/ecosystem/block-explorers)* [Guides](/evm/guides)
 
-[Tools](/tools/react-sdk)
+[Tools→](/tools/react-sdk)
 
 * [Flow Emulator](/tools/emulator)* [Flow CLI](/tools/flow-cli)* [Cadence VS Code Extension](/tools/vscode-extension)* [Flow Dev Wallet](/tools/flow-dev-wallet)* [Client Tools](/tools/clients)* [Error Codes](/tools/error-codes)* [Wallet Provider Spec](/tools/wallet-provider-spec)* [Tools](/tools)
 
-[Networks](/protocol/flow-networks)
+[Networks→](/protocol/flow-networks)
 
 * [Mainnet](/protocol/flow-networks/accessing-mainnet)* [Testnet](/protocol/flow-networks/accessing-testnet)* [Network Architecture](/protocol/network-architecture)* [Staking and Epochs](/protocol/staking)* [Node Ops](/protocol/node-ops)* [Accessing Data](/protocol/access-onchain-data)* [Governance](/protocol/governance)* [Flow Port](/protocol/flow-port)
 
-[Ecosystem](/ecosystem)
+[Ecosystem→](/ecosystem)
 
 * [Wallets](/ecosystem/wallets)* [Flow Block Explorers](/ecosystem/block-explorers)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Bridges](/ecosystem/bridges)* [Community Projects](/ecosystem/projects)* [Builder Perks](/ecosystem/builder-perks)* [VCs & Funds](/ecosystem/vcs-and-funds)* [Faucets](/ecosystem/faucets)* [Grants](/ecosystem/grants)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Auditors](/ecosystem/auditors)
 

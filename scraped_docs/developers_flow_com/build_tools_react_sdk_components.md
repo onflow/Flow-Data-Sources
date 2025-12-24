@@ -523,71 +523,93 @@ All UI components in `@onflow/react-sdk` are styled using [Tailwind CSS](https:/
 
 You can customize the look and feel of the kit by providing a custom theme to the `FlowProvider` via the `theme` prop. This allows you to override default colors and styles to better match your app's branding.
 
-`_17
+### Theme Colors[​](#theme-colors "Direct link to Theme Colors")
+
+The theme object accepts a `colors` property with the following options:
+
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Property Description Default|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `primary` Primary action color (CTAs, main buttons) `flow-bg-slate-900 dark:flow-bg-white`| `primaryForeground` Text color on primary backgrounds `flow-text-white dark:flow-text-slate-900`| `secondary` Secondary action color (secondary buttons) `flow-bg-slate-100 dark:flow-bg-slate-800`| `secondaryForeground` Text color on secondary backgrounds `flow-text-slate-900 dark:flow-text-slate-100`| `accent` Accent color for highlights, selected states `flow-bg-slate-800 dark:flow-bg-slate-200`| `background` Default background color (cards, modals) `flow-bg-white dark:flow-bg-slate-800`| `foreground` Default text color `flow-text-slate-900 dark:flow-text-slate-100`| `muted` Muted/subtle background color `flow-bg-slate-100 dark:flow-bg-slate-700`| `mutedForeground` Muted text color `flow-text-slate-500 dark:flow-text-slate-400`| `border` Border color `flow-border-slate-200 dark:flow-border-slate-700`| `success` Success state color `flow-text-green-600 dark:flow-text-green-400`| `error` Error state color `flow-text-red-600 dark:flow-text-red-400`| `link` Link text color `flow-text-slate-900 dark:flow-text-slate-100` | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+
+### Example[​](#example "Direct link to Example")
+
+`_20
 
 import { FlowProvider } from "@onflow/react-sdk"
 
-_17
+_20
 
-_17
+_20
 
-<FlowProvider
+const customTheme = {
 
-_17
-
-config={...}
-
-_17
-
-theme={{
-
-_17
+_20
 
 colors: {
 
-_17
+_20
 
-primary: {
+primary: "flow-bg-purple-600 dark:flow-bg-purple-400",
 
-_17
+_20
 
-background: "bg-blue-600 dark:bg-blue-400",
+primaryForeground: "flow-text-white dark:flow-text-purple-900",
 
-_17
+_20
 
-text: "text-white dark:text-blue-900",
+secondary: "flow-bg-emerald-500 dark:flow-bg-emerald-400",
 
-_17
+_20
 
-hover: "hover:bg-blue-700 dark:hover:bg-blue-300",
+secondaryForeground: "flow-text-white dark:flow-text-emerald-900",
 
-_17
+_20
 
-},
+accent: "flow-bg-purple-700 dark:flow-bg-purple-300",
 
-_17
+_20
 
-// ...other color overrides
+border: "flow-border-purple-200 dark:flow-border-purple-700",
 
-_17
+_20
 
 }
 
-_17
+_20
 
-}}
+}
 
-_17
+_20
 
->
+_20
 
-_17
+function App() {
 
-<App />
+_20
 
-_17
+return (
 
-</FlowProvider>`
+_20
+
+<FlowProvider config={...} theme={customTheme}>
+
+_20
+
+<MyApp />
+
+_20
+
+</FlowProvider>
+
+_20
+
+)
+
+_20
+
+}`
+
+You only need to specify the colors you want to override—any unspecified colors will use the default values.
 
 ---
 
@@ -679,7 +701,7 @@ _10
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/react-sdk/components.md)
 
-Last updated on **Nov 26, 2025** by **Jordan Ribbink**
+Last updated on **Dec 23, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -695,7 +717,7 @@ Copy as Markdown
 
 * [Components](#components)
   + [`Connect`](#connect)+ [`Profile`](#profile)+ [`TransactionButton`](#transactionbutton)+ [`TransactionDialog`](#transactiondialog)+ [`TransactionLink`](#transactionlink)+ [`NftCard`](#nftcard)+ [`ScheduledTransactionList`](#scheduledtransactionlist)* [Theming](#theming)
-    + [How Theming Works](#how-theming-works)* [Dark Mode](#dark-mode)
+    + [How Theming Works](#how-theming-works)+ [Theme Colors](#theme-colors)+ [Example](#example)* [Dark Mode](#dark-mode)
       + [How Dark Mode Works](#how-dark-mode-works)
 
 Flow
