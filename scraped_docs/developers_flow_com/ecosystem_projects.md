@@ -16,7 +16,7 @@ Search
 
 * [Ecosystem Index](/ecosystem)* [Developer Support Hub](/ecosystem/developer-support-hub)
 
-    * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
+    * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)* [Bug Bounty Program](/ecosystem/bug-bounty)
 
 * * Community Projects
 
@@ -31,10 +31,6 @@ Permissionless Fungible/Non-Fungible Tokens registration on Flow Blockchain with
 ## [Flow Ecosystem Fund](https://flow.com/flow-grants) [Dapper Labs](https://flow.com/flow-grants)
 
 The $725 Million Flow Ecosystem Fund is designed to hypercharge innovation and growth across the Flow community.
-
-## [Flow Bug Bounty Program](https://flow.com/flow-responsible-disclosure) [Flow](https://flow.com/flow-responsible-disclosure)
-
-Get rewarded for finding security vulnerabilities in on of our products or platforms.
 
 ## [Flowverse](https://www.flowverse.co/) [Flowverse](https://www.flowverse.co/)
 
@@ -62,7 +58,7 @@ A comprehensive Flow staking dashboard to track performance, estimate rewards, a
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/projects.mdx)
 
-Last updated on **Sep 25, 2025** by **Brian Doyle**
+Last updated on **Jan 2, 2026** by **Chase Fleming**
 
 [Previous
 
@@ -90,4 +86,4 @@ Network & Resources
 
 * [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow Foundation. All Rights Reserved.
+Copyright © 2026 Flow Foundation. All Rights Reserved.

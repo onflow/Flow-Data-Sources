@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/ecosystem/faucets
+# Source: https://developers.flow.com/ecosystem/bug-bounty
 
-Faucets | Flow Developer Portal
+Bug Bounty Program | Flow Developer Portal
 
 
 
@@ -18,35 +18,23 @@ Search
 
     * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)* [Bug Bounty Program](/ecosystem/bug-bounty)
 
-* * Faucets
+* * Bug Bounty Program
 
-On this page
+# Bug Bounty Program
 
-# Faucets
+![shield-check](/images/icons/shield-check.svg)
 
-Network Faucets provide free Flow tokens for testing purposes, functioning like taps that dispense tokens. They are valuable tools for experimenting with Flow without the need to purchase tokens.
+Discover Flow's bug bounty program, which rewards white hat hackers for finding vulnerabilities and helping keep the network secure.
 
-## Flow Faucet[​](#flow-faucet "Direct link to Flow Faucet")
+[Submit a Vulnerability Report →](https://hackenproof.com/blog/for-hackers/flow-new-bounty-target)
 
-[Flow Faucet](https://faucet.flow.com/fund-account) is a dedicated tool that provides a seamless way to acquire small amounts of Flow tokens for testing and development purposes on the Flow blockchain's testnet environment.
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/bug-bounty.mdx)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/faucets.md)
-
-Last updated on **Sep 25, 2025** by **Brian Doyle**
+Last updated on **Jan 2, 2026** by **Chase Fleming**
 
 [Previous
 
-Wallets](/ecosystem/wallets)[Next
-
-Bridges](/ecosystem/bridges)
-
-###### Rate this page
-
-😞😐😊
-
-Copy as Markdown
-
-* [Flow Faucet](#flow-faucet)
+Auditors](/ecosystem/auditors)
 
 Flow
 
