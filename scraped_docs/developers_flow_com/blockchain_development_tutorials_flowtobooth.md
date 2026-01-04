@@ -8,7 +8,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -43,6 +43,10 @@ Search
 On this page
 
 # Build a fully-onchain image gallery
+
+warning
+
+This tutorial has not been updated for the new [limit of 16 million gas per transaction](https://ethereum.org/roadmap/fusaka/#how-does-new-16m-gas-limit-affects-contract-developers) in Fusaka. It will still work, but you will need to resize the images to a maximum of about 160\*160 pixels.
 
 info
 
@@ -2873,7 +2877,7 @@ Now that you've completed this tutorial, you're ready to explore more complex on
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/image-gallery.md)
 
-Last updated on **Nov 19, 2025** by **cshannon1218**
+Last updated on **Dec 4, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -2912,4 +2916,4 @@ Network & Resources
 
 * [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow Foundation. All Rights Reserved.
+Copyright © 2026 Flow Foundation. All Rights Reserved.
