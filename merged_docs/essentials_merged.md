@@ -2438,7 +2438,7 @@ Network & Resources
 
 * [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow Foundation. All Rights Reserved.
+Copyright © 2026 Flow Foundation. All Rights Reserved.
 
 
 
@@ -56785,7 +56785,7 @@ Network & Resources
 
 * [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow Foundation. All Rights Reserved.
+Copyright © 2026 Flow Foundation. All Rights Reserved.
 
 
 
@@ -69346,7 +69346,7 @@ Network & Resources
 
 * [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow Foundation. All Rights Reserved.
+Copyright © 2026 Flow Foundation. All Rights Reserved.
 
 
 
@@ -81730,7 +81730,7 @@ Network & Resources
 
 * [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow Foundation. All Rights Reserved.
+Copyright © 2026 Flow Foundation. All Rights Reserved.
 
 
 
@@ -89076,7 +89076,7 @@ Network & Resources
 
 * [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow Foundation. All Rights Reserved.
+Copyright © 2026 Flow Foundation. All Rights Reserved.
 
 
 
@@ -93973,7 +93973,7 @@ Network & Resources
 
 * [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow Foundation. All Rights Reserved.
+Copyright © 2026 Flow Foundation. All Rights Reserved.
 
 
 
@@ -101851,6 +101851,12 @@ A JSON version of the information below can be found in [onflow/flow/sporks.json
 | --- | --- | --- | --- | --- | --- | --- |
 | HCU Info|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | **Date**: Jan 27, 2025| **Block Height**: 101584244| **Git Commit**: 5f6b25bd02257e3239341c4be0134b007f3deb49| **Branch/Tag**: v0.37.26| **Docker Image Tag**: v0.37.26| **Release Notes**: [v0.37.26](https://github.com/onflow/flow-go/releases/tag/v0.37.26) | | | | | | |
 
+## Mainnet 28[​](#mainnet-28 "Direct link to Mainnet 28")
+
+|  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Spork Info|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | **Access Node**: access.mainnet.nodes.onflow.org:9000| **Date**: Dec 28, 2025| **Root Height**: 137390146| **Root Parent ID**: ee69349b5044c4c1cb959ac5beccbe3df896b370fb098808fb9a6eada57b3f7f| **Root State Commit**: d0a13c09f930322c5f053113354211acbf4d8c5eeb524c7004eb7c9d052c4bbe| **Git Commit**: dd73c65fe83822e5fc2846879fb93f8a15b1b25c| **Branch/Tag**: [v0.44.3](https://github.com/onflow/flow-go/releases/tag/v0.44.3)| **Docker Image Tag**: v0.44.3 | | | | | | | | |
+
 ## Mainnet 27[​](#mainnet-27 "Direct link to Mainnet 27")
 
 |  |  |  |  |  |  |  |  |  |
@@ -102392,7 +102398,7 @@ While FCL v0.0.67 is not strictly necessary to use Mainnet 6, we strongly recomm
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/protocol/node-ops/node-operation/past-upgrades.md)
 
-Last updated on **Oct 22, 2025** by **Peter Argue**
+Last updated on **Jan 5, 2026** by **Peter Argue**
 
 [Previous
 
@@ -102406,8 +102412,8 @@ Network Upgrade (Spork) Process](/protocol/node-ops/node-operation/network-upgra
 
 Copy as Markdown
 
-* [Mainnet Upgrades](#mainnet-upgrades)* [Height Coordinated Upgrade 12](#height-coordinated-upgrade-12)* [Height Coordinated Upgrade 11](#height-coordinated-upgrade-11)* [Height Coordinated Upgrade 10](#height-coordinated-upgrade-10)* [Height Coordinated Upgrade 9](#height-coordinated-upgrade-9)* [Height Coordinated Upgrade 8](#height-coordinated-upgrade-8)* [Height Coordinated Upgrade 7](#height-coordinated-upgrade-7)* [Rolling Upgrade 1](#rolling-upgrade-1)* [Height Coordinated Upgrade 6](#height-coordinated-upgrade-6)* [Height Coordinated Upgrade 5](#height-coordinated-upgrade-5)* [Height Coordinated Upgrade 4](#height-coordinated-upgrade-4)* [Mainnet 27](#mainnet-27)* [Mainnet 26](#mainnet-26)* [Mainnet 25](#mainnet-25)* [Mainnet 24](#mainnet-24)* [Mainnet 23](#mainnet-23)* [Mainnet 22](#mainnet-22)* [Mainnet 21](#mainnet-21)* [Mainnet 20](#mainnet-20)* [Mainnet 19](#mainnet-19)* [Mainnet 18](#mainnet-18)* [Mainnet 17](#mainnet-17)* [Mainnet 16](#mainnet-16)* [Mainnet 15](#mainnet-15)* [Mainnet 14](#mainnet-14)* [Mainnet 13](#mainnet-13)* [Mainnet 12](#mainnet-12)* [Mainnet 11](#mainnet-11)* [Mainnet 10](#mainnet-10)* [Mainnet 9](#mainnet-9)* [Mainnet 8](#mainnet-8)* [Mainnet 7](#mainnet-7)* [Mainnet 6](#mainnet-6)
-                                                                  + [Network Implementations](#network-implementations)+ [SDK Compatibility](#sdk-compatibility)* [Mainnet 5](#mainnet-5)* [Mainnet 4](#mainnet-4)* [Mainnet 3](#mainnet-3)* [Mainnet 2](#mainnet-2)* [Mainnet 1](#mainnet-1)* [Candidate 9](#candidate-9)* [Candidate 8](#candidate-8)* [Candidate 7](#candidate-7)* [Candidate 6](#candidate-6)* [Candidate 5](#candidate-5)* [Candidate 4](#candidate-4)* [Testnet Upgrades](#testnet-upgrades)* [Height Coordinated Upgrade 14](#height-coordinated-upgrade-14)* [Height Coordinated Upgrade 13](#height-coordinated-upgrade-13)* [Height Coordinated Upgrade 12](#height-coordinated-upgrade-12-1)* [Height Coordinated Upgrade 11](#height-coordinated-upgrade-11-1)* [Height Coordinated Upgrade 10](#height-coordinated-upgrade-10-1)* [Height Coordinated Upgrade 9](#height-coordinated-upgrade-9-1)* [Height Coordinated Upgrade 8](#height-coordinated-upgrade-8-1)* [Height Coordinated Upgrade 7](#height-coordinated-upgrade-7-1)* [Height Coordinated Upgrade 6](#height-coordinated-upgrade-6-1)* [Height Coordinated Upgrade 5](#height-coordinated-upgrade-5-1)* [Devnet 53](#devnet-53)* [Devnet 52](#devnet-52)* [Devnet 51](#devnet-51)* [Devnet 50](#devnet-50)* [Devnet 49](#devnet-49)* [Devnet 48](#devnet-48)* [Devnet 47](#devnet-47)* [Devnet 46](#devnet-46)* [Devnet 45](#devnet-45)* [Devnet 44](#devnet-44)* [Devnet 43](#devnet-43)* [Devnet 42](#devnet-42)* [Devnet 41](#devnet-41)* [Devnet 40](#devnet-40)* [Devnet 39](#devnet-39)* [Devnet 38](#devnet-38)* [Devnet 37](#devnet-37)* [Devnet 36](#devnet-36)* [Devnet 35](#devnet-35)* [Devnet 34](#devnet-34)* [Devnet 33](#devnet-33)* [Devnet 32](#devnet-32)* [Devnet 31](#devnet-31)* [Devnet 30](#devnet-30)* [Devnet 29](#devnet-29)* [Devnet 28](#devnet-28)* [Devnet 27](#devnet-27)* [Devnet 26](#devnet-26)* [Devnet 25](#devnet-25)* [Devnet 24](#devnet-24)* [Devnet 23](#devnet-23)* [Devnet 22](#devnet-22)* [Devnet 21](#devnet-21)* [Devnet 20](#devnet-20)* [Devnet 19](#devnet-19)* [Devnet 18](#devnet-18)* [Devnet 17](#devnet-17)
+* [Mainnet Upgrades](#mainnet-upgrades)* [Height Coordinated Upgrade 12](#height-coordinated-upgrade-12)* [Height Coordinated Upgrade 11](#height-coordinated-upgrade-11)* [Height Coordinated Upgrade 10](#height-coordinated-upgrade-10)* [Height Coordinated Upgrade 9](#height-coordinated-upgrade-9)* [Height Coordinated Upgrade 8](#height-coordinated-upgrade-8)* [Height Coordinated Upgrade 7](#height-coordinated-upgrade-7)* [Rolling Upgrade 1](#rolling-upgrade-1)* [Height Coordinated Upgrade 6](#height-coordinated-upgrade-6)* [Height Coordinated Upgrade 5](#height-coordinated-upgrade-5)* [Height Coordinated Upgrade 4](#height-coordinated-upgrade-4)* [Mainnet 28](#mainnet-28)* [Mainnet 27](#mainnet-27)* [Mainnet 26](#mainnet-26)* [Mainnet 25](#mainnet-25)* [Mainnet 24](#mainnet-24)* [Mainnet 23](#mainnet-23)* [Mainnet 22](#mainnet-22)* [Mainnet 21](#mainnet-21)* [Mainnet 20](#mainnet-20)* [Mainnet 19](#mainnet-19)* [Mainnet 18](#mainnet-18)* [Mainnet 17](#mainnet-17)* [Mainnet 16](#mainnet-16)* [Mainnet 15](#mainnet-15)* [Mainnet 14](#mainnet-14)* [Mainnet 13](#mainnet-13)* [Mainnet 12](#mainnet-12)* [Mainnet 11](#mainnet-11)* [Mainnet 10](#mainnet-10)* [Mainnet 9](#mainnet-9)* [Mainnet 8](#mainnet-8)* [Mainnet 7](#mainnet-7)* [Mainnet 6](#mainnet-6)
+                                                                    + [Network Implementations](#network-implementations)+ [SDK Compatibility](#sdk-compatibility)* [Mainnet 5](#mainnet-5)* [Mainnet 4](#mainnet-4)* [Mainnet 3](#mainnet-3)* [Mainnet 2](#mainnet-2)* [Mainnet 1](#mainnet-1)* [Candidate 9](#candidate-9)* [Candidate 8](#candidate-8)* [Candidate 7](#candidate-7)* [Candidate 6](#candidate-6)* [Candidate 5](#candidate-5)* [Candidate 4](#candidate-4)* [Testnet Upgrades](#testnet-upgrades)* [Height Coordinated Upgrade 14](#height-coordinated-upgrade-14)* [Height Coordinated Upgrade 13](#height-coordinated-upgrade-13)* [Height Coordinated Upgrade 12](#height-coordinated-upgrade-12-1)* [Height Coordinated Upgrade 11](#height-coordinated-upgrade-11-1)* [Height Coordinated Upgrade 10](#height-coordinated-upgrade-10-1)* [Height Coordinated Upgrade 9](#height-coordinated-upgrade-9-1)* [Height Coordinated Upgrade 8](#height-coordinated-upgrade-8-1)* [Height Coordinated Upgrade 7](#height-coordinated-upgrade-7-1)* [Height Coordinated Upgrade 6](#height-coordinated-upgrade-6-1)* [Height Coordinated Upgrade 5](#height-coordinated-upgrade-5-1)* [Devnet 53](#devnet-53)* [Devnet 52](#devnet-52)* [Devnet 51](#devnet-51)* [Devnet 50](#devnet-50)* [Devnet 49](#devnet-49)* [Devnet 48](#devnet-48)* [Devnet 47](#devnet-47)* [Devnet 46](#devnet-46)* [Devnet 45](#devnet-45)* [Devnet 44](#devnet-44)* [Devnet 43](#devnet-43)* [Devnet 42](#devnet-42)* [Devnet 41](#devnet-41)* [Devnet 40](#devnet-40)* [Devnet 39](#devnet-39)* [Devnet 38](#devnet-38)* [Devnet 37](#devnet-37)* [Devnet 36](#devnet-36)* [Devnet 35](#devnet-35)* [Devnet 34](#devnet-34)* [Devnet 33](#devnet-33)* [Devnet 32](#devnet-32)* [Devnet 31](#devnet-31)* [Devnet 30](#devnet-30)* [Devnet 29](#devnet-29)* [Devnet 28](#devnet-28)* [Devnet 27](#devnet-27)* [Devnet 26](#devnet-26)* [Devnet 25](#devnet-25)* [Devnet 24](#devnet-24)* [Devnet 23](#devnet-23)* [Devnet 22](#devnet-22)* [Devnet 21](#devnet-21)* [Devnet 20](#devnet-20)* [Devnet 19](#devnet-19)* [Devnet 18](#devnet-18)* [Devnet 17](#devnet-17)
 
 Flow
 
@@ -109523,7 +109529,7 @@ Network & Resources
 
 * [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow Foundation. All Rights Reserved.
+Copyright © 2026 Flow Foundation. All Rights Reserved.
 
 
 
@@ -138066,7 +138072,7 @@ Network & Resources
 
 * [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow Foundation. All Rights Reserved.
+Copyright © 2026 Flow Foundation. All Rights Reserved.
 
 
 
@@ -169931,7 +169937,7 @@ Network & Resources
 
 * [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow Foundation. All Rights Reserved.
+Copyright © 2026 Flow Foundation. All Rights Reserved.
 
 
 
@@ -328166,7 +328172,7 @@ Network & Resources
 
 * [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow Foundation. All Rights Reserved.
+Copyright © 2026 Flow Foundation. All Rights Reserved.
 
 
 
@@ -340829,7 +340835,7 @@ Network & Resources
 
 * [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow Foundation. All Rights Reserved.
+Copyright © 2026 Flow Foundation. All Rights Reserved.
 
 
 
@@ -414265,7 +414271,7 @@ Network & Resources
 
 * [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow Foundation. All Rights Reserved.
+Copyright © 2026 Flow Foundation. All Rights Reserved.
 
 
 
@@ -419615,7 +419621,7 @@ Network & Resources
 
 * [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow Foundation. All Rights Reserved.
+Copyright © 2026 Flow Foundation. All Rights Reserved.
 
 
 
@@ -443145,12 +443151,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **9b9f4787f81b3976**
+Cloudflare Ray ID: **9ba787e0dc7e170d**
 •
 
 Your IP:
 Click to reveal
-48.217.140.229
+20.161.30.226
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 
