@@ -20,7 +20,7 @@ Search
 
           + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+            + [Advanced Concepts](/build/cadence/advanced-concepts/computation-profiling)
 
               + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
@@ -269,6 +269,7 @@ flow emulator --help`
 ## Debugging and Testing[​](#debugging-and-testing "Direct link to Debugging and Testing")
 
 * **Code Coverage**: Add `--coverage-reporting` flag and visit `http://localhost:8080/emulator/codeCoverage`
+* **Computation Profiling**: Add `--computation-profiling` and/or `--computation-reporting` flags to analyze computational costs and identify performance bottlenecks in your Cadence code. See the [Cadence Computation Profiling guide](/build/cadence/advanced-concepts/computation-profiling) for detailed instructions.
 * **Debugging**: Use `#debugger()` pragma in Cadence code for breakpoints
 * **Fork mode note**: When you use `flow emulator --fork`, only Flow chain state is available. External oracles/APIs and cross-chain reads are not live; mock these or run local stub services for E2E.
 
@@ -346,7 +347,7 @@ To learn more about how to use the Emulator, have a look at the [public GitHub r
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/emulator/index.md)
 
-Last updated on **Dec 12, 2025** by **Jordan Ribbink**
+Last updated on **Jan 7, 2026** by **Chase Fleming**
 
 [Previous
 

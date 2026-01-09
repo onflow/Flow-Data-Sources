@@ -20,7 +20,7 @@ Search
 
           + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-            - [Learn Cadence ↗️](/build/cadence/learn-cadence)- [Smart Contracts on Flow](/build/cadence/smart-contracts/overview)- [Deploying Contracts](/build/cadence/smart-contracts/deploying)- [Testing Smart Contracts](/build/cadence/smart-contracts/testing-strategy)- [Cadence Testing Framework](/build/cadence/smart-contracts/testing)- [Best Practices](/build/cadence/smart-contracts/best-practices/security-best-practices)+ [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+            - [Learn Cadence ↗️](/build/cadence/learn-cadence)- [Smart Contracts on Flow](/build/cadence/smart-contracts/overview)- [Deploying Contracts](/build/cadence/smart-contracts/deploying)- [Testing Smart Contracts](/build/cadence/smart-contracts/testing-strategy)- [Cadence Testing Framework](/build/cadence/smart-contracts/testing)- [Best Practices](/build/cadence/smart-contracts/best-practices/security-best-practices)+ [Advanced Concepts](/build/cadence/advanced-concepts/computation-profiling)
 
               + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
