@@ -22,7 +22,7 @@ Search
 
             - [Learn Cadence ↗️](/build/cadence/learn-cadence)- [Smart Contracts on Flow](/build/cadence/smart-contracts/overview)- [Deploying Contracts](/build/cadence/smart-contracts/deploying)- [Testing Smart Contracts](/build/cadence/smart-contracts/testing-strategy)- [Cadence Testing Framework](/build/cadence/smart-contracts/testing)- [Best Practices](/build/cadence/smart-contracts/best-practices/security-best-practices)
 
-                        * [Security Best Practices](/build/cadence/smart-contracts/best-practices/security-best-practices)* [Contract Upgrades with Incompatible Changes](/build/cadence/smart-contracts/best-practices/contract-upgrades)* [Development Standards](/build/cadence/smart-contracts/best-practices/project-development-tips)+ [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+                        * [Security Best Practices](/build/cadence/smart-contracts/best-practices/security-best-practices)* [Contract Upgrades with Incompatible Changes](/build/cadence/smart-contracts/best-practices/contract-upgrades)* [Development Standards](/build/cadence/smart-contracts/best-practices/project-development-tips)+ [Advanced Concepts](/build/cadence/advanced-concepts/computation-profiling)
 
               + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
