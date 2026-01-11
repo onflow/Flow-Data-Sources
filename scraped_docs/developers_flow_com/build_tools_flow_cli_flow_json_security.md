@@ -593,6 +593,16 @@ _12
 
 }`
 
+Extracting Existing Inline Keys
+
+If you already have inline keys in your `flow.json`, you can easily extract them to separate files:
+
+`_10
+
+flow config extract-key --all`
+
+This command creates `.pkey` files with restricted permissions, updates your `flow.json` to reference them, and adds the key files to `.gitignore`.
+
 ## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
 
 ### Environment Variables Not Loading[​](#environment-variables-not-loading "Direct link to Environment Variables Not Loading")
@@ -631,7 +641,7 @@ flow config add account -f flow.json -f private.json`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/flow.json/security.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Jan 9, 2026** by **Chase Fleming**
 
 [Previous
 

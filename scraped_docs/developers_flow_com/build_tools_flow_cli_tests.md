@@ -175,59 +175,53 @@ For the `testing` alias, you can use one of the following addresses:
 
 Assuming you have a test script named `test_script_test.cdc` in your project directory, which verifies the functionality of a Cadence script executed in the testing environment:
 
-`_16
+`_14
 
 // test_script_test.cdc
 
-_16
+_14
 
 import Test
 
-_16
+_14
 
-_16
-
-access(all) let blockchain = Test.newEmulatorBlockchain()
-
-_16
-
-_16
+_14
 
 access(all) fun testSumOfTwo() {
 
-_16
+_14
 
-let scriptResult = blockchain.executeScript(
+let scriptResult = Test.executeScript(
 
-_16
+_14
 
 "access(all) fun main(a: Int, b: Int): Int { return a + b }",
 
-_16
+_14
 
 [2, 3]
 
-_16
+_14
 
 )
 
-_16
+_14
 
-_16
+_14
 
 Test.expect(scriptResult, Test.beSucceeded())
 
-_16
+_14
 
-_16
+_14
 
 let sum = scriptResult.returnValue! as! Int
 
-_16
+_14
 
 Test.assertEqual(5, sum)
 
-_16
+_14
 
 }`
 
@@ -479,7 +473,7 @@ flow test --fork mainnet --fork-height 85432100`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/tests.md)
 
-Last updated on **Nov 19, 2025** by **Jordan Ribbink**
+Last updated on **Jan 9, 2026** by **Jordan Ribbink**
 
 [Previous
 
