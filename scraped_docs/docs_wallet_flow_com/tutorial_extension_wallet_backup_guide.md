@@ -2,9 +2,13 @@
 
 Extension Wallet Backup Guide | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -26,7 +30,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 * Download
 
   + [📲Download](/download/download)
@@ -46,11 +50,11 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
 1. [Tutorial](/tutorial)
 
@@ -86,10 +90,10 @@ After you’ve completed all the above steps, you’ll find that the backup has 
 
 ![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Fuploads%252Fe5gWCJwJcU8diUyqUINY%252FScreen%2520Shot%25202024-10-21%2520at%252011.54.26%2520am.png%3Falt%3Dmedia%26token%3Dc6ebd055-17ac-4a1c-a14c-c866a7b8b0de&width=768&dpr=4&quality=100&sign=8278041b&sv=2)
 
-### Support
+### [hashtag](#support) Support
 
 If you encounter any issues or have further questions, please reach out to our support team at [[email protected]](/cdn-cgi/l/email-protection)
 
-[PreviousMobile Wallet Restore Guide](/tutorial/mobile-wallet-restore-guide)[NextExtension Wallet Restore Guide](/tutorial/extension-wallet-restore-guide)
+[PreviousMobile Wallet Restore Guidechevron-left](/tutorial/mobile-wallet-restore-guide)[NextExtension Wallet Restore Guidechevron-right](/tutorial/extension-wallet-restore-guide)
 
 Last updated 1 year ago

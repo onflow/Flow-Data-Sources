@@ -87427,7 +87427,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -87439,53 +87439,103 @@ Search
 
           + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+            + [Advanced Concepts](/build/cadence/advanced-concepts/computation-profiling)
 
               + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
       + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
 
-        + [Flow React SDK](/build/tools/react-sdk)
+        + [Flow React Native SDK](/build/tools/react-native-sdk)
 
-          + [Flow Emulator](/build/tools/emulator)+ [Flow CLI](/build/tools/flow-cli)
+          + [Flow React SDK](/build/tools/react-sdk)
 
-              + [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+            + [Flow Emulator](/build/tools/emulator)+ [Flow CLI](/build/tools/flow-cli)
 
-                    + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                + [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+
+                      + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * Tools & SDKs
 
-# Tools
+On this page
 
-[## Why Flow
+# Tools & SDKs
 
-Flow is the best blockchain for onchain consumer apps and Web3 apps. It's scalable, EVM-equivalent, with native account abstraction and a unique multi-role architecture supporting both Cadence and Solidity development.](/build/flow)
+Flow provides a comprehensive suite of development tools to help you build, test, and deploy applications on the blockchain.
 
-[## 🗃️ Cadence
+## Which Tool Should I Use?[​](#which-tool-should-i-use "Direct link to Which Tool Should I Use?")
 
-6 items](/build/cadence/quickstart)
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| I want to... Use this|  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Build a React frontend [React SDK](/build/tools/react-sdk)| Build with vanilla JS/TypeScript [FCL-JS](/build/tools/clients/fcl-js)| Build a Go backend [Flow Go SDK](/build/tools/clients/flow-go-sdk)| Develop and test locally [Flow CLI](/build/tools/flow-cli) + [Emulator](/build/tools/emulator)| Write and debug Cadence [VS Code Extension](/build/tools/vscode-extension)| Simulate wallet interactions [Flow Dev Wallet](/build/tools/flow-dev-wallet)| Build a wallet provider [Wallet Provider Spec](/build/tools/wallet-provider-spec) | | | | | | | | | | | | | | | |
 
-[## 🗃️ Solidity (EVM)
+## Core Tools[​](#core-tools "Direct link to Core Tools")
 
-6 items](/build/evm/quickstart)
+## [React SDK](/build/tools/react-sdk) [Flow](/build/tools/react-sdk)
+
+React hooks and components for building Flow apps. The easiest way to integrate Flow into your React application.
+
+## [Flow CLI](/build/tools/flow-cli) [Flow](/build/tools/flow-cli)
+
+Command-line interface for managing Flow projects, deploying contracts, and interacting with the blockchain.
+
+## [Flow Emulator](/build/tools/emulator) [Flow](/build/tools/emulator)
+
+Local Flow blockchain for development and testing. Fork mainnet or testnet to test against real state.
+
+## [VS Code Extension](/build/tools/vscode-extension) [Flow](/build/tools/vscode-extension)
+
+Cadence language support for VS Code with syntax highlighting, type checking, and code completion.
+
+## [Flow Dev Wallet](/build/tools/flow-dev-wallet) [Flow](/build/tools/flow-dev-wallet)
+
+Mock wallet for local development. Simulates wallet interactions for testing FCL-powered applications.
+
+## [FCL-JS](/build/tools/clients/fcl-js) [Flow](/build/tools/clients/fcl-js)
+
+Flow Client Library for JavaScript/TypeScript. Wallet integration, transactions, scripts, and authentication.
+
+## [Flow Go SDK](/build/tools/clients/flow-go-sdk) [Flow](/build/tools/clients/flow-go-sdk)
+
+Go SDK for building backends and services on Flow. High-performance blockchain interaction and testing utilities.
+
+## [Client Tools](/build/tools/clients) [Flow](/build/tools/clients)
+
+SDKs for Python, JVM, Swift, PHP, Elixir, and more. Find the right client library for your stack.
+
+## [Wallet Provider Spec](/build/tools/wallet-provider-spec) [Flow](/build/tools/wallet-provider-spec)
+
+Specification for building FCL-compatible wallets. Authentication, authorization, and signing protocols.
+
+## Community Tools[​](#community-tools "Direct link to Community Tools")
+
+Tools built by the Flow community to enhance your development experience.
 
 ## [Flowser](https://flowser.dev/) [Flowser](https://flowser.dev/)
 
-Flowser combines all the tools for local development and gives you a clear UI to inspect the local Flow network.
+GUI for local development. Inspect accounts, transactions, and contracts on the emulator with a visual interface.
 
 ## [Overflow](https://github.com/bjartek/overflow) [bjartek](https://github.com/bjartek/overflow)
 
-Overflow is a Go-based DSL for testing and running interactive stories
+Go-based DSL for testing and scripting Flow interactions. Write integration tests and interactive stories.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/index.mdx)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 23, 2025** by **Chase Fleming**
 
 [Previous
 
 Accounts](/build/evm/accounts)[Next
 
-Flow React SDK](/build/tools/react-sdk)
+Flow React Native SDK](/build/tools/react-native-sdk)
+
+###### Rate this page
+
+😞😐😊
+
+Copy as Markdown
+
+* [Which Tool Should I Use?](#which-tool-should-i-use)* [Core Tools](#core-tools)* [Community Tools](#community-tools)
 
 Flow
 
@@ -87507,7 +87557,7 @@ Network & Resources
 
 * [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow Foundation. All Rights Reserved.
+Copyright © 2026 Flow Foundation. All Rights Reserved.
 
 
 
@@ -322697,7 +322747,7 @@ Search
 
           + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+            + [Advanced Concepts](/build/cadence/advanced-concepts/computation-profiling)
 
               + [Core Smart Contracts](/build/cadence/core-contracts)
 
@@ -404306,7 +404356,7 @@ Search
 
           + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+            + [Advanced Concepts](/build/cadence/advanced-concepts/computation-profiling)
 
               + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
@@ -404416,7 +404466,7 @@ Network & Resources
 
 * [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow Foundation. All Rights Reserved.
+Copyright © 2026 Flow Foundation. All Rights Reserved.
 
 
 
@@ -412097,7 +412147,7 @@ Search
 
           + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+            + [Advanced Concepts](/build/cadence/advanced-concepts/computation-profiling)
 
               + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
@@ -431214,7 +431264,7 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
-# Source: https://developers.flow.com/
+# Source: https://developers.flow.com
 
 Flow Developer Portal
 
@@ -437043,7 +437093,7 @@ Search
 
           + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+            + [Advanced Concepts](/build/cadence/advanced-concepts/computation-profiling)
 
               + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
@@ -441324,9 +441374,13 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 
 Integrate Flow EVM with Web3 SDKs | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -441348,7 +441402,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 
     - [Wagmi](/ecosystem-development/integrate-flow-evm-with-web3-sdks/wagmi)
     - [Rainbowkit](/ecosystem-development/integrate-flow-evm-with-web3-sdks/rainbowkit)
@@ -441377,17 +441431,17 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
 1. [Ecosystem Development](/ecosystem-development)
 
 # 🔌Integrate Flow EVM with Web3 SDKs
 
-### Detect Flow wallet provider via EIP-6963
+### [hashtag](#detect-flow-wallet-provider-via-eip-6963) Detect Flow wallet provider via EIP-6963
 
 Copy
 
@@ -441426,9 +441480,9 @@ const WalletConnect = () => {
 }
 ```
 
-[PreviousEcosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)[NextWagmi](/ecosystem-development/integrate-flow-evm-with-web3-sdks/wagmi)
+[PreviousEcosystem Developer Grantschevron-left](/ecosystem-development/ecosystem-developer-grants)[NextWagmichevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks/wagmi)
 
-Last updated 11 months ago
+Last updated 12 months ago
 
 
 
@@ -441446,9 +441500,13 @@ Last updated 11 months ago
 
 Secure Enclave | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -441470,7 +441528,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 * Download
 
   + [📲Download](/download/download)
@@ -441490,11 +441548,11 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
 1. [Features](/features)
 
@@ -441511,18 +441569,18 @@ Secure Enclave is a valuable security feature that can help enhance the security
 
 **Using iPhone's Secure Enclave on Flow Blockchain**
 
-Flow supports multiple curves (such as `secp256k1`) and hash algorithms including `NIST-P256` curve (also called `secp256r1`), which is a widely-used elliptic curve algorithm that provides enhanced security for cryptographic operations. To use iPhone's Secure Enclave on Flow blockchain, wallet developers can use the [CryptoKit](https://developer.apple.com/documentation/cryptokit) framework on iOS and the Android [Keystore](https://developer.android.com/training/articles/keystore) system on Android.
+Flow supports multiple curves (such as `secp256k1`) and hash algorithms including `NIST-P256` curve (also called `secp256r1`), which is a widely-used elliptic curve algorithm that provides enhanced security for cryptographic operations. To use iPhone's Secure Enclave on Flow blockchain, wallet developers can use the [CryptoKitarrow-up-right](https://developer.apple.com/documentation/cryptokit) framework on iOS and the Android [Keystorearrow-up-right](https://developer.android.com/training/articles/keystore) system on Android.
 **Pros and Cons of using Secure Enclave**
 By understanding the pros and cons of Secure Enclave on iPhone, wallet developers can make informed decisions about how to best secure their wallets and protect their users' data.
 
-#### Pros
+#### [hashtag](#pros) Pros
 
 1. **Enhanced Security**: The Secure Enclave is a type of Hardware Security Module (HSM) that provides a robust layer of hardware-based security, making it more difficult for attackers to gain unauthorized access to sensitive information.
 2. **Ease of Use**: Using the Secure Enclave is generally quite easy and straightforward for developers, as it is integrated into the operating system of the mobile device. This makes it an attractive option for developers who want to add an extra layer of security to their apps without having to invest a lot of time or effort.
 3. **Protection Against Physical Attacks**: Secure Enclave on iPhone is designed to be tamper-resistant, which means that it can protect sensitive information even if the mobile device is stolen or lost. This is because the Secure Enclave is tied to a specific device and is not transferable to other devices, making it difficult for attackers to access the information stored in it.
 4. **Increased Privacy**: Secure Enclave provides a privacy and security-sensitive option for users who wish to custody their keys using their own hardware instead of relying on cloud backups or custodial service providers.
 
-#### Cons
+#### [hashtag](#cons) Cons
 
 1. **Hardware Limitations**: The Secure Enclave is only available on certain devices, and requires specific hardware components to function properly. This means that it may not be available or practical to use on all devices.
 2. **Risk of Losing Access to Private Keys**: If a user loses their mobile device, the private key stored in the Secure Enclave will also be lost. This is because the Secure Enclave is tied to the specific device and is not transferable to other devices. Therefore, users must take appropriate measures to protect their devices and backup their data, including their private keys, to avoid losing access to their accounts and data.
@@ -441540,7 +441598,7 @@ Moreover, Flow offers another solution for this issue through its [account linki
 **Conclusion**
 Considering the advantages of using Secure Enclave on iPhone, Flow Reference Wallet will therefore move to support this credible specialized hardware for secure key management, as it enables users to benefit from the credibility, portability, utility, and security of their mobile device as their non-custodial wallet on Flow.
 
-[PreviousFlow Client Library (FCL)](/features/flow-client-library-fcl)[NextAccount Recovery](/features/account-recovery)
+[PreviousFlow Client Library (FCL)chevron-left](/features/flow-client-library-fcl)[NextAccount Recoverychevron-right](/features/account-recovery)
 
 Last updated 1 year ago
 
@@ -441560,9 +441618,13 @@ Last updated 1 year ago
 
 WalletConnect | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -441584,7 +441646,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 * Download
 
   + [📲Download](/download/download)
@@ -441604,20 +441666,20 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
 1. [Features](/features)
 
 # 🔌WalletConnect
 
 Flow Reference Wallet integrates with FCL WalletConnect, enabling users to effortlessly link their mobile Flow Reference Wallet on iOS and Android to the ecosystem of desktop applications on Flow. By easily scanning a QR code, users can authenticate themselves and authorize transactions using their self-custodial mobile wallet, maintaining complete control over their private keys, and enhancing security and trust. This feature empowers users to explore the vast landscape of decentralized applications on Flow, making Flow Reference Wallet a great choice for users seeking a seamless and secure self-custodial mobile wallet experience.
-For more on FCL WalletConnect, see: <https://developers.flow.com/tools/clients/fcl-js/wallet-connect>
+For more on FCL WalletConnect, see: [https://developers.flow.com/tools/clients/fcl-js/wallet-connectarrow-up-right](https://developers.flow.com/tools/clients/fcl-js/wallet-connect)
 
-[PreviousAccount Linking](/features/account-linking)[NextHuman Readable Transactions](/features/human-readable-transactions)
+[PreviousAccount Linkingchevron-left](/features/account-linking)[NextHuman Readable Transactionschevron-right](/features/human-readable-transactions)
 
 Last updated 2 years ago
 
@@ -441637,9 +441699,13 @@ Last updated 2 years ago
 
 Web3js | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -441661,7 +441727,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 
     - [Wagmi](/ecosystem-development/integrate-flow-evm-with-web3-sdks/wagmi)
     - [Rainbowkit](/ecosystem-development/integrate-flow-evm-with-web3-sdks/rainbowkit)
@@ -441690,20 +441756,20 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
-1. [Ecosystem Development](/ecosystem-development)
+1. [Ecosystem Development](/ecosystem-development)chevron-right
 2. [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 
 # Web3js
 
 Integrate with Web3js
 
-### Connet wallet
+### [hashtag](#connet-wallet) Connet wallet
 
 Copy
 
@@ -441734,13 +441800,13 @@ const WalletConnect = () => {
 }
 ```
 
-See more detail on <https://github.com/Outblock/web3js-flow-evm-demo>
+See more detail on [https://github.com/Outblock/web3js-flow-evm-demoarrow-up-right](https://github.com/Outblock/web3js-flow-evm-demo)
 
-See more detail on <https://github.com/Outblock/web3js-flow-evm-demo>
+See more detail on [https://github.com/Outblock/web3js-flow-evm-demoarrow-up-right](https://github.com/Outblock/web3js-flow-evm-demo)
 
-[PreviousEtherjs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/etherjs)[NextViem](/ecosystem-development/integrate-flow-evm-with-web3-sdks/viem)
+[PreviousEtherjschevron-left](/ecosystem-development/integrate-flow-evm-with-web3-sdks/etherjs)[NextViemchevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks/viem)
 
-Last updated 11 months ago
+Last updated 12 months ago
 
 
 
@@ -441758,9 +441824,13 @@ Last updated 11 months ago
 
 Rainbowkit | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -441782,7 +441852,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 
     - [Wagmi](/ecosystem-development/integrate-flow-evm-with-web3-sdks/wagmi)
     - [Rainbowkit](/ecosystem-development/integrate-flow-evm-with-web3-sdks/rainbowkit)
@@ -441811,20 +441881,20 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
-1. [Ecosystem Development](/ecosystem-development)
+1. [Ecosystem Development](/ecosystem-development)chevron-right
 2. [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 
 # Rainbowkit
 
 Integrate with Rainbowkit
 
-### Connect wallet to Flow EVM
+### [hashtag](#connect-wallet-to-flow-evm) Connect wallet to Flow EVM
 
 Copy
 
@@ -441851,11 +441921,11 @@ function MyApp({ Component, pageProps }: AppProps) {
 }
 ```
 
-See more detail on <https://github.com/Outblock/flow-evm-rainbow>
+See more detail on [https://github.com/Outblock/flow-evm-rainbowarrow-up-right](https://github.com/Outblock/flow-evm-rainbow)
 
-[PreviousWagmi](/ecosystem-development/integrate-flow-evm-with-web3-sdks/wagmi)[NextEtherjs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/etherjs)
+[PreviousWagmichevron-left](/ecosystem-development/integrate-flow-evm-with-web3-sdks/wagmi)[NextEtherjschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks/etherjs)
 
-Last updated 11 months ago
+Last updated 12 months ago
 
 Copy
 
@@ -441889,9 +441959,13 @@ const Home: NextPage = () => {
 
 Mobile Wallet Restore Guide | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -441913,7 +441987,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 * Download
 
   + [📲Download](/download/download)
@@ -441933,11 +442007,11 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
 1. [Tutorial](/tutorial)
 
@@ -441947,7 +442021,7 @@ Welcome to the Flow mobile Wallet Account Restoration Guide! This resource will 
 
 ![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Fuploads%252FWZdF2bu3cF1SLS97QBAt%252FScreenshot_20241004-123407.png%3Falt%3Dmedia%26token%3D203cc375-33f0-4d77-b565-9f5cfc938589&width=768&dpr=4&quality=100&sign=7c4c9e0c&sv=2)
 
-### From Device Backup
+### [hashtag](#from-device-backup) From Device Backup
 
 When you have already logged into an account on another mobile device and want to import the same account on your current device, you can use the device backup feature. Here’s how:
 
@@ -441971,7 +442045,7 @@ When you have already logged into an account on another mobile device and want t
 
 This will complete the device backup process, allowing you to access your account on your current device.
 
-### From Multi Backup
+### [hashtag](#from-multi-backup) From Multi Backup
 
 A multi-backup stores multiple partial-weight keys across your accounts on trusted providers like Google Drive and iCloud(only in IOS), or a Recovery Phrase.
 
@@ -442009,19 +442083,19 @@ If you previously backed up your account using the multi-backup method [multi-ba
 
 This will complete the multi-backup process, allowing you to access your account on your current device.
 
-### From Raw Key
+### [hashtag](#from-raw-key) From Raw Key
 
 The Flow Wallet Mobile version allows users to import profile from the Flow Wallet extension as well as various external accounts. In the section below, we will explain how to use Google Drive, full access mnemonic phrases, keystore files, and private keys to import your profiles seamlessly.
 
 ![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Fuploads%252Fq1P4ft7UV6fVcuMfw8lN%252FScreenshot_20241004-152652.png%3Falt%3Dmedia%26token%3D97d4022e-fbee-4618-842b-5f737f4f5ef4&width=768&dpr=4&quality=100&sign=dbb97b0f&sv=2)
 
-#### Google Drive(if create Backup in web extension)
+#### [hashtag](#google-drive-if-create-backup-in-web-extension) Google Drive(if create Backup in web extension)
 
 Restore a backup in Google drive by following the on-screen instructions.
 
 ![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Fuploads%252F00mRNcGyk7IzcE1Laoi1%252Fscreen-20241004-152739%2520%255BMConverter.eu%255D.webp%3Falt%3Dmedia%26token%3D45a4965d-fc30-4a04-838f-97f8dfae9f15&width=768&dpr=4&quality=100&sign=660a5c03&sv=2)
 
-#### 12 word Seed Phrase
+#### [hashtag](#id-12-word-seed-phrase) 12 word Seed Phrase
 
 Enter your 12-word seed phrase in the correct order.
 
@@ -442031,7 +442105,7 @@ Once you’ve entered your seed phrase (and passphrase if applicable), you shoul
 
 ![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Fuploads%252FBHO3UESvKnUoD5qfp3IM%252FScreenshot_20241004-152832.png%3Falt%3Dmedia%26token%3Dba37593a-573f-436b-9dc5-79d3ab378ddf&width=768&dpr=4&quality=100&sign=b30a7506&sv=2)
 
-#### Keystore (for Blocto users)
+#### [hashtag](#keystore-for-blocto-users) Keystore (for Blocto users)
 
 Copy and past your Blocto keystore json data in the correct order.
 
@@ -442039,17 +442113,17 @@ Enter your password and ensure that the password is entered correctly (it is cas
 
 ![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Fuploads%252FgMfB60cWr1gzB1SywxG8%252FScreenshot_20241004-152845.png%3Falt%3Dmedia%26token%3D568bd6e1-857a-40c7-8ada-90821de83443&width=768&dpr=4&quality=100&sign=ed2827e1&sv=2)
 
-#### Private key
+#### [hashtag](#private-key) Private key
 
 Copy and past your private key in the correct order.
 
 ![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Fuploads%252FDkDtE3uYUFXwRUCz5ugM%252FScreenshot_20241004-152855.png%3Falt%3Dmedia%26token%3De8ebe863-1ec4-4644-87d2-3d67ab3c9bbe&width=768&dpr=4&quality=100&sign=d093fbb0&sv=2)
 
-### Support
+### [hashtag](#support) Support
 
 If you encounter any issues or have further questions, please reach out to our support team at [[email protected]](/cdn-cgi/l/email-protection).
 
-[PreviousMove Assets between Flow and EVM](/tutorial/move-assets-between-flow-and-evm)[NextExtension Wallet Backup Guide](/tutorial/extension-wallet-backup-guide)
+[PreviousMove Assets between Flow and EVMchevron-left](/tutorial/move-assets-between-flow-and-evm)[NextExtension Wallet Backup Guidechevron-right](/tutorial/extension-wallet-backup-guide)
 
 Last updated 1 year ago
 
@@ -442074,9 +442148,13 @@ Last updated 1 year ago
 
 Human Readable Transactions | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -442098,7 +442176,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 * Download
 
   + [📲Download](/download/download)
@@ -442118,11 +442196,11 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
 1. [Features](/features)
 
@@ -442132,15 +442210,15 @@ Flow Reference Wallet supports human-readable transactions during transaction au
 **Background**
 When users are prompted to authorize a transaction, they are frequently presented with complex and often bewildering information, leading to confusion and increased user friction. This obscurity has unfortunately paved the way for numerous attacks, resulting in significant losses for unsuspecting victims.
 
-On Flow, with [Interaction Templates](https://developers.flow.com/tooling/fcl-js/interaction-templates), Cadence developers have a means to declare static metadata about transactions they ask users to sign. This information is vital to understanding the outcome of the request and often includes data such as an internationalized human-readable title and description of the transaction.
+On Flow, with [Interaction Templatesarrow-up-right](https://developers.flow.com/tooling/fcl-js/interaction-templates), Cadence developers have a means to declare static metadata about transactions they ask users to sign. This information is vital to understanding the outcome of the request and often includes data such as an internationalized human-readable title and description of the transaction.
 
 Interaction template auditors play a crucial role in assessing the accuracy and safety of interaction templates. Auditors are entities in the Flow ecosystem that review Interaction Templates for correctness and safety. Flow Reference Wallet harnesses interaction templates and audits to confidently present users with clear, human-readable transaction titles and descriptions during the authorization process.
 **Conclusion**
 Interaction templates and audits eliminate the need for users to decipher unintelligible authorization prompts, ensuring they confidently sign and approve transactions that they understand.
 Flow Foundation believes that increasing the number of human-readable transactions through the usage of interaction templates and audits can further increase the adoption of Web3 and Flow.
-For more on how application developers, cadence developers and wallets can use interaction templates, see: <https://developers.flow.com/tooling/fcl-js/interaction-templates>
+For more on how application developers, cadence developers and wallets can use interaction templates, see: [https://developers.flow.com/tooling/fcl-js/interaction-templatesarrow-up-right](https://developers.flow.com/tooling/fcl-js/interaction-templates)
 
-[PreviousWalletConnect](/features/walletconnect)[NextFlow Client Library (FCL)](/features/flow-client-library-fcl)
+[PreviousWalletConnectchevron-left](/features/walletconnect)[NextFlow Client Library (FCL)chevron-right](/features/flow-client-library-fcl)
 
 Last updated 2 years ago
 
@@ -442160,9 +442238,13 @@ Last updated 2 years ago
 
 Extension Wallet Restore Guide | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -442184,7 +442266,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 * Download
 
   + [📲Download](/download/download)
@@ -442204,11 +442286,11 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
 1. [Tutorial](/tutorial)
 
@@ -442220,7 +442302,7 @@ When you want to import a profile, simply navigate to the sidebar and click on *
 
 ![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Fuploads%252FY1mIXO9GDUomV1i8ko7o%252FScreen%2520Shot%25202024-10-09%2520at%25202.04.28%2520pm.png%3Falt%3Dmedia%26token%3Dee355c3a-899a-492b-a265-30c9f52971dc&width=768&dpr=4&quality=100&sign=2c78e1fe&sv=2)
 
-### From Device Backup
+### [hashtag](#from-device-backup) From Device Backup
 
 When you have already logged into an account on mobile device and want to import the same account on your extension, you can use the device backup feature. Here’s how:
 
@@ -442250,19 +442332,19 @@ When you have already logged into an account on mobile device and want to import
 
 ![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Fuploads%252FRgW8hHXBYJb6Ym9ORG6W%252FScreen%2520Shot%25202024-10-09%2520at%25203.09.34%2520pm.png%3Falt%3Dmedia%26token%3Dda32a700-7447-4c42-bc2d-222e0c824368&width=768&dpr=4&quality=100&sign=b69c6eaf&sv=2)
 
-### From Raw Key
+### [hashtag](#from-raw-key) From Raw Key
 
 The Flow Wallet Mobile version allows users to import profile from the Flow Wallet extension as well as various external accounts. In the section below, we will explain how to use Google Drive, full access mnemonic phrases, keystore files, and private keys to import your profiles seamlessly.
 
 ![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Fuploads%252FbF35JirvOH4xUQqYfYJz%252FScreen%2520Shot%25202024-10-10%2520at%25205.27.15%2520pm.png%3Falt%3Dmedia%26token%3D1ee62147-226f-4864-b652-e9f5d453f148&width=768&dpr=4&quality=100&sign=fcf13bb7&sv=2)
 
-#### Google Drive(if create Backup in web extension)
+#### [hashtag](#google-drive-if-create-backup-in-web-extension) Google Drive(if create Backup in web extension)
 
 Restore a backup in Google drive by following the on-screen instructions.
 
 ![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Fuploads%252Fg9nM0IiueTGBmulaQUf7%252FScreen%2520Shot%25202024-10-10%2520at%25205.27.34%2520pm.png%3Falt%3Dmedia%26token%3Deb4b6f09-6d2e-45cd-8ae0-bd45282e00de&width=768&dpr=4&quality=100&sign=51b1aa1d&sv=2)
 
-#### 12 word Seed Phrase
+#### [hashtag](#id-12-word-seed-phrase) 12 word Seed Phrase
 
 Enter your 12-word seed phrase in the correct order.
 
@@ -442272,7 +442354,7 @@ Once you’ve entered your seed phrase (and passphrase if applicable), you shoul
 
 ![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Fuploads%252Fc0KuNekDuifP4yRfmz15%252FScreen%2520Shot%25202024-10-10%2520at%25205.28.23%2520pm.png%3Falt%3Dmedia%26token%3Dc37669db-c744-4674-9719-e38442583013&width=768&dpr=4&quality=100&sign=174af7c0&sv=2)
 
-#### Keystore (for Blocto users)
+#### [hashtag](#keystore-for-blocto-users) Keystore (for Blocto users)
 
 Copy and past your Blocto keystore json data in the correct order.
 
@@ -442280,17 +442362,17 @@ Enter your password and ensure that the password is entered correctly (it is cas
 
 ![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Fuploads%252Fhz2qFAlryI6AM0idCi4U%252FScreen%2520Shot%25202024-10-10%2520at%25205.28.11%2520pm.png%3Falt%3Dmedia%26token%3D1ef583aa-5ebb-4714-b588-1dd57eb34c25&width=768&dpr=4&quality=100&sign=6c65ecd7&sv=2)
 
-#### Private key
+#### [hashtag](#private-key) Private key
 
 Copy and past your private key in the correct order.
 
 ![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Fuploads%252F65na91ZDKw3pH9sDiNmG%252FScreen%2520Shot%25202024-10-10%2520at%25205.28.29%2520pm.png%3Falt%3Dmedia%26token%3Dcc62ed2d-722c-4855-8dd8-0c27ab225279&width=768&dpr=4&quality=100&sign=65a37db1&sv=2)
 
-### Support
+### [hashtag](#support) Support
 
 If you encounter any issues or have further questions, please reach out to our support team at [[email protected]](/cdn-cgi/l/email-protection).
 
-[PreviousExtension Wallet Backup Guide](/tutorial/extension-wallet-backup-guide)[NextExtension Update Guide](/tutorial/extension-update-guide)
+[PreviousExtension Wallet Backup Guidechevron-left](/tutorial/extension-wallet-backup-guide)[NextExtension Update Guidechevron-right](/tutorial/extension-update-guide)
 
 Last updated 1 year ago
 
@@ -442314,9 +442396,13 @@ Last updated 1 year ago
 
 Others SDKs | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -442338,7 +442424,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 
     - [Wagmi](/ecosystem-development/integrate-flow-evm-with-web3-sdks/wagmi)
     - [Rainbowkit](/ecosystem-development/integrate-flow-evm-with-web3-sdks/rainbowkit)
@@ -442367,22 +442453,22 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
-1. [Ecosystem Development](/ecosystem-development)
+1. [Ecosystem Development](/ecosystem-development)chevron-right
 2. [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 
 # Others SDKs
 
 Wip
 
-[PreviousMIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)[NextDownload](/download/download)
+[PreviousMIPDchevron-left](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)[NextDownloadchevron-right](/download/download)
 
-Last updated 11 months ago
+Last updated 12 months ago
 
 
 
@@ -442400,9 +442486,13 @@ Last updated 11 months ago
 
 Extension Wallet Backup Guide | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -442424,7 +442514,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 * Download
 
   + [📲Download](/download/download)
@@ -442444,11 +442534,11 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
 1. [Tutorial](/tutorial)
 
@@ -442484,11 +442574,11 @@ After you’ve completed all the above steps, you’ll find that the backup has 
 
 ![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Fuploads%252Fe5gWCJwJcU8diUyqUINY%252FScreen%2520Shot%25202024-10-21%2520at%252011.54.26%2520am.png%3Falt%3Dmedia%26token%3Dc6ebd055-17ac-4a1c-a14c-c866a7b8b0de&width=768&dpr=4&quality=100&sign=8278041b&sv=2)
 
-### Support
+### [hashtag](#support) Support
 
 If you encounter any issues or have further questions, please reach out to our support team at [[email protected]](/cdn-cgi/l/email-protection)
 
-[PreviousMobile Wallet Restore Guide](/tutorial/mobile-wallet-restore-guide)[NextExtension Wallet Restore Guide](/tutorial/extension-wallet-restore-guide)
+[PreviousMobile Wallet Restore Guidechevron-left](/tutorial/mobile-wallet-restore-guide)[NextExtension Wallet Restore Guidechevron-right](/tutorial/extension-wallet-restore-guide)
 
 Last updated 1 year ago
 
@@ -442508,9 +442598,13 @@ Last updated 1 year ago
 
 Extension Private Key and Seed Phrase Guide | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -442532,7 +442626,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 * Download
 
   + [📲Download](/download/download)
@@ -442552,11 +442646,11 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
 1. [Tutorial](/tutorial)
 
@@ -442586,11 +442680,11 @@ Welcome to the Flow Wallet Extension guide! Your private key and seed phrase are
 
 ![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Fuploads%252F9QX7ZJ6JDejc0iEh2qDt%252FScreen%2520Shot%25202024-10-24%2520at%25205.13.28%2520pm.png%3Falt%3Dmedia%26token%3D532e0c33-53a9-4392-9c9f-f8f523d588b3&width=768&dpr=4&quality=100&sign=100c164f&sv=2)
 
-### Support
+### [hashtag](#support) Support
 
 If you encounter any issues or have further questions, please reach out to our support team at [[email protected]](/cdn-cgi/l/email-protection).
 
-[PreviousFLOW wallet init token guide](/tutorial/flow-wallet-init-token-guide)[NextMobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
+[PreviousFLOW wallet init token guidechevron-left](/tutorial/flow-wallet-init-token-guide)[NextMobile Wallet Export Log Guidechevron-right](/tutorial/mobile-wallet-export-log-guide)
 
 Last updated 1 year ago
 
@@ -442610,9 +442704,13 @@ Last updated 1 year ago
 
 Move Assets between Flow and EVM | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -442634,7 +442732,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 * Download
 
   + [📲Download](/download/download)
@@ -442654,17 +442752,17 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
 1. [Tutorial](/tutorial)
 
 # 💸Move Assets between Flow and EVM
 
-### Indroduction
+### [hashtag](#indroduction) Indroduction
 
 Welcome to our tutorial on transferring FT and NFT between Flow Wallet, COA (Flow EVM), and EOA (Externally Owned Accounts ). As the blockchain ecosystem continues to expand, understanding how to navigate different wallets and protocols is essential for maximizing your digital asset management. This guide will provide step-by-step instructions on how to seamlessly transfer tokens between Flow Wallet and EVM environments, ensuring you can effectively manage both your fungible and non-fungible assets.
 
@@ -442672,11 +442770,11 @@ There are three types of accounts used for EVM on Flow.
 
 1. **Externally Owned Accounts (EOA)**: EOAs are controlled by private individuals using cryptographic keys and can initiate transactions directly. They are the primary account type for users to interact with the blockchain, holding and sending cryptocurrency or calling smart contract functions.
 2. **Contract Accounts**: These accounts hold smart contract code and are governed by this code's logic. Unlike EOAs, Contract Accounts do not initiate transactions on their own but can execute transactions in response to calls they receive from EOAs or other contracts.
-3. **Cadence Owned Accounts (COA)**: This is an account type unique to Flow EVM. These accounts are managed by [Cadence resources](https://cadence-lang.org/docs/1.0/language/resources) and can be used to interact with the Flow EVM from within the Cadence environment.
+3. **Cadence Owned Accounts (COA)**: This is an account type unique to Flow EVM. These accounts are managed by [Cadence resourcesarrow-up-right](https://cadence-lang.org/docs/1.0/language/resources) and can be used to interact with the Flow EVM from within the Cadence environment.
 
-### Fungible asset transaction
+### [hashtag](#fungible-asset-transaction) Fungible asset transaction
 
-#### Transfer FT between FLOW wallet and COA
+#### [hashtag](#transfer-ft-between-flow-wallet-and-coa) Transfer FT between FLOW wallet and COA
 
 Fungible Tokens (FT) can be easily transferred between your Flow wallet and COA, as well as to other users. This guide will provide step-by-step instructions to ensure a smooth transfer process.
 
@@ -442718,13 +442816,13 @@ Fungible Tokens (FT) can be easily transferred between your Flow wallet and COA,
 
 **Step 5:** Confirm all details and click “Send” to finalize the transaction.
 
-#### **Transfer FT to EOA**
+#### [hashtag](#transfer-ft-to-eoa) **Transfer FT to EOA**
 
 Transferring FT to an EOA is a straightforward process. The steps to send FT from your Flow accounts anaqwd COA to EOA are the same as when sending to other Flow or COA wallets.
 
-### Non-fungible assets transaction
+### [hashtag](#non-fungible-assets-transaction) Non-fungible assets transaction
 
-#### Transfer NFT between FLOW wallet and COA
+#### [hashtag](#transfer-nft-between-flow-wallet-and-coa) Transfer NFT between FLOW wallet and COA
 
 **1.Transferring NFT Between Your Flow Account and COA**
 
@@ -442768,11 +442866,11 @@ Transferring FT to an EOA is a straightforward process. The steps to send FT fro
 
 ![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Fuploads%252F90eQ2Fvra9rXqTQo4ugq%252FScreenshot_20241002-133856.png%3Falt%3Dmedia%26token%3D9a8c2660-a737-4220-aaac-49fdadc5ecf5&width=768&dpr=4&quality=100&sign=a5ae18b9&sv=2)
 
-### Support
+### [hashtag](#support) Support
 
 If you encounter any issues or have further questions, please reach out to our support team at [[email protected]](/cdn-cgi/l/email-protection).
 
-[PreviousMobile Wallet Backup Guide](/tutorial/mobile-wallet-backup-guide)[NextMobile Wallet Restore Guide](/tutorial/mobile-wallet-restore-guide)
+[PreviousMobile Wallet Backup Guidechevron-left](/tutorial/mobile-wallet-backup-guide)[NextMobile Wallet Restore Guidechevron-right](/tutorial/mobile-wallet-restore-guide)
 
 Last updated 1 year ago
 
@@ -442797,9 +442895,13 @@ Last updated 1 year ago
 
 Wallet Revoke key guide | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -442821,7 +442923,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 * Download
 
   + [📲Download](/download/download)
@@ -442841,17 +442943,17 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
 # 🔐Wallet Revoke key guide
 
 If you no longer want a specific key to have access to your account, you can easily revoke it from the **Account Settings**. Follow the steps below to revoke a key safely.
 
-### 📍 Steps to Revoke a Key
+### [hashtag](#steps-to-revoke-a-key) 📍 Steps to Revoke a Key
 
 1. **Go to Settings**
 
@@ -442874,11 +442976,11 @@ If you no longer want a specific key to have access to your account, you can eas
 
 > ⚠️ **Note:** Revoking a key is permanent. Once revoked, the key can no longer be used to access or sign transactions on your account.
 
-### ✅ Success
+### [hashtag](#success) ✅ Success
 
 After revoking, the key will be marked as **Revoked**, and access using that key will be disabled immediately.
 
-[PreviousMobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
+[PreviousMobile Wallet Export Log Guidechevron-left](/tutorial/mobile-wallet-export-log-guide)
 
 Last updated 6 months ago
 
@@ -443076,9 +443178,13 @@ Last updated 29 days ago
 
 Download | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -443100,7 +443206,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 * Download
 
   + [📲Download](/download/download)
@@ -443120,23 +443226,23 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
 1. [Download](/download)
 
 # 📲Download
 
-**iOS**[**https://apps.apple.com/ca/app/flow-wallet-nfts-and-crypto/id6478996750**](https://apps.apple.com/ca/app/flow-wallet-nfts-and-crypto/id6478996750)
+**iOS**[**https://apps.apple.com/ca/app/flow-wallet-nfts-and-crypto/id6478996750**arrow-up-right](https://apps.apple.com/ca/app/flow-wallet-nfts-and-crypto/id6478996750)
 
-**Android**[**https://play.google.com/store/apps/details?id=com.flowfoundation.wallet**](https://play.google.com/store/apps/details?id=com.flowfoundation.wallet)
+**Android**[**https://play.google.com/store/apps/details?id=com.flowfoundation.wallet**arrow-up-right](https://play.google.com/store/apps/details?id=com.flowfoundation.wallet)
 
-**Chrome Extension**[**https://chrome.google.com/webstore/detail/flow-core/hpclkefagolihohboafpheddmmgdffjm**](https://chrome.google.com/webstore/detail/flow-core/hpclkefagolihohboafpheddmmgdffjm)
+**Chrome Extension**[**https://chrome.google.com/webstore/detail/flow-core/hpclkefagolihohboafpheddmmgdffjm**arrow-up-right](https://chrome.google.com/webstore/detail/flow-core/hpclkefagolihohboafpheddmmgdffjm)
 
-[PreviousOthers SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)[NextOpen Source](/open-source/open-source)
+[PreviousOthers SDKschevron-left](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)[NextOpen Sourcechevron-right](/open-source/open-source)
 
 Last updated 1 year ago
 
@@ -443156,9 +443262,13 @@ Last updated 1 year ago
 
 Viem | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -443180,7 +443290,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 
     - [Wagmi](/ecosystem-development/integrate-flow-evm-with-web3-sdks/wagmi)
     - [Rainbowkit](/ecosystem-development/integrate-flow-evm-with-web3-sdks/rainbowkit)
@@ -443209,20 +443319,20 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
-1. [Ecosystem Development](/ecosystem-development)
+1. [Ecosystem Development](/ecosystem-development)chevron-right
 2. [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 
 # Viem
 
 Integrate with Viem
 
-### Connect wallet to Flow EVM
+### [hashtag](#connect-wallet-to-flow-evm) Connect wallet to Flow EVM
 
 Copy
 
@@ -443259,11 +443369,11 @@ const WalletConnect = () => {
 }
 ```
 
-See more detail on <https://github.com/Outblock/viem-flow-evm-demo>
+See more detail on [https://github.com/Outblock/viem-flow-evm-demoarrow-up-right](https://github.com/Outblock/viem-flow-evm-demo)
 
-[PreviousWeb3js](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3js)[NextWeb3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
+[PreviousWeb3jschevron-left](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3js)[NextWeb3-Onboardchevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
 
-Last updated 11 months ago
+Last updated 12 months ago
 
 
 
@@ -443281,9 +443391,13 @@ Last updated 11 months ago
 
 Mobile Wallet Export Log Guide | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -443305,7 +443419,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 * Download
 
   + [📲Download](/download/download)
@@ -443325,11 +443439,11 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
 1. [Tutorial](/tutorial)
 
@@ -443359,11 +443473,11 @@ Follow the steps below to export logs from the Flow Mobile Wallet:
 
 Once you have exported the logs, you can share them with our support team for further analysis. Thank you for helping us improve the Flow Wallet!
 
-### Support
+### [hashtag](#support) Support
 
 If you encounter any issues or have further questions, please reach out to our support team at [[email protected]](/cdn-cgi/l/email-protection).
 
-[PreviousExtension Private Key and Seed Phrase Guide](/tutorial/extension-private-key-and-seed-phrase-guide)[NextWallet Revoke key guide](/wallet-revoke-key-guide)
+[PreviousExtension Private Key and Seed Phrase Guidechevron-left](/tutorial/extension-private-key-and-seed-phrase-guide)[NextWallet Revoke key guidechevron-right](/wallet-revoke-key-guide)
 
 Last updated 1 year ago
 
@@ -443383,9 +443497,13 @@ Last updated 1 year ago
 
 FLOW wallet init token guide | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -443407,7 +443525,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 * Download
 
   + [📲Download](/download/download)
@@ -443427,11 +443545,11 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
 1. [Tutorial](/tutorial)
 
@@ -443441,19 +443559,19 @@ Welcome to our guide on enabling token storage in your FLOW wallet! Before you c
 
 In this guide, we’ll provide you with a step-by-step process to get started. Whether you’re a newcomer to the FLOW ecosystem or looking to enhance your understanding, this guide will empower you to handle your FLOW tokens with ease. Let’s dive in!
 
-#### Step 1:
+#### [hashtag](#step-1) Step 1:
 
 Open your FLOW wallet app and navigate to the homepage. Look for the **"Add"** button and click on it to start the process.
 
 ![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Fuploads%252FIMn2nhQJPhLszMa8hIUq%252FScreen%2520Shot%25202024-10-21%2520at%252011.33.53%2520am.png%3Falt%3Dmedia%26token%3D53e447bc-076f-4f82-b24b-04fa1af4aed4&width=768&dpr=4&quality=100&sign=fb29d9ad&sv=2)
 
-#### Step 2:
+#### [hashtag](#step-2) Step 2:
 
 After clicking the **"Add"** button, you’ll see a list of available tokens. Browse through the list and click the **"Add"** button next to the token you wish to enable for storage.
 
 ![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Fuploads%252FhqY5KrseZ6p3KUYJordz%252FScreen%2520Shot%25202024-10-21%2520at%252011.34.03%2520am.png%3Falt%3Dmedia%26token%3D9768de20-ceea-48ce-a7bb-975639822e2f&width=768&dpr=4&quality=100&sign=11960b69&sv=2)
 
-#### Step 3:
+#### [hashtag](#step-3) Step 3:
 
 Once you’ve selected your token, click the **"Enable"** button to activate token storage for the selected token.
 
@@ -443461,11 +443579,11 @@ Once you’ve selected your token, click the **"Enable"** button to activate tok
 
 After you’ve completed all the above steps, you’ll find that the token has been successfully added to your token list on the homepage of your FLOW wallet. This means you’re now ready to manage and transfer your tokens as needed!
 
-### Support
+### [hashtag](#support) Support
 
 If you encounter any issues or have further questions, please reach out to our support team at [[email protected]](/cdn-cgi/l/email-protection).
 
-[PreviousExtension Update Guide](/tutorial/extension-update-guide)[NextExtension Private Key and Seed Phrase Guide](/tutorial/extension-private-key-and-seed-phrase-guide)
+[PreviousExtension Update Guidechevron-left](/tutorial/extension-update-guide)[NextExtension Private Key and Seed Phrase Guidechevron-right](/tutorial/extension-private-key-and-seed-phrase-guide)
 
 Last updated 1 year ago
 
@@ -443485,9 +443603,13 @@ Last updated 1 year ago
 
 Account Linking | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -443509,7 +443631,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 * Download
 
   + [📲Download](/download/download)
@@ -443529,11 +443651,11 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
 1. [Features](/features)
 
@@ -443551,10 +443673,10 @@ The application would provide the means for the user to claim the original (“c
 Flow Reference Wallet supports and demonstrates account linking by automatically detecting when a transaction is attempting to perform account linking, and displaying it to the user using custom UI. Users can then view their assets across their variety of linked accounts, and manage their linked accounts directly within Flow Reference Wallet.
 **Conclusion**
 Flow Foundation believes that account linking eliminates the barriers to Web3 adoption by enabling familiar user onboarding mechanics to bring users to applications on Flow. Flow Reference Wallet provides support for account linking so users can seamlessly graduate to self-custody of their assets, and benefit from the portability of those assets across the ecosystem of apps on Flow.
-For more information on account linking, see: <https://flow.com/account-linking>
-For detailed technical documentation on account linking, see: <https://developers.flow.com/build/advanced-concepts/account-linking>
+For more information on account linking, see: [https://flow.com/account-linkingarrow-up-right](https://flow.com/account-linking)
+For detailed technical documentation on account linking, see: [https://developers.flow.com/build/advanced-concepts/account-linkingarrow-up-right](https://developers.flow.com/build/advanced-concepts/account-linking)
 
-[PreviousFAQ](/faq/faq)[NextWalletConnect](/features/walletconnect)
+[PreviousFAQchevron-left](/faq/faq)[NextWalletConnectchevron-right](/features/walletconnect)
 
 Last updated 1 year ago
 
@@ -443574,9 +443696,13 @@ Last updated 1 year ago
 
 Open Source | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -443598,7 +443724,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 * Download
 
   + [📲Download](/download/download)
@@ -443618,26 +443744,27 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
 1. [Open Source](/open-source)
 
 # 💽Open Source
 
 **iOS**
-<https://github.com/Outblock/FRW-iOS>
+[https://github.com/Outblock/FRW-iOSarrow-up-right](https://github.com/Outblock/FRW-iOS)
 
 **Android**
-<https://github.com/Outblock/FRW-Android>
+[https://github.com/Outblock/FRW-Androidarrow-up-right](https://github.com/Outblock/FRW-Android)
 
 **Chrome Extension**
-<https://github.com/Outblock/FRW-Extension>
+[https://github.com/Outblock/FRW-Extension
+arrow-up-right](https://github.com/Outblock/FRW-Extension)
 
-[PreviousDownload](/download/download)[NextMobile Wallet Backup Guide](/tutorial/mobile-wallet-backup-guide)
+[PreviousDownloadchevron-left](/download/download)[NextMobile Wallet Backup Guidechevron-right](/tutorial/mobile-wallet-backup-guide)
 
 Last updated 2 years ago
 
@@ -443657,9 +443784,13 @@ Last updated 2 years ago
 
 Wagmi | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -443681,7 +443812,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 
     - [Wagmi](/ecosystem-development/integrate-flow-evm-with-web3-sdks/wagmi)
     - [Rainbowkit](/ecosystem-development/integrate-flow-evm-with-web3-sdks/rainbowkit)
@@ -443710,20 +443841,20 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
-1. [Ecosystem Development](/ecosystem-development)
+1. [Ecosystem Development](/ecosystem-development)chevron-right
 2. [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 
 # Wagmi
 
 Integrate with Wagmi
 
-### Config wagmi with Chains and providers
+### [hashtag](#config-wagmi-with-chains-and-providers) Config wagmi with Chains and providers
 
 Copy
 
@@ -443750,13 +443881,13 @@ export function getConfig() {
 }
 ```
 
-### Connect injected wallet with Flow EVM
+### [hashtag](#connect-injected-wallet-with-flow-evm) Connect injected wallet with Flow EVM
 
-See more detail on <https://github.com/Outblock/wagmi-project>
+See more detail on [https://github.com/Outblock/wagmi-projectarrow-up-right](https://github.com/Outblock/wagmi-project)
 
-[PreviousIntegrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)[NextRainbowkit](/ecosystem-development/integrate-flow-evm-with-web3-sdks/rainbowkit)
+[PreviousIntegrate Flow EVM with Web3 SDKschevron-left](/ecosystem-development/integrate-flow-evm-with-web3-sdks)[NextRainbowkitchevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks/rainbowkit)
 
-Last updated 11 months ago
+Last updated 12 months ago
 
 * [Config wagmi with Chains and providers](#config-wagmi-with-chains-and-providers)
 * [Connect injected wallet with Flow EVM](#connect-injected-wallet-with-flow-evm)
@@ -443808,9 +443939,13 @@ function App() {
 
 Web3-Onboard | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -443832,7 +443967,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 
     - [Wagmi](/ecosystem-development/integrate-flow-evm-with-web3-sdks/wagmi)
     - [Rainbowkit](/ecosystem-development/integrate-flow-evm-with-web3-sdks/rainbowkit)
@@ -443861,20 +443996,20 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
-1. [Ecosystem Development](/ecosystem-development)
+1. [Ecosystem Development](/ecosystem-development)chevron-right
 2. [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 
 # Web3-Onboard
 
 Integrate with Web3-Onboard
 
-### Connect wallet to Flow EVM
+### [hashtag](#connect-wallet-to-flow-evm) Connect wallet to Flow EVM
 
 Copy
 
@@ -443932,11 +444067,11 @@ const WalletConnect = () => {
 }
 ```
 
-See more detail on <https://github.com/Outblock/web3-onboard-flow-evm-demo>
+See more detail on [https://github.com/Outblock/web3-onboard-flow-evm-demoarrow-up-right](https://github.com/Outblock/web3-onboard-flow-evm-demo)
 
-[PreviousViem](/ecosystem-development/integrate-flow-evm-with-web3-sdks/viem)[NextMIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
+[PreviousViemchevron-left](/ecosystem-development/integrate-flow-evm-with-web3-sdks/viem)[NextMIPDchevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
 
-Last updated 11 months ago
+Last updated 12 months ago
 
 
 
@@ -443971,12 +444106,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **9bc87ee8daf25c22**
+Cloudflare Ray ID: **9bd0b7221804fe58**
 •
 
 Your IP:
 Click to reveal
-104.209.5.155
+57.151.129.48
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 
@@ -443996,9 +444131,13 @@ Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-land
 
 Download | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -444020,7 +444159,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 * Download
 
   + [📲Download](/download/download)
@@ -444040,23 +444179,23 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
 1. [Download](/download)
 
 # 📲Download
 
-**iOS**[**https://apps.apple.com/ca/app/flow-wallet-nfts-and-crypto/id6478996750**](https://apps.apple.com/ca/app/flow-wallet-nfts-and-crypto/id6478996750)
+**iOS**[**https://apps.apple.com/ca/app/flow-wallet-nfts-and-crypto/id6478996750**arrow-up-right](https://apps.apple.com/ca/app/flow-wallet-nfts-and-crypto/id6478996750)
 
-**Android**[**https://play.google.com/store/apps/details?id=com.flowfoundation.wallet**](https://play.google.com/store/apps/details?id=com.flowfoundation.wallet)
+**Android**[**https://play.google.com/store/apps/details?id=com.flowfoundation.wallet**arrow-up-right](https://play.google.com/store/apps/details?id=com.flowfoundation.wallet)
 
-**Chrome Extension**[**https://chrome.google.com/webstore/detail/flow-core/hpclkefagolihohboafpheddmmgdffjm**](https://chrome.google.com/webstore/detail/flow-core/hpclkefagolihohboafpheddmmgdffjm)
+**Chrome Extension**[**https://chrome.google.com/webstore/detail/flow-core/hpclkefagolihohboafpheddmmgdffjm**arrow-up-right](https://chrome.google.com/webstore/detail/flow-core/hpclkefagolihohboafpheddmmgdffjm)
 
-[PreviousOthers SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)[NextOpen Source](/open-source/open-source)
+[PreviousOthers SDKschevron-left](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)[NextOpen Sourcechevron-right](/open-source/open-source)
 
 Last updated 1 year ago
 
@@ -444076,9 +444215,13 @@ Last updated 1 year ago
 
 Flow Reference Wallet Primer | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -444100,7 +444243,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 * Download
 
   + [📲Download](/download/download)
@@ -444120,11 +444263,11 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
 1. [Ecosystem Primers](/ecosystem-primers)
 
@@ -444184,32 +444327,32 @@ In order to highlight the intrinsic value of Flow's design and promote the broad
 **Human Readable Transaction Authorization**
 **‍**
 When users are prompted for authorization during a transaction, they are frequently presented with complex and bewildering information, leading to confusion and increased user friction. This obscurity has unfortunately paved the way for numerous attacks, resulting in significant losses for unsuspecting victims.
-Given the novelty of this concept, it's crucial to present it intuitively to users. This entails wallet interfaces displaying a clear list of linked accounts, along with the corresponding applications they are associated with. Additionally, Flow wallets should provide the option to unlink accounts, giving users full control over their account management preferences and child account assets. On Flow, with interaction templates (<https://developers.flow.com/tooling/fcl-js/interaction-templates>), Cadence developers have a means to declare static metadata about transactions they ask users to sign. This information is vital to understanding the outcome of the request and may include data such as a human-readable title and description.
+Given the novelty of this concept, it's crucial to present it intuitively to users. This entails wallet interfaces displaying a clear list of linked accounts, along with the corresponding applications they are associated with. Additionally, Flow wallets should provide the option to unlink accounts, giving users full control over their account management preferences and child account assets. On Flow, with interaction templates ([https://developers.flow.com/tooling/fcl-js/interaction-templatesarrow-up-right](https://developers.flow.com/tooling/fcl-js/interaction-templates)), Cadence developers have a means to declare static metadata about transactions they ask users to sign. This information is vital to understanding the outcome of the request and may include data such as a human-readable title and description.
 Interaction template auditors play a crucial role in assessing the accuracy and safety of these templates. Wallets can harness interaction template audits to confidently present users with clear, human-readable transaction titles and descriptions during the authorization process. This approach eliminates the need for users to decipher unintelligible authorization prompts, ensuring they receive and understand important information and can confidently sign and approve.
 To leverage the enhanced user experience that this mechanism offers, wallets should embrace best practices in the use of interaction templates for all Flow users.
-For more on how application developers and wallets can use Interaction Templates, see: <https://developers.flow.com/tooling/fcl-js/interaction-templates>
+For more on how application developers and wallets can use Interaction Templates, see: [https://developers.flow.com/tooling/fcl-js/interaction-templatesarrow-up-right](https://developers.flow.com/tooling/fcl-js/interaction-templates)
 **Account Linking**
 Accounts on Flow can be linked to create an association between them. This provides many benefits, including improved user onboarding to applications on Flow. Users can sign up for an app via traditional means (email/password, social login, OAuth, etc.), while Flow account creation and key custody are handled by the application. When users become familiar with the concepts of true ownership and asset portability on Flow, they may create their self custody wallet. The application would provide the means to claim the original (“child”) account by linking their new (“parent”) account and delegating access control. In this way, users can claim custody and gain control of assets stored in the application account for use across the Flow ecosystem. Wallets are encouraged to add support for account linking to improve user experience and allow management and visualization of all user-controlled accounts.
-For more information on Account Linking, see: <https://developers.flow.com/concepts/hybrid-custody>**Account & Key Ownership**
+For more information on Account Linking, see: [https://developers.flow.com/concepts/hybrid-custodyarrow-up-right](https://developers.flow.com/concepts/hybrid-custody)[arrow-up-right](https://developers.flow.com/tooling/fcl-js/interaction-templates)**Account & Key Ownership**
 Account abstraction on Flow enables accounts to have multiple keys that can be added and revoked. When an account on Flow is created, it can be created with any number of keys controlled by any number of entities. An interesting mechanic that is possible on Flow, is the ability to airdrop assets to another user by creating a new account on Flow, depositing assets to the new account, and then finally adding the key of the intended recipient of the assets, all within a single transaction. However, for the user to know that these airdropped assets are owned by them, they need to be displayed to them in their wallet; and to be displayed, the wallet needs to recognize that their user’s key is active on a new account, thereby making the user the owner of its assets.
 Wallets need to ensure they are designed with a one-to-many relationship between key and account. When a wallet-controlled key is added to a new account on Flow, the wallet should recognize this and display the newly controlled account to the user. This additionally means that a wallet should enable a user to control multiple Flow accounts, perhaps each controlled by any number or combination of wallet or externally controlled keys.
 Since account abstraction on Flow enables accounts to have multiple revocable keys, each of which can have a specific weight, wallets therefore must be able to maintain a set of zero to many keys controlled by a user each with their own specific weight. Wallets should also enable a user to revoke a key they control on an account at any time, as well as create new keys with their preferred weight to add to an account.
-For more information on Accounts and Keys on Flow, see: <https://developers.flow.com/concepts/start-here/accounts-and-keys>**Account Key Management & Recovery**
+For more information on Accounts and Keys on Flow, see: [https://developers.flow.com/concepts/start-here/accounts-and-keysarrow-up-right](https://developers.flow.com/concepts/start-here/accounts-and-keys)[arrow-up-right](https://developers.flow.com/tooling/fcl-js/interaction-templates)**Account Key Management & Recovery**
 Flow’s account abstraction supports ECDSA P-256 keys which are also supported by the secure-enclave hardware on iPhone. Non-custodial mobile wallets on Flow should therefore use this credible specialized hardware for secure key management, as it enables users to benefit from the credibility, portability, utility, and security of their mobile device as their non-custodial wallet on Flow. Critically, using iPhone’s secure enclave to store keys removes the need for the user to set up a seed phrase, as their keys can be stored directly inside their device. Users should be able to use secondary iPhone devices to store backup keys for their accounts on Flow. A user should be able to store a primary key in their day-to-day device, and backup keys across a set of backup devices in case they lose access to their primary device.
 Other mechanics can enable account recovery in the event a user loses access to one or more of their keys. Every user has different preferences, and their preferred mechanic for how account recovery can be performed will vary. Some users may be comfortable with a wallet provider maintaining custody of a key or capability that allows them to set a new key on the user’s account in the event the user loses access to one or more of their keys. Other users may prefer an on-chain account recovery mechanism. For example, if one’s account hasn’t executed a transaction for a defined period, or if the user's defined set of friends vote that the user lost access to their account, then a new user-controlled key might be set on the account. Wallets need to enable users to recover access to their accounts in ways that work best for them.
 Technologies such as multi-party computation, Shamir's secret sharing, and threshold cryptography provide mechanics for distributing a user's secrets across multiple devices and systems, further removing the single point of failure that exists when custodying a user's key on a single device. Wallets should engage with systems such as Torus network and lit protocol to provide ways to gate recovery keys behind cloud storage, social login providers, and across recovery devices should a user choose these options.
 Promoting a safe user experience; one that empowers users to enjoy true ownership of their assets through self custody, while remaining safe from the possibility of losing access to a set of their account keys will propel Flow and Web3 toward mainstream consumer adoption.
 **Account Storage Management**
 Flow’s account abstraction enables accounts to have storage. Account storage is where a user’s assets reside, such as their non-fungible tokens, and fungible tokens among others. Similar to storage on a computer, a user may want to manage and view their account storage. This mechanic can take a form similar to that of a file browser on a computer, where a user’s assets are displayed and operations can be performed on them, such as relocation, deletion, viewing their size, provenance, metadata, etc. Since resources on Flow can contain other resources, as is the case for many NFT collections, a user may want to further organize their assets by nesting various resources within each other. For example, a user may organize their NBA Top Shot assets in an NBA Top Shot collection dedicated exclusively to just their favorite moments. A user may further wish to move assets between their Flow accounts, including their linked application accounts.
-For more about account storage on Flow, see: <https://developers.flow.com/cadence/language/accounts#account-storage>**Capability Management**
+For more about account storage on Flow, see: [https://developers.flow.com/cadence/language/accounts#account-storagearrow-up-right](https://developers.flow.com/cadence/language/accounts#account-storage)[arrow-up-right](https://developers.flow.com/tooling/fcl-js/interaction-templates)**Capability Management**
 Accounts on Flow can create cadence capabilities that allow the owner of the capability to perform defined mechanics on an account’s assets. For example, a user may grant a capability that allows an external application to modify some component of one of their NFTs. A user could also grant a capability that allows another user to withdraw an amount of FLOW from their account. Capabilities are almost limitless in what they can do and are a critical part of the security and access model for cadence.
 Capabilities are managed by an account’s capability controller, which is a system that allows the account to grant, view, and revoke previously granted capabilities. Therefore, wallets need to implement the ability for their users to view, grant, and revoke their previously granted capabilities. What a capability does and represents needs to be expressed to the user in a way that is understandable to them. It should be clear to the user what assets are impacted by which capabilities. This way, a user can safely manage how their assets are impacted by the capabilities they grant.
-For more on Flow capability controllers, see: <https://github.com/onflow/flips/blob/main/cadence/20220203-capability-controllers.md>**Ecosystem Lighthouse Wallet**
+For more on Flow capability controllers, see: [https://github.com/onflow/flips/blob/main/cadence/20220203-capability-controllers.mdarrow-up-right](https://github.com/onflow/flips/blob/main/cadence/20220203-capability-controllers.md)[arrow-up-right](https://developers.flow.com/tooling/fcl-js/interaction-templates)**Ecosystem Lighthouse Wallet**
 Flow released a new wallet offering on Flow, **Flow Reference Wallet**. This wallet will act as an ecosystem lighthouse that will progress toward implementing the specified unique product possibilities for Flow. It launched with the majority of its codebase open-source, with the goal of progressing to becoming entirely open-source. The intention for this wallet is to provide an example for other wallet developers on Flow of what is possible, while also providing them with open-source code that can be used by them to replicate and build upon. This wallet will be released on the Apple App Store, Google Play, and Chrome Extension Store for consumer use. Flow intends for this wallet to be an ecosystem project, with community grants available to further its development. Ultimately, this wallet will demonstrate the product possibilities for wallets on Flow, while acting to inspire and promote wallet developers to implement these features in their wallet offerings.
 **Development Timeline**
 The first version of Flow Reference Wallet was released in Q3 2023.
-To follow the development of the new Flow Reference Wallet, the open-source issue/project tracker is available on GitHub, see: <https://github.com/orgs/Outblock/projects/2>**Ecosystem Grants**
-To encourage ecosystem participation in the development of Flow Reference Wallet, the following grant projects are available as inspiration for a grant proposal: [https://github.com/onflow/developer-grants/blob/main/projects/flow-core-wallet/README.md](https://github.com/onflow/developer-grants/blob/project-fcw/projects/flow-core-wallet/README.md)**Outcome**
+To follow the development of the new Flow Reference Wallet, the open-source issue/project tracker is available on GitHub, see: [https://github.com/orgs/Outblock/projects/2arrow-up-right](https://github.com/orgs/Outblock/projects/2)[arrow-up-right](https://developers.flow.com/tooling/fcl-js/interaction-templates)**Ecosystem Grants**
+To encourage ecosystem participation in the development of Flow Reference Wallet, the following grant projects are available as inspiration for a grant proposal: [https://github.com/onflow/developer-grants/blob/main/projects/flow-core-wallet/README.mdarrow-up-right](https://github.com/onflow/developer-grants/blob/project-fcw/projects/flow-core-wallet/README.md)[arrow-up-right](https://developers.flow.com/tooling/fcl-js/interaction-templates)**Outcome**
 With the release of the Flow Reference Wallet, Flow application developers and users will have a wallet they can use that supports the unique product possibilities for wallets on Flow, and wallet developers will have open-source materials they can use to build upon to improve their product offerings.
 **Commitment**
 Flow is committed to an open, thriving ecosystem of wallets on Flow. As such, Flow Reference Wallet’s purpose is to promote ecosystem wallet development on Flow by providing open-source examples and materials of Flow’s key product possibilities for wallets. Flow Reference Wallet will not partake in any application or project partnerships, nor will it act as a revenue-generating product. Flow Reference Wallet is intended to be a reference wallet, and is not positioned long term to be the primary wallet for end consumers in Flow’s ecosystem; rather, it’s intended to support ecosystem wallets to build better products to further their and Flow’s adoption.
@@ -444223,7 +444366,7 @@ telegram: @jeffjeffjeffjeffjeffjeffjeff
 **Working Group**
 Flow has an open working group dedicated to furthering the development of wallets on Flow. If you’d like to join this working group please email [[email protected]](/cdn-cgi/l/email-protection) to be added to the recurring meeting.
 
-[PreviousWelcome to Flow Wallet](/)[NextFAQ](/faq/faq)
+[PreviousWelcome to Flow Walletchevron-left](/)[NextFAQchevron-right](/faq/faq)
 
 Last updated 1 year ago
 
@@ -444243,9 +444386,13 @@ Last updated 1 year ago
 
 FAQ | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -444267,7 +444414,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 * Download
 
   + [📲Download](/download/download)
@@ -444287,11 +444434,11 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
 1. [FAQ](/faq)
 
@@ -444299,7 +444446,7 @@ Copy
 
 Answers to common questions about Flow Wallet
 
-#### Is Flow Wallet a Self-Custody or Custodial Wallet?
+#### [hashtag](#is-flow-wallet-a-self-custody-or-custodial-wallet) Is Flow Wallet a Self-Custody or Custodial Wallet?
 
 Flow Wallet is self-custodial. Users own and control the cryptographic keys securing their Flow accounts and assets.
 
@@ -444316,14 +444463,14 @@ iOS and Android:
 * Multi-Backup feature available for account recovery
 * Create Multi-Backup: Settings > Backup > Create Multi-Backup
 
-#### Where is my Seed Phrase? I can't find it on Flow Wallet iOS or Android.
+#### [hashtag](#where-is-my-seed-phrase-i-cant-find-it-on-flow-wallet-ios-or-android) Where is my Seed Phrase? I can't find it on Flow Wallet iOS or Android.
 
 Flow Wallet on iOS and Android doesn't use seed phrases. Instead, it leverages your device's Secure Enclave for account security. To ensure account recovery:
 
 1. Create a Multi-Backup
 2. Navigate to Settings > Backup > Create Multi-Backup
 
-#### What is Multi-Backup?
+#### [hashtag](#what-is-multi-backup) What is Multi-Backup?
 
 Multi-Backup is a security feature for Flow Wallet on iOS and Android:
 
@@ -444345,7 +444492,7 @@ Create a Multi-Backup on Flow Wallet iOS and Android
 
 * Navigate to Settings > Backup > Create Multi-Backup
 
-[PreviousFlow Reference Wallet Primer](/ecosystem-primers/flow-reference-wallet-primer)[NextAccount Linking](/features/account-linking)
+[PreviousFlow Reference Wallet Primerchevron-left](/ecosystem-primers/flow-reference-wallet-primer)[NextAccount Linkingchevron-right](/features/account-linking)
 
 Last updated 1 year ago
 
@@ -444365,9 +444512,13 @@ Last updated 1 year ago
 
 Flow Reference Wallet Primer | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -444389,7 +444540,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 * Download
 
   + [📲Download](/download/download)
@@ -444409,11 +444560,11 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
 1. [Ecosystem Primers](/ecosystem-primers)
 
@@ -444473,32 +444624,32 @@ In order to highlight the intrinsic value of Flow's design and promote the broad
 **Human Readable Transaction Authorization**
 **‍**
 When users are prompted for authorization during a transaction, they are frequently presented with complex and bewildering information, leading to confusion and increased user friction. This obscurity has unfortunately paved the way for numerous attacks, resulting in significant losses for unsuspecting victims.
-Given the novelty of this concept, it's crucial to present it intuitively to users. This entails wallet interfaces displaying a clear list of linked accounts, along with the corresponding applications they are associated with. Additionally, Flow wallets should provide the option to unlink accounts, giving users full control over their account management preferences and child account assets. On Flow, with interaction templates (<https://developers.flow.com/tooling/fcl-js/interaction-templates>), Cadence developers have a means to declare static metadata about transactions they ask users to sign. This information is vital to understanding the outcome of the request and may include data such as a human-readable title and description.
+Given the novelty of this concept, it's crucial to present it intuitively to users. This entails wallet interfaces displaying a clear list of linked accounts, along with the corresponding applications they are associated with. Additionally, Flow wallets should provide the option to unlink accounts, giving users full control over their account management preferences and child account assets. On Flow, with interaction templates ([https://developers.flow.com/tooling/fcl-js/interaction-templatesarrow-up-right](https://developers.flow.com/tooling/fcl-js/interaction-templates)), Cadence developers have a means to declare static metadata about transactions they ask users to sign. This information is vital to understanding the outcome of the request and may include data such as a human-readable title and description.
 Interaction template auditors play a crucial role in assessing the accuracy and safety of these templates. Wallets can harness interaction template audits to confidently present users with clear, human-readable transaction titles and descriptions during the authorization process. This approach eliminates the need for users to decipher unintelligible authorization prompts, ensuring they receive and understand important information and can confidently sign and approve.
 To leverage the enhanced user experience that this mechanism offers, wallets should embrace best practices in the use of interaction templates for all Flow users.
-For more on how application developers and wallets can use Interaction Templates, see: <https://developers.flow.com/tooling/fcl-js/interaction-templates>
+For more on how application developers and wallets can use Interaction Templates, see: [https://developers.flow.com/tooling/fcl-js/interaction-templatesarrow-up-right](https://developers.flow.com/tooling/fcl-js/interaction-templates)
 **Account Linking**
 Accounts on Flow can be linked to create an association between them. This provides many benefits, including improved user onboarding to applications on Flow. Users can sign up for an app via traditional means (email/password, social login, OAuth, etc.), while Flow account creation and key custody are handled by the application. When users become familiar with the concepts of true ownership and asset portability on Flow, they may create their self custody wallet. The application would provide the means to claim the original (“child”) account by linking their new (“parent”) account and delegating access control. In this way, users can claim custody and gain control of assets stored in the application account for use across the Flow ecosystem. Wallets are encouraged to add support for account linking to improve user experience and allow management and visualization of all user-controlled accounts.
-For more information on Account Linking, see: <https://developers.flow.com/concepts/hybrid-custody>**Account & Key Ownership**
+For more information on Account Linking, see: [https://developers.flow.com/concepts/hybrid-custodyarrow-up-right](https://developers.flow.com/concepts/hybrid-custody)[arrow-up-right](https://developers.flow.com/tooling/fcl-js/interaction-templates)**Account & Key Ownership**
 Account abstraction on Flow enables accounts to have multiple keys that can be added and revoked. When an account on Flow is created, it can be created with any number of keys controlled by any number of entities. An interesting mechanic that is possible on Flow, is the ability to airdrop assets to another user by creating a new account on Flow, depositing assets to the new account, and then finally adding the key of the intended recipient of the assets, all within a single transaction. However, for the user to know that these airdropped assets are owned by them, they need to be displayed to them in their wallet; and to be displayed, the wallet needs to recognize that their user’s key is active on a new account, thereby making the user the owner of its assets.
 Wallets need to ensure they are designed with a one-to-many relationship between key and account. When a wallet-controlled key is added to a new account on Flow, the wallet should recognize this and display the newly controlled account to the user. This additionally means that a wallet should enable a user to control multiple Flow accounts, perhaps each controlled by any number or combination of wallet or externally controlled keys.
 Since account abstraction on Flow enables accounts to have multiple revocable keys, each of which can have a specific weight, wallets therefore must be able to maintain a set of zero to many keys controlled by a user each with their own specific weight. Wallets should also enable a user to revoke a key they control on an account at any time, as well as create new keys with their preferred weight to add to an account.
-For more information on Accounts and Keys on Flow, see: <https://developers.flow.com/concepts/start-here/accounts-and-keys>**Account Key Management & Recovery**
+For more information on Accounts and Keys on Flow, see: [https://developers.flow.com/concepts/start-here/accounts-and-keysarrow-up-right](https://developers.flow.com/concepts/start-here/accounts-and-keys)[arrow-up-right](https://developers.flow.com/tooling/fcl-js/interaction-templates)**Account Key Management & Recovery**
 Flow’s account abstraction supports ECDSA P-256 keys which are also supported by the secure-enclave hardware on iPhone. Non-custodial mobile wallets on Flow should therefore use this credible specialized hardware for secure key management, as it enables users to benefit from the credibility, portability, utility, and security of their mobile device as their non-custodial wallet on Flow. Critically, using iPhone’s secure enclave to store keys removes the need for the user to set up a seed phrase, as their keys can be stored directly inside their device. Users should be able to use secondary iPhone devices to store backup keys for their accounts on Flow. A user should be able to store a primary key in their day-to-day device, and backup keys across a set of backup devices in case they lose access to their primary device.
 Other mechanics can enable account recovery in the event a user loses access to one or more of their keys. Every user has different preferences, and their preferred mechanic for how account recovery can be performed will vary. Some users may be comfortable with a wallet provider maintaining custody of a key or capability that allows them to set a new key on the user’s account in the event the user loses access to one or more of their keys. Other users may prefer an on-chain account recovery mechanism. For example, if one’s account hasn’t executed a transaction for a defined period, or if the user's defined set of friends vote that the user lost access to their account, then a new user-controlled key might be set on the account. Wallets need to enable users to recover access to their accounts in ways that work best for them.
 Technologies such as multi-party computation, Shamir's secret sharing, and threshold cryptography provide mechanics for distributing a user's secrets across multiple devices and systems, further removing the single point of failure that exists when custodying a user's key on a single device. Wallets should engage with systems such as Torus network and lit protocol to provide ways to gate recovery keys behind cloud storage, social login providers, and across recovery devices should a user choose these options.
 Promoting a safe user experience; one that empowers users to enjoy true ownership of their assets through self custody, while remaining safe from the possibility of losing access to a set of their account keys will propel Flow and Web3 toward mainstream consumer adoption.
 **Account Storage Management**
 Flow’s account abstraction enables accounts to have storage. Account storage is where a user’s assets reside, such as their non-fungible tokens, and fungible tokens among others. Similar to storage on a computer, a user may want to manage and view their account storage. This mechanic can take a form similar to that of a file browser on a computer, where a user’s assets are displayed and operations can be performed on them, such as relocation, deletion, viewing their size, provenance, metadata, etc. Since resources on Flow can contain other resources, as is the case for many NFT collections, a user may want to further organize their assets by nesting various resources within each other. For example, a user may organize their NBA Top Shot assets in an NBA Top Shot collection dedicated exclusively to just their favorite moments. A user may further wish to move assets between their Flow accounts, including their linked application accounts.
-For more about account storage on Flow, see: <https://developers.flow.com/cadence/language/accounts#account-storage>**Capability Management**
+For more about account storage on Flow, see: [https://developers.flow.com/cadence/language/accounts#account-storagearrow-up-right](https://developers.flow.com/cadence/language/accounts#account-storage)[arrow-up-right](https://developers.flow.com/tooling/fcl-js/interaction-templates)**Capability Management**
 Accounts on Flow can create cadence capabilities that allow the owner of the capability to perform defined mechanics on an account’s assets. For example, a user may grant a capability that allows an external application to modify some component of one of their NFTs. A user could also grant a capability that allows another user to withdraw an amount of FLOW from their account. Capabilities are almost limitless in what they can do and are a critical part of the security and access model for cadence.
 Capabilities are managed by an account’s capability controller, which is a system that allows the account to grant, view, and revoke previously granted capabilities. Therefore, wallets need to implement the ability for their users to view, grant, and revoke their previously granted capabilities. What a capability does and represents needs to be expressed to the user in a way that is understandable to them. It should be clear to the user what assets are impacted by which capabilities. This way, a user can safely manage how their assets are impacted by the capabilities they grant.
-For more on Flow capability controllers, see: <https://github.com/onflow/flips/blob/main/cadence/20220203-capability-controllers.md>**Ecosystem Lighthouse Wallet**
+For more on Flow capability controllers, see: [https://github.com/onflow/flips/blob/main/cadence/20220203-capability-controllers.mdarrow-up-right](https://github.com/onflow/flips/blob/main/cadence/20220203-capability-controllers.md)[arrow-up-right](https://developers.flow.com/tooling/fcl-js/interaction-templates)**Ecosystem Lighthouse Wallet**
 Flow released a new wallet offering on Flow, **Flow Reference Wallet**. This wallet will act as an ecosystem lighthouse that will progress toward implementing the specified unique product possibilities for Flow. It launched with the majority of its codebase open-source, with the goal of progressing to becoming entirely open-source. The intention for this wallet is to provide an example for other wallet developers on Flow of what is possible, while also providing them with open-source code that can be used by them to replicate and build upon. This wallet will be released on the Apple App Store, Google Play, and Chrome Extension Store for consumer use. Flow intends for this wallet to be an ecosystem project, with community grants available to further its development. Ultimately, this wallet will demonstrate the product possibilities for wallets on Flow, while acting to inspire and promote wallet developers to implement these features in their wallet offerings.
 **Development Timeline**
 The first version of Flow Reference Wallet was released in Q3 2023.
-To follow the development of the new Flow Reference Wallet, the open-source issue/project tracker is available on GitHub, see: <https://github.com/orgs/Outblock/projects/2>**Ecosystem Grants**
-To encourage ecosystem participation in the development of Flow Reference Wallet, the following grant projects are available as inspiration for a grant proposal: [https://github.com/onflow/developer-grants/blob/main/projects/flow-core-wallet/README.md](https://github.com/onflow/developer-grants/blob/project-fcw/projects/flow-core-wallet/README.md)**Outcome**
+To follow the development of the new Flow Reference Wallet, the open-source issue/project tracker is available on GitHub, see: [https://github.com/orgs/Outblock/projects/2arrow-up-right](https://github.com/orgs/Outblock/projects/2)[arrow-up-right](https://developers.flow.com/tooling/fcl-js/interaction-templates)**Ecosystem Grants**
+To encourage ecosystem participation in the development of Flow Reference Wallet, the following grant projects are available as inspiration for a grant proposal: [https://github.com/onflow/developer-grants/blob/main/projects/flow-core-wallet/README.mdarrow-up-right](https://github.com/onflow/developer-grants/blob/project-fcw/projects/flow-core-wallet/README.md)[arrow-up-right](https://developers.flow.com/tooling/fcl-js/interaction-templates)**Outcome**
 With the release of the Flow Reference Wallet, Flow application developers and users will have a wallet they can use that supports the unique product possibilities for wallets on Flow, and wallet developers will have open-source materials they can use to build upon to improve their product offerings.
 **Commitment**
 Flow is committed to an open, thriving ecosystem of wallets on Flow. As such, Flow Reference Wallet’s purpose is to promote ecosystem wallet development on Flow by providing open-source examples and materials of Flow’s key product possibilities for wallets. Flow Reference Wallet will not partake in any application or project partnerships, nor will it act as a revenue-generating product. Flow Reference Wallet is intended to be a reference wallet, and is not positioned long term to be the primary wallet for end consumers in Flow’s ecosystem; rather, it’s intended to support ecosystem wallets to build better products to further their and Flow’s adoption.
@@ -444512,7 +444663,7 @@ telegram: @jeffjeffjeffjeffjeffjeffjeff
 **Working Group**
 Flow has an open working group dedicated to furthering the development of wallets on Flow. If you’d like to join this working group please email [[email protected]](/cdn-cgi/l/email-protection) to be added to the recurring meeting.
 
-[PreviousWelcome to Flow Wallet](/)[NextFAQ](/faq/faq)
+[PreviousWelcome to Flow Walletchevron-left](/)[NextFAQchevron-right](/faq/faq)
 
 Last updated 1 year ago
 
@@ -444532,9 +444683,13 @@ Last updated 1 year ago
 
 FAQ | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -444556,7 +444711,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 * Download
 
   + [📲Download](/download/download)
@@ -444576,11 +444731,11 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
 1. [FAQ](/faq)
 
@@ -444588,7 +444743,7 @@ Copy
 
 Answers to common questions about Flow Wallet
 
-#### Is Flow Wallet a Self-Custody or Custodial Wallet?
+#### [hashtag](#is-flow-wallet-a-self-custody-or-custodial-wallet) Is Flow Wallet a Self-Custody or Custodial Wallet?
 
 Flow Wallet is self-custodial. Users own and control the cryptographic keys securing their Flow accounts and assets.
 
@@ -444605,14 +444760,14 @@ iOS and Android:
 * Multi-Backup feature available for account recovery
 * Create Multi-Backup: Settings > Backup > Create Multi-Backup
 
-#### Where is my Seed Phrase? I can't find it on Flow Wallet iOS or Android.
+#### [hashtag](#where-is-my-seed-phrase-i-cant-find-it-on-flow-wallet-ios-or-android) Where is my Seed Phrase? I can't find it on Flow Wallet iOS or Android.
 
 Flow Wallet on iOS and Android doesn't use seed phrases. Instead, it leverages your device's Secure Enclave for account security. To ensure account recovery:
 
 1. Create a Multi-Backup
 2. Navigate to Settings > Backup > Create Multi-Backup
 
-#### What is Multi-Backup?
+#### [hashtag](#what-is-multi-backup) What is Multi-Backup?
 
 Multi-Backup is a security feature for Flow Wallet on iOS and Android:
 
@@ -444634,7 +444789,7 @@ Create a Multi-Backup on Flow Wallet iOS and Android
 
 * Navigate to Settings > Backup > Create Multi-Backup
 
-[PreviousFlow Reference Wallet Primer](/ecosystem-primers/flow-reference-wallet-primer)[NextAccount Linking](/features/account-linking)
+[PreviousFlow Reference Wallet Primerchevron-left](/ecosystem-primers/flow-reference-wallet-primer)[NextAccount Linkingchevron-right](/features/account-linking)
 
 Last updated 1 year ago
 
@@ -444654,9 +444809,13 @@ Last updated 1 year ago
 
 Account Linking | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -444678,7 +444837,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 * Download
 
   + [📲Download](/download/download)
@@ -444698,11 +444857,11 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
 1. [Features](/features)
 
@@ -444720,10 +444879,10 @@ The application would provide the means for the user to claim the original (“c
 Flow Reference Wallet supports and demonstrates account linking by automatically detecting when a transaction is attempting to perform account linking, and displaying it to the user using custom UI. Users can then view their assets across their variety of linked accounts, and manage their linked accounts directly within Flow Reference Wallet.
 **Conclusion**
 Flow Foundation believes that account linking eliminates the barriers to Web3 adoption by enabling familiar user onboarding mechanics to bring users to applications on Flow. Flow Reference Wallet provides support for account linking so users can seamlessly graduate to self-custody of their assets, and benefit from the portability of those assets across the ecosystem of apps on Flow.
-For more information on account linking, see: <https://flow.com/account-linking>
-For detailed technical documentation on account linking, see: <https://developers.flow.com/build/advanced-concepts/account-linking>
+For more information on account linking, see: [https://flow.com/account-linkingarrow-up-right](https://flow.com/account-linking)
+For detailed technical documentation on account linking, see: [https://developers.flow.com/build/advanced-concepts/account-linkingarrow-up-right](https://developers.flow.com/build/advanced-concepts/account-linking)
 
-[PreviousFAQ](/faq/faq)[NextWalletConnect](/features/walletconnect)
+[PreviousFAQchevron-left](/faq/faq)[NextWalletConnectchevron-right](/features/walletconnect)
 
 Last updated 1 year ago
 
@@ -444743,9 +444902,13 @@ Last updated 1 year ago
 
 Account Recovery | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -444767,7 +444930,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 * Download
 
   + [📲Download](/download/download)
@@ -444787,11 +444950,11 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
 1. [Features](/features)
 
@@ -444800,10 +444963,12 @@ Copy
 Flow Reference Wallet enables users to recover their Flow accounts and assets in the event they lose access to their non-custodial wallet.
 **Background**Enabling users on Flow to safely self-custody their assets is important as it allows them to enjoy true ownership of their assets. Wallets need to address the safety drawbacks of self-custody, which include the possibility that a user will lose access to their self-custodial wallet and the keys it maintains. Fortunately, Flow natively supports features such as account abstraction and capability-based access control which open up a variety of options for how wallet providers can enable account recovery should their users lose access to the wallet.
 **Account Abstraction & Capability-Based Access Control**Flow's account abstraction enables accounts on Flow to have any number of keys with any number of weights. A user through their wallet provider can create multiple keys and set them to their account, perhaps storing some keys in a separate secure location or on a backup device. Weighted keys on Flow enable each account to natively act similar to a multi-sig on Ethereum. Users could share a variety of partial-weighted keys with their friends, which could collectively perform multi-sig to recover the assets of the account in the event the user's primary, full-weight keys are lost.
-Further, [capability-based access control on Flow](https://developers.flow.com/cadence/language/capabilities) enables even more powerful possibilities for how account recovery can be performed. A user could share a capability with a friend or another backup account, which could include defined logic to only enable account recovery on a specified account if certain conditions are met.
+Further, [capability-based access control on Flowarrow-up-right](https://developers.flow.com/cadence/language/capabilities) enables even more powerful possibilities for how account recovery can be performed. A user could share a capability with a friend or another backup account, which could include defined logic to only enable account recovery on a specified account if certain conditions are met.
 **Usage**Flow Reference Wallet will use Flow's account abstraction and powerful features such as capability-based access control to demonstrate the variety of possible account recovery mechanics that exist for users on Flow.
 **Support**
 Today, Flow Reference Wallet supports account recovery by enabling users to store backups of their account credentials / private keys on their desired cloud storage provider (Google Drive, iCloud). This way, if a user loses access to their device they can restore access to their Flow accounts and assets. This mechanic improves the safety and security of Flow Reference Wallet as a non-custodial wallet on Flow, as users have the ability to perform account recovery in the event they lose access to their device.
+
+circle-info
 
 The following are features not yet available on Flow Reference Wallet. These features are coming soon!
 
@@ -444813,7 +444978,7 @@ Technologies such as multi-party computation, Shamir's secret sharing, and thres
 **Conclusion**
 Flow Foundation believes that a safe user experience; one that empowers users to enjoy true ownership of their assets through self-custody while remaining safe from the possibility of losing access to a set of their account keys will further propel Flow and Web3 toward greater adoption.
 
-[PreviousSecure Enclave](/features/secure-enclave)[NextEcosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
+[PreviousSecure Enclavechevron-left](/features/secure-enclave)[NextEcosystem Developer Grantschevron-right](/ecosystem-development/ecosystem-developer-grants)
 
 Last updated 2 years ago
 
@@ -444833,9 +444998,13 @@ Last updated 2 years ago
 
 MIPD | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -444857,7 +445026,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 
     - [Wagmi](/ecosystem-development/integrate-flow-evm-with-web3-sdks/wagmi)
     - [Rainbowkit](/ecosystem-development/integrate-flow-evm-with-web3-sdks/rainbowkit)
@@ -444886,20 +445055,20 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
-1. [Ecosystem Development](/ecosystem-development)
+1. [Ecosystem Development](/ecosystem-development)chevron-right
 2. [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 
 # MIPD
 
 Integrate with MIPD
 
-### Connect wallet
+### [hashtag](#connect-wallet) Connect wallet
 
 Copy
 
@@ -444948,11 +445117,11 @@ const WalletConnect = () => {
 }
 ```
 
-See more detail on <https://github.com/Outblock/mipd-flow-evm-demo>
+See more detail on [https://github.com/Outblock/mipd-flow-evm-demoarrow-up-right](https://github.com/Outblock/mipd-flow-evm-demo)
 
-[PreviousWeb3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)[NextOthers SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
+[PreviousWeb3-Onboardchevron-left](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)[NextOthers SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
 
-Last updated 11 months ago
+Last updated 12 months ago
 
 
 
@@ -444970,9 +445139,13 @@ Last updated 11 months ago
 
 Mobile Wallet Backup Guide | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -444994,7 +445167,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 * Download
 
   + [📲Download](/download/download)
@@ -445014,11 +445187,11 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
 1. [Tutorial](/tutorial)
 
@@ -445026,7 +445199,7 @@ Copy
 
 Welcome to the Flow Mobile Wallet! Our wallet is designed to provide a secure and user-friendly experience for managing your digital assets. One of the standout features of the Flow Mobile Wallet is its robust backup options, ensuring that your funds remain safe and accessible.
 
-#### Device Backup
+#### [hashtag](#device-backup) Device Backup
 
 Designed with your security in mind, our mobile wallet utilizes secure enclave technology to ensure that your account is created and managed safely. With this cutting-edge approach, no private keys are accessible by the wallet team, giving you complete control over your digital assets.
 
@@ -445036,7 +445209,7 @@ And you can view your device backup details in Backup section in Profile page.
 
 ![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Fuploads%252F5esT2O1478c5P2H6eZVq%252FIMG_7129.jpg%3Falt%3Dmedia%26token%3D80e50f78-9678-4cb8-a8a8-bbc8dcac45f1&width=768&dpr=4&quality=100&sign=1ab40502&sv=2)
 
-#### Multi-Backup
+#### [hashtag](#multi-backup) Multi-Backup
 
 For added flexibility, the Flow Mobile Wallet supports multi-backup options. Users can create multiple backups across different devices or cloud services, ensuring that you always have access to your wallet.
 
@@ -445074,7 +445247,7 @@ Your backups are encrypted using your wallet PIN code. You must remember or writ
 
 **Step 9:** Click the **Next** button. On the confirmation page, review your backups and ensure everything is in order.
 
-#### Seed Phrase Backup
+#### [hashtag](#seed-phrase-backup) Seed Phrase Backup
 
 Creating a seed phrase is a traditional method for securing your digital assets. Unlike secure enclave methods, which rely on hardware-level security, a seed phrase provides a straightforward way to restore and access your wallet across devices. This guide will walk you through the process of creating a full access seed phrase in the Flow Wallet.
 
@@ -445094,11 +445267,11 @@ Creating a seed phrase is a traditional method for securing your digital assets.
 
 **Step 5:** Click the **Next** button. On the confirmation page, review your seed phrase backup and ensure everything is in order.
 
-### Support
+### [hashtag](#support) Support
 
 If you encounter any issues or have further questions, please reach out to our support team at [[email protected]](/cdn-cgi/l/email-protection).
 
-[PreviousOpen Source](/open-source/open-source)[NextMove Assets between Flow and EVM](/tutorial/move-assets-between-flow-and-evm)
+[PreviousOpen Sourcechevron-left](/open-source/open-source)[NextMove Assets between Flow and EVMchevron-right](/tutorial/move-assets-between-flow-and-evm)
 
 Last updated 1 year ago
 
@@ -445118,9 +445291,13 @@ Last updated 1 year ago
 
 Ecosystem Developer Grants | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -445142,7 +445319,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 * Download
 
   + [📲Download](/download/download)
@@ -445162,11 +445339,11 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
 1. [Ecosystem Development](/ecosystem-development)
 
@@ -445175,9 +445352,9 @@ Copy
 Flow Reference Wallet is an ecosystem-led project, with developer grants available to further encourage ecosystem members to participate in its development.
 
 If you're interested in contributing to Flow Reference Wallet, see the available grants here:
-<https://github.com/onflow/developer-grants/blob/main/projects/flow-core-wallet/README.md>
+[https://github.com/onflow/developer-grants/blob/main/projects/flow-core-wallet/README.mdarrow-up-right](https://github.com/onflow/developer-grants/blob/main/projects/flow-core-wallet/README.md)
 
-[PreviousAccount Recovery](/features/account-recovery)[NextIntegrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+[PreviousAccount Recoverychevron-left](/features/account-recovery)[NextIntegrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 
 Last updated 2 years ago
 
@@ -445197,9 +445374,13 @@ Last updated 2 years ago
 
 Extension Update Guide | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -445221,7 +445402,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 * Download
 
   + [📲Download](/download/download)
@@ -445241,11 +445422,11 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
 1. [Tutorial](/tutorial)
 
@@ -445269,11 +445450,11 @@ Welcome to the Flow Wallet Extension Version Update Guide! Keeping your extensio
 
 ![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Fuploads%252FSH0XyLHPdZT94O2OpYYS%252FScreen%2520Shot%25202024-10-18%2520at%252010.18.27%2520am.png%3Falt%3Dmedia%26token%3D913b5c72-d9b8-4718-bf9e-21a9af42ae08&width=768&dpr=4&quality=100&sign=f9f6c0c1&sv=2)
 
-### Support
+### [hashtag](#support) Support
 
 If you encounter any issues or have further questions, please reach out to our support team at [[email protected]](/cdn-cgi/l/email-protection).
 
-[PreviousExtension Wallet Restore Guide](/tutorial/extension-wallet-restore-guide)[NextFLOW wallet init token guide](/tutorial/flow-wallet-init-token-guide)
+[PreviousExtension Wallet Restore Guidechevron-left](/tutorial/extension-wallet-restore-guide)[NextFLOW wallet init token guidechevron-right](/tutorial/flow-wallet-init-token-guide)
 
 Last updated 1 year ago
 
@@ -445293,9 +445474,13 @@ Last updated 1 year ago
 
 Mobile Wallet Backup Guide | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -445317,7 +445502,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 * Download
 
   + [📲Download](/download/download)
@@ -445337,11 +445522,11 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
 1. [Tutorial](/tutorial)
 
@@ -445349,7 +445534,7 @@ Copy
 
 Welcome to the Flow Mobile Wallet! Our wallet is designed to provide a secure and user-friendly experience for managing your digital assets. One of the standout features of the Flow Mobile Wallet is its robust backup options, ensuring that your funds remain safe and accessible.
 
-#### Device Backup
+#### [hashtag](#device-backup) Device Backup
 
 Designed with your security in mind, our mobile wallet utilizes secure enclave technology to ensure that your account is created and managed safely. With this cutting-edge approach, no private keys are accessible by the wallet team, giving you complete control over your digital assets.
 
@@ -445359,7 +445544,7 @@ And you can view your device backup details in Backup section in Profile page.
 
 ![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Fuploads%252F5esT2O1478c5P2H6eZVq%252FIMG_7129.jpg%3Falt%3Dmedia%26token%3D80e50f78-9678-4cb8-a8a8-bbc8dcac45f1&width=768&dpr=4&quality=100&sign=1ab40502&sv=2)
 
-#### Multi-Backup
+#### [hashtag](#multi-backup) Multi-Backup
 
 For added flexibility, the Flow Mobile Wallet supports multi-backup options. Users can create multiple backups across different devices or cloud services, ensuring that you always have access to your wallet.
 
@@ -445397,7 +445582,7 @@ Your backups are encrypted using your wallet PIN code. You must remember or writ
 
 **Step 9:** Click the **Next** button. On the confirmation page, review your backups and ensure everything is in order.
 
-#### Seed Phrase Backup
+#### [hashtag](#seed-phrase-backup) Seed Phrase Backup
 
 Creating a seed phrase is a traditional method for securing your digital assets. Unlike secure enclave methods, which rely on hardware-level security, a seed phrase provides a straightforward way to restore and access your wallet across devices. This guide will walk you through the process of creating a full access seed phrase in the Flow Wallet.
 
@@ -445417,11 +445602,11 @@ Creating a seed phrase is a traditional method for securing your digital assets.
 
 **Step 5:** Click the **Next** button. On the confirmation page, review your seed phrase backup and ensure everything is in order.
 
-### Support
+### [hashtag](#support) Support
 
 If you encounter any issues or have further questions, please reach out to our support team at [[email protected]](/cdn-cgi/l/email-protection).
 
-[PreviousOpen Source](/open-source/open-source)[NextMove Assets between Flow and EVM](/tutorial/move-assets-between-flow-and-evm)
+[PreviousOpen Sourcechevron-left](/open-source/open-source)[NextMove Assets between Flow and EVMchevron-right](/tutorial/move-assets-between-flow-and-evm)
 
 Last updated 1 year ago
 
@@ -445441,9 +445626,13 @@ Last updated 1 year ago
 
 Ecosystem Developer Grants | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -445465,7 +445654,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 * Download
 
   + [📲Download](/download/download)
@@ -445485,11 +445674,11 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
 1. [Ecosystem Development](/ecosystem-development)
 
@@ -445498,9 +445687,9 @@ Copy
 Flow Reference Wallet is an ecosystem-led project, with developer grants available to further encourage ecosystem members to participate in its development.
 
 If you're interested in contributing to Flow Reference Wallet, see the available grants here:
-<https://github.com/onflow/developer-grants/blob/main/projects/flow-core-wallet/README.md>
+[https://github.com/onflow/developer-grants/blob/main/projects/flow-core-wallet/README.mdarrow-up-right](https://github.com/onflow/developer-grants/blob/main/projects/flow-core-wallet/README.md)
 
-[PreviousAccount Recovery](/features/account-recovery)[NextIntegrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+[PreviousAccount Recoverychevron-left](/features/account-recovery)[NextIntegrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 
 Last updated 2 years ago
 
@@ -445520,9 +445709,13 @@ Last updated 2 years ago
 
 Flow Client Library (FCL) | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -445544,7 +445737,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 * Download
 
   + [📲Download](/download/download)
@@ -445564,11 +445757,11 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
 1. [Features](/features)
 
@@ -445577,9 +445770,9 @@ Copy
 Flow Reference Wallet is built on the FCL protocol, enabling it to be supported by the ecosystem of applications on Flow that use FCL to connect their users to their desired wallet provider.
 
 Flow Reference Wallet is a demonstration of how wallets can integrate with the FCL protocol to become an available wallet in the Flow ecosystem.
-For more on FCL, see: <https://developers.flow.com/tools/clients/fcl-js>
+For more on FCL, see: [https://developers.flow.com/tools/clients/fcl-jsarrow-up-right](https://developers.flow.com/tools/clients/fcl-js)
 
-[PreviousHuman Readable Transactions](/features/human-readable-transactions)[NextSecure Enclave](/features/secure-enclave)
+[PreviousHuman Readable Transactionschevron-left](/features/human-readable-transactions)[NextSecure Enclavechevron-right](/features/secure-enclave)
 
 Last updated 2 years ago
 
@@ -445599,9 +445792,13 @@ Last updated 2 years ago
 
 Welcome to Flow Wallet | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -445623,7 +445820,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 * Download
 
   + [📲Download](/download/download)
@@ -445643,45 +445840,45 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
 ![Page cover](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Fuploads%252FMbIoOu788WFBukatXHo6%252F64d3dd501a8ffd8b19b928a1_Banner%2520%283%29.png%3Falt%3Dmedia%26token%3Dd79816a5-7f49-4be7-9970-32307ce91cad&width=1248&dpr=4&quality=100&sign=58cd83d4&sv=2)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
 # 👋Welcome to Flow Wallet
 
 A reference wallet created ‍for everyone. Trusted. Battle-tested. Beautifully designed.
 
-## Introduction
+## [hashtag](#introduction) Introduction
 
 Flow Foundation is proud to unveil Flow Wallet; a new self-custodial wallet designed to serve as a beacon to the Flow ecosystem, guiding wallets with an open-source implementation of the novel and unique product opportunities for wallets on the Flow blockchain. Flow Wallet sets a new standard for wallet development on Flow by promoting a robust and secure, open-source, community-led foundation for wallet developers to build on.
 
-## Download
+## [hashtag](#download) Download
 
-**iOS**[**https://apps.apple.com/ca/app/flow-wallet-nfts-and-crypto/id6478996750**](https://apps.apple.com/ca/app/flow-wallet-nfts-and-crypto/id6478996750)
+**iOS**[**https://apps.apple.com/ca/app/flow-wallet-nfts-and-crypto/id6478996750**arrow-up-right](https://apps.apple.com/ca/app/flow-wallet-nfts-and-crypto/id6478996750)
 
-**Android**[**https://play.google.com/store/apps/details?id=com.flowfoundation.wallet**](https://play.google.com/store/apps/details?id=com.flowfoundation.wallet)
+**Android**[**https://play.google.com/store/apps/details?id=com.flowfoundation.wallet**arrow-up-right](https://play.google.com/store/apps/details?id=com.flowfoundation.wallet)
 
-**Chrome Extension**[**https://chrome.google.com/webstore/detail/flow-core/hpclkefagolihohboafpheddmmgdffjm**](https://chrome.google.com/webstore/detail/flow-core/hpclkefagolihohboafpheddmmgdffjm)
+**Chrome Extension**[**https://chrome.google.com/webstore/detail/flow-core/hpclkefagolihohboafpheddmmgdffjm**arrow-up-right](https://chrome.google.com/webstore/detail/flow-core/hpclkefagolihohboafpheddmmgdffjm)
 
-### Ecosystem Primer
+### [hashtag](#ecosystem-primer) Ecosystem Primer
 
 The Flow Wallet ecosystem primer document explains the purpose of Flow Wallet and what Flow Foundation aims to achieve with it.
 
-[⭐Flow Reference Wallet Primer](/ecosystem-primers/flow-reference-wallet-primer)
+[⭐Flow Reference Wallet Primerchevron-right](/ecosystem-primers/flow-reference-wallet-primer)
 
-### Wallet Features
+### [hashtag](#wallet-features) Wallet Features
 
-[⛓️Account Linking](/features/account-linking)[🔌WalletConnect](/features/walletconnect)[📖Human Readable Transactions](/features/human-readable-transactions)[💚Flow Client Library (FCL)](/features/flow-client-library-fcl)[🔓Secure Enclave](/features/secure-enclave)[🦺Account Recovery](/features/account-recovery)
+[⛓️Account Linkingchevron-right](/features/account-linking)[🔌WalletConnectchevron-right](/features/walletconnect)[📖Human Readable Transactionschevron-right](/features/human-readable-transactions)[💚Flow Client Library (FCL)chevron-right](/features/flow-client-library-fcl)[🔓Secure Enclavechevron-right](/features/secure-enclave)[🦺Account Recoverychevron-right](/features/account-recovery)
 
-### Ecosystem Development
+### [hashtag](#ecosystem-development) Ecosystem Development
 
-[🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
+[🛠️Ecosystem Developer Grantschevron-right](/ecosystem-development/ecosystem-developer-grants)
 
-[NextFlow Reference Wallet Primer](/ecosystem-primers/flow-reference-wallet-primer)
+[NextFlow Reference Wallet Primerchevron-right](/ecosystem-primers/flow-reference-wallet-primer)
 
 Last updated 1 year ago
 
@@ -445707,9 +445904,13 @@ Last updated 1 year ago
 
 Open Source | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -445731,7 +445932,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 * Download
 
   + [📲Download](/download/download)
@@ -445751,26 +445952,27 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
 1. [Open Source](/open-source)
 
 # 💽Open Source
 
 **iOS**
-<https://github.com/Outblock/FRW-iOS>
+[https://github.com/Outblock/FRW-iOSarrow-up-right](https://github.com/Outblock/FRW-iOS)
 
 **Android**
-<https://github.com/Outblock/FRW-Android>
+[https://github.com/Outblock/FRW-Androidarrow-up-right](https://github.com/Outblock/FRW-Android)
 
 **Chrome Extension**
-<https://github.com/Outblock/FRW-Extension>
+[https://github.com/Outblock/FRW-Extension
+arrow-up-right](https://github.com/Outblock/FRW-Extension)
 
-[PreviousDownload](/download/download)[NextMobile Wallet Backup Guide](/tutorial/mobile-wallet-backup-guide)
+[PreviousDownloadchevron-left](/download/download)[NextMobile Wallet Backup Guidechevron-right](/tutorial/mobile-wallet-backup-guide)
 
 Last updated 2 years ago
 
@@ -445790,9 +445992,13 @@ Last updated 2 years ago
 
 Etherjs | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -445814,7 +446020,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 
     - [Wagmi](/ecosystem-development/integrate-flow-evm-with-web3-sdks/wagmi)
     - [Rainbowkit](/ecosystem-development/integrate-flow-evm-with-web3-sdks/rainbowkit)
@@ -445843,20 +446049,20 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
-1. [Ecosystem Development](/ecosystem-development)
+1. [Ecosystem Development](/ecosystem-development)chevron-right
 2. [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 
 # Etherjs
 
 Integrate with etherjs
 
-### Connect wallet
+### [hashtag](#connect-wallet) Connect wallet
 
 Copy
 
@@ -445883,11 +446089,11 @@ const WalletConnect = () => {
 }
 ```
 
-See more detail on <https://github.com/Outblock/etherjs-flow-evm-demo>
+See more detail on [https://github.com/Outblock/etherjs-flow-evm-demoarrow-up-right](https://github.com/Outblock/etherjs-flow-evm-demo)
 
-[PreviousRainbowkit](/ecosystem-development/integrate-flow-evm-with-web3-sdks/rainbowkit)[NextWeb3js](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3js)
+[PreviousRainbowkitchevron-left](/ecosystem-development/integrate-flow-evm-with-web3-sdks/rainbowkit)[NextWeb3jschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3js)
 
-Last updated 11 months ago
+Last updated 12 months ago
 
 
 

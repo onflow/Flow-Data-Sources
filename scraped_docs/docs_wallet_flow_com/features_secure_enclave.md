@@ -2,9 +2,13 @@
 
 Secure Enclave | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -26,7 +30,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 * Download
 
   + [📲Download](/download/download)
@@ -46,11 +50,11 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
 1. [Features](/features)
 
@@ -67,18 +71,18 @@ Secure Enclave is a valuable security feature that can help enhance the security
 
 **Using iPhone's Secure Enclave on Flow Blockchain**
 
-Flow supports multiple curves (such as `secp256k1`) and hash algorithms including `NIST-P256` curve (also called `secp256r1`), which is a widely-used elliptic curve algorithm that provides enhanced security for cryptographic operations. To use iPhone's Secure Enclave on Flow blockchain, wallet developers can use the [CryptoKit](https://developer.apple.com/documentation/cryptokit) framework on iOS and the Android [Keystore](https://developer.android.com/training/articles/keystore) system on Android.
+Flow supports multiple curves (such as `secp256k1`) and hash algorithms including `NIST-P256` curve (also called `secp256r1`), which is a widely-used elliptic curve algorithm that provides enhanced security for cryptographic operations. To use iPhone's Secure Enclave on Flow blockchain, wallet developers can use the [CryptoKitarrow-up-right](https://developer.apple.com/documentation/cryptokit) framework on iOS and the Android [Keystorearrow-up-right](https://developer.android.com/training/articles/keystore) system on Android.
 **Pros and Cons of using Secure Enclave**
 By understanding the pros and cons of Secure Enclave on iPhone, wallet developers can make informed decisions about how to best secure their wallets and protect their users' data.
 
-#### Pros
+#### [hashtag](#pros) Pros
 
 1. **Enhanced Security**: The Secure Enclave is a type of Hardware Security Module (HSM) that provides a robust layer of hardware-based security, making it more difficult for attackers to gain unauthorized access to sensitive information.
 2. **Ease of Use**: Using the Secure Enclave is generally quite easy and straightforward for developers, as it is integrated into the operating system of the mobile device. This makes it an attractive option for developers who want to add an extra layer of security to their apps without having to invest a lot of time or effort.
 3. **Protection Against Physical Attacks**: Secure Enclave on iPhone is designed to be tamper-resistant, which means that it can protect sensitive information even if the mobile device is stolen or lost. This is because the Secure Enclave is tied to a specific device and is not transferable to other devices, making it difficult for attackers to access the information stored in it.
 4. **Increased Privacy**: Secure Enclave provides a privacy and security-sensitive option for users who wish to custody their keys using their own hardware instead of relying on cloud backups or custodial service providers.
 
-#### Cons
+#### [hashtag](#cons) Cons
 
 1. **Hardware Limitations**: The Secure Enclave is only available on certain devices, and requires specific hardware components to function properly. This means that it may not be available or practical to use on all devices.
 2. **Risk of Losing Access to Private Keys**: If a user loses their mobile device, the private key stored in the Secure Enclave will also be lost. This is because the Secure Enclave is tied to the specific device and is not transferable to other devices. Therefore, users must take appropriate measures to protect their devices and backup their data, including their private keys, to avoid losing access to their accounts and data.
@@ -96,6 +100,6 @@ Moreover, Flow offers another solution for this issue through its [account linki
 **Conclusion**
 Considering the advantages of using Secure Enclave on iPhone, Flow Reference Wallet will therefore move to support this credible specialized hardware for secure key management, as it enables users to benefit from the credibility, portability, utility, and security of their mobile device as their non-custodial wallet on Flow.
 
-[PreviousFlow Client Library (FCL)](/features/flow-client-library-fcl)[NextAccount Recovery](/features/account-recovery)
+[PreviousFlow Client Library (FCL)chevron-left](/features/flow-client-library-fcl)[NextAccount Recoverychevron-right](/features/account-recovery)
 
 Last updated 1 year ago

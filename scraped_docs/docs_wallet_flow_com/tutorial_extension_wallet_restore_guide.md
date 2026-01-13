@@ -2,9 +2,13 @@
 
 Extension Wallet Restore Guide | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -26,7 +30,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 * Download
 
   + [📲Download](/download/download)
@@ -46,11 +50,11 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
 1. [Tutorial](/tutorial)
 
@@ -62,7 +66,7 @@ When you want to import a profile, simply navigate to the sidebar and click on *
 
 ![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Fuploads%252FY1mIXO9GDUomV1i8ko7o%252FScreen%2520Shot%25202024-10-09%2520at%25202.04.28%2520pm.png%3Falt%3Dmedia%26token%3Dee355c3a-899a-492b-a265-30c9f52971dc&width=768&dpr=4&quality=100&sign=2c78e1fe&sv=2)
 
-### From Device Backup
+### [hashtag](#from-device-backup) From Device Backup
 
 When you have already logged into an account on mobile device and want to import the same account on your extension, you can use the device backup feature. Here’s how:
 
@@ -92,19 +96,19 @@ When you have already logged into an account on mobile device and want to import
 
 ![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Fuploads%252FRgW8hHXBYJb6Ym9ORG6W%252FScreen%2520Shot%25202024-10-09%2520at%25203.09.34%2520pm.png%3Falt%3Dmedia%26token%3Dda32a700-7447-4c42-bc2d-222e0c824368&width=768&dpr=4&quality=100&sign=b69c6eaf&sv=2)
 
-### From Raw Key
+### [hashtag](#from-raw-key) From Raw Key
 
 The Flow Wallet Mobile version allows users to import profile from the Flow Wallet extension as well as various external accounts. In the section below, we will explain how to use Google Drive, full access mnemonic phrases, keystore files, and private keys to import your profiles seamlessly.
 
 ![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Fuploads%252FbF35JirvOH4xUQqYfYJz%252FScreen%2520Shot%25202024-10-10%2520at%25205.27.15%2520pm.png%3Falt%3Dmedia%26token%3D1ee62147-226f-4864-b652-e9f5d453f148&width=768&dpr=4&quality=100&sign=fcf13bb7&sv=2)
 
-#### Google Drive(if create Backup in web extension)
+#### [hashtag](#google-drive-if-create-backup-in-web-extension) Google Drive(if create Backup in web extension)
 
 Restore a backup in Google drive by following the on-screen instructions.
 
 ![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Fuploads%252Fg9nM0IiueTGBmulaQUf7%252FScreen%2520Shot%25202024-10-10%2520at%25205.27.34%2520pm.png%3Falt%3Dmedia%26token%3Deb4b6f09-6d2e-45cd-8ae0-bd45282e00de&width=768&dpr=4&quality=100&sign=51b1aa1d&sv=2)
 
-#### 12 word Seed Phrase
+#### [hashtag](#id-12-word-seed-phrase) 12 word Seed Phrase
 
 Enter your 12-word seed phrase in the correct order.
 
@@ -114,7 +118,7 @@ Once you’ve entered your seed phrase (and passphrase if applicable), you shoul
 
 ![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Fuploads%252Fc0KuNekDuifP4yRfmz15%252FScreen%2520Shot%25202024-10-10%2520at%25205.28.23%2520pm.png%3Falt%3Dmedia%26token%3Dc37669db-c744-4674-9719-e38442583013&width=768&dpr=4&quality=100&sign=174af7c0&sv=2)
 
-#### Keystore (for Blocto users)
+#### [hashtag](#keystore-for-blocto-users) Keystore (for Blocto users)
 
 Copy and past your Blocto keystore json data in the correct order.
 
@@ -122,17 +126,17 @@ Enter your password and ensure that the password is entered correctly (it is cas
 
 ![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Fuploads%252Fhz2qFAlryI6AM0idCi4U%252FScreen%2520Shot%25202024-10-10%2520at%25205.28.11%2520pm.png%3Falt%3Dmedia%26token%3D1ef583aa-5ebb-4714-b588-1dd57eb34c25&width=768&dpr=4&quality=100&sign=6c65ecd7&sv=2)
 
-#### Private key
+#### [hashtag](#private-key) Private key
 
 Copy and past your private key in the correct order.
 
 ![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Fuploads%252F65na91ZDKw3pH9sDiNmG%252FScreen%2520Shot%25202024-10-10%2520at%25205.28.29%2520pm.png%3Falt%3Dmedia%26token%3Dcc62ed2d-722c-4855-8dd8-0c27ab225279&width=768&dpr=4&quality=100&sign=65a37db1&sv=2)
 
-### Support
+### [hashtag](#support) Support
 
 If you encounter any issues or have further questions, please reach out to our support team at [[email protected]](/cdn-cgi/l/email-protection).
 
-[PreviousExtension Wallet Backup Guide](/tutorial/extension-wallet-backup-guide)[NextExtension Update Guide](/tutorial/extension-update-guide)
+[PreviousExtension Wallet Backup Guidechevron-left](/tutorial/extension-wallet-backup-guide)[NextExtension Update Guidechevron-right](/tutorial/extension-update-guide)
 
 Last updated 1 year ago
 

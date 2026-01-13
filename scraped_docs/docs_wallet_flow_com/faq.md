@@ -2,9 +2,13 @@
 
 FAQ | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -26,7 +30,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 * Download
 
   + [📲Download](/download/download)
@@ -46,11 +50,11 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
 1. [FAQ](/faq)
 
@@ -58,7 +62,7 @@ Copy
 
 Answers to common questions about Flow Wallet
 
-#### Is Flow Wallet a Self-Custody or Custodial Wallet?
+#### [hashtag](#is-flow-wallet-a-self-custody-or-custodial-wallet) Is Flow Wallet a Self-Custody or Custodial Wallet?
 
 Flow Wallet is self-custodial. Users own and control the cryptographic keys securing their Flow accounts and assets.
 
@@ -75,14 +79,14 @@ iOS and Android:
 * Multi-Backup feature available for account recovery
 * Create Multi-Backup: Settings > Backup > Create Multi-Backup
 
-#### Where is my Seed Phrase? I can't find it on Flow Wallet iOS or Android.
+#### [hashtag](#where-is-my-seed-phrase-i-cant-find-it-on-flow-wallet-ios-or-android) Where is my Seed Phrase? I can't find it on Flow Wallet iOS or Android.
 
 Flow Wallet on iOS and Android doesn't use seed phrases. Instead, it leverages your device's Secure Enclave for account security. To ensure account recovery:
 
 1. Create a Multi-Backup
 2. Navigate to Settings > Backup > Create Multi-Backup
 
-#### What is Multi-Backup?
+#### [hashtag](#what-is-multi-backup) What is Multi-Backup?
 
 Multi-Backup is a security feature for Flow Wallet on iOS and Android:
 
@@ -104,6 +108,6 @@ Create a Multi-Backup on Flow Wallet iOS and Android
 
 * Navigate to Settings > Backup > Create Multi-Backup
 
-[PreviousFlow Reference Wallet Primer](/ecosystem-primers/flow-reference-wallet-primer)[NextAccount Linking](/features/account-linking)
+[PreviousFlow Reference Wallet Primerchevron-left](/ecosystem-primers/flow-reference-wallet-primer)[NextAccount Linkingchevron-right](/features/account-linking)
 
 Last updated 1 year ago

@@ -2,9 +2,13 @@
 
 Move Assets between Flow and EVM | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -26,7 +30,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 * Download
 
   + [📲Download](/download/download)
@@ -46,17 +50,17 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
 1. [Tutorial](/tutorial)
 
 # 💸Move Assets between Flow and EVM
 
-### Indroduction
+### [hashtag](#indroduction) Indroduction
 
 Welcome to our tutorial on transferring FT and NFT between Flow Wallet, COA (Flow EVM), and EOA (Externally Owned Accounts ). As the blockchain ecosystem continues to expand, understanding how to navigate different wallets and protocols is essential for maximizing your digital asset management. This guide will provide step-by-step instructions on how to seamlessly transfer tokens between Flow Wallet and EVM environments, ensuring you can effectively manage both your fungible and non-fungible assets.
 
@@ -64,11 +68,11 @@ There are three types of accounts used for EVM on Flow.
 
 1. **Externally Owned Accounts (EOA)**: EOAs are controlled by private individuals using cryptographic keys and can initiate transactions directly. They are the primary account type for users to interact with the blockchain, holding and sending cryptocurrency or calling smart contract functions.
 2. **Contract Accounts**: These accounts hold smart contract code and are governed by this code's logic. Unlike EOAs, Contract Accounts do not initiate transactions on their own but can execute transactions in response to calls they receive from EOAs or other contracts.
-3. **Cadence Owned Accounts (COA)**: This is an account type unique to Flow EVM. These accounts are managed by [Cadence resources](https://cadence-lang.org/docs/1.0/language/resources) and can be used to interact with the Flow EVM from within the Cadence environment.
+3. **Cadence Owned Accounts (COA)**: This is an account type unique to Flow EVM. These accounts are managed by [Cadence resourcesarrow-up-right](https://cadence-lang.org/docs/1.0/language/resources) and can be used to interact with the Flow EVM from within the Cadence environment.
 
-### Fungible asset transaction
+### [hashtag](#fungible-asset-transaction) Fungible asset transaction
 
-#### Transfer FT between FLOW wallet and COA
+#### [hashtag](#transfer-ft-between-flow-wallet-and-coa) Transfer FT between FLOW wallet and COA
 
 Fungible Tokens (FT) can be easily transferred between your Flow wallet and COA, as well as to other users. This guide will provide step-by-step instructions to ensure a smooth transfer process.
 
@@ -110,13 +114,13 @@ Fungible Tokens (FT) can be easily transferred between your Flow wallet and COA,
 
 **Step 5:** Confirm all details and click “Send” to finalize the transaction.
 
-#### **Transfer FT to EOA**
+#### [hashtag](#transfer-ft-to-eoa) **Transfer FT to EOA**
 
 Transferring FT to an EOA is a straightforward process. The steps to send FT from your Flow accounts anaqwd COA to EOA are the same as when sending to other Flow or COA wallets.
 
-### Non-fungible assets transaction
+### [hashtag](#non-fungible-assets-transaction) Non-fungible assets transaction
 
-#### Transfer NFT between FLOW wallet and COA
+#### [hashtag](#transfer-nft-between-flow-wallet-and-coa) Transfer NFT between FLOW wallet and COA
 
 **1.Transferring NFT Between Your Flow Account and COA**
 
@@ -160,11 +164,11 @@ Transferring FT to an EOA is a straightforward process. The steps to send FT fro
 
 ![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Fuploads%252F90eQ2Fvra9rXqTQo4ugq%252FScreenshot_20241002-133856.png%3Falt%3Dmedia%26token%3D9a8c2660-a737-4220-aaac-49fdadc5ecf5&width=768&dpr=4&quality=100&sign=a5ae18b9&sv=2)
 
-### Support
+### [hashtag](#support) Support
 
 If you encounter any issues or have further questions, please reach out to our support team at [[email protected]](/cdn-cgi/l/email-protection).
 
-[PreviousMobile Wallet Backup Guide](/tutorial/mobile-wallet-backup-guide)[NextMobile Wallet Restore Guide](/tutorial/mobile-wallet-restore-guide)
+[PreviousMobile Wallet Backup Guidechevron-left](/tutorial/mobile-wallet-backup-guide)[NextMobile Wallet Restore Guidechevron-right](/tutorial/mobile-wallet-restore-guide)
 
 Last updated 1 year ago
 

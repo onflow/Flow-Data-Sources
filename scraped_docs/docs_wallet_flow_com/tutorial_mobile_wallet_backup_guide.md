@@ -2,9 +2,13 @@
 
 Mobile Wallet Backup Guide | Flow Wallet
 
-[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
+bars[![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+search
+
+circle-xmark
 
 `Ctrl``k`
 
@@ -26,7 +30,7 @@ Flow Wallet](/)
 * Ecosystem Development
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-  + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+  + [🔌Integrate Flow EVM with Web3 SDKschevron-right](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 * Download
 
   + [📲Download](/download/download)
@@ -46,11 +50,11 @@ Flow Wallet](/)
   + [⛵Mobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 * [🔐Wallet Revoke key guide](/wallet-revoke-key-guide)
 
-[Powered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
+[gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-On this page
+block-quoteOn this pagechevron-down
 
-Copy
+copyCopychevron-down
 
 1. [Tutorial](/tutorial)
 
@@ -58,7 +62,7 @@ Copy
 
 Welcome to the Flow Mobile Wallet! Our wallet is designed to provide a secure and user-friendly experience for managing your digital assets. One of the standout features of the Flow Mobile Wallet is its robust backup options, ensuring that your funds remain safe and accessible.
 
-#### Device Backup
+#### [hashtag](#device-backup) Device Backup
 
 Designed with your security in mind, our mobile wallet utilizes secure enclave technology to ensure that your account is created and managed safely. With this cutting-edge approach, no private keys are accessible by the wallet team, giving you complete control over your digital assets.
 
@@ -68,7 +72,7 @@ And you can view your device backup details in Backup section in Profile page.
 
 ![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Fuploads%252F5esT2O1478c5P2H6eZVq%252FIMG_7129.jpg%3Falt%3Dmedia%26token%3D80e50f78-9678-4cb8-a8a8-bbc8dcac45f1&width=768&dpr=4&quality=100&sign=1ab40502&sv=2)
 
-#### Multi-Backup
+#### [hashtag](#multi-backup) Multi-Backup
 
 For added flexibility, the Flow Mobile Wallet supports multi-backup options. Users can create multiple backups across different devices or cloud services, ensuring that you always have access to your wallet.
 
@@ -106,7 +110,7 @@ Your backups are encrypted using your wallet PIN code. You must remember or writ
 
 **Step 9:** Click the **Next** button. On the confirmation page, review your backups and ensure everything is in order.
 
-#### Seed Phrase Backup
+#### [hashtag](#seed-phrase-backup) Seed Phrase Backup
 
 Creating a seed phrase is a traditional method for securing your digital assets. Unlike secure enclave methods, which rely on hardware-level security, a seed phrase provides a straightforward way to restore and access your wallet across devices. This guide will walk you through the process of creating a full access seed phrase in the Flow Wallet.
 
@@ -126,10 +130,10 @@ Creating a seed phrase is a traditional method for securing your digital assets.
 
 **Step 5:** Click the **Next** button. On the confirmation page, review your seed phrase backup and ensure everything is in order.
 
-### Support
+### [hashtag](#support) Support
 
 If you encounter any issues or have further questions, please reach out to our support team at [[email protected]](/cdn-cgi/l/email-protection).
 
-[PreviousOpen Source](/open-source/open-source)[NextMove Assets between Flow and EVM](/tutorial/move-assets-between-flow-and-evm)
+[PreviousOpen Sourcechevron-left](/open-source/open-source)[NextMove Assets between Flow and EVMchevron-right](/tutorial/move-assets-between-flow-and-evm)
 
 Last updated 1 year ago

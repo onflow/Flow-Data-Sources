@@ -8,7 +8,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -20,53 +20,103 @@ Search
 
           + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+            + [Advanced Concepts](/build/cadence/advanced-concepts/computation-profiling)
 
               + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
       + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
 
-        + [Flow React SDK](/build/tools/react-sdk)
+        + [Flow React Native SDK](/build/tools/react-native-sdk)
 
-          + [Flow Emulator](/build/tools/emulator)+ [Flow CLI](/build/tools/flow-cli)
+          + [Flow React SDK](/build/tools/react-sdk)
 
-              + [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+            + [Flow Emulator](/build/tools/emulator)+ [Flow CLI](/build/tools/flow-cli)
 
-                    + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                + [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+
+                      + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * Tools & SDKs
 
-# Tools
+On this page
 
-[## Why Flow
+# Tools & SDKs
 
-Flow is the best blockchain for onchain consumer apps and Web3 apps. It's scalable, EVM-equivalent, with native account abstraction and a unique multi-role architecture supporting both Cadence and Solidity development.](/build/flow)
+Flow provides a comprehensive suite of development tools to help you build, test, and deploy applications on the blockchain.
 
-[## 🗃️ Cadence
+## Which Tool Should I Use?[​](#which-tool-should-i-use "Direct link to Which Tool Should I Use?")
 
-6 items](/build/cadence/quickstart)
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| I want to... Use this|  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Build a React frontend [React SDK](/build/tools/react-sdk)| Build with vanilla JS/TypeScript [FCL-JS](/build/tools/clients/fcl-js)| Build a Go backend [Flow Go SDK](/build/tools/clients/flow-go-sdk)| Develop and test locally [Flow CLI](/build/tools/flow-cli) + [Emulator](/build/tools/emulator)| Write and debug Cadence [VS Code Extension](/build/tools/vscode-extension)| Simulate wallet interactions [Flow Dev Wallet](/build/tools/flow-dev-wallet)| Build a wallet provider [Wallet Provider Spec](/build/tools/wallet-provider-spec) | | | | | | | | | | | | | | | |
 
-[## 🗃️ Solidity (EVM)
+## Core Tools[​](#core-tools "Direct link to Core Tools")
 
-6 items](/build/evm/quickstart)
+## [React SDK](/build/tools/react-sdk) [Flow](/build/tools/react-sdk)
+
+React hooks and components for building Flow apps. The easiest way to integrate Flow into your React application.
+
+## [Flow CLI](/build/tools/flow-cli) [Flow](/build/tools/flow-cli)
+
+Command-line interface for managing Flow projects, deploying contracts, and interacting with the blockchain.
+
+## [Flow Emulator](/build/tools/emulator) [Flow](/build/tools/emulator)
+
+Local Flow blockchain for development and testing. Fork mainnet or testnet to test against real state.
+
+## [VS Code Extension](/build/tools/vscode-extension) [Flow](/build/tools/vscode-extension)
+
+Cadence language support for VS Code with syntax highlighting, type checking, and code completion.
+
+## [Flow Dev Wallet](/build/tools/flow-dev-wallet) [Flow](/build/tools/flow-dev-wallet)
+
+Mock wallet for local development. Simulates wallet interactions for testing FCL-powered applications.
+
+## [FCL-JS](/build/tools/clients/fcl-js) [Flow](/build/tools/clients/fcl-js)
+
+Flow Client Library for JavaScript/TypeScript. Wallet integration, transactions, scripts, and authentication.
+
+## [Flow Go SDK](/build/tools/clients/flow-go-sdk) [Flow](/build/tools/clients/flow-go-sdk)
+
+Go SDK for building backends and services on Flow. High-performance blockchain interaction and testing utilities.
+
+## [Client Tools](/build/tools/clients) [Flow](/build/tools/clients)
+
+SDKs for Python, JVM, Swift, PHP, Elixir, and more. Find the right client library for your stack.
+
+## [Wallet Provider Spec](/build/tools/wallet-provider-spec) [Flow](/build/tools/wallet-provider-spec)
+
+Specification for building FCL-compatible wallets. Authentication, authorization, and signing protocols.
+
+## Community Tools[​](#community-tools "Direct link to Community Tools")
+
+Tools built by the Flow community to enhance your development experience.
 
 ## [Flowser](https://flowser.dev/) [Flowser](https://flowser.dev/)
 
-Flowser combines all the tools for local development and gives you a clear UI to inspect the local Flow network.
+GUI for local development. Inspect accounts, transactions, and contracts on the emulator with a visual interface.
 
 ## [Overflow](https://github.com/bjartek/overflow) [bjartek](https://github.com/bjartek/overflow)
 
-Overflow is a Go-based DSL for testing and running interactive stories
+Go-based DSL for testing and scripting Flow interactions. Write integration tests and interactive stories.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/index.mdx)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 23, 2025** by **Chase Fleming**
 
 [Previous
 
 Accounts](/build/evm/accounts)[Next
 
-Flow React SDK](/build/tools/react-sdk)
+Flow React Native SDK](/build/tools/react-native-sdk)
+
+###### Rate this page
+
+😞😐😊
+
+Copy as Markdown
+
+* [Which Tool Should I Use?](#which-tool-should-i-use)* [Core Tools](#core-tools)* [Community Tools](#community-tools)
 
 Flow
 
@@ -88,4 +138,4 @@ Network & Resources
 
 * [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow Foundation. All Rights Reserved.
+Copyright © 2026 Flow Foundation. All Rights Reserved.
