@@ -38797,7 +38797,7 @@ Search
 
           + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+            + [Advanced Concepts](/build/cadence/advanced-concepts/computation-profiling)
 
               + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
@@ -57618,7 +57618,7 @@ Search
 
           + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+            + [Advanced Concepts](/build/cadence/advanced-concepts/computation-profiling)
 
               + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
@@ -135274,7 +135274,7 @@ Search
 
           + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+            + [Advanced Concepts](/build/cadence/advanced-concepts/computation-profiling)
 
               + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
@@ -289187,7 +289187,7 @@ Search
 
           + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+            + [Advanced Concepts](/build/cadence/advanced-concepts/computation-profiling)
 
               + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
@@ -289379,7 +289379,7 @@ Network & Resources
 
 * [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow Foundation. All Rights Reserved.
+Copyright © 2026 Flow Foundation. All Rights Reserved.
 
 
 
@@ -298101,7 +298101,7 @@ Search
 
           + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+            + [Advanced Concepts](/build/cadence/advanced-concepts/computation-profiling)
 
               + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
@@ -298365,7 +298365,7 @@ Network & Resources
 
 * [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow Foundation. All Rights Reserved.
+Copyright © 2026 Flow Foundation. All Rights Reserved.
 
 
 
@@ -300073,7 +300073,7 @@ Search
 
           + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+            + [Advanced Concepts](/build/cadence/advanced-concepts/computation-profiling)
 
               + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
@@ -315121,7 +315121,7 @@ Search
 
           + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+            + [Advanced Concepts](/build/cadence/advanced-concepts/computation-profiling)
 
               + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
@@ -337146,7 +337146,7 @@ Search
 
           + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+            + [Advanced Concepts](/build/cadence/advanced-concepts/computation-profiling)
 
               + [Core Smart Contracts](/build/cadence/core-contracts)
 
@@ -427412,7 +427412,7 @@ Search
 
           + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+            + [Advanced Concepts](/build/cadence/advanced-concepts/computation-profiling)
 
               + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
@@ -431264,7 +431264,7 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
-# Source: https://developers.flow.com
+# Source: https://developers.flow.com/
 
 Flow Developer Portal
 
@@ -444106,12 +444106,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **9bd0b7221804fe58**
+Cloudflare Ray ID: **9bd8f8489c4ea124**
 •
 
 Your IP:
 Click to reveal
-57.151.129.48
+20.161.67.219
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 
