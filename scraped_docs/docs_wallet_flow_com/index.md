@@ -52,8 +52,6 @@ circle-xmark
 
 [gitbookPowered by GitBook](https://www.gitbook.com/?utm_source=content&utm_medium=trademark&utm_campaign=Cqw72ZIu4wNI7q40hHbt)
 
-![Page cover](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Fuploads%252FMbIoOu788WFBukatXHo6%252F64d3dd501a8ffd8b19b928a1_Banner%2520%283%29.png%3Falt%3Dmedia%26token%3Dd79816a5-7f49-4be7-9970-32307ce91cad&width=1248&dpr=4&quality=100&sign=58cd83d4&sv=2)
-
 block-quoteOn this pagechevron-down
 
 copyCopychevron-down
@@ -68,11 +66,14 @@ Flow Foundation is proud to unveil Flow Wallet; a new self-custodial wallet desi
 
 ## [hashtag](#download) Download
 
-**iOS**[**https://apps.apple.com/ca/app/flow-wallet-nfts-and-crypto/id6478996750**arrow-up-right](https://apps.apple.com/ca/app/flow-wallet-nfts-and-crypto/id6478996750)
+**iOS**
+[**https://apps.apple.com/ca/app/flow-wallet-nfts-and-crypto/id6478996750**arrow-up-right](https://apps.apple.com/ca/app/flow-wallet-nfts-and-crypto/id6478996750)
 
-**Android**[**https://play.google.com/store/apps/details?id=com.flowfoundation.wallet**arrow-up-right](https://play.google.com/store/apps/details?id=com.flowfoundation.wallet)
+**Android**
+[**https://play.google.com/store/apps/details?id=com.flowfoundation.wallet**arrow-up-right](https://play.google.com/store/apps/details?id=com.flowfoundation.wallet)
 
-**Chrome Extension**[**https://chrome.google.com/webstore/detail/flow-core/hpclkefagolihohboafpheddmmgdffjm**arrow-up-right](https://chrome.google.com/webstore/detail/flow-core/hpclkefagolihohboafpheddmmgdffjm)
+**Chrome Extension**
+[**https://chrome.google.com/webstore/detail/flow-core/hpclkefagolihohboafpheddmmgdffjm**arrow-up-right](https://chrome.google.com/webstore/detail/flow-core/hpclkefagolihohboafpheddmmgdffjm)
 
 ### [hashtag](#ecosystem-primer) Ecosystem Primer
 
@@ -90,7 +91,7 @@ The Flow Wallet ecosystem primer document explains the purpose of Flow Wallet an
 
 [NextFlow Reference Wallet Primerchevron-right](/ecosystem-primers/flow-reference-wallet-primer)
 
-Last updated 1 year ago
+Last updated 19 hours ago
 
 * [Introduction](#introduction)
 * [Download](#download)
