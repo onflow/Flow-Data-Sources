@@ -14,7 +14,7 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 
 Search
 
-* [Defi](/defi)* [Build with Forte ↙](/defi/forte)* [DeFi Contracts Mainnet](/defi/defi-contracts-mainnet)* [DeFi Contracts Testnet](/defi/defi-contracts-testnet)* [Cross-chain swaps on Flow EVM](/defi/cross-chain-swaps)* [Add Token To MetaMask](/defi/add-token-to-metamask)* [Band Oracle](/defi/band-oracle)* [Stablecoins & Bridges FAQ](/defi/faq)
+* [Defi](/defi)* [Build with Forte ↙](/defi/forte)* [DeFi Contracts Mainnet](/defi/defi-contracts-mainnet)* [DeFi Contracts Testnet](/defi/defi-contracts-testnet)* [Cross-chain swaps on Flow EVM](/defi/cross-chain-swaps)* [Add Token To MetaMask](/defi/add-token-to-metamask)* [Band Oracle](/defi/band-oracle)* [Stablecoins & Bridges FAQ](/defi/faq)* [PYUSD0 Integration](/defi/pyusd0-integration-guide)
 
 * * Band Oracle
 
