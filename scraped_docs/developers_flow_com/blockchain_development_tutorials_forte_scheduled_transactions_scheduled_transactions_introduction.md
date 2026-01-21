@@ -40,13 +40,7 @@ Search
 
 On this page
 
-# Introduction to scheduled transactions
-
-warning
-
-Scheduled transactions are a new feature that is under development and is a part of [FLIP 330](https://github.com/onflow/flips/pull/331/files). Currently, they only work in the emulator and testnet. We're close to finishing the specific implementation, but it but may change during the development process.
-
-We will update these tutorials, but you may need to refactor your code if the implementation changes.
+# Introduction to Scheduled Transactions
 
 Flow, EVM, and other blockchains are a form of a **single** shared computer that anyone can use, with no admin privileges, super user roles, or complete control. For this to work, it must be impossible for any user to freeze the computer, on purpose or by accident.
 
@@ -1922,7 +1916,7 @@ Scheduled transactions open up new possibilities for DeFi applications, enabling
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/scheduled-transactions/scheduled-transactions-introduction.md)
 
-Last updated on **Nov 19, 2025** by **Brian Doyle**
+Last updated on **Jan 20, 2026** by **Chase Fleming**
 
 [Previous
 

@@ -22,7 +22,7 @@ Search
 
             + [Advanced Concepts](/build/cadence/advanced-concepts/computation-profiling)
 
-              - [Cadence Computation Profiling](/build/cadence/advanced-concepts/computation-profiling)- [Build Faster with Flow’s Native Account Abstraction](/build/cadence/advanced-concepts/account-abstraction)- [Scheduled Transactions](/build/cadence/advanced-concepts/scheduled-transactions)- [Passkeys](/build/cadence/advanced-concepts/passkeys)- [FLIX (Flow Interaction Templates)](/build/cadence/advanced-concepts/flix)- [NFT Metadata Views](/build/cadence/advanced-concepts/metadata-views)- [VRF (Randomness) in Cadence](/build/cadence/advanced-concepts/randomness)- [Scaling Transactions from a Single Account](/build/cadence/advanced-concepts/scaling)+ [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
+              - [Cadence Computation Profiling](/build/cadence/advanced-concepts/computation-profiling)- [Build Faster with Flow’s Native Account Abstraction](/build/cadence/advanced-concepts/account-abstraction)- [Scheduled Transactions](/build/cadence/advanced-concepts/scheduled-transactions)- [Cron-Based Recurring Transactions](/build/cadence/advanced-concepts/flow-cron)- [Passkeys](/build/cadence/advanced-concepts/passkeys)- [FLIX (Flow Interaction Templates)](/build/cadence/advanced-concepts/flix)- [NFT Metadata Views](/build/cadence/advanced-concepts/metadata-views)- [VRF (Randomness) in Cadence](/build/cadence/advanced-concepts/randomness)- [Scaling Transactions from a Single Account](/build/cadence/advanced-concepts/scaling)+ [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
       + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
 
@@ -1005,7 +1005,7 @@ Last updated on **Dec 1, 2025** by **cshannon1218**
 
 [Previous
 
-Scheduled Transactions](/build/cadence/advanced-concepts/scheduled-transactions)[Next
+Cron-Based Recurring Transactions](/build/cadence/advanced-concepts/flow-cron)[Next
 
 FLIX (Flow Interaction Templates)](/build/cadence/advanced-concepts/flix)
 

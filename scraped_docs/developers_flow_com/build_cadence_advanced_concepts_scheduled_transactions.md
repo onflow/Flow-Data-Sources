@@ -22,7 +22,7 @@ Search
 
             + [Advanced Concepts](/build/cadence/advanced-concepts/computation-profiling)
 
-              - [Cadence Computation Profiling](/build/cadence/advanced-concepts/computation-profiling)- [Build Faster with Flow’s Native Account Abstraction](/build/cadence/advanced-concepts/account-abstraction)- [Scheduled Transactions](/build/cadence/advanced-concepts/scheduled-transactions)- [Passkeys](/build/cadence/advanced-concepts/passkeys)- [FLIX (Flow Interaction Templates)](/build/cadence/advanced-concepts/flix)- [NFT Metadata Views](/build/cadence/advanced-concepts/metadata-views)- [VRF (Randomness) in Cadence](/build/cadence/advanced-concepts/randomness)- [Scaling Transactions from a Single Account](/build/cadence/advanced-concepts/scaling)+ [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
+              - [Cadence Computation Profiling](/build/cadence/advanced-concepts/computation-profiling)- [Build Faster with Flow’s Native Account Abstraction](/build/cadence/advanced-concepts/account-abstraction)- [Scheduled Transactions](/build/cadence/advanced-concepts/scheduled-transactions)- [Cron-Based Recurring Transactions](/build/cadence/advanced-concepts/flow-cron)- [Passkeys](/build/cadence/advanced-concepts/passkeys)- [FLIX (Flow Interaction Templates)](/build/cadence/advanced-concepts/flix)- [NFT Metadata Views](/build/cadence/advanced-concepts/metadata-views)- [VRF (Randomness) in Cadence](/build/cadence/advanced-concepts/randomness)- [Scaling Transactions from a Single Account](/build/cadence/advanced-concepts/scaling)+ [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
       + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
 
@@ -34,9 +34,9 @@ On this page
 
 ## Introduction[​](#introduction "Direct link to Introduction")
 
-warning
+info
 
-Scheduled transactions were part of the Forte network upgrade and are available on Flow Mainnet, Flow Emulator (CLI v2.7.0+) and Flow Testnet. For more infomation, see [Forte: Introducing Actions & Agents](https://flow.com/post/forte-introducing-actions-agents-supercharging-composability-and-automation).
+Scheduled transactions were part of the Forte network upgrade and are available on Flow Mainnet, Flow Emulator (CLI v2.7.0+) and Flow Testnet. For more information, see [Forte: Introducing Actions & Agents](https://flow.com/post/forte-introducing-actions-agents-supercharging-composability-and-automation).
 
 Scheduled transactions on the Flow blockchain allow users and smart contracts to autonomously execute predefined logic at specific future times without external triggers. This powerful feature allows developers to create "wake up" patterns where contracts can schedule themselves to run at predetermined block timestamps, which allows novel blockchain automation patterns.
 
@@ -1031,13 +1031,13 @@ Read [FLIP 330: Scheduled Callbacks](https://github.com/onflow/flips/blob/main/p
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/advanced-concepts/scheduled-transactions.md)
 
-Last updated on **Dec 1, 2025** by **cshannon1218**
+Last updated on **Jan 20, 2026** by **Chase Fleming**
 
 [Previous
 
 Build Faster with Flow’s Native Account Abstraction](/build/cadence/advanced-concepts/account-abstraction)[Next
 
-Passkeys](/build/cadence/advanced-concepts/passkeys)
+Cron-Based Recurring Transactions](/build/cadence/advanced-concepts/flow-cron)
 
 ###### Rate this page
 
