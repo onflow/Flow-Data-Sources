@@ -8,7 +8,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -38,35 +38,35 @@ On this page
 
 # Token Development and Registration
 
-Flow supports token development through two primary approaches: native Cadence contracts that leverage Flow's unique resource-oriented programming model, and EVM-compatible contracts that enable easy migration from Ethereum. This section provides comprehensive guides for creating tokens using both approaches, along with registration processes to ensure ecosystem visibility.
+Flow supports token development through two primary approaches: native Cadence contracts that leverage Flow's unique resource-oriented programming model, and EVM-compatible contracts that enable easy migration from Ethereum. This section provides comprehensive guides for how to create tokens with both approaches, along with registration processes to ensure ecosystem visibility.
 
-## Cadence Token Development[​](#cadence-token-development "Direct link to Cadence Token Development")
+## Cadence token development[​](#cadence-token-development "Direct link to Cadence token development")
 
 ### [Creating a Fungible Token](/blockchain-development-tutorials/tokens/fungible-token-cadence)[​](#creating-a-fungible-token "Direct link to creating-a-fungible-token")
 
-Learn how to build a complete fungible token contract using Cadence's resource-based programming model. This comprehensive guide covers implementing the Flow Fungible Token standard, managing token vaults for secure storage, creating minter resources for controlled token creation, and deploying with proper metadata views. You'll build a production-ready token that integrates seamlessly with Flow's ecosystem including wallets, exchanges, and DeFi protocols.
+Learn how to build a complete fungible token contract with Cadence's resource-based programming model. This comprehensive guide covers how to implement the Flow Fungible Token standard, manage token vaults for secure storage, create minter resources for controlled token creation, and deploy with proper metadata views. You'll build a production-ready token that integrates seamlessly with Flow's ecosystem, such as wallets, exchanges, and DeFi protocols.
 
 ### [Creating an NFT Contract](/blockchain-development-tutorials/tokens/nft-cadence)[​](#creating-an-nft-contract "Direct link to creating-an-nft-contract")
 
-Master the development of non-fungible token contracts using Flow's powerful Cadence language. This detailed tutorial walks through implementing the Flow NFT standard, creating collection resources for efficient NFT management, building minting mechanisms with access controls, and adding comprehensive metadata support. Learn to create NFTs that work perfectly with marketplaces, wallets, and other Flow ecosystem applications.
+Master the development of non-fungible token contracts with Flow's powerful Cadence language. This detailed tutorial walks through how to implement the Flow NFT standard, create collection resources for efficient NFT management, build minting mechanisms with access controls, and add comprehensive metadata support. Learn to create NFTs that work perfectly with marketplaces, wallets, and other Flow ecosystem applications.
 
 ### [Register Your Assets in Cadence](/blockchain-development-tutorials/tokens/register-cadence-assets)[​](#register-your-assets-in-cadence "Direct link to register-your-assets-in-cadence")
 
-Complete the registration process for your Cadence-based fungible and non-fungible tokens to ensure visibility across the Flow ecosystem. This guide covers submitting your tokens to official registries, providing required metadata and documentation, following community standards for token information, and integrating with major wallets and applications like Flow Wallet and IncrementFi.
+Complete the registration process for your Cadence-based fungible and non-fungible tokens to ensure visibility across the Flow ecosystem. This guide covers how to submit your tokens to official registries, provide required metadata and documentation, follow community standards for token information, and integrate with major wallets and applications like Flow Wallet and IncrementFi.
 
 ## Flow EVM Token Development[​](#flow-evm-token-development "Direct link to Flow EVM Token Development")
 
 ### [Register Your ERC20 Token](/blockchain-development-tutorials/tokens/register-erc20-token)[​](#register-your-erc20-token "Direct link to register-your-erc20-token")
 
-Register your ERC20 tokens deployed on Flow EVM to appear in wallets and ecosystem applications. This guide details the GitHub Pull Request process for adding tokens to the Flow standard token list, providing proper token metadata and logos, meeting verification requirements, and ensuring compatibility with Flow Wallet, MetaMask, and other ecosystem tools.
+Register your ERC20 tokens deployed on Flow EVM to appear in wallets and ecosystem applications. This guide details the GitHub Pull Request process to add tokens to the Flow standard token list, provide proper token metadata and logos, meet verification requirements, and ensure compatibility with Flow Wallet, MetaMask, and other ecosystem tools.
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-Flow's dual approach to token development provides developers with flexibility to choose the best paradigm for their projects. Whether leveraging Cadence's innovative resource model for enhanced security and composability, or using familiar EVM patterns for quick deployment, these guides ensure your tokens integrate seamlessly with Flow's thriving ecosystem of wallets, exchanges, and applications.
+Flow's dual approach to token development provides developers with flexibility to choose the best paradigm for their projects. Whether you want to leverage Cadence's innovative resource model for enhanced security and composability, or use familiar EVM patterns for quick deployment, these guides ensure your tokens integrate seamlessly with Flow's thriving ecosystem of wallets, exchanges, and applications.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/tokens/index.md)
 
-Last updated on **Sep 25, 2025** by **Brian Doyle**
+Last updated on **Nov 17, 2025** by **cshannon1218**
 
 [Previous
 
@@ -80,7 +80,7 @@ Creating a Fungible Token](/blockchain-development-tutorials/tokens/fungible-tok
 
 Copy as Markdown
 
-* [Cadence Token Development](#cadence-token-development)
+* [Cadence token development](#cadence-token-development)
   + [Creating a Fungible Token](#creating-a-fungible-token)+ [Creating an NFT Contract](#creating-an-nft-contract)+ [Register Your Assets in Cadence](#register-your-assets-in-cadence)* [Flow EVM Token Development](#flow-evm-token-development)
     + [Register Your ERC20 Token](#register-your-erc20-token)* [Conclusion](#conclusion)
 
@@ -104,4 +104,4 @@ Network & Resources
 
 * [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow Foundation. All Rights Reserved.
+Copyright © 2026 Flow Foundation. All Rights Reserved.
