@@ -266592,7 +266592,7 @@ Search
 
           + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+            + [Advanced Concepts](/build/cadence/advanced-concepts/computation-profiling)
 
               + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
@@ -575388,6 +575388,33 @@ It allows users to create arbitrary trading pairs between fungible tokens in a p
 
 ### Security
 * Bug bounty: [rules](https://docs.increment.fi/miscs/bug-bounty)
+
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/Noah-Overflow/COA-Example/blob/main/README.md
+
+## Testing
+
+The testing framework for the Flow Cadence contract uses [Overflow](https://github.com/bjartek/overflow)
+
+For a fine-tune test for contracts, scripts and transactions go to the root folder and run the below command
+
+```
+go run ./tasks/main.go
+```
+
+You can find the full explanatory medium article [here](https://medium.com/@noah.naizir/create-a-cadence-owned-account-a11f9bc339b6)
 
 
 
