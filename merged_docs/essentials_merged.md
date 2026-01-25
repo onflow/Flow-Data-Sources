@@ -58303,7 +58303,7 @@ Search
 
           + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+            + [Advanced Concepts](/build/cadence/advanced-concepts/computation-profiling)
 
               + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
@@ -58409,7 +58409,7 @@ Network & Resources
 
 * [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow Foundation. All Rights Reserved.
+Copyright © 2026 Flow Foundation. All Rights Reserved.
 
 
 
@@ -271141,35 +271141,37 @@ Search
 
           + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+            + [Advanced Concepts](/build/cadence/advanced-concepts/computation-profiling)
 
               + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
       + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
 
-        + [Flow React SDK](/build/tools/react-sdk)
+        + [Flow React Native SDK](/build/tools/react-native-sdk)
 
-          + [Flow Emulator](/build/tools/emulator)+ [Flow CLI](/build/tools/flow-cli)
+          + [Flow React SDK](/build/tools/react-sdk)
 
-              - [Install Instructions](/build/tools/flow-cli/install)- [Commands Overview](/build/tools/flow-cli/commands)- [Accounts](/build/tools/flow-cli/accounts/get-accounts)
+            + [Flow Emulator](/build/tools/emulator)+ [Flow CLI](/build/tools/flow-cli)
 
-                    * [Get an Account](/build/tools/flow-cli/accounts/get-accounts)* [Create an Account](/build/tools/flow-cli/accounts/create-accounts)* [Deploy a Contract](/build/tools/flow-cli/accounts/account-add-contract)* [Update a Contract](/build/tools/flow-cli/accounts/account-update-contract)* [Remove a Contract](/build/tools/flow-cli/accounts/account-remove-contract)* [Account Staking Info](/build/tools/flow-cli/accounts/account-staking-info)* [Funding a Testnet Account](/build/tools/flow-cli/accounts/account-fund)- [Keys](/build/tools/flow-cli/keys/generate-keys)
+                - [Install Instructions](/build/tools/flow-cli/install)- [Commands Overview](/build/tools/flow-cli/commands)- [Accounts](/build/tools/flow-cli/accounts/get-accounts)
 
-                      - [Deploy Project](/build/tools/flow-cli/deployment/project-contracts)
+                      * [Get an Account](/build/tools/flow-cli/accounts/get-accounts)* [Create an Account](/build/tools/flow-cli/accounts/create-accounts)* [Deploy a Contract](/build/tools/flow-cli/accounts/account-add-contract)* [Update a Contract](/build/tools/flow-cli/accounts/account-update-contract)* [Remove a Contract](/build/tools/flow-cli/accounts/account-remove-contract)* [Account Staking Info](/build/tools/flow-cli/accounts/account-staking-info)* [Funding a Testnet Account](/build/tools/flow-cli/accounts/account-fund)- [Keys](/build/tools/flow-cli/keys/generate-keys)
 
-                        - [Scripts](/build/tools/flow-cli/scripts/execute-scripts)
+                        - [Deploy Project](/build/tools/flow-cli/deployment/project-contracts)
 
-                          - [Transactions](/build/tools/flow-cli/transactions/send-transactions)
+                          - [Scripts](/build/tools/flow-cli/scripts/execute-scripts)
 
-                            - [Flow.json](/build/tools/flow-cli/flow.json/initialize-configuration)
+                            - [Transactions](/build/tools/flow-cli/transactions/send-transactions)
 
-                              - [Flow Entities](/build/tools/flow-cli/get-flow-data/get-blocks)
+                              - [Flow.json](/build/tools/flow-cli/flow.json/initialize-configuration)
 
-                                - [Utils](/build/tools/flow-cli/utils/signature-generate)
+                                - [Flow Entities](/build/tools/flow-cli/get-flow-data/get-blocks)
 
-                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+                                  - [Utils](/build/tools/flow-cli/utils/signature-generate)
 
-                    + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                                    - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Fork Testing](/build/tools/flow-cli/fork-testing)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+
+                      + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Flow CLI](/build/tools/flow-cli)* Accounts* Create an Account
 
@@ -271494,7 +271496,7 @@ Network & Resources
 
 * [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow Foundation. All Rights Reserved.
+Copyright © 2026 Flow Foundation. All Rights Reserved.
 
 
 
@@ -274674,7 +274676,7 @@ Search
 
           + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+            + [Advanced Concepts](/build/cadence/advanced-concepts/computation-profiling)
 
               + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
@@ -432252,7 +432254,7 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
-# Source: https://developers.flow.com
+# Source: https://developers.flow.com/
 
 Flow Developer Portal
 
@@ -437759,7 +437761,7 @@ Search
 
           + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+            + [Advanced Concepts](/build/cadence/advanced-concepts/computation-profiling)
 
               + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
