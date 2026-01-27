@@ -134,59 +134,13 @@ Use the [Dependency Manager](/build/tools/flow-cli/dependency-manager) to instal
 
 flow dependencies install FlowToken FungibleToken`
 
-This downloads the contracts and their dependencies into the `imports/` folder and updates your `flow.json` with the correct addresses and aliases across all networks (mainnet, testnet, emulator).
+This downloads the contracts into the `imports/` folder and configures aliases for different networks.
 
-Your `flow.json` now includes an entry like:
+## Understanding `mainnet-fork`[​](#understanding-mainnet-fork "Direct link to understanding-mainnet-fork")
 
-`_12
+When you run `flow init`, the CLI automatically creates a `mainnet-fork` network in your `flow.json`. This network inherits all contract addresses from mainnet, so imports like `"FlowToken"` automatically resolve to their mainnet addresses (`0x1654653399040a61`).
 
-{
-
-_12
-
-"dependencies": {
-
-_12
-
-"FlowToken": {
-
-_12
-
-"source": "mainnet://1654653399040a61.FlowToken",
-
-_12
-
-"aliases": {
-
-_12
-
-"emulator": "0ae53cb6e3f42a79",
-
-_12
-
-"mainnet": "1654653399040a61",
-
-_12
-
-"testnet": "7e60df042a9c0868"
-
-_12
-
-}
-
-_12
-
-}
-
-_12
-
-}
-
-_12
-
-}`
-
-Your `flow.json` now has the mainnet and testnet networks configured from `flow init`. In fork mode, contract imports automatically resolve to the correct network addresses.
+Using `#test_fork(network: "mainnet-fork")` in your test files runs your tests against a local snapshot of mainnet state. You can deploy contracts, impersonate accounts, and modify state locally without affecting the real network.
 
 ## Test reading live state[​](#test-reading-live-state "Direct link to Test reading live state")
 
@@ -230,7 +184,7 @@ cadence/tests/FlowToken\_test.cdc
 
 `_15
 
-#test_fork(network: "mainnet", height: nil)
+#test_fork(network: "mainnet-fork", height: nil)
 
 _15
 
@@ -282,10 +236,10 @@ _15
 
 info
 
-* **The `#test_fork` pragma** at the top configures this test to run against mainnet
+* **The `#test_fork` pragma** configures this test to run against the `mainnet-fork` network
 * Use `Test.executeScript()` to read contract state
 * The script imports `FlowToken` by name - the dependency manager handles address resolution
-* In fork mode, this automatically uses the mainnet FlowToken contract
+* Because we're using `mainnet-fork`, this automatically uses the mainnet FlowToken contract
 * Extract the return value with proper type casting and assert on it
 * File paths in `Test.readFile()` are relative to the test file location (use `../scripts/` from `cadence/tests/`)
 
@@ -298,12 +252,6 @@ Run just this test file to confirm your setup works:
 flow test cadence/tests/FlowToken_test.cdc`
 
 The pragma handles the fork configuration automatically! You will see the test PASS. If not, verify your network host in `flow.json` and that dependencies are installed.
-
-**To test against testnet instead**, simply change the pragma in the test file:
-
-`_10
-
-#test_fork(network: "testnet", height: nil)`
 
 ## Deploy and test Your contract[​](#deploy-and-test-your-contract "Direct link to Deploy and test Your contract")
 
@@ -546,7 +494,7 @@ cadence/tests/TokenChecker\_test.cdc
 
 `_39
 
-#test_fork(network: "mainnet", height: nil)
+#test_fork(network: "mainnet-fork", height: nil)
 
 _39
 
@@ -1130,7 +1078,7 @@ _10
 
 `_10
 
-#test_fork(network: "mainnet", height: nil)
+#test_fork(network: "mainnet-fork", height: nil)
 
 _10
 
@@ -1166,7 +1114,7 @@ Use `Test.deployContract()` to deploy your mock to any mainnet account address. 
 
 `_24
 
-#test_fork(network: "mainnet", height: nil)
+#test_fork(network: "mainnet-fork", height: nil)
 
 _24
 
@@ -1260,7 +1208,7 @@ For reproducible test results, pin your tests to a specific block height:
 
 `_10
 
-#test_fork(network: "mainnet", height: 85229104)`
+#test_fork(network: "mainnet-fork", height: 85229104)`
 
 This ensures your tests run against the same blockchain state every time, useful for:
 
@@ -1272,7 +1220,7 @@ To use the latest state instead, use `height: nil`:
 
 `_10
 
-#test_fork(network: "mainnet", height: nil)`
+#test_fork(network: "mainnet-fork", height: nil)`
 
 Note that block heights are only available within the current spork (network upgrade period). See [Testing Smart Contracts](/build/cadence/smart-contracts/testing-strategy) for more on managing pinned heights over time.
 
@@ -1314,7 +1262,7 @@ Fork testing bridges the gap between local unit tests and testnet deployments, w
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/fork-testing/index.md)
 
-Last updated on **Dec 12, 2025** by **Jordan Ribbink**
+Last updated on **Jan 26, 2026** by **Jordan Ribbink**
 
 [Previous
 
@@ -1329,12 +1277,12 @@ Emulator Fork Testing](/blockchain-development-tutorials/cadence/emulator-fork-t
 Copy as Markdown
 
 * [What you'll learn](#what-youll-learn)* [What you'll build](#what-youll-build)* [Prerequisites](#prerequisites)
-      + [Flow CLI](#flow-cli)+ [Basic Cadence testing knowledge](#basic-cadence-testing-knowledge)+ [Network access](#network-access)* [Create your project](#create-your-project)* [Install dependencies](#install-dependencies)* [Test reading live state](#test-reading-live-state)* [Deploy and test Your contract](#deploy-and-test-your-contract)
-              + [Create a test account](#create-a-test-account)+ [Create a contract that uses `FlowToken`](#create-a-contract-that-uses-flowtoken)+ [Configure contract in flow.json](#configure-contract-in-flowjson)+ [Create scripts for testing](#create-scripts-for-testing)+ [Test Your contract with forked state](#test-your-contract-with-forked-state)+ [What's happening here](#whats-happening-here)* [Execute transactions with account impersonation](#execute-transactions-with-account-impersonation)
-                + [Create transactions](#create-transactions)+ [Test transaction execution with impersonation](#test-transaction-execution-with-impersonation)+ [Key points about account impersonation](#key-points-about-account-impersonation)* [Run all tests together](#run-all-tests-together)
-                  + [Best Practices: In-File Configuration vs CLI Flags](#best-practices-in-file-configuration-vs-cli-flags)* [Mocking Mainnet Contracts in Tests](#mocking-mainnet-contracts-in-tests)
-                    + [Example](#example)* [Pinning block heights for reproducibility](#pinning-block-heights-for-reproducibility)* [When to use fork testing](#when-to-use-fork-testing)* [Conclusion](#conclusion)
-                          + [Next Steps](#next-steps)
+      + [Flow CLI](#flow-cli)+ [Basic Cadence testing knowledge](#basic-cadence-testing-knowledge)+ [Network access](#network-access)* [Create your project](#create-your-project)* [Install dependencies](#install-dependencies)* [Understanding `mainnet-fork`](#understanding-mainnet-fork)* [Test reading live state](#test-reading-live-state)* [Deploy and test Your contract](#deploy-and-test-your-contract)
+                + [Create a test account](#create-a-test-account)+ [Create a contract that uses `FlowToken`](#create-a-contract-that-uses-flowtoken)+ [Configure contract in flow.json](#configure-contract-in-flowjson)+ [Create scripts for testing](#create-scripts-for-testing)+ [Test Your contract with forked state](#test-your-contract-with-forked-state)+ [What's happening here](#whats-happening-here)* [Execute transactions with account impersonation](#execute-transactions-with-account-impersonation)
+                  + [Create transactions](#create-transactions)+ [Test transaction execution with impersonation](#test-transaction-execution-with-impersonation)+ [Key points about account impersonation](#key-points-about-account-impersonation)* [Run all tests together](#run-all-tests-together)
+                    + [Best Practices: In-File Configuration vs CLI Flags](#best-practices-in-file-configuration-vs-cli-flags)* [Mocking Mainnet Contracts in Tests](#mocking-mainnet-contracts-in-tests)
+                      + [Example](#example)* [Pinning block heights for reproducibility](#pinning-block-heights-for-reproducibility)* [When to use fork testing](#when-to-use-fork-testing)* [Conclusion](#conclusion)
+                            + [Next Steps](#next-steps)
 
 Flow
 
