@@ -315281,7 +315281,7 @@ On this page
 
 ## Overview[​](#overview "Direct link to Overview")
 
-This guide is for developers and protocols integrating PYUSD0 on Flow EVM. PYUSD0 is an OFT (Omnichain Fungible Token) deployed via LayerZero, replacing USDF as the canonical USD stablecoin on Flow.
+This guide is for developers and protocols integrating PYUSD0 on Flow. PYUSD0 is an OFT (Omnichain Fungible Token) and brings pre-native PayPal USD support to Flow with seamless cross-chain transfers across 140+ chains via Stargate. It replaces USDF as Flow's canonical USD stablecoin. For users please read the [migration guide.](https://flow.com/post/pyusd0-migration-guide)
 
 ## Contract Addresses[​](#contract-addresses "Direct link to Contract Addresses")
 
@@ -315299,10 +315299,11 @@ This guide is for developers and protocols integrating PYUSD0 on Flow EVM. PYUSD
 
 ### Testnet[​](#testnet "Direct link to Testnet")
 
-**No official PYUSD0 testnet deployment.** For local testing, deploy the PYUSD contract directly:
+|  |  |  |  |
+| --- | --- | --- | --- |
+| Contract Address|  |  | | --- | --- | | [PYUSD0](https://evm-testnet.flowscan.io/address/0xd7d43ab7b365f0d0789aE83F4385fA710FfdC98F) `0xd7d43ab7b365f0d0789aE83F4385fA710FfdC98F` | | | |
 
-* [Paxos PYUSD Contract](https://github.com/paxosglobal/paxos-token-contracts/blob/master/contracts/stablecoins/PYUSD.sol)
-* This gives you a functionally equivalent token you can mint/control for testing.
+This is a stand-in token for testing purposes only. Mainnet PYUSD0 requires real PYUSD locked via LayerZero. The testnet contract has a [mint function](https://evm-testnet.flowscan.io/token/0xd7d43ab7b365f0d0789aE83F4385fA710FfdC98F?tab=read_write_contract) and a [liquidity pool](https://flowswap.io/swap?chain=flow-testnet&inputCurrency=NATIVE&outputCurrency=0xd7d43ab7b365f0d0789aE83F4385fA710FfdC98F) so you can mint or swap tokens for development.
 
 ### **Deprecated (USDF)**[​](#deprecated-usdf "Direct link to deprecated-usdf")
 
@@ -315332,7 +315333,9 @@ _10
 
 Backing: 1:1 PYUSD (PayPal USD)`
 
----
+## About PYUSD0[​](#about-pyusd0 "Direct link to About PYUSD0")
+
+PYUSD0 is a pre-native token deployed via LayerZero's Asset0 program, alongside other stablecoins like USDG0 (backed by Robinhood, Kraken, Mastercard) and AUSD0. It's fully backed 1:1 by PayPal USD. When Paxos later deploys native PYUSD directly on Flow, PYUSD0 balances will automatically upgrade with no user or developer action required.
 
 ## **Code Examples**[​](#code-examples "Direct link to code-examples")
 
@@ -315347,7 +315350,7 @@ Visit [the GitHub Repository](https://github.com/onflow/flow-bridge-app/tree/mai
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/defi/pyusd0-integration-guide.md)
 
-Last updated on **Jan 19, 2026** by **bz**
+Last updated on **Jan 28, 2026** by **bz**
 
 [Previous
 
@@ -315360,7 +315363,7 @@ Stablecoins & Bridges FAQ](/defi/faq)
 Copy as Markdown
 
 * [Overview](#overview)* [Contract Addresses](#contract-addresses)
-    + [Flow EVM Mainnet](#flow-evm-mainnet)+ [Flow Cadence Mainnet](#flow-cadence-mainnet)+ [Testnet](#testnet)+ [**Deprecated (USDF)**](#deprecated-usdf)* [**Token Specifications**](#token-specifications)* [**Code Examples**](#code-examples)* [**Migration Path for Existing USDF Integrations**](#migration-path-for-existing-usdf-integrations)
+    + [Flow EVM Mainnet](#flow-evm-mainnet)+ [Flow Cadence Mainnet](#flow-cadence-mainnet)+ [Testnet](#testnet)+ [**Deprecated (USDF)**](#deprecated-usdf)* [**Token Specifications**](#token-specifications)* [About PYUSD0](#about-pyusd0)* [**Code Examples**](#code-examples)* [**Migration Path for Existing USDF Integrations**](#migration-path-for-existing-usdf-integrations)
 
 Flow
 
@@ -432995,7 +432998,7 @@ Below is a list of commonly used DeFi contracts on Flow Testnet:
 
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Token EVM Testnet Address How to Get|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | FLOW (native, non-erc20) — [Faucet](https://faucet.flow.com/fund-account)| [WFLOW](https://evm-testnet.flowscan.io/address/0xd3bF53DAC106A0290B0483EcBC89d40FcC961f3e) `0xd3bF53DAC106A0290B0483EcBC89d40FcC961f3e` [Swap](https://flowswap.io/swap?chain=flow-testnet&inputCurrency=NATIVE&outputCurrency=0xd3bF53DAC106A0290B0483EcBC89d40FcC961f3e)| [MOET](https://evm-testnet.flowscan.io/address/0x51f5cc5f50afb81e8f23c926080fa38c3024b238) `0x51f5cc5f50afb81e8f23c926080fa38c3024b238` [Swap](https://flowswap.io/swap?chain=flow-testnet&inputCurrency=NATIVE&outputCurrency=0x51F5cC5f50afB81e8F23C926080FA38C3024b238)| [MockUSDC](https://evm-testnet.flowscan.io/address/0xd431955D55a99EF69BEb96BA34718d0f9fBc91b1) `0xd431955D55a99EF69BEb96BA34718d0f9fBc91b1` [Swap](https://flowswap.io/swap?chain=flow-testnet&inputCurrency=NATIVE&outputCurrency=0xd431955D55a99EF69BEb96BA34718d0f9fBc91b1)| [mUSDC](https://evm-testnet.flowscan.io/address/0x4154d5B0E2931a0A1E5b733f19161aa7D2fc4b95) `0x4154d5B0E2931a0A1E5b733f19161aa7D2fc4b95` [Swap](https://flowswap.io/swap?chain=flow-testnet&inputCurrency=NATIVE&outputCurrency=0x4154d5B0E2931a0A1E5b733f19161aa7D2fc4b95)| [USDf](https://evm-testnet.flowscan.io/address/0xd7d43ab7b365f0d0789aE83F4385fA710FfdC98F) `0xd7d43ab7b365f0d0789aE83F4385fA710FfdC98F` [Swap](https://flowswap.io/swap?chain=flow-testnet&inputCurrency=NATIVE&outputCurrency=0xd7d43ab7b365f0d0789aE83F4385fA710FfdC98F)| [USD Flow](https://evm-testnet.flowscan.io/address/0xf2E5A325f7D678DA511E66B1c0Ad7D5ba4dF93D3) `0xf2E5A325f7D678DA511E66B1c0Ad7D5ba4dF93D3` —|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [USDC.e](https://evm-testnet.flowscan.io/address/0x9B7550D337bB449b89C6f9C926C3b976b6f4095b) `0x9B7550D337bB449b89C6f9C926C3b976b6f4095b` —|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [ankrFLOW](https://evm-testnet.flowscan.io/address/0xe132751AB5A14ac0bD3Cb40571a9248Ee7a2a9EA) `0xe132751AB5A14ac0bD3Cb40571a9248Ee7a2a9EA` —|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [ankrFLOWEVM](https://evm-testnet.flowscan.io/address/0x8E3DC6E937B560ce6a1Aaa78AfC775228969D16c) `0x8E3DC6E937B560ce6a1Aaa78AfC775228969D16c` —|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [ETHf](https://evm-testnet.flowscan.io/address/0x059A77239daFa770977DD9f1E98632C3E4559848) `0x059A77239daFa770977DD9f1E98632C3E4559848` [Mint](https://evm-testnet.flowscan.io/address/0x059A77239daFa770977DD9f1E98632C3E4559848?tab=read_write_contract#0x40c10f19)| [BTCf](https://evm-testnet.flowscan.io/address/0x208d09d2a6Dd176e3e95b3F0DE172A7471C5B2d6) `0x208d09d2a6Dd176e3e95b3F0DE172A7471C5B2d6` [Mint](https://evm-testnet.flowscan.io/address/0x208d09d2a6Dd176e3e95b3F0DE172A7471C5B2d6?tab=read_write_contract#0x40c10f19)| [cbBTC](https://evm-testnet.flowscan.io/address/0x30F44C64725727F2001E6C1eF6e6CE9c7aB91dC3) `0x30F44C64725727F2001E6C1eF6e6CE9c7aB91dC3` [Mint](https://evm-testnet.flowscan.io/address/0x30F44C64725727F2001E6C1eF6e6CE9c7aB91dC3?tab=read_write_contract#0x40c10f19) | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+| Token EVM Testnet Address How to Get|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | FLOW (native, non-erc20) — [Faucet](https://faucet.flow.com/fund-account)| [WFLOW](https://evm-testnet.flowscan.io/address/0xd3bF53DAC106A0290B0483EcBC89d40FcC961f3e) `0xd3bF53DAC106A0290B0483EcBC89d40FcC961f3e` [Swap](https://flowswap.io/swap?chain=flow-testnet&inputCurrency=NATIVE&outputCurrency=0xd3bF53DAC106A0290B0483EcBC89d40FcC961f3e)| [MOET](https://evm-testnet.flowscan.io/address/0x51f5cc5f50afb81e8f23c926080fa38c3024b238) `0x51f5cc5f50afb81e8f23c926080fa38c3024b238` [Swap](https://flowswap.io/swap?chain=flow-testnet&inputCurrency=NATIVE&outputCurrency=0x51F5cC5f50afB81e8F23C926080FA38C3024b238)| [MockUSDC](https://evm-testnet.flowscan.io/address/0xd431955D55a99EF69BEb96BA34718d0f9fBc91b1) `0xd431955D55a99EF69BEb96BA34718d0f9fBc91b1` [Swap](https://flowswap.io/swap?chain=flow-testnet&inputCurrency=NATIVE&outputCurrency=0xd431955D55a99EF69BEb96BA34718d0f9fBc91b1)| [mUSDC](https://evm-testnet.flowscan.io/address/0x4154d5B0E2931a0A1E5b733f19161aa7D2fc4b95) `0x4154d5B0E2931a0A1E5b733f19161aa7D2fc4b95` [Swap](https://flowswap.io/swap?chain=flow-testnet&inputCurrency=NATIVE&outputCurrency=0x4154d5B0E2931a0A1E5b733f19161aa7D2fc4b95)| [PYUSD0](https://evm-testnet.flowscan.io/address/0xd7d43ab7b365f0d0789aE83F4385fA710FfdC98F) `0xd7d43ab7b365f0d0789aE83F4385fA710FfdC98F` [Swap](https://flowswap.io/swap?chain=flow-testnet&inputCurrency=NATIVE&outputCurrency=0xd7d43ab7b365f0d0789aE83F4385fA710FfdC98F)| [USD Flow](https://evm-testnet.flowscan.io/address/0xf2E5A325f7D678DA511E66B1c0Ad7D5ba4dF93D3) `0xf2E5A325f7D678DA511E66B1c0Ad7D5ba4dF93D3` —|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [USDC.e](https://evm-testnet.flowscan.io/address/0x9B7550D337bB449b89C6f9C926C3b976b6f4095b) `0x9B7550D337bB449b89C6f9C926C3b976b6f4095b` —|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [ankrFLOW](https://evm-testnet.flowscan.io/address/0xe132751AB5A14ac0bD3Cb40571a9248Ee7a2a9EA) `0xe132751AB5A14ac0bD3Cb40571a9248Ee7a2a9EA` —|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [ankrFLOWEVM](https://evm-testnet.flowscan.io/address/0x8E3DC6E937B560ce6a1Aaa78AfC775228969D16c) `0x8E3DC6E937B560ce6a1Aaa78AfC775228969D16c` —|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [ETHf](https://evm-testnet.flowscan.io/address/0x059A77239daFa770977DD9f1E98632C3E4559848) `0x059A77239daFa770977DD9f1E98632C3E4559848` [Mint](https://evm-testnet.flowscan.io/address/0x059A77239daFa770977DD9f1E98632C3E4559848?tab=read_write_contract#0x40c10f19)| [BTCf](https://evm-testnet.flowscan.io/address/0x208d09d2a6Dd176e3e95b3F0DE172A7471C5B2d6) `0x208d09d2a6Dd176e3e95b3F0DE172A7471C5B2d6` [Mint](https://evm-testnet.flowscan.io/address/0x208d09d2a6Dd176e3e95b3F0DE172A7471C5B2d6?tab=read_write_contract#0x40c10f19)| [cbBTC](https://evm-testnet.flowscan.io/address/0x30F44C64725727F2001E6C1eF6e6CE9c7aB91dC3) `0x30F44C64725727F2001E6C1eF6e6CE9c7aB91dC3` [Mint](https://evm-testnet.flowscan.io/address/0x30F44C64725727F2001E6C1eF6e6CE9c7aB91dC3?tab=read_write_contract#0x40c10f19) | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
 
 #### Flow Cadence Testnet[​](#flow-cadence-testnet "Direct link to Flow Cadence Testnet")
 
@@ -433077,7 +433080,7 @@ Testnet EAS Explorer: <https://flow-testnet.easscan.credora.io>
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/defi/defi-contracts-testnet.md)
 
-Last updated on **Dec 1, 2025** by **Brian Doyle**
+Last updated on **Jan 28, 2026** by **bz**
 
 [Previous
 

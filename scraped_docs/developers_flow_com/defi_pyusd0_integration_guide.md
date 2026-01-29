@@ -24,7 +24,7 @@ On this page
 
 ## Overview[​](#overview "Direct link to Overview")
 
-This guide is for developers and protocols integrating PYUSD0 on Flow EVM. PYUSD0 is an OFT (Omnichain Fungible Token) deployed via LayerZero, replacing USDF as the canonical USD stablecoin on Flow.
+This guide is for developers and protocols integrating PYUSD0 on Flow. PYUSD0 is an OFT (Omnichain Fungible Token) and brings pre-native PayPal USD support to Flow with seamless cross-chain transfers across 140+ chains via Stargate. It replaces USDF as Flow's canonical USD stablecoin. For users please read the [migration guide.](https://flow.com/post/pyusd0-migration-guide)
 
 ## Contract Addresses[​](#contract-addresses "Direct link to Contract Addresses")
 
@@ -42,10 +42,11 @@ This guide is for developers and protocols integrating PYUSD0 on Flow EVM. PYUSD
 
 ### Testnet[​](#testnet "Direct link to Testnet")
 
-**No official PYUSD0 testnet deployment.** For local testing, deploy the PYUSD contract directly:
+|  |  |  |  |
+| --- | --- | --- | --- |
+| Contract Address|  |  | | --- | --- | | [PYUSD0](https://evm-testnet.flowscan.io/address/0xd7d43ab7b365f0d0789aE83F4385fA710FfdC98F) `0xd7d43ab7b365f0d0789aE83F4385fA710FfdC98F` | | | |
 
-* [Paxos PYUSD Contract](https://github.com/paxosglobal/paxos-token-contracts/blob/master/contracts/stablecoins/PYUSD.sol)
-* This gives you a functionally equivalent token you can mint/control for testing.
+This is a stand-in token for testing purposes only. Mainnet PYUSD0 requires real PYUSD locked via LayerZero. The testnet contract has a [mint function](https://evm-testnet.flowscan.io/token/0xd7d43ab7b365f0d0789aE83F4385fA710FfdC98F?tab=read_write_contract) and a [liquidity pool](https://flowswap.io/swap?chain=flow-testnet&inputCurrency=NATIVE&outputCurrency=0xd7d43ab7b365f0d0789aE83F4385fA710FfdC98F) so you can mint or swap tokens for development.
 
 ### **Deprecated (USDF)**[​](#deprecated-usdf "Direct link to deprecated-usdf")
 
@@ -75,7 +76,9 @@ _10
 
 Backing: 1:1 PYUSD (PayPal USD)`
 
----
+## About PYUSD0[​](#about-pyusd0 "Direct link to About PYUSD0")
+
+PYUSD0 is a pre-native token deployed via LayerZero's Asset0 program, alongside other stablecoins like USDG0 (backed by Robinhood, Kraken, Mastercard) and AUSD0. It's fully backed 1:1 by PayPal USD. When Paxos later deploys native PYUSD directly on Flow, PYUSD0 balances will automatically upgrade with no user or developer action required.
 
 ## **Code Examples**[​](#code-examples "Direct link to code-examples")
 
@@ -90,7 +93,7 @@ Visit [the GitHub Repository](https://github.com/onflow/flow-bridge-app/tree/mai
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/defi/pyusd0-integration-guide.md)
 
-Last updated on **Jan 19, 2026** by **bz**
+Last updated on **Jan 28, 2026** by **bz**
 
 [Previous
 
@@ -103,7 +106,7 @@ Stablecoins & Bridges FAQ](/defi/faq)
 Copy as Markdown
 
 * [Overview](#overview)* [Contract Addresses](#contract-addresses)
-    + [Flow EVM Mainnet](#flow-evm-mainnet)+ [Flow Cadence Mainnet](#flow-cadence-mainnet)+ [Testnet](#testnet)+ [**Deprecated (USDF)**](#deprecated-usdf)* [**Token Specifications**](#token-specifications)* [**Code Examples**](#code-examples)* [**Migration Path for Existing USDF Integrations**](#migration-path-for-existing-usdf-integrations)
+    + [Flow EVM Mainnet](#flow-evm-mainnet)+ [Flow Cadence Mainnet](#flow-cadence-mainnet)+ [Testnet](#testnet)+ [**Deprecated (USDF)**](#deprecated-usdf)* [**Token Specifications**](#token-specifications)* [About PYUSD0](#about-pyusd0)* [**Code Examples**](#code-examples)* [**Migration Path for Existing USDF Integrations**](#migration-path-for-existing-usdf-integrations)
 
 Flow
 
