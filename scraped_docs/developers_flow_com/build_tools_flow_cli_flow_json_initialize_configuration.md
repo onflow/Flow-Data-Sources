@@ -224,7 +224,7 @@ Last updated on **Oct 9, 2025** by **Brian Doyle**
 
 [Previous
 
-Get a System Transaction](/build/tools/flow-cli/transactions/get-system-transactions)[Next
+Profile a Transaction](/build/tools/flow-cli/transactions/profile-transactions)[Next
 
 Configuration](/build/tools/flow-cli/flow.json/configuration)
 

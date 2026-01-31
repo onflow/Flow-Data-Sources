@@ -541,7 +541,37 @@ _10
 
 flow transactions get-system 12345`
 
-📖 **[Learn more about scripts](/build/tools/flow-cli/scripts/execute-scripts)** | **[Learn more about transactions](/build/tools/flow-cli/transactions/send-transactions)**
+### Profile Transaction Performance[​](#profile-transaction-performance "Direct link to Profile Transaction Performance")
+
+`_10
+
+# Profile a mainnet transaction
+
+_10
+
+flow transactions profile 07a8...b433 --network mainnet
+
+_10
+
+_10
+
+# Profile with custom output location
+
+_10
+
+flow transactions profile 0xabc123 --network testnet --output my-profile.pb.gz
+
+_10
+
+_10
+
+# Analyze profile with pprof
+
+_10
+
+go tool pprof -http=:8080 profile-07a8b433.pb.gz`
+
+📖 **[Learn more about scripts](/build/tools/flow-cli/scripts/execute-scripts)** | **[Learn more about transactions](/build/tools/flow-cli/transactions/send-transactions)** | **[Learn more about transaction profiling](/build/tools/flow-cli/transactions/profile-transactions)**
 
 ## Dependency Management[​](#dependency-management "Direct link to Dependency Management")
 
@@ -859,7 +889,7 @@ FLOW_PRIVATE_KEY=abc123 flow project deploy`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/commands.md)
 
-Last updated on **Oct 21, 2025** by **Chase Fleming**
+Last updated on **Jan 31, 2026** by **Jordan Ribbink**
 
 [Previous
 
@@ -877,7 +907,7 @@ Copy as Markdown
   + [1. Initialize a Project](#1-initialize-a-project)+ [2. Generate Project Files](#2-generate-project-files)+ [3. Run Tests](#3-run-tests)+ [4. Deploy Contracts](#4-deploy-contracts)* [Configuration Management](#configuration-management)
     + [Add Configuration Items](#add-configuration-items)+ [Remove Configuration Items](#remove-configuration-items)* [Account Management](#account-management)
       + [List Accounts](#list-accounts)+ [Create Accounts](#create-accounts)+ [Fund Accounts](#fund-accounts)+ [Manage Account Keys](#manage-account-keys)* [Contract Interactions](#contract-interactions)
-        + [Execute Scripts](#execute-scripts)+ [Send Transactions](#send-transactions)+ [Get System Transactions](#get-system-transactions)* [Dependency Management](#dependency-management)
+        + [Execute Scripts](#execute-scripts)+ [Send Transactions](#send-transactions)+ [Get System Transactions](#get-system-transactions)+ [Profile Transaction Performance](#profile-transaction-performance)* [Dependency Management](#dependency-management)
           + [Install Dependencies](#install-dependencies)+ [Manage Dependencies](#manage-dependencies)* [Scheduled Transactions](#scheduled-transactions)
             + [Setup Manager Resource](#setup-manager-resource)+ [List Scheduled Transactions](#list-scheduled-transactions)+ [Get Transaction Details](#get-transaction-details)+ [Cancel Scheduled Transaction](#cancel-scheduled-transaction)* [Development Workflow](#development-workflow)
               + [Local Development](#local-development)+ [Testnet Deployment](#testnet-deployment)* [Import Schema](#import-schema)* [Best Practices](#best-practices)

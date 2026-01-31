@@ -2376,6 +2376,7 @@ With Flow CLI, developers can:
 * **Send Transactions**: Build, sign, and submit transactions to the Flow network, allowing for contract interaction and fund transfers.
 * **Query Chain State**: Retrieve data from the Flow blockchain, including account balances, event logs, and the status of specific transactions.
 * **Deploy Smart Contracts**: Easily deploy and update Cadence smart contracts on any Flow environment (emulator, testnet, or mainnet).
+* **Profile Transaction Performance**: Generate detailed computational profiles of sealed transactions to optimize gas costs and identify performance bottlenecks.
 * **Use the Emulator:** Set up a local Flow blockchain instance with the Flow emulator to test and debug smart contracts in a development environment before deploying them on the network.
 * **Test with Fork Mode**: Use [fork testing](/build/tools/flow-cli/fork-testing) to run tests and development environments against a local copy of mainnet or testnet state, giving you access to real contracts and data without affecting production.
 * **Interact with the [Flow Access API](/http-api)**: Automate complex workflows using configuration files and command-line scripting, which allows for greater flexibility in continuous integration (CI) or custom development tools.
@@ -2402,7 +2403,7 @@ To learn more about Flow CLI commands and how to use them, please refer to the [
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/index.md)
 
-Last updated on **Dec 16, 2025** by **Jordan Ribbink**
+Last updated on **Jan 31, 2026** by **Jordan Ribbink**
 
 [Previous
 
@@ -15802,7 +15803,37 @@ _10
 
 flow transactions get-system 12345`
 
-📖 **[Learn more about scripts](/build/tools/flow-cli/scripts/execute-scripts)** | **[Learn more about transactions](/build/tools/flow-cli/transactions/send-transactions)**
+### Profile Transaction Performance[​](#profile-transaction-performance "Direct link to Profile Transaction Performance")
+
+`_10
+
+# Profile a mainnet transaction
+
+_10
+
+flow transactions profile 07a8...b433 --network mainnet
+
+_10
+
+_10
+
+# Profile with custom output location
+
+_10
+
+flow transactions profile 0xabc123 --network testnet --output my-profile.pb.gz
+
+_10
+
+_10
+
+# Analyze profile with pprof
+
+_10
+
+go tool pprof -http=:8080 profile-07a8b433.pb.gz`
+
+📖 **[Learn more about scripts](/build/tools/flow-cli/scripts/execute-scripts)** | **[Learn more about transactions](/build/tools/flow-cli/transactions/send-transactions)** | **[Learn more about transaction profiling](/build/tools/flow-cli/transactions/profile-transactions)**
 
 ## Dependency Management[​](#dependency-management "Direct link to Dependency Management")
 
@@ -16120,7 +16151,7 @@ FLOW_PRIVATE_KEY=abc123 flow project deploy`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/commands.md)
 
-Last updated on **Oct 21, 2025** by **Chase Fleming**
+Last updated on **Jan 31, 2026** by **Jordan Ribbink**
 
 [Previous
 
@@ -16138,7 +16169,7 @@ Copy as Markdown
   + [1. Initialize a Project](#1-initialize-a-project)+ [2. Generate Project Files](#2-generate-project-files)+ [3. Run Tests](#3-run-tests)+ [4. Deploy Contracts](#4-deploy-contracts)* [Configuration Management](#configuration-management)
     + [Add Configuration Items](#add-configuration-items)+ [Remove Configuration Items](#remove-configuration-items)* [Account Management](#account-management)
       + [List Accounts](#list-accounts)+ [Create Accounts](#create-accounts)+ [Fund Accounts](#fund-accounts)+ [Manage Account Keys](#manage-account-keys)* [Contract Interactions](#contract-interactions)
-        + [Execute Scripts](#execute-scripts)+ [Send Transactions](#send-transactions)+ [Get System Transactions](#get-system-transactions)* [Dependency Management](#dependency-management)
+        + [Execute Scripts](#execute-scripts)+ [Send Transactions](#send-transactions)+ [Get System Transactions](#get-system-transactions)+ [Profile Transaction Performance](#profile-transaction-performance)* [Dependency Management](#dependency-management)
           + [Install Dependencies](#install-dependencies)+ [Manage Dependencies](#manage-dependencies)* [Scheduled Transactions](#scheduled-transactions)
             + [Setup Manager Resource](#setup-manager-resource)+ [List Scheduled Transactions](#list-scheduled-transactions)+ [Get Transaction Details](#get-transaction-details)+ [Cancel Scheduled Transaction](#cancel-scheduled-transaction)* [Development Workflow](#development-workflow)
               + [Local Development](#local-development)+ [Testnet Deployment](#testnet-deployment)* [Import Schema](#import-schema)* [Best Practices](#best-practices)
@@ -169440,7 +169471,7 @@ Last updated on **Oct 9, 2025** by **Brian Doyle**
 
 [Previous
 
-Get a System Transaction](/build/tools/flow-cli/transactions/get-system-transactions)[Next
+Profile a Transaction](/build/tools/flow-cli/transactions/profile-transactions)[Next
 
 Configuration](/build/tools/flow-cli/flow.json/configuration)
 
@@ -182051,15 +182082,71 @@ When developing smart contracts on Flow, understanding computational costs is es
 * **Cost Awareness**: Understand how much computation your transactions and scripts consume
 * **Bottleneck Identification**: Pinpoint exactly where your code spends the most resources
 
-The Flow Emulator provides two complementary tools for this purpose:
+The Flow CLI provides three complementary approaches for profiling computation:
 
-|  |  |  |  |  |  |  |  |  |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Feature Output Best For|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | **Computation Reporting** JSON report with detailed intensities Quick numerical analysis, CI/CD integration, automated testing|  |  |  | | --- | --- | --- | | **Computation Profiling** pprof profile Visual analysis (e.g. flame graphs), deep-dive debugging, call stack exploration | | | | | | | | |
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Approach Output Best For|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **Transaction Profiling** (`flow transactions profile`) pprof profile for sealed transactions Analyzing production transactions on mainnet/testnet|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | **Emulator Computation Reporting** (`flow emulator --computation-reporting`) JSON report with detailed intensities Quick numerical analysis, CI/CD integration, automated testing|  |  |  | | --- | --- | --- | | **Emulator Computation Profiling** (`flow emulator --computation-profiling`) pprof profile for development Visual analysis during development, flame graphs, call stack exploration | | | | | | | | | | | |
 
 note
 
 Before getting started, make sure you have the [Flow CLI installed](/build/tools/flow-cli/install).
+
+## Transaction Profiling[​](#transaction-profiling "Direct link to Transaction Profiling")
+
+For analyzing sealed transactions on any Flow network (mainnet, testnet, or emulator), use the `flow transactions profile` command. This is particularly useful for:
+
+* **Production Analysis**: Profile real transactions on mainnet to understand actual performance
+* **Debugging High Costs**: Investigate why a specific transaction used more computation than expected
+* **Post-Deployment Optimization**: Analyze live transactions to identify optimization opportunities
+
+### Basic Usage[​](#basic-usage "Direct link to Basic Usage")
+
+`_10
+
+# Profile a mainnet transaction
+
+_10
+
+flow transactions profile 07a8...b433 --network mainnet
+
+_10
+
+_10
+
+# Profile with custom output location
+
+_10
+
+flow transactions profile 0xabc123 --network testnet --output my-profile.pb.gz`
+
+### Analyzing Transaction Profiles[​](#analyzing-transaction-profiles "Direct link to Analyzing Transaction Profiles")
+
+The command generates a pprof profile that can be analyzed with standard tools:
+
+`_10
+
+# Interactive web interface
+
+_10
+
+go tool pprof -http=:8080 profile-07a8b433.pb.gz
+
+_10
+
+_10
+
+# Command-line analysis
+
+_10
+
+go tool pprof -top profile-07a8b433.pb.gz`
+
+📖 **[Learn more about transaction profiling](/build/tools/flow-cli/transactions/profile-transactions)**
+
+info
+
+Transaction profiling works with sealed transactions on any network, while emulator profiling (described below) is designed for development and provides aggregated profiles across multiple executions.
 
 ## Computation Reporting[​](#computation-reporting "Direct link to Computation Reporting")
 
@@ -182743,7 +182830,7 @@ This works with VSCode and Flow CLI debugging tools.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/advanced-concepts/computation-profiling.md)
 
-Last updated on **Jan 8, 2026** by **Chase Fleming**
+Last updated on **Jan 31, 2026** by **Jordan Ribbink**
 
 [Previous
 
@@ -182757,14 +182844,15 @@ Build Faster with Flow’s Native Account Abstraction](/build/cadence/advanced-c
 
 Copy as Markdown
 
-* [Overview](#overview)* [Computation Reporting](#computation-reporting)
-    + [Enabling Computation Reporting](#enabling-computation-reporting)+ [Viewing Computation Reports](#viewing-computation-reports)+ [Understanding Computation Intensities](#understanding-computation-intensities)* [Computation Profiling (pprof)](#computation-profiling-pprof)
-      + [Installing pprof](#installing-pprof)+ [Enabling Computation Profiling](#enabling-computation-profiling)+ [Downloading the Profile](#downloading-the-profile)+ [Viewing Profiles with pprof](#viewing-profiles-with-pprof)+ [Viewing Source Code in pprof](#viewing-source-code-in-pprof)+ [Resetting Computation Profiles](#resetting-computation-profiles)* [Using Source File Pragmas](#using-source-file-pragmas)
-        + [Usage](#usage)+ [Benefits](#benefits)* [Practical Examples](#practical-examples)
-          + [Profiling a Simple Transaction](#profiling-a-simple-transaction)+ [Identifying Performance Bottlenecks](#identifying-performance-bottlenecks)+ [Comparing Computation Costs](#comparing-computation-costs)* [API Reference](#api-reference)
-            + [Example API Calls](#example-api-calls)* [Troubleshooting](#troubleshooting)
-              + [Profile endpoint returns 404](#profile-endpoint-returns-404)+ [Empty profile](#empty-profile)+ [Source code not showing in pprof](#source-code-not-showing-in-pprof)+ [High memory usage](#high-memory-usage)+ [Computation reports not showing file paths](#computation-reports-not-showing-file-paths)* [Related Features](#related-features)
-                + [Code Coverage Reporting](#code-coverage-reporting)+ [Debugger](#debugger)
+* [Overview](#overview)* [Transaction Profiling](#transaction-profiling)
+    + [Basic Usage](#basic-usage)+ [Analyzing Transaction Profiles](#analyzing-transaction-profiles)* [Computation Reporting](#computation-reporting)
+      + [Enabling Computation Reporting](#enabling-computation-reporting)+ [Viewing Computation Reports](#viewing-computation-reports)+ [Understanding Computation Intensities](#understanding-computation-intensities)* [Computation Profiling (pprof)](#computation-profiling-pprof)
+        + [Installing pprof](#installing-pprof)+ [Enabling Computation Profiling](#enabling-computation-profiling)+ [Downloading the Profile](#downloading-the-profile)+ [Viewing Profiles with pprof](#viewing-profiles-with-pprof)+ [Viewing Source Code in pprof](#viewing-source-code-in-pprof)+ [Resetting Computation Profiles](#resetting-computation-profiles)* [Using Source File Pragmas](#using-source-file-pragmas)
+          + [Usage](#usage)+ [Benefits](#benefits)* [Practical Examples](#practical-examples)
+            + [Profiling a Simple Transaction](#profiling-a-simple-transaction)+ [Identifying Performance Bottlenecks](#identifying-performance-bottlenecks)+ [Comparing Computation Costs](#comparing-computation-costs)* [API Reference](#api-reference)
+              + [Example API Calls](#example-api-calls)* [Troubleshooting](#troubleshooting)
+                + [Profile endpoint returns 404](#profile-endpoint-returns-404)+ [Empty profile](#empty-profile)+ [Source code not showing in pprof](#source-code-not-showing-in-pprof)+ [High memory usage](#high-memory-usage)+ [Computation reports not showing file paths](#computation-reports-not-showing-file-paths)* [Related Features](#related-features)
+                  + [Code Coverage Reporting](#code-coverage-reporting)+ [Debugger](#debugger)
 
 Flow
 
@@ -185714,6 +185802,7 @@ With Flow CLI, developers can:
 * **Send Transactions**: Build, sign, and submit transactions to the Flow network, allowing for contract interaction and fund transfers.
 * **Query Chain State**: Retrieve data from the Flow blockchain, including account balances, event logs, and the status of specific transactions.
 * **Deploy Smart Contracts**: Easily deploy and update Cadence smart contracts on any Flow environment (emulator, testnet, or mainnet).
+* **Profile Transaction Performance**: Generate detailed computational profiles of sealed transactions to optimize gas costs and identify performance bottlenecks.
 * **Use the Emulator:** Set up a local Flow blockchain instance with the Flow emulator to test and debug smart contracts in a development environment before deploying them on the network.
 * **Test with Fork Mode**: Use [fork testing](/build/tools/flow-cli/fork-testing) to run tests and development environments against a local copy of mainnet or testnet state, giving you access to real contracts and data without affecting production.
 * **Interact with the [Flow Access API](/http-api)**: Automate complex workflows using configuration files and command-line scripting, which allows for greater flexibility in continuous integration (CI) or custom development tools.
@@ -185740,7 +185829,7 @@ To learn more about Flow CLI commands and how to use them, please refer to the [
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/index.md)
 
-Last updated on **Dec 16, 2025** by **Jordan Ribbink**
+Last updated on **Jan 31, 2026** by **Jordan Ribbink**
 
 [Previous
 
@@ -432215,7 +432304,7 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
-# Source: https://developers.flow.com/
+# Source: https://developers.flow.com
 
 Flow Developer Portal
 

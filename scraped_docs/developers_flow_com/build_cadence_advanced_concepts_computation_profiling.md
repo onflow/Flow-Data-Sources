@@ -42,15 +42,71 @@ When developing smart contracts on Flow, understanding computational costs is es
 * **Cost Awareness**: Understand how much computation your transactions and scripts consume
 * **Bottleneck Identification**: Pinpoint exactly where your code spends the most resources
 
-The Flow Emulator provides two complementary tools for this purpose:
+The Flow CLI provides three complementary approaches for profiling computation:
 
-|  |  |  |  |  |  |  |  |  |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Feature Output Best For|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | **Computation Reporting** JSON report with detailed intensities Quick numerical analysis, CI/CD integration, automated testing|  |  |  | | --- | --- | --- | | **Computation Profiling** pprof profile Visual analysis (e.g. flame graphs), deep-dive debugging, call stack exploration | | | | | | | | |
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Approach Output Best For|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **Transaction Profiling** (`flow transactions profile`) pprof profile for sealed transactions Analyzing production transactions on mainnet/testnet|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | **Emulator Computation Reporting** (`flow emulator --computation-reporting`) JSON report with detailed intensities Quick numerical analysis, CI/CD integration, automated testing|  |  |  | | --- | --- | --- | | **Emulator Computation Profiling** (`flow emulator --computation-profiling`) pprof profile for development Visual analysis during development, flame graphs, call stack exploration | | | | | | | | | | | |
 
 note
 
 Before getting started, make sure you have the [Flow CLI installed](/build/tools/flow-cli/install).
+
+## Transaction Profiling[​](#transaction-profiling "Direct link to Transaction Profiling")
+
+For analyzing sealed transactions on any Flow network (mainnet, testnet, or emulator), use the `flow transactions profile` command. This is particularly useful for:
+
+* **Production Analysis**: Profile real transactions on mainnet to understand actual performance
+* **Debugging High Costs**: Investigate why a specific transaction used more computation than expected
+* **Post-Deployment Optimization**: Analyze live transactions to identify optimization opportunities
+
+### Basic Usage[​](#basic-usage "Direct link to Basic Usage")
+
+`_10
+
+# Profile a mainnet transaction
+
+_10
+
+flow transactions profile 07a8...b433 --network mainnet
+
+_10
+
+_10
+
+# Profile with custom output location
+
+_10
+
+flow transactions profile 0xabc123 --network testnet --output my-profile.pb.gz`
+
+### Analyzing Transaction Profiles[​](#analyzing-transaction-profiles "Direct link to Analyzing Transaction Profiles")
+
+The command generates a pprof profile that can be analyzed with standard tools:
+
+`_10
+
+# Interactive web interface
+
+_10
+
+go tool pprof -http=:8080 profile-07a8b433.pb.gz
+
+_10
+
+_10
+
+# Command-line analysis
+
+_10
+
+go tool pprof -top profile-07a8b433.pb.gz`
+
+📖 **[Learn more about transaction profiling](/build/tools/flow-cli/transactions/profile-transactions)**
+
+info
+
+Transaction profiling works with sealed transactions on any network, while emulator profiling (described below) is designed for development and provides aggregated profiles across multiple executions.
 
 ## Computation Reporting[​](#computation-reporting "Direct link to Computation Reporting")
 
@@ -734,7 +790,7 @@ This works with VSCode and Flow CLI debugging tools.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/advanced-concepts/computation-profiling.md)
 
-Last updated on **Jan 8, 2026** by **Chase Fleming**
+Last updated on **Jan 31, 2026** by **Jordan Ribbink**
 
 [Previous
 
@@ -748,14 +804,15 @@ Build Faster with Flow’s Native Account Abstraction](/build/cadence/advanced-c
 
 Copy as Markdown
 
-* [Overview](#overview)* [Computation Reporting](#computation-reporting)
-    + [Enabling Computation Reporting](#enabling-computation-reporting)+ [Viewing Computation Reports](#viewing-computation-reports)+ [Understanding Computation Intensities](#understanding-computation-intensities)* [Computation Profiling (pprof)](#computation-profiling-pprof)
-      + [Installing pprof](#installing-pprof)+ [Enabling Computation Profiling](#enabling-computation-profiling)+ [Downloading the Profile](#downloading-the-profile)+ [Viewing Profiles with pprof](#viewing-profiles-with-pprof)+ [Viewing Source Code in pprof](#viewing-source-code-in-pprof)+ [Resetting Computation Profiles](#resetting-computation-profiles)* [Using Source File Pragmas](#using-source-file-pragmas)
-        + [Usage](#usage)+ [Benefits](#benefits)* [Practical Examples](#practical-examples)
-          + [Profiling a Simple Transaction](#profiling-a-simple-transaction)+ [Identifying Performance Bottlenecks](#identifying-performance-bottlenecks)+ [Comparing Computation Costs](#comparing-computation-costs)* [API Reference](#api-reference)
-            + [Example API Calls](#example-api-calls)* [Troubleshooting](#troubleshooting)
-              + [Profile endpoint returns 404](#profile-endpoint-returns-404)+ [Empty profile](#empty-profile)+ [Source code not showing in pprof](#source-code-not-showing-in-pprof)+ [High memory usage](#high-memory-usage)+ [Computation reports not showing file paths](#computation-reports-not-showing-file-paths)* [Related Features](#related-features)
-                + [Code Coverage Reporting](#code-coverage-reporting)+ [Debugger](#debugger)
+* [Overview](#overview)* [Transaction Profiling](#transaction-profiling)
+    + [Basic Usage](#basic-usage)+ [Analyzing Transaction Profiles](#analyzing-transaction-profiles)* [Computation Reporting](#computation-reporting)
+      + [Enabling Computation Reporting](#enabling-computation-reporting)+ [Viewing Computation Reports](#viewing-computation-reports)+ [Understanding Computation Intensities](#understanding-computation-intensities)* [Computation Profiling (pprof)](#computation-profiling-pprof)
+        + [Installing pprof](#installing-pprof)+ [Enabling Computation Profiling](#enabling-computation-profiling)+ [Downloading the Profile](#downloading-the-profile)+ [Viewing Profiles with pprof](#viewing-profiles-with-pprof)+ [Viewing Source Code in pprof](#viewing-source-code-in-pprof)+ [Resetting Computation Profiles](#resetting-computation-profiles)* [Using Source File Pragmas](#using-source-file-pragmas)
+          + [Usage](#usage)+ [Benefits](#benefits)* [Practical Examples](#practical-examples)
+            + [Profiling a Simple Transaction](#profiling-a-simple-transaction)+ [Identifying Performance Bottlenecks](#identifying-performance-bottlenecks)+ [Comparing Computation Costs](#comparing-computation-costs)* [API Reference](#api-reference)
+              + [Example API Calls](#example-api-calls)* [Troubleshooting](#troubleshooting)
+                + [Profile endpoint returns 404](#profile-endpoint-returns-404)+ [Empty profile](#empty-profile)+ [Source code not showing in pprof](#source-code-not-showing-in-pprof)+ [High memory usage](#high-memory-usage)+ [Computation reports not showing file paths](#computation-reports-not-showing-file-paths)* [Related Features](#related-features)
+                  + [Code Coverage Reporting](#code-coverage-reporting)+ [Debugger](#debugger)
 
 Flow
 
