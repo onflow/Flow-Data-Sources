@@ -30473,7 +30473,7 @@ Search
 
                             - [Transactions](/build/tools/flow-cli/transactions/send-transactions)
 
-                              * [Send a Transaction](/build/tools/flow-cli/transactions/send-transactions)* [Get a Transaction](/build/tools/flow-cli/transactions/get-transactions)* [Build a Transaction](/build/tools/flow-cli/transactions/build-transactions)* [Build a Complex Transaction](/build/tools/flow-cli/transactions/complex-transactions)* [Sign a Transaction](/build/tools/flow-cli/transactions/sign-transaction)* [Send Signed Transaction](/build/tools/flow-cli/transactions/send-signed-transactions)* [Build a Complex Transaction](/build/tools/flow-cli/transactions/decode-transactions)* [Get a System Transaction](/build/tools/flow-cli/transactions/get-system-transactions)- [Flow.json](/build/tools/flow-cli/flow.json/initialize-configuration)
+                              * [Send a Transaction](/build/tools/flow-cli/transactions/send-transactions)* [Get a Transaction](/build/tools/flow-cli/transactions/get-transactions)* [Build a Transaction](/build/tools/flow-cli/transactions/build-transactions)* [Build a Complex Transaction](/build/tools/flow-cli/transactions/complex-transactions)* [Sign a Transaction](/build/tools/flow-cli/transactions/sign-transaction)* [Send Signed Transaction](/build/tools/flow-cli/transactions/send-signed-transactions)* [Build a Complex Transaction](/build/tools/flow-cli/transactions/decode-transactions)* [Get a System Transaction](/build/tools/flow-cli/transactions/get-system-transactions)* [Profile a Transaction](/build/tools/flow-cli/transactions/profile-transactions)- [Flow.json](/build/tools/flow-cli/flow.json/initialize-configuration)
 
                                 - [Flow Entities](/build/tools/flow-cli/get-flow-data/get-blocks)
 
@@ -30722,7 +30722,7 @@ Last updated on **Sep 24, 2025** by **Brian Doyle**
 
 Build a Complex Transaction](/build/tools/flow-cli/transactions/decode-transactions)[Next
 
-Initialize Configuration](/build/tools/flow-cli/flow.json/initialize-configuration)
+Profile a Transaction](/build/tools/flow-cli/transactions/profile-transactions)
 
 ###### Rate this page
 
@@ -100740,7 +100740,7 @@ Search
 
                             - [Transactions](/build/tools/flow-cli/transactions/send-transactions)
 
-                              * [Send a Transaction](/build/tools/flow-cli/transactions/send-transactions)* [Get a Transaction](/build/tools/flow-cli/transactions/get-transactions)* [Build a Transaction](/build/tools/flow-cli/transactions/build-transactions)* [Build a Complex Transaction](/build/tools/flow-cli/transactions/complex-transactions)* [Sign a Transaction](/build/tools/flow-cli/transactions/sign-transaction)* [Send Signed Transaction](/build/tools/flow-cli/transactions/send-signed-transactions)* [Build a Complex Transaction](/build/tools/flow-cli/transactions/decode-transactions)* [Get a System Transaction](/build/tools/flow-cli/transactions/get-system-transactions)- [Flow.json](/build/tools/flow-cli/flow.json/initialize-configuration)
+                              * [Send a Transaction](/build/tools/flow-cli/transactions/send-transactions)* [Get a Transaction](/build/tools/flow-cli/transactions/get-transactions)* [Build a Transaction](/build/tools/flow-cli/transactions/build-transactions)* [Build a Complex Transaction](/build/tools/flow-cli/transactions/complex-transactions)* [Sign a Transaction](/build/tools/flow-cli/transactions/sign-transaction)* [Send Signed Transaction](/build/tools/flow-cli/transactions/send-signed-transactions)* [Build a Complex Transaction](/build/tools/flow-cli/transactions/decode-transactions)* [Get a System Transaction](/build/tools/flow-cli/transactions/get-system-transactions)* [Profile a Transaction](/build/tools/flow-cli/transactions/profile-transactions)- [Flow.json](/build/tools/flow-cli/flow.json/initialize-configuration)
 
                                 - [Flow Entities](/build/tools/flow-cli/get-flow-data/get-blocks)
 
