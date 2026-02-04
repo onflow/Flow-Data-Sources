@@ -8,7 +8,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -20,19 +20,21 @@ Search
 
           + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+            + [Advanced Concepts](/build/cadence/advanced-concepts/computation-profiling)
 
               + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
       + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
 
-        + [Flow React SDK](/build/tools/react-sdk)
+        + [Flow React Native SDK](/build/tools/react-native-sdk)
 
-          + [Flow Emulator](/build/tools/emulator)+ [Flow CLI](/build/tools/flow-cli)
+          + [Flow React SDK](/build/tools/react-sdk)
 
-              + [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+            + [Flow Emulator](/build/tools/emulator)+ [Flow CLI](/build/tools/flow-cli)
 
-                    + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                + [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+
+                      + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* Flow Emulator
 
@@ -84,24 +86,24 @@ This starts a local Flow network with:
 * REST API on `http://localhost:8888`
 * Admin API on port `8080`
 
-## Available Commands[​](#available-commands "Direct link to Available Commands")
+## Available commands[​](#available-commands "Direct link to Available commands")
 
 * `snapshot`: Create/Load/List emulator snapshots. See: [Create Emulator Snapshot](/build/tools/flow-cli/utils/snapshot-save)
 
-## Key Flags[​](#key-flags "Direct link to Key Flags")
+## Key flags[​](#key-flags "Direct link to Key flags")
 
 * **Networking**
 
-  + `--host <string>`: Host to listen on for gRPC/REST/Admin (default: all interfaces)
+  + `--host <string>`: Host to listen on for gRPC, REST, and Admin (default: all interfaces)
   + `--port, -p <int>`: gRPC port (default `3569`)
   + `--rest-port <int>`: REST API port (default `8888`)
   + `--admin-port <int>`: Admin API port (default `8080`)
   + `--debugger-port <int>`: Debug Adapter Protocol port (default `2345`)
-  + `--grpc-debug`: Enable gRPC server reflection
-  + `--rest-debug`: Enable REST API debug output
-* **State & Persistence**
+  + `--grpc-debug`: Turn on gRPC server reflection
+  + `--rest-debug`: Turn on REST API debug output
+* **State and Persistence**
 
-  + `--persist`: Enable persistent storage (default disabled)
+  + `--persist`: Turn on persistent storage (default disabled)
   + `--dbpath <path>`: Directory for on-disk state (default `./flowdb`)
   + `--sqlite-url <url>`: Use SQLite storage backend
   + `--redis-url <url>`: Use Redis storage backend
@@ -110,15 +112,15 @@ This starts a local Flow network with:
 * **Forking**
 
   + `--fork <string>`: Start the emulator in fork mode using a network from `flow.json`. If provided without a value, defaults to `mainnet`.
-  + `--fork-host <host>`: Access node to query when forking Mainnet/Testnet
-  + `--fork-height <uint>`: Starting block height when forking
-* **Cadence & VM**
+  + `--fork-host <host>`: Access node to query when you fork Mainnet or Testnet
+  + `--fork-height <uint>`: Starting block height when you fork
+* **Cadence and VM**
 
-  + `--block-time, -b <duration>`: Time between sealed blocks (e.g. `1s`, `300ms`)
-  + `--coverage-reporting`: Enable code coverage reporting
-  + `--computation-reporting`: Enable computation reporting
-  + `--legacy-upgrade`: Enable legacy contract upgrade behavior
-  + `--scheduled-transactions`: Enable scheduled transactions (default true)
+  + `--block-time, -b <duration>`: Time between sealed blocks (for exxample, `1s`, `300ms`)
+  + `--coverage-reporting`: Turn on code coverage reporting
+  + `--computation-reporting`: Turn on computation reporting
+  + `--legacy-upgrade`: Turn on legacy contract upgrade behavior
+  + `--scheduled-transactions`: Turn on scheduled transactions (default true)
   + `--script-compute-limit <int>`: Compute unit limit for scripts (default `100000`)
   + `--transaction-max-compute-limit <int>`: Max transaction compute unit limit (default `9999`)
   + `--transaction-expiry <int>`: Transaction expiry in blocks (default `10`)
@@ -127,20 +129,20 @@ This starts a local Flow network with:
   + `--storage-limit`: Enforce account storage limit (default true)
   + `--storage-per-flow <decimal>`: MB of storage per 1 FLOW token
   + `--token-supply <decimal>`: Initial FLOW token supply (default `1000000000.0`)
-  + `--transaction-fees`: Enable transaction fees
+  + `--transaction-fees`: Turn on transaction fees
   + `--setup-evm`: Deploy EVM contracts (default true)
   + `--setup-vm-bridge`: Deploy VM Bridge contracts (default true)
-* **Service Account & Identity**
+* **Service Account and Identity**
 
   + `--chain-id <emulator|testnet|mainnet>`: Address generation chain (default `emulator`)
   + `--service-priv-key <hex>` / `--service-pub-key <hex>`: Service account keys
   + `--service-sig-algo <ECDSA_P256|ECDSA_secp256k1>`: Service key signature algo (default `ECDSA_P256`)
   + `--service-hash-algo <SHA3_256|SHA2_256>`: Service key hash algo (default `SHA3_256`)
-  + `--min-account-balance <decimal>`: Minimum account balance / account creation cost
+  + `--min-account-balance <decimal>`: Minimum account balance or account creation cost
   + `--contracts`: Deploy common contracts on start
   + `--contract-removal`: Allow contract removal for development (default true)
   + `--init`: Initialize a new account profile
-* **Logging & Output**
+* **Logging and Output**
 
   + `--verbose, -v`: Verbose logging
   + `--log-format <text|JSON>`: Logging output format (default `text`)
@@ -264,15 +266,20 @@ For the complete and current list of flags, run:
 
 flow emulator --help`
 
-## Debugging & Testing[​](#debugging--testing "Direct link to Debugging & Testing")
+## Debugging and Testing[​](#debugging-and-testing "Direct link to Debugging and Testing")
 
 * **Code Coverage**: Add `--coverage-reporting` flag and visit `http://localhost:8080/emulator/codeCoverage`
+* **Computation Profiling**: Add `--computation-profiling` and/or `--computation-reporting` flags to analyze computational costs and identify performance bottlenecks in your Cadence code. See the [Cadence Computation Profiling guide](/build/cadence/advanced-concepts/computation-profiling) for detailed instructions.
 * **Debugging**: Use `#debugger()` pragma in Cadence code for breakpoints
-* **Fork mode note**: When using `flow emulator --fork`, only Flow chain state is available. External oracles/APIs and cross-chain reads are not live; mock these or run local stub services for E2E.
+* **Fork mode note**: When you use `flow emulator --fork`, only Flow chain state is available. External oracles/APIs and cross-chain reads are not live; mock these or run local stub services for E2E.
+
+### Fork Mode Tutorial[​](#fork-mode-tutorial "Direct link to Fork Mode Tutorial")
+
+For a complete guide on using the emulator in fork mode with dapps, E2E tests, and account impersonation, see: [Interactive Testing with Forked Emulator](/blockchain-development-tutorials/cadence/emulator-fork-testing).
 
 ## Snapshots[​](#snapshots "Direct link to Snapshots")
 
-The Flow CLI provides a command to create emulator snapshots, which are points in blockchain history you can later jump to and reset the state to that moment. This can be useful for testing where you establish a beginning state, run tests and after revert back to the initial state.
+The Flow CLI provides a command to create emulator snapshots, which are points in blockchain history you can later jump to and reset the state to that moment. This can be useful to test where you establish a beginning state, run tests and after revert back to the initial state.
 
 ### Quick snapshot workflow[​](#quick-snapshot-workflow "Direct link to Quick snapshot workflow")
 
@@ -318,7 +325,7 @@ Create a new emulator snapshot at the current block with a name of `myInitialSta
 
 flow emulator snapshot create myInitialState`
 
-### Load an existing snapshot[​](#load-an-existing-snapshot "Direct link to Load an existing snapshot")
+### Load a current snapshot[​](#load-a-current-snapshot "Direct link to Load a current snapshot")
 
 To jump to a previously created snapshot we use the load command in combination with the name.
 
@@ -326,21 +333,21 @@ To jump to a previously created snapshot we use the load command in combination 
 
 flow emulator snapshot load myInitialState`
 
-### List all existing snapshots[​](#list-all-existing-snapshots "Direct link to List all existing snapshots")
+### List all snapshots[​](#list-all-snapshots "Direct link to List all snapshots")
 
-To list all the existing snapshots we previously created and can load to run:
+To list all the snapshots we previously created and can load to run:
 
 `_10
 
 flow emulator list`
 
-## Additional Resources[​](#additional-resources "Direct link to Additional Resources")
+## Additional resources[​](#additional-resources "Direct link to Additional resources")
 
-To learn more about using the Emulator, please have a look at the [public GitHub repository](https://github.com/onflow/flow-emulator).
+To learn more about how to use the Emulator, have a look at the [public GitHub repository](https://github.com/onflow/flow-emulator).
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/emulator/index.md)
 
-Last updated on **Nov 12, 2025** by **Brian Doyle**
+Last updated on **Jan 7, 2026** by **Chase Fleming**
 
 [Previous
 
@@ -354,8 +361,9 @@ Flow CLI](/build/tools/flow-cli)
 
 Copy as Markdown
 
-* [Installation](#installation)* [Quick Start](#quick-start)* [Available Commands](#available-commands)* [Key Flags](#key-flags)* [Examples](#examples)* [Debugging & Testing](#debugging--testing)* [Snapshots](#snapshots)
-              + [Quick snapshot workflow](#quick-snapshot-workflow)+ [Create a new snapshot](#create-a-new-snapshot)+ [Load an existing snapshot](#load-an-existing-snapshot)+ [List all existing snapshots](#list-all-existing-snapshots)* [Additional Resources](#additional-resources)
+* [Installation](#installation)* [Quick Start](#quick-start)* [Available commands](#available-commands)* [Key flags](#key-flags)* [Examples](#examples)* [Debugging and Testing](#debugging-and-testing)
+            + [Fork Mode Tutorial](#fork-mode-tutorial)* [Snapshots](#snapshots)
+              + [Quick snapshot workflow](#quick-snapshot-workflow)+ [Create a new snapshot](#create-a-new-snapshot)+ [Load a current snapshot](#load-a-current-snapshot)+ [List all snapshots](#list-all-snapshots)* [Additional resources](#additional-resources)
 
 Flow
 
@@ -377,4 +385,4 @@ Network & Resources
 
 * [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow Foundation. All Rights Reserved.
+Copyright © 2026 Flow Foundation. All Rights Reserved.
