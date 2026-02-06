@@ -68,6 +68,7 @@ With Flow CLI, developers can:
 * **Send Transactions**: Build, sign, and submit transactions to the Flow network, allowing for contract interaction and fund transfers.
 * **Query Chain State**: Retrieve data from the Flow blockchain, including account balances, event logs, and the status of specific transactions.
 * **Deploy Smart Contracts**: Easily deploy and update Cadence smart contracts on any Flow environment (emulator, testnet, or mainnet).
+* **Profile Transaction Performance**: Generate detailed computational profiles of sealed transactions to optimize gas costs and identify performance bottlenecks.
 * **Use the Emulator:** Set up a local Flow blockchain instance with the Flow emulator to test and debug smart contracts in a development environment before deploying them on the network.
 * **Test with Fork Mode**: Use [fork testing](/build/tools/flow-cli/fork-testing) to run tests and development environments against a local copy of mainnet or testnet state, giving you access to real contracts and data without affecting production.
 * **Interact with the [Flow Access API](/http-api)**: Automate complex workflows using configuration files and command-line scripting, which allows for greater flexibility in continuous integration (CI) or custom development tools.
@@ -94,7 +95,7 @@ To learn more about Flow CLI commands and how to use them, please refer to the [
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/index.md)
 
-Last updated on **Dec 16, 2025** by **Jordan Ribbink**
+Last updated on **Jan 31, 2026** by **Jordan Ribbink**
 
 [Previous
 
