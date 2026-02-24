@@ -89625,7 +89625,7 @@ Search
 
           + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+            + [Advanced Concepts](/build/cadence/advanced-concepts/computation-profiling)
 
               + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
@@ -432745,7 +432745,7 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
-# Source: https://developers.flow.com/
+# Source: https://developers.flow.com
 
 Flow Developer Portal
 
