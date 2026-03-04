@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/nft-storefront/blob/main/scripts/read_storefront_ids.cdc
 
 ```
-import NFTStorefrontV2 from "../contracts/NFTStorefrontV2.cdc"
+import "NFTStorefrontV2"
 
 // This script returns an array of all the nft uuids for sale through a Storefront
 

@@ -12,7 +12,7 @@ transaction(surgeFactor: UFix64) {
 			?? panic("Unable to borrow reference to administrator resource")
 	}
 	execute {
-		self.flowFeesAccountAdmin.setFeeSurgeFactor(surgeFactor: surgeFactor)
+		self.flowFeesAccountAdmin.setFeeSurgeFactor(surgeFactor)
 	}
 }
 ```

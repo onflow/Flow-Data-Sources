@@ -1,0 +1,19 @@
+# Source: https://github.com/onflow/Flow-Working-Groups/blob/main/cadence_language_and_execution_working_group/meetings/2025-06-25.md
+
+# Meeting 7
+
+## Date: Jun 25th, 2025, Tue 9-10AM PDT
+
+## How to add an agenda topic?
+
+Any attendee can add an agenda topic by creating a pull request on this file and adding more topics in the agenda below.
+
+## Agenda
+
+Agenda for this meeting will be:
+
+- Discuss & vote on Import Aliasing FLIP: https://github.com/onflow/flips/issues/314 (implementation: https://github.com/onflow/cadence/pull/3717)
+
+- Finish reviewing Cadence roadmap feedback we started int he last session: https://www.notion.so/flowfoundation/Beyond-Cadence-1-0-Survey-13d1aee123248071a879e5e2324ed0a4
+
+- Update on the Cadence Compiler / VM track

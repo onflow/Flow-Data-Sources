@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/nft-storefront/blob/main/transactions/cleanup_ghost_listing.cdc
 
 ```
-import NFTStorefrontV2 from "../contracts/NFTStorefrontV2.cdc"
+import "NFTStorefrontV2"
 
 /// Below transaction help to remove the ghost listing for the given storefront.
 ///
@@ -16,7 +16,7 @@ transaction(listingResourceID: UInt64, storefrontAddress: Address) {
         // Access the storefront public resource of the seller to purchase the listing.
         self.storefrontPublicRef = getAccount(storefrontAddress).capabilities.borrow<&{NFTStorefrontV2.StorefrontPublic}>(
                 NFTStorefrontV2.StorefrontPublicPath
-            ) ?? panic("Could not borrow Storefront from provided address")
+            ) ?? panic("Could not get a Storefront from the provided address \(storefrontAddress)!")
     }
 
     execute {

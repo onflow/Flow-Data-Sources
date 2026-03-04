@@ -1,0 +1,26 @@
+# Source: https://github.com/Flowtyio/flow-contracts/blob/main/contracts/hybrid-custody/factories/NFTCollectionPublicFactory.cdc
+
+```
+import "CapabilityFactory"
+import "NonFungibleToken"
+
+access(all) contract NFTCollectionPublicFactory {
+    access(all) struct Factory: CapabilityFactory.Factory {
+        access(all) view fun getCapability(acct: auth(Capabilities) &Account, controllerID: UInt64): Capability? {
+            if let con = acct.capabilities.storage.getController(byCapabilityID: controllerID) {
+                if !con.capability.check<&{NonFungibleToken.CollectionPublic}>() {
+                    return nil
+                }
+
+                return con.capability as! Capability<&{NonFungibleToken.CollectionPublic}>
+            }
+
+            return nil
+        }
+
+        access(all) view fun getPublicCapability(acct: &Account, path: PublicPath): Capability? {
+            return acct.capabilities.get<&{NonFungibleToken.CollectionPublic}>(path)
+        }
+    }
+}
+```

@@ -9,25 +9,19 @@ import ViewResolver from 0xMetadataViews
 access(all) struct CollectionData {
   access(all) let storagePath: StoragePath
   access(all) let publicPath: PublicPath
-  access(all) let providerPath: PrivatePath
   access(all) let publicCollection: Type
   access(all) let publicLinkedType: Type
-  access(all) let providerLinkedType: Type
 
   init(
     storagePath: StoragePath,
     publicPath: PublicPath,
-    providerPath: PrivatePath,
     publicCollection: Type,
     publicLinkedType: Type,
-    providerLinkedType: Type
   ) {
     self.storagePath = storagePath
     self.publicPath = publicPath
-    self.providerPath = providerPath
     self.publicCollection = publicCollection
     self.publicLinkedType = publicLinkedType
-    self.providerLinkedType = providerLinkedType
   }
 }
 
@@ -102,10 +96,8 @@ access(all) fun main(address: Address, pathId: String, tokenID: UInt64): {String
       let data = CollectionData(
         storagePath: collectionData.storagePath,
         publicPath: collectionData.publicPath,
-        providerPath: collectionData.providerPath,
         publicCollection: collectionData.publicCollection,
         publicLinkedType: collectionData.publicLinkedType,
-        providerLinkedType: collectionData.providerLinkedType
       )
       res["collectionData"] = data
     }

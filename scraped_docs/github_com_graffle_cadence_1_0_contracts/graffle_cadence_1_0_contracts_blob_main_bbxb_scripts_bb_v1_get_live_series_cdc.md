@@ -1,0 +1,10 @@
+# Source: https://github.com/Graffle/cadence-1.0-contracts/blob/main/bbxb/scripts/bb_v1_get_live_series.cdc
+
+```
+import "BBxBarbiePM"
+
+access(all) fun main(): AnyStruct {
+    return {"getEnabledSeries":BBxBarbiePM.getEnabledSeries(),"getEnabledPackSeries": BBxBarbiePM.getEnabledPackSeries(),"getEnabledCardSeries": BBxBarbiePM.getEnabledCardSeries(),"getEnabledTokenSeries": BBxBarbiePM.getEnabledTokenSeries()}
+}
+
+```

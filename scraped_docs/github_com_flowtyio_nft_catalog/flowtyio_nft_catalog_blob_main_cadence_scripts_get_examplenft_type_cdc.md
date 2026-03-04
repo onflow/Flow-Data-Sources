@@ -1,0 +1,17 @@
+# Source: https://github.com/Flowtyio/nft-catalog/blob/main/cadence/scripts/get_examplenft_type.cdc
+
+```
+import "NonFungibleToken"
+import "ExampleNFT"
+
+access(all) fun main(): String {
+    let x = ReferenceType(entitlements: ["A.f8d6e0586b0a20c7.NonFungibleToken.Withdraw"], type: CompositeType(Type<@ExampleNFT.Collection>().identifier)!)
+    let y = ReferenceType(entitlements: [], type: CompositeType(Type<@ExampleNFT.Collection>().identifier)!)
+    //let y = CompositeType("A.f8d6e0586b0a20c7.ExampleNFT.Collection")
+    //return y!.identifier
+    //return x!.identifier
+    return Type<&ExampleNFT.NFT>().identifier
+
+
+}
+```

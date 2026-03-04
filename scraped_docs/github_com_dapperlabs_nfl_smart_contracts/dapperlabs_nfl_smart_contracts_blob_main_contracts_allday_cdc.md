@@ -76,6 +76,7 @@ access(all) contract AllDay: NonFungibleToken {
         playID: UInt64,
         maxMintSize: UInt64?,
         tier: String,
+        parallel: String
     )
     // Emitted when an edition is either closed by an admin, or the max amount of moments have been minted
     access(all) event EditionClosed(id: UInt64)
@@ -84,6 +85,14 @@ access(all) contract AllDay: NonFungibleToken {
     //
     access(all) event MomentNFTMinted(id: UInt64, editionID: UInt64, serialNumber: UInt64)
     access(all) event MomentNFTBurned(id: UInt64)
+
+    // Badges Events
+    //
+    access(all) event BadgeCreated(slug: String, title: String, description: String, visible: Bool, slugV2: String, metadata: {String: String})
+    access(all) event BadgeUpdated(slug: String, title: String, description: String, visible: Bool, slugV2: String, metadata: {String: String})
+    access(all) event BadgeAddedToEntity(badgeSlug: String, entityType: String, entityID: UInt64, metadata: {String: String})
+    access(all) event BadgeRemovedFromEntity(badgeSlug: String, entityType: String, entityID: UInt64)
+    access(all) event BadgeDeleted(slug: String)
 
     //------------------------------------------------------------
     // Named values
@@ -407,6 +416,10 @@ access(all) contract AllDay: NonFungibleToken {
             return self.numMinted == self.maxMintSize
         }
 
+        access(all) view fun getParallel(): String {
+            return AllDay.getParallelForEdition(self.id)
+        }
+
         // initializer
         //
         view init (id: UInt64) {
@@ -472,6 +485,11 @@ access(all) contract AllDay: NonFungibleToken {
             return <- momentNFT
         }
 
+        // Get this edition's parallel
+        access(all) view fun getParallel(): String {
+            return AllDay.getParallelForEdition(self.id)
+        }
+
         // initializer
         //
         init (
@@ -480,6 +498,7 @@ access(all) contract AllDay: NonFungibleToken {
             playID: UInt64,
             maxMintSize: UInt64?,
             tier: String,
+            parallel: String?
         ) {
             pre {
                 maxMintSize != 0: "max mint size is zero, must either be null or greater than 0"
@@ -487,7 +506,9 @@ access(all) contract AllDay: NonFungibleToken {
                 AllDay.setByID.containsKey(setID): "setID does not exist"
                 AllDay.playByID.containsKey(playID): "playID does not exist"
                 SeriesData(id: seriesID).active == true: "cannot create an Edition with a closed Series"
-                AllDay.getPlayTierExistsInEdition(setID, playID, tier) == false: "set play tier combination already exists in an edition"
+                AllDay.getPlayTierParallelExistsInEdition(setID, playID, tier, parallel) == false: "set play tier combination already exists in an edition"
+                AllDay.isValidTier(tier): "tier is not a valid tier"
+                AllDay.isValidParallel(parallel): "parallel is not a valid parallel"
             }
 
             self.id = AllDay.nextEditionID
@@ -503,11 +524,22 @@ access(all) contract AllDay: NonFungibleToken {
             }
 
             self.tier = tier
+
+            // Store parallel for the edition if specified
+            if parallel != nil {
+                var addOnsResource = AllDay.borrowAddOns()
+                if addOnsResource == nil {
+                    AllDay.initializeAddOnsInStorage()
+                    addOnsResource = AllDay.borrowAddOns()
+                }
+                addOnsResource!.insertParallelDataForEdition(editionID: self.id, parallel: parallel!)
+            }
+
             self.numMinted = 0 as UInt64
 
             AllDay.nextEditionID = AllDay.nextEditionID + 1 as UInt64
             AllDay.setByID[setID]?.insertNewPlay(playID: playID)
-            AllDay.insertSetPlayTierMap(setID, playID, tier)
+            AllDay.insertSetPlayTierMap(setID, playID, tier, parallel)
 
             emit EditionCreated(
                 id: self.id,
@@ -516,8 +548,21 @@ access(all) contract AllDay: NonFungibleToken {
                 playID: self.playID,
                 maxMintSize: self.maxMintSize,
                 tier: self.tier,
+                parallel: self.getParallel(),
             )
         }
+    }
+
+    // Check if parallel is valid
+    //
+    access(all) view fun isValidParallel(_ parallel: String?): Bool {
+        return parallel == nil || {"Ruby": true, "Emerald": true, "Sapphire": true, "Opal": true, "Diamond": true, "Obsidian": true, "Topaz": true}.containsKey(parallel!)
+    }
+
+    // Check if tier is valid
+    //
+    access(all) view fun isValidTier(_ tier: String): Bool {
+        return {"COMMON": true, "UNCOMMON": true, "LEGENDARY": true, "RARE": true, "ULTIMATE": true}.containsKey(tier)
     }
 
     // Get the publicly available data for an Edition
@@ -542,24 +587,332 @@ access(all) contract AllDay: NonFungibleToken {
 
     // Get composite key used to read/write SetPlayTierMap
     //
-    access(contract) view fun getSetPlayTierMapKey(_ setID: UInt64,_ playID: UInt64,_ tier: String): String {
-        return setID.toString().concat("-").concat(playID.toString()).concat("-").concat(tier)
+    access(contract) view fun getSetPlayTierParallelMapKey(_ setID: UInt64,_ playID: UInt64,_ tier: String, _ parallel: String?): String {
+        var s = setID.toString().concat("-").concat(playID.toString()).concat("-").concat(tier)
+        if parallel != nil {
+            s = s.concat("-").concat(parallel!)
+        }
+        return s
     }
 
     // Check if the given set, play, tier has already been minted in an Edition
     //
-    access(contract) view fun getPlayTierExistsInEdition(_ setID: UInt64, _ playID: UInt64, _ tier: String): Bool {
+    access(contract) view fun getPlayTierParallelExistsInEdition(_ setID: UInt64, _ playID: UInt64, _ tier: String, _ parallel: String?): Bool {
         let setPlayTierMap = AllDay.account.storage.borrow<&{String: Bool}>(from: AllDay.getSetPlayTierMapStorage())!
-        return setPlayTierMap.containsKey(AllDay.getSetPlayTierMapKey(setID, playID, tier))
+        return setPlayTierMap.containsKey(AllDay.getSetPlayTierParallelMapKey(setID, playID, tier, parallel))
     }
 
     // Insert new entry into SetPlayTierMap
     //
-    access(contract) fun insertSetPlayTierMap(_ setID: UInt64, _ playID: UInt64, _ tier: String) {
+    access(contract) fun insertSetPlayTierMap(_ setID: UInt64, _ playID: UInt64, _ tier: String, _ parallel: String?) {
         let setPlayTierMap = AllDay.account.storage.load<{String: Bool}>(from: AllDay.getSetPlayTierMapStorage())!
-        setPlayTierMap.insert(key: AllDay.getSetPlayTierMapKey(setID, playID, tier), true)
+        setPlayTierMap.insert(key: AllDay.getSetPlayTierParallelMapKey(setID, playID, tier, parallel), true)
         AllDay.account.storage.save(setPlayTierMap, to: /storage/AllDayAdminSetPlayTierMap)
     }
+
+    //------------------------------------------------------------
+    // Badges
+    //------------------------------------------------------------  
+
+    // Enum for valid entity types that can have badges
+    access(all) enum BadgeEntityType: UInt8 {
+        access(all) case play
+        access(all) case edition
+        access(all) case moment
+    }
+
+    // Helper function to convert BadgeEntityType enum to string
+    access(all) fun badgeEntityTypeToString(_ entityType: BadgeEntityType): String {
+        switch entityType {
+            case BadgeEntityType.play:
+                return "play"
+            case BadgeEntityType.edition:
+                return "edition"
+            case BadgeEntityType.moment:
+                return "moment"
+        }
+        return ""
+    }
+
+    access(all) struct Badge{
+        access(all) var slug: String
+        access(all) var title: String
+        access(all) var description: String
+        access(all) var visible: Bool
+        access(all) var slugV2: String
+        access(all) var metadata: {String: String}
+
+        view init(slug: String, title: String, description: String, visible: Bool, slugV2: String){
+            self.slug = slug
+            self.title = title
+            self.description = description
+            self.visible = visible
+            self.slugV2 = slugV2
+            self.metadata = {}
+        }
+
+        access(all) fun update(title: String?, description: String?, visible: Bool?, slugV2: String?, metadata: {String: String}?){
+            if title != nil{
+                self.title = title!
+            }
+            if description != nil{
+                self.description = description!
+            }
+            if visible != nil{
+                self.visible = visible!
+            }
+            if slugV2 != nil{
+                self.slugV2 = slugV2!
+            }
+            if metadata != nil{
+                self.metadata = metadata!
+            }
+        }
+    }
+
+    //------------------------------------------------------------
+    // Parallels
+    //------------------------------------------------------------
+
+    access(all) struct ParallelData {
+        access(all) let parallel: String
+        access(all) let extension: {String: AnyStruct}
+
+        view init(parallel: String) {
+            self.parallel = parallel
+            self.extension = {}
+        }
+    }
+
+    access(all) resource AddOns {
+        access(self) let slugToBadge: {String: Badge}
+        access(self) let playIdToBadgeSlugs: {UInt64: {String: {String: String}}}
+        access(self) let editionIdToBadgeSlugs: {UInt64: {String: {String: String}}}
+        access(self) let momentIdToBadgeSlugs: {UInt64: {String: {String: String}}}
+        access(self) let editionIdToParallelData: {UInt64: ParallelData}
+        access(self) let extension:{String: {String: AnyStruct}}
+
+        // Badges initializer
+        //
+        view init() {
+            self.slugToBadge = {}
+            self.playIdToBadgeSlugs = {}
+            self.editionIdToBadgeSlugs = {}
+            self.momentIdToBadgeSlugs = {}
+            self.editionIdToParallelData = {}
+            self.extension = {}
+        }
+
+        access(contract) view fun getParallelDataForEdition(_ editionID: UInt64): ParallelData? {
+            return self.editionIdToParallelData[editionID]
+        }
+
+        access(contract) fun insertParallelDataForEdition(editionID: UInt64, parallel: String) {
+            pre {
+                !self.editionIdToParallelData.containsKey(editionID): "parallel already exists for this edition"
+            }
+            self.editionIdToParallelData.insert(key: editionID, ParallelData(parallel: parallel))
+        }
+
+        access(contract) view fun getBadge(_ slug: String): Badge?{
+            return self.slugToBadge[slug]
+        }
+
+        access(contract) fun getPlayBadges(_ playID: UInt64): [Badge]?{
+            if self.playIdToBadgeSlugs[playID] == nil {
+                return nil
+            }
+            let slugs = self.playIdToBadgeSlugs[playID]!
+            var badges: [Badge] = []
+            for slug in slugs.keys{
+                if let badge: Badge = self.slugToBadge[slug]{
+                    badges.append(badge)
+                }
+            }
+            return badges
+        }
+
+        access(contract) fun getEditionBadges(_ editionID: UInt64): [Badge]?{
+            if self.editionIdToBadgeSlugs[editionID] == nil {
+                return nil
+            }
+            let slugs = self.editionIdToBadgeSlugs[editionID]!
+            var badges: [Badge] = []
+            for slug in slugs.keys{
+                if let badge: Badge = self.slugToBadge[slug]{
+                    badges.append(badge)
+                }
+            }
+            return badges
+        }
+
+        access(contract) fun getMomentBadges(_ momentID: UInt64): [Badge]?{
+            if self.momentIdToBadgeSlugs[momentID] == nil {
+                return nil
+            }
+            let slugs = self.momentIdToBadgeSlugs[momentID]!
+            var badges: [Badge] = []
+            for slug in slugs.keys{
+                if let badge: Badge = self.slugToBadge[slug]{
+                    badges.append(badge)
+                }
+            }
+            return badges
+        }
+
+        access(contract) fun createBadge(slug: String, title: String, description: String, visible: Bool, slugV2: String){
+            assert(self.slugToBadge[slug] == nil, message: "badge already exists")
+            let badge = Badge(slug: slug, title: title, description: description, visible: visible, slugV2: slugV2)
+            self.slugToBadge[slug] = badge
+            emit BadgeCreated(slug: slug, title: title, description: description, visible: visible, slugV2: slugV2, metadata: badge.metadata)
+        }
+
+        access(contract) fun updateBadge(slug: String, title: String?, description: String?, visible: Bool?, slugV2: String?, metadata: {String: String}?){
+            assert(self.slugToBadge[slug] != nil, message: "badge doesn't exist")
+            
+            // Get a reference to the badge in the dictionary and update it directly
+            let badgeRef = &self.slugToBadge[slug] as &Badge?
+            if let badgeRef = badgeRef {
+                badgeRef.update(title: title, description: description, visible: visible, slugV2: slugV2, metadata: metadata)
+                emit BadgeUpdated(slug: slug, title: badgeRef.title, description: badgeRef.description, visible: badgeRef.visible, slugV2: badgeRef.slugV2, metadata: *badgeRef.metadata)
+            }
+        }
+
+        access(contract) fun addBadgeToEntity(badgeSlug: String, entityType: BadgeEntityType, entityID: UInt64, metadata: {String: String}){
+            assert(self.slugToBadge[badgeSlug] != nil, message: "badge doesn't exist")
+            
+            // Get the appropriate dictionary and initialize if needed
+            switch entityType {
+                case BadgeEntityType.play:
+                    if self.playIdToBadgeSlugs[entityID] == nil {
+                        self.playIdToBadgeSlugs[entityID] = {}
+                    }
+                    let playBadgeSlugsRef = &self.playIdToBadgeSlugs[entityID] as auth(Insert) &{String: {String: String}}?
+                        ?? panic("Could not get a reference to the play's badge slugs")
+                    assert(playBadgeSlugsRef[badgeSlug] == nil, message: "badge slug already added to play")
+                    playBadgeSlugsRef.insert(key: badgeSlug, metadata)
+                    
+                case BadgeEntityType.edition:
+                    if self.editionIdToBadgeSlugs[entityID] == nil {
+                        self.editionIdToBadgeSlugs[entityID] = {}
+                    }
+                    let editionBadgeSlugsRef = &self.editionIdToBadgeSlugs[entityID] as auth(Insert) &{String: {String: String}}?
+                        ?? panic("Could not get a reference to the edition's badge slugs")
+                    assert(editionBadgeSlugsRef[badgeSlug] == nil, message: "badge slug already added to edition")
+                    editionBadgeSlugsRef.insert(key: badgeSlug, metadata)
+                    
+                case BadgeEntityType.moment:
+                    if self.momentIdToBadgeSlugs[entityID] == nil {
+                        self.momentIdToBadgeSlugs[entityID] = {}
+                    }
+                    let momentBadgeSlugsRef = &self.momentIdToBadgeSlugs[entityID] as auth(Insert) &{String: {String: String}}?
+                        ?? panic("Could not get a reference to the moment's badge slugs")
+                    assert(momentBadgeSlugsRef[badgeSlug] == nil, message: "badge slug already added to moment")
+                    momentBadgeSlugsRef.insert(key: badgeSlug, metadata)
+            }
+            
+            emit BadgeAddedToEntity(badgeSlug: badgeSlug, entityType: AllDay.badgeEntityTypeToString(entityType), entityID: entityID, metadata: metadata)
+        }
+
+        // Remove badge from entity
+        access(contract) fun removeBadgeFromEntity(badgeSlug: String, entityType: BadgeEntityType, entityID: UInt64){
+            var removed = false
+            
+            switch entityType {
+                case BadgeEntityType.play:
+                    if let playBadges = &self.playIdToBadgeSlugs[entityID] as auth(Remove) &{String: {String: String}}? {
+                        if playBadges.containsKey(badgeSlug) {
+                            playBadges.remove(key: badgeSlug)
+                            removed = true
+                        }
+                    }
+                case BadgeEntityType.edition:
+                    if let editionBadges = &self.editionIdToBadgeSlugs[entityID] as auth(Remove) &{String: {String: String}}? {
+                        if editionBadges.containsKey(badgeSlug) {
+                            editionBadges.remove(key: badgeSlug)
+                            removed = true
+                        }
+                    }
+                case BadgeEntityType.moment:
+                    if let momentBadges = &self.momentIdToBadgeSlugs[entityID] as auth(Remove) &{String: {String: String}}? {
+                        if momentBadges.containsKey(badgeSlug) {
+                            momentBadges.remove(key: badgeSlug)
+                            removed = true
+                        }
+                    }
+            }
+            
+            if removed {
+                emit BadgeRemovedFromEntity(badgeSlug: badgeSlug, entityType: AllDay.badgeEntityTypeToString(entityType), entityID: entityID)
+            }
+        }
+
+        // Delete badge - removes only the badge definition, not associations to avoid computation limits
+        access(contract) fun deleteBadge(slug: String){
+            assert(self.slugToBadge[slug] != nil, message: "badge doesn't exist")
+            
+            // Remove the badge itself
+            self.slugToBadge.remove(key: slug)
+            emit BadgeDeleted(slug: slug)
+        }
+    }  
+
+    access(contract) view fun getAddOnsStoragePath(): StoragePath{
+        return /storage/AllDayAddOns
+    }
+
+    access(contract) fun initializeAddOnsInStorage(){
+        let path = AllDay.getAddOnsStoragePath()
+        let addons <- create AddOns()
+        self.account.storage.save(<-addons, to: path)
+    }
+
+    access(contract) view fun borrowAddOns(): &AllDay.AddOns?{
+        return AllDay.account.storage.borrow<&AllDay.AddOns>(from: AllDay.getAddOnsStoragePath())
+    }
+
+    // Get the parallel for an edition, returns "Standard" if no parallel is set
+    access(contract) view fun getParallelForEdition(_ editionID: UInt64): String {
+        if let ref = AllDay.borrowAddOns() {
+            if let v = ref.getParallelDataForEdition(editionID) {
+                return v.parallel
+            }
+        }
+        return "Standard"
+    }
+
+    access(all) fun getBadge(_ slug: String): Badge?{
+        let addOnsResource = AllDay.borrowAddOns()
+        if addOnsResource == nil{
+            return nil
+        }
+        return addOnsResource!.getBadge(slug)
+    }
+
+    access(contract) fun getPlayBadges(_ playID: UInt64): [Badge]?{
+        let addOnsResource = AllDay.borrowAddOns()
+        if addOnsResource == nil{
+            return nil
+        }
+        return addOnsResource!.getPlayBadges(playID)
+    }
+
+    access(contract) fun getEditionBadges(_ editionID: UInt64): [Badge]?{
+        let addOnsResource = AllDay.borrowAddOns()
+        if addOnsResource == nil{
+            return nil
+        }
+        return addOnsResource!.getEditionBadges(editionID)
+    }
+
+    access(contract) fun getMomentBadges(_ momentID: UInt64): [Badge]?{
+        let addOnsResource = AllDay.borrowAddOns()
+        if addOnsResource == nil{
+            return nil
+        }
+        return addOnsResource!.getMomentBadges(momentID)
+    }
+
 
     //------------------------------------------------------------
     // NFT
@@ -723,6 +1076,42 @@ access(all) contract AllDay: NonFungibleToken {
             return "https://nflallday.com/moments/".concat(self.id.toString())
         }
 
+        access(all) fun getBadges(): [Badge]?{
+            var uniqueBadges: {String: Badge} = {}
+            
+            // Add moment badges
+            if let momentBadges = AllDay.getMomentBadges(self.id){
+                for badge in momentBadges {
+                    uniqueBadges[badge.slug] = badge
+                }
+            }
+            
+            // Add edition badges
+            if let editionBadges = AllDay.getEditionBadges(self.editionID){
+                for badge in editionBadges {
+                    uniqueBadges[badge.slug] = badge
+                }
+            }
+            
+            // Add play badges
+            let edition: EditionData = AllDay.getEditionData(id: self.editionID)
+            if let playBadges = AllDay.getPlayBadges(edition.playID){
+                for badge in playBadges {
+                    uniqueBadges[badge.slug] = badge
+                }
+            }
+            
+            // Convert back to array
+            if uniqueBadges.length > 0 {
+                var badges: [Badge] = []
+                for slug in uniqueBadges.keys {
+                    badges.append(uniqueBadges[slug]!)
+                }
+                return badges
+            }
+            return nil
+        }
+
         access(all) view fun getEditionInfo() : MetadataViews.Edition {
             let edition: EditionData = AllDay.getEditionData(id: self.editionID)
             let set: SetData = AllDay.getSetData(id: edition.setID)
@@ -740,9 +1129,14 @@ access(all) contract AllDay: NonFungibleToken {
             let traitDictionary: {String: AnyStruct} = {
                 "editionID": self.editionID,
                 "editionTier": edition.tier,
+                "parallel": edition.getParallel(),
                 "seriesName": series.name,
                 "setName": set.name,
                 "serialNumber": self.serialNumber
+            }
+
+            if let badges = self.getBadges(){
+                traitDictionary.insert(key: "badges", badges)
             }
 
             for name in play.metadata.keys {
@@ -1028,13 +1422,16 @@ access(all) contract AllDay: NonFungibleToken {
             setID: UInt64,
             playID: UInt64,
             maxMintSize: UInt64?,
-            tier: String): UInt64 {
+            tier: String,
+            parallel: String?
+        ): UInt64 {
             let edition <- create Edition(
                 seriesID: seriesID,
                 setID: setID,
                 playID: playID,
                 maxMintSize: maxMintSize,
                 tier: tier,
+                parallel: parallel,
             )
             let editionID = edition.id
             AllDay.editionByID[edition.id] <-! edition
@@ -1062,6 +1459,33 @@ access(all) contract AllDay: NonFungibleToken {
             }
             return <- self.borrowEdition(id: editionID).mint(serialNumber: serialNumber)
         }
+
+        // Badge management functions
+        access(Operate) fun createBadge(slug: String, title: String, description: String, visible: Bool, slugV2: String){
+            var addOnsResource = AllDay.borrowAddOns()
+            if addOnsResource == nil{
+                AllDay.initializeAddOnsInStorage()
+                addOnsResource = AllDay.borrowAddOns()
+            }
+            addOnsResource!.createBadge(slug: slug, title: title, description: description, visible: visible, slugV2: slugV2)
+        }
+
+        access(Operate) fun updateBadge(slug: String, title: String?, description: String?, visible: Bool?, slugV2: String?, metadata: {String: String}?){
+            AllDay.borrowAddOns()?.updateBadge(slug: slug, title: title, description: description, visible: visible, slugV2: slugV2, metadata: metadata)
+        }
+
+        access(Operate) fun addBadgeToEntity(badgeSlug: String, entityType: BadgeEntityType, entityID: UInt64, metadata: {String: String}){
+            AllDay.borrowAddOns()?.addBadgeToEntity(badgeSlug: badgeSlug, entityType: entityType, entityID: entityID, metadata: metadata)
+        }
+
+        access(Operate) fun removeBadgeFromEntity(badgeSlug: String, entityType: BadgeEntityType, entityID: UInt64){
+            AllDay.borrowAddOns()?.removeBadgeFromEntity(badgeSlug: badgeSlug, entityType: entityType, entityID: entityID)
+        }
+
+        access(Operate) fun deleteBadge(slug: String){
+            AllDay.borrowAddOns()?.deleteBadge(slug: slug)
+        }
+
     }
 
         /// Return the metadata view types available for this contract

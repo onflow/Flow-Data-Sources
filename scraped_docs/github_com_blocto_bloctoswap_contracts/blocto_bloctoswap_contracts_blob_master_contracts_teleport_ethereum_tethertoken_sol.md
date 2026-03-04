@@ -1,0 +1,17 @@
+# Source: https://github.com/blocto/bloctoswap-contracts/blob/master/contracts/teleport/ethereum/TetherToken.sol
+
+```
+// SPDX-License-Identifier: MIT
+
+pragma solidity 0.6.12;
+
+/**
+ * @dev Method signature contract for Tether (USDT) because it's not a standard
+ * ERC-20 contract and have different method signatures.
+ */
+interface TetherToken {
+  function transfer(address _to, uint _value) external;
+  function transferFrom(address _from, address _to, uint _value) external;
+}
+
+```

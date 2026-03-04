@@ -1,0 +1,27 @@
+# Source: https://github.com/onflow/Flow-Working-Groups/blob/main/cadence_language_and_execution_working_group/meetings/2024-05-15.md
+
+# Meeting 4 
+
+joint meeting of the [Core Protocol Working Group](https://github.com/onflow/Flow-Working-Groups/tree/main/core_protocol_working_group)
+and the [Cadence Language and Execution Working Group](https://github.com/onflow/Flow-Working-Groups/tree/main/cadence_language_and_execution_working_group)
+
+## Date: May 15th, 2024, Wed 10-11AM PDT
+
+## How to add an agenda topic?
+
+Any attendee can add an agenda topic by creating a pull request on this file and adding more topics in the agenda below.
+
+## Agenda
+
+The focus of this working group meeting will be Flow's EVM compatibility.
+The Flow foundation team has been working hard to implement EVM compatibility plus the surrounding tooling
+and we are planning to ship it with the [Crescendo Upgrade](https://flow.com/upgrade/crescendo).
+
+* [FLIP 225](https://github.com/onflow/flips/pull/225) covers Flow's EVM compatibility. 
+  The Flip has been public for quite some time with good discussions, though the final approval is still pending. In this joint working group meeting, we would like to briefly go over it together and approve FLIP 225 unless there are any major concerns remaining.
+* We follow up with discussing what exciting things EVM enables, hopefully a demo if time permits, and discussing what potential gaps may be remaining to be plugged in the future.
+
+## Links and further reading
+
+- Video [link](https://drive.google.com/file/d/1b9lNbARoQpb1AVmbf0vmP9ppD1bqVNFK/view?usp=sharing)
+- Meeting Transcript: [2024-05-15_transcript.md](./2024-05-15_transcript.md)

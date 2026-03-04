@@ -2,32 +2,25 @@
 
 ---
 title: JSON-Cadence Data Interchange Format
-sidebar_label: JSON-Cadence format
+sidebar_label: JSON-Cadence Format
+sidebar_position: 12
 ---
 
 > Version 0.3.1
 
 JSON-Cadence is a data interchange format used to represent Cadence values as language-independent JSON objects.
 
-This format includes less type information than a complete [ABI](https://en.wikipedia.org/wiki/Application_binary_interface), and instead promotes the following tenets:
+This format includes less type information than a complete [ABI], and instead promotes the following tenets:
 
-- **Human-readability** - JSON-Cadence is easy to read and comprehend, which speeds up development and debugging.
-- **Compatibility** - JSON is a common format with built-in support in most high-level programming languages, making it easy to parse on a variety of platforms.
-- **Portability** - JSON-Cadence is self-describing and thus can be transported and decoded without accompanying type definitions (i.e. an ABI).
+- **Human-readability** — JSON-Cadence is easy to read and comprehend, which speeds up development and debugging.
+- **Compatibility** — JSON is a common format with built-in support in most high-level programming languages, making it easy to parse on a variety of platforms.
+- **Portability** — JSON-Cadence is self-describing and thus can be transported and decoded without accompanying type definitions (i.e., an ABI).
 
-# Values
+The following provides reference information and examples when working with various values and types.
 
----
+## Values
 
-## Void
-
-```json
-{
-  "type": "Void"
-}
-```
-
-### Example
+### Void
 
 ```json
 {
@@ -35,9 +28,17 @@ This format includes less type information than a complete [ABI](https://en.wiki
 }
 ```
 
+**Example**
+
+```json
+{
+  "type": "Void"
+}
+```
+
 ---
 
-## Optional
+### Optional
 
 ```json
 {
@@ -46,7 +47,7 @@ This format includes less type information than a complete [ABI](https://en.wiki
 }
 ```
 
-### Example
+**Example**
 
 ```json
 // Non-nil
@@ -67,9 +68,7 @@ This format includes less type information than a complete [ABI](https://en.wiki
 }
 ```
 
----
-
-## Bool
+### Bool
 
 ```json
 {
@@ -78,7 +77,7 @@ This format includes less type information than a complete [ABI](https://en.wiki
 }
 ```
 
-### Example
+**Example**
 
 ```json
 {
@@ -87,9 +86,7 @@ This format includes less type information than a complete [ABI](https://en.wiki
 }
 ```
 
----
-
-## String
+### String
 
 ```json
 {
@@ -98,7 +95,7 @@ This format includes less type information than a complete [ABI](https://en.wiki
 }
 ```
 
-### Example
+**Example**
 
 ```json
 {
@@ -107,9 +104,7 @@ This format includes less type information than a complete [ABI](https://en.wiki
 }
 ```
 
----
-
-## Address
+### Address
 
 ```json
 {
@@ -118,7 +113,7 @@ This format includes less type information than a complete [ABI](https://en.wiki
 }
 ```
 
-### Example
+**Example**
 
 ```json
 {
@@ -127,15 +122,13 @@ This format includes less type information than a complete [ABI](https://en.wiki
 }
 ```
 
----
+### Integers
 
-## Integers
-
-`[U]Int`, `[U]Int8`, `[U]Int16`, `[U]Int32`,`[U]Int64`,`[U]Int128`, `[U]Int256`, `Word8`, `Word16`, `Word32`, `Word64`, `Word128` or `Word256`
+`[U]Int`, `[U]Int8`, `[U]Int16`, `[U]Int32`,`[U]Int64`,`[U]Int128`, `[U]Int256`, `Word8`, `Word16`, `Word32`, `Word64`, `Word128` or `Word256`.
 
 Although JSON supports integer literals up to 64 bits, all integer types are encoded as strings for consistency.
 
-While the static type is not strictly required for decoding, it is provided to inform client of potential range.
+While the static type is not strictly required for decoding, it is provided to inform the client of the potential range.
 
 ```json
 {
@@ -144,7 +137,7 @@ While the static type is not strictly required for decoding, it is provided to i
 }
 ```
 
-### Example
+**Example**
 
 ```json
 {
@@ -153,11 +146,9 @@ While the static type is not strictly required for decoding, it is provided to i
 }
 ```
 
----
+### Fixed point numbers
 
-## Fixed Point Numbers
-
-`[U]Fix64`
+- `[U]Fix64`
 
 Although fixed point numbers are implemented as integers, JSON-Cadence uses a decimal string representation for readability.
 
@@ -168,7 +159,7 @@ Although fixed point numbers are implemented as integers, JSON-Cadence uses a de
 }
 ```
 
-### Example
+**Example**
 
 ```json
 {
@@ -177,9 +168,7 @@ Although fixed point numbers are implemented as integers, JSON-Cadence uses a de
 }
 ```
 
----
-
-## Array
+### Array
 
 ```json
 {
@@ -192,7 +181,7 @@ Although fixed point numbers are implemented as integers, JSON-Cadence uses a de
 }
 ```
 
-### Example
+**Example**
 
 ```json
 {
@@ -214,9 +203,7 @@ Although fixed point numbers are implemented as integers, JSON-Cadence uses a de
 }
 ```
 
----
-
-## Dictionary
+### Dictionary
 
 Dictionaries are encoded as a list of key-value pairs to preserve the deterministic ordering implemented by Cadence.
 
@@ -233,7 +220,7 @@ Dictionaries are encoded as a list of key-value pairs to preserve the determinis
 }
 ```
 
-### Example
+**Example**
 
 ```json
 {
@@ -254,9 +241,7 @@ Dictionaries are encoded as a list of key-value pairs to preserve the determinis
 }
 ```
 
----
-
-## Composites (Struct, Resource, Event, Contract, Enum)
+### Composites (Struct, Resource, Event, Contract, Enum)
 
 Composite fields are encoded as a list of name-value pairs in the order in which they appear in the composite type declaration.
 
@@ -276,7 +261,7 @@ Composite fields are encoded as a list of name-value pairs in the order in which
 }
 ```
 
-### Example
+**Example**
 
 ```json
 {
@@ -293,9 +278,7 @@ Composite fields are encoded as a list of name-value pairs in the order in which
 }
 ```
 
----
-
-## Path
+### Path
 
 ```json
 {
@@ -307,7 +290,7 @@ Composite fields are encoded as a list of name-value pairs in the order in which
 }
 ```
 
-### Example
+**Example**
 
 ```json
 {
@@ -319,9 +302,7 @@ Composite fields are encoded as a list of name-value pairs in the order in which
 }
 ```
 
----
-
-## Type Value
+### Type value
 
 ```json
 {
@@ -332,7 +313,7 @@ Composite fields are encoded as a list of name-value pairs in the order in which
 }
 ```
 
-### Example
+**Example**
 
 ```json
 {
@@ -345,9 +326,7 @@ Composite fields are encoded as a list of name-value pairs in the order in which
 }
 ```
 
----
-
-## InclusiveRange
+### InclusiveRange
 
 ```json
 {
@@ -360,7 +339,7 @@ Composite fields are encoded as a list of name-value pairs in the order in which
 }
 ```
 
-### Example
+**Example**
 
 ```json
 {
@@ -382,9 +361,7 @@ Composite fields are encoded as a list of name-value pairs in the order in which
 }
 ```
 
----
-
-## Capability
+### Capability
 
 ```json
 {
@@ -397,7 +374,7 @@ Composite fields are encoded as a list of name-value pairs in the order in which
 }
 ```
 
-### Example
+**Example**
 
 ```json
 {
@@ -412,9 +389,7 @@ Composite fields are encoded as a list of name-value pairs in the order in which
 }
 ```
 
----
-
-## Functions
+### Functions
 
 ```json
 {
@@ -425,9 +400,9 @@ Composite fields are encoded as a list of name-value pairs in the order in which
 }
 ```
 
-Function values can only be exported, they cannot be imported.
+Function values can only be exported — they cannot be imported.
 
-### Example
+**Example**
 
 ```json
 {
@@ -445,13 +420,11 @@ Function values can only be exported, they cannot be imported.
 }
 ```
 
----
+## Types
 
-# Types
+### Simple Types
 
-## Simple Types
-
-These are basic types like `Int`, `String`, or `StoragePath`.
+These are basic types such as `Int`, `String`, or `StoragePath`.
 
 ```json
 {
@@ -519,7 +492,7 @@ Where `kind` is one of:
 - `Word64`
 - `Word8`
 
-### Example
+**Example**
 
 ```json
 {
@@ -527,9 +500,7 @@ Where `kind` is one of:
 }
 ```
 
----
-
-## Optional Types
+### Optional types
 
 ```json
 {
@@ -538,7 +509,7 @@ Where `kind` is one of:
 }
 ```
 
-### Example
+**Example**
 
 ```json
 {
@@ -549,9 +520,7 @@ Where `kind` is one of:
 }
 ```
 
----
-
-## Variable Sized Array Types
+### Variable sized array types
 
 ```json
 {
@@ -560,7 +529,7 @@ Where `kind` is one of:
 }
 ```
 
-### Example
+**Example**
 
 ```json
 {
@@ -571,9 +540,7 @@ Where `kind` is one of:
 }
 ```
 
----
-
-## Constant Sized Array Types
+### Constant sized array types
 
 ```json
 {
@@ -583,7 +550,7 @@ Where `kind` is one of:
 }
 ```
 
-### Example
+**Example**
 
 ```json
 {
@@ -595,9 +562,7 @@ Where `kind` is one of:
 }
 ```
 
----
-
-## Dictionary Types
+### Dictionary types
 
 ```json
 {
@@ -607,7 +572,7 @@ Where `kind` is one of:
 }
 ```
 
-### Example
+**Example**
 
 ```json
 {
@@ -621,9 +586,7 @@ Where `kind` is one of:
 }
 ```
 
----
-
-## Composite Types
+### Composite types
 
 ```json
 {
@@ -643,7 +606,7 @@ Where `kind` is one of:
 }
 ```
 
-### Example
+**Example**
 
 ```json
 {
@@ -672,9 +635,7 @@ Where `kind` is one of:
 }
 ```
 
----
-
-## Field Types
+### Field types
 
 ```json
 {
@@ -683,7 +644,7 @@ Where `kind` is one of:
 }
 ```
 
-### Example
+**Example**
 
 ```json
 {
@@ -694,9 +655,7 @@ Where `kind` is one of:
 }
 ```
 
----
-
-## Parameter Types
+### Parameter types
 
 ```json
 {
@@ -706,7 +665,7 @@ Where `kind` is one of:
 }
 ```
 
-### Example
+**Example**
 
 ```json
 {
@@ -718,11 +677,9 @@ Where `kind` is one of:
 }
 ```
 
----
+### Initializer types
 
-## Initializer Types
-
-Initializer types are encoded a list of parameters to the initializer.
+Initializer types are encoded as a list of parameters to the initializer.
 
 ```json
 [
@@ -732,7 +689,7 @@ Initializer types are encoded a list of parameters to the initializer.
 ]
 ```
 
-### Example
+**Example**
 
 ```json
 [
@@ -746,9 +703,7 @@ Initializer types are encoded a list of parameters to the initializer.
 ]
 ```
 
----
-
-## Function Types
+### Function types
 
 ```json
 {
@@ -764,7 +719,7 @@ Initializer types are encoded a list of parameters to the initializer.
 }
 ```
 
-### Example
+**Example**
 
 ```json
 {
@@ -786,9 +741,7 @@ Initializer types are encoded a list of parameters to the initializer.
 }
 ```
 
----
-
-## Reference Types
+### Reference types
 
 ```json
 {
@@ -805,7 +758,7 @@ Initializer types are encoded a list of parameters to the initializer.
 }
 ```
 
-### Example
+**Example**
 
 ```json
 {
@@ -827,9 +780,7 @@ Initializer types are encoded a list of parameters to the initializer.
 }
 ```
 
----
-
-## Intersection Types
+### Intersection types
 
 ```json
 {
@@ -843,7 +794,7 @@ Initializer types are encoded a list of parameters to the initializer.
 }
 ```
 
-### Example
+**Example**
 
 ```json
 {
@@ -868,9 +819,7 @@ Initializer types are encoded a list of parameters to the initializer.
 }
 ```
 
----
-
-## Capability Types
+### Capability types
 
 ```json
 {
@@ -879,7 +828,7 @@ Initializer types are encoded a list of parameters to the initializer.
 }
 ```
 
-### Example
+**Example**
 
 ```json
 {
@@ -897,9 +846,7 @@ Initializer types are encoded a list of parameters to the initializer.
 }
 ```
 
----
-
-## Enum Types
+### Enum types
 
 ```json
 {
@@ -916,7 +863,7 @@ Initializer types are encoded a list of parameters to the initializer.
 }
 ```
 
-### Example
+**Example**
 
 ```json
 {
@@ -937,13 +884,11 @@ Initializer types are encoded a list of parameters to the initializer.
 }
 ```
 
-## Repeated Types
+### Repeated types
 
-When a composite type appears more than once within the same JSON type encoding, either because it is
-recursive or because it is repeated (e.g. in a composite field), the composite is instead
-represented by its type ID.
+When a composite type appears more than once within the same JSON type encoding, either because it is recursive or because it is repeated (e.g., in a composite field), the composite is instead represented by its type ID.
 
-### Example
+**Example**
 
 ```json
 {
@@ -968,7 +913,7 @@ represented by its type ID.
 }
 ```
 
-## Inclusive Range Type
+### Inclusive range types
 
 ```json
 {
@@ -977,7 +922,7 @@ represented by its type ID.
 }
 ```
 
-### Example
+**Example**
 
 ```json
 {
@@ -987,3 +932,7 @@ represented by its type ID.
   }
 }
 ```
+
+<!-- Relative links. Will not render on the page -->
+
+[ABI]: https://en.wikipedia.org/wiki/Application_binary_interface

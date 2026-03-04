@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/nft-storefront/blob/main/scripts/has_listing_become_ghosted.cdc
 
 ```
-import NFTStorefrontV2 from "../contracts/NFTStorefrontV2.cdc"
+import "NFTStorefrontV2"
 
 /// This script tells whether the provided `listingID` under the provided `storefront` address
 /// has a ghost listing.

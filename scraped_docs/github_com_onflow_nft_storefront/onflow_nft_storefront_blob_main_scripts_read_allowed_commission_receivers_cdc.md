@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/nft-storefront/blob/main/scripts/read_allowed_commission_receivers.cdc
 
 ```
-import NFTStorefrontV2 from "../contracts/NFTStorefrontV2.cdc"
+import "NFTStorefrontV2"
 import "FungibleToken"
 
 /// This script returns the list of allowed commission receivers supported by the given listing Id.

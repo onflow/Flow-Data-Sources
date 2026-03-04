@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/nft-storefront/blob/main/transactions/cleanup_expired_listings.cdc
 
 ```
-import NFTStorefrontV2 from "../contracts/NFTStorefrontV2.cdc"
+import "NFTStorefrontV2"
 
 /// Transaction to facilitate the cleanup of the expired listings of a given storefront resource account holder. This
 /// transaction facilitates the cleanup in pagination model where signer of the transaction will provide the
@@ -16,7 +16,7 @@ transaction(fromIndex: UInt64, toIndex: UInt64, storefrontAddress: Address) {
         // Access the storefront public resource of the seller to purchase the listing.
         self.storefront = getAccount(storefrontAddress).capabilities.borrow<&{NFTStorefrontV2.StorefrontPublic}>(
                 NFTStorefrontV2.StorefrontPublicPath
-            ) ?? panic("Could not borrow Storefront from provided address")
+            ) ?? panic("Could not get a Storefront from the provided address \(storefrontAddress)!")
     }
 
     execute {

@@ -1,0 +1,22 @@
+# Source: https://github.com/onflow/random-coin-toss/blob/main/transactions/test/generate_results.cdc
+
+```
+import "Xorshift128plus"
+import "RandomResultStorage"
+
+/// This contract & transaction is intended for this project's statistical testing which needs persistent PRG state
+/// across large numbers of random number generations.
+///
+/// Generates and adds the specified number of random numbers to the contract's result field, enabling continuous
+/// random number generation across an arbitrary number of transactions.
+///
+transaction(generationLength: Int) {
+
+    prepare(signer: auth(BorrowValue) &Account) {
+        signer.storage.borrow<&RandomResultStorage.Admin>(from: RandomResultStorage.STORAGE_PATH)
+            ?.generateResults(length: generationLength)
+            ?? panic("Signer is not Admin for RandomResultStorage!")
+    }
+}
+
+```

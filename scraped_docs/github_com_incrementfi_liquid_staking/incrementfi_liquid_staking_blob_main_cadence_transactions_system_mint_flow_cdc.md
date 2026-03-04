@@ -1,0 +1,29 @@
+# Source: https://github.com/IncrementFi/Liquid-Staking/blob/main/cadence/transactions/system/mint_flow.cdc
+
+```
+import FungibleToken from "../../contracts/standard/FungibleToken.cdc"
+import FlowToken from "../../contracts/standard/FlowToken.cdc"
+
+transaction(to: Address, amount: UFix64) {
+    prepare(signer: auth(BorrowValue) &Account) {
+        log("Transaction Start --------------- emulator_flow_transfer")
+
+        log("account deposit FlowToken".concat(amount.toString()))
+        // Get a reference to the signer's stored vault
+        let vaultRef = signer.storage.borrow<auth(FungibleToken.Withdraw) &FlowToken.Vault>(from: /storage/flowTokenVault)
+          ?? panic("Could not borrow reference to the owner's Vault!")
+
+        // Withdraw tokens from the signer's stored vault
+        let sentVault <- vaultRef.withdraw(amount: amount)
+
+        // Get a reference to the recipient's Receiver
+        let receiverRef =  getAccount(to).capabilities.borrow<&{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+            ?? panic("Could not borrow receiver reference to the recipient's Vault")
+
+        // Deposit the withdrawn tokens in the recipient's receiver
+        receiverRef.deposit(from: <-sentVault)
+
+        log("End -----------------------------")
+    }
+}
+```

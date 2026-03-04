@@ -1,0 +1,9 @@
+# Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/epl-nft/scripts/get_play.cdc
+
+```
+import EnglishPremierLeague from "./EnglishPremierLeague.cdc"
+
+pub fun main(playID: UInt64): EnglishPremierLeague.Play {
+    return EnglishPremierLeague.getPlay(id: playID)!
+}
+```

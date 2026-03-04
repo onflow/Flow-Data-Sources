@@ -1,0 +1,15 @@
+# Source: https://github.com/onflow/hybrid-custody/blob/main/transactions/hybrid-custody/transfer_ownership.cdc
+
+```
+#allowAccountLinking
+
+import "HybridCustody"
+
+transaction(owner: Address) {
+    prepare(acct: auth(Storage) &Account) {
+        let owned = acct.storage.borrow<auth(HybridCustody.Owner) &HybridCustody.OwnedAccount>(from: HybridCustody.OwnedAccountStoragePath)
+            ?? panic("owned not found")
+        owned.giveOwnership(to: owner)
+    }
+}
+```

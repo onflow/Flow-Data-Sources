@@ -1,0 +1,54 @@
+# Source: https://github.com/onflow/Flow-Working-Groups/blob/main/cadence_language_and_execution_working_group/meetings/2024-04-19.md
+
+# Meeting 3
+
+## Date: Apr 19th, 2024, Fri, 9-10 AM PDT
+
+## How to add an agenda topic?
+
+Any attendee can add an agenda topic by creating a pull request on this file and adding more topics in the agenda below.
+
+## Agenda
+
+### Update on Cadence 1.0
+
+See office hours document: https://www.notion.so/flowfoundation/Cadence-1-0-Office-Hours-3f5f321dff6b47f7913018935d823846
+
+### FLIP 242: Improve Public Capability Acquisition
+
+https://github.com/onflow/flips/pull/242
+
+- Daniel had some more questions regarding the behaviour for when a capability is published at the requested path (it "exists"),
+  but the requested type does not borrow type does not match the capability's borrow type
+  - Static borrow type: use requested type
+  - Capability usable until check/borrow, same as current behaviour\
+- No more clarification needed
+- Austin to accept suggestions
+- Accept early next week if no more concerns 
+
+### FLIP 262: Require matching access modifiers for interface implementation members
+
+https://github.com/onflow/flips/pull/263
+
+- Previously the proposal was called "Remove support for non-public access modifiers in interfaces."
+- Contained two parts:
+  1. Remove support for non-public access modifiers in interfaces
+  2. Require access modifiers for interface implementation members to match access modifiers in interface
+- Revised proposal is only the second part.
+- Feedback of revision has been positive so far
+- Dete: forbid `access(account)`?
+  - Scan Mainnet contracts
+  - Decision would have been easier a while ago, but late in the process
+- Dete: allow acccess(self)?
+  - Useful for default functions
+  - Like in Java
+  - Allready forbidden, can add it later, after Cadence 1.0
+- Accept early next week if no more concerns 
+
+### Community able to update contracts by May 22nd?
+
+- Austin: 
+  - All contracts updated and staged, except Hybrid Custody
+  - Need backward-compatible SDK
+  - Need to resolve open FLIPs
+ 

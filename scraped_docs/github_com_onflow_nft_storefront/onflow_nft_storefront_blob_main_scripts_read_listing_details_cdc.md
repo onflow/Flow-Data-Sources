@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/nft-storefront/blob/main/scripts/read_listing_details.cdc
 
 ```
-import NFTStorefrontV2 from "../contracts/NFTStorefrontV2.cdc"
+import "NFTStorefrontV2"
 
 /// This script returns the details for a listing within a storefront
 ///

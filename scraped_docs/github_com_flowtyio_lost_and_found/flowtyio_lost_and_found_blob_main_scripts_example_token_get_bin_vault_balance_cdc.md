@@ -1,0 +1,18 @@
+# Source: https://github.com/Flowtyio/lost-and-found/blob/main/scripts/example-token/get_bin_vault_balance.cdc
+
+```
+import "FungibleToken"
+import "LostAndFound"
+
+pub fun main(addr: Address, type: String): UFix64 {
+    let tickets = LostAndFound.borrowAllTicketsByType(addr: addr, type: CompositeType(type)!)
+    var balance : UFix64 = 0.0
+    for ticket in tickets {
+        if let b = ticket.getFungibleTokenBalance() {
+            balance = balance + b
+        }
+    }
+    return balance
+}
+ 
+```

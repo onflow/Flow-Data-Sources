@@ -649,51 +649,29 @@ The `executionEffort` is also supplied as an argument in the transaction. This r
 
 * `fees`: A [vault](https://developers.flow.com/build/cadence/guides/fungible-token#vaults-on-flow) containing the appropriate amount of compute unit fees needed to pay for the execution of the scheduled transaction.
 
-To create the vault, the `estimate()` function calculates the amount needed:
+To create the vault, the `calculateFee()` function calculates the amount needed:
 
-`_10
+`` _10
 
-let est = FlowTransactionScheduler.estimate(
-
-_10
-
-data: transactionData,
+// Calculates the estimated fee for the provided execution effort, priority, and transaction data size (in megabytes)
 
 _10
 
-timestamp: future,
+// If the scheduled transaction has no data for its `data` argument, then the data size can be zero
 
 _10
 
-priority: pr,
+let est = FlowTransactionScheduler.calculateFee(
 
 _10
 
-executionEffort: executionEffort
+executionEffort: executionEffort, priority: pr, dataSizeMB: 0
 
 _10
 
-)`
+) ``
 
 Then, an [authorized reference](https://cadence-lang.org/docs/language/references#authorized-references) to the signer's vault is created and used to `withdraw()` the needed funds and [move](https://cadence-lang.org/docs/language/operators/assign-move-force-swap#move-operator--) them into the `fees` variable, which is then sent in the `schedule()` function call.
-
-Finally, we also `assert` that some minimums are met to ensure the transaction will be called:
-
-`_10
-
-assert(
-
-_10
-
-est.timestamp != nil || pr == FlowTransactionScheduler.Priority.Low,
-
-_10
-
-message: est.error ?? "estimation failed"
-
-_10
-
-)`
 
 ## Use the FlowTransactionSchedulerUtils.Manager[​](#use-the-flowtransactionschedulerutilsmanager "Direct link to Use the FlowTransactionSchedulerUtils.Manager")
 
@@ -1137,93 +1115,63 @@ _10
 
 let executionEffort: UInt64 = 1000`
 
-Next, create the `estimate` and `assert` to validate minimums are met, and that the `Handler` exists:
+Next, add the `calculateFee()` call to calculate the fee for the scheduled transaction and ensure that a handler for the scheduled transaction exists. Your transaction does not provide and accompanying data, so your `dataSizeMB` argument can be zero.
 
-`_24
+`_16
 
-let estimate = FlowTransactionScheduler.estimate(
+let estimate = FlowTransactionScheduler.calculateFee(
 
-_24
+_16
 
-data: data,
+executionEffort: executionEffort, priority: priority, dataSizeMB: 0
 
-_24
-
-timestamp: future,
-
-_24
-
-priority: priority,
-
-_24
-
-executionEffort: executionEffort
-
-_24
+_16
 
 )
 
-_24
+_16
 
-_24
-
-assert(
-
-_24
-
-estimate.timestamp != nil || priority == FlowTransactionScheduler.Priority.Low,
-
-_24
-
-message: estimate.error ?? "estimation failed"
-
-_24
-
-)
-
-_24
-
-_24
+_16
 
 // Ensure a handler resource exists in the contract account storage
 
-_24
+_16
 
 if RickRollTransactionHandler.account.storage.borrow<&AnyResource>(from: /storage/RickRollTransactionHandler) == nil {
 
-_24
+_16
 
 let handler <- RickRollTransactionHandler.createHandler()
 
-_24
+_16
 
 RickRollTransactionHandler.account.storage.save(<-handler, to: /storage/RickRollTransactionHandler)
 
-_24
+_16
 
-_24
+_16
 
 // Issue a non-entitled public capability for the handler that is publicly accessible
 
-_24
+_16
 
 let publicCap = RickRollTransactionHandler.account.capabilities.storage
 
-_24
+_16
 
 .issue<&{FlowTransactionScheduler.TransactionHandler}>(/storage/RickRollTransactionHandler)
 
-_24
+_16
 
-_24
+_16
 
 // publish the capability
 
-_24
+_16
 
 RickRollTransactionHandler.capabilities.publish(publicCap, at: /public/RickRollTransactionHandler)
 
-_24
+_16
 
 }`
 
@@ -1243,7 +1191,7 @@ _10
 
 _10
 
-let fees <- vaultRef.withdraw(amount: estimate.flowFee ?? 0.0) as! @FlowToken.Vault`
+let fees <- vaultRef.withdraw(amount: estimate ?? 0.0) as! @FlowToken.Vault`
 
 Finally, schedule the transaction:
 
@@ -1416,291 +1364,261 @@ flow generate transaction ScheduleRickRoll`
 
 This transaction is essentially identical as well, it just uses the `handlerCap` stored in `RickRollTransaction`:
 
-`_78
+`_70
 
 import "FlowTransactionScheduler"
 
-_78
+_70
 
 import "FlowToken"
 
-_78
+_70
 
 import "FungibleToken"
 
-_78
+_70
 
-_78
+_70
 
 /// Schedule a Rick Roll with a delay of delaySeconds
 
-_78
+_70
 
 transaction(
 
-_78
+_70
 
 delaySeconds: UFix64,
 
-_78
+_70
 
 priority: UInt8,
 
-_78
+_70
 
 executionEffort: UInt64,
 
-_78
+_70
 
 transactionData: AnyStruct?
 
-_78
+_70
 
 ) {
 
-_78
+_70
 
 prepare(signer: auth(Storage, Capabilities) &Account) {
 
-_78
+_70
 
 let future = getCurrentBlock().timestamp + delaySeconds
 
-_78
+_70
 
-_78
+_70
 
 let pr = priority == 0
 
-_78
+_70
 
 ? FlowTransactionScheduler.Priority.High
 
-_78
+_70
 
 : priority == 1
 
-_78
+_70
 
 ? FlowTransactionScheduler.Priority.Medium
 
-_78
+_70
 
 : FlowTransactionScheduler.Priority.Low
 
-_78
+_70
 
-_78
+_70
 
-let est = FlowTransactionScheduler.estimate(
+let est = FlowTransactionScheduler.calculateFee(
 
-_78
+_70
 
-data: transactionData,
+executionEffort: executionEffort, priority: pr, dataSizeMB: 0
 
-_78
-
-timestamp: future,
-
-_78
-
-priority: pr,
-
-_78
-
-executionEffort: executionEffort
-
-_78
+_70
 
 )
 
-_78
+_70
 
-_78
-
-assert(
-
-_78
-
-est.timestamp != nil || pr == FlowTransactionScheduler.Priority.Low,
-
-_78
-
-message: est.error ?? "estimation failed"
-
-_78
-
-)
-
-_78
-
-_78
+_70
 
 let vaultRef = signer.storage
 
-_78
+_70
 
 .borrow<auth(FungibleToken.Withdraw) &FlowToken.Vault>(from: /storage/flowTokenVault)
 
-_78
+_70
 
 ?? panic("missing FlowToken vault")
 
-_78
+_70
 
-let fees <- vaultRef.withdraw(amount: est.flowFee ?? 0.0) as! @FlowToken.Vault
+let fees <- vaultRef.withdraw(amount: est ?? 0.0) as! @FlowToken.Vault
 
-_78
+_70
 
-_78
+_70
 
 // if a transaction scheduler manager has not been created for this account yet, create one
 
-_78
+_70
 
 if !signer.storage.check<@{FlowTransactionSchedulerUtils.Manager}>(from: FlowTransactionSchedulerUtils.managerStoragePath) {
 
-_78
+_70
 
 let manager <- FlowTransactionSchedulerUtils.createManager()
 
-_78
+_70
 
 signer.storage.save(<-manager, to: FlowTransactionSchedulerUtils.managerStoragePath)
 
-_78
+_70
 
-_78
+_70
 
 // create a public capability to the scheduled transaction manager
 
-_78
+_70
 
 let managerRef = signer.capabilities.storage.issue<&{FlowTransactionSchedulerUtils.Manager}>(FlowTransactionSchedulerUtils.managerStoragePath)
 
-_78
+_70
 
 signer.capabilities.publish(managerRef, at: FlowTransactionSchedulerUtils.managerPublicPath)
 
-_78
+_70
 
 }
 
-_78
+_70
 
-_78
+_70
 
 // Get a capability to the handler stored in this contract account
 
-_78
+_70
 
 // Get the entitled capability that will be used to create the transaction
 
-_78
+_70
 
 // Need to check both controllers because the order of controllers is not guaranteed
 
-_78
+_70
 
 var handlerCap: Capability<auth(FlowTransactionScheduler.Execute) &{FlowTransactionScheduler.TransactionHandler}>? = nil
 
-_78
+_70
 
-_78
+_70
 
 if let cap = signer.capabilities.storage
 
-_78
+_70
 
 .getControllers(forPath: /storage/RickRollTransactionHandler)[0]
 
-_78
+_70
 
 .capability as? Capability<auth(FlowTransactionScheduler.Execute) &{FlowTransactionScheduler.TransactionHandler}> {
 
-_78
+_70
 
 handlerCap = cap
 
-_78
+_70
 
 } else {
 
-_78
+_70
 
 handlerCap = signer.capabilities.storage
 
-_78
+_70
 
 .getControllers(forPath: /storage/RickRollTransactionHandler)[1]
 
-_78
+_70
 
 .capability as! Capability<auth(FlowTransactionScheduler.Execute) &{FlowTransactionScheduler.TransactionHandler}>
 
-_78
+_70
 
 }
 
-_78
+_70
 
-_78
+_70
 
 // borrow a reference to the scheduled transaction manager
 
-_78
+_70
 
 let manager = signer.storage.borrow<auth(FlowTransactionSchedulerUtils.Owner) &{FlowTransactionSchedulerUtils.Manager}>(from: FlowTransactionSchedulerUtils.managerStoragePath)
 
-_78
+_70
 
 ?? panic("Could not borrow a Manager reference from \(FlowTransactionSchedulerUtils.managerStoragePath)")
 
-_78
+_70
 
-_78
+_70
 
 manager.schedule(
 
-_78
+_70
 
 handlerCap: handlerCap,
 
-_78
+_70
 
 data: transactionData,
 
-_78
+_70
 
 timestamp: future,
 
-_78
+_70
 
 priority: pr,
 
-_78
+_70
 
 executionEffort: executionEffort,
 
-_78
+_70
 
 fees: <-fees
 
-_78
+_70
 
 )
 
-_78
+_70
 
-_78
+_70
 
 log("Scheduled transaction at \(future)")
 
-_78
+_70
 
 }
 
-_78
+_70
 
 }`
 
@@ -1916,7 +1834,7 @@ Scheduled transactions open up new possibilities for DeFi applications, enabling
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/scheduled-transactions/scheduled-transactions-introduction.md)
 
-Last updated on **Jan 20, 2026** by **Chase Fleming**
+Last updated on **Mar 3, 2026** by **Josh Hannan**
 
 [Previous
 
