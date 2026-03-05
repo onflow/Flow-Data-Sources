@@ -14,6 +14,7 @@ transaction(
     networkingAddress: String,
     networkingKey: String,
     stakingKey: String,
+    stakingKeyPoP: String,
     amount: UFix64
 ) {
 
@@ -30,6 +31,7 @@ transaction(
             networkingAddress: networkingAddress,
             networkingKey: networkingKey,
             stakingKey: stakingKey,
+            stakingKeyPoP: stakingKeyPoP,
             tokensCommitted: <-self.flowTokenRef.withdraw(amount: amount)
         )
 
@@ -37,14 +39,6 @@ transaction(
 
             acct.storage.save(<-nodeStaker, to: FlowIDTableStaking.NodeStakerStoragePath)
 
-            let nodeStakerCap = acct.capabilities.storage.issue<&{FlowIDTableStaking.NodeStakerPublic}>(
-                FlowIDTableStaking.NodeStakerStoragePath
-            )
-
-            acct.capabilities.publish(
-                nodeStakerCap,
-                at: FlowIDTableStaking.NodeStakerPublicPath
-            )
         } else {
             destroy nodeStaker
         }

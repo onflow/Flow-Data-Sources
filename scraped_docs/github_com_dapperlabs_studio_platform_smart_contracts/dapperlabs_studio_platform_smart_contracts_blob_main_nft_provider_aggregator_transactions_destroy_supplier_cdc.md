@@ -1,0 +1,41 @@
+# Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/nft-provider-aggregator/transactions/destroy_supplier.cdc
+
+```
+import NFTProviderAggregator from "NFTProviderAggregator"
+import Burner from "Burner"
+
+/// Transaction signed by a supplier account to destroy their Supplier resource
+///
+transaction() {
+
+    let supplierResource: @NFTProviderAggregator.Supplier
+    let supplierAddedCollectionUUIDsCount: Int
+    let aggregatorRef: &NFTProviderAggregator.Aggregator
+    let aggregatorCollectionUUIDsCountBefore: Int
+
+    prepare(
+        supplier: auth(LoadValue) &Account,
+    ) {
+        // Load the Supplier resource
+        self.supplierResource <- supplier.storage.load<@NFTProviderAggregator.Supplier>(
+            from: NFTProviderAggregator.SupplierStoragePath
+            )
+            ?? panic("Supplier does not exist")
+
+        // Get aggregator and supplier collection UUIDs counts
+        self.aggregatorRef = self.supplierResource.borrowPublicAggregator()
+        self.supplierAddedCollectionUUIDsCount = self.supplierResource.getSupplierAddedCollectionUUIDs().length
+        self.aggregatorCollectionUUIDsCountBefore = self.aggregatorRef.getCollectionUUIDs().length
+    }
+
+    execute {
+        // Destroy the Supplier resource
+        Burner.burn(<- self.supplierResource)
+    }
+
+    post {
+        self.aggregatorCollectionUUIDsCountBefore == self.aggregatorRef.getCollectionUUIDs().length + self.supplierAddedCollectionUUIDsCount:
+            "Supplier collection providers were not removed from the Aggregator"
+    }
+}
+```
