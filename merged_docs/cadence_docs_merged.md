@@ -21431,6 +21431,655 @@ access(all) fun main(clusterIndex: UInt16): UInt64 {
 
 
 
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/tests/transactionScheduler_manager_test.cdc
+
+```
+import Test
+import BlockchainHelpers
+import "FlowTransactionScheduler"
+import "FlowToken"
+import "TestFlowScheduledTransactionHandler"
+import "MetadataViews"
+
+import "scheduled_transaction_test_helpers.cdc"
+
+access(all) let transactionToFail = 6 as UInt64
+access(all) let transactionToCancel = 2 as UInt64
+
+access(all) var startingHeight: UInt64 = 0
+
+access(all) var timeInFuture: UFix64 = 0.0
+
+access(all)
+fun setup() {
+
+    var err = Test.deployContract(
+        name: "FlowTransactionScheduler",
+        path: "../contracts/FlowTransactionScheduler.cdc",
+        arguments: []
+    )
+    Test.expect(err, Test.beNil())
+
+    err = Test.deployContract(
+        name: "FlowTransactionSchedulerUtils",
+        path: "../contracts/FlowTransactionSchedulerUtils.cdc",
+        arguments: []
+    )
+    Test.expect(err, Test.beNil())  
+
+    err = Test.deployContract(
+        name: "TestFlowScheduledTransactionHandler",
+        path: "../contracts/testContracts/TestFlowScheduledTransactionHandler.cdc",
+        arguments: []
+    )
+    Test.expect(err, Test.beNil())
+
+    fundAccountWithFlow(to: admin.address, amount: 10000.0)
+
+    startingHeight = getCurrentBlockHeight()
+
+}
+
+/** ---------------------------------------------------------------------------------
+ Manager Getter Functions Tests
+ --------------------------------------------------------------------------------- */
+
+access(all) fun testManagerScheduleByHandler() {
+
+    // lower the canceled transactions limit so the test runs faster
+    setConfigDetails(
+        maximumIndividualEffort: nil,
+        minimumExecutionEffort: nil,
+        slotSharedEffortLimit: nil,
+        priorityEffortReserve: nil,
+        lowPriorityEffortLimit: nil,
+        maxDataSizeMB: nil,
+        priorityFeeMultipliers: nil,
+        refundMultiplier: nil,
+        canceledTransactionsLimit: 2,
+        collectionEffortLimit: nil,
+        collectionTransactionsLimit: nil,
+        txRemovalLimit: nil,
+        shouldFail: nil
+    )
+
+    let currentTime = getTimestamp()
+    timeInFuture = currentTime + futureDelta
+    
+    // Schedule high, medium, and low priority transactions for first timestamp
+    scheduleTransaction(
+        timestamp: timeInFuture,
+        fee: feeAmount,
+        effort: basicEffort,
+        priority: highPriority,
+        data: testData,
+        testName: "Test Transaction Manager: First High Scheduled",
+        failWithErr: nil
+    )
+
+    // Schedule medium priority transaction
+    scheduleTransactionByHandler(
+        handlerTypeIdentifier: "A.0000000000000007.TestFlowScheduledTransactionHandler.Handler",
+        handlerUUID: nil,
+        timestamp: timeInFuture,
+        fee: feeAmount,
+        effort: basicEffort,
+        priority: mediumPriority,
+        data: testData,
+        testName: "Test Manager Schedule First Medium By Handler",
+        failWithErr: nil)
+
+    // Schedule low priority transaction
+    scheduleTransactionByHandler(
+        handlerTypeIdentifier: "A.0000000000000007.TestFlowScheduledTransactionHandler.Handler",
+        handlerUUID: nil,
+        timestamp: timeInFuture,
+        fee: feeAmount,
+        effort: basicEffort,
+        priority: lowPriority,
+        data: testData,
+        testName: "Test Manager Schedule First Low By Handler",
+        failWithErr: nil
+    )
+
+    // Schedule high, medium, and low priority transactions for second timestamp
+    scheduleTransactionByHandler(
+        handlerTypeIdentifier: "A.0000000000000007.TestFlowScheduledTransactionHandler.Handler",
+        handlerUUID: nil,
+        timestamp: timeInFuture + 1.0,
+        fee: feeAmount,
+        effort: basicEffort,
+        priority: highPriority,
+        data: testData,
+        testName: "Test Manager Schedule Second High By Handler",
+        failWithErr: nil
+    )
+
+    // Schedule medium priority transaction
+    scheduleTransactionByHandler(
+        handlerTypeIdentifier: "A.0000000000000007.TestFlowScheduledTransactionHandler.Handler",
+        handlerUUID: nil,
+        timestamp: timeInFuture + 1.0,
+        fee: feeAmount,
+        effort: basicEffort,
+        priority: mediumPriority,
+        data: testData,
+        testName: "Test Manager Schedule Second Medium By Handler",
+        failWithErr: nil
+    )
+
+    // Schedule low priority transaction
+    scheduleTransactionByHandler(
+        handlerTypeIdentifier: "A.0000000000000007.TestFlowScheduledTransactionHandler.Handler",
+        handlerUUID: nil,
+        timestamp: timeInFuture + 1.0,
+        fee: feeAmount,
+        effort: basicEffort,
+        priority: lowPriority,
+        data: testData,
+        testName: "Test Manager Schedule Second Low By Handler",
+        failWithErr: nil
+    )
+
+    // Schedule high, medium, and low priority transactions for third timestamp
+    scheduleTransactionByHandler(
+        handlerTypeIdentifier: "A.0000000000000007.TestFlowScheduledTransactionHandler.Handler",
+        handlerUUID: nil,
+        timestamp: timeInFuture + 2.0,
+        fee: feeAmount,
+        effort: basicEffort,
+        priority: highPriority,
+        data: testData,
+        testName: "Test Manager Schedule Third High By Handler",
+        failWithErr: nil
+    )
+
+    // Schedule medium priority transaction
+    scheduleTransactionByHandler(
+        handlerTypeIdentifier: "A.0000000000000007.TestFlowScheduledTransactionHandler.Handler",
+        handlerUUID: nil,
+        timestamp: timeInFuture + 2.0,
+        fee: feeAmount,
+        effort: basicEffort,
+        priority: mediumPriority,
+        data: testData,
+        testName: "Test Manager Schedule Third Medium By Handler",
+        failWithErr: nil
+    )
+
+    // Schedule low priority transaction
+    scheduleTransactionByHandler(
+        handlerTypeIdentifier: "A.0000000000000007.TestFlowScheduledTransactionHandler.Handler",
+        handlerUUID: nil,
+        timestamp: timeInFuture + 2.0,
+        fee: feeAmount,
+        effort: basicEffort,
+        priority: lowPriority,
+        data: testData,
+        testName: "Test Manager Schedule Third Low By Handler",
+        failWithErr: nil
+    )
+
+    // Failure Test cases for scheduleByHandler
+
+    // Test invalid handler type identifier
+    scheduleTransactionByHandler(
+        handlerTypeIdentifier: "A.0000000000000007.TestFlowScheduledTransactionHandler.BadHandler",
+        handlerUUID: nil,
+        timestamp: timeInFuture + 2.0,
+        fee: feeAmount,
+        effort: basicEffort,
+        priority: highPriority,
+        data: testData,
+        testName: "Test Manager Schedule Third High By Handler",
+        failWithErr: "Invalid handler type identifier: Handler with type identifier A.0000000000000007.TestFlowScheduledTransactionHandler.BadHandler not found in manager"
+    )
+
+    // Test invalid handler UUID
+    scheduleTransactionByHandler(
+        handlerTypeIdentifier: "A.0000000000000007.TestFlowScheduledTransactionHandler.Handler",
+        handlerUUID: 10 as UInt64,
+        timestamp: timeInFuture + 2.0,
+        fee: feeAmount,
+        effort: basicEffort,
+        priority: highPriority,
+        data: testData,
+        testName: "Test Manager Schedule Third High By Handler",
+        failWithErr: "Invalid handler UUID: Handler with type identifier A.0000000000000007.TestFlowScheduledTransactionHandler.Handler and UUID 10 not found in manager"
+    )
+
+}
+
+access(all) fun testGetManagedTxStatus() {
+    // Test getting status for existing transaction
+    let status1 = getManagedTxStatus(2)
+    Test.assert(status1 != nil, message: "Status for transaction 2 should not be nil")
+    Test.assert(status1 == statusScheduled, message: "Status for transaction 2 should be scheduled")
+    
+    // Test getting status for non-existent transaction
+    let status999 = getManagedTxStatus(999)
+    Test.assert(status999 == statusUnknown, message: "Status for non-existent transaction should be nil")
+}
+
+access(all) fun testGetManagedTxData() {
+    // Test getting data for existing transaction
+    let data1 = getManagedTxData(1)
+    Test.assert(data1 != nil, message: "Data for transaction 1 should not be nil")
+    if let txData = data1 {
+        Test.assert(txData.id == 1, message: "Transaction ID should match expected ID")
+        Test.assert(txData.priority.rawValue == highPriority, message: "Transaction priority should match expected priority")
+        Test.assert(txData.fees == feeAmount, message: "Transaction fee should match expected fee")
+        Test.assert(txData.executionEffort == basicEffort, message: "Transaction effort should match expected effort")
+    }
+    
+    // Test getting data for non-existent transaction
+    let data999 = getManagedTxData(999)
+    Test.assert(data999 == nil, message: "Data for non-existent transaction should be nil")
+}
+
+access(all) fun testGetManagedTxIDsByTimestamp() {
+    // Test getting transaction IDs for first timestamp
+    let txIds1 = getManagedTxIDsByTimestamp(timeInFuture)
+    Test.assert(txIds1.length == 3, message: "Should have 3 transactions for first timestamp")
+    Test.assert(txIds1.contains(1), message: "Should contain transaction ID 1")
+    Test.assert(txIds1.contains(2), message: "Should contain transaction ID 2")
+    Test.assert(txIds1.contains(3), message: "Should contain transaction ID 3")
+    
+    // Test getting transaction IDs for second timestamp
+    let txIds2 = getManagedTxIDsByTimestamp(timeInFuture + 1.0)
+    Test.assert(txIds2.length == 3, message: "Should have 3 transactions for second timestamp")
+    Test.assert(txIds2.contains(4), message: "Should contain transaction ID 4")
+    Test.assert(txIds2.contains(5), message: "Should contain transaction ID 5")
+    Test.assert(txIds2.contains(6), message: "Should contain transaction ID 6")
+    
+    // Test getting transaction IDs for non-existent timestamp
+    let txIdsEmpty = getManagedTxIDsByTimestamp(timeInFuture + 100.0)
+    Test.assert(txIdsEmpty.length == 0, message: "Should have 0 transactions for non-existent timestamp")
+}
+
+access(all) fun testGetManagedTxIDsByTimestampRange() {
+    // Test getting transaction IDs for a range that includes all timestamps
+    let allTxIds = getManagedTxIDsByTimestampRange(startTimestamp: timeInFuture, endTimestamp: timeInFuture + 2.0)
+    Test.assert(allTxIds.length == 3, message: "Should have 3 timestamps in range")
+    
+    // Check first timestamp
+    if let firstTimestampTxs = allTxIds[timeInFuture] {
+        Test.assert(firstTimestampTxs.length == 3, message: "First timestamp should have 3 transactions")
+        Test.assert(firstTimestampTxs.contains(1), message: "First timestamp should contain transaction ID 1")
+        Test.assert(firstTimestampTxs.contains(2), message: "First timestamp should contain transaction ID 2")
+        Test.assert(firstTimestampTxs.contains(3), message: "First timestamp should contain transaction ID 3")
+    } else {
+        Test.assert(false, message: "First timestamp should exist in range")
+    }
+    
+    // Check second timestamp
+    if let secondTimestampTxs = allTxIds[timeInFuture + 1.0] {
+        Test.assert(secondTimestampTxs.length == 3, message: "Second timestamp should have 3 transactions")
+        Test.assert(secondTimestampTxs.contains(4), message: "Second timestamp should contain transaction ID 4")
+        Test.assert(secondTimestampTxs.contains(5), message: "Second timestamp should contain transaction ID 5")
+        Test.assert(secondTimestampTxs.contains(6), message: "Second timestamp should contain transaction ID 6")
+    } else {
+        Test.assert(false, message: "Second timestamp should exist in range")
+    }
+    
+    // Check third timestamp
+    if let thirdTimestampTxs = allTxIds[timeInFuture + 2.0] {
+        Test.assert(thirdTimestampTxs.length == 3, message: "Third timestamp should have 3 transactions")
+        Test.assert(thirdTimestampTxs.contains(7), message: "Third timestamp should contain transaction ID 7")
+        Test.assert(thirdTimestampTxs.contains(8), message: "Third timestamp should contain transaction ID 8")
+        Test.assert(thirdTimestampTxs.contains(9), message: "Third timestamp should contain transaction ID 9")
+    } else {
+        Test.assert(false, message: "Third timestamp should exist in range")
+    }
+    
+    // Test getting transaction IDs for empty range
+    let emptyRange = getManagedTxIDsByTimestampRange(startTimestamp: timeInFuture + 100.0, endTimestamp: timeInFuture + 200.0)
+    Test.assert(emptyRange.length == 0, message: "Empty range should return no timestamps")
+}
+
+access(all) fun testGetManagedTxIDsByHandler() {
+    // Test getting transaction IDs by handler type
+    // Note: All transactions use the same handler type (TestFlowScheduledTransactionHandler)
+    let handlerType = "A.0000000000000007.TestFlowScheduledTransactionHandler.Handler"
+    let txIds = getManagedTxIDsByHandler(handlerTypeIdentifier: handlerType, handlerUUID: nil)
+    
+    // Should have all 9 transactions
+    Test.assert(txIds.length == 9, message: "Should have 9 transactions for the handler type but got \(txIds.length)")
+    var i: UInt64 = 1
+    while i <= 9 {
+        Test.assert(txIds.contains(i), message: "Should contain transaction ID \(i)")
+        i = i + 1
+    }
+
+    // Test getting transaction IDs for handler with invalid UUID
+    let invalidUUIDHandler = "A.0000000000000007.TestFlowScheduledTransactionHandler.Handler"
+    let emptyTxIds = getManagedTxIDsByHandler(handlerTypeIdentifier: invalidUUIDHandler, handlerUUID: 10 as UInt64)
+    Test.assert(emptyTxIds.length == 0, message: "Invalid UUID handler should return empty array")
+    
+    // Test getting transaction IDs for non-existent handler
+    let nonExistentHandler = "A.0000000000000007.NonExistentHandler.Handler"
+    let emptyTxIds2 = getManagedTxIDsByHandler(handlerTypeIdentifier: nonExistentHandler, handlerUUID: nil)
+    Test.assert(emptyTxIds.length == 0, message: "Non-existent handler should return empty array")
+}
+
+access(all) fun testGetManagedTxIDs() {
+    // Test getting all managed transaction IDs
+    let allTxIds = getManagedTxIDs()
+    
+    // Should have all 9 transactions
+    Test.assert(allTxIds.length == 9, message: "Should have 9 total transactions")
+    var i: UInt64 = 1
+    while i <= 9 {
+        Test.assert(allTxIds.contains(i), message: "Should contain transaction ID \(i)")
+        i = i + 1
+    }
+}
+
+access(all) fun testGetHandlerTypeIdentifiers() {
+    // Test getting handler type identifiers
+    let handlerTypes = getHandlerTypeIdentifiers()
+    
+    // Should have one handler type with 9 transactions
+    Test.assert(handlerTypes.length == 1, message: "Should have 1 handler type")
+    
+    let handlerType = "A.0000000000000007.TestFlowScheduledTransactionHandler.Handler"
+    if let handlerUUIDs = handlerTypes[handlerType] {
+        Test.assert(handlerUUIDs.length == 1, message: "Handler type should have 1 uuid but got \(handlerUUIDs.length)")
+    } else {
+        Test.assert(false, message: "Expected handler type should exist")
+    }
+}
+
+access(all) fun testGetHandlerViews() {
+    // Test getting handler views by handler type
+    let handlerType = "A.0000000000000007.TestFlowScheduledTransactionHandler.Handler"
+    let views = getHandlerViews(handlerTypeIdentifier: handlerType, handlerUUID: nil)
+    
+    // Should return the view types available for this handler
+    Test.assert(views.length > 0, message: "Should return view types for handler")
+    
+    // Test getting handler views from transaction ID
+    let viewsFromTxId = getHandlerViewsFromTransactionID(1)
+    Test.assert(viewsFromTxId.length > 0, message: "Should return view types from transaction ID")
+    
+    // Test getting handler views for non-existent transaction
+    let viewsFromNonExistentTx = getHandlerViewsFromTransactionID(999)
+    Test.assert(viewsFromNonExistentTx.length == 0, message: "Non-existent transaction should return empty views")
+}
+
+access(all) fun testResolveHandlerView() {
+    // Test resolving handler view by handler type
+    let handlerType = "A.0000000000000007.TestFlowScheduledTransactionHandler.Handler"
+    let views = getHandlerViews(handlerTypeIdentifier: handlerType, handlerUUID: nil)
+    
+    if views.length > 0 {
+        let viewType = views[0]
+        let resolvedView = resolveHandlerView(handlerTypeIdentifier: handlerType, handlerUUID: nil, viewType: viewType)
+        // The resolved view might be nil if the handler doesn't implement the view
+        // This is expected behavior, so we just test that the function doesn't crash
+        Test.assert(true, message: "resolveHandlerView should not crash")
+    }
+    
+    // Test resolving handler view from transaction ID
+    let viewsFromTxId = getHandlerViewsFromTransactionID(1)
+    if viewsFromTxId.length > 0 {
+        let viewType = viewsFromTxId[0]
+        let resolvedView = resolveHandlerViewFromTransactionID(id: 1, viewType: viewType)
+        // The resolved view might be nil if the handler doesn't implement the view
+        // This is expected behavior, so we just test that the function doesn't crash
+        Test.assert(true, message: "resolveHandlerViewFromTransactionID should not crash")
+    }
+    
+    // Test resolving handler view for non-existent transaction
+    let resolvedViewFromNonExistentTx = resolveHandlerViewFromTransactionID(id: 999, viewType: views[0])
+    Test.assert(resolvedViewFromNonExistentTx == nil, message: "Non-existent transaction should return nil view")
+}
+
+
+access(all) fun testManagerCancel() {
+    
+    // Test canceling enough transactions to trigger the canceled transactions limit
+    cancelTransaction(
+        id: 1,
+        failWithErr: nil
+    )
+
+    cancelTransaction(
+        id: 4,
+        failWithErr: nil
+    )
+
+    cancelTransaction(
+        id: 7,
+        failWithErr: nil
+    )
+
+    let status1 = getManagedTxStatus(1)
+    Test.assert(status1 != nil, message: "Status for transaction 1 should not be nil")
+    Test.assert(status1 == statusUnknown, message: "Status for transaction 1 should be unknown")
+
+    let data4 = getManagedTxData(4)
+    Test.assert(data4 == nil, message: "Data for transaction 4 should be nil")
+
+    // Test getting transaction IDs for third timestamp
+    let txIds3 = getManagedTxIDsByTimestamp(timeInFuture + 2.0)
+    Test.assert(txIds3.length == 2, message: "Should have 2 transactions for third timestamp")
+    Test.assert(txIds3.contains(7) == false, message: "Should not contain transaction ID 7")
+    Test.assert(txIds3.contains(8), message: "Should contain transaction ID 8")
+    Test.assert(txIds3.contains(9), message: "Should contain transaction ID 9")
+
+    // Test getting transaction IDs by handler
+    let handlerType = "A.0000000000000007.TestFlowScheduledTransactionHandler.Handler"
+    let txIds = getManagedTxIDsByHandler(handlerTypeIdentifier: handlerType, handlerUUID: nil)
+    
+    // Should have all 6 transactions
+    Test.assert(txIds.length == 6, message: "Should have 6 transactions for the handler type but got \(txIds.length)")
+    var i: UInt64 = 1
+    while i <= 9 {
+        if i == 1 || i == 4 || i == 7 {
+            Test.assert(!txIds.contains(i), message: "Should not contain transaction ID \(i)")
+        } else {
+            Test.assert(txIds.contains(i), message: "Should contain transaction ID \(i)")
+        }
+        i = i + 1
+    }
+
+    // Test getting all transaction IDs
+    let allTxIds = getManagedTxIDs()
+    Test.assert(allTxIds.length == 6, message: "Should have 6 total transactions")
+    i = 1
+    while i <= 9 {
+        if i == 1 || i == 4 || i == 7 {
+            Test.assert(!allTxIds.contains(i), message: "Should not contain transaction ID \(i)")
+        }
+        i = i + 1
+    }
+
+    // Test getting handler views from cancelled transaction ID
+    let viewsFromTxId = getHandlerViewsFromTransactionID(7)
+    Test.assert(viewsFromTxId.length == 0, message: "Should return empty views from transaction ID")
+    
+    // Test resolving handler view from cancelled transaction ID
+    let resolvedViewFromTxId = resolveHandlerViewFromTransactionID(id: 7, viewType: Type<MetadataViews.Display>())
+    Test.assert(resolvedViewFromTxId == nil, message: "Should return nil view from transaction ID")
+}
+
+access(all) fun testManagerExecuteAndCleanup() {
+
+    // move time until after all the timestamps
+    Test.moveTime(by: Fix64(futureDelta + 5.0))
+
+    // get the old timestamps
+    let oldTimestamps = getManagerTimestamps()
+    Test.assert(oldTimestamps.length == 3, message: "Should have 3 timestamps but got \(oldTimestamps.length)")
+    Test.assert(oldTimestamps.contains(timeInFuture), message: "Should contain timestamp \(timeInFuture)")
+    Test.assert(oldTimestamps.contains(timeInFuture + 1.0), message: "Should contain timestamp \(timeInFuture + 1.0)")
+    Test.assert(oldTimestamps.contains(timeInFuture + 2.0), message: "Should contain timestamp \(timeInFuture + 2.0)")
+
+    // process the transactions
+    processTransactions()
+
+    // execute the non-canceled transactions
+    executeScheduledTransaction(id: 2, testName: "Test Manager Execute and Cleanup", failWithErr: nil)
+    executeScheduledTransaction(id: 3, testName: "Test Manager Execute and Cleanup", failWithErr: nil)
+    executeScheduledTransaction(id: 5, testName: "Test Manager Execute and Cleanup", failWithErr: nil)
+    executeScheduledTransaction(id: 6, testName: "Test Manager Execute and Cleanup", failWithErr: nil)
+    executeScheduledTransaction(id: 8, testName: "Test Manager Execute and Cleanup", failWithErr: nil)
+    executeScheduledTransaction(id: 9, testName: "Test Manager Execute and Cleanup", failWithErr: nil)
+
+    // process the transactions again to remove the executed transactions
+    processTransactions()
+
+    // schedule a new transaction which will cleanup some of the executed transactions
+    scheduleTransaction(
+        timestamp: timeInFuture + UFix64(50.0),
+        fee: feeAmount,
+        effort: basicEffort,
+        priority: highPriority,
+        data: testData,
+        testName: "Test Manager Execute and Cleanup",
+        failWithErr: nil)
+
+    // get the old timestamps, timeInFuture should have been removed
+    let timestamps = getManagerTimestamps()
+    Test.assert(timestamps.length == 0, message: "Should have 0 timestamps after cleanup but got \(timestamps.length)")
+
+    // get status of id 1
+    let status1 = getStatus(id: 1)
+    Test.assert(status1 == statusUnknown, message: "Status for transaction 1 should be unknown but got \(status1!)")
+
+    // get canceled transactions
+    let canceledTransactions = getCanceledTransactions()
+    Test.assert(canceledTransactions.length == 2, message: "Should have 2 canceled transactions but got \(canceledTransactions.length)")
+    Test.assert(canceledTransactions.contains(4), message: "Should contain transaction ID 4")
+    Test.assert(canceledTransactions.contains(7), message: "Should contain transaction ID 7")
+
+    // check that ID 2 and 3 are no longer in the manager
+    let status2 = getManagedTxStatus(2)
+    Test.assert(status2 == statusUnknown, message: "Status for transaction 2 should be unknown but got \(status2!)")
+    let status3 = getManagedTxStatus(3)
+    Test.assert(status3 == statusUnknown, message: "Status for transaction 3 should be unknown but got \(status3!)")
+
+    // check that ID 5, 6, 8, and 9 are still in the manager and executed
+    let status5 = getManagedTxStatus(5)
+    Test.assert(status5 == statusUnknown, message: "Status for transaction 5 should be unknown but got \(status5!)")
+    let status6 = getManagedTxStatus(6)
+    Test.assert(status6 == statusUnknown, message: "Status for transaction 6 should be unknown but got \(status6!)")
+    let status8 = getManagedTxStatus(8)
+    Test.assert(status8 == statusUnknown, message: "Status for transaction 8 should be unknown but got \(status8!)")
+    let status9 = getManagedTxStatus(9)
+    Test.assert(status9 == statusUnknown, message: "Status for transaction 9 should be unknown but got \(status9!)")
+
+    // test getting data for transactions which were executed and cleaned up
+    let data2 = getManagedTxData(2)
+    Test.assert(data2 == nil, message: "Data for transaction 2 should be nil")
+    let data3 = getManagedTxData(3)
+    Test.assert(data3 == nil, message: "Data for transaction 3 should be nil")
+
+    // Test getting transaction IDs for first timestamp
+    let txIds1 = getManagedTxIDsByTimestamp(timeInFuture)
+    Test.assert(txIds1.length == 0, message: "Should have 0 transactions for first timestamp")
+
+    // Test getting transaction IDs by handler
+    let handlerType = "A.0000000000000007.TestFlowScheduledTransactionHandler.Handler"
+    let txIds = getManagedTxIDsByHandler(handlerTypeIdentifier: handlerType, handlerUUID: nil)
+    
+    // Should only have 1 transaction, the one scheduled
+    Test.assert(txIds.length == 1, message: "Should have 1 transaction for the handler type but got \(txIds.length)")
+    Test.assert(txIds.contains(10), message: "Should contain transaction ID 10")
+
+    // Test getting all transaction IDs
+    let allTxIds = getManagedTxIDs()
+    Test.assert(allTxIds.length == 1, message: "Should have 1 total transaction")
+    Test.assert(allTxIds.contains(10), message: "Should contain transaction ID 10")
+
+    // Test getting handler views from executed and cleaned up transaction ID
+    let viewsFromTxId = getHandlerViewsFromTransactionID(3)
+    Test.assert(viewsFromTxId.length == 0, message: "Should return empty views from cleaned up transaction ID 3")
+    
+    // Test resolving handler view from executed and cleaned up transaction ID
+    let resolvedViewFromTxId = resolveHandlerViewFromTransactionID(id: 3, viewType: Type<MetadataViews.Display>())
+    Test.assert(resolvedViewFromTxId == nil, message: "Should return nil view from cleaned up transaction ID 3")
+}
+
+access(all) fun testManagerScheduleDifferentUUID() {
+
+    // schedule a transaction with the same handler type but different handler UUID
+    let handlerType = "A.0000000000000007.TestFlowScheduledTransactionHandler.Handler"
+    var tx = Test.Transaction(
+        code: Test.readFile("./transactions/schedule_tx_with_different_handler.cdc"),
+        authorizers: [admin.address],
+        signers: [admin],
+        arguments: [timeInFuture + UFix64(50.0), feeAmount, basicEffort, highPriority, testData],
+    )
+    var result = Test.executeTransaction(tx)
+    Test.expect(result, Test.beSucceeded())
+
+    // schedule a transaction with the same handler by type but nil uuid
+    // Should fail because there are two uuids for the handler type
+    tx = Test.Transaction(
+        code: Test.readFile("../transactions/transactionScheduler/schedule_transaction_by_handler.cdc"),
+        authorizers: [admin.address],
+        signers: [admin],
+        arguments: [handlerType, nil, timeInFuture + UFix64(50.0), feeAmount, basicEffort, highPriority, testData],
+    )
+    result = Test.executeTransaction(tx)
+    Test.expect(result, Test.beFailed())
+    Test.assertError(result, errorMessage: "Invalid handler UUID: Handler with type identifier A.0000000000000007.TestFlowScheduledTransactionHandler.Handler has more than one UUID, but no UUID was provided")
+
+    
+
+    // get the handler type identifiers
+    let handlerTypeIdentifiers = getHandlerTypeIdentifiers()
+    Test.assert(handlerTypeIdentifiers.length == 1, message: "Should have 1 handler type identifier but got \(handlerTypeIdentifiers.length)")
+    Test.assert(handlerTypeIdentifiers.containsKey(handlerType), message: "Should contain handler type \(handlerType)")
+    let handlerUUIDs = handlerTypeIdentifiers[handlerType]!
+    Test.assert(handlerUUIDs.length == 2, message: "Should have 2 handler UUIDs but got \(handlerUUIDs.length)")
+
+    // schedule a transaction with the same handler by type and uuid
+    tx = Test.Transaction(
+        code: Test.readFile("../transactions/transactionScheduler/schedule_transaction_by_handler.cdc"),
+        authorizers: [admin.address],
+        signers: [admin],
+        arguments: [handlerType, handlerUUIDs[0], timeInFuture + UFix64(50.0), feeAmount, basicEffort, highPriority, testData],
+    )
+    result = Test.executeTransaction(tx)
+    Test.expect(result, Test.beSucceeded())
+
+    // verify that both uuids are represented in the manager
+    
+    var txIds = getManagedTxIDsByHandler(handlerTypeIdentifier: handlerType, handlerUUID: nil)
+    Test.assert(txIds.length == 0, message: "Should have 0 transactions for the handler type because there are two uuids but got \(txIds.length)")
+
+    txIds = getManagedTxIDsByHandler(handlerTypeIdentifier: handlerType, handlerUUID: handlerUUIDs[0])
+    Test.assert(txIds.length > 0, message: "Should have more than 0 transactions for the handler type with uuid \(handlerUUIDs[0]) but got \(txIds.length)")
+
+    txIds = getManagedTxIDsByHandler(handlerTypeIdentifier: handlerType, handlerUUID: handlerUUIDs[1])
+    Test.assert(txIds.length > 0, message: "Should have more than 0 transactions for the handler type with uuid \(handlerUUIDs[1]) but got \(txIds.length)")
+
+    // Get handler views with nil uuid
+    let views = getHandlerViews(handlerTypeIdentifier: handlerType, handlerUUID: nil)
+    Test.assert(views.length == 0, message: "Should have 0 views for the handler type with nil uuid but got \(views.length)")
+
+    // Get handler views with uuid
+    let views2 = getHandlerViews(handlerTypeIdentifier: handlerType, handlerUUID: handlerUUIDs[0])
+    Test.assert(views2.length > 0, message: "Should have more than 0 views for the handler type with uuid \(handlerUUIDs[0]) but got \(views2.length)")
+    
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/stakingProxy/remove_node_info.cdc
 
 ```
@@ -24009,6 +24658,428 @@ transaction(id: String) {
         self.adminRef.removeAndRefundNodeRecord(id)
     }
 }
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/tests/transactionScheduler_coa_test.cdc
+
+```
+import Test
+import BlockchainHelpers
+import "FlowTransactionScheduler"
+import "FlowToken"
+import "FlowTransactionSchedulerUtils"
+
+import "scheduled_transaction_test_helpers.cdc"
+import "evm_test_helpers.cdc"
+
+access(all) var startingHeight: UInt64 = 0
+
+access(all) let depositFLOWEnum: UInt8 = 0
+access(all) let withdrawFLOWEnum: UInt8 = 1
+access(all) let callEnum: UInt8 = 2
+
+access(all)
+fun setup() {
+
+    var err = Test.deployContract(
+        name: "FlowTransactionScheduler",
+        path: "../contracts/FlowTransactionScheduler.cdc",
+        arguments: []
+    )
+    Test.expect(err, Test.beNil())
+
+    err = Test.deployContract(
+        name: "FlowTransactionSchedulerUtils",
+        path: "../contracts/FlowTransactionSchedulerUtils.cdc",
+        arguments: []
+    )
+    Test.expect(err, Test.beNil())
+
+    fundAccountWithFlow(to: admin.address, amount: 10000.0)
+
+    startingHeight = getCurrentBlockHeight()
+
+}
+
+/* ---------------------------------------------------------------------------------
+ COA HandlerParams Unit Tests
+ --------------------------------------------------------------------------------- */
+
+access(all) fun testCOAHandlerParams() {
+    // Failure Test Cases
+
+    var params = createCOAHandlerParams(
+                            coaTXTypeEnum: 3,
+                            revertOnFailure: false,
+                            amount: 100.0,
+                            callToEVMAddress: nil,
+                            data: nil,
+                            gasLimit: nil,
+                            value: nil,
+                            testName: "Test COA HandlerParams: Invalid COA transaction type enum",
+                            failWithErr: "Invalid COA transaction type enum")
+
+    params = createCOAHandlerParams(
+                            coaTXTypeEnum: depositFLOWEnum,
+                            revertOnFailure: false,
+                            amount: nil,
+                            callToEVMAddress: nil,
+                            data: nil,
+                            gasLimit: nil,
+                            value: nil,
+                            testName: "Test COA HandlerParams: Deposit FLOW",
+                            failWithErr: "Amount is required for deposit but was not provided")
+
+    params = createCOAHandlerParams(
+                            coaTXTypeEnum: withdrawFLOWEnum,
+                            revertOnFailure: false,
+                            amount: nil,
+                            callToEVMAddress: nil,
+                            data: nil,
+                            gasLimit: nil,
+                            value: nil,
+                            testName: "Test COA HandlerParams: Withdraw FLOW",
+                            failWithErr: "Amount is required for withdrawal but was not provided")
+
+    params = createCOAHandlerParams(
+                            coaTXTypeEnum: callEnum,
+                            revertOnFailure: false,
+                            amount: nil,
+                            callToEVMAddress: nil,
+                            data: [1, 2, 3],
+                            gasLimit: 100000,
+                            value: 0,
+                            testName: "Test COA HandlerParams: Call with nil EVM address",
+                            failWithErr: "Call to EVM address is required for EVM call but was not provided")
+
+    params = createCOAHandlerParams(
+                            coaTXTypeEnum: callEnum,
+                            revertOnFailure: false,
+                            amount: nil,
+                            callToEVMAddress: "1234567890abcdef1234", // 20 hex chars (invalid - too short)
+                            data: [1, 2, 3],
+                            gasLimit: 100000,
+                            value: 0,
+                            testName: "Test COA HandlerParams: Call with invalid EVM address length (too short)",
+                            failWithErr: "EVM.addressFromString(): Invalid hex string length for an EVM address. The provided string is 20, but the length must be 40 or 42.")
+
+    params = createCOAHandlerParams(
+                            coaTXTypeEnum: callEnum,
+                            revertOnFailure: false,
+                            amount: nil,
+                            callToEVMAddress: "1234567890abcdef1234567890abcdef1234567890ab22", // 46 hex chars (invalid - too long)
+                            data: [1, 2, 3],
+                            gasLimit: 100000,
+                            value: 0,
+                            testName: "Test COA HandlerParams: Call with invalid EVM address length (too long)",
+                            failWithErr: "EVM.addressFromString(): Invalid hex string length for an EVM address. The provided string is 46, but the length must be 40 or 42.")
+
+    params = createCOAHandlerParams(
+                            coaTXTypeEnum: callEnum,
+                            revertOnFailure: false,
+                            amount: nil,
+                            callToEVMAddress: "1234567890abcdef1234567890abcdef12345678", // 40 hex chars (20 bytes when decoded)
+                            data: [1, 2, 3],
+                            gasLimit: nil,
+                            value: 0,
+                            testName: "Test COA HandlerParams: Call with nil gas limit",
+                            failWithErr: "Gas limit is required for EVM call but was not provided")
+
+    params = createCOAHandlerParams(
+                            coaTXTypeEnum: callEnum,
+                            revertOnFailure: false,
+                            amount: nil,
+                            callToEVMAddress: "1234567890abcdef1234567890abcdef12345678", // 40 hex chars (20 bytes when decoded)
+                            data: nil,
+                            gasLimit: 100000,
+                            value: nil,
+                            testName: "Test COA HandlerParams: Call with nil value",
+                            failWithErr: "Data and/or value are required for EVM call but neither were provided")
+
+    // Success Test Case
+    params = createCOAHandlerParams(
+                            coaTXTypeEnum: callEnum,
+                            revertOnFailure: false,
+                            amount: nil,
+                            callToEVMAddress: "1234567890abcdef1234567890abcdef12345678", // 40 hex chars (20 bytes when decoded)
+                            data: [1, 2, 3],
+                            gasLimit: 100000,
+                            value: 1000000000000000000000, // 1000 FLOW in attoFLOW
+                            testName: "Test COA HandlerParams: Successful Params",
+                            failWithErr: nil)
+
+
+}
+
+/** ---------------------------------------------------------------------------------
+ Transaction handler integration tests
+ --------------------------------------------------------------------------------- */
+
+access(all) fun testCOAScheduledTransactions() {
+
+    let currentTime = getTimestamp()
+    let timeInFuture = currentTime + futureDelta
+
+    setupCOATransaction(amount: 100.0)
+
+    // get initial balance of the Flow account
+    let accountBalanceBefore = getBalance(account: admin.address)
+    Test.assertEqual(9900.0, accountBalanceBefore)
+
+    // Schedule high priority transaction to deposit FLOW to the COA
+    scheduleCOATransaction(
+        timestamp: timeInFuture,
+        fee: feeAmount,
+        effort: basicEffort,
+        priority: highPriority,
+        coaTXTypeEnum: depositFLOWEnum,
+        revertOnFailure: false,
+        amount: 100.0,
+        callToEVMAddress: nil,
+        data: nil,
+        gasLimit: nil,
+        value: nil,
+        testName: "Test COA Transaction Scheduling: Deposit FLOW",
+        failWithErr: nil
+    )
+
+    // Schedule high priority transaction to withdraw FLOW from the COA
+    scheduleCOATransaction(
+        timestamp: timeInFuture,
+        fee: feeAmount,
+        effort: basicEffort,
+        priority: highPriority,
+        coaTXTypeEnum: withdrawFLOWEnum,
+        revertOnFailure: false,
+        amount: 0.0,
+        callToEVMAddress: nil,
+        data: nil,
+        gasLimit: nil,
+        value: nil,
+        testName: "Test COA Transaction Scheduling: Withdraw zero FLOW",
+        failWithErr: nil
+    )
+
+    // Schedule high priority transaction to withdraw too much FLOW from the COA and should revert
+    scheduleCOATransaction(
+        timestamp: timeInFuture,
+        fee: feeAmount,
+        effort: basicEffort,
+        priority: highPriority,
+        coaTXTypeEnum: withdrawFLOWEnum,
+        revertOnFailure: true,
+        amount: 300.0,
+        callToEVMAddress: nil,
+        data: nil,
+        gasLimit: nil,
+        value: nil,
+        testName: "Test COA Transaction Scheduling: Withdraw too much FLOW, should revert",
+        failWithErr: nil
+    )
+
+    // Schedule high priority transaction to withdraw too much FLOW from the COA and should not revert
+    scheduleCOATransaction(
+        timestamp: timeInFuture,
+        fee: feeAmount,
+        effort: basicEffort,
+        priority: highPriority,
+        coaTXTypeEnum: withdrawFLOWEnum,
+        revertOnFailure: false,
+        amount: 300.0,
+        callToEVMAddress: nil,
+        data: nil,
+        gasLimit: nil,
+        value: nil,
+        testName: "Test COA Transaction Scheduling: Withdraw too much FLOW, should not revert",
+        failWithErr: nil
+    )
+
+    // Schedule high priority transaction to withdraw enough FLOW
+    scheduleCOATransaction(
+        timestamp: timeInFuture,
+        fee: feeAmount,
+        effort: basicEffort,
+        priority: highPriority,
+        coaTXTypeEnum: withdrawFLOWEnum,
+        revertOnFailure: false,
+        amount: 150.0,
+        callToEVMAddress: nil,
+        data: nil,
+        gasLimit: nil,
+        value: nil,
+        testName: "Test COA Transaction Scheduling: Withdraw enough FLOW",
+        failWithErr: nil
+    )
+
+    // Schedule high priority transaction to deposit too much FLOW to the COA and should revert
+    scheduleCOATransaction(
+        timestamp: timeInFuture,
+        fee: feeAmount,
+        effort: basicEffort,
+        priority: highPriority,
+        coaTXTypeEnum: depositFLOWEnum,
+        revertOnFailure: true,
+        amount: 10000000.0,
+        callToEVMAddress: nil,
+        data: nil,
+        gasLimit: nil,
+        value: nil,
+        testName: "Test COA Transaction Scheduling: Deposit too much FLOW, should revert",
+        failWithErr: nil
+    )
+
+    // Schedule high priority transaction to deposit too much FLOW to the COA and should not revert
+    scheduleCOATransaction(
+        timestamp: timeInFuture,
+        fee: feeAmount,
+        effort: basicEffort,
+        priority: highPriority,
+        coaTXTypeEnum: depositFLOWEnum,
+        revertOnFailure: false,
+        amount: 10000000.0,
+        callToEVMAddress: nil,
+        data: nil,
+        gasLimit: nil,
+        value: nil,
+        testName: "Test COA Transaction Scheduling: Deposit too much FLOW, should not revert",
+        failWithErr: nil
+    )
+
+    // Schedule high priority transaction to transfer FLOW in EVM and revert on failure
+    scheduleCOATransaction(
+        timestamp: timeInFuture,
+        fee: feeAmount,
+        effort: basicEffort,
+        priority: highPriority,
+        coaTXTypeEnum: callEnum,
+        revertOnFailure: true,
+        amount: nil,
+        callToEVMAddress: "1234567890abcdef1234567890abcdef12345678", // 40 hex chars (20 bytes when decoded)
+        data: [],
+        gasLimit: 100000,
+        value: 1000000000000000000000, // 1000 FLOW in attoFLOW
+        testName: "Test COA Transaction Scheduling: Transfer FLOW in EVM, should revert",
+        failWithErr: nil
+    )
+
+     // Deposit Too much Flow and not revert
+    let call1: {String: AnyStruct} = {}
+    call1["coaTXTypeEnum"] = depositFLOWEnum
+    call1["revertOnFailure"] = false
+    call1["amount"] = 10000000.0
+
+    // transfer FLOW in EVM and revert on failure, but should succeed
+    let call2: {String: AnyStruct} = {}
+    call2["coaTXTypeEnum"] = callEnum
+    call2["revertOnFailure"] = true
+    call2["callToEVMAddress"] = "1234567890abcdef1234567890abcdef12345678"
+    call2["data"] = nil
+    call2["gasLimit"] = UInt64(100000)
+    call2["value"] = UInt(1000000000000000000) // 1 FLOW in attoFLOW
+    let calls: [{String: AnyStruct}] = [call1, call2]
+
+    scheduleMultipleCOATransactions(
+        timestamp: timeInFuture,
+        fee: feeAmount,
+        effort: basicEffort,
+        priority: highPriority,
+        calls: calls,
+        testName: "Test COA Transaction Scheduling: Multiple COA Transactions should not revert on failure",
+        failWithErr: nil
+    )
+
+    Test.moveTime(by: Fix64(futureDelta+10.0))
+
+    processTransactions()
+
+    executeScheduledTransaction(
+        id: 1,
+        testName: "Test COA Transaction Scheduling: Deposit FLOW",
+        failWithErr: nil
+    )
+
+    executeScheduledTransaction(
+        id: 2,
+        testName: "Test COA Transaction Scheduling: Withdraw FLOW",
+        failWithErr: nil
+    )
+
+    executeScheduledTransaction(
+        id: 3,
+        testName: "Test COA Transaction Scheduling: Withdraw too much FLOW and revert",
+        failWithErr: "have 200000000000000000000 want 300000000000000000000"
+    )
+
+    executeScheduledTransaction(
+        id: 4,
+        testName: "Test COA Transaction Scheduling: Withdraw too much FLOW and not revert",
+        failWithErr: nil
+    )
+
+    executeScheduledTransaction(
+        id: 5,
+        testName: "Test COA Transaction Scheduling: Withdraw enough FLOW",
+        failWithErr: nil
+    )
+
+    executeScheduledTransaction(
+        id: 6,
+        testName: "Test COA Transaction Scheduling: Deposit too much FLOW and revert",
+        failWithErr: "is greater than the balance of the Vault"
+    )
+
+    executeScheduledTransaction(
+        id: 7,
+        testName: "Test COA Transaction Scheduling: Deposit too much FLOW and not revert",
+        failWithErr: nil
+    )
+
+    executeScheduledTransaction(
+        id: 8,
+        testName: "Test COA Transaction Scheduling: Transfer too mcuh FLOW in EVM and revert",
+        failWithErr: "have 50000000000000000000 want 1000000000000000000000"
+    )
+
+    // Testing framework error with {String: AnyStruct}
+    executeScheduledTransaction(
+        id: 9,
+        testName: "Test COA Transaction Scheduling: Multiple COA Transactions should not revert on failure",
+        failWithErr: nil
+    )
+
+    var errorEvents = Test.eventsOfType(Type<FlowTransactionSchedulerUtils.COAHandlerExecutionError>())
+    Test.assert(errorEvents.length == 3, message: "There should be three COAHandlerExecutionError events but there are \(errorEvents.length) events")
+    var errorEvent = errorEvents[0] as! FlowTransactionSchedulerUtils.COAHandlerExecutionError
+    Test.assertEqual(4 as UInt64, errorEvent.id)
+    Test.assertEqual(admin.address, errorEvent.owner!)
+    Test.assertEqual("Insufficient FLOW in COA vault for withdrawal from COA for scheduled transaction with ID 4 and index 0", errorEvent.errorMessage)
+
+    errorEvent = errorEvents[1] as! FlowTransactionSchedulerUtils.COAHandlerExecutionError
+    Test.assertEqual(7 as UInt64, errorEvent.id)
+    Test.assertEqual(admin.address, errorEvent.owner!)
+    Test.assertEqual("Insufficient FLOW in FlowToken vault for deposit into COA for scheduled transaction with ID 7 and index 0", errorEvent.errorMessage)
+
+    errorEvent = errorEvents[2] as! FlowTransactionSchedulerUtils.COAHandlerExecutionError
+    Test.assertEqual(9 as UInt64, errorEvent.id)
+    Test.assertEqual(admin.address, errorEvent.owner!)
+    Test.assertEqual("Insufficient FLOW in FlowToken vault for deposit into COA for scheduled transaction with ID 9 and index 0", errorEvent.errorMessage)
+    
+    let accountBalanceAfter = getBalance(account: admin.address)
+    Test.assertEqual(accountBalanceBefore+50.0, accountBalanceAfter)
+}
+
 ```
 
 
@@ -26651,16 +27722,14 @@ access(all) fun main(address: Address): UFix64 {
     var sum = 0.0
 
     let account = getAccount(address)
+    let authAccount = getAuthAccount<auth(Storage) &Account>(address)
 
     if let vaultRef = account.capabilities.borrow<&FlowToken.Vault>(/public/flowTokenBalance) {
         sum = sum + vaultRef.balance
     }
 
-    // Get token balance from the unlocked account's node staking pools
-    let optionalNodeStakerRef = account
-        .capabilities.borrow<&{FlowIDTableStaking.NodeStakerPublic}>(
-            FlowIDTableStaking.NodeStakerPublicPath
-        )
+    // get node staker reference from storage
+    let optionalNodeStakerRef = authAccount.storage.borrow<&FlowIDTableStaking.NodeStaker>(from: FlowIDTableStaking.NodeStakerStoragePath)
 
     if let nodeStakerRef = optionalNodeStakerRef {
         let nodeInfo = FlowIDTableStaking.NodeInfo(nodeID: nodeStakerRef.id)
@@ -32732,6 +33801,155 @@ transaction(amount: UFix64) {
 
 
 
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/tests/evm_test_helpers.cdc
+
+```
+import Test
+import "FlowTransactionScheduler"
+import "FlowTransactionSchedulerUtils"
+
+// Account 7 is where new contracts are deployed by default
+access(all) let adminAcct = Test.getAccount(0x0000000000000007)
+
+access(all) let serviceAcct = Test.serviceAccount()
+
+/** ---------------------------------------------------------------------------------
+ Test helper functions
+ --------------------------------------------------------------------------------- */
+
+access(all) fun setupCOATransaction(amount: UFix64) {
+    var tx = Test.Transaction(
+        code: Test.readFile("../transactions/accounts/setup_coa.cdc"),
+        authorizers: [adminAcct.address],
+        signers: [adminAcct],
+        arguments: [amount],
+    )
+    var result = Test.executeTransaction(tx)
+
+    Test.expect(result, Test.beSucceeded())
+}
+
+access(all) fun scheduleCOATransaction(
+    timestamp: UFix64,
+    fee: UFix64,
+    effort: UInt64,
+    priority: UInt8,
+    coaTXTypeEnum: UInt8,
+    revertOnFailure: Bool,
+    amount: UFix64?,
+    callToEVMAddress: String?,
+    data: [UInt8]?,
+    gasLimit: UInt64?,
+    value: UInt?,
+    testName: String,
+    failWithErr: String?
+) {
+    var tx = Test.Transaction(
+        code: Test.readFile("../transactions/transactionScheduler/schedule_coa_transaction.cdc"),
+        authorizers: [adminAcct.address],
+        signers: [adminAcct],
+        arguments: [timestamp, fee, effort, priority, coaTXTypeEnum, revertOnFailure, amount, callToEVMAddress, data, gasLimit, value],
+    )
+    var result = Test.executeTransaction(tx)
+
+    if let error = failWithErr {
+        // log(error)
+        // log(result.error!.message)
+        Test.expect(result, Test.beFailed())
+        Test.assertError(
+            result,
+            errorMessage: error
+        )
+    
+    } else {
+        if result.error != nil {
+            Test.assert(result.error == nil, message: "Transaction failed with error: \(result.error!.message) for test case: \(testName)")
+        }
+    }
+}
+
+access(all) fun scheduleMultipleCOATransactions(
+    timestamp: UFix64,
+    fee: UFix64,
+    effort: UInt64,
+    priority: UInt8,
+    calls: [{String: AnyStruct}],
+    testName: String,
+    failWithErr: String?
+) {
+    var tx = Test.Transaction(
+        code: Test.readFile("../transactions/transactionScheduler/schedule_multiple_coa_transactions.cdc"),
+        authorizers: [adminAcct.address],
+        signers: [adminAcct],
+        arguments: [timestamp, fee, effort, priority, calls],
+    )
+    var result = Test.executeTransaction(tx)
+
+    if let error = failWithErr {
+        // log(error)
+        // log(result.error!.message)
+        Test.expect(result, Test.beFailed())
+        Test.assertError(
+            result,
+            errorMessage: error
+        )
+    
+    } else {
+        if result.error != nil {
+            Test.assert(result.error == nil, message: "Transaction failed with error: \(result.error!.message) for test case: \(testName)")
+        }
+    }
+}
+
+access(all) fun createCOAHandlerParams(
+    coaTXTypeEnum: UInt8,
+    revertOnFailure: Bool,
+    amount: UFix64?,
+    callToEVMAddress: String?,
+    data: [UInt8]?,
+    gasLimit: UInt64?,
+    value: UInt?,
+    testName: String,
+    failWithErr: String?
+) {
+
+    let args = [coaTXTypeEnum, revertOnFailure, amount, callToEVMAddress, data, gasLimit, value]
+    var result = Test.executeScript(Test.readFile("./scripts/create_coa_handler_params.cdc"), args)
+
+    if let error = failWithErr {
+        // log(error)
+        // log(result.error!.message)
+        Test.expect(result, Test.beFailed())
+        Test.assertError(
+            result,
+            errorMessage: error
+        )
+    
+    } else {
+        if result.error != nil {
+            Test.assert(result.error == nil, message: "Transaction failed with error: \(result.error!.message) for test case: \(testName)")
+        }
+    }
+}
+
+// access(all)
+// fun _executeScript(_ path: String, _ args: [AnyStruct]): Test.ScriptResult {
+//     return Test.executeScript(Test.readFile(path), args)
+// }
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_node_total_commitment.cdc
 
 ```
@@ -36133,11 +37351,10 @@ access(all) fun main(account: Address): [FlowIDTableStaking.NodeInfo] {
     let nodeInfoArray: [FlowIDTableStaking.NodeInfo] = []
 
     let pubAccount = getAccount(account)
+    let authAccount = getAuthAccount<auth(Storage) &Account>(account)
 
-    let optionalNodeStakerRef = pubAccount
-        .capabilities.borrow<&{FlowIDTableStaking.NodeStakerPublic}>(
-            FlowIDTableStaking.NodeStakerPublicPath
-        )
+    // get node staker reference from storage
+    let optionalNodeStakerRef = authAccount.storage.borrow<&FlowIDTableStaking.NodeStaker>(from: FlowIDTableStaking.NodeStakerStoragePath)
 
     if let nodeStakerRef = optionalNodeStakerRef {
         let info = FlowIDTableStaking.NodeInfo(nodeID: nodeStakerRef.id)
@@ -39549,6 +40766,888 @@ access(all) fun main(nodeID: String, delegatorID: UInt32): UFix64 {
 
 
 
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/tests/transactionScheduler_test.cdc
+
+```
+import Test
+import BlockchainHelpers
+import "FlowTransactionScheduler"
+import "FlowToken"
+import "TestFlowScheduledTransactionHandler"
+
+import "scheduled_transaction_test_helpers.cdc"
+
+access(all)
+fun setup() {
+
+    var err = Test.deployContract(
+        name: "FlowTransactionScheduler",
+        path: "../contracts/FlowTransactionScheduler.cdc",
+        arguments: []
+    )
+    Test.expect(err, Test.beNil())
+
+    err = Test.deployContract(
+        name: "FlowTransactionSchedulerUtils",
+        path: "../contracts/FlowTransactionSchedulerUtils.cdc",
+        arguments: []
+    )
+    Test.expect(err, Test.beNil())
+
+    err = Test.deployContract(
+        name: "TestFlowScheduledTransactionHandler",
+        path: "../contracts/testContracts/TestFlowScheduledTransactionHandler.cdc",
+        arguments: []
+    )
+    Test.expect(err, Test.beNil())
+
+    fundAccountWithFlow(to: admin.address, amount: 10000.0)
+
+}
+
+/** ---------------------------------------------------------------------------------
+ Transaction handler integration tests
+ --------------------------------------------------------------------------------- */
+
+
+access(all) fun testInit() {
+
+    // Try to process transactions
+    // Nothing will process because nothing is scheduled, but should not fail
+    processTransactions()
+
+    // try to get the status of a transaction that is not scheduled yet
+    var status = getStatus(id: UInt64(10))
+    Test.assertEqual(nil, status)
+
+    // try to get the status of transaction with ID 0
+    status = getStatus(id: UInt64(0))
+    Test.assertEqual(nil, status)
+
+    // Try to execute a transaction, should fail
+    executeScheduledTransaction(id: UInt64(1), testName: "testInit", failWithErr: "Invalid ID: Transaction with id 1 not found")
+
+    // verify that the available efforts are all their defaults
+    var effort = getSlotAvailableEffort(timestamp: futureTime, priority: highPriority)
+    Test.assertEqual(highPriorityMaxEffort, effort)
+
+    effort = getSlotAvailableEffort(timestamp: futureTime, priority: mediumPriority)
+    Test.assertEqual(mediumPriorityMaxEffort, effort)
+
+    effort = getSlotAvailableEffort(timestamp: futureTime, priority: lowPriority)
+    Test.assertEqual(lowPriorityMaxEffort, effort)
+}
+
+access(all) fun testGetSizeOfData() {
+
+    // Test different values for data to verify that it reports the correct sizes
+    var size = getSizeOfData(data: 1)
+    Test.assertEqual(0.00000000 as UFix64, size)
+
+    size = getSizeOfData(data: 100000000)
+    Test.assertEqual(0.00000000 as UFix64, size)
+
+    size = getSizeOfData(data: StoragePath(identifier: "scheduledTransactionsStoragePath"))
+    Test.assertEqual(0.00005600 as UFix64, size)
+
+    size = getSizeOfData(data: testData)
+    Test.assertEqual(0.00003000 as UFix64, size)
+
+    size = getSizeOfData(data: 0x0000000000000001)
+    Test.assertEqual(0.00000000 as UFix64, size)
+
+    let largeArray: [Int] = []
+    while largeArray.length < 199 {
+         largeArray.append(1)
+    }
+
+    size = getSizeOfData(data: largeArray)
+    Test.assertEqual(0.00107500 as UFix64, size)
+}
+
+/** ---------------------------------------------------------------------------------
+ Transaction scheduler estimate() tests
+ --------------------------------------------------------------------------------- */
+
+// Test case structure for estimate function
+access(all) struct EstimateTestCase {
+    access(all) let name: String
+    access(all) let timestamp: UFix64
+    access(all) let priority: FlowTransactionScheduler.Priority
+    access(all) let executionEffort: UInt64
+    access(all) let data: AnyStruct?
+    access(all) let expectedFee: UFix64?
+    access(all) let expectedTimestamp: UFix64?
+    access(all) let expectedError: String?
+
+    access(all) init(
+        name: String,
+        timestamp: UFix64,
+        priority: FlowTransactionScheduler.Priority,
+        executionEffort: UInt64,
+        data: AnyStruct?,
+        expectedFee: UFix64?,
+        expectedTimestamp: UFix64?,
+        expectedError: String?
+    ) {
+        self.name = name
+        self.timestamp = timestamp
+        self.priority = priority
+        self.executionEffort = executionEffort
+        self.data = data
+        self.expectedFee = expectedFee
+        self.expectedTimestamp = expectedTimestamp
+        self.expectedError = expectedError
+    }
+}
+
+access(all) fun testEstimate() {
+
+    setFeeParameters(
+        surgeFactor: 1.0,
+        inclusionEffortCost: 0.00001000,
+        executionEffortCost: 24.99249924
+    )
+
+    let largeArray: [Int] = []
+    while largeArray.length < 10000 {
+         largeArray.append(1)
+    }
+
+    let currentTime = getCurrentBlock().timestamp
+    let futureTime = currentTime + 100.0
+    let pastTime = currentTime - 100.0
+    let farFutureTime = currentTime + 10000.0
+
+    let estimateTestCases: [EstimateTestCase] = [
+        // Error cases - should return EstimatedScheduledTransaction with error
+        EstimateTestCase(
+            name: "Low priority returns requested timestamp and error",
+            timestamp: futureTime,
+            priority: FlowTransactionScheduler.Priority.Low,
+            executionEffort: 1000,
+            data: nil,
+            expectedFee: 0.00052984,
+            expectedTimestamp: futureTime,
+            expectedError: "Invalid Priority: Cannot estimate for Low Priority transactions. They will be included in the first block with available space after their requested timestamp."
+        ),
+        EstimateTestCase(
+            name: "Past timestamp returns error",
+            timestamp: pastTime,
+            priority: FlowTransactionScheduler.Priority.High,
+            executionEffort: 1000,
+            data: nil,
+            expectedFee: nil,
+            expectedTimestamp: nil,
+            expectedError: "Invalid timestamp: \(pastTime) is in the past, current timestamp: "
+        ),
+        EstimateTestCase(
+            name: "Current timestamp returns error",
+            timestamp: currentTime,
+            priority: FlowTransactionScheduler.Priority.Medium,
+            executionEffort: 1000,
+            data: nil,
+            expectedFee: nil,
+            expectedTimestamp: nil,
+            expectedError: "Invalid timestamp: \(currentTime) is in the past, current timestamp: "
+        ),
+        EstimateTestCase(
+            name: "Zero execution effort returns error",
+            timestamp: futureTime + 7.0,
+            priority: FlowTransactionScheduler.Priority.High,
+            executionEffort: 0,
+            data: nil,
+            expectedFee: nil,
+            expectedTimestamp: nil,
+            expectedError: "Invalid execution effort: 0 is less than the minimum execution effort of 10"
+        ),
+        EstimateTestCase(
+            name: "Excessive high priority effort returns error",
+            timestamp: futureTime + 8.0,
+            priority: FlowTransactionScheduler.Priority.High,
+            executionEffort: 50000,
+            data: nil,
+            expectedFee: nil,
+            expectedTimestamp: nil,
+            expectedError: "Invalid execution effort: 50000 is greater than the maximum transaction effort of \(maxEffort)"
+        ),
+        EstimateTestCase(
+            name: "Excessive medium priority effort returns error",
+            timestamp: futureTime + 9.0,
+            priority: FlowTransactionScheduler.Priority.Medium,
+            executionEffort: 10000,
+            data: nil,
+            expectedFee: nil,
+            expectedTimestamp: nil,
+            expectedError: "Invalid execution effort: 10000 is greater than the maximum transaction effort of \(maxEffort)"
+        ),
+        EstimateTestCase(
+            name: "Excessive low priority effort returns error",
+            timestamp: futureTime + 10.0,
+            priority: FlowTransactionScheduler.Priority.Low,
+            executionEffort: lowPriorityMaxEffort + 1,
+            data: nil,
+            expectedFee: nil,
+            expectedTimestamp: nil,
+            expectedError: "Invalid execution effort: \(lowPriorityMaxEffort + 1) is greater than the priority's max effort of \(lowPriorityMaxEffort)"
+        ),
+        EstimateTestCase(
+            name: "Excessive data size returns error",
+            timestamp: futureTime + 11.0,
+            priority: FlowTransactionScheduler.Priority.High,
+            executionEffort: 1000,
+            data: largeArray,
+            expectedFee: nil,
+            expectedTimestamp: nil,
+            expectedError: "Invalid data size: 0.05337100 is greater than the maximum data size of 0.00100000MB"
+        ),
+
+        // Valid cases - should return EstimatedScheduledTransaction with no error
+        EstimateTestCase(
+            name: "High priority effort",
+            timestamp: futureTime + 1.0,
+            priority: FlowTransactionScheduler.Priority.High,
+            executionEffort: 5000,
+            data: nil,
+            expectedFee: 0.01260620,
+            expectedTimestamp: futureTime + 1.0,
+            expectedError: nil
+        ),
+        EstimateTestCase(
+            name: "Medium priority minimum effort",
+            timestamp: futureTime + 4.0,
+            priority: FlowTransactionScheduler.Priority.Medium,
+            executionEffort: minEffort,
+            data: nil,
+            expectedFee: 0.00018495,
+            expectedTimestamp: futureTime + 4.0,
+            expectedError: nil
+        ),
+        EstimateTestCase(
+            name: "Far future timestamp",
+            timestamp: farFutureTime,
+            priority: FlowTransactionScheduler.Priority.High,
+            executionEffort: 1000,
+            data: nil,
+            expectedFee: 0.00260920,
+            expectedTimestamp: farFutureTime,
+            expectedError: nil
+        ),
+        EstimateTestCase(
+            name: "String data",
+            timestamp: futureTime + 10.0,
+            priority: FlowTransactionScheduler.Priority.High,
+            executionEffort: 1000,
+            data: "string data",
+            expectedFee: 0.00260920,
+            expectedTimestamp: futureTime + 10.0,
+            expectedError: nil
+        ),
+        EstimateTestCase(
+            name: "Dictionary data",
+            timestamp: futureTime + 11.0,
+            priority: FlowTransactionScheduler.Priority.Medium,
+            executionEffort: 1000,
+            data: {"key": "value"},
+            expectedFee: 0.00130960,
+            expectedTimestamp: futureTime + 11.0,
+            expectedError: nil
+        ),
+        EstimateTestCase(
+            name: "Array data",
+            timestamp: futureTime + 12.0,
+            priority: FlowTransactionScheduler.Priority.Medium,
+            executionEffort: 1000,
+            data: [1, 2, 3, 4, 5, 6],
+            expectedFee: 0.00130960,
+            expectedTimestamp: futureTime + 12.0,
+            expectedError: nil
+        )
+    ]
+
+    for testCase in estimateTestCases {
+        runEstimateTestCase(testCase: testCase)
+    }
+}
+
+access(all) fun runEstimateTestCase(testCase: EstimateTestCase) {
+    let estimate = FlowTransactionScheduler.estimate(
+        data: testCase.data,
+        timestamp: testCase.timestamp,
+        priority: testCase.priority,
+        executionEffort: testCase.executionEffort
+    )
+    
+    // Check fee
+    if let expectedFee = testCase.expectedFee {
+        let fee = estimate.flowFee ?? panic("Couldn't unwrap fee for test case: \(testCase.name)")
+        Test.assert(expectedFee == estimate.flowFee, message: "fee mismatch for test case: \(testCase.name). Expected \(expectedFee) but got \(estimate.flowFee!)")
+    } else {
+        Test.assert(estimate.flowFee == nil, message: "expected nil fee for test case: \(testCase.name)")
+    }
+    
+    // Check timestamp
+    if let expectedTimestamp = testCase.expectedTimestamp {
+        Test.assert(expectedTimestamp == estimate.timestamp, message: "timestamp mismatch for test case: \(testCase.name)")
+    } else {
+        Test.assert(estimate.timestamp == nil, message: "expected nil timestamp for test case: \(testCase.name)")
+    }
+    
+    // Check error
+    if let expectedError = testCase.expectedError {
+        Test.assert(estimate.error!.contains(expectedError), message: "error mismatch for test case: \(testCase.name). Expected \(expectedError) but got \(estimate.error!)")
+    } else {
+        Test.assert(estimate.error == nil, message: "expected nil error for test case: \(testCase.name)")
+    }
+}
+
+/** ---------------------------------------------------------------------------------
+ Transaction scheduler config details tests
+ --------------------------------------------------------------------------------- */
+
+
+access(all) fun testConfigDetails() {
+
+    /** -------------
+    Error Test Cases
+    ---------------- */
+    setConfigDetails(
+        maximumIndividualEffort: nil,
+        minimumExecutionEffort: nil,
+        slotSharedEffortLimit: nil,
+        priorityEffortReserve: nil,
+        lowPriorityEffortLimit: nil,
+        maxDataSizeMB: nil,
+        priorityFeeMultipliers: nil,
+        refundMultiplier: 1.1,
+        canceledTransactionsLimit: nil,
+        collectionEffortLimit: nil,
+        collectionTransactionsLimit: nil,
+        txRemovalLimit: nil,
+        shouldFail: "Invalid refund multiplier: The multiplier must be between 0.0 and 1.0 but got 1.10000000"
+    )
+
+    setConfigDetails(
+        maximumIndividualEffort: nil,
+        minimumExecutionEffort: nil,
+        slotSharedEffortLimit: nil,
+        priorityEffortReserve: nil,
+        lowPriorityEffortLimit: nil,
+        maxDataSizeMB: nil,
+        priorityFeeMultipliers: {highPriority: 20.0, mediumPriority: 10.0, lowPriority: 0.9},
+        refundMultiplier: nil,
+        canceledTransactionsLimit: nil,
+        collectionEffortLimit: nil,
+        collectionTransactionsLimit: nil,
+        txRemovalLimit: nil,
+        shouldFail: "Invalid priority fee multiplier: Low priority multiplier must be greater than or equal to 1.0 but got 0.90000000"
+    )
+
+    setConfigDetails(
+        maximumIndividualEffort: nil,
+        minimumExecutionEffort: nil,
+        slotSharedEffortLimit: nil,
+        priorityEffortReserve: nil,
+        lowPriorityEffortLimit: nil,
+        maxDataSizeMB: nil,
+        priorityFeeMultipliers: {highPriority: 20.0, mediumPriority: 3.0, lowPriority: 4.0},
+        refundMultiplier: nil,
+        canceledTransactionsLimit: nil,
+        collectionEffortLimit: nil,
+        collectionTransactionsLimit: nil,
+        txRemovalLimit: nil,
+        shouldFail: "Invalid priority fee multiplier: Medium priority multiplier must be greater than or equal to 4.00000000 but got 3.00000000"
+    )
+
+    setConfigDetails(
+        maximumIndividualEffort: nil,
+        minimumExecutionEffort: nil,
+        slotSharedEffortLimit: nil,
+        priorityEffortReserve: nil,
+        lowPriorityEffortLimit: nil,
+        maxDataSizeMB: nil,
+        priorityFeeMultipliers: {highPriority: 5.0, mediumPriority: 6.0, lowPriority: 4.0},
+        refundMultiplier: nil,
+        canceledTransactionsLimit: nil,
+        collectionEffortLimit: nil,
+        collectionTransactionsLimit: nil,
+        txRemovalLimit: nil,
+        shouldFail: "Invalid priority fee multiplier: High priority multiplier must be greater than or equal to 6.00000000 but got 5.00000000"
+    )
+
+    setConfigDetails(
+        maximumIndividualEffort: nil,
+        minimumExecutionEffort: nil,
+        slotSharedEffortLimit: nil,
+        priorityEffortReserve: {highPriority: 30000, mediumPriority: 30000, lowPriority: 20000},
+        lowPriorityEffortLimit: 10000,
+        maxDataSizeMB: nil,
+        priorityFeeMultipliers: nil,
+        refundMultiplier: nil,
+        canceledTransactionsLimit: nil,
+        collectionEffortLimit: nil,
+        collectionTransactionsLimit: nil,
+        txRemovalLimit: nil,
+        shouldFail: "Invalid priority effort limit: Low priority effort limit must be greater than or equal to the priority effort reserve of 20000"
+    )
+
+    setConfigDetails(
+        maximumIndividualEffort: nil,
+        minimumExecutionEffort: nil,
+        slotSharedEffortLimit: nil,
+        priorityEffortReserve: nil,
+        lowPriorityEffortLimit: nil,
+        maxDataSizeMB: nil,
+        priorityFeeMultipliers: nil,
+        refundMultiplier: nil,
+        canceledTransactionsLimit: nil,
+        collectionEffortLimit: slotTotalEffortLimit - 1,
+        collectionTransactionsLimit: nil,
+        txRemovalLimit: nil,
+        shouldFail: "Invalid collection effort limit: Collection effort limit must be greater than \(slotTotalEffortLimit) but got \(slotTotalEffortLimit - 1)"
+    )
+
+    setConfigDetails(
+        maximumIndividualEffort: nil,
+        minimumExecutionEffort: nil,
+        slotSharedEffortLimit: nil,
+        priorityEffortReserve: nil,
+        lowPriorityEffortLimit: nil,
+        maxDataSizeMB: nil,
+        priorityFeeMultipliers: nil,
+        refundMultiplier: nil,
+        canceledTransactionsLimit: nil,
+        collectionEffortLimit: nil,
+        collectionTransactionsLimit: -1,
+        txRemovalLimit: nil,
+        shouldFail: "Invalid collection transactions limit: Collection transactions limit must be greater than or equal to 0 but got -1"
+    )
+
+    setConfigDetails(
+        maximumIndividualEffort: nil,
+        minimumExecutionEffort: nil,
+        slotSharedEffortLimit: nil,
+        priorityEffortReserve: nil,
+        lowPriorityEffortLimit: nil,
+        maxDataSizeMB: nil,
+        priorityFeeMultipliers: nil,
+        refundMultiplier: nil,
+        canceledTransactionsLimit: 0,
+        collectionEffortLimit: nil,
+        collectionTransactionsLimit: nil,
+        txRemovalLimit: nil,
+        shouldFail: "Invalid canceled transactions limit: Canceled transactions limit must be greater than or equal to 1 but got 0"
+    )
+
+
+    /** -------------
+    Valid Test Case
+    ---------------- */
+    let oldConfig = getConfigDetails()
+    Test.assertEqual(9999 as UInt64,oldConfig.maximumIndividualEffort)
+    Test.assertEqual(100 as UInt64,oldConfig.minimumExecutionEffort)
+    Test.assertEqual(slotTotalEffortLimit as UInt64,oldConfig.slotTotalEffortLimit)
+    Test.assertEqual(sharedEffortLimit as UInt64,oldConfig.slotSharedEffortLimit)
+    Test.assertEqual(highPriorityEffortReserve as UInt64,oldConfig.priorityEffortReserve[FlowTransactionScheduler.Priority.High]!)
+    Test.assertEqual(mediumPriorityEffortReserve as UInt64,oldConfig.priorityEffortReserve[FlowTransactionScheduler.Priority.Medium]!)
+    Test.assertEqual(0 as UInt64,oldConfig.priorityEffortReserve[FlowTransactionScheduler.Priority.Low]!)
+    Test.assertEqual(highPriorityMaxEffort as UInt64,oldConfig.priorityEffortLimit[FlowTransactionScheduler.Priority.High]!)
+    Test.assertEqual(mediumPriorityMaxEffort as UInt64,oldConfig.priorityEffortLimit[FlowTransactionScheduler.Priority.Medium]!)
+    Test.assertEqual(lowPriorityMaxEffort as UInt64,oldConfig.priorityEffortLimit[FlowTransactionScheduler.Priority.Low]!)
+    Test.assertEqual(0.001,oldConfig.maxDataSizeMB)
+    Test.assertEqual(10.0,oldConfig.priorityFeeMultipliers[FlowTransactionScheduler.Priority.High]!)
+    Test.assertEqual(5.0,oldConfig.priorityFeeMultipliers[FlowTransactionScheduler.Priority.Medium]!)
+    Test.assertEqual(2.0,oldConfig.priorityFeeMultipliers[FlowTransactionScheduler.Priority.Low]!)
+    Test.assertEqual(0.5,oldConfig.refundMultiplier)
+    Test.assertEqual(1000 as UInt,oldConfig.canceledTransactionsLimit)
+    Test.assertEqual(500000 as UInt64,oldConfig.collectionEffortLimit)
+    Test.assertEqual(150 as Int,oldConfig.collectionTransactionsLimit)
+    Test.assertEqual(200 as UInt,oldConfig.getTxRemovalLimit())
+
+
+    setConfigDetails(
+        maximumIndividualEffort: 14999,
+        minimumExecutionEffort: 100,
+        slotSharedEffortLimit: 20000,
+        priorityEffortReserve: nil,
+        lowPriorityEffortLimit: nil,
+        maxDataSizeMB: 1.0,
+        priorityFeeMultipliers: {highPriority: 20.0, mediumPriority: 10.0, lowPriority: 4.0},
+        refundMultiplier: nil,
+        canceledTransactionsLimit: 2000,
+        collectionEffortLimit: 800000,
+        collectionTransactionsLimit: 90,
+        txRemovalLimit: 210,
+        shouldFail: nil
+    )
+
+    // Verify new config details
+    let newConfig = getConfigDetails()
+    Test.assertEqual(14999 as UInt64,newConfig.maximumIndividualEffort)
+    Test.assertEqual(100 as UInt64,newConfig.minimumExecutionEffort)
+    Test.assertEqual(32500 as UInt64,newConfig.slotTotalEffortLimit)
+    Test.assertEqual(20000 as UInt64,newConfig.slotSharedEffortLimit)
+    Test.assertEqual(oldConfig.priorityEffortReserve[FlowTransactionScheduler.Priority.High]!,newConfig.priorityEffortReserve[FlowTransactionScheduler.Priority.High]!)
+    Test.assertEqual(oldConfig.priorityEffortReserve[FlowTransactionScheduler.Priority.Medium]!,newConfig.priorityEffortReserve[FlowTransactionScheduler.Priority.Medium]!)
+    Test.assertEqual(oldConfig.priorityEffortReserve[FlowTransactionScheduler.Priority.Low]!,newConfig.priorityEffortReserve[FlowTransactionScheduler.Priority.Low]!)
+    Test.assertEqual(30000 as UInt64,newConfig.priorityEffortLimit[FlowTransactionScheduler.Priority.High]!)
+    Test.assertEqual(22500 as UInt64,newConfig.priorityEffortLimit[FlowTransactionScheduler.Priority.Medium]!)
+    Test.assertEqual(2500 as UInt64,newConfig.priorityEffortLimit[FlowTransactionScheduler.Priority.Low]!)
+    Test.assertEqual(1.0,newConfig.maxDataSizeMB)
+    Test.assertEqual(20.0,newConfig.priorityFeeMultipliers[FlowTransactionScheduler.Priority.High]!)
+    Test.assertEqual(10.0,newConfig.priorityFeeMultipliers[FlowTransactionScheduler.Priority.Medium]!)
+    Test.assertEqual(4.0,newConfig.priorityFeeMultipliers[FlowTransactionScheduler.Priority.Low]!)
+    Test.assertEqual(oldConfig.refundMultiplier,newConfig.refundMultiplier)
+    Test.assertEqual(2000 as UInt,newConfig.canceledTransactionsLimit)
+    Test.assertEqual(800000 as UInt64,newConfig.collectionEffortLimit)
+    Test.assertEqual(90 as Int,newConfig.collectionTransactionsLimit)
+}
+
+/** ---------------------------------------------------------------------------------
+ SortedTimestamps struct tests
+ --------------------------------------------------------------------------------- */
+
+// Test case structures for table-driven tests
+access(all) struct AddTestCase {
+    access(all) let name: String
+    access(all) let timestampsToAdd: [UFix64]
+    access(all) let expectedLength: Int
+    access(all) let expectedOrder: [UFix64]?
+
+    access(all) init(name: String, timestampsToAdd: [UFix64], expectedLength: Int, expectedOrder: [UFix64]?) {
+        self.name = name
+        self.timestampsToAdd = timestampsToAdd
+        self.expectedLength = expectedLength
+        self.expectedOrder = expectedOrder
+    }
+}
+
+access(all) struct RemoveTestCase {
+    access(all) let name: String
+    access(all) let initialTimestamps: [UFix64]
+    access(all) let timestampToRemove: UFix64
+    access(all) let expectedLength: Int
+    access(all) let expectedRemaining: [UFix64]
+
+    access(all) init(name: String, initialTimestamps: [UFix64], timestampToRemove: UFix64, expectedLength: Int, expectedRemaining: [UFix64]) {
+        self.name = name
+        self.initialTimestamps = initialTimestamps
+        self.timestampToRemove = timestampToRemove
+        self.expectedLength = expectedLength
+        self.expectedRemaining = expectedRemaining
+    }
+}
+
+access(all) struct PastTestCase {
+    access(all) let name: String
+    access(all) let timestamps: [UFix64]
+    access(all) let current: UFix64
+    access(all) let expectedPast: [UFix64]
+
+    access(all) init(name: String, timestamps: [UFix64], current: UFix64, expectedPast: [UFix64]) {
+        self.name = name
+        self.timestamps = timestamps
+        self.current = current
+        self.expectedPast = expectedPast
+    }
+}
+
+access(all) struct CheckTestCase {
+    access(all) let name: String
+    access(all) let timestamps: [UFix64]
+    access(all) let current: UFix64
+    access(all) let expected: Bool
+
+    access(all) init(name: String, timestamps: [UFix64], current: UFix64, expected: Bool) {
+        self.name = name
+        self.timestamps = timestamps
+        self.current = current
+        self.expected = expected
+    }
+}
+
+access(all) fun testSortedTimestampsInit() {
+    let sortedTimestamps = FlowTransactionScheduler.SortedTimestamps()
+    
+    // Test that it initializes with empty timestamps
+    let pastTimestamps = sortedTimestamps.getBefore(current: 100.0)
+    Test.assertEqual(0, pastTimestamps.length)
+    
+    // Test that check returns false for empty timestamps
+    Test.assertEqual(false, sortedTimestamps.hasBefore(current: 100.0))
+}
+
+access(all) fun testSortedTimestampsAdd() {
+    let testCases: [AddTestCase] = [
+        AddTestCase(
+            name: "Add timestamps in random order",
+            timestampsToAdd: [50.0, 30.0, 70.0, 10.0, 40.0],
+            expectedLength: 5,
+            expectedOrder: [10.0, 30.0, 40.0, 50.0, 70.0]
+        ),
+        AddTestCase(
+            name: "Add duplicate timestamp",
+            timestampsToAdd: [30.0, 30.0],
+            expectedLength: 1,
+            expectedOrder: [30.0]
+        ),
+        AddTestCase(
+            name: "Add single timestamp",
+            timestampsToAdd: [42.0],
+            expectedLength: 1,
+            expectedOrder: [42.0]
+        ),
+        AddTestCase(
+            name: "Add already sorted timestamps",
+            timestampsToAdd: [10.0, 20.0, 30.0, 40.0],
+            expectedLength: 4,
+            expectedOrder: [10.0, 20.0, 30.0, 40.0]
+        )
+    ]
+
+    for testCase in testCases {
+        let sortedTimestamps = FlowTransactionScheduler.SortedTimestamps()
+        
+        // Add all timestamps
+        for timestamp in testCase.timestampsToAdd {
+            sortedTimestamps.add(timestamp: timestamp)
+        }
+        
+        // Verify result
+        let result = sortedTimestamps.getBefore(current: 100.0)
+        Test.assertEqual(testCase.expectedLength, result.length)
+        
+        if let expectedOrder = testCase.expectedOrder {
+            for i, expected in expectedOrder {
+                Test.assertEqual(expected, result[i])
+            }
+        }
+    }
+}
+
+access(all) fun testSortedTimestampsRemove() {
+    let testCases: [RemoveTestCase] = [
+        RemoveTestCase(
+            name: "Remove middle timestamp",
+            initialTimestamps: [10.0, 20.0, 30.0, 40.0, 50.0],
+            timestampToRemove: 30.0,
+            expectedLength: 4,
+            expectedRemaining: [10.0, 20.0, 40.0, 50.0]
+        ),
+        RemoveTestCase(
+            name: "Remove first timestamp",
+            initialTimestamps: [10.0, 20.0, 30.0],
+            timestampToRemove: 10.0,
+            expectedLength: 2,
+            expectedRemaining: [20.0, 30.0]
+        ),
+        RemoveTestCase(
+            name: "Remove last timestamp",
+            initialTimestamps: [10.0, 20.0, 30.0],
+            timestampToRemove: 30.0,
+            expectedLength: 2,
+            expectedRemaining: [10.0, 20.0]
+        ),
+        RemoveTestCase(
+            name: "Remove non-existent timestamp",
+            initialTimestamps: [10.0, 20.0],
+            timestampToRemove: 99.0,
+            expectedLength: 2,
+            expectedRemaining: [10.0, 20.0]
+        ),
+        RemoveTestCase(
+            name: "Remove from single element",
+            initialTimestamps: [25.0],
+            timestampToRemove: 25.0,
+            expectedLength: 0,
+            expectedRemaining: []
+        )
+    ]
+
+    for testCase in testCases {
+        let sortedTimestamps = FlowTransactionScheduler.SortedTimestamps()
+        
+        // Add initial timestamps
+        for timestamp in testCase.initialTimestamps {
+            sortedTimestamps.add(timestamp: timestamp)
+        }
+        
+        // Remove the specified timestamp
+        sortedTimestamps.remove(timestamp: testCase.timestampToRemove)
+        
+        // Verify result
+        let result = sortedTimestamps.getBefore(current: 100.0)
+        Test.assertEqual(testCase.expectedLength, result.length)
+        
+        for i, expected in testCase.expectedRemaining {
+            Test.assertEqual(expected, result[i])
+        }
+    }
+}
+
+access(all) fun testSortedTimestampsPast() {
+    let testCases: [PastTestCase] = [
+        PastTestCase(
+            name: "Get past timestamps with current = 25.0",
+            timestamps: [10.0, 20.0, 30.0, 40.0, 50.0],
+            current: 25.0,
+            expectedPast: [10.0, 20.0]
+        ),
+        PastTestCase(
+            name: "Get past timestamps with current = 30.0 (inclusive)",
+            timestamps: [10.0, 20.0, 30.0, 40.0, 50.0],
+            current: 30.0,
+            expectedPast: [10.0, 20.0, 30.0]
+        ),
+        PastTestCase(
+            name: "Get past timestamps with current = 0.0 (none)",
+            timestamps: [10.0, 20.0, 30.0],
+            current: 0.0,
+            expectedPast: []
+        ),
+        PastTestCase(
+            name: "Get all timestamps",
+            timestamps: [10.0, 20.0, 30.0, 40.0, 50.0],
+            current: 100.0,
+            expectedPast: [10.0, 20.0, 30.0, 40.0, 50.0]
+        ),
+        PastTestCase(
+            name: "Empty timestamps array",
+            timestamps: [],
+            current: 50.0,
+            expectedPast: []
+        ),
+        PastTestCase(
+            name: "Current exactly between timestamps",
+            timestamps: [10.0, 30.0],
+            current: 20.0,
+            expectedPast: [10.0]
+        )
+    ]
+
+    for testCase in testCases {
+        let sortedTimestamps = FlowTransactionScheduler.SortedTimestamps()
+        
+        // Add timestamps
+        for timestamp in testCase.timestamps {
+            sortedTimestamps.add(timestamp: timestamp)
+        }
+        
+        // Get past timestamps
+        let result = sortedTimestamps.getBefore(current: testCase.current)
+        
+        // Verify result
+        Test.assertEqual(testCase.expectedPast.length, result.length)
+        
+        for i, expected in testCase.expectedPast {
+            Test.assertEqual(expected, result[i])
+        }
+    }
+}
+
+access(all) fun testSortedTimestampsCheck() {
+    let testCases: [CheckTestCase] = [
+        CheckTestCase(
+            name: "Check on empty array",
+            timestamps: [],
+            current: 100.0,
+            expected: false
+        ),
+        CheckTestCase(
+            name: "Current before first timestamp",
+            timestamps: [50.0],
+            current: 49.0,
+            expected: false
+        ),
+        CheckTestCase(
+            name: "Current equal to first timestamp",
+            timestamps: [50.0],
+            current: 50.0,
+            expected: true
+        ),
+        CheckTestCase(
+            name: "Current after first timestamp",
+            timestamps: [50.0],
+            current: 51.0,
+            expected: true
+        ),
+        CheckTestCase(
+            name: "Multiple timestamps, check before first",
+            timestamps: [30.0, 50.0, 70.0],
+            current: 29.0,
+            expected: false
+        ),
+        CheckTestCase(
+            name: "Multiple timestamps, check equal to first",
+            timestamps: [30.0, 50.0, 70.0],
+            current: 30.0,
+            expected: true
+        ),
+        CheckTestCase(
+            name: "Multiple timestamps, check after all",
+            timestamps: [30.0, 50.0, 70.0],
+            current: 100.0,
+            expected: true
+        )
+    ]
+
+    for testCase in testCases {
+        let sortedTimestamps = FlowTransactionScheduler.SortedTimestamps()
+        
+        // Add timestamps
+        for timestamp in testCase.timestamps {
+            sortedTimestamps.add(timestamp: timestamp)
+        }
+        
+        // Check result
+        let result = sortedTimestamps.hasBefore(current: testCase.current)
+        Test.assertEqual(testCase.expected, result)
+    }
+}
+
+access(all) fun testSortedTimestampsEdgeCases() {
+    let sortedTimestamps = FlowTransactionScheduler.SortedTimestamps()
+    
+    // Test adding timestamps at boundaries
+    sortedTimestamps.add(timestamp: 0.1)
+    sortedTimestamps.add(timestamp: UFix64.max - 1.0)  // Near max value
+    
+    let allTimestamps = sortedTimestamps.getBefore(current: UFix64.max)
+    Test.assertEqual(2, allTimestamps.length)
+    Test.assertEqual(0.1, allTimestamps[0])
+    Test.assertEqual(UFix64.max - 1.0, allTimestamps[1])
+    
+    // Test with many timestamps to verify sorting performance
+    let manyTimestamps = FlowTransactionScheduler.SortedTimestamps()
+    var i = 100
+    while i > 0 {
+        manyTimestamps.add(timestamp: UFix64(i))
+        i = i - 1
+    }
+    
+    let sortedResult = manyTimestamps.getBefore(current: 200.0)
+    Test.assertEqual(100, sortedResult.length)
+    
+    // Verify first few are sorted correctly
+    Test.assertEqual(1.0, sortedResult[0])
+    Test.assertEqual(2.0, sortedResult[1])
+    Test.assertEqual(3.0, sortedResult[2])
+    Test.assertEqual(100.0, sortedResult[99])
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/stakingCollection/scripts/get_machine_accounts.cdc
 
 ```
@@ -41743,6 +43842,574 @@ access(all) fun main(accountAddress: Address): UFix64 {
 }
 
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/tests/scheduled_transaction_test_helpers.cdc
+
+```
+import Test
+import "FlowTransactionScheduler"
+
+
+// Account 7 is where new contracts are deployed by default
+access(all) let admin = Test.getAccount(0x0000000000000007)
+
+access(all) let serviceAccount = Test.serviceAccount()
+
+access(all) let highPriority = UInt8(0)
+access(all) let mediumPriority = UInt8(1)
+access(all) let lowPriority = UInt8(2)
+
+access(all) let statusUnknown = UInt8(0)
+access(all) let statusScheduled = UInt8(1)
+access(all) let statusExecuted = UInt8(2)
+access(all) let statusCanceled = UInt8(3)
+
+access(all) let slotTotalEffortLimit: UInt64 = 17500
+
+access(all) let basicEffort: UInt64 = 1000
+access(all) let mediumEffort: UInt64 = 5000
+access(all) let maxEffort: UInt64 = 9999
+
+access(all) let minEffort: UInt64 = 100
+
+access(all) let lowPriorityMaxEffort: UInt64 = 2500
+access(all) let mediumPriorityMaxEffort: UInt64 = 7500
+access(all) let highPriorityMaxEffort: UInt64 = 15000
+
+access(all) let highPriorityEffortReserve: UInt64 = 10000
+access(all) let mediumPriorityEffortReserve: UInt64 = 2500
+access(all) let sharedEffortLimit: UInt64 = 5000
+
+access(all) let canceledTransactionsLimit: UInt = 1000
+
+access(all) let collectionTransactionsLimit: Int = 150
+access(all) let collectionEffortLimit: UInt64 = 500000
+
+access(all) let testData = "test data"
+access(all) let failTestData = "fail"
+
+access(all) let futureDelta = 100.0
+access(all) var futureTime = 0.0
+
+access(all) var feeAmount = 10.0
+
+
+
+/** ---------------------------------------------------------------------------------
+ Test helper functions
+ --------------------------------------------------------------------------------- */
+
+// Helper functions for scheduling a transaction
+access(all) fun scheduleTransaction(
+    timestamp: UFix64,
+    fee: UFix64,
+    effort: UInt64,
+    priority: UInt8,
+    data: AnyStruct?,
+    testName: String,
+    failWithErr: String?
+) {
+    var tx = Test.Transaction(
+        code: Test.readFile("../transactions/transactionScheduler/schedule_transaction.cdc"),
+        authorizers: [admin.address],
+        signers: [admin],
+        arguments: [timestamp, fee, effort, priority, data],
+    )
+    var result = Test.executeTransaction(tx)
+
+    if let error = failWithErr {
+        // log(error)
+        // log(result.error!.message)
+        Test.expect(result, Test.beFailed())
+        Test.assertError(
+            result,
+            errorMessage: error
+        )
+    
+    } else {
+        if result.error != nil {
+            Test.assert(result.error == nil, message: "Transaction failed with error: \(result.error!.message) for test case: \(testName)")
+        }
+    }
+}
+
+access(all) fun scheduleTransactionByHandler(
+    handlerTypeIdentifier: String,
+    handlerUUID: UInt64?,
+    timestamp: UFix64,
+    fee: UFix64,
+    effort: UInt64,
+    priority: UInt8,
+    data: AnyStruct?,
+    testName: String,
+    failWithErr: String?
+) {
+    var tx = Test.Transaction(
+        code: Test.readFile("../transactions/transactionScheduler/schedule_transaction_by_handler.cdc"),
+        authorizers: [admin.address],
+        signers: [admin],
+        arguments: [handlerTypeIdentifier, handlerUUID, timestamp, fee, effort, priority, data],
+    )
+    var result = Test.executeTransaction(tx)
+
+    if let error = failWithErr {
+        // log(error)
+        // log(result.error!.message)
+        Test.expect(result, Test.beFailed())
+        Test.assertError(
+            result,
+            errorMessage: error
+        )
+    
+    } else {
+        if result.error != nil {
+            Test.assert(result.error == nil, message: "Transaction failed with error: \(result.error!.message) for test case: \(testName)")
+        }
+    }
+}
+
+access(all) fun cancelTransaction(id: UInt64, failWithErr: String?) {
+    var tx = Test.Transaction(
+        code: Test.readFile("../transactions/transactionScheduler/cancel_transaction.cdc"),
+        authorizers: [admin.address],
+        signers: [admin],
+        arguments: [id],
+    )
+    var result = Test.executeTransaction(tx)
+
+    if let error = failWithErr {
+        Test.expect(result, Test.beFailed())
+        Test.assertError(
+            result,
+            errorMessage: error
+        )
+    
+    } else {
+        Test.expect(result, Test.beSucceeded())
+    }
+}
+
+access(all) fun processTransactions(): Test.TransactionResult {
+    let processTransactionCode = Test.readFile("../transactions/transactionScheduler/admin/process_scheduled_transactions.cdc")
+    let processTx = Test.Transaction(
+        code: processTransactionCode,
+        authorizers: [admin.address],
+        signers: [admin],
+        arguments: []
+    )
+    let processResult = Test.executeTransaction(processTx)
+    Test.expect(processResult, Test.beSucceeded())
+    return processResult
+}
+
+access(all) fun executeScheduledTransaction(
+    id: UInt64, 
+    testName: String,
+    failWithErr: String?
+) {
+    let executeTransactionCode = Test.readFile("./transactions/execute_transaction.cdc")
+    let executeTx = Test.Transaction(
+        code: executeTransactionCode,
+        authorizers: [admin.address],
+        signers: [admin],
+        arguments: [id]
+    )
+    var result = Test.executeTransaction(executeTx)
+    if let error = failWithErr {
+        // log(error)
+        // log(result.error!.message)
+        Test.expect(result, Test.beFailed())
+        Test.assertError(
+            result,
+            errorMessage: error
+        )
+    
+    } else {
+        if result.error != nil {
+            Test.assert(result.error == nil, message: "Transaction failed with error: \(result.error!.message) for test case: \(testName)")
+        }
+    }
+}
+
+access(all) fun executeScheduledTransactionWithCapability(
+    id: UInt64, 
+    testName: String,
+    failWithErr: String?
+) {
+    let executeTransactionCode = Test.readFile("./transactions/execute_transaction_with_capability.cdc")
+    let executeTx = Test.Transaction(
+        code: executeTransactionCode,
+        authorizers: [admin.address],
+        signers: [admin],
+        arguments: [id]
+    )
+    var result = Test.executeTransaction(executeTx)
+    if let error = failWithErr {
+        // log(error)
+        // log(result.error!.message)
+        Test.expect(result, Test.beFailed())
+        Test.assertError(
+            result,
+            errorMessage: error
+        )
+    
+    } else {
+        if result.error != nil {
+            Test.assert(result.error == nil, message: "Transaction failed with error: \(result.error!.message) for test case: \(testName)")
+        }
+    }
+}
+
+access(all) fun setConfigDetails(
+    maximumIndividualEffort: UInt64?,
+    minimumExecutionEffort: UInt64?,
+    slotSharedEffortLimit: UInt64?,
+    priorityEffortReserve: {UInt8: UInt64}?,
+    lowPriorityEffortLimit: UInt64?,
+    maxDataSizeMB: UFix64?,
+    priorityFeeMultipliers: {UInt8: UFix64}?,
+    refundMultiplier: UFix64?,
+    canceledTransactionsLimit: UInt?,
+    collectionEffortLimit: UInt64?,
+    collectionTransactionsLimit: Int?,
+    txRemovalLimit: UInt?,
+    shouldFail: String?
+) {
+    let setConfigDetailsCode = Test.readFile("../transactions/transactionScheduler/admin/set_config_details.cdc")
+    let setConfigDetailsTx = Test.Transaction(
+        code: setConfigDetailsCode,
+        authorizers: [admin.address],
+        signers: [admin],
+        arguments: [maximumIndividualEffort, 
+                    minimumExecutionEffort,
+                    slotSharedEffortLimit,
+                    priorityEffortReserve,
+                    lowPriorityEffortLimit,
+                    maxDataSizeMB,
+                    priorityFeeMultipliers,
+                    refundMultiplier,
+                    canceledTransactionsLimit,
+                    collectionEffortLimit,
+                    collectionTransactionsLimit,
+                    txRemovalLimit]
+    )
+    let setConfigDetailsResult = Test.executeTransaction(setConfigDetailsTx)
+    if let error = shouldFail {
+        // log(error)
+        // log(setConfigDetailsResult.error!.message)
+        Test.expect(setConfigDetailsResult, Test.beFailed())
+        // Check error
+        Test.assertError(
+            setConfigDetailsResult,
+            errorMessage: error
+        )
+    } else {
+        Test.expect(setConfigDetailsResult, Test.beSucceeded())
+    }
+}
+
+access(all) fun setFeeParameters(
+    surgeFactor: UFix64,
+    inclusionEffortCost: UFix64,
+    executionEffortCost: UFix64
+) {
+    var setFeeParametersTx = Test.Transaction(
+        code: Test.readFile("../transactions/FlowServiceAccount/set_tx_fee_parameters.cdc"),
+        authorizers: [serviceAccount.address],
+        signers: [serviceAccount],
+        arguments: [surgeFactor, inclusionEffortCost, executionEffortCost]
+    )
+    let setFeeParametersResult = Test.executeTransaction(setFeeParametersTx)
+    Test.expect(setFeeParametersResult, Test.beSucceeded())
+}
+
+access(all) fun getConfigDetails(): {FlowTransactionScheduler.SchedulerConfig} {
+    var configResult = _executeScript(
+        "../transactions/transactionScheduler/scripts/get_config.cdc",
+        []
+    )
+    Test.expect(configResult, Test.beSucceeded())
+    var config = configResult.returnValue! as! {FlowTransactionScheduler.SchedulerConfig}
+    return config
+}
+
+access(all) fun getEstimate(
+    data: AnyStruct?,
+    timestamp: UFix64,
+    priority: UInt8,
+    executionEffort: UInt64
+): FlowTransactionScheduler.EstimatedScheduledTransaction {
+    var result = _executeScript(
+        "../transactions/transactionScheduler/scripts/get_estimate.cdc",
+        [data, timestamp, priority, executionEffort]
+    ).returnValue! as! FlowTransactionScheduler.EstimatedScheduledTransaction
+    return result
+}
+
+access(all) fun getSizeOfData(data: AnyStruct): UFix64 {
+    var size = _executeScript(
+        "./scripts/get_data_size.cdc",
+        [data]
+    ).returnValue! as! UFix64
+    return size
+}
+
+access(all) fun getStatus(id: UInt64): UInt8? {
+    var status = _executeScript(
+        "../transactions/transactionScheduler/scripts/get_status.cdc",
+        [id]
+    ).returnValue as? UInt8
+    return status
+}
+
+access(all) fun getTransactionData(id: UInt64): FlowTransactionScheduler.TransactionData? {
+    var data = _executeScript(
+        "../transactions/transactionScheduler/scripts/get_transaction_data.cdc",
+        [id]
+    ).returnValue as? FlowTransactionScheduler.TransactionData
+    return data
+}
+
+access(all) fun getTransactionsForTimeframe(startTimestamp: UFix64, endTimestamp: UFix64): {UFix64: {UInt8: [UInt64]}} {
+    var result = _executeScript(
+        "../transactions/transactionScheduler/scripts/get_transactions_for_timeframe.cdc",
+        [startTimestamp, endTimestamp]
+    )
+    return result.returnValue! as! {UFix64: {UInt8: [UInt64]}}
+}
+
+access(all) fun getCanceledTransactions(): [UInt64] {
+    var result = _executeScript(
+        "../transactions/transactionScheduler/scripts/get_canceled_transactions.cdc",
+        []
+    )
+    return result.returnValue! as! [UInt64]
+}
+
+access(all) fun getSlotAvailableEffort(timestamp: UFix64, priority: UInt8): UInt64 {
+    var result = _executeScript(
+        "../transactions/transactionScheduler/scripts/get_slot_available_effort.cdc",
+        [timestamp, priority]
+    )
+    Test.expect(result, Test.beSucceeded())
+
+    var effort = result.returnValue! as! UInt64
+    return effort
+}
+
+access(all) fun getPendingQueue(): [UInt64] {
+
+    var result = _executeScript(
+        "./scripts/get_pending_queue.cdc",
+        []
+    )
+    Test.expect(result, Test.beSucceeded())
+
+    return result.returnValue! as! [UInt64]
+}
+
+/******* Manager Getter Functions *******/
+
+access(all) fun getManagedTxStatus(_ id: UInt64): UInt8? {
+    var result = _executeScript(
+        "../transactions/transactionScheduler/scripts/manager/get_managed_tx_status.cdc",
+        [admin.address, id]
+    )
+    Test.expect(result, Test.beSucceeded())
+    return result.returnValue as? UInt8
+}
+
+access(all) fun getManagedTxData(_ id: UInt64): FlowTransactionScheduler.TransactionData? {
+    var result = _executeScript(
+        "../transactions/transactionScheduler/scripts/manager/get_tx_data.cdc",
+        [admin.address, id]
+    )
+    Test.expect(result, Test.beSucceeded())
+    return result.returnValue as? FlowTransactionScheduler.TransactionData
+}
+
+access(all) fun getManagedTxIDsByTimestamp(_ timestamp: UFix64): [UInt64] {
+    var result = _executeScript(
+        "../transactions/transactionScheduler/scripts/manager/get_tx_ids_by_timestamp.cdc",
+        [admin.address, timestamp]
+    )
+    Test.expect(result, Test.beSucceeded())
+    return result.returnValue as! [UInt64]
+}
+
+access(all) fun getManagedTxIDsByTimestampRange(startTimestamp: UFix64, endTimestamp: UFix64): {UFix64: [UInt64]} {
+    var result = _executeScript(
+        "../transactions/transactionScheduler/scripts/manager/get_tx_ids_by_time_range.cdc",
+        [admin.address, startTimestamp, endTimestamp]
+    )
+    Test.expect(result, Test.beSucceeded())
+    return result.returnValue! as! {UFix64: [UInt64]}
+}
+
+access(all) fun getManagedTxIDsByHandler(handlerTypeIdentifier: String, handlerUUID: UInt64?): [UInt64] {
+    var result = _executeScript(
+        "../transactions/transactionScheduler/scripts/manager/get_tx_ids_by_handler.cdc",
+        [admin.address, handlerTypeIdentifier, handlerUUID]
+    )
+    Test.expect(result, Test.beSucceeded())
+    return result.returnValue as! [UInt64]
+}
+
+access(all) fun getManagedTxIDs(): [UInt64] {
+    var result = _executeScript(
+        "../transactions/transactionScheduler/scripts/manager/get_manager_tx_ids.cdc",
+        [admin.address]
+    )
+    Test.expect(result, Test.beSucceeded())
+    return result.returnValue as! [UInt64]
+}
+
+access(all) fun getManagerTimestamps(): [UFix64] {
+    var result = _executeScript(
+        "./scripts/get_manager_timestamps.cdc",
+        [admin.address]
+    )
+    Test.expect(result, Test.beSucceeded())
+    return result.returnValue as! [UFix64]
+}
+
+access(all) fun getHandlerTypeIdentifiers(): {String: [UInt64]} {
+    var result = _executeScript(
+        "../transactions/transactionScheduler/scripts/manager/get_handler_types.cdc",
+        [admin.address]
+    )
+    Test.expect(result, Test.beSucceeded())
+    return result.returnValue! as! {String: [UInt64]}
+}
+
+access(all) fun getHandlerViews(handlerTypeIdentifier: String, handlerUUID: UInt64?): [Type] {
+    var result = _executeScript(
+        "../transactions/transactionScheduler/scripts/manager/get_handler_views.cdc",
+        [admin.address, handlerTypeIdentifier, handlerUUID]
+    )
+    Test.expect(result, Test.beSucceeded())
+    return result.returnValue as! [Type]
+}
+
+access(all) fun getHandlerViewsFromTransactionID(_ id: UInt64): [Type] {
+    var result = _executeScript(
+        "../transactions/transactionScheduler/scripts/manager/get_handler_views_from_tx_id.cdc",
+        [admin.address, id]
+    )
+    Test.expect(result, Test.beSucceeded())
+    return result.returnValue as! [Type]
+}
+
+access(all) fun resolveHandlerView(handlerTypeIdentifier: String, handlerUUID: UInt64?, viewType: Type): AnyStruct? {
+    var result = _executeScript(
+        "../transactions/transactionScheduler/scripts/manager/resolve_handler_view.cdc",
+        [admin.address, handlerTypeIdentifier, handlerUUID, viewType]
+    )
+    Test.expect(result, Test.beSucceeded())
+    return result.returnValue as? AnyStruct
+}
+
+access(all) fun resolveHandlerViewFromTransactionID(id: UInt64, viewType: Type): AnyStruct? {
+    var result = _executeScript(
+        "../transactions/transactionScheduler/scripts/manager/resolve_handler_view_from_tx_id.cdc",
+        [admin.address, id, viewType]
+    )
+    Test.expect(result, Test.beSucceeded())
+    return result.returnValue as? AnyStruct
+}
+
+access(all) fun upgradeSchedulerContract() {
+    var schedulerCode = Test.readFile("../contracts/FlowTransactionScheduler.cdc")
+    schedulerCode = schedulerCode.replaceAll(of: "\"FungibleToken\"", with: "FungibleToken from 0x0000000000000002")
+    schedulerCode = schedulerCode.replaceAll(of: "\"FlowToken\"", with: "FlowToken from 0x0000000000000003")
+    schedulerCode = schedulerCode.replaceAll(of: "\"FlowFees\"", with: "FlowFees from 0x0000000000000004")
+    schedulerCode = schedulerCode.replaceAll(of: "\"FlowStorageFees\"", with: "FlowStorageFees from 0x0000000000000001")
+    schedulerCode = schedulerCode.replaceAll(of: "\"ViewResolver\"", with: "ViewResolver from 0x0000000000000001")
+
+    var upgradeTx = Test.Transaction(
+        code: Test.readFile("./transactions/upgrade_contract.cdc"),
+        authorizers: [admin.address],
+        signers: [admin],
+        arguments: ["FlowTransactionScheduler", schedulerCode],
+    )
+
+    // Upgrade the FlowTransactionScheduler contract
+    var upgradeResult = Test.executeTransaction(
+        upgradeTx,
+    )
+    Test.expect(upgradeResult, Test.beSucceeded())
+}
+
+access(all) fun upgradeSchedulerUtilsContract() {
+    var schedulerUtilsCode = Test.readFile("../contracts/FlowTransactionSchedulerUtils.cdc")
+    schedulerUtilsCode = schedulerUtilsCode.replaceAll(of: "\"FlowTransactionScheduler\"", with: "FlowTransactionScheduler from 0x0000000000000007")
+    schedulerUtilsCode = schedulerUtilsCode.replaceAll(of: "\"FlowToken\"", with: "FlowToken from 0x0000000000000003")
+
+    var upgradeTx = Test.Transaction(
+        code: Test.readFile("./transactions/upgrade_contract.cdc"),
+        authorizers: [admin.address],
+        signers: [admin],
+        arguments: ["FlowTransactionSchedulerUtils", schedulerUtilsCode],
+    )
+    var upgradeResult = Test.executeTransaction(
+        upgradeTx,
+    )
+    Test.expect(upgradeResult, Test.beSucceeded())
+}
+
+access(all) fun getTimestamp(): UFix64 {
+    var timestamp = _executeScript(
+        "./scripts/get_timestamp.cdc",
+        []
+    ).returnValue! as! UFix64
+    return timestamp!
+}
+
+access(all) fun getBalance(account: Address): UFix64 {
+    var balance = _executeScript(
+        "../transactions/flowToken/scripts/get_balance.cdc",
+        [account]
+    ).returnValue! as! UFix64
+    return balance!
+}
+
+access(all) fun getFeesBalance(): UFix64 {
+    var balance = _executeScript(
+        "../transactions/FlowServiceAccount/scripts/get_fees_balance.cdc",
+        []
+    ).returnValue! as! UFix64
+    return balance!
+}
+
+access(all)
+fun _executeScript(_ path: String, _ args: [AnyStruct]): Test.ScriptResult {
+    return Test.executeScript(Test.readFile(path), args)
+}
+
+access(all) fun fundAccountWithFlow(to: Address, amount: UFix64) {
+
+    var tx = Test.Transaction(
+        code: Test.readFile("../transactions/flowToken/transfer_tokens.cdc"),
+        authorizers: [serviceAccount.address],
+        signers: [serviceAccount],
+        arguments: [amount, to],
+    )
+    var result = Test.executeTransaction(tx)
+    Test.expect(result, Test.beSucceeded())
+}
 ```
 
 
@@ -44929,7 +47596,13 @@ import "FungibleToken"
 import "LockedTokens"
 import "StakingProxy"
 
-transaction(id: String, role: UInt8, networkingAddress: String, networkingKey: String, stakingKey: String, amount: UFix64) {
+transaction(id: String,
+            role: UInt8,
+            networkingAddress: String,
+            networkingKey: String,
+            stakingKey: String,
+            stakingKeyPoP: String,
+            amount: UFix64) {
 
     let holderRef: auth(LockedTokens.TokenOperations, FungibleToken.Withdraw) &LockedTokens.TokenHolder
 
@@ -44956,13 +47629,13 @@ transaction(id: String, role: UInt8, networkingAddress: String, networkingKey: S
 
         if amount <= lockedBalance {
 
-            self.holderRef.createNodeStaker(nodeInfo: nodeInfo, amount: amount)
+            self.holderRef.createNodeStaker(nodeInfo: nodeInfo, stakingKeyPoP: stakingKeyPoP, amount: amount)
 
         } else if ((amount - lockedBalance) <= self.vaultRef.balance) {
 
             self.holderRef.deposit(from: <-self.vaultRef.withdraw(amount: amount - lockedBalance))
 
-            self.holderRef.createNodeStaker(nodeInfo: nodeInfo, amount: amount)
+            self.holderRef.createNodeStaker(nodeInfo: nodeInfo, stakingKeyPoP: stakingKeyPoP, amount: amount)
 
         } else {
             panic("Not enough tokens to stake!")
@@ -82412,6 +85085,46 @@ fun main(erc721Address: String, id: UInt256): Bool {
 
 
 
+# Source: https://github.com/onflow/flow-evm-bridge/blob/main/solidity/src/interfaces/CrossVM.sol
+
+```
+// SPDX-License-Identifier: Unlicense
+pragma solidity 0.8.24;
+
+import {ICrossVM} from "./ICrossVM.sol";
+
+abstract contract CrossVM is ICrossVM {
+    string internal cadenceAddress;
+    string internal cadenceIdentifier;
+
+    constructor(string memory cadenceAddress_, string memory cadenceIdentifier_) {
+        cadenceAddress = cadenceAddress_;
+        cadenceIdentifier = cadenceIdentifier_;
+    }
+
+    function getCadenceAddress() external view returns (string memory) {
+        return cadenceAddress;
+    }
+
+    function getCadenceIdentifier() external view returns (string memory) {
+        return cadenceIdentifier;
+    }
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-evm-bridge/blob/main/cadence/scripts/nft/get_evm_pointer_from_identifier.cdc
 
 ```
@@ -86458,6 +89171,88 @@ fun mintNFT(
 
 
 
+# Source: https://github.com/onflow/flow-evm-bridge/blob/main/solidity/src/example-assets/cross-vm-nfts/EVMNativeERC721.sol
+
+```
+pragma solidity 0.8.24;
+
+import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
+import {ERC721} from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import {ICrossVM} from "../../interfaces/ICrossVM.sol";
+
+/**
+ * @title EVMNativeERC721
+ * @dev This contract is a minimal ERC721 implementation demonstrating a simple EVM-native cross-VM
+ * NFT implementations where projects deploy both a Cadence & Solidity definition. Movement of 
+ * individual NFTs facilitated by Flow's canonical VM bridge.
+ * In such cases, NFTs must be distributed in either Cadence or EVM - this is termed the NFT's
+ * "native" VM. When moving the NFT into the non-native VM, the bridge implements a mint/escrow
+ * pattern, minting if the NFT does not exist and unlocking from escrow if it does.
+ * The contract below demonstrates the Solidity implementation for an EVM-native NFT. This token's
+ * corresponding example Cadence implementation can be seen as ExampleEVMNativeNFT.cdc in Flow's VM
+ * Bridge repo: https://github.com/onflow/flow-evm-bridge
+ *
+ * For more information on cross-VM NFTs, see Flow's developer documentation as well as
+ * FLIP-318: https://github.com/onflow/flips/issues/318
+ */
+contract EVMNativeERC721 is ERC721, Ownable, ICrossVM {
+    
+    string cadenceAddress;
+    string cadenceIdentifier;
+
+    constructor(
+        string memory cadenceAddress_,
+        string memory cadenceIdentifier_
+
+    ) ERC721("EVMNativeERC721", "EVMXMPL") Ownable(msg.sender) {
+        cadenceAddress = cadenceAddress_;
+        cadenceIdentifier = cadenceIdentifier_;
+    }
+
+    function getCadenceAddress() external view returns (string memory) {
+        return cadenceAddress;
+    }
+
+    function getCadenceIdentifier() external view returns (string memory) {
+        return cadenceIdentifier;
+    }
+
+    function safeMint(address to, uint256 tokenId) public onlyOwner {
+        _safeMint(to, tokenId);
+    }
+
+    function _baseURI() internal pure override returns (string memory) {
+        return "https://example-nft.flow.com/tokenURI/";
+    }
+
+    function contractURI() public pure returns (string memory) {
+        // schema based on OpenSea's contractURI() guidance: https://docs.opensea.io/docs/contract-level-metadata
+        string memory json = '{'
+            '"name": "The Example EVM-Native NFT Collection",'
+            '"description": "This collection is used as an example to help you develop your next EVM-native cross-VM Flow NFT.",'
+            '"image": "https://assets.website-files.com/5f6294c0c7a8cdd643b1c820/5f6294c0c7a8cda55cb1c936_Flow_Wordmark.svg",'
+            '"banner_image": "https://assets.website-files.com/5f6294c0c7a8cdd643b1c820/5f6294c0c7a8cda55cb1c936_Flow_Wordmark.svg",'
+            '"featured_image": "https://assets.website-files.com/5f6294c0c7a8cdd643b1c820/5f6294c0c7a8cda55cb1c936_Flow_Wordmark.svg",'
+            '"external_link": "https://example-nft.flow.com",'
+            '"collaborators": []'
+            '}';
+        return string.concat('data:application/json;utf8,', json);
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-evm-bridge/blob/main/cadence/scripts/utils/get_declared_cadence_address.cdc
 
 ```
@@ -86870,6 +89665,63 @@ fun testGetVMBridgeAddressFromICrossVMBridgeCallable() {
 
 
 
+# Source: https://github.com/onflow/flow-evm-bridge/blob/main/solidity/src/test/EVMNativeERC721UpgradeableV2.sol
+
+```
+// SPDX-License-Identifier: Unlicense
+pragma solidity ^0.8.24;
+
+import {OwnableUpgradeable} from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
+import {ERC721Upgradeable} from "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol";
+import {UUPSUpgradeable} from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
+import {Initializable} from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
+import {CrossVMUpgradable} from "./CrossVMUpgradable.sol";
+
+/**
+ * @title EVMNativeERC721UpgradeableV2
+ * @dev This is a test contract used to ensure Flow VM bridge can handle ERC721 contracts updated
+ * to conform to the FLIP-318 Cross-VM NFT standard. This V2 contract implements the ICrossVM 
+ * conformance (via CrossVMUpgradable) required for cross-VM NFT registration with the VM bridge.
+ */
+contract EVMNativeERC721UpgradeableV2 is Initializable, UUPSUpgradeable, ERC721Upgradeable, OwnableUpgradeable, CrossVMUpgradable {
+    string internal contractMetadata;
+
+    constructor() {
+        _disableInitializers();
+    }
+
+    function initializeV2(
+        string memory _cadenceNFTAddress,
+        string memory _cadenceNFTIdentifier
+    ) public reinitializer(2) onlyProxy {
+        __CrossVMUpgradable_init(_cadenceNFTAddress, _cadenceNFTIdentifier);
+    }
+
+    function contractURI() public view returns (string memory) {
+        return contractMetadata;
+    }
+
+    function safeMint(address to, uint256 tokenId) public onlyOwner {
+        _safeMint(to, tokenId);
+    }
+
+    function _authorizeUpgrade(address _newImplementation) internal override onlyOwner {}
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-evm-bridge/blob/main/cadence/scripts/utils/get_evm_address_from_hex.cdc
 
 ```
@@ -86896,6 +89748,7 @@ fun main(hex: String): EVM.EVMAddress? {
 # Source: https://github.com/onflow/flow-evm-bridge/blob/main/solidity/src/interfaces/ICrossVMBridgeERC721Fulfillment.sol
 
 ```
+// SPDX-License-Identifier: Unlicense
 pragma solidity 0.8.24;
 
 import {IERC165} from "@openzeppelin/contracts/utils/introspection/IERC165.sol";
@@ -87782,6 +90635,115 @@ transaction(recipientEVMAddressHex: String, amount: UFix64) {
     }
 }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-evm-bridge/blob/main/solidity/src/example-assets/cross-vm-nfts/CadenceNativeERC721.sol
+
+```
+pragma solidity 0.8.24;
+
+import {ERC721} from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import {ERC721URIStorage} from "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import {CrossVMBridgeERC721Fulfillment} from "../../interfaces/CrossVMBridgeERC721Fulfillment.sol";
+import {ICrossVM} from "../../interfaces/ICrossVM.sol";
+
+/**
+ * @title CadenceNativeERC721
+ * @dev This contract is a minimal ERC721 implementation demonstrating the use of the
+ * CrossVMBridgeERC721Fulfillment base contract. Such ERC721 contracts are intended for use in
+ * cross-VM NFT implementations where projects deploy both a Cadence & Solidity definition with
+ * movement of individual NFTs facilitated by Flow's canonical VM bridge.
+ * In such cases, NFTs must be distributed in either Cadence or EVM - this is termed the NFT's
+ * "native" VM. When moving the NFT into the non-native VM, the bridge implements a mint/escrow
+ * pattern, minting if the NFT does not exist and unlocking from escrow if it does.
+ * The contract below demonstrates the Solidity implementation for a Cadence-native NFT. By
+ * implementing CrossVMBridgeERC721Fulfillment and correctly naming the vmBridgeAddress as the
+ * bridge's CadenceOwnedAccount EVM address, this ERC721 enables the bridge to execute the
+ * mint/escrow needed to fulfill bridge requests.
+ *
+ * For more information on cross-VM NFTs, see Flow's developer documentation as well as
+ * FLIP-318: https://github.com/onflow/flips/issues/318
+ */
+contract CadenceNativeERC721 is ICrossVM, ERC721URIStorage, CrossVMBridgeERC721Fulfillment {
+    
+    // included to test before fulfillment hook
+    uint256 public beforeCounter;
+
+    // ICrossVM fields
+    string private _cadenceAddress;
+    string private _cadenceIdentifier;
+    
+    constructor(
+        string memory name_,
+        string memory symbol_,
+        string memory cadenceAddress_,
+        string memory cadenceIdentifier_,
+        address vmBridgeAddress_
+    ) CrossVMBridgeERC721Fulfillment(vmBridgeAddress_) ERC721(name_, symbol_) {
+        _cadenceAddress = cadenceAddress_;
+        _cadenceIdentifier = cadenceIdentifier_;
+    }
+
+    function getCadenceAddress() external view returns (string memory) {
+        return _cadenceAddress;
+    }
+
+    function getCadenceIdentifier() external view returns (string memory) {
+        return _cadenceIdentifier;
+    }
+
+    function supportsInterface(bytes4 interfaceId) public view override(ERC721URIStorage, CrossVMBridgeERC721Fulfillment) returns (bool) {
+        return super.supportsInterface(interfaceId);
+    }
+    
+    function tokenURI(uint256 id) public view override(ERC721, ERC721URIStorage) returns (string memory) {
+        return super.tokenURI(id);
+    }
+
+    /**
+     * @dev This hook executes before the fulfillment into EVM executes. It's overridden here as
+     * a simple demonstration and for testing; however, you might include your own validation or
+     * pre-processing.
+     * 
+     * @param _to address of the pending token recipient
+     * @param _id the id of the token to be moved into EVM from Cadence
+     * @param _data any encoded metadata passed by the corresponding Cadence NFT at the time of
+     *      bridging into EVM
+     */
+    function _beforeFulfillment(address _to, uint256 _id, bytes memory _data) internal override {
+        beforeCounter += 1;
+    }
+
+    /**
+     * @dev This hook executes after the fulfillment into EVM executes. It's overridden here as
+     * a simple demonstration and for testing; however, you might include your own validation or
+     * post-processing. For instance, you may decode the bytes passed by the VM bridge at the
+     * time of bridging into EVM and update the token's metadata. Since you presumably control the
+     * corresponding Cadence implementation, what is passed to your at fulfillment is in your
+     * control by having your Cadence NFT resolve the `EVMBytesMetadata` view.
+     * 
+     * @param _to address of the pending token recipient
+     * @param _id the id of the token to be moved into EVM from Cadence
+     * @param _data any encoded metadata passed by the corresponding Cadence NFT at the time of
+     *      bridging into EVM
+     */
+    function _afterFulfillment(address _to, uint256 _id, bytes memory _data) internal override {
+        string memory decodedURI = abi.decode(_data, (string));
+        _setTokenURI(_id, decodedURI);
+    }
+}
 ```
 
 
@@ -89931,6 +92893,245 @@ access(all) fun main(ofNFT: UInt256, owner: String, evmContractAddress: String):
     )
 }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-evm-bridge/blob/main/solidity/test/CadenceNativeERC721WithWrapper.t.sol
+
+```
+pragma solidity 0.8.24;
+
+import {Test} from "forge-std/Test.sol";
+
+import {IERC721Errors} from "@openzeppelin/contracts/interfaces/draft-IERC6093.sol";
+import {IERC721} from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
+import {ERC721Wrapper} from "@openzeppelin/contracts/token/ERC721/extensions/ERC721Wrapper.sol";
+import {ERC721} from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import {FlowEVMBridgedERC721} from "../src/templates/FlowEVMBridgedERC721.sol";
+import {ICrossVM} from "../src/interfaces/ICrossVM.sol";
+import {ICrossVMBridgeCallable} from "../src/interfaces/ICrossVMBridgeCallable.sol";
+import {ICrossVMBridgeERC721Fulfillment} from "../src/interfaces/ICrossVMBridgeERC721Fulfillment.sol";
+import {ICrossVMBridgeERC721Fulfillment} from "../src/interfaces/ICrossVMBridgeERC721Fulfillment.sol";
+import {CadenceNativeERC721WithWrapper} from "../src/test/CadenceNativeERC721WithWrapper.sol";
+
+contract CrossVMBridgeERC721FulfillmentTest is Test {
+    FlowEVMBridgedERC721 internal underlyingERC721Impl; // the bridged ERC721 token being wrapped
+    CadenceNativeERC721WithWrapper internal erc721Impl;
+
+    string name;
+    string symbol;
+    string cadenceAddress;
+    string cadenceIdentifier;
+    address vmBridge;
+
+    address recipient;
+
+    uint256 fulfilledId;
+    string expectedTokenURI = 'data:application/json;utf8,{"name": "name", "symbol": "symbol"}';
+    bytes bridgedBytes;
+
+    function setUp() public {
+        name = "name";
+        symbol = "symbol";
+        cadenceAddress = "0xf8d6e0586b0a20c7"; // example Cadence contract address
+        cadenceIdentifier = "A.f8d6e0586b0a20c7.ExampleCadenceNativeNFT.NFT"; // example Cadence NFT Type identifier
+
+        vmBridge = address(100);
+        recipient = address(101);
+
+        fulfilledId = 42;
+        bridgedBytes = abi.encode(expectedTokenURI);
+
+        underlyingERC721Impl = new FlowEVMBridgedERC721(vmBridge, name, symbol, cadenceAddress, cadenceIdentifier, "");
+        erc721Impl = new CadenceNativeERC721WithWrapper(name, symbol, cadenceAddress, cadenceIdentifier, address(underlyingERC721Impl), vmBridge);
+    }
+
+    function test_VMBridgeAddressMatches() public view {
+        address actualVMBridge = erc721Impl.vmBridgeAddress();
+        assertEq(vmBridge, actualVMBridge);
+    }
+
+    function test_ICrossVMValuesMatch() public view {
+        string memory actualCadenceAddress = ICrossVM(erc721Impl).getCadenceAddress();
+        string memory actualCadenceIdentifier = ICrossVM(erc721Impl).getCadenceIdentifier();
+        assertEq(cadenceAddress, actualCadenceAddress);
+        assertEq(cadenceIdentifier, actualCadenceIdentifier);
+    }
+
+    function test_WrapUnderlyingSucceeds() public {
+        vm.prank(vmBridge);
+        underlyingERC721Impl.safeMint(recipient, fulfilledId, "");
+
+        // Ensure recipient is owner
+        bool received = recipient == underlyingERC721Impl.ownerOf(fulfilledId);
+        assertTrue(received);
+
+        // Construct depositFor id array
+        uint256[] memory ids = new uint256[](1);
+        ids[0] = fulfilledId;
+
+        // Approve then wrap the underlying token
+        vm.prank(recipient);
+        underlyingERC721Impl.approve(address(erc721Impl), fulfilledId);
+
+        vm.prank(recipient);
+        bool wrappedReceived = erc721Impl.depositFor(recipient, ids);
+        bool underlyingIsWrapped = address(erc721Impl) == underlyingERC721Impl.ownerOf(fulfilledId);
+        assertTrue(wrappedReceived);
+        assertTrue(underlyingIsWrapped);
+    }
+
+    function test_UnwrapUnderlyingSucceeds() public {
+        vm.prank(vmBridge);
+        underlyingERC721Impl.safeMint(recipient, fulfilledId, "");
+
+        // Construct depositFor id array
+        uint256[] memory ids = new uint256[](1);
+        ids[0] = fulfilledId;
+
+        // Approve then wrap the underlying token
+        vm.prank(recipient);
+        underlyingERC721Impl.approve(address(erc721Impl), fulfilledId);
+        vm.prank(recipient);
+        bool wrappedReceived = erc721Impl.depositFor(recipient, ids);
+        assertTrue(wrappedReceived);
+
+        // Unwrap the token
+        vm.prank(recipient);
+        bool unwrapped = erc721Impl.withdrawTo(recipient, ids);
+        bool underlyingIsUnwrapped = address(recipient) == underlyingERC721Impl.ownerOf(fulfilledId);
+        assertTrue(unwrapped);
+        assertTrue(underlyingIsUnwrapped);
+
+        // Ensure the wrapped token was burned
+        vm.expectRevert(
+            abi.encodeWithSelector(IERC721Errors.ERC721NonexistentToken.selector, fulfilledId)
+        );
+        erc721Impl.ownerOf(fulfilledId);
+    }
+
+    function test_FulfillToEVMAsUnauthorizedFails() public {
+        vm.prank(recipient);
+        vm.expectRevert(
+            abi.encodeWithSelector(ICrossVMBridgeCallable.CrossVMBridgeCallableUnauthorizedAccount.selector, recipient)
+        );
+        ICrossVMBridgeERC721Fulfillment(erc721Impl).fulfillToEVM(recipient, fulfilledId, bridgedBytes);
+    }
+
+    function test_FulfillToEVMMintSucceeds() public {
+        bool exists = erc721Impl.exists(fulfilledId);
+        assertFalse(exists);
+
+        // Ensure fulfilledId is nonexistent
+        vm.expectRevert(
+            abi.encodeWithSelector(IERC721Errors.ERC721NonexistentToken.selector, fulfilledId)
+        );
+        erc721Impl.ownerOf(fulfilledId);
+
+        // Call fulfillToEVM minting fulfilledId & incrementing before and after counters
+        vm.expectEmit();
+        emit ICrossVMBridgeERC721Fulfillment.FulfilledToEVM(recipient, fulfilledId);
+
+        vm.prank(vmBridge);
+        ICrossVMBridgeERC721Fulfillment(erc721Impl).fulfillToEVM(recipient, fulfilledId, bridgedBytes);
+
+        // Confirm id was fulfilled to recipient
+        address ownerOf = erc721Impl.ownerOf(fulfilledId);
+        exists = erc721Impl.exists(fulfilledId);
+        assertEq(recipient, ownerOf);
+        assertTrue(exists);
+
+        // Check tokenURI assignment from provided data
+        string memory actualTokenURI = erc721Impl.tokenURI(fulfilledId);
+        assertEq(expectedTokenURI, actualTokenURI);
+    }
+
+    function test_FulfillToEVMUnescrowedFails() public {
+        // Ensure fulfilledId is nonexistent
+        vm.expectRevert(
+            abi.encodeWithSelector(IERC721Errors.ERC721NonexistentToken.selector, fulfilledId)
+        );
+        erc721Impl.ownerOf(fulfilledId);
+
+        // Call fulfillToEVM minting fulfilledId & incrementing before and after counters
+        vm.expectEmit();
+        emit ICrossVMBridgeERC721Fulfillment.FulfilledToEVM(recipient, fulfilledId);
+
+        vm.prank(vmBridge);
+        ICrossVMBridgeERC721Fulfillment(erc721Impl).fulfillToEVM(recipient, fulfilledId, bridgedBytes);
+
+        // Confirm id was fulfilled to recipient
+        address ownerOf = erc721Impl.ownerOf(fulfilledId);
+        assertEq(recipient, ownerOf);
+
+        // Ensure call fails without token in escrow
+        vm.prank(vmBridge);
+        vm.expectRevert(
+            abi.encodeWithSelector(ICrossVMBridgeERC721Fulfillment.FulfillmentFailedTokenNotEscrowed.selector, fulfilledId, vmBridge)
+        );
+        ICrossVMBridgeERC721Fulfillment(erc721Impl).fulfillToEVM(recipient, fulfilledId, bridgedBytes);
+    }
+
+    function test_FulfillToEVMFromEscrowSucceeds() public {
+        // Ensure fulfilledId is nonexistent
+        vm.expectRevert(
+            abi.encodeWithSelector(IERC721Errors.ERC721NonexistentToken.selector, fulfilledId)
+        );
+        erc721Impl.ownerOf(fulfilledId);
+
+        // Call fulfillToEVM minting fulfilledId & incrementing before and after counters
+        vm.expectEmit();
+        emit ICrossVMBridgeERC721Fulfillment.FulfilledToEVM(recipient, fulfilledId);
+
+        vm.prank(vmBridge);
+        ICrossVMBridgeERC721Fulfillment(erc721Impl).fulfillToEVM(recipient, fulfilledId, bridgedBytes);
+
+        // Confirm id was fulfilled to recipient
+        address ownerOf = erc721Impl.ownerOf(fulfilledId);
+        assertEq(recipient, ownerOf);
+
+        // Confirm escrow status
+        bool isEscrowed = ICrossVMBridgeERC721Fulfillment(erc721Impl).isEscrowed(fulfilledId);
+        assertFalse(isEscrowed);
+        
+        // Transfer from recipient to escrow & confirm escrow status
+        vm.prank(recipient);
+        erc721Impl.safeTransferFrom(recipient, vmBridge, fulfilledId);
+
+        address currentOwner = erc721Impl.ownerOf(fulfilledId);
+        isEscrowed = ICrossVMBridgeERC721Fulfillment(erc721Impl).isEscrowed(fulfilledId);
+        assertEq(vmBridge, currentOwner);
+        assertTrue(isEscrowed);
+ 
+        // Call fulfillToEVM minting fulfilledId & incrementing before and after counters
+        vm.expectEmit();
+        emit ICrossVMBridgeERC721Fulfillment.FulfilledToEVM(recipient, fulfilledId);
+
+        vm.prank(vmBridge);
+        ICrossVMBridgeERC721Fulfillment(erc721Impl).fulfillToEVM(recipient, fulfilledId, bridgedBytes);
+
+        // Confirm id was fulfilled to recipient
+        ownerOf = erc721Impl.ownerOf(fulfilledId);
+        assertEq(recipient, ownerOf);
+    }
+
+    function test_SupportsAllExpectedInterfacesSucceeds() public view {
+        assertTrue(erc721Impl.supportsInterface(type(IERC721).interfaceId));
+        assertTrue(erc721Impl.supportsInterface(type(ICrossVMBridgeERC721Fulfillment).interfaceId));
+        assertTrue(erc721Impl.supportsInterface(type(ICrossVMBridgeCallable).interfaceId));
+    }
+}
 ```
 
 
@@ -94278,6 +97479,103 @@ transaction(evmContractAddressHex: String, recipientAddressHex: String, id: UInt
 
 
 
+# Source: https://github.com/onflow/flow-evm-bridge/blob/main/solidity/src/test/CadenceNativeERC721WithWrapper.sol
+
+```
+pragma solidity 0.8.24;
+
+import {ERC721} from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import {IERC721} from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
+import {ERC721Wrapper} from "@openzeppelin/contracts/token/ERC721/extensions/ERC721Wrapper.sol";
+import {ERC721URIStorage} from "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import {CrossVMBridgeERC721Fulfillment} from "../interfaces/CrossVMBridgeERC721Fulfillment.sol";
+import {ICrossVM} from "../interfaces/ICrossVM.sol";
+
+/**
+ * @title CadenceNativeERC721WithWrapper
+ * @dev This contract is a minimal ERC721 implementation demonstrating the use of the
+ * CrossVMBridgeERC721Fulfillment base contract. Such ERC721 contracts are intended for use in
+ * cross-VM NFT implementations where projects deploy both a Cadence & Solidity definition with
+ * movement of individual NFTs facilitated by Flow's canonical VM bridge.
+ * In such cases, NFTs must be distributed in either Cadence or EVM - this is termed the NFT's
+ * "native" VM. When moving the NFT into the non-native VM, the bridge implements a mint/escrow
+ * pattern, minting if the NFT does not exist and unlocking from escrow if it does.
+ * The contract below demonstrates the Solidity implementation for a Cadence-native NFT. By
+ * implementing CrossVMBridgeERC721Fulfillment and correctly naming the vmBridgeAddress as the
+ * bridge's CadenceOwnedAccount EVM address, this ERC721 enables the bridge to execute the
+ * mint/escrow needed to fulfill bridge requests.
+ * For testing purposes, this contract also implements ERC721Wrapper, wrapping the underlying
+ * ERC721 (presumed to be the VM bridge-deployed ERC721 contract).
+ *
+ * For more information on cross-VM NFTs, see Flow's developer documentation as well as
+ * FLIP-318: https://github.com/onflow/flips/issues/318
+ */
+contract CadenceNativeERC721WithWrapper is ICrossVM, ERC721URIStorage, ERC721Wrapper, CrossVMBridgeERC721Fulfillment {
+
+    // ICrossVM fields
+    string private _cadenceAddress;
+    string private _cadenceIdentifier;
+
+    constructor(
+        string memory name_,
+        string memory symbol_,
+        string memory cadenceAddress_,
+        string memory cadenceIdentifier_,
+        address underlyingERC721_,
+        address vmBridgeAddress_
+    ) CrossVMBridgeERC721Fulfillment(vmBridgeAddress_) ERC721(name_, symbol_) ERC721Wrapper(IERC721(underlyingERC721_)) {
+        _cadenceAddress = cadenceAddress_;
+        _cadenceIdentifier = cadenceIdentifier_;
+    }
+
+    function getCadenceAddress() external view returns (string memory) {
+        return _cadenceAddress;
+    }
+
+    function getCadenceIdentifier() external view returns (string memory) {
+        return _cadenceIdentifier;
+    }
+
+    function supportsInterface(bytes4 interfaceId) public view override(ERC721, ERC721URIStorage, CrossVMBridgeERC721Fulfillment) returns (bool) {
+        return super.supportsInterface(interfaceId);
+    }
+
+    function tokenURI(uint256 id) public view override(ERC721, ERC721URIStorage) returns (string memory) {
+        return super.tokenURI(id);
+    }
+
+    /**
+     * @dev This hook executes after the fulfillment into EVM executes. It's overridden here as
+     * a simple demonstration and for testing; however, you might include your own validation or
+     * post-processing. For instance, you may decode the bytes passed by the VM bridge at the
+     * time of bridging into EVM and update the token's metadata. Since you presumably control the
+     * corresponding Cadence implementation, what is passed to your at fulfillment is in your
+     * control by having your Cadence NFT resolve the `EVMBytesMetadata` view.
+     *
+     * @param _to address of the pending token recipient
+     * @param _id the id of the token to be moved into EVM from Cadence
+     * @param _data any encoded metadata passed by the corresponding Cadence NFT at the time of
+     *      bridging into EVM
+     */
+    function _afterFulfillment(address _to, uint256 _id, bytes memory _data) internal override {
+        string memory decodedURI = abi.decode(_data, (string));
+        _setTokenURI(_id, decodedURI);
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-evm-bridge/blob/main/cadence/contracts/templates/testnet/EVMBridgedTokenTemplate.cdc
 
 ```
@@ -94711,38 +98009,45 @@ access(all) fun main(): String {
 pragma solidity 0.8.24;
 
 import {Test} from "forge-std/Test.sol";
+import {console} from "forge-std/console.sol";
 
-import {IERC721Errors} from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import {IERC721Errors} from "@openzeppelin/contracts/interfaces/draft-IERC6093.sol";
 import {IERC721} from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import {ERC721} from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import {ICrossVM} from "../src/interfaces/ICrossVM.sol";
 import {ICrossVMBridgeCallable} from "../src/interfaces/ICrossVMBridgeCallable.sol";
 import {ICrossVMBridgeERC721Fulfillment} from "../src/interfaces/ICrossVMBridgeERC721Fulfillment.sol";
 import {ICrossVMBridgeERC721Fulfillment} from "../src/interfaces/ICrossVMBridgeERC721Fulfillment.sol";
-import {CadenceNativeERC721} from "../src/example-assets/CadenceNativeERC721.sol";
+import {CadenceNativeERC721} from "../src/example-assets/cross-vm-nfts/CadenceNativeERC721.sol";
 
 contract CrossVMBridgeERC721FulfillmentTest is Test {
     CadenceNativeERC721 internal erc721Impl;
 
     string name;
     string symbol;
+    string cadenceAddress;
+    string cadenceIdentifier;
     address vmBridge;
 
     address recipient;
 
     uint256 fulfilledId;
-    bytes emptyBytes;
+    string expectedTokenURI = 'data:application/json;utf8,{"name": "name", "symbol": "symbol"}';
+    bytes bridgedBytes;
 
     function setUp() public {
         name = "name";
         symbol = "symbol";
+        cadenceAddress = "0xf8d6e0586b0a20c7"; // example Cadence contract address
+        cadenceIdentifier = "A.f8d6e0586b0a20c7.ExampleCadenceNativeNFT.NFT"; // example Cadence NFT Type identifier
 
         vmBridge = address(100);
         recipient = address(101);
 
         fulfilledId = 42;
-        emptyBytes = new bytes(0);
+        bridgedBytes = abi.encode(expectedTokenURI);
 
-        erc721Impl = new CadenceNativeERC721(name, symbol, vmBridge);
+        erc721Impl = new CadenceNativeERC721(name, symbol, cadenceAddress, cadenceIdentifier, vmBridge);
     }
 
     function test_VMBridgeAddressMatches() public view {
@@ -94750,12 +98055,19 @@ contract CrossVMBridgeERC721FulfillmentTest is Test {
         assertEq(vmBridge, actualVMBridge);
     }
 
+    function test_ICrossVMValuesMatch() public view {
+        string memory actualCadenceAddress = ICrossVM(erc721Impl).getCadenceAddress();
+        string memory actualCadenceIdentifier = ICrossVM(erc721Impl).getCadenceIdentifier();
+        assertEq(cadenceAddress, actualCadenceAddress);
+        assertEq(cadenceIdentifier, actualCadenceIdentifier);
+    }
+
     function test_FulfillToEVMAsUnauthorizedFails() public {
         vm.prank(recipient);
         vm.expectRevert(
             abi.encodeWithSelector(ICrossVMBridgeCallable.CrossVMBridgeCallableUnauthorizedAccount.selector, recipient)
         );
-        ICrossVMBridgeERC721Fulfillment(erc721Impl).fulfillToEVM(recipient, fulfilledId, emptyBytes);
+        ICrossVMBridgeERC721Fulfillment(erc721Impl).fulfillToEVM(recipient, fulfilledId, bridgedBytes);
     }
 
     function test_FulfillToEVMMintSucceeds() public {
@@ -94770,14 +98082,13 @@ contract CrossVMBridgeERC721FulfillmentTest is Test {
 
         // Check current counter values
         uint256 beforeCounter = erc721Impl.beforeCounter();
-        uint256 afterCounter = erc721Impl.afterCounter();
 
         // Call fulfillToEVM minting fulfilledId & incrementing before and after counters
         vm.expectEmit();
         emit ICrossVMBridgeERC721Fulfillment.FulfilledToEVM(recipient, fulfilledId);
 
         vm.prank(vmBridge);
-        ICrossVMBridgeERC721Fulfillment(erc721Impl).fulfillToEVM(recipient, fulfilledId, emptyBytes);
+        ICrossVMBridgeERC721Fulfillment(erc721Impl).fulfillToEVM(recipient, fulfilledId, bridgedBytes);
 
         // Confirm id was fulfilled to recipient
         address ownerOf = erc721Impl.ownerOf(fulfilledId);
@@ -94787,9 +98098,11 @@ contract CrossVMBridgeERC721FulfillmentTest is Test {
 
         // Confirm overridden before & after hooks executed
         uint256 postFulfillmentBeforeCounter = erc721Impl.beforeCounter();
-        uint256 postFulfillmentAfterCounter = erc721Impl.afterCounter();
         assertEq(postFulfillmentBeforeCounter, beforeCounter + 1);
-        assertEq(postFulfillmentAfterCounter, afterCounter + 1);
+
+        // Check tokenURI assignment from provided data
+        string memory actualTokenURI = erc721Impl.tokenURI(fulfilledId);
+        assertEq(expectedTokenURI, actualTokenURI);
     }
 
     function test_FulfillToEVMUnescrowedFails() public {
@@ -94801,14 +98114,13 @@ contract CrossVMBridgeERC721FulfillmentTest is Test {
 
         // Check current counter values
         uint256 beforeCounter = erc721Impl.beforeCounter();
-        uint256 afterCounter = erc721Impl.afterCounter();
 
         // Call fulfillToEVM minting fulfilledId & incrementing before and after counters
         vm.expectEmit();
         emit ICrossVMBridgeERC721Fulfillment.FulfilledToEVM(recipient, fulfilledId);
 
         vm.prank(vmBridge);
-        ICrossVMBridgeERC721Fulfillment(erc721Impl).fulfillToEVM(recipient, fulfilledId, emptyBytes);
+        ICrossVMBridgeERC721Fulfillment(erc721Impl).fulfillToEVM(recipient, fulfilledId, bridgedBytes);
 
         // Confirm id was fulfilled to recipient
         address ownerOf = erc721Impl.ownerOf(fulfilledId);
@@ -94816,16 +98128,14 @@ contract CrossVMBridgeERC721FulfillmentTest is Test {
 
         // Confirm overridden before & after hooks executed
         uint256 postFulfillmentBeforeCounter = erc721Impl.beforeCounter();
-        uint256 postFulfillmentAfterCounter = erc721Impl.afterCounter();
         assertEq(postFulfillmentBeforeCounter, beforeCounter + 1);
-        assertEq(postFulfillmentAfterCounter, afterCounter + 1);
 
         // Ensure call fails without token in escrow
         vm.prank(vmBridge);
         vm.expectRevert(
             abi.encodeWithSelector(ICrossVMBridgeERC721Fulfillment.FulfillmentFailedTokenNotEscrowed.selector, fulfilledId, vmBridge)
         );
-        ICrossVMBridgeERC721Fulfillment(erc721Impl).fulfillToEVM(recipient, fulfilledId, emptyBytes);
+        ICrossVMBridgeERC721Fulfillment(erc721Impl).fulfillToEVM(recipient, fulfilledId, bridgedBytes);
     }
 
     function test_FulfillToEVMFromEscrowSucceeds() public {
@@ -94837,14 +98147,13 @@ contract CrossVMBridgeERC721FulfillmentTest is Test {
 
         // Check current counter values
         uint256 beforeCounter = erc721Impl.beforeCounter();
-        uint256 afterCounter = erc721Impl.afterCounter();
 
         // Call fulfillToEVM minting fulfilledId & incrementing before and after counters
         vm.expectEmit();
         emit ICrossVMBridgeERC721Fulfillment.FulfilledToEVM(recipient, fulfilledId);
 
         vm.prank(vmBridge);
-        ICrossVMBridgeERC721Fulfillment(erc721Impl).fulfillToEVM(recipient, fulfilledId, emptyBytes);
+        ICrossVMBridgeERC721Fulfillment(erc721Impl).fulfillToEVM(recipient, fulfilledId, bridgedBytes);
 
         // Confirm id was fulfilled to recipient
         address ownerOf = erc721Impl.ownerOf(fulfilledId);
@@ -94852,9 +98161,7 @@ contract CrossVMBridgeERC721FulfillmentTest is Test {
 
         // Confirm overridden before & after hooks executed
         uint256 postFulfillmentBeforeCounter = erc721Impl.beforeCounter();
-        uint256 postFulfillmentAfterCounter = erc721Impl.afterCounter();
         assertEq(postFulfillmentBeforeCounter, beforeCounter + 1);
-        assertEq(postFulfillmentAfterCounter, afterCounter + 1);
 
         // Confirm escrow status
         bool isEscrowed = ICrossVMBridgeERC721Fulfillment(erc721Impl).isEscrowed(fulfilledId);
@@ -94874,7 +98181,7 @@ contract CrossVMBridgeERC721FulfillmentTest is Test {
         emit ICrossVMBridgeERC721Fulfillment.FulfilledToEVM(recipient, fulfilledId);
 
         vm.prank(vmBridge);
-        ICrossVMBridgeERC721Fulfillment(erc721Impl).fulfillToEVM(recipient, fulfilledId, emptyBytes);
+        ICrossVMBridgeERC721Fulfillment(erc721Impl).fulfillToEVM(recipient, fulfilledId, bridgedBytes);
 
         // Confirm id was fulfilled to recipient
         ownerOf = erc721Impl.ownerOf(fulfilledId);
@@ -94882,9 +98189,7 @@ contract CrossVMBridgeERC721FulfillmentTest is Test {
 
         // Confirm overridden before & after hooks executed
         postFulfillmentBeforeCounter = erc721Impl.beforeCounter();
-        postFulfillmentAfterCounter = erc721Impl.afterCounter();
         assertEq(postFulfillmentBeforeCounter, beforeCounter + 2);
-        assertEq(postFulfillmentAfterCounter, afterCounter + 2);
     }
 
     function test_SupportsAllExpectedInterfacesSucceeds() public view {
@@ -94939,6 +98244,7 @@ access(all) fun main(vaultTypeIdentifier: String): UFix64? {
 # Source: https://github.com/onflow/flow-evm-bridge/blob/main/solidity/src/interfaces/ICrossVM.sol
 
 ```
+// SPDX-License-Identifier: Unlicense
 pragma solidity 0.8.24;
 
 interface ICrossVM {
@@ -99638,6 +102944,132 @@ fun main(vaultIdentifier: String, recipient: Address): Bool {
     return getAccount(recipient).capabilities.exists(vaultData.receiverPath)
 }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-evm-bridge/blob/main/solidity/test/EVMNativeERC721Upgradeable.t.sol
+
+```
+pragma solidity 0.8.24;
+
+import {Test} from "forge-std/Test.sol";
+import {console} from "forge-std/console.sol";
+
+import {IERC721Errors} from "@openzeppelin/contracts/interfaces/draft-IERC6093.sol";
+import {IERC721} from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
+import {Initializable} from "@openzeppelin/contracts/proxy/utils/Initializable.sol";
+import {ERC721Upgradeable} from "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol";
+import {ERC1967Proxy} from "@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol";
+import {IERC1967} from "@openzeppelin/contracts/interfaces/IERC1967.sol";
+import {StorageSlot} from "@openzeppelin/contracts/utils/StorageSlot.sol";
+import {ICrossVM} from "../src/interfaces/ICrossVM.sol";
+import {EVMNativeERC721UpgradeableV1} from "../src/test/EVMNativeERC721UpgradeableV1.sol";
+import {EVMNativeERC721UpgradeableV2} from "../src/test/EVMNativeERC721UpgradeableV2.sol";
+
+contract EVMNativeERC721UpgradeableTest is Test {
+    EVMNativeERC721UpgradeableV1 internal v1;
+    EVMNativeERC721UpgradeableV2 internal v2;
+    ERC1967Proxy internal proxy;
+
+    address internal v1Impl;
+    address internal v2Impl;
+
+    address owner;
+    string name;
+    string symbol;
+    string contractMetadata;
+    string cadenceAddress;
+    string cadenceIdentifier;
+
+    address recipient;
+    uint256 mintId;
+
+    function setUp() public {
+        owner = address(100);
+        name = "EVMNativeERC721";
+        symbol = "EVMXMPL";
+        contractMetadata = 'data:application/json;utf8,{"name": "EVMNativeERC721", "symbol": "EVMXMPL"}';
+        cadenceAddress = "0xf8d6e0586b0a20c7"; // example Cadence contract address
+        cadenceIdentifier = "A.f8d6e0586b0a20c7.ExampleCadenceNativeNFT.NFT"; // example Cadence NFT Type identifier
+
+        recipient = address(101);
+        mintId = 42;
+
+        vm.expectEmit();
+        emit Initializable.Initialized(type(uint64).max);
+        v1 = new EVMNativeERC721UpgradeableV1();
+        proxy = new ERC1967Proxy(
+                address(v1),
+                abi.encodeCall(EVMNativeERC721UpgradeableV1.initialize, (name, symbol, owner, contractMetadata))
+            );
+        
+        v1 = EVMNativeERC721UpgradeableV1(address(proxy));
+    }
+
+    function test_initializeEVMNativeERC721UpgradeableV1Succeeds() public {
+        string memory name_ = v1.name();
+        string memory symbol_ = v1.symbol();
+        string memory contractMetadata_ = v1.contractURI();
+        address owner_ = v1.owner();
+
+        vm.assertEq(name, name_);
+        vm.assertEq(symbol, symbol_);
+        vm.assertEq(contractMetadata, contractMetadata_);
+        vm.assertEq(owner, owner_);
+
+        // ensure minting funtionality
+        vm.prank(owner);
+        v1.safeMint(recipient, mintId);
+
+        vm.assertEq(v1.ownerOf(mintId), recipient);
+    }
+
+    function test_upgradeToV2Succeeds() public {
+        vm.prank(owner);
+        v1.safeMint(recipient, mintId);
+        vm.assertEq(v1.ownerOf(mintId), recipient);
+
+        v2 = new EVMNativeERC721UpgradeableV2(); // deploy v2
+        vm.expectEmit();
+        emit IERC1967.Upgraded(address(v2));
+        vm.prank(owner);
+        // execute the upgrade
+        v1.upgradeToAndCall(
+            address(v2),
+            abi.encodeCall(EVMNativeERC721UpgradeableV2.initializeV2, (cadenceAddress, cadenceIdentifier))
+        );
+        v2 = EVMNativeERC721UpgradeableV2(address(proxy)); // establish v2 via the existing proxy
+
+        // ensure new & existing fields are initialized properly & v2 is accessible via the proxy
+        string memory name_ = v2.name();
+        string memory symbol_ = v2.symbol();
+        string memory contractMetadata_ = v2.contractURI();
+        address owner_ = v2.owner();
+        string memory cadenceAddress_ = v2.getCadenceAddress();
+        string memory cadenceIdentifier_ = v2.getCadenceIdentifier();
+
+        vm.assertEq(name, name_);
+        vm.assertEq(symbol, symbol_);
+        vm.assertEq(contractMetadata, contractMetadata_);
+        vm.assertEq(owner, owner_);
+        vm.assertEq(cadenceAddress, cadenceAddress_);
+        vm.assertEq(cadenceIdentifier, cadenceIdentifier_);
+
+        // ensure ownership retained post-upgrade
+        vm.assertEq(v2.ownerOf(mintId), recipient);
+    }
+}
 ```
 
 
@@ -105670,6 +109102,66 @@ interface ICrossVMBridgeCallable {
 
 
 
+# Source: https://github.com/onflow/flow-evm-bridge/blob/main/solidity/src/test/CrossVMUpgradable.sol
+
+```
+// SPDX-License-Identifier: Unlicense
+pragma solidity 0.8.24;
+
+import {Initializable} from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
+import {ICrossVM} from "../interfaces/ICrossVM.sol";
+
+abstract contract CrossVMUpgradable is Initializable, ICrossVM {
+
+    struct CadencePointerStorage {
+        string _cadenceAddress;
+        string _cadenceIdentifier;
+    }
+
+    function getCadenceAddress() public virtual view returns (string memory) {
+        CadencePointerStorage storage $ = _getCadencePointerStorage();
+        return $._cadenceAddress;
+    }
+
+    function getCadenceIdentifier() public virtual view returns (string memory) {
+        CadencePointerStorage storage $ = _getCadencePointerStorage();
+        return $._cadenceIdentifier;
+    }
+
+    // keccak256(abi.encode(uint256(keccak256("onflow.storage.CrossVMUpgradable")) - 1)) & ~bytes32(uint256(0xff))
+    bytes32 private constant CadencePointerStorageLocation = 0x1f0678a11c0e639afa873a4f85d9812e14ee48821237e3f2af87ee972c7cc500;
+
+    function _getCadencePointerStorage() private pure returns (CadencePointerStorage storage $) {
+        assembly {
+            $.slot := CadencePointerStorageLocation
+        }
+    }
+
+    function __CrossVMUpgradable_init(string memory cadenceAddress_, string memory cadenceIdentifier_) internal onlyInitializing {
+        __CrossVMUpgradable_init_unchained(cadenceAddress_, cadenceIdentifier_);
+    }
+
+    function __CrossVMUpgradable_init_unchained(string memory cadenceAddress_, string memory cadenceIdentifier_) internal onlyInitializing {
+        CadencePointerStorage storage $ = _getCadencePointerStorage();
+        $._cadenceAddress = cadenceAddress_;
+        $._cadenceIdentifier = cadenceIdentifier_;
+    }
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-evm-bridge/blob/main/CLAUDE.md
 
 # CLAUDE.md
@@ -109818,6 +113310,67 @@ transaction(vaultIdentifier: String, minterIdentifier: String) {
             expectedMinterType: minterType
         )
     }
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-evm-bridge/blob/main/solidity/src/test/EVMNativeERC721UpgradeableV1.sol
+
+```
+// SPDX-License-Identifier: Unlicense
+pragma solidity ^0.8.24;
+
+import {OwnableUpgradeable} from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
+import {ERC721Upgradeable} from "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol";
+import {UUPSUpgradeable} from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
+import {Initializable} from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
+
+/**
+ * @title EVMNativeERC721UpgradeableV1
+ * @dev This is a test contract used to ensure Flow VM bridge can handle ERC721 contracts updated
+ * to conform to the FLIP-318 Cross-VM NFT standard. This V1 contract lacks the ICrossVM conformance
+ * required for cross-VM NFT registration with the VM bridge.
+ */
+contract EVMNativeERC721UpgradeableV1 is Initializable, UUPSUpgradeable, ERC721Upgradeable, OwnableUpgradeable {
+    string internal contractMetadata;
+
+    constructor() {
+        _disableInitializers();
+    }
+
+    function initialize(
+        string memory _name,
+        string memory _symbol,
+        address owner,
+        string memory _contractMetadata
+    ) public initializer onlyProxy {
+        __ERC721_init(_name, _symbol);
+        __Ownable_init(owner);
+        __UUPSUpgradeable_init();
+        contractMetadata = _contractMetadata;
+    }
+
+    function contractURI() public view returns (string memory) {
+        return contractMetadata;
+    }
+
+    function safeMint(address to, uint256 tokenId) public onlyOwner {
+        _safeMint(to, tokenId);
+    }
+
+    function _authorizeUpgrade(address _newImplementation) internal override onlyOwner {}
 }
 
 ```
@@ -291566,6 +295119,29 @@ flow transactions send ./transactions/token/setupTeleportedTetherTokenVault.cdc 
 
 
 
+# Source: https://github.com/blocto/blt-contracts/blob/master/scripts/mining/getRewardLockPeriod.cdc
+
+```
+import BloctoTokenMining from "../../contracts/flow/mining/BloctoTokenMining.cdc"
+
+pub fun main(): UInt64 {
+    return BloctoTokenMining.getRewardLockPeriod()
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/blt-contracts/blob/master/transactions/teleport/Solana/createTeleportAdminSolana.cdc
 
 ```
@@ -292828,6 +296404,29 @@ transaction(amount: UFix64) {
 
 
 
+# Source: https://github.com/blocto/blt-contracts/blob/master/scripts/mining/getCurrentRound.cdc
+
+```
+import BloctoTokenMining from "../../contracts/flow/mining/BloctoTokenMining.cdc"
+
+pub fun main(): UInt64 {
+    return BloctoTokenMining.getCurrentRound()
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/blt-contracts/blob/master/transactions/mining/updateCriteria.cdc
 
 ```
@@ -293222,6 +296821,29 @@ transaction(addresses: [Address], amounts: [UFix64]) {
 
 
 
+# Source: https://github.com/blocto/blt-contracts/blob/master/scripts/mining/getRewardLockRatio.cdc
+
+```
+import BloctoTokenMining from "../../contracts/flow/mining/BloctoTokenMining.cdc"
+
+pub fun main(): UFix64 {
+    return BloctoTokenMining.getRewardLockRatio()
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/blt-contracts/blob/master/transactions/sale/public/distributeBatch.cdc
 
 ```
@@ -293252,6 +296874,29 @@ transaction(addresses: [Address], allocationAmounts: [UFix64]) {
             index = index + 1
         }
     }
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/blt-contracts/blob/master/scripts/mining/getUserRewardsCollected.cdc
+
+```
+import BloctoTokenMining from "../../contracts/flow/mining/BloctoTokenMining.cdc"
+
+pub fun main(): {Address: UInt64} {
+    return BloctoTokenMining.getUserRewardsCollected()
 }
 
 ```
@@ -294031,6 +297676,29 @@ transaction(epoch: UInt64) {
 
 
 
+# Source: https://github.com/blocto/blt-contracts/blob/master/scripts/sale/public/gettUSDTVaultBalance.cdc
+
+```
+import BloctoTokenPublicSale from "../../../contracts/flow/sale/BloctoTokenPublicSale.cdc"
+
+pub fun main(): UFix64 {
+    return BloctoTokenPublicSale.getTusdtVaultBalance()
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/blt-contracts/blob/master/transactions/sale/public/withdrawBLT.cdc
 
 ```
@@ -294066,6 +297734,29 @@ transaction(amount: UFix64, to: Address) {
         // Deposit the withdrawn tokens in the recipient's receiver
         receiverRef.deposit(from: <- vault)
     }
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/blt-contracts/blob/master/scripts/sale/public/getBLTVaultBalance.cdc
+
+```
+import BloctoTokenPublicSale from "../../../contracts/flow/sale/BloctoTokenPublicSale.cdc"
+
+pub fun main(): UFix64 {
+    return BloctoTokenPublicSale.getBltVaultBalance()
 }
 
 ```
@@ -294146,6 +297837,29 @@ transaction(allowedAmount: UFix64) {
 
         signer.storage.save(<-minter, to: BloctoToken.TokenMinterStoragePath)
     }
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/blt-contracts/blob/master/scripts/sale/community/getLockupSchedule.cdc
+
+```
+import BloctoTokenSale from "../../../contracts/flow/sale/BloctoTokenSale.cdc"
+
+pub fun main(): {UFix64: UFix64} {
+    return BloctoTokenSale.getLockupSchedule()
 }
 
 ```
@@ -295302,6 +299016,29 @@ transaction(teleportAdmin: Address, allowedAmount: UFix64) {
 
 
 
+# Source: https://github.com/blocto/blt-contracts/blob/master/scripts/sale/public/getPurchaseInfo.cdc
+
+```
+import BloctoTokenPublicSale from "../../../contracts/flow/sale/BloctoTokenPublicSale.cdc"
+
+pub fun main(address: Address): BloctoTokenPublicSale.PurchaseInfo? {
+    return BloctoTokenPublicSale.getPurchase(address: address)
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/blt-contracts/blob/master/scripts/teleport/Aptos/getTeleportFeeAmountAptos.cdc
 
 ```
@@ -295663,6 +299400,47 @@ transaction(amount: UFix64, index: Int, bloctoPassAddress: Address) {
 
 
 
+# Source: https://github.com/blocto/blt-contracts/blob/master/scripts/sale/public/README.md
+
+# Sale
+### Get Purchasers
+```
+flow scripts execute ./scripts/sale/public/getPurchasers.cdc \
+  --network testnet
+```
+
+### Get Purchase Info
+```
+flow scripts execute ./scripts/sale/public/getPurchaseInfo.cdc \
+  --network testnet \
+  --arg Address:0x457df669b4f4d1a4
+```
+
+### Get BLT Vault Balance
+```
+flow scripts execute ./scripts/sale/public/getBLTVaultBalance.cdc \
+  --network testnet
+```
+
+### Get tUSDT Vault Balance
+```
+flow scripts execute ./scripts/sale/public/gettUSDTVaultBalance.cdc \
+  --network testnet
+```
+
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/blt-contracts/blob/master/transactions/sale/public/freeze.cdc
 
 ```
@@ -295687,6 +299465,55 @@ transaction() {
     }
 }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/blt-contracts/blob/master/scripts/sale/community/getPurchaseInfo.cdc
+
+```
+import BloctoTokenSale from "../../../contracts/flow/sale/BloctoTokenSale.cdc"
+
+pub fun main(address: Address): BloctoTokenSale.PurchaseInfo? {
+    return BloctoTokenSale.getPurchase(address: address)
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/blt-contracts/blob/master/scripts/mining/getMiningReward.cdc
+
+```
+import BloctoTokenMining from "../../contracts/flow/mining/BloctoTokenMining.cdc"
+
+pub fun main(address: Address): [BloctoTokenMining.RewardLockInfo] {
+    let miningRewardRef = getAccount(address).getCapability(BloctoTokenMining.MiningRewardPublicPath)
+        .borrow<&{BloctoTokenMining.MiningRewardPublic}>()
+        ?? panic("Could not borrow mining reward public reference")
+
+    return miningRewardRef.getRewardsLocked()
+}
 ```
 
 
@@ -296937,6 +300764,29 @@ transaction {
 
 
 
+# Source: https://github.com/blocto/blt-contracts/blob/master/scripts/mining/getCriterias.cdc
+
+```
+import BloctoTokenMining from "../../contracts/flow/mining/BloctoTokenMining.cdc"
+
+pub fun main(): {String: BloctoTokenMining.Criterion} {
+    return BloctoTokenMining.getCriteria()
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/blt-contracts/blob/master/transactions/sale/community/freeze.cdc
 
 ```
@@ -296991,6 +300841,29 @@ fun main(address: Address, index: Int): BloctoTokenStaking.StakerInfo {
     let bloctoPass = collectionRef.borrowBloctoPassPublic(id: ids[index])
 
     return bloctoPass.getStakingInfo()
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/blt-contracts/blob/master/scripts/mining/getRewardCap.cdc
+
+```
+import BloctoTokenMining from "../../contracts/flow/mining/BloctoTokenMining.cdc"
+
+pub fun main(): UFix64 {
+    return BloctoTokenMining.getRewardCap()
 }
 
 ```
@@ -297787,6 +301660,29 @@ transaction(allowedAmount: UFix64) {
 
 
 
+# Source: https://github.com/blocto/blt-contracts/blob/master/scripts/mining/getCurrentTotalReward.cdc
+
+```
+import BloctoTokenMining from "../../contracts/flow/mining/BloctoTokenMining.cdc"
+
+pub fun main(): UFix64 {
+    return BloctoTokenMining.getCurrentTotalReward()
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/blt-contracts/blob/master/scripts/staking/README.md
 
 # Staking
@@ -298326,6 +302222,29 @@ transaction(amount: UFix64, target: Address, from: String, hash: String) {
 
         self.receiverRef.deposit(from: <- vault)
     }
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/blt-contracts/blob/master/scripts/sale/community/gettUSDTVaultBalance.cdc
+
+```
+import BloctoTokenSale from "../../../contracts/flow/sale/BloctoTokenSale.cdc"
+
+pub fun main(): UFix64 {
+    return BloctoTokenSale.getTusdtVaultBalance()
 }
 
 ```
@@ -299096,6 +303015,29 @@ transaction(allowedAmount: UFix64) {
 
 
 
+# Source: https://github.com/blocto/blt-contracts/blob/master/scripts/sale/community/getPurchasers.cdc
+
+```
+import BloctoTokenSale from "../../../contracts/flow/sale/BloctoTokenSale.cdc"
+
+pub fun main(): [Address] {
+    return BloctoTokenSale.getPurchasers()
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/blt-contracts/blob/master/transactions/teleport/Aptos/depositAllowanceAptos.cdc
 
 ```
@@ -299152,6 +303094,29 @@ transaction(address: Address) {
         // Refun BLT purchase
         self.adminRef.refund(address: address)
     }
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/blt-contracts/blob/master/scripts/mining/getCapMultiplier.cdc
+
+```
+import BloctoTokenMining from "../../contracts/flow/mining/BloctoTokenMining.cdc"
+
+pub fun main(): UInt64 {
+    return BloctoTokenMining.getCapMultiplier()
 }
 
 ```
@@ -300120,6 +304085,29 @@ transaction(amount: UFix64) {
 
 
 
+# Source: https://github.com/blocto/blt-contracts/blob/master/scripts/mining/getUserRewards.cdc
+
+```
+import BloctoTokenMining from "../../contracts/flow/mining/BloctoTokenMining.cdc"
+
+pub fun main(): {Address: UFix64} {
+    return BloctoTokenMining.getUserRewards()
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/blt-contracts/blob/master/transactions/sale/community/unfreeze.cdc
 
 ```
@@ -300743,6 +304731,39 @@ transaction(inwardFee: UFix64, outwardFee: UFix64) {
 
 
 
+# Source: https://github.com/blocto/blt-contracts/blob/master/scripts/mining/logBloctoTokenMining.cdc
+
+```
+import BloctoTokenMining from "../../contracts/flow/mining/BloctoTokenMining.cdc"
+
+pub fun main() {
+    log({"miningState": BloctoTokenMining.getMiningState()})
+    log({"currentRound": BloctoTokenMining.getCurrentRound()})
+    log({"currentTotalReward": BloctoTokenMining.getCurrentTotalReward()})
+    log({"rewardCap": BloctoTokenMining.getRewardCap()})
+    log({"capMultiplier": BloctoTokenMining.getCapMultiplier()})
+    log({"criterias": BloctoTokenMining.getCriterias()})
+    log({"rewardLockPeriod": BloctoTokenMining.getRewardLockPeriod()})
+    log({"rewardLockRatio": BloctoTokenMining.getRewardLockRatio()})
+    log({"userRewardsCollected": BloctoTokenMining.getUserRewardsCollected()})
+    log({"userRewards": BloctoTokenMining.getUserRewards()})
+    log({"rewardsDistributed": BloctoTokenMining.getRewardsDistributed()})
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/blt-contracts/blob/master/transactions/mining/addDefaultCriteria.cdc
 
 ```
@@ -301230,6 +305251,32 @@ transaction() {
 // 	}
 // }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/blt-contracts/blob/master/scripts/mining/getUnlockMiningReward.cdc
+
+```
+import BloctoTokenMining from "../../contracts/flow/mining/BloctoTokenMining.cdc"
+
+pub fun main(address: Address): UFix64 {
+    let miningRewardRef = getAccount(address).getCapability(BloctoTokenMining.MiningRewardPublicPath)
+        .borrow<&{BloctoTokenMining.MiningRewardPublic}>()
+        ?? panic("Could not borrow mining reward public reference")
+
+    return miningRewardRef.computeUnlocked()
+}
 ```
 
 
@@ -302060,6 +306107,29 @@ transaction(address: Address, tx: UFix64, referral: UFix64, assetInCirculation: 
 
 
 
+# Source: https://github.com/blocto/blt-contracts/blob/master/scripts/sale/public/getPurchasers.cdc
+
+```
+import BloctoTokenPublicSale from "../../../contracts/flow/sale/BloctoTokenPublicSale.cdc"
+
+pub fun main(): [Address] {
+    return BloctoTokenPublicSale.getPurchasers()
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/blt-contracts/blob/master/transactions/sale/public/distributeBatchFull.cdc
 
 ```
@@ -302207,6 +306277,29 @@ transaction(amount: UFix64) {
         self.bloctoPassRef.deposit(from: <- self.sentVault)
     }
 }
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/blt-contracts/blob/master/scripts/mining/getMiningState.cdc
+
+```
+import BloctoTokenMining from "../../contracts/flow/mining/BloctoTokenMining.cdc"
+
+pub fun main(): BloctoTokenMining.MiningState {
+    return BloctoTokenMining.getMiningState()
+}
+
 ```
 
 
@@ -303762,6 +307855,53 @@ transaction(admin: Address, amount: UFix64, target: String) {
 
 
 
+# Source: https://github.com/blocto/blt-contracts/blob/master/scripts/sale/community/README.md
+
+# Sale
+### Get Lockup Schedule
+```
+flow scripts execute ./scripts/sale/community/getLockupSchedule.cdc \
+  --network testnet
+```
+
+### Get Purchasers
+```
+flow scripts execute ./scripts/sale/community/getPurchasers.cdc \
+  --network testnet
+```
+
+### Get Purchase Info
+```
+flow scripts execute ./scripts/sale/community/getPurchaseInfo.cdc \
+  --network testnet \
+  --arg Address:0x457df669b4f4d1a4
+```
+
+### Get BLT Vault Balance
+```
+flow scripts execute ./scripts/sale/community/getBLTVaultBalance.cdc \
+  --network testnet
+```
+
+### Get tUSDT Vault Balance
+```
+flow scripts execute ./scripts/sale/community/gettUSDTVaultBalance.cdc \
+  --network testnet
+```
+
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/blt-contracts/blob/master/scripts/teleport/Ethereum/getEthereumStorage-old.cdc
 
 ```
@@ -304519,6 +308659,29 @@ fun main(teleportAdmin: Address): UFix64 {
   let teleportUserRef = getAccount(teleportAdmin).capabilities.borrow<&{TeleportedTetherToken.TeleportUser}>(/public/teleportedTetherTokenTeleportUser)
     ?? panic("Could not borrow a reference of TeleportUser")
   return teleportUserRef.allowedAmount
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/blt-contracts/blob/master/scripts/sale/community/getBLTVaultBalance.cdc
+
+```
+import BloctoTokenSale from "../../../contracts/flow/sale/BloctoTokenSale.cdc"
+
+pub fun main(): UFix64 {
+    return BloctoTokenSale.getBltVaultBalance()
 }
 
 ```
@@ -306981,6 +311144,82 @@ transaction() {
 
 
 
+# Source: https://github.com/blocto/blt-contracts/blob/master/scripts/mining/getRewardsDistributed.cdc
+
+```
+import BloctoTokenMining from "../../contracts/flow/mining/BloctoTokenMining.cdc"
+
+pub fun main(): {Address: UInt64} {
+    return BloctoTokenMining.getRewardsDistributed()
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/Flovatar/createSaleFlovatarComponent.testnet.cdc
+
+```
+import Flovatar, FlovatarComponent, FlovatarComponentTemplate, FlovatarPack, FlovatarMarketplace from 0x0cf264811b95d465
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import FungibleToken from 0x9a0766d93b6608b7
+import FlowToken from 0x7e60df042a9c0868
+
+
+transaction(
+    componentId: UInt64,
+    price: UFix64) {
+
+    let componentCollection: &FlovatarComponent.Collection
+    let marketplace: &FlovatarMarketplace.SaleCollection
+
+    prepare(account: AuthAccount) {
+
+        let marketplaceCap = account.getCapability<&{FlovatarMarketplace.SalePublic}>(FlovatarMarketplace.CollectionPublicPath)
+        // if sale collection is not created yet we make it.
+        if !marketplaceCap.check() {
+             let wallet =  account.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+             let sale <- FlovatarMarketplace.createSaleCollection(ownerVault: wallet)
+
+            // store an empty NFT Collection in account storage
+            account.save<@FlovatarMarketplace.SaleCollection>(<- sale, to:FlovatarMarketplace.CollectionStoragePath)
+            // publish a capability to the Collection in storage
+            account.link<&{FlovatarMarketplace.SalePublic}>(FlovatarMarketplace.CollectionPublicPath, target: FlovatarMarketplace.CollectionStoragePath)
+        }
+
+        self.marketplace = account.borrow<&FlovatarMarketplace.SaleCollection>(from: FlovatarMarketplace.CollectionStoragePath)!
+        self.componentCollection = account.borrow<&FlovatarComponent.Collection>(from: FlovatarComponent.CollectionStoragePath)!
+    }
+
+    execute {
+        let component <- self.componentCollection.withdraw(withdrawID: componentId) as! @FlovatarComponent.NFT
+        self.marketplace.listFlovatarComponentForSale(token: <- component, price: price)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/MantlefiNFTLending/RaceDay_NFT/cancelBorrowMoney.cdc
 
 ```
@@ -307005,6 +311244,75 @@ transaction(Uuid: UInt64) {
     }
 }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoBay/jambbVouchers/buy.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTStorefront from 0x4eb8a10cb9f87357
+import Marketplace from 0xdc5127882cacf8d9
+import FlowToken from 0x1654653399040a61
+import Vouchers from 0x444f5ea22c6ea12c
+
+transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFix64) {
+    let paymentVault: @FungibleToken.Vault
+    let storefront: &NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}
+    let nftCollection: &{NonFungibleToken.Receiver}
+    let listing: &NFTStorefront.Listing{NFTStorefront.ListingPublic}
+
+    prepare(signer: AuthAccount) {
+        // Create a collection to store the purchase if none present
+        if signer.borrow<&Vouchers.Collection>(from: Vouchers.CollectionStoragePath) == nil {
+            signer.save(<- Vouchers.createEmptyCollection(), to: Vouchers.CollectionStoragePath)
+            signer.link<&{NonFungibleToken.CollectionPublic, Vouchers.CollectionPublic}>(
+			    Vouchers.CollectionPublicPath,
+			    target: Vouchers.CollectionStoragePath
+		    )
+        }
+
+        self.storefront = getAccount(storefrontAddress)
+            .getCapability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(NFTStorefront.StorefrontPublicPath)
+            .borrow()
+            ?? panic("Could not borrow Storefront from provided address")
+
+        self.listing = self.storefront.borrowListing(listingResourceID: listingResourceID)
+            ?? panic("No Offer with that ID in Storefront")
+        let price = self.listing.getDetails().salePrice
+
+        assert(buyPrice == price, message: "buyPrice is NOT same with salePrice")
+
+        let targetTokenVault = signer.borrow<&{FungibleToken.Provider}>(from: /storage/flowTokenVault)
+            ?? panic("Cannot borrow target token vault from signer storage")
+        self.paymentVault <- targetTokenVault.withdraw(amount: price)
+
+        self.nftCollection = signer.borrow<&{NonFungibleToken.Receiver}>(from: Vouchers.CollectionStoragePath)
+                    ?? panic("Cannot borrow NFT collection receiver from account")
+    }
+
+    execute {
+        let item <- self.listing.purchase(payment: <-self.paymentVault)
+        self.nftCollection.deposit(token: <-item)
+
+        // Be kind and recycle
+        self.storefront.cleanup(listingResourceID: listingResourceID)
+        Marketplace.removeListing(id: listingResourceID)
+    }
+
+}
 ```
 
 
@@ -307724,6 +312032,144 @@ transaction(name: String) {
 		let bids = account.borrow<&FIND.BidCollection>(from: FIND.BidStoragePath)!
 		bids.cancelBid(name)
 	}
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoBay/flovatar/buy.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTStorefront from 0x4eb8a10cb9f87357
+import Marketplace from 0xdc5127882cacf8d9
+import FlowToken from 0x1654653399040a61
+import Flovatar from 0x921ea449dffec68a
+
+transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFix64) {
+    let paymentVault: @FungibleToken.Vault
+    let storefront: &NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}
+    let nftCollection: &{NonFungibleToken.Receiver}
+    let listing: &NFTStorefront.Listing{NFTStorefront.ListingPublic}
+
+    prepare(signer: AuthAccount) {
+        // Create a collection to store the purchase if none present
+        if signer.borrow<&Flovatar.Collection>(from: Flovatar.CollectionStoragePath) == nil {
+            signer.save(<- Flovatar.createEmptyCollection(), to: Flovatar.CollectionStoragePath)
+            signer.link<&{NonFungibleToken.CollectionPublic, Flovatar.CollectionPublic}>(
+			    Flovatar.CollectionPublicPath,
+			    target: Flovatar.CollectionStoragePath
+		    )
+        }
+
+        self.storefront = getAccount(storefrontAddress)
+            .getCapability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(NFTStorefront.StorefrontPublicPath)
+            .borrow()
+            ?? panic("Could not borrow Storefront from provided address")
+
+        self.listing = self.storefront.borrowListing(listingResourceID: listingResourceID)
+            ?? panic("No Offer with that ID in Storefront")
+        let price = self.listing.getDetails().salePrice
+
+        assert(buyPrice == price, message: "buyPrice is NOT same with salePrice")
+
+        let targetTokenVault = signer.borrow<&{FungibleToken.Provider}>(from: /storage/flowTokenVault)
+            ?? panic("Cannot borrow target token vault from signer storage")
+        self.paymentVault <- targetTokenVault.withdraw(amount: price)
+
+        self.nftCollection = signer.borrow<&{NonFungibleToken.Receiver}>(from: Flovatar.CollectionStoragePath)
+                    ?? panic("Cannot borrow NFT collection receiver from account")
+    }
+
+    execute {
+        let item <- self.listing.purchase(payment: <-self.paymentVault)
+        self.nftCollection.deposit(token: <-item)
+
+        // Be kind and recycle
+        self.storefront.cleanup(listingResourceID: listingResourceID)
+        Marketplace.removeListing(id: listingResourceID)
+    }
+
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoBay/geniace/buy.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTStorefront from 0x94b06cfca1d8a476
+import Marketplace from 0xe1aa310cfe7750c4
+import FlowToken from 0x7e60df042a9c0868
+import GeniaceNFT from 0x99eb28310626e56a
+
+transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFix64) {
+    let paymentVault: @FungibleToken.Vault
+    let storefront: &NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}
+    let nftCollection: &{NonFungibleToken.Receiver}
+    let listing: &NFTStorefront.Listing{NFTStorefront.ListingPublic}
+
+    prepare(signer: AuthAccount) {
+        // Create a collection to store the purchase if none present
+        if signer.borrow<&GeniaceNFT.Collection>(from: GeniaceNFT.CollectionStoragePath) == nil {
+            signer.save(<- GeniaceNFT.createEmptyCollection(), to: GeniaceNFT.CollectionStoragePath)
+            signer.link<&{NonFungibleToken.CollectionPublic, GeniaceNFT.GeniaceNFTCollectionPublic}>(
+			    GeniaceNFT.CollectionPublicPath,
+			    target: GeniaceNFT.CollectionStoragePath
+		    )
+        }
+
+        self.storefront = getAccount(storefrontAddress)
+            .getCapability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(NFTStorefront.StorefrontPublicPath)
+            .borrow()
+            ?? panic("Could not borrow Storefront from provided address")
+
+        self.listing = self.storefront.borrowListing(listingResourceID: listingResourceID)
+            ?? panic("No Offer with that ID in Storefront")
+        let price = self.listing.getDetails().salePrice
+
+        assert(buyPrice == price, message: "buyPrice is NOT same with salePrice")
+
+        let targetTokenVault = signer.borrow<&{FungibleToken.Provider}>(from: /storage/flowTokenVault)
+            ?? panic("Cannot borrow target token vault from signer storage")
+        self.paymentVault <- targetTokenVault.withdraw(amount: price)
+
+        self.nftCollection = signer.borrow<&{NonFungibleToken.Receiver}>(from: GeniaceNFT.CollectionStoragePath)
+                    ?? panic("Cannot borrow NFT collection receiver from account")
+    }
+
+    execute {
+        let item <- self.listing.purchase(payment: <-self.paymentVault)
+        self.nftCollection.deposit(token: <-item)
+
+        // Be kind and recycle
+        self.storefront.cleanup(listingResourceID: listingResourceID)
+        Marketplace.removeListing(id: listingResourceID)
+    }
+
 }
 ```
 
@@ -309356,6 +313802,57 @@ transaction(owner: Address, name: String) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/Flovatar/updateSaleFlovatar.mainnet.cdc
+
+```
+import Flovatar, FlovatarComponent, FlovatarComponentTemplate, FlovatarPack, FlovatarMarketplace from 0x921ea449dffec68a
+import NonFungibleToken from 0x1d7e57aa55817448
+import FungibleToken from 0xf233dcee88fe0abe
+import FlowToken from 0x1654653399040a61
+
+transaction(
+    flovatarId: UInt64,
+    price: UFix64
+    ) {
+
+    let marketplace: &FlovatarMarketplace.SaleCollection
+
+    prepare(account: AuthAccount) {
+
+        let marketplaceCap = account.getCapability<&{FlovatarMarketplace.SalePublic}>(FlovatarMarketplace.CollectionPublicPath)
+        // if sale collection is not created yet we make it.
+        if !marketplaceCap.check() {
+             let wallet =  account.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+             let sale <- FlovatarMarketplace.createSaleCollection(ownerVault: wallet)
+
+            // store an empty NFT Collection in account storage
+            account.save<@FlovatarMarketplace.SaleCollection>(<- sale, to:FlovatarMarketplace.CollectionStoragePath)
+
+            // publish a capability to the Collection in storage
+            account.link<&{FlovatarMarketplace.SalePublic}>(FlovatarMarketplace.CollectionPublicPath, target: FlovatarMarketplace.CollectionStoragePath)
+        }
+
+        self.marketplace=account.borrow<&FlovatarMarketplace.SaleCollection>(from: FlovatarMarketplace.CollectionStoragePath)!
+    }
+
+    execute {
+        self.marketplace.changeFlovatarPrice(tokenId: flovatarId, newPrice: price)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/MantlefiNFTLending/BiscuitsNGroovy/cancelBorrowMoney.cdc
 
 ```
@@ -309807,6 +314304,128 @@ transaction(Uuid: UInt64, RepayAmount: UFix64) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/Flovatar/initializeAccount.testnet.cdc
+
+```
+import Flovatar, FlovatarComponent, FlovatarComponentTemplate, FlovatarPack, FlovatarMarketplace from 0x0cf264811b95d465
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import FungibleToken from 0x9a0766d93b6608b7
+import FlowToken from 0x7e60df042a9c0868
+
+
+transaction {
+  // We want the account's address for later so we can verify if the account was initialized properly
+  let address: Address
+
+  prepare(account: AuthAccount) {
+    // save the address for the post check
+    self.address = account.address
+
+
+    let flovatarCap = account.getCapability<&{Flovatar.CollectionPublic}>(Flovatar.CollectionPublicPath)
+    if(!flovatarCap.check()) {
+        // store an empty NFT Collection in account storage
+        account.save<@NonFungibleToken.Collection>(<- Flovatar.createEmptyCollection(), to: Flovatar.CollectionStoragePath)
+
+        // publish a capability to the Collection in storage
+        account.link<&{Flovatar.CollectionPublic}>(Flovatar.CollectionPublicPath, target: Flovatar.CollectionStoragePath)
+    }
+
+    let flovatarComponentCap = account.getCapability<&{FlovatarComponent.CollectionPublic}>(FlovatarComponent.CollectionPublicPath)
+    if(!flovatarComponentCap.check()) {
+        account.save<@NonFungibleToken.Collection>(<- FlovatarComponent.createEmptyCollection(), to: FlovatarComponent.CollectionStoragePath)
+        account.link<&{FlovatarComponent.CollectionPublic}>(FlovatarComponent.CollectionPublicPath, target: FlovatarComponent.CollectionStoragePath)
+    }
+
+    let flovatarPackCap = account.getCapability<&{FlovatarPack.CollectionPublic}>(FlovatarPack.CollectionPublicPath)
+    if(!flovatarPackCap.check()) {
+        let wallet =  account.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+        account.save<@FlovatarPack.Collection>(<- FlovatarPack.createEmptyCollection(ownerVault: wallet), to: FlovatarPack.CollectionStoragePath)
+        account.link<&{FlovatarPack.CollectionPublic}>(FlovatarPack.CollectionPublicPath, target: FlovatarPack.CollectionStoragePath)
+    }
+
+    let marketplaceCap = account.getCapability<&{FlovatarMarketplace.SalePublic}>(FlovatarMarketplace.CollectionPublicPath)
+    if(!marketplaceCap.check()) {
+        let wallet =  account.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+
+        // store an empty Sale Collection in account storage
+        account.save<@FlovatarMarketplace.SaleCollection>(<- FlovatarMarketplace.createSaleCollection(ownerVault: wallet), to:FlovatarMarketplace.CollectionStoragePath)
+
+        // publish a capability to the Collection in storage
+        account.link<&{FlovatarMarketplace.SalePublic}>(FlovatarMarketplace.CollectionPublicPath, target: FlovatarMarketplace.CollectionStoragePath)
+    }
+
+  }
+
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/Flovatar/cancelSaleFlovatar.testnet.cdc
+
+```
+import Flovatar, FlovatarComponent, FlovatarComponentTemplate, FlovatarPack, FlovatarMarketplace from 0x0cf264811b95d465
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import FungibleToken from 0x9a0766d93b6608b7
+import FlowToken from 0x7e60df042a9c0868
+
+
+transaction(
+    flovatarId: UInt64
+    ) {
+
+    let flovatarCollection: &Flovatar.Collection
+    let marketplace: &FlovatarMarketplace.SaleCollection
+
+    prepare(account: AuthAccount) {
+
+        let marketplaceCap = account.getCapability<&{FlovatarMarketplace.SalePublic}>(FlovatarMarketplace.CollectionPublicPath)
+        // if sale collection is not created yet we make it.
+        if !marketplaceCap.check() {
+             let wallet =  account.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+             let sale <- FlovatarMarketplace.createSaleCollection(ownerVault: wallet)
+
+            // store an empty NFT Collection in account storage
+            account.save<@FlovatarMarketplace.SaleCollection>(<- sale, to:FlovatarMarketplace.CollectionStoragePath)
+
+            // publish a capability to the Collection in storage
+            account.link<&{FlovatarMarketplace.SalePublic}>(FlovatarMarketplace.CollectionPublicPath, target: FlovatarMarketplace.CollectionStoragePath)
+        }
+
+        self.marketplace = account.borrow<&FlovatarMarketplace.SaleCollection>(from: FlovatarMarketplace.CollectionStoragePath)!
+        self.flovatarCollection = account.borrow<&Flovatar.Collection>(from: Flovatar.CollectionStoragePath)!
+    }
+
+    execute {
+        let flovatar <- self.marketplace.withdrawFlovatar(tokenId: flovatarId)
+        self.flovatarCollection.deposit(token: <- flovatar);
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/MantlefiNFTLending/Evolution/borrowMoneyByNFT.cdc
 
 ```
@@ -309988,6 +314607,103 @@ transaction(saleItemID: UInt64, saleItemPrice: UFix64) {
         let id = self.storefront.createListing(
             nftProviderCapability: self.nftProvider,
             nftType: Type<@Domains.NFT>(),
+            nftID: saleItemID,
+            salePaymentVaultType: Type<@FlowToken.Vault>(),
+            saleCuts: saleCuts
+        )
+        Marketplace.addListing(id: id, storefrontPublicCapability: self.storefrontPublic)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoBay/yahoo/sell.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTStorefront from 0x4eb8a10cb9f87357
+import Marketplace from 0xdc5127882cacf8d9
+import FlowToken from 0x1654653399040a61
+import YahooCollectible from 0x758252ab932a3416
+
+transaction(saleItemID: UInt64, saleItemPrice: UFix64) {
+    let tokenReceiver: Capability<&{FungibleToken.Receiver}>
+    let nftProvider: Capability<&{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>
+    let storefront: &NFTStorefront.Storefront
+    let storefrontPublic: Capability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>
+
+    prepare(signer: AuthAccount) {
+        // Create Storefront if it doesn't exist
+        if signer.borrow<&NFTStorefront.Storefront>(from: NFTStorefront.StorefrontStoragePath) == nil {
+            let storefront <- NFTStorefront.createStorefront() as! @NFTStorefront.Storefront
+            signer.save(<-storefront, to: NFTStorefront.StorefrontStoragePath)
+            signer.link<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(
+                NFTStorefront.StorefrontPublicPath,
+                target: NFTStorefront.StorefrontStoragePath)
+        }
+
+        // We need a provider capability, but one is not provided by default so we create one if needed.
+        let nftCollectionProviderPrivatePath = /private/YahooCollectibleCollectionProviderForNFTStorefront
+        if !signer.getCapability<&YahooCollectible.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath)!.check() {
+            signer.link<&YahooCollectible.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath, target: YahooCollectible.CollectionStoragePath)
+        }
+
+        self.tokenReceiver = signer.getCapability<&{FungibleToken.Receiver}>(/public/flowTokenReceiver)!
+        assert(self.tokenReceiver.borrow() != nil, message: "Missing or mis-typed FlowToken receiver")
+
+        self.nftProvider = signer.getCapability<&{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath)!
+        assert(self.nftProvider.borrow() != nil, message: "Missing or mis-typed Collection provider")
+
+        self.storefront = signer.borrow<&NFTStorefront.Storefront>(from: NFTStorefront.StorefrontStoragePath)
+            ?? panic("Missing or mis-typed NFTStorefront Storefront")
+
+        self.storefrontPublic = signer.getCapability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(NFTStorefront.StorefrontPublicPath)
+        assert(self.storefrontPublic.borrow() != nil, message: "Could not borrow public storefront from address")
+    }
+
+    execute {
+        // Remove old listing
+        if let listingID = Marketplace.getListingID(nftType: Type<@YahooCollectible.NFT>(), nftID: saleItemID) {
+            let listingIDs = self.storefront.getListingIDs()
+            if listingIDs.contains(listingID) {
+                self.storefront.removeListing(listingResourceID: listingID)
+            }
+            Marketplace.removeListing(id: listingID)
+        }
+
+        // Create SaleCuts
+        var saleCuts: [NFTStorefront.SaleCut] = []
+        let requirements = Marketplace.getSaleCutRequirements(nftType: Type<@YahooCollectible.NFT>())
+        var remainingPrice = saleItemPrice
+        for requirement in requirements {
+            let price = saleItemPrice * requirement.ratio
+            saleCuts.append(NFTStorefront.SaleCut(
+                receiver: requirement.receiver,
+                amount: price
+            ))
+            remainingPrice = remainingPrice - price
+        }
+        saleCuts.append(NFTStorefront.SaleCut(
+            receiver: self.tokenReceiver,
+            amount: remainingPrice
+        ))
+
+        // Add listing
+        let id = self.storefront.createListing(
+            nftProviderCapability: self.nftProvider,
+            nftType: Type<@YahooCollectible.NFT>(),
             nftID: saleItemID,
             salePaymentVaultType: Type<@FlowToken.Vault>(),
             saleCuts: saleCuts
@@ -310191,6 +314907,57 @@ transaction(name: String, amount: UFix64) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/DisruptArt/createSetup.mainnet.cdc
+
+```
+// DisruptArt.io NFT Token Smart Contract
+// Owner     : DisruptArt www.Disrupt.art
+// Developer : www.BLAZE.ws
+// Version: 0.0.1
+// Desc: This transaction initilizes DisruptArt Storage Path & Collection to new Dapper wallet accounts.
+
+import DisruptArt from 0xcd946ef9b13804c6
+import NonFungibleToken from 0x1d7e57aa55817448
+import MetadataViews from 0x1d7e57aa55817448
+
+transaction() {
+    
+    prepare(acct: AuthAccount) {
+
+        // Return early if the account already has a collection
+        if acct.borrow<&DisruptArt.Collection>(from: DisruptArt.disruptArtStoragePath) == nil {
+
+            // Create a new empty collection
+            let collection <- DisruptArt.createEmptyCollection()
+
+            // save it to the account
+            acct.save(<-collection, to: DisruptArt.disruptArtStoragePath)
+
+            // create a public capability for the collection
+            acct.link<&DisruptArt.Collection{NonFungibleToken.CollectionPublic, MetadataViews.ResolverCollection, DisruptArt.DisruptArtCollectionPublic}>(
+                    DisruptArt.disruptArtPublicPath,
+                    target: DisruptArt.disruptArtStoragePath
+                    )
+        }
+
+   }
+
+
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/MantlefiNFTLending/TFCItems/lendMoney.cdc
 
 ```
@@ -310352,6 +315119,55 @@ transaction(nftIds: [UInt64], userSafeRecipient: Address) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/TeleportedTetherToken/teleportTetherTokenOut.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import TeleportedTetherToken from 0xcfdd90d4a00f7b5b
+
+transaction(amount: UFix64, target: String) {
+
+    // The TeleportUser reference to send tokens to
+    let teleportUserRef: &TeleportedTetherToken.TeleportAdmin{TeleportedTetherToken.TeleportUser}
+
+    // The Vault resource that holds the tokens that are being transferred
+    let sentVault: @FungibleToken.Vault
+
+    prepare(signer: AuthAccount) {
+
+        // Get a reference to the TeleportUser reference
+        self.teleportUserRef = getAccount(0x55ad22f01ef568a1).getCapability(/public/teleportedTetherTokenTeleportUser)!
+            .borrow<&TeleportedTetherToken.TeleportAdmin{TeleportedTetherToken.TeleportUser}>()
+            ?? panic("Could not borrow a reference to TeleportUser")
+
+        // Get a reference to the signer's stored vault
+        let vaultRef = signer.borrow<&TeleportedTetherToken.Vault>(from: TeleportedTetherToken.TokenStoragePath)
+            ?? panic("Could not borrow a reference to the vault resource")
+
+        // Withdraw tokens from the signer's stored vault
+        self.sentVault <- vaultRef.withdraw(amount: amount);
+    }
+
+    execute {
+
+        // Teleport the tokens
+        self.teleportUserRef.teleportOut(from: <- self.sentVault, to: target.decodeHex())
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/MantlefiNFTLending/TFCItems/forceRedeem.cdc
 
 ```
@@ -310381,6 +315197,138 @@ transaction(Uuid: UInt64, BorrowerAddress: Address) {
     }
 }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoBay/yahoo/sell.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTStorefront from 0x94b06cfca1d8a476
+import Marketplace from 0xe1aa310cfe7750c4
+import FlowToken from 0x7e60df042a9c0868
+import YahooCollectible from 0x5d50ce3fd080edce
+
+transaction(saleItemID: UInt64, saleItemPrice: UFix64) {
+    let tokenReceiver: Capability<&{FungibleToken.Receiver}>
+    let nftProvider: Capability<&{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>
+    let storefront: &NFTStorefront.Storefront
+    let storefrontPublic: Capability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>
+
+    prepare(signer: AuthAccount) {
+        // Create Storefront if it doesn't exist
+        if signer.borrow<&NFTStorefront.Storefront>(from: NFTStorefront.StorefrontStoragePath) == nil {
+            let storefront <- NFTStorefront.createStorefront() as! @NFTStorefront.Storefront
+            signer.save(<-storefront, to: NFTStorefront.StorefrontStoragePath)
+            signer.link<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(
+                NFTStorefront.StorefrontPublicPath,
+                target: NFTStorefront.StorefrontStoragePath)
+        }
+
+        // We need a provider capability, but one is not provided by default so we create one if needed.
+        let nftCollectionProviderPrivatePath = /private/YahooCollectibleCollectionProviderForNFTStorefront
+        if !signer.getCapability<&YahooCollectible.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath)!.check() {
+            signer.link<&YahooCollectible.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath, target: YahooCollectible.CollectionStoragePath)
+        }
+
+        self.tokenReceiver = signer.getCapability<&{FungibleToken.Receiver}>(/public/flowTokenReceiver)!
+        assert(self.tokenReceiver.borrow() != nil, message: "Missing or mis-typed FlowToken receiver")
+
+        self.nftProvider = signer.getCapability<&{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath)!
+        assert(self.nftProvider.borrow() != nil, message: "Missing or mis-typed Collection provider")
+
+        self.storefront = signer.borrow<&NFTStorefront.Storefront>(from: NFTStorefront.StorefrontStoragePath)
+            ?? panic("Missing or mis-typed NFTStorefront Storefront")
+
+        self.storefrontPublic = signer.getCapability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(NFTStorefront.StorefrontPublicPath)
+        assert(self.storefrontPublic.borrow() != nil, message: "Could not borrow public storefront from address")
+    }
+
+    execute {
+        // Remove old listing
+        if let listingID = Marketplace.getListingID(nftType: Type<@YahooCollectible.NFT>(), nftID: saleItemID) {
+            let listingIDs = self.storefront.getListingIDs()
+            if listingIDs.contains(listingID) {
+                self.storefront.removeListing(listingResourceID: listingID)
+            }
+            Marketplace.removeListing(id: listingID)
+        }
+
+        // Create SaleCuts
+        var saleCuts: [NFTStorefront.SaleCut] = []
+        let requirements = Marketplace.getSaleCutRequirements(nftType: Type<@YahooCollectible.NFT>())
+        var remainingPrice = saleItemPrice
+        for requirement in requirements {
+            let price = saleItemPrice * requirement.ratio
+            saleCuts.append(NFTStorefront.SaleCut(
+                receiver: requirement.receiver,
+                amount: price
+            ))
+            remainingPrice = remainingPrice - price
+        }
+        saleCuts.append(NFTStorefront.SaleCut(
+            receiver: self.tokenReceiver,
+            amount: remainingPrice
+        ))
+
+        // Add listing
+        let id = self.storefront.createListing(
+            nftProviderCapability: self.nftProvider,
+            nftType: Type<@YahooCollectible.NFT>(),
+            nftID: saleItemID,
+            salePaymentVaultType: Type<@FlowToken.Vault>(),
+            saleCuts: saleCuts
+        )
+        Marketplace.addListing(id: id, storefrontPublicCapability: self.storefrontPublic)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/Flovatar/openPack.testnet.cdc
+
+```
+import Flovatar, FlovatarComponent, FlovatarComponentTemplate, FlovatarPack, FlovatarMarketplace from 0x0cf264811b95d465
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import FungibleToken from 0x9a0766d93b6608b7
+import FlowToken from 0x7e60df042a9c0868
+
+transaction(packId: UInt64) {
+
+    let flovatarPackCollection: &FlovatarPack.Collection
+
+    prepare(account: AuthAccount) {
+        self.flovatarPackCollection = account.borrow<&FlovatarPack.Collection>(from: FlovatarPack.CollectionStoragePath)!
+    }
+
+    execute {
+        self.flovatarPackCollection.openPack(id: packId)
+    }
+
+}
 ```
 
 
@@ -310639,6 +315587,59 @@ transaction(id: String, amount: UFix64, cosignerPubKey: String) {
       panic("Not enough tokens to stake!")
     }
   }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/Flovatar/addFlovatarHat.mainnet.cdc
+
+```
+import Flovatar, FlovatarComponent, FlovatarComponentTemplate, FlovatarPack, FlovatarMarketplace from 0x921ea449dffec68a
+import NonFungibleToken from 0x1d7e57aa55817448
+import FungibleToken from 0xf233dcee88fe0abe
+import FlowToken from 0x1654653399040a61
+
+//this transaction will add a new Hat to an existing Flovatar
+transaction(
+    flovatarId: UInt64,
+    hat: UInt64
+    ) {
+
+    let flovatarCollection: &Flovatar.Collection
+    let flovatarComponentCollection: &FlovatarComponent.Collection
+
+    let hatNFT: @FlovatarComponent.NFT
+
+    prepare(account: AuthAccount) {
+        self.flovatarCollection = account.borrow<&Flovatar.Collection>(from: Flovatar.CollectionStoragePath)!
+
+        self.flovatarComponentCollection = account.borrow<&FlovatarComponent.Collection>(from: FlovatarComponent.CollectionStoragePath)!
+
+        self.hatNFT <- self.flovatarComponentCollection.withdraw(withdrawID: hat) as! @FlovatarComponent.NFT
+    }
+
+    execute {
+
+        let flovatar: &{Flovatar.Private} = self.flovatarCollection.borrowFlovatarPrivate(id: flovatarId)!
+
+        let hat <-flovatar.setHat(component: <-self.hatNFT)
+        if(hat != nil){
+            self.flovatarComponentCollection.deposit(token: <-hat!)
+        } else {
+            destroy hat
+        }
+    }
 }
 ```
 
@@ -311068,6 +316069,75 @@ let token2Vault <- FlowSwapPair.swapToken2ForToken1(from: <- token1Vault)
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoBay/motoGPPack/buy.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTStorefront from 0x94b06cfca1d8a476
+import Marketplace from 0xe1aa310cfe7750c4
+import FlowToken from 0x7e60df042a9c0868
+import MotoGPPack from 0x0
+
+transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFix64) {
+    let paymentVault: @FungibleToken.Vault
+    let storefront: &NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}
+    let nftCollection: &{NonFungibleToken.Receiver}
+    let listing: &NFTStorefront.Listing{NFTStorefront.ListingPublic}
+
+    prepare(signer: AuthAccount) {
+        // Create a collection to store the purchase if none present
+        if signer.borrow<&MotoGPPack.Collection>(from: /storage/motogpPackCollection) == nil {
+            signer.save(<- MotoGPPack.createEmptyCollection(), to: /storage/motogpPackCollection)
+            signer.link<&{MotoGPPack.IPackCollectionPublic, MotoGPPack.IPackCollectionAdminAccessible, NonFungibleToken.CollectionPublic}>(
+			    /public/motogpPackCollection,
+			    target: /storage/motogpPackCollection
+		    )
+        }
+
+        self.storefront = getAccount(storefrontAddress)
+            .getCapability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(NFTStorefront.StorefrontPublicPath)
+            .borrow()
+            ?? panic("Could not borrow Storefront from provided address")
+
+        self.listing = self.storefront.borrowListing(listingResourceID: listingResourceID)
+            ?? panic("No Offer with that ID in Storefront")
+        let price = self.listing.getDetails().salePrice
+
+        assert(buyPrice == price, message: "buyPrice is NOT same with salePrice")
+
+        let targetTokenVault = signer.borrow<&{FungibleToken.Provider}>(from: /storage/flowTokenVault)
+            ?? panic("Cannot borrow target token vault from signer storage")
+        self.paymentVault <- targetTokenVault.withdraw(amount: price)
+
+        self.nftCollection = signer.borrow<&{NonFungibleToken.Receiver}>(from: /storage/motogpPackCollection)
+                    ?? panic("Cannot borrow NFT collection receiver from account")
+    }
+
+    execute {
+        let item <- self.listing.purchase(payment: <-self.paymentVault)
+        self.nftCollection.deposit(token: <-item)
+
+        // Be kind and recycle
+        self.storefront.cleanup(listingResourceID: listingResourceID)
+        Marketplace.removeListing(id: listingResourceID)
+    }
+
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/MantlefiNFTLending/MatrixWorldFlowFestNFT/lendMoney.cdc
 
 ```
@@ -311298,6 +316368,40 @@ transaction(saleItemID: UInt64, saleItemPrice: UFix64) {
             saleCuts: saleCuts
         )
         Marketplace.addListing(id: id, storefrontPublicCapability: self.storefrontPublic)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoBay/removeItem.mainnet.cdc
+
+```
+import NFTStorefront from 0x4eb8a10cb9f87357
+import Marketplace from 0xdc5127882cacf8d9
+
+transaction(listingResourceID: UInt64) {
+    let storefrontManager: &NFTStorefront.Storefront{NFTStorefront.StorefrontManager}
+
+    prepare(signer: AuthAccount) {
+        self.storefrontManager = signer.borrow<&NFTStorefront.Storefront{NFTStorefront.StorefrontManager}>(
+            from: NFTStorefront.StorefrontStoragePath)
+            ?? panic("Missing or mis-typed NFTStorefront.Storefront")
+    }
+
+    execute {
+        self.storefrontManager.removeListing(listingResourceID: listingResourceID)
+        Marketplace.removeListing(id: listingResourceID)
     }
 }
 ```
@@ -312148,6 +317252,127 @@ transaction(Uuid: UInt64, BorrowerAddress: Address) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/Flovatar/addFlovatarAccessory.mainnet.cdc
+
+```
+import Flovatar, FlovatarComponent, FlovatarComponentTemplate, FlovatarPack, FlovatarMarketplace from 0x921ea449dffec68a
+import NonFungibleToken from 0x1d7e57aa55817448
+import FungibleToken from 0xf233dcee88fe0abe
+import FlowToken from 0x1654653399040a61
+
+//this transaction will add a new Accessory to an existing Flovatar
+transaction(
+    flovatarId: UInt64,
+    accessory: UInt64
+    ) {
+
+    let flovatarCollection: &Flovatar.Collection
+    let flovatarComponentCollection: &FlovatarComponent.Collection
+
+    let accessoryNFT: @FlovatarComponent.NFT
+
+    prepare(account: AuthAccount) {
+        self.flovatarCollection = account.borrow<&Flovatar.Collection>(from: Flovatar.CollectionStoragePath)!
+
+        self.flovatarComponentCollection = account.borrow<&FlovatarComponent.Collection>(from: FlovatarComponent.CollectionStoragePath)!
+
+        self.accessoryNFT <- self.flovatarComponentCollection.withdraw(withdrawID: accessory) as! @FlovatarComponent.NFT
+    }
+
+    execute {
+
+        let flovatar: &{Flovatar.Private} = self.flovatarCollection.borrowFlovatarPrivate(id: flovatarId)!
+
+        let accessory <-flovatar.setAccessory(component: <-self.accessoryNFT)
+        if(accessory != nil){
+            self.flovatarComponentCollection.deposit(token: <-accessory!)
+        } else {
+            destroy accessory
+        }
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/Flovatar/initializeAccount.mainnet.cdc
+
+```
+import Flovatar, FlovatarComponent, FlovatarComponentTemplate, FlovatarPack, FlovatarMarketplace from 0x921ea449dffec68a
+import NonFungibleToken from 0x1d7e57aa55817448
+import FungibleToken from 0xf233dcee88fe0abe
+import FlowToken from 0x1654653399040a61
+
+
+transaction {
+  // We want the account's address for later so we can verify if the account was initialized properly
+  let address: Address
+
+  prepare(account: AuthAccount) {
+    // save the address for the post check
+    self.address = account.address
+
+
+    let flovatarCap = account.getCapability<&{Flovatar.CollectionPublic}>(Flovatar.CollectionPublicPath)
+    if(!flovatarCap.check()) {
+        // store an empty NFT Collection in account storage
+        account.save<@NonFungibleToken.Collection>(<- Flovatar.createEmptyCollection(), to: Flovatar.CollectionStoragePath)
+
+        // publish a capability to the Collection in storage
+        account.link<&{Flovatar.CollectionPublic}>(Flovatar.CollectionPublicPath, target: Flovatar.CollectionStoragePath)
+    }
+
+    let flovatarComponentCap = account.getCapability<&{FlovatarComponent.CollectionPublic}>(FlovatarComponent.CollectionPublicPath)
+    if(!flovatarComponentCap.check()) {
+        account.save<@NonFungibleToken.Collection>(<- FlovatarComponent.createEmptyCollection(), to: FlovatarComponent.CollectionStoragePath)
+        account.link<&{FlovatarComponent.CollectionPublic}>(FlovatarComponent.CollectionPublicPath, target: FlovatarComponent.CollectionStoragePath)
+    }
+
+    let flovatarPackCap = account.getCapability<&{FlovatarPack.CollectionPublic}>(FlovatarPack.CollectionPublicPath)
+    if(!flovatarPackCap.check()) {
+        let wallet =  account.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+        account.save<@FlovatarPack.Collection>(<- FlovatarPack.createEmptyCollection(ownerVault: wallet), to: FlovatarPack.CollectionStoragePath)
+        account.link<&{FlovatarPack.CollectionPublic}>(FlovatarPack.CollectionPublicPath, target: FlovatarPack.CollectionStoragePath)
+    }
+
+    let marketplaceCap = account.getCapability<&{FlovatarMarketplace.SalePublic}>(FlovatarMarketplace.CollectionPublicPath)
+    if(!marketplaceCap.check()) {
+        let wallet =  account.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+
+        // store an empty Sale Collection in account storage
+        account.save<@FlovatarMarketplace.SaleCollection>(<- FlovatarMarketplace.createSaleCollection(ownerVault: wallet), to:FlovatarMarketplace.CollectionStoragePath)
+
+        // publish a capability to the Collection in storage
+        account.link<&{FlovatarMarketplace.SalePublic}>(FlovatarMarketplace.CollectionPublicPath, target: FlovatarMarketplace.CollectionStoragePath)
+    }
+
+  }
+
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/BloctoSwap/swapUSDTForExactFlowToken.cdc
 
 ```
@@ -312185,6 +317410,57 @@ transaction(maxAmountIn: UFix64, amountOut: UFix64) {
 
     flowTokenVault.deposit(from: <- token1Vault)
   }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/Flovatar/updateSaleFlovatar.testnet.cdc
+
+```
+import Flovatar, FlovatarComponent, FlovatarComponentTemplate, FlovatarPack, FlovatarMarketplace from 0x0cf264811b95d465
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import FungibleToken from 0x9a0766d93b6608b7
+import FlowToken from 0x7e60df042a9c0868
+
+transaction(
+    flovatarId: UInt64,
+    price: UFix64
+    ) {
+
+    let marketplace: &FlovatarMarketplace.SaleCollection
+
+    prepare(account: AuthAccount) {
+
+        let marketplaceCap = account.getCapability<&{FlovatarMarketplace.SalePublic}>(FlovatarMarketplace.CollectionPublicPath)
+        // if sale collection is not created yet we make it.
+        if !marketplaceCap.check() {
+             let wallet =  account.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+             let sale <- FlovatarMarketplace.createSaleCollection(ownerVault: wallet)
+
+            // store an empty NFT Collection in account storage
+            account.save<@FlovatarMarketplace.SaleCollection>(<- sale, to:FlovatarMarketplace.CollectionStoragePath)
+
+            // publish a capability to the Collection in storage
+            account.link<&{FlovatarMarketplace.SalePublic}>(FlovatarMarketplace.CollectionPublicPath, target: FlovatarMarketplace.CollectionStoragePath)
+        }
+
+        self.marketplace=account.borrow<&FlovatarMarketplace.SaleCollection>(from: FlovatarMarketplace.CollectionStoragePath)!
+    }
+
+    execute {
+        self.marketplace.changeFlovatarPrice(tokenId: flovatarId, newPrice: price)
+    }
 }
 ```
 
@@ -312576,6 +317852,103 @@ transaction(saleItemID: UInt64, saleItemPrice: UFix64) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoBay/flovatar/sell.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTStorefront from 0x94b06cfca1d8a476
+import Marketplace from 0xe1aa310cfe7750c4
+import FlowToken from 0x7e60df042a9c0868
+import Flovatar from 0x0cf264811b95d465
+
+transaction(saleItemID: UInt64, saleItemPrice: UFix64) {
+    let tokenReceiver: Capability<&{FungibleToken.Receiver}>
+    let nftProvider: Capability<&{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>
+    let storefront: &NFTStorefront.Storefront
+    let storefrontPublic: Capability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>
+
+    prepare(signer: AuthAccount) {
+        // Create Storefront if it doesn't exist
+        if signer.borrow<&NFTStorefront.Storefront>(from: NFTStorefront.StorefrontStoragePath) == nil {
+            let storefront <- NFTStorefront.createStorefront() as! @NFTStorefront.Storefront
+            signer.save(<-storefront, to: NFTStorefront.StorefrontStoragePath)
+            signer.link<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(
+                NFTStorefront.StorefrontPublicPath,
+                target: NFTStorefront.StorefrontStoragePath)
+        }
+
+        // We need a provider capability, but one is not provided by default so we create one if needed.
+        let nftCollectionProviderPrivatePath = /private/FlovatarCollectionProviderForNFTStorefront
+        if !signer.getCapability<&Flovatar.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath)!.check() {
+            signer.link<&Flovatar.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath, target: Flovatar.CollectionStoragePath)
+        }
+
+        self.tokenReceiver = signer.getCapability<&{FungibleToken.Receiver}>(/public/flowTokenReceiver)!
+        assert(self.tokenReceiver.borrow() != nil, message: "Missing or mis-typed FlowToken receiver")
+
+        self.nftProvider = signer.getCapability<&{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath)!
+        assert(self.nftProvider.borrow() != nil, message: "Missing or mis-typed Collection provider")
+
+        self.storefront = signer.borrow<&NFTStorefront.Storefront>(from: NFTStorefront.StorefrontStoragePath)
+            ?? panic("Missing or mis-typed NFTStorefront Storefront")
+
+        self.storefrontPublic = signer.getCapability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(NFTStorefront.StorefrontPublicPath)
+        assert(self.storefrontPublic.borrow() != nil, message: "Could not borrow public storefront from address")
+    }
+
+    execute {
+        // Remove old listing
+        if let listingID = Marketplace.getListingID(nftType: Type<@Flovatar.NFT>(), nftID: saleItemID) {
+            let listingIDs = self.storefront.getListingIDs()
+            if listingIDs.contains(listingID) {
+                self.storefront.removeListing(listingResourceID: listingID)
+            }
+            Marketplace.removeListing(id: listingID)
+        }
+
+        // Create SaleCuts
+        var saleCuts: [NFTStorefront.SaleCut] = []
+        let requirements = Marketplace.getSaleCutRequirements(nftType: Type<@Flovatar.NFT>())
+        var remainingPrice = saleItemPrice
+        for requirement in requirements {
+            let price = saleItemPrice * requirement.ratio
+            saleCuts.append(NFTStorefront.SaleCut(
+                receiver: requirement.receiver,
+                amount: price
+            ))
+            remainingPrice = remainingPrice - price
+        }
+        saleCuts.append(NFTStorefront.SaleCut(
+            receiver: self.tokenReceiver,
+            amount: remainingPrice
+        ))
+
+        // Add listing
+        let id = self.storefront.createListing(
+            nftProviderCapability: self.nftProvider,
+            nftType: Type<@Flovatar.NFT>(),
+            nftID: saleItemID,
+            salePaymentVaultType: Type<@FlowToken.Vault>(),
+            saleCuts: saleCuts
+        )
+        Marketplace.addListing(id: id, storefrontPublicCapability: self.storefrontPublic)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/MikoSea/mikoseanftv2/deleteComment.testnet.cdc
 
 ```
@@ -312946,6 +318319,111 @@ transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFi
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/Flovatar/cancelSaleFlovatar.mainnet.cdc
+
+```
+import Flovatar, FlovatarComponent, FlovatarComponentTemplate, FlovatarPack, FlovatarMarketplace from 0x921ea449dffec68a
+import NonFungibleToken from 0x1d7e57aa55817448
+import FungibleToken from 0xf233dcee88fe0abe
+import FlowToken from 0x1654653399040a61
+
+
+transaction(
+    flovatarId: UInt64
+    ) {
+
+    let flovatarCollection: &Flovatar.Collection
+    let marketplace: &FlovatarMarketplace.SaleCollection
+
+    prepare(account: AuthAccount) {
+
+        let marketplaceCap = account.getCapability<&{FlovatarMarketplace.SalePublic}>(FlovatarMarketplace.CollectionPublicPath)
+        // if sale collection is not created yet we make it.
+        if !marketplaceCap.check() {
+             let wallet =  account.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+             let sale <- FlovatarMarketplace.createSaleCollection(ownerVault: wallet)
+
+            // store an empty NFT Collection in account storage
+            account.save<@FlovatarMarketplace.SaleCollection>(<- sale, to:FlovatarMarketplace.CollectionStoragePath)
+
+            // publish a capability to the Collection in storage
+            account.link<&{FlovatarMarketplace.SalePublic}>(FlovatarMarketplace.CollectionPublicPath, target: FlovatarMarketplace.CollectionStoragePath)
+        }
+
+        self.marketplace = account.borrow<&FlovatarMarketplace.SaleCollection>(from: FlovatarMarketplace.CollectionStoragePath)!
+        self.flovatarCollection = account.borrow<&Flovatar.Collection>(from: Flovatar.CollectionStoragePath)!
+    }
+
+    execute {
+        let flovatar <- self.marketplace.withdrawFlovatar(tokenId: flovatarId)
+        self.flovatarCollection.deposit(token: <- flovatar);
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/Flovatar/updateSaleFlovatarComponent.testnet.cdc
+
+```
+import Flovatar, FlovatarComponent, FlovatarComponentTemplate, FlovatarPack, FlovatarMarketplace from 0x0cf264811b95d465
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import FungibleToken from 0x9a0766d93b6608b7
+import FlowToken from 0x7e60df042a9c0868
+
+transaction(
+    componentId: UInt64,
+    price: UFix64
+    ) {
+
+    let marketplace: &FlovatarMarketplace.SaleCollection
+
+    prepare(account: AuthAccount) {
+
+        let marketplaceCap = account.getCapability<&{FlovatarMarketplace.SalePublic}>(FlovatarMarketplace.CollectionPublicPath)
+        // if sale collection is not created yet we make it.
+        if !marketplaceCap.check() {
+             let wallet =  account.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+             let sale <- FlovatarMarketplace.createSaleCollection(ownerVault: wallet)
+
+            // store an empty NFT Collection in account storage
+            account.save<@FlovatarMarketplace.SaleCollection>(<- sale, to:FlovatarMarketplace.CollectionStoragePath)
+
+            // publish a capability to the Collection in storage
+            account.link<&{FlovatarMarketplace.SalePublic}>(FlovatarMarketplace.CollectionPublicPath, target: FlovatarMarketplace.CollectionStoragePath)
+        }
+
+        self.marketplace=account.borrow<&FlovatarMarketplace.SaleCollection>(from: FlovatarMarketplace.CollectionStoragePath)!
+    }
+
+    execute {
+        self.marketplace.changeFlovatarComponentPrice(tokenId: componentId, newPrice: price)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/FlowStaking/enableFlowStake.mainnet.cdc
 
 ```
@@ -313212,6 +318690,59 @@ transaction(nftIds: [UInt64], metadataArray: [String], claimMetadatasArray: [[St
             self.minter.mintNFT(recipient: self.crafterPublicCollectionRef, data: self.nfts[x]);
             x = x + 1;
         }
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/Flovatar/cancelSaleFlovatarComponent.mainnet.cdc
+
+```
+import Flovatar, FlovatarComponent, FlovatarComponentTemplate, FlovatarPack, FlovatarMarketplace from 0x921ea449dffec68a
+import NonFungibleToken from 0x1d7e57aa55817448
+import FungibleToken from 0xf233dcee88fe0abe
+import FlowToken from 0x1654653399040a61
+
+transaction(
+    componentId: UInt64
+    ) {
+
+    let componentCollection: &FlovatarComponent.Collection
+    let marketplace: &FlovatarMarketplace.SaleCollection
+
+    prepare(account: AuthAccount) {
+
+        let marketplaceCap = account.getCapability<&{FlovatarMarketplace.SalePublic}>(FlovatarMarketplace.CollectionPublicPath)
+        // if sale collection is not created yet we make it.
+        if !marketplaceCap.check() {
+             let wallet =  account.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+             let sale <- FlovatarMarketplace.createSaleCollection(ownerVault: wallet)
+
+            // store an empty NFT Collection in account storage
+            account.save<@FlovatarMarketplace.SaleCollection>(<- sale, to:FlovatarMarketplace.CollectionStoragePath)
+
+            // publish a capability to the Collection in storage
+            account.link<&{FlovatarMarketplace.SalePublic}>(FlovatarMarketplace.CollectionPublicPath, target: FlovatarMarketplace.CollectionStoragePath)
+        }
+
+        self.marketplace = account.borrow<&FlovatarMarketplace.SaleCollection>(from: FlovatarMarketplace.CollectionStoragePath)!
+        self.componentCollection = account.borrow<&FlovatarComponent.Collection>(from: FlovatarComponent.CollectionStoragePath)!
+    }
+
+    execute {
+        let component <- self.marketplace.withdrawFlovatarComponent(tokenId: componentId)
+        self.componentCollection.deposit(token: <- component);
     }
 }
 ```
@@ -313812,6 +319343,154 @@ transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFi
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/DisruptArt/createSetup.testnet.cdc
+
+```
+// DisruptArt.io NFT Token Smart Contract
+// Owner     : DisruptArt www.Disrupt.art
+// Developer : www.BLAZE.ws
+// Version: 0.0.1
+// Desc: This transaction initilizes DisruptArt Storage Path & Collection to new Dapper wallet accounts.
+
+import DisruptArt from 0x439c2b49c0b2f62b
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import MetadataViews from 0x631e88ae7f1d7c20
+
+transaction() {
+    
+    prepare(acct: AuthAccount) {
+
+        // Return early if the account already has a collection
+        if acct.borrow<&DisruptArt.Collection>(from: DisruptArt.disruptArtStoragePath) == nil {
+
+            // Create a new empty collection
+            let collection <- DisruptArt.createEmptyCollection()
+
+            // save it to the account
+            acct.save(<-collection, to: DisruptArt.disruptArtStoragePath)
+
+            // create a public capability for the collection
+            acct.link<&DisruptArt.Collection{NonFungibleToken.CollectionPublic, MetadataViews.ResolverCollection, DisruptArt.DisruptArtCollectionPublic}>(
+                    DisruptArt.disruptArtPublicPath,
+                    target: DisruptArt.disruptArtStoragePath
+                    )
+        }
+
+   }
+
+
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoBay/motoGPPack/sell.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTStorefront from 0x4eb8a10cb9f87357
+import Marketplace from 0xdc5127882cacf8d9
+import FlowToken from 0x1654653399040a61
+import MotoGPPack from 0xa49cc0ee46c54bfb
+
+transaction(saleItemID: UInt64, saleItemPrice: UFix64) {
+    let tokenReceiver: Capability<&{FungibleToken.Receiver}>
+    let nftProvider: Capability<&{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>
+    let storefront: &NFTStorefront.Storefront
+    let storefrontPublic: Capability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>
+
+    prepare(signer: AuthAccount) {
+        // Create Storefront if it doesn't exist
+        if signer.borrow<&NFTStorefront.Storefront>(from: NFTStorefront.StorefrontStoragePath) == nil {
+            let storefront <- NFTStorefront.createStorefront() as! @NFTStorefront.Storefront
+            signer.save(<-storefront, to: NFTStorefront.StorefrontStoragePath)
+            signer.link<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(
+                NFTStorefront.StorefrontPublicPath,
+                target: NFTStorefront.StorefrontStoragePath)
+        }
+
+        // We need a provider capability, but one is not provided by default so we create one if needed.
+        let nftCollectionProviderPrivatePath = /private/MotoGPPackCollectionProviderForNFTStorefront
+        if !signer.getCapability<&MotoGPPack.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath)!.check() {
+            signer.link<&MotoGPPack.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath, target: /storage/motogpPackCollection)
+        }
+
+        self.tokenReceiver = signer.getCapability<&{FungibleToken.Receiver}>(/public/flowTokenReceiver)!
+        assert(self.tokenReceiver.borrow() != nil, message: "Missing or mis-typed FlowToken receiver")
+
+        self.nftProvider = signer.getCapability<&{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath)!
+        assert(self.nftProvider.borrow() != nil, message: "Missing or mis-typed Collection provider")
+
+        self.storefront = signer.borrow<&NFTStorefront.Storefront>(from: NFTStorefront.StorefrontStoragePath)
+            ?? panic("Missing or mis-typed NFTStorefront Storefront")
+
+        self.storefrontPublic = signer.getCapability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(NFTStorefront.StorefrontPublicPath)
+        assert(self.storefrontPublic.borrow() != nil, message: "Could not borrow public storefront from address")
+    }
+
+    execute {
+        // Remove old listing
+        if let listingID = Marketplace.getListingID(nftType: Type<@MotoGPPack.NFT>(), nftID: saleItemID) {
+            let listingIDs = self.storefront.getListingIDs()
+            if listingIDs.contains(listingID) {
+                self.storefront.removeListing(listingResourceID: listingID)
+            }
+            Marketplace.removeListing(id: listingID)
+        }
+
+        // Create SaleCuts
+        var saleCuts: [NFTStorefront.SaleCut] = []
+        let requirements = Marketplace.getSaleCutRequirements(nftType: Type<@MotoGPPack.NFT>())
+        var remainingPrice = saleItemPrice
+        for requirement in requirements {
+            let price = saleItemPrice * requirement.ratio
+            saleCuts.append(NFTStorefront.SaleCut(
+                receiver: requirement.receiver,
+                amount: price
+            ))
+            remainingPrice = remainingPrice - price
+        }
+        saleCuts.append(NFTStorefront.SaleCut(
+            receiver: self.tokenReceiver,
+            amount: remainingPrice
+        ))
+
+        // Add listing
+        let id = self.storefront.createListing(
+            nftProviderCapability: self.nftProvider,
+            nftType: Type<@MotoGPPack.NFT>(),
+            nftID: saleItemID,
+            salePaymentVaultType: Type<@FlowToken.Vault>(),
+            saleCuts: saleCuts
+        )
+        Marketplace.addListing(id: id, storefrontPublicCapability: self.storefrontPublic)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/BloctoBay/cryptoPiggos/buy.cdc
 
 ```
@@ -313966,6 +319645,77 @@ transaction(itemID: UInt64) {
           .remove(itemID: itemID)
         destroy offer
     }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/Flovatar/buyFlovatarComponent.mainnet.cdc
+
+```
+import Flovatar, FlovatarComponent, FlovatarComponentTemplate, FlovatarPack, FlovatarMarketplace from 0x921ea449dffec68a
+import NonFungibleToken from 0x1d7e57aa55817448
+import FungibleToken from 0xf233dcee88fe0abe
+import FlowToken from 0x1654653399040a61
+
+
+//this transaction buy a Flovatar Component from a direct sale listing from another user
+transaction(saleAddress: Address, tokenId: UInt64, amount: UFix64) {
+
+    // reference to the buyer's NFT collection where they
+    // will store the bought NFT
+
+    let vaultCap: Capability<&FlowToken.Vault{FungibleToken.Receiver}>
+    let collectionCap: Capability<&{FlovatarComponent.CollectionPublic}>
+    // Vault that will hold the tokens that will be used
+    // to buy the NFT
+    let temporaryVault: @FungibleToken.Vault
+
+    prepare(account: AuthAccount) {
+
+        // get the references to the buyer's Vault and NFT Collection receiver
+        var collectionCap = account.getCapability<&{FlovatarComponent.CollectionPublic}>(FlovatarComponent.CollectionPublicPath)
+
+        // if collection is not created yet we make it.
+        if !collectionCap.check() {
+            // store an empty NFT Collection in account storage
+            account.save<@NonFungibleToken.Collection>(<- FlovatarComponent.createEmptyCollection(), to: FlovatarComponent.CollectionStoragePath)
+            // publish a capability to the Collection in storage
+            account.link<&{FlovatarComponent.CollectionPublic}>(FlovatarComponent.CollectionPublicPath, target: FlovatarComponent.CollectionStoragePath)
+        }
+
+
+
+        self.collectionCap = collectionCap
+
+        self.vaultCap = account.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+
+        let vaultRef = account.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault) ?? panic("Could not borrow owner's Vault reference")
+
+        // withdraw tokens from the buyer's Vault
+        self.temporaryVault <- vaultRef.withdraw(amount: amount)
+    }
+
+    execute {
+        // get the read-only account storage of the seller
+        let seller = getAccount(saleAddress)
+
+        let marketplace = seller.getCapability(FlovatarMarketplace.CollectionPublicPath).borrow<&{FlovatarMarketplace.SalePublic}>()
+                         ?? panic("Could not borrow seller's sale reference")
+
+        marketplace.purchaseFlovatarComponent(tokenId: tokenId, recipientCap:self.collectionCap, buyTokens: <- self.temporaryVault)
+    }
+
 }
 ```
 
@@ -314953,6 +320703,58 @@ transaction(templateIds: [UInt64], packTemplateId: UInt64, price:UFix64, receipt
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/Flovatar/createSaleFlovatar.testnet.cdc
+
+```
+import Flovatar, FlovatarComponent, FlovatarComponentTemplate, FlovatarPack, FlovatarMarketplace from 0x0cf264811b95d465
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import FungibleToken from 0x9a0766d93b6608b7
+import FlowToken from 0x7e60df042a9c0868
+
+transaction(
+    flovatarId: UInt64,
+    price: UFix64) {
+
+    let flovatarCollection: &Flovatar.Collection
+    let marketplace: &FlovatarMarketplace.SaleCollection
+
+    prepare(account: AuthAccount) {
+
+        let marketplaceCap = account.getCapability<&{FlovatarMarketplace.SalePublic}>(FlovatarMarketplace.CollectionPublicPath)
+        // if sale collection is not created yet we make it.
+        if !marketplaceCap.check() {
+             let wallet =  account.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+             let sale <- FlovatarMarketplace.createSaleCollection(ownerVault: wallet)
+
+            // store an empty NFT Collection in account storage
+            account.save<@FlovatarMarketplace.SaleCollection>(<- sale, to:FlovatarMarketplace.CollectionStoragePath)
+            // publish a capability to the Collection in storage
+            account.link<&{FlovatarMarketplace.SalePublic}>(FlovatarMarketplace.CollectionPublicPath, target: FlovatarMarketplace.CollectionStoragePath)
+        }
+
+        self.marketplace = account.borrow<&FlovatarMarketplace.SaleCollection>(from: FlovatarMarketplace.CollectionStoragePath)!
+        self.flovatarCollection = account.borrow<&Flovatar.Collection>(from: Flovatar.CollectionStoragePath)!
+    }
+
+    execute {
+        let flovatar <- self.flovatarCollection.withdraw(withdrawID: flovatarId) as! @Flovatar.NFT
+        self.marketplace.listFlovatarForSale(token: <- flovatar, price: price)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/MantlefiNFTLending/EternalMoment/lendMoney.cdc
 
 ```
@@ -315350,6 +321152,128 @@ transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFi
         Marketplace.removeListing(id: listingResourceID)
     }
 
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoBay/darkCountry/buy.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTStorefront from 0x94b06cfca1d8a476
+import Marketplace from 0xe1aa310cfe7750c4
+import FlowToken from 0x7e60df042a9c0868
+import DarkCountry from 0xe2759c7e9a894ff1
+
+transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFix64) {
+    let paymentVault: @FungibleToken.Vault
+    let storefront: &NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}
+    let nftCollection: &{NonFungibleToken.Receiver}
+    let listing: &NFTStorefront.Listing{NFTStorefront.ListingPublic}
+
+    prepare(signer: AuthAccount) {
+        // Create a collection to store the purchase if none present
+        if signer.borrow<&DarkCountry.Collection>(from: DarkCountry.CollectionStoragePath) == nil {
+            signer.save(<- DarkCountry.createEmptyCollection(), to: DarkCountry.CollectionStoragePath)
+            signer.link<&{DarkCountry.DarkCountryCollectionPublic, NonFungibleToken.CollectionPublic}>(
+			    DarkCountry.CollectionPublicPath,
+			    target: DarkCountry.CollectionStoragePath
+		    )
+        }
+
+        self.storefront = getAccount(storefrontAddress)
+            .getCapability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(NFTStorefront.StorefrontPublicPath)
+            .borrow()
+            ?? panic("Could not borrow Storefront from provided address")
+
+        self.listing = self.storefront.borrowListing(listingResourceID: listingResourceID)
+            ?? panic("No Offer with that ID in Storefront")
+        let price = self.listing.getDetails().salePrice
+
+        assert(buyPrice == price, message: "buyPrice is NOT same with salePrice")
+
+        let targetTokenVault = signer.borrow<&{FungibleToken.Provider}>(from: /storage/flowTokenVault)
+            ?? panic("Cannot borrow target token vault from signer storage")
+        self.paymentVault <- targetTokenVault.withdraw(amount: price)
+
+        self.nftCollection = signer.borrow<&{NonFungibleToken.Receiver}>(from: DarkCountry.CollectionStoragePath)
+                    ?? panic("Cannot borrow NFT collection receiver from account")
+    }
+
+    execute {
+        let item <- self.listing.purchase(payment: <-self.paymentVault)
+        self.nftCollection.deposit(token: <-item)
+
+        // Be kind and recycle
+        self.storefront.cleanup(listingResourceID: listingResourceID)
+        Marketplace.removeListing(id: listingResourceID)
+    }
+
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/Flovatar/createSaleFlovatarComponent.mainnet.cdc
+
+```
+import Flovatar, FlovatarComponent, FlovatarComponentTemplate, FlovatarPack, FlovatarMarketplace from 0x921ea449dffec68a
+import NonFungibleToken from 0x1d7e57aa55817448
+import FungibleToken from 0xf233dcee88fe0abe
+import FlowToken from 0x1654653399040a61
+
+
+transaction(
+    componentId: UInt64,
+    price: UFix64) {
+
+    let componentCollection: &FlovatarComponent.Collection
+    let marketplace: &FlovatarMarketplace.SaleCollection
+
+    prepare(account: AuthAccount) {
+
+        let marketplaceCap = account.getCapability<&{FlovatarMarketplace.SalePublic}>(FlovatarMarketplace.CollectionPublicPath)
+        // if sale collection is not created yet we make it.
+        if !marketplaceCap.check() {
+             let wallet =  account.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+             let sale <- FlovatarMarketplace.createSaleCollection(ownerVault: wallet)
+
+            // store an empty NFT Collection in account storage
+            account.save<@FlovatarMarketplace.SaleCollection>(<- sale, to:FlovatarMarketplace.CollectionStoragePath)
+            // publish a capability to the Collection in storage
+            account.link<&{FlovatarMarketplace.SalePublic}>(FlovatarMarketplace.CollectionPublicPath, target: FlovatarMarketplace.CollectionStoragePath)
+        }
+
+        self.marketplace = account.borrow<&FlovatarMarketplace.SaleCollection>(from: FlovatarMarketplace.CollectionStoragePath)!
+        self.componentCollection = account.borrow<&FlovatarComponent.Collection>(from: FlovatarComponent.CollectionStoragePath)!
+    }
+
+    execute {
+        let component <- self.componentCollection.withdraw(withdrawID: componentId) as! @FlovatarComponent.NFT
+        self.marketplace.listFlovatarComponentForSale(token: <- component, price: price)
+    }
 }
 ```
 
@@ -316111,6 +322035,59 @@ transaction {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/Flovatar/addFlovatarAccessory.testnet.cdc
+
+```
+import Flovatar, FlovatarComponent, FlovatarComponentTemplate, FlovatarPack, FlovatarMarketplace from 0x0cf264811b95d465
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import FungibleToken from 0x9a0766d93b6608b7
+import FlowToken from 0x7e60df042a9c0868
+
+//this transaction will add a new Accessory to an existing Flovatar
+transaction(
+    flovatarId: UInt64,
+    accessory: UInt64
+    ) {
+
+    let flovatarCollection: &Flovatar.Collection
+    let flovatarComponentCollection: &FlovatarComponent.Collection
+
+    let accessoryNFT: @FlovatarComponent.NFT
+
+    prepare(account: AuthAccount) {
+        self.flovatarCollection = account.borrow<&Flovatar.Collection>(from: Flovatar.CollectionStoragePath)!
+
+        self.flovatarComponentCollection = account.borrow<&FlovatarComponent.Collection>(from: FlovatarComponent.CollectionStoragePath)!
+
+        self.accessoryNFT <- self.flovatarComponentCollection.withdraw(withdrawID: accessory) as! @FlovatarComponent.NFT
+    }
+
+    execute {
+
+        let flovatar: &{Flovatar.Private} = self.flovatarCollection.borrowFlovatarPrivate(id: flovatarId)!
+
+        let accessory <-flovatar.setAccessory(component: <-self.accessoryNFT)
+        if(accessory != nil){
+            self.flovatarComponentCollection.deposit(token: <-accessory!)
+        } else {
+            destroy accessory
+        }
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/TheFootballClub/sellTFCItem.cdc
 
 ```
@@ -316256,6 +322233,39 @@ transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFi
         let item <- self.listing.purchase(payment: <-self.paymentVault)
         self.nftCollection.deposit(token: <-item)
         self.storefront.cleanup(listingResourceID: listingResourceID)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/DisruptArt/saleWithdrawn.testnet.cdc
+
+```
+import DisruptArtMarketplaceFlow from 0x439c2b49c0b2f62b
+
+transaction(tokens:[UInt64]) {
+
+    prepare(acct: AuthAccount) {
+
+        let salewithdrawn = acct.borrow<&DisruptArtMarketplaceFlow.SaleCollection>(from: DisruptArtMarketplaceFlow.marketStoragePath)
+                    ?? panic("Could not borrow acct nft sale reference")
+
+        let tokenids:[UInt64] = tokens
+
+        // List the token for sale by moving it into the sale object
+        salewithdrawn.saleWithdrawn(tokens:tokenids)
+
     }
 }
 ```
@@ -316590,6 +322600,75 @@ transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFi
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoBay/darkCountry/buy.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTStorefront from 0x4eb8a10cb9f87357
+import Marketplace from 0xdc5127882cacf8d9
+import FlowToken from 0x1654653399040a61
+import DarkCountry from 0xc8c340cebd11f690
+
+transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFix64) {
+    let paymentVault: @FungibleToken.Vault
+    let storefront: &NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}
+    let nftCollection: &{NonFungibleToken.Receiver}
+    let listing: &NFTStorefront.Listing{NFTStorefront.ListingPublic}
+
+    prepare(signer: AuthAccount) {
+        // Create a collection to store the purchase if none present
+        if signer.borrow<&DarkCountry.Collection>(from: DarkCountry.CollectionStoragePath) == nil {
+            signer.save(<- DarkCountry.createEmptyCollection(), to: DarkCountry.CollectionStoragePath)
+            signer.link<&{DarkCountry.DarkCountryCollectionPublic, NonFungibleToken.CollectionPublic}>(
+			    DarkCountry.CollectionPublicPath,
+			    target: DarkCountry.CollectionStoragePath
+		    )
+        }
+
+        self.storefront = getAccount(storefrontAddress)
+            .getCapability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(NFTStorefront.StorefrontPublicPath)
+            .borrow()
+            ?? panic("Could not borrow Storefront from provided address")
+
+        self.listing = self.storefront.borrowListing(listingResourceID: listingResourceID)
+            ?? panic("No Offer with that ID in Storefront")
+        let price = self.listing.getDetails().salePrice
+
+        assert(buyPrice == price, message: "buyPrice is NOT same with salePrice")
+
+        let targetTokenVault = signer.borrow<&{FungibleToken.Provider}>(from: /storage/flowTokenVault)
+            ?? panic("Cannot borrow target token vault from signer storage")
+        self.paymentVault <- targetTokenVault.withdraw(amount: price)
+
+        self.nftCollection = signer.borrow<&{NonFungibleToken.Receiver}>(from: DarkCountry.CollectionStoragePath)
+                    ?? panic("Cannot borrow NFT collection receiver from account")
+    }
+
+    execute {
+        let item <- self.listing.purchase(payment: <-self.paymentVault)
+        self.nftCollection.deposit(token: <-item)
+
+        // Be kind and recycle
+        self.storefront.cleanup(listingResourceID: listingResourceID)
+        Marketplace.removeListing(id: listingResourceID)
+    }
+
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/FanTop/initialize_collection.testnet.cdc
 
 ```
@@ -316685,6 +322764,75 @@ transaction(
             creatorSaleCutReceiver: self.creatorSaleCutReceiver,
             additionalSaleCutReceivers: self.additionalSaleCutReceivers)
     }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoBay/motoGPPack/buy.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTStorefront from 0x4eb8a10cb9f87357
+import Marketplace from 0xdc5127882cacf8d9
+import FlowToken from 0x1654653399040a61
+import MotoGPPack from 0xa49cc0ee46c54bfb
+
+transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFix64) {
+    let paymentVault: @FungibleToken.Vault
+    let storefront: &NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}
+    let nftCollection: &{NonFungibleToken.Receiver}
+    let listing: &NFTStorefront.Listing{NFTStorefront.ListingPublic}
+
+    prepare(signer: AuthAccount) {
+        // Create a collection to store the purchase if none present
+        if signer.borrow<&MotoGPPack.Collection>(from: /storage/motogpPackCollection) == nil {
+            signer.save(<- MotoGPPack.createEmptyCollection(), to: /storage/motogpPackCollection)
+            signer.link<&{MotoGPPack.IPackCollectionPublic, MotoGPPack.IPackCollectionAdminAccessible, NonFungibleToken.CollectionPublic}>(
+			    /public/motogpPackCollection,
+			    target: /storage/motogpPackCollection
+		    )
+        }
+
+        self.storefront = getAccount(storefrontAddress)
+            .getCapability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(NFTStorefront.StorefrontPublicPath)
+            .borrow()
+            ?? panic("Could not borrow Storefront from provided address")
+
+        self.listing = self.storefront.borrowListing(listingResourceID: listingResourceID)
+            ?? panic("No Offer with that ID in Storefront")
+        let price = self.listing.getDetails().salePrice
+
+        assert(buyPrice == price, message: "buyPrice is NOT same with salePrice")
+
+        let targetTokenVault = signer.borrow<&{FungibleToken.Provider}>(from: /storage/flowTokenVault)
+            ?? panic("Cannot borrow target token vault from signer storage")
+        self.paymentVault <- targetTokenVault.withdraw(amount: price)
+
+        self.nftCollection = signer.borrow<&{NonFungibleToken.Receiver}>(from: /storage/motogpPackCollection)
+                    ?? panic("Cannot borrow NFT collection receiver from account")
+    }
+
+    execute {
+        let item <- self.listing.purchase(payment: <-self.paymentVault)
+        self.nftCollection.deposit(token: <-item)
+
+        // Be kind and recycle
+        self.storefront.cleanup(listingResourceID: listingResourceID)
+        Marketplace.removeListing(id: listingResourceID)
+    }
+
 }
 ```
 
@@ -316984,6 +323132,75 @@ transaction(nftIds: [UInt64], metadataArray: [String], claimMetadatasArray: [[St
             x = x + 1;
         }
     }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoBay/ticalUniverse/buy.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTStorefront from 0x94b06cfca1d8a476
+import Marketplace from 0xe1aa310cfe7750c4
+import FlowToken from 0x7e60df042a9c0868
+import TicalUniverse from 0x0
+
+transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFix64) {
+    let paymentVault: @FungibleToken.Vault
+    let storefront: &NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}
+    let nftCollection: &{NonFungibleToken.Receiver}
+    let listing: &NFTStorefront.Listing{NFTStorefront.ListingPublic}
+
+    prepare(signer: AuthAccount) {
+        // Create a collection to store the purchase if none present
+        if signer.borrow<&TicalUniverse.Collection>(from: TicalUniverse.CollectionStoragePath) == nil {
+            signer.save(<- TicalUniverse.createEmptyCollection(), to: TicalUniverse.CollectionStoragePath)
+            signer.link<&{NonFungibleToken.CollectionPublic, TicalUniverse.TicalUniverseCollectionPublic}>(
+			    TicalUniverse.CollectionPublicPath,
+			    target: TicalUniverse.CollectionStoragePath
+		    )
+        }
+
+        self.storefront = getAccount(storefrontAddress)
+            .getCapability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(NFTStorefront.StorefrontPublicPath)
+            .borrow()
+            ?? panic("Could not borrow Storefront from provided address")
+
+        self.listing = self.storefront.borrowListing(listingResourceID: listingResourceID)
+            ?? panic("No Offer with that ID in Storefront")
+        let price = self.listing.getDetails().salePrice
+
+        assert(buyPrice == price, message: "buyPrice is NOT same with salePrice")
+
+        let targetTokenVault = signer.borrow<&{FungibleToken.Provider}>(from: /storage/flowTokenVault)
+            ?? panic("Cannot borrow target token vault from signer storage")
+        self.paymentVault <- targetTokenVault.withdraw(amount: price)
+
+        self.nftCollection = signer.borrow<&{NonFungibleToken.Receiver}>(from: TicalUniverse.CollectionStoragePath)
+                    ?? panic("Cannot borrow NFT collection receiver from account")
+    }
+
+    execute {
+        let item <- self.listing.purchase(payment: <-self.paymentVault)
+        self.nftCollection.deposit(token: <-item)
+
+        // Be kind and recycle
+        self.storefront.cleanup(listingResourceID: listingResourceID)
+        Marketplace.removeListing(id: listingResourceID)
+    }
+
 }
 ```
 
@@ -317373,6 +323590,144 @@ transaction(commentId: UInt64, comment: String) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoBay/mugenArt/buy.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTStorefront from 0x4eb8a10cb9f87357
+import Marketplace from 0xdc5127882cacf8d9
+import FlowToken from 0x1654653399040a61
+import MugenNFT from 0x2cd46d41da4ce262
+
+transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFix64) {
+    let paymentVault: @FungibleToken.Vault
+    let storefront: &NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}
+    let nftCollection: &{NonFungibleToken.Receiver}
+    let listing: &NFTStorefront.Listing{NFTStorefront.ListingPublic}
+
+    prepare(signer: AuthAccount) {
+        // Create a collection to store the purchase if none present
+        if signer.borrow<&MugenNFT.Collection>(from: MugenNFT.CollectionStoragePath) == nil {
+            signer.save(<- MugenNFT.createEmptyCollection(), to: MugenNFT.CollectionStoragePath)
+            signer.link<&{NonFungibleToken.CollectionPublic}>(
+			    MugenNFT.CollectionPublicPath,
+			    target: MugenNFT.CollectionStoragePath
+		    )
+        }
+
+        self.storefront = getAccount(storefrontAddress)
+            .getCapability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(NFTStorefront.StorefrontPublicPath)
+            .borrow()
+            ?? panic("Could not borrow Storefront from provided address")
+
+        self.listing = self.storefront.borrowListing(listingResourceID: listingResourceID)
+            ?? panic("No Offer with that ID in Storefront")
+        let price = self.listing.getDetails().salePrice
+
+        assert(buyPrice == price, message: "buyPrice is NOT same with salePrice")
+
+        let targetTokenVault = signer.borrow<&{FungibleToken.Provider}>(from: /storage/flowTokenVault)
+            ?? panic("Cannot borrow target token vault from signer storage")
+        self.paymentVault <- targetTokenVault.withdraw(amount: price)
+
+        self.nftCollection = signer.borrow<&{NonFungibleToken.Receiver}>(from: MugenNFT.CollectionStoragePath)
+                    ?? panic("Cannot borrow NFT collection receiver from account")
+    }
+
+    execute {
+        let item <- self.listing.purchase(payment: <-self.paymentVault)
+        self.nftCollection.deposit(token: <-item)
+
+        // Be kind and recycle
+        self.storefront.cleanup(listingResourceID: listingResourceID)
+        Marketplace.removeListing(id: listingResourceID)
+    }
+
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoBay/mugenArt/buy.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTStorefront from 0x94b06cfca1d8a476
+import Marketplace from 0xe1aa310cfe7750c4
+import FlowToken from 0x7e60df042a9c0868
+import MugenNFT from 0x0
+
+transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFix64) {
+    let paymentVault: @FungibleToken.Vault
+    let storefront: &NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}
+    let nftCollection: &{NonFungibleToken.Receiver}
+    let listing: &NFTStorefront.Listing{NFTStorefront.ListingPublic}
+
+    prepare(signer: AuthAccount) {
+        // Create a collection to store the purchase if none present
+        if signer.borrow<&MugenNFT.Collection>(from: MugenNFT.CollectionStoragePath) == nil {
+            signer.save(<- MugenNFT.createEmptyCollection(), to: MugenNFT.CollectionStoragePath)
+            signer.link<&{NonFungibleToken.CollectionPublic}>(
+			    MugenNFT.CollectionPublicPath,
+			    target: MugenNFT.CollectionStoragePath
+		    )
+        }
+
+        self.storefront = getAccount(storefrontAddress)
+            .getCapability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(NFTStorefront.StorefrontPublicPath)
+            .borrow()
+            ?? panic("Could not borrow Storefront from provided address")
+
+        self.listing = self.storefront.borrowListing(listingResourceID: listingResourceID)
+            ?? panic("No Offer with that ID in Storefront")
+        let price = self.listing.getDetails().salePrice
+
+        assert(buyPrice == price, message: "buyPrice is NOT same with salePrice")
+
+        let targetTokenVault = signer.borrow<&{FungibleToken.Provider}>(from: /storage/flowTokenVault)
+            ?? panic("Cannot borrow target token vault from signer storage")
+        self.paymentVault <- targetTokenVault.withdraw(amount: price)
+
+        self.nftCollection = signer.borrow<&{NonFungibleToken.Receiver}>(from: MugenNFT.CollectionStoragePath)
+                    ?? panic("Cannot borrow NFT collection receiver from account")
+    }
+
+    execute {
+        let item <- self.listing.purchase(payment: <-self.paymentVault)
+        self.nftCollection.deposit(token: <-item)
+
+        // Be kind and recycle
+        self.storefront.cleanup(listingResourceID: listingResourceID)
+        Marketplace.removeListing(id: listingResourceID)
+    }
+
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/Starly/storefront/buyRCRDSHPItem.mainnet.cdc
 
 ```
@@ -317591,6 +323946,103 @@ transaction(stakeID: UInt64) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoBay/mugenArt/sell.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTStorefront from 0x4eb8a10cb9f87357
+import Marketplace from 0xdc5127882cacf8d9
+import FlowToken from 0x1654653399040a61
+import MugenNFT from 0x2cd46d41da4ce262
+
+transaction(saleItemID: UInt64, saleItemPrice: UFix64) {
+    let tokenReceiver: Capability<&{FungibleToken.Receiver}>
+    let nftProvider: Capability<&{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>
+    let storefront: &NFTStorefront.Storefront
+    let storefrontPublic: Capability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>
+
+    prepare(signer: AuthAccount) {
+        // Create Storefront if it doesn't exist
+        if signer.borrow<&NFTStorefront.Storefront>(from: NFTStorefront.StorefrontStoragePath) == nil {
+            let storefront <- NFTStorefront.createStorefront() as! @NFTStorefront.Storefront
+            signer.save(<-storefront, to: NFTStorefront.StorefrontStoragePath)
+            signer.link<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(
+                NFTStorefront.StorefrontPublicPath,
+                target: NFTStorefront.StorefrontStoragePath)
+        }
+
+        // We need a provider capability, but one is not provided by default so we create one if needed.
+        let nftCollectionProviderPrivatePath = /private/MugenNFTCollectionProviderForNFTStorefront
+        if !signer.getCapability<&MugenNFT.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath)!.check() {
+            signer.link<&MugenNFT.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath, target: MugenNFT.CollectionStoragePath)
+        }
+
+        self.tokenReceiver = signer.getCapability<&{FungibleToken.Receiver}>(/public/flowTokenReceiver)!
+        assert(self.tokenReceiver.borrow() != nil, message: "Missing or mis-typed FlowToken receiver")
+
+        self.nftProvider = signer.getCapability<&{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath)!
+        assert(self.nftProvider.borrow() != nil, message: "Missing or mis-typed Collection provider")
+
+        self.storefront = signer.borrow<&NFTStorefront.Storefront>(from: NFTStorefront.StorefrontStoragePath)
+            ?? panic("Missing or mis-typed NFTStorefront Storefront")
+
+        self.storefrontPublic = signer.getCapability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(NFTStorefront.StorefrontPublicPath)
+        assert(self.storefrontPublic.borrow() != nil, message: "Could not borrow public storefront from address")
+    }
+
+    execute {
+        // Remove old listing
+        if let listingID = Marketplace.getListingID(nftType: Type<@MugenNFT.NFT>(), nftID: saleItemID) {
+            let listingIDs = self.storefront.getListingIDs()
+            if listingIDs.contains(listingID) {
+                self.storefront.removeListing(listingResourceID: listingID)
+            }
+            Marketplace.removeListing(id: listingID)
+        }
+
+        // Create SaleCuts
+        var saleCuts: [NFTStorefront.SaleCut] = []
+        let requirements = Marketplace.getSaleCutRequirements(nftType: Type<@MugenNFT.NFT>())
+        var remainingPrice = saleItemPrice
+        for requirement in requirements {
+            let price = saleItemPrice * requirement.ratio
+            saleCuts.append(NFTStorefront.SaleCut(
+                receiver: requirement.receiver,
+                amount: price
+            ))
+            remainingPrice = remainingPrice - price
+        }
+        saleCuts.append(NFTStorefront.SaleCut(
+            receiver: self.tokenReceiver,
+            amount: remainingPrice
+        ))
+
+        // Add listing
+        let id = self.storefront.createListing(
+            nftProviderCapability: self.nftProvider,
+            nftType: Type<@MugenNFT.NFT>(),
+            nftID: saleItemID,
+            salePaymentVaultType: Type<@FlowToken.Vault>(),
+            saleCuts: saleCuts
+        )
+        Marketplace.addListing(id: id, storefrontPublicCapability: self.storefrontPublic)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/MantlefiNFTLending/EternalMoment/borrowMoneyByNFT.cdc
 
 ```
@@ -317626,6 +324078,40 @@ transaction(id: UInt64, baseAmount: UFix64, interest: UFix64, duration: UFix64) 
     }
 }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoBay/removeItem.testnet.cdc
+
+```
+import NFTStorefront from 0x94b06cfca1d8a476
+import Marketplace from 0xe1aa310cfe7750c4
+
+transaction(listingResourceID: UInt64) {
+    let storefrontManager: &NFTStorefront.Storefront{NFTStorefront.StorefrontManager}
+
+    prepare(signer: AuthAccount) {
+        self.storefrontManager = signer.borrow<&NFTStorefront.Storefront{NFTStorefront.StorefrontManager}>(
+            from: NFTStorefront.StorefrontStoragePath)
+            ?? panic("Missing or mis-typed NFTStorefront.Storefront")
+    }
+
+    execute {
+        self.storefrontManager.removeListing(listingResourceID: listingResourceID)
+        Marketplace.removeListing(id: listingResourceID)
+    }
+}
 ```
 
 
@@ -317750,6 +324236,77 @@ transaction {
              acct.link<&StarlyCardMarket.Collection{StarlyCardMarket.CollectionPublic}>(StarlyCardMarket.CollectionPublicPath, target:StarlyCardMarket.CollectionStoragePath)
         }
     }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/Flovatar/buyFlovatarComponent.testnet.cdc
+
+```
+import Flovatar, FlovatarComponent, FlovatarComponentTemplate, FlovatarPack, FlovatarMarketplace from 0x0cf264811b95d465
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import FungibleToken from 0x9a0766d93b6608b7
+import FlowToken from 0x7e60df042a9c0868
+
+
+//this transaction buy a Flovatar Component from a direct sale listing from another user
+transaction(saleAddress: Address, tokenId: UInt64, amount: UFix64) {
+
+    // reference to the buyer's NFT collection where they
+    // will store the bought NFT
+
+    let vaultCap: Capability<&FlowToken.Vault{FungibleToken.Receiver}>
+    let collectionCap: Capability<&{FlovatarComponent.CollectionPublic}>
+    // Vault that will hold the tokens that will be used
+    // to buy the NFT
+    let temporaryVault: @FungibleToken.Vault
+
+    prepare(account: AuthAccount) {
+
+        // get the references to the buyer's Vault and NFT Collection receiver
+        var collectionCap = account.getCapability<&{FlovatarComponent.CollectionPublic}>(FlovatarComponent.CollectionPublicPath)
+
+        // if collection is not created yet we make it.
+        if !collectionCap.check() {
+            // store an empty NFT Collection in account storage
+            account.save<@NonFungibleToken.Collection>(<- FlovatarComponent.createEmptyCollection(), to: FlovatarComponent.CollectionStoragePath)
+            // publish a capability to the Collection in storage
+            account.link<&{FlovatarComponent.CollectionPublic}>(FlovatarComponent.CollectionPublicPath, target: FlovatarComponent.CollectionStoragePath)
+        }
+
+
+
+        self.collectionCap = collectionCap
+
+        self.vaultCap = account.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+
+        let vaultRef = account.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault) ?? panic("Could not borrow owner's Vault reference")
+
+        // withdraw tokens from the buyer's Vault
+        self.temporaryVault <- vaultRef.withdraw(amount: amount)
+    }
+
+    execute {
+        // get the read-only account storage of the seller
+        let seller = getAccount(saleAddress)
+
+        let marketplace = seller.getCapability(FlovatarMarketplace.CollectionPublicPath).borrow<&{FlovatarMarketplace.SalePublic}>()
+                         ?? panic("Could not borrow seller's sale reference")
+
+        marketplace.purchaseFlovatarComponent(tokenId: tokenId, recipientCap:self.collectionCap, buyTokens: <- self.temporaryVault)
+    }
+
 }
 ```
 
@@ -317975,6 +324532,58 @@ transaction(
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/Flovatar/createSaleFlovatar.mainnet.cdc
+
+```
+import Flovatar, FlovatarComponent, FlovatarComponentTemplate, FlovatarPack, FlovatarMarketplace from 0x921ea449dffec68a
+import NonFungibleToken from 0x1d7e57aa55817448
+import FungibleToken from 0xf233dcee88fe0abe
+import FlowToken from 0x1654653399040a61
+
+transaction(
+    flovatarId: UInt64,
+    price: UFix64) {
+
+    let flovatarCollection: &Flovatar.Collection
+    let marketplace: &FlovatarMarketplace.SaleCollection
+
+    prepare(account: AuthAccount) {
+
+        let marketplaceCap = account.getCapability<&{FlovatarMarketplace.SalePublic}>(FlovatarMarketplace.CollectionPublicPath)
+        // if sale collection is not created yet we make it.
+        if !marketplaceCap.check() {
+             let wallet =  account.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+             let sale <- FlovatarMarketplace.createSaleCollection(ownerVault: wallet)
+
+            // store an empty NFT Collection in account storage
+            account.save<@FlovatarMarketplace.SaleCollection>(<- sale, to:FlovatarMarketplace.CollectionStoragePath)
+            // publish a capability to the Collection in storage
+            account.link<&{FlovatarMarketplace.SalePublic}>(FlovatarMarketplace.CollectionPublicPath, target: FlovatarMarketplace.CollectionStoragePath)
+        }
+
+        self.marketplace = account.borrow<&FlovatarMarketplace.SaleCollection>(from: FlovatarMarketplace.CollectionStoragePath)!
+        self.flovatarCollection = account.borrow<&Flovatar.Collection>(from: Flovatar.CollectionStoragePath)!
+    }
+
+    execute {
+        let flovatar <- self.flovatarCollection.withdraw(withdrawID: flovatarId) as! @Flovatar.NFT
+        self.marketplace.listFlovatarForSale(token: <- flovatar, price: price)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/Find/listForAuction.testnet.cdc
 
 ```
@@ -318118,6 +324727,103 @@ transaction(
             beneficiarySaleCutReceiver: self.beneficiarySaleCutReceiver,
             creatorSaleCutReceiver: self.creatorSaleCutReceiver,
             additionalSaleCutReceivers: self.additionalSaleCutReceivers)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoBay/darkCountry/sell.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTStorefront from 0x4eb8a10cb9f87357
+import Marketplace from 0xdc5127882cacf8d9
+import FlowToken from 0x1654653399040a61
+import DarkCountry from 0xc8c340cebd11f690
+
+transaction(saleItemID: UInt64, saleItemPrice: UFix64) {
+    let tokenReceiver: Capability<&{FungibleToken.Receiver}>
+    let nftProvider: Capability<&{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>
+    let storefront: &NFTStorefront.Storefront
+    let storefrontPublic: Capability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>
+
+    prepare(signer: AuthAccount) {
+        // Create Storefront if it doesn't exist
+        if signer.borrow<&NFTStorefront.Storefront>(from: NFTStorefront.StorefrontStoragePath) == nil {
+            let storefront <- NFTStorefront.createStorefront() as! @NFTStorefront.Storefront
+            signer.save(<-storefront, to: NFTStorefront.StorefrontStoragePath)
+            signer.link<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(
+                NFTStorefront.StorefrontPublicPath,
+                target: NFTStorefront.StorefrontStoragePath)
+        }
+
+        // We need a provider capability, but one is not provided by default so we create one if needed.
+        let nftCollectionProviderPrivatePath = /private/DarkCountryCollectionProviderForNFTStorefront
+        if !signer.getCapability<&DarkCountry.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath)!.check() {
+            signer.link<&DarkCountry.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath, target: DarkCountry.CollectionStoragePath)
+        }
+
+        self.tokenReceiver = signer.getCapability<&{FungibleToken.Receiver}>(/public/flowTokenReceiver)!
+        assert(self.tokenReceiver.borrow() != nil, message: "Missing or mis-typed FlowToken receiver")
+
+        self.nftProvider = signer.getCapability<&{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath)!
+        assert(self.nftProvider.borrow() != nil, message: "Missing or mis-typed Collection provider")
+
+        self.storefront = signer.borrow<&NFTStorefront.Storefront>(from: NFTStorefront.StorefrontStoragePath)
+            ?? panic("Missing or mis-typed NFTStorefront Storefront")
+
+        self.storefrontPublic = signer.getCapability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(NFTStorefront.StorefrontPublicPath)
+        assert(self.storefrontPublic.borrow() != nil, message: "Could not borrow public storefront from address")
+    }
+
+    execute {
+        // Remove old listing
+        if let listingID = Marketplace.getListingID(nftType: Type<@DarkCountry.NFT>(), nftID: saleItemID) {
+            let listingIDs = self.storefront.getListingIDs()
+            if listingIDs.contains(listingID) {
+                self.storefront.removeListing(listingResourceID: listingID)
+            }
+            Marketplace.removeListing(id: listingID)
+        }
+
+        // Create SaleCuts
+        var saleCuts: [NFTStorefront.SaleCut] = []
+        let requirements = Marketplace.getSaleCutRequirements(nftType: Type<@DarkCountry.NFT>())
+        var remainingPrice = saleItemPrice
+        for requirement in requirements {
+            let price = saleItemPrice * requirement.ratio
+            saleCuts.append(NFTStorefront.SaleCut(
+                receiver: requirement.receiver,
+                amount: price
+            ))
+            remainingPrice = remainingPrice - price
+        }
+        saleCuts.append(NFTStorefront.SaleCut(
+            receiver: self.tokenReceiver,
+            amount: remainingPrice
+        ))
+
+        // Add listing
+        let id = self.storefront.createListing(
+            nftProviderCapability: self.nftProvider,
+            nftType: Type<@DarkCountry.NFT>(),
+            nftID: saleItemID,
+            salePaymentVaultType: Type<@FlowToken.Vault>(),
+            saleCuts: saleCuts
+        )
+        Marketplace.addListing(id: id, storefrontPublicCapability: self.storefrontPublic)
     }
 }
 ```
@@ -318486,6 +325192,59 @@ transaction(itemID: UInt64, marketCollectionAddress: Address) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/Flovatar/addFlovatarBackground.mainnet.cdc
+
+```
+import Flovatar, FlovatarComponent, FlovatarComponentTemplate, FlovatarPack, FlovatarMarketplace from 0x921ea449dffec68a
+import NonFungibleToken from 0x1d7e57aa55817448
+import FungibleToken from 0xf233dcee88fe0abe
+import FlowToken from 0x1654653399040a61
+
+//this transaction will add a new Background to an existing Flovatar
+transaction(
+    flovatarId: UInt64,
+    background: UInt64
+    ) {
+
+    let flovatarCollection: &Flovatar.Collection
+    let flovatarComponentCollection: &FlovatarComponent.Collection
+
+    let backgroundNFT: @FlovatarComponent.NFT
+
+    prepare(account: AuthAccount) {
+        self.flovatarCollection = account.borrow<&Flovatar.Collection>(from: Flovatar.CollectionStoragePath)!
+
+        self.flovatarComponentCollection = account.borrow<&FlovatarComponent.Collection>(from: FlovatarComponent.CollectionStoragePath)!
+
+        self.backgroundNFT <- self.flovatarComponentCollection.withdraw(withdrawID: background) as! @FlovatarComponent.NFT
+    }
+
+    execute {
+
+        let flovatar: &{Flovatar.Private} = self.flovatarCollection.borrowFlovatarPrivate(id: flovatarId)!
+
+        let background <-flovatar.setBackground(component: <-self.backgroundNFT)
+        if(background != nil){
+            self.flovatarComponentCollection.deposit(token: <-background!)
+        } else {
+            destroy background
+        }
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/MantlefiNFTLending/Vouchers/lendMoney.cdc
 
 ```
@@ -318662,6 +325421,138 @@ transaction(saleItemID: UInt64, saleItemPrice: UFix64) {
         )
         Marketplace.addListing(id: id, storefrontPublicCapability: self.storefrontPublic)
     }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/Flovatar/createFlovatar.testnet.cdc
+
+```
+import Flovatar, FlovatarComponent, FlovatarComponentTemplate, FlovatarPack, FlovatarMarketplace from 0x0cf264811b95d465
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import FungibleToken from 0x9a0766d93b6608b7
+import FlowToken from 0x7e60df042a9c0868
+
+// This transaction will create a new Flovatar by burning a Spark and all the necessary rarity Boosters
+transaction(
+    spark: UInt64,
+    body: UInt64,
+    hair: UInt64,
+    facialHair: UInt64?,
+    eyes: UInt64,
+    nose: UInt64,
+    mouth: UInt64,
+    clothing: UInt64,
+    accessory: UInt64?,
+    hat: UInt64?,
+    eyeglasses: UInt64?,
+    background: UInt64?,
+    rareBoost: [UInt64],
+    epicBoost: [UInt64],
+    legendaryBoost: [UInt64]
+    ) {
+
+
+    let flovatarCollection: &Flovatar.Collection
+    let flovatarComponentCollection: &FlovatarComponent.Collection
+
+    let sparkNFT: @FlovatarComponent.NFT
+    let accessoryNFT: @FlovatarComponent.NFT?
+    let hatNFT: @FlovatarComponent.NFT?
+    let eyeglassesNFT: @FlovatarComponent.NFT?
+    let backgroundNFT: @FlovatarComponent.NFT?
+    let rareBoostNFT: @[FlovatarComponent.NFT]
+    let epicBoostNFT: @[FlovatarComponent.NFT]
+    let legendaryBoostNFT: @[FlovatarComponent.NFT]
+    let accountAddress: Address
+
+    prepare(account: AuthAccount) {
+        self.flovatarCollection = account.borrow<&Flovatar.Collection>(from: Flovatar.CollectionStoragePath)!
+
+        self.flovatarComponentCollection = account.borrow<&FlovatarComponent.Collection>(from: FlovatarComponent.CollectionStoragePath)!
+
+        self.rareBoostNFT <-[]
+        for componentId in rareBoost {
+            let tempNFT <-self.flovatarComponentCollection.withdraw(withdrawID: componentId) as! @FlovatarComponent.NFT
+            self.rareBoostNFT.append(<-tempNFT)
+        }
+        self.epicBoostNFT <-[]
+        for componentId in epicBoost {
+            let tempNFT <-self.flovatarComponentCollection.withdraw(withdrawID: componentId) as! @FlovatarComponent.NFT
+            self.epicBoostNFT.append(<-tempNFT)
+        }
+        self.legendaryBoostNFT <-[]
+        for componentId in legendaryBoost {
+            let tempNFT <-self.flovatarComponentCollection.withdraw(withdrawID: componentId) as! @FlovatarComponent.NFT
+            self.legendaryBoostNFT.append(<-tempNFT)
+        }
+
+
+        if(accessory != nil){
+            self.accessoryNFT <- self.flovatarComponentCollection.withdraw(withdrawID: accessory!) as! @FlovatarComponent.NFT
+        } else {
+            self.accessoryNFT <- nil
+        }
+
+        if(hat != nil){
+            self.hatNFT <- self.flovatarComponentCollection.withdraw(withdrawID: hat!) as! @FlovatarComponent.NFT
+        } else {
+            self.hatNFT <- nil
+        }
+
+        if(eyeglasses != nil){
+            self.eyeglassesNFT <- self.flovatarComponentCollection.withdraw(withdrawID: eyeglasses!) as! @FlovatarComponent.NFT
+        } else {
+            self.eyeglassesNFT <- nil
+        }
+
+        if(background != nil){
+            self.backgroundNFT <- self.flovatarComponentCollection.withdraw(withdrawID: background!) as! @FlovatarComponent.NFT
+        } else {
+            self.backgroundNFT <- nil
+        }
+
+        self.sparkNFT <-self.flovatarComponentCollection.withdraw(withdrawID: spark) as! @FlovatarComponent.NFT
+
+        self.accountAddress = account.address
+
+    }
+
+    execute {
+
+        let flovatar <- Flovatar.createFlovatar(
+            spark: <-self.sparkNFT,
+            body: body,
+            hair: hair,
+            facialHair: facialHair,
+            eyes: eyes,
+            nose: nose,
+            mouth: mouth,
+            clothing: clothing,
+            accessory: <-self.accessoryNFT,
+            hat: <-self.hatNFT,
+            eyeglasses: <-self.eyeglassesNFT,
+            background: <-self.backgroundNFT,
+            rareBoost: <-self.rareBoostNFT,
+            epicBoost: <-self.epicBoostNFT,
+            legendaryBoost: <-self.legendaryBoostNFT,
+            address: self.accountAddress
+        )
+
+        self.flovatarCollection.deposit(token: <-flovatar)
+    }
+
 }
 ```
 
@@ -318854,6 +325745,49 @@ transaction(BorrowerAddress: Address, LenderAddress: Address, Uuid: UInt64, Lend
     }
 }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/DisruptArt/moveToken.mainnet.cdc
+
+```
+// DisruptArt.io NFT Token Smart Contract
+// Owner     : DisruptionNowMedia www.disruptionnow.com
+// Developer : www.BLAZE.ws
+// Version: 0.0.1
+
+import DisruptArt from 0xcd946ef9b13804c6
+
+transaction(tokenIds: [UInt64]) {
+
+    prepare(account: AuthAccount) {
+        var count = 0
+        let acct = getAccount(0x439c2b49c0b2f62b)
+        let recipientRef = acct.getCapability(DisruptArt.disruptArtPublicPath)
+        .borrow<&{DisruptArt.DisruptArtCollectionPublic}>()
+        ?? panic("Could not borrow capability from public collection")
+        let tokens = tokenIds as [UInt64]
+        while count < tokens.length {
+            let sellerRef = account.borrow<&DisruptArt.Collection>(from: DisruptArt.disruptArtStoragePath)!
+            let tokenId  = tokens[count] 
+            let token <- sellerRef.withdraw(withdrawID: tokenId)
+            count = count + 1 
+            recipientRef.deposit(token: <-token)
+        }
+
+    }
+}
 ```
 
 
@@ -319822,6 +326756,59 @@ transaction(Uuid: UInt64, RepayAmount: UFix64) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/Flovatar/addFlovatarHat.testnet.cdc
+
+```
+import Flovatar, FlovatarComponent, FlovatarComponentTemplate, FlovatarPack, FlovatarMarketplace from 0x0cf264811b95d465
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import FungibleToken from 0x9a0766d93b6608b7
+import FlowToken from 0x7e60df042a9c0868
+
+//this transaction will add a new Hat to an existing Flovatar
+transaction(
+    flovatarId: UInt64,
+    hat: UInt64
+    ) {
+
+    let flovatarCollection: &Flovatar.Collection
+    let flovatarComponentCollection: &FlovatarComponent.Collection
+
+    let hatNFT: @FlovatarComponent.NFT
+
+    prepare(account: AuthAccount) {
+        self.flovatarCollection = account.borrow<&Flovatar.Collection>(from: Flovatar.CollectionStoragePath)!
+
+        self.flovatarComponentCollection = account.borrow<&FlovatarComponent.Collection>(from: FlovatarComponent.CollectionStoragePath)!
+
+        self.hatNFT <- self.flovatarComponentCollection.withdraw(withdrawID: hat) as! @FlovatarComponent.NFT
+    }
+
+    execute {
+
+        let flovatar: &{Flovatar.Private} = self.flovatarCollection.borrowFlovatarPrivate(id: flovatarId)!
+
+        let hat <-flovatar.setHat(component: <-self.hatNFT)
+        if(hat != nil){
+            self.flovatarComponentCollection.deposit(token: <-hat!)
+        } else {
+            destroy hat
+        }
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/BloctoSwap/swapExactFusdForFlowToken.cdc
 
 ```
@@ -320760,6 +327747,71 @@ transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFi
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/Flovatar/buyPack.testnet.cdc
+
+```
+import Flovatar, FlovatarComponent, FlovatarComponentTemplate, FlovatarPack, FlovatarMarketplace from 0x0cf264811b95d465
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import FungibleToken from 0x9a0766d93b6608b7
+import FlowToken from 0x7e60df042a9c0868
+
+//this transaction buy a Pack
+transaction(saleAddress: Address, tokenId: UInt64, amount: UFix64, signature: String) {
+
+    // reference to the buyer's NFT collection where they
+    // will store the bought NFT
+
+    let vaultCap: Capability<&FlowToken.Vault{FungibleToken.Receiver}>
+    let collectionCap: Capability<&{FlovatarPack.CollectionPublic}>
+    // Vault that will hold the tokens that will be used
+    // to buy the NFT
+    let temporaryVault: @FungibleToken.Vault
+
+    prepare(account: AuthAccount) {
+
+        let flovatarPackCap = account.getCapability<&{FlovatarPack.CollectionPublic}>(FlovatarPack.CollectionPublicPath)
+        if(!flovatarPackCap.check()) {
+            let wallet =  account.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+            account.save<@FlovatarPack.Collection>(<- FlovatarPack.createEmptyCollection(ownerVault: wallet), to: FlovatarPack.CollectionStoragePath)
+            account.link<&{FlovatarPack.CollectionPublic}>(FlovatarPack.CollectionPublicPath, target: FlovatarPack.CollectionStoragePath)
+        }
+
+
+        self.collectionCap = flovatarPackCap
+
+        self.vaultCap = account.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+
+        let vaultRef = account.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault) ?? panic("Could not borrow owner's Vault reference")
+
+        // withdraw tokens from the buyer's Vault
+        self.temporaryVault <- vaultRef.withdraw(amount: amount)
+    }
+
+    execute {
+        // get the read-only account storage of the seller
+        let seller = getAccount(saleAddress)
+
+        let packmarket = seller.getCapability(FlovatarPack.CollectionPublicPath).borrow<&{FlovatarPack.CollectionPublic}>()
+                         ?? panic("Could not borrow seller's sale reference")
+
+        packmarket.purchase(tokenId: tokenId, recipientCap: self.collectionCap, buyTokens: <- self.temporaryVault, signature: signature)
+    }
+
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/BloctoSwap/swapFlowTokenForExactFusd.cdc
 
 ```
@@ -321488,6 +328540,103 @@ transaction(nftID: UInt64, recipient: Address) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoBay/jambbVouchers/sell.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTStorefront from 0x94b06cfca1d8a476
+import Marketplace from 0xe1aa310cfe7750c4
+import FlowToken from 0x7e60df042a9c0868
+import Vouchers from 0xe94a6e229293f196
+
+transaction(saleItemID: UInt64, saleItemPrice: UFix64) {
+    let tokenReceiver: Capability<&{FungibleToken.Receiver}>
+    let nftProvider: Capability<&{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>
+    let storefront: &NFTStorefront.Storefront
+    let storefrontPublic: Capability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>
+
+    prepare(signer: AuthAccount) {
+        // Create Storefront if it doesn't exist
+        if signer.borrow<&NFTStorefront.Storefront>(from: NFTStorefront.StorefrontStoragePath) == nil {
+            let storefront <- NFTStorefront.createStorefront() as! @NFTStorefront.Storefront
+            signer.save(<-storefront, to: NFTStorefront.StorefrontStoragePath)
+            signer.link<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(
+                NFTStorefront.StorefrontPublicPath,
+                target: NFTStorefront.StorefrontStoragePath)
+        }
+
+        // We need a provider capability, but one is not provided by default so we create one if needed.
+        let nftCollectionProviderPrivatePath = /private/VouchersCollectionProviderForNFTStorefront
+        if !signer.getCapability<&Vouchers.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath)!.check() {
+            signer.link<&Vouchers.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath, target: Vouchers.CollectionStoragePath)
+        }
+
+        self.tokenReceiver = signer.getCapability<&{FungibleToken.Receiver}>(/public/flowTokenReceiver)!
+        assert(self.tokenReceiver.borrow() != nil, message: "Missing or mis-typed FlowToken receiver")
+
+        self.nftProvider = signer.getCapability<&{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath)!
+        assert(self.nftProvider.borrow() != nil, message: "Missing or mis-typed Collection provider")
+
+        self.storefront = signer.borrow<&NFTStorefront.Storefront>(from: NFTStorefront.StorefrontStoragePath)
+            ?? panic("Missing or mis-typed NFTStorefront Storefront")
+
+        self.storefrontPublic = signer.getCapability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(NFTStorefront.StorefrontPublicPath)
+        assert(self.storefrontPublic.borrow() != nil, message: "Could not borrow public storefront from address")
+    }
+
+    execute {
+        // Remove old listing
+        if let listingID = Marketplace.getListingID(nftType: Type<@Vouchers.NFT>(), nftID: saleItemID) {
+            let listingIDs = self.storefront.getListingIDs()
+            if listingIDs.contains(listingID) {
+                self.storefront.removeListing(listingResourceID: listingID)
+            }
+            Marketplace.removeListing(id: listingID)
+        }
+
+        // Create SaleCuts
+        var saleCuts: [NFTStorefront.SaleCut] = []
+        let requirements = Marketplace.getSaleCutRequirements(nftType: Type<@Vouchers.NFT>())
+        var remainingPrice = saleItemPrice
+        for requirement in requirements {
+            let price = saleItemPrice * requirement.ratio
+            saleCuts.append(NFTStorefront.SaleCut(
+                receiver: requirement.receiver,
+                amount: price
+            ))
+            remainingPrice = remainingPrice - price
+        }
+        saleCuts.append(NFTStorefront.SaleCut(
+            receiver: self.tokenReceiver,
+            amount: remainingPrice
+        ))
+
+        // Add listing
+        let id = self.storefront.createListing(
+            nftProviderCapability: self.nftProvider,
+            nftType: Type<@Vouchers.NFT>(),
+            nftID: saleItemID,
+            salePaymentVaultType: Type<@FlowToken.Vault>(),
+            saleCuts: saleCuts
+        )
+        Marketplace.addListing(id: id, storefrontPublicCapability: self.storefrontPublic)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/MantlefiNFTLending/TFCItems/repay.cdc
 
 ```
@@ -321523,6 +328672,55 @@ transaction(Uuid: UInt64, RepayAmount: UFix64) {
     }
 }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/TeleportedTetherToken/sendTeleportedTetherToken.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import TeleportedTetherToken from 0xab26e0a07d770ec1
+
+transaction(amount: UFix64, to: Address) {
+
+    // The Vault resource that holds the tokens that are being transferred
+    let sentVault: @FungibleToken.Vault
+
+    prepare(signer: AuthAccount) {
+
+        // Get a reference to the signer's stored vault
+        let vaultRef = signer.borrow<&TeleportedTetherToken.Vault>(from: TeleportedTetherToken.TokenStoragePath)
+            ?? panic("Could not borrow reference to the owner's Vault!")
+
+        // Withdraw tokens from the signer's stored vault
+        self.sentVault <- vaultRef.withdraw(amount: amount)
+    }
+
+    execute {
+
+        // Get the recipient's public account object
+        let recipient = getAccount(to)
+
+        // Get a reference to the recipient's Receiver
+        let receiverRef = recipient.getCapability(TeleportedTetherToken.TokenPublicReceiverPath)
+            .borrow<&{FungibleToken.Receiver}>()
+            ?? panic("Could not borrow receiver reference to the recipient's Vault")
+
+        // Deposit the withdrawn tokens in the recipient's receiver
+        receiverRef.deposit(from: <-self.sentVault)
+    }
+}
 ```
 
 
@@ -321709,6 +328907,55 @@ transaction() {
    }
 
 
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/TeleportedTetherToken/teleportTetherTokenOut.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import TeleportedTetherToken from 0xab26e0a07d770ec1
+
+transaction(amount: UFix64, target: String) {
+
+    // The TeleportUser reference to send tokens to
+    let teleportUserRef: &TeleportedTetherToken.TeleportAdmin{TeleportedTetherToken.TeleportUser}
+
+    // The Vault resource that holds the tokens that are being transferred
+    let sentVault: @FungibleToken.Vault
+
+    prepare(signer: AuthAccount) {
+
+        // Get a reference to the TeleportUser reference
+        self.teleportUserRef = getAccount(0xf086a545ce3c552d).getCapability(/public/teleportedTetherTokenTeleportUser)!
+            .borrow<&TeleportedTetherToken.TeleportAdmin{TeleportedTetherToken.TeleportUser}>()
+            ?? panic("Could not borrow a reference to TeleportUser")
+
+        // Get a reference to the signer's stored vault
+        let vaultRef = signer.borrow<&TeleportedTetherToken.Vault>(from: TeleportedTetherToken.TokenStoragePath)
+            ?? panic("Could not borrow a reference to the vault resource")
+
+        // Withdraw tokens from the signer's stored vault
+        self.sentVault <- vaultRef.withdraw(amount: amount);
+    }
+
+    execute {
+
+        // Teleport the tokens
+        self.teleportUserRef.teleportOut(from: <- self.sentVault, to: target.decodeHex())
+    }
 }
 ```
 
@@ -322127,6 +329374,47 @@ transaction {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/Flovatar/nameFlovatar.mainnet.cdc
+
+```
+import Flovatar, FlovatarComponent, FlovatarComponentTemplate, FlovatarPack, FlovatarMarketplace from 0x921ea449dffec68a
+import NonFungibleToken from 0x1d7e57aa55817448
+import FungibleToken from 0xf233dcee88fe0abe
+import FlowToken from 0x1654653399040a61
+
+//this transaction will set the name to an existing Flovatar
+transaction(
+    flovatarId: UInt64,
+    name: String
+    ) {
+
+    let flovatarCollection: &Flovatar.Collection
+
+    prepare(account: AuthAccount) {
+        self.flovatarCollection = account.borrow<&Flovatar.Collection>(from: Flovatar.CollectionStoragePath)!
+    }
+
+    execute {
+
+        let flovatar: &{Flovatar.Private} = self.flovatarCollection.borrowFlovatarPrivate(id: flovatarId)!
+
+        flovatar.setName(name: name)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/Find/renew.mainnet.cdc
 
 ```
@@ -322288,6 +329576,256 @@ transaction(Uuid: UInt64) {
     }
 }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/TeleportedTetherToken/sendTeleportedTetherToken.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import TeleportedTetherToken from 0xcfdd90d4a00f7b5b
+
+transaction(amount: UFix64, to: Address) {
+
+    // The Vault resource that holds the tokens that are being transferred
+    let sentVault: @FungibleToken.Vault
+
+    prepare(signer: AuthAccount) {
+
+        // Get a reference to the signer's stored vault
+        let vaultRef = signer.borrow<&TeleportedTetherToken.Vault>(from: TeleportedTetherToken.TokenStoragePath)
+            ?? panic("Could not borrow reference to the owner's Vault!")
+
+        // Withdraw tokens from the signer's stored vault
+        self.sentVault <- vaultRef.withdraw(amount: amount)
+    }
+
+    execute {
+
+        // Get the recipient's public account object
+        let recipient = getAccount(to)
+
+        // Get a reference to the recipient's Receiver
+        let receiverRef = recipient.getCapability(TeleportedTetherToken.TokenPublicReceiverPath)
+            .borrow<&{FungibleToken.Receiver}>()
+            ?? panic("Could not borrow receiver reference to the recipient's Vault")
+
+        // Deposit the withdrawn tokens in the recipient's receiver
+        receiverRef.deposit(from: <-self.sentVault)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoBay/ticalUniverse/buy.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTStorefront from 0x4eb8a10cb9f87357
+import Marketplace from 0xdc5127882cacf8d9
+import FlowToken from 0x1654653399040a61
+import TicalUniverse from 0xfef48806337aabf1
+
+transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFix64) {
+    let paymentVault: @FungibleToken.Vault
+    let storefront: &NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}
+    let nftCollection: &{NonFungibleToken.Receiver}
+    let listing: &NFTStorefront.Listing{NFTStorefront.ListingPublic}
+
+    prepare(signer: AuthAccount) {
+        // Create a collection to store the purchase if none present
+        if signer.borrow<&TicalUniverse.Collection>(from: TicalUniverse.CollectionStoragePath) == nil {
+            signer.save(<- TicalUniverse.createEmptyCollection(), to: TicalUniverse.CollectionStoragePath)
+            signer.link<&{NonFungibleToken.CollectionPublic, TicalUniverse.TicalUniverseCollectionPublic}>(
+			    TicalUniverse.CollectionPublicPath,
+			    target: TicalUniverse.CollectionStoragePath
+		    )
+        }
+
+        self.storefront = getAccount(storefrontAddress)
+            .getCapability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(NFTStorefront.StorefrontPublicPath)
+            .borrow()
+            ?? panic("Could not borrow Storefront from provided address")
+
+        self.listing = self.storefront.borrowListing(listingResourceID: listingResourceID)
+            ?? panic("No Offer with that ID in Storefront")
+        let price = self.listing.getDetails().salePrice
+
+        assert(buyPrice == price, message: "buyPrice is NOT same with salePrice")
+
+        let targetTokenVault = signer.borrow<&{FungibleToken.Provider}>(from: /storage/flowTokenVault)
+            ?? panic("Cannot borrow target token vault from signer storage")
+        self.paymentVault <- targetTokenVault.withdraw(amount: price)
+
+        self.nftCollection = signer.borrow<&{NonFungibleToken.Receiver}>(from: TicalUniverse.CollectionStoragePath)
+                    ?? panic("Cannot borrow NFT collection receiver from account")
+    }
+
+    execute {
+        let item <- self.listing.purchase(payment: <-self.paymentVault)
+        self.nftCollection.deposit(token: <-item)
+
+        // Be kind and recycle
+        self.storefront.cleanup(listingResourceID: listingResourceID)
+        Marketplace.removeListing(id: listingResourceID)
+    }
+
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/Flovatar/createFlovatar.mainnet.cdc
+
+```
+import Flovatar, FlovatarComponent, FlovatarComponentTemplate, FlovatarPack, FlovatarMarketplace from 0x921ea449dffec68a
+import NonFungibleToken from 0x1d7e57aa55817448
+import FungibleToken from 0xf233dcee88fe0abe
+import FlowToken from 0x1654653399040a61
+
+// This transaction will create a new Flovatar by burning a Spark and all the necessary rarity Boosters
+transaction(
+    spark: UInt64,
+    body: UInt64,
+    hair: UInt64,
+    facialHair: UInt64?,
+    eyes: UInt64,
+    nose: UInt64,
+    mouth: UInt64,
+    clothing: UInt64,
+    accessory: UInt64?,
+    hat: UInt64?,
+    eyeglasses: UInt64?,
+    background: UInt64?,
+    rareBoost: [UInt64],
+    epicBoost: [UInt64],
+    legendaryBoost: [UInt64]
+    ) {
+
+
+    let flovatarCollection: &Flovatar.Collection
+    let flovatarComponentCollection: &FlovatarComponent.Collection
+
+    let sparkNFT: @FlovatarComponent.NFT
+    let accessoryNFT: @FlovatarComponent.NFT?
+    let hatNFT: @FlovatarComponent.NFT?
+    let eyeglassesNFT: @FlovatarComponent.NFT?
+    let backgroundNFT: @FlovatarComponent.NFT?
+    let rareBoostNFT: @[FlovatarComponent.NFT]
+    let epicBoostNFT: @[FlovatarComponent.NFT]
+    let legendaryBoostNFT: @[FlovatarComponent.NFT]
+    let accountAddress: Address
+
+    prepare(account: AuthAccount) {
+        self.flovatarCollection = account.borrow<&Flovatar.Collection>(from: Flovatar.CollectionStoragePath)!
+
+        self.flovatarComponentCollection = account.borrow<&FlovatarComponent.Collection>(from: FlovatarComponent.CollectionStoragePath)!
+
+        self.rareBoostNFT <-[]
+        for componentId in rareBoost {
+            let tempNFT <-self.flovatarComponentCollection.withdraw(withdrawID: componentId) as! @FlovatarComponent.NFT
+            self.rareBoostNFT.append(<-tempNFT)
+        }
+        self.epicBoostNFT <-[]
+        for componentId in epicBoost {
+            let tempNFT <-self.flovatarComponentCollection.withdraw(withdrawID: componentId) as! @FlovatarComponent.NFT
+            self.epicBoostNFT.append(<-tempNFT)
+        }
+        self.legendaryBoostNFT <-[]
+        for componentId in legendaryBoost {
+            let tempNFT <-self.flovatarComponentCollection.withdraw(withdrawID: componentId) as! @FlovatarComponent.NFT
+            self.legendaryBoostNFT.append(<-tempNFT)
+        }
+
+
+        if(accessory != nil){
+            self.accessoryNFT <- self.flovatarComponentCollection.withdraw(withdrawID: accessory!) as! @FlovatarComponent.NFT
+        } else {
+            self.accessoryNFT <- nil
+        }
+
+        if(hat != nil){
+            self.hatNFT <- self.flovatarComponentCollection.withdraw(withdrawID: hat!) as! @FlovatarComponent.NFT
+        } else {
+            self.hatNFT <- nil
+        }
+
+        if(eyeglasses != nil){
+            self.eyeglassesNFT <- self.flovatarComponentCollection.withdraw(withdrawID: eyeglasses!) as! @FlovatarComponent.NFT
+        } else {
+            self.eyeglassesNFT <- nil
+        }
+
+        if(background != nil){
+            self.backgroundNFT <- self.flovatarComponentCollection.withdraw(withdrawID: background!) as! @FlovatarComponent.NFT
+        } else {
+            self.backgroundNFT <- nil
+        }
+
+        self.sparkNFT <-self.flovatarComponentCollection.withdraw(withdrawID: spark) as! @FlovatarComponent.NFT
+
+        self.accountAddress = account.address
+
+    }
+
+    execute {
+
+        let flovatar <- Flovatar.createFlovatar(
+            spark: <-self.sparkNFT,
+            body: body,
+            hair: hair,
+            facialHair: facialHair,
+            eyes: eyes,
+            nose: nose,
+            mouth: mouth,
+            clothing: clothing,
+            accessory: <-self.accessoryNFT,
+            hat: <-self.hatNFT,
+            eyeglasses: <-self.eyeglassesNFT,
+            background: <-self.backgroundNFT,
+            rareBoost: <-self.rareBoostNFT,
+            epicBoost: <-self.epicBoostNFT,
+            legendaryBoost: <-self.legendaryBoostNFT,
+            address: self.accountAddress
+        )
+
+        self.flovatarCollection.deposit(token: <-flovatar)
+    }
+
+}
 ```
 
 
@@ -322679,6 +330217,57 @@ transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFi
         Marketplace.removeListing(id: listingResourceID)
     }
 
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/Flovatar/updateSaleFlovatarComponent.mainnet.cdc
+
+```
+import Flovatar, FlovatarComponent, FlovatarComponentTemplate, FlovatarPack, FlovatarMarketplace from 0x921ea449dffec68a
+import NonFungibleToken from 0x1d7e57aa55817448
+import FungibleToken from 0xf233dcee88fe0abe
+import FlowToken from 0x1654653399040a61
+
+transaction(
+    componentId: UInt64,
+    price: UFix64
+    ) {
+
+    let marketplace: &FlovatarMarketplace.SaleCollection
+
+    prepare(account: AuthAccount) {
+
+        let marketplaceCap = account.getCapability<&{FlovatarMarketplace.SalePublic}>(FlovatarMarketplace.CollectionPublicPath)
+        // if sale collection is not created yet we make it.
+        if !marketplaceCap.check() {
+             let wallet =  account.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+             let sale <- FlovatarMarketplace.createSaleCollection(ownerVault: wallet)
+
+            // store an empty NFT Collection in account storage
+            account.save<@FlovatarMarketplace.SaleCollection>(<- sale, to:FlovatarMarketplace.CollectionStoragePath)
+
+            // publish a capability to the Collection in storage
+            account.link<&{FlovatarMarketplace.SalePublic}>(FlovatarMarketplace.CollectionPublicPath, target: FlovatarMarketplace.CollectionStoragePath)
+        }
+
+        self.marketplace=account.borrow<&FlovatarMarketplace.SaleCollection>(from: FlovatarMarketplace.CollectionStoragePath)!
+    }
+
+    execute {
+        self.marketplace.changeFlovatarComponentPrice(tokenId: componentId, newPrice: price)
+    }
 }
 ```
 
@@ -324012,6 +331601,75 @@ transaction(flowAmount: UFix64, payees: [Address], payeesShares: [UFix64], recip
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/Flovatar/buyFlovatar.mainnet.cdc
+
+```
+import Flovatar, FlovatarComponent, FlovatarComponentTemplate, FlovatarPack, FlovatarMarketplace from 0x921ea449dffec68a
+import NonFungibleToken from 0x1d7e57aa55817448
+import FungibleToken from 0xf233dcee88fe0abe
+import FlowToken from 0x1654653399040a61
+
+//this transaction buy a Flovatar from a direct sale listing from another user
+transaction(saleAddress: Address, tokenId: UInt64, amount: UFix64) {
+
+    // reference to the buyer's NFT collection where they
+    // will store the bought NFT
+
+    let vaultCap: Capability<&FlowToken.Vault{FungibleToken.Receiver}>
+    let collectionCap: Capability<&{Flovatar.CollectionPublic}>
+    // Vault that will hold the tokens that will be used
+    // to buy the NFT
+    let temporaryVault: @FungibleToken.Vault
+
+    prepare(account: AuthAccount) {
+
+        // get the references to the buyer's Vault and NFT Collection receiver
+        var collectionCap = account.getCapability<&{Flovatar.CollectionPublic}>(Flovatar.CollectionPublicPath)
+
+        // if collection is not created yet we make it.
+        if !collectionCap.check() {
+            // store an empty NFT Collection in account storage
+            account.save<@NonFungibleToken.Collection>(<- Flovatar.createEmptyCollection(), to: Flovatar.CollectionStoragePath)
+            // publish a capability to the Collection in storage
+            account.link<&{Flovatar.CollectionPublic}>(Flovatar.CollectionPublicPath, target: Flovatar.CollectionStoragePath)
+        }
+
+
+        self.collectionCap = collectionCap
+
+        self.vaultCap = account.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+
+        let vaultRef = account.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault) ?? panic("Could not borrow owner's Vault reference")
+
+        // withdraw tokens from the buyer's Vault
+        self.temporaryVault <- vaultRef.withdraw(amount: amount)
+    }
+
+    execute {
+        // get the read-only account storage of the seller
+        let seller = getAccount(saleAddress)
+
+        let marketplace = seller.getCapability(FlovatarMarketplace.CollectionPublicPath).borrow<&{FlovatarMarketplace.SalePublic}>()
+                         ?? panic("Could not borrow seller's sale reference")
+
+        marketplace.purchaseFlovatar(tokenId: tokenId, recipientCap:self.collectionCap, buyTokens: <- self.temporaryVault)
+    }
+
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/MantlefiNFTLending/Evolution/cancelBorrowMoney.cdc
 
 ```
@@ -324440,6 +332098,75 @@ transaction(
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoBay/yahoo/buy.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTStorefront from 0x4eb8a10cb9f87357
+import Marketplace from 0xdc5127882cacf8d9
+import FlowToken from 0x1654653399040a61
+import YahooCollectible from 0x758252ab932a3416
+
+transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFix64) {
+    let paymentVault: @FungibleToken.Vault
+    let storefront: &NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}
+    let nftCollection: &{NonFungibleToken.Receiver}
+    let listing: &NFTStorefront.Listing{NFTStorefront.ListingPublic}
+
+    prepare(signer: AuthAccount) {
+        // Create a collection to store the purchase if none present
+        if signer.borrow<&YahooCollectible.Collection>(from: YahooCollectible.CollectionStoragePath) == nil {
+            signer.save(<- YahooCollectible.createEmptyCollection(), to: YahooCollectible.CollectionStoragePath)
+            signer.link<&{NonFungibleToken.CollectionPublic, YahooCollectible.CollectionPublic}>(
+			    YahooCollectible.CollectionPublicPath,
+			    target: YahooCollectible.CollectionStoragePath
+		    )
+        }
+
+        self.storefront = getAccount(storefrontAddress)
+            .getCapability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(NFTStorefront.StorefrontPublicPath)
+            .borrow()
+            ?? panic("Could not borrow Storefront from provided address")
+
+        self.listing = self.storefront.borrowListing(listingResourceID: listingResourceID)
+            ?? panic("No Offer with that ID in Storefront")
+        let price = self.listing.getDetails().salePrice
+
+        assert(buyPrice == price, message: "buyPrice is NOT same with salePrice")
+
+        let targetTokenVault = signer.borrow<&{FungibleToken.Provider}>(from: /storage/flowTokenVault)
+            ?? panic("Cannot borrow target token vault from signer storage")
+        self.paymentVault <- targetTokenVault.withdraw(amount: price)
+
+        self.nftCollection = signer.borrow<&{NonFungibleToken.Receiver}>(from: YahooCollectible.CollectionStoragePath)
+                    ?? panic("Cannot borrow NFT collection receiver from account")
+    }
+
+    execute {
+        let item <- self.listing.purchase(payment: <-self.paymentVault)
+        self.nftCollection.deposit(token: <-item)
+
+        // Be kind and recycle
+        self.storefront.cleanup(listingResourceID: listingResourceID)
+        Marketplace.removeListing(id: listingResourceID)
+    }
+
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/FlowStaking/stakeUnstakedFlow.testnet.cdc
 
 ```
@@ -324458,6 +332185,47 @@ transaction(amount: UFix64) {
   execute {
     self.nodeDelegatorProxy.delegateUnstakedTokens(amount: amount)
   }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/Flovatar/nameFlovatar.testnet.cdc
+
+```
+import Flovatar, FlovatarComponent, FlovatarComponentTemplate, FlovatarPack, FlovatarMarketplace from 0x0cf264811b95d465
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import FungibleToken from 0x9a0766d93b6608b7
+import FlowToken from 0x7e60df042a9c0868
+
+//this transaction will set the name to an existing Flovatar
+transaction(
+    flovatarId: UInt64,
+    name: String
+    ) {
+
+    let flovatarCollection: &Flovatar.Collection
+
+    prepare(account: AuthAccount) {
+        self.flovatarCollection = account.borrow<&Flovatar.Collection>(from: Flovatar.CollectionStoragePath)!
+    }
+
+    execute {
+
+        let flovatar: &{Flovatar.Private} = self.flovatarCollection.borrowFlovatarPrivate(id: flovatarId)!
+
+        flovatar.setName(name: name)
+    }
 }
 ```
 
@@ -324640,6 +332408,44 @@ transaction(
 
     execute {
         self.adminRef.createRequestRevenue(address, amount: amount, metadata: metadata)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/DisruptArt/transferToken.testnet.cdc
+
+```
+import DisruptArt from 0x439c2b49c0b2f62b
+
+transaction(recpAccount: Address, tokenIds: [UInt64]) {
+
+prepare(account: AuthAccount) {
+        var count = 0
+        let acct = getAccount(recpAccount)
+        let recipientRef = acct.getCapability(DisruptArt.disruptArtPublicPath)
+        .borrow<&{DisruptArt.DisruptArtCollectionPublic}>()
+        ?? panic("Could not borrow capability from public collection")
+        let tokens = tokenIds as [UInt64]
+        while count < tokens.length {
+            let sellerRef = account.borrow<&DisruptArt.Collection>(from: DisruptArt.disruptArtStoragePath)!
+            let tokenId  = tokens[count] 
+            let token <- sellerRef.withdraw(withdrawID: tokenId)
+            count = count + 1 
+            recipientRef.deposit(token: <-token)
+        }
+
     }
 }
 ```
@@ -325010,6 +332816,103 @@ transaction(saleItemID: UInt64, saleItemPrice: UFix64) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoBay/flovatar/sell.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTStorefront from 0x4eb8a10cb9f87357
+import Marketplace from 0xdc5127882cacf8d9
+import FlowToken from 0x1654653399040a61
+import Flovatar from 0x921ea449dffec68a
+
+transaction(saleItemID: UInt64, saleItemPrice: UFix64) {
+    let tokenReceiver: Capability<&{FungibleToken.Receiver}>
+    let nftProvider: Capability<&{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>
+    let storefront: &NFTStorefront.Storefront
+    let storefrontPublic: Capability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>
+
+    prepare(signer: AuthAccount) {
+        // Create Storefront if it doesn't exist
+        if signer.borrow<&NFTStorefront.Storefront>(from: NFTStorefront.StorefrontStoragePath) == nil {
+            let storefront <- NFTStorefront.createStorefront() as! @NFTStorefront.Storefront
+            signer.save(<-storefront, to: NFTStorefront.StorefrontStoragePath)
+            signer.link<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(
+                NFTStorefront.StorefrontPublicPath,
+                target: NFTStorefront.StorefrontStoragePath)
+        }
+
+        // We need a provider capability, but one is not provided by default so we create one if needed.
+        let nftCollectionProviderPrivatePath = /private/FlovatarCollectionProviderForNFTStorefront
+        if !signer.getCapability<&Flovatar.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath)!.check() {
+            signer.link<&Flovatar.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath, target: Flovatar.CollectionStoragePath)
+        }
+
+        self.tokenReceiver = signer.getCapability<&{FungibleToken.Receiver}>(/public/flowTokenReceiver)!
+        assert(self.tokenReceiver.borrow() != nil, message: "Missing or mis-typed FlowToken receiver")
+
+        self.nftProvider = signer.getCapability<&{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath)!
+        assert(self.nftProvider.borrow() != nil, message: "Missing or mis-typed Collection provider")
+
+        self.storefront = signer.borrow<&NFTStorefront.Storefront>(from: NFTStorefront.StorefrontStoragePath)
+            ?? panic("Missing or mis-typed NFTStorefront Storefront")
+
+        self.storefrontPublic = signer.getCapability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(NFTStorefront.StorefrontPublicPath)
+        assert(self.storefrontPublic.borrow() != nil, message: "Could not borrow public storefront from address")
+    }
+
+    execute {
+        // Remove old listing
+        if let listingID = Marketplace.getListingID(nftType: Type<@Flovatar.NFT>(), nftID: saleItemID) {
+            let listingIDs = self.storefront.getListingIDs()
+            if listingIDs.contains(listingID) {
+                self.storefront.removeListing(listingResourceID: listingID)
+            }
+            Marketplace.removeListing(id: listingID)
+        }
+
+        // Create SaleCuts
+        var saleCuts: [NFTStorefront.SaleCut] = []
+        let requirements = Marketplace.getSaleCutRequirements(nftType: Type<@Flovatar.NFT>())
+        var remainingPrice = saleItemPrice
+        for requirement in requirements {
+            let price = saleItemPrice * requirement.ratio
+            saleCuts.append(NFTStorefront.SaleCut(
+                receiver: requirement.receiver,
+                amount: price
+            ))
+            remainingPrice = remainingPrice - price
+        }
+        saleCuts.append(NFTStorefront.SaleCut(
+            receiver: self.tokenReceiver,
+            amount: remainingPrice
+        ))
+
+        // Add listing
+        let id = self.storefront.createListing(
+            nftProviderCapability: self.nftProvider,
+            nftType: Type<@Flovatar.NFT>(),
+            nftID: saleItemID,
+            salePaymentVaultType: Type<@FlowToken.Vault>(),
+            saleCuts: saleCuts
+        )
+        Marketplace.addListing(id: id, storefrontPublicCapability: self.storefrontPublic)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/MantlefiNFTLending/MatrixWorldFlowFestNFT/cancelBorrowMoney.cdc
 
 ```
@@ -325034,6 +332937,49 @@ transaction(Uuid: UInt64) {
     }
 }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/DisruptArt/moveToken.testnet.cdc
+
+```
+// DisruptArt.io NFT Token Smart Contract
+// Owner     : DisruptionNowMedia www.disruptionnow.com
+// Developer : www.BLAZE.ws
+// Version: 0.0.1
+
+import DisruptArt from 0x439c2b49c0b2f62b
+
+transaction(tokenIds: [UInt64]) {
+
+    prepare(account: AuthAccount) {
+        var count = 0
+        let acct = getAccount(0x439c2b49c0b2f62b)
+        let recipientRef = acct.getCapability(DisruptArt.disruptArtPublicPath)
+        .borrow<&{DisruptArt.DisruptArtCollectionPublic}>()
+        ?? panic("Could not borrow capability from public collection")
+        let tokens = tokenIds as [UInt64]
+        while count < tokens.length {
+            let sellerRef = account.borrow<&DisruptArt.Collection>(from: DisruptArt.disruptArtStoragePath)!
+            let tokenId  = tokens[count] 
+            let token <- sellerRef.withdraw(withdrawID: tokenId)
+            count = count + 1 
+            recipientRef.deposit(token: <-token)
+        }
+
+    }
+}
 ```
 
 
@@ -325697,6 +333643,141 @@ transaction(Uuid: UInt64, BorrowerAddress: Address) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/DisruptArt/transferToken.mainnet.cdc
+
+```
+import DisruptArt from 0xcd946ef9b13804c6
+
+transaction(recpAccount: Address, tokenIds: [UInt64]) {
+
+prepare(account: AuthAccount) {
+        var count = 0
+        let acct = getAccount(recpAccount)
+        let recipientRef = acct.getCapability(DisruptArt.disruptArtPublicPath)
+        .borrow<&{DisruptArt.DisruptArtCollectionPublic}>()
+        ?? panic("Could not borrow capability from public collection")
+        let tokens = tokenIds as [UInt64]
+        while count < tokens.length {
+            let sellerRef = account.borrow<&DisruptArt.Collection>(from: DisruptArt.disruptArtStoragePath)!
+            let tokenId  = tokens[count] 
+            let token <- sellerRef.withdraw(withdrawID: tokenId)
+            count = count + 1 
+            recipientRef.deposit(token: <-token)
+        }
+
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoBay/jambbVouchers/sell.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTStorefront from 0x4eb8a10cb9f87357
+import Marketplace from 0xdc5127882cacf8d9
+import FlowToken from 0x1654653399040a61
+import Vouchers from 0x444f5ea22c6ea12c
+
+transaction(saleItemID: UInt64, saleItemPrice: UFix64) {
+    let tokenReceiver: Capability<&{FungibleToken.Receiver}>
+    let nftProvider: Capability<&{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>
+    let storefront: &NFTStorefront.Storefront
+    let storefrontPublic: Capability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>
+
+    prepare(signer: AuthAccount) {
+        // Create Storefront if it doesn't exist
+        if signer.borrow<&NFTStorefront.Storefront>(from: NFTStorefront.StorefrontStoragePath) == nil {
+            let storefront <- NFTStorefront.createStorefront() as! @NFTStorefront.Storefront
+            signer.save(<-storefront, to: NFTStorefront.StorefrontStoragePath)
+            signer.link<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(
+                NFTStorefront.StorefrontPublicPath,
+                target: NFTStorefront.StorefrontStoragePath)
+        }
+
+        // We need a provider capability, but one is not provided by default so we create one if needed.
+        let nftCollectionProviderPrivatePath = /private/VouchersCollectionProviderForNFTStorefront
+        if !signer.getCapability<&Vouchers.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath)!.check() {
+            signer.link<&Vouchers.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath, target: Vouchers.CollectionStoragePath)
+        }
+
+        self.tokenReceiver = signer.getCapability<&{FungibleToken.Receiver}>(/public/flowTokenReceiver)!
+        assert(self.tokenReceiver.borrow() != nil, message: "Missing or mis-typed FlowToken receiver")
+
+        self.nftProvider = signer.getCapability<&{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath)!
+        assert(self.nftProvider.borrow() != nil, message: "Missing or mis-typed Collection provider")
+
+        self.storefront = signer.borrow<&NFTStorefront.Storefront>(from: NFTStorefront.StorefrontStoragePath)
+            ?? panic("Missing or mis-typed NFTStorefront Storefront")
+
+        self.storefrontPublic = signer.getCapability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(NFTStorefront.StorefrontPublicPath)
+        assert(self.storefrontPublic.borrow() != nil, message: "Could not borrow public storefront from address")
+    }
+
+    execute {
+        // Remove old listing
+        if let listingID = Marketplace.getListingID(nftType: Type<@Vouchers.NFT>(), nftID: saleItemID) {
+            let listingIDs = self.storefront.getListingIDs()
+            if listingIDs.contains(listingID) {
+                self.storefront.removeListing(listingResourceID: listingID)
+            }
+            Marketplace.removeListing(id: listingID)
+        }
+
+        // Create SaleCuts
+        var saleCuts: [NFTStorefront.SaleCut] = []
+        let requirements = Marketplace.getSaleCutRequirements(nftType: Type<@Vouchers.NFT>())
+        var remainingPrice = saleItemPrice
+        for requirement in requirements {
+            let price = saleItemPrice * requirement.ratio
+            saleCuts.append(NFTStorefront.SaleCut(
+                receiver: requirement.receiver,
+                amount: price
+            ))
+            remainingPrice = remainingPrice - price
+        }
+        saleCuts.append(NFTStorefront.SaleCut(
+            receiver: self.tokenReceiver,
+            amount: remainingPrice
+        ))
+
+        // Add listing
+        let id = self.storefront.createListing(
+            nftProviderCapability: self.nftProvider,
+            nftType: Type<@Vouchers.NFT>(),
+            nftID: saleItemID,
+            salePaymentVaultType: Type<@FlowToken.Vault>(),
+            saleCuts: saleCuts
+        )
+        Marketplace.addListing(id: id, storefrontPublicCapability: self.storefrontPublic)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/MantlefiNFTLending/NyatheesOVO/cancelBorrowMoney.cdc
 
 ```
@@ -325721,6 +333802,103 @@ transaction(Uuid: UInt64) {
     }
 }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoBay/motoGPPack/sell.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTStorefront from 0x94b06cfca1d8a476
+import Marketplace from 0xe1aa310cfe7750c4
+import FlowToken from 0x7e60df042a9c0868
+import MotoGPPack from 0x0
+
+transaction(saleItemID: UInt64, saleItemPrice: UFix64) {
+    let tokenReceiver: Capability<&{FungibleToken.Receiver}>
+    let nftProvider: Capability<&{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>
+    let storefront: &NFTStorefront.Storefront
+    let storefrontPublic: Capability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>
+
+    prepare(signer: AuthAccount) {
+        // Create Storefront if it doesn't exist
+        if signer.borrow<&NFTStorefront.Storefront>(from: NFTStorefront.StorefrontStoragePath) == nil {
+            let storefront <- NFTStorefront.createStorefront() as! @NFTStorefront.Storefront
+            signer.save(<-storefront, to: NFTStorefront.StorefrontStoragePath)
+            signer.link<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(
+                NFTStorefront.StorefrontPublicPath,
+                target: NFTStorefront.StorefrontStoragePath)
+        }
+
+        // We need a provider capability, but one is not provided by default so we create one if needed.
+        let nftCollectionProviderPrivatePath = /private/MotoGPPackCollectionProviderForNFTStorefront
+        if !signer.getCapability<&MotoGPPack.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath)!.check() {
+            signer.link<&MotoGPPack.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath, target: /storage/motogpPackCollection)
+        }
+
+        self.tokenReceiver = signer.getCapability<&{FungibleToken.Receiver}>(/public/flowTokenReceiver)!
+        assert(self.tokenReceiver.borrow() != nil, message: "Missing or mis-typed FlowToken receiver")
+
+        self.nftProvider = signer.getCapability<&{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath)!
+        assert(self.nftProvider.borrow() != nil, message: "Missing or mis-typed Collection provider")
+
+        self.storefront = signer.borrow<&NFTStorefront.Storefront>(from: NFTStorefront.StorefrontStoragePath)
+            ?? panic("Missing or mis-typed NFTStorefront Storefront")
+
+        self.storefrontPublic = signer.getCapability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(NFTStorefront.StorefrontPublicPath)
+        assert(self.storefrontPublic.borrow() != nil, message: "Could not borrow public storefront from address")
+    }
+
+    execute {
+        // Remove old listing
+        if let listingID = Marketplace.getListingID(nftType: Type<@MotoGPPack.NFT>(), nftID: saleItemID) {
+            let listingIDs = self.storefront.getListingIDs()
+            if listingIDs.contains(listingID) {
+                self.storefront.removeListing(listingResourceID: listingID)
+            }
+            Marketplace.removeListing(id: listingID)
+        }
+
+        // Create SaleCuts
+        var saleCuts: [NFTStorefront.SaleCut] = []
+        let requirements = Marketplace.getSaleCutRequirements(nftType: Type<@MotoGPPack.NFT>())
+        var remainingPrice = saleItemPrice
+        for requirement in requirements {
+            let price = saleItemPrice * requirement.ratio
+            saleCuts.append(NFTStorefront.SaleCut(
+                receiver: requirement.receiver,
+                amount: price
+            ))
+            remainingPrice = remainingPrice - price
+        }
+        saleCuts.append(NFTStorefront.SaleCut(
+            receiver: self.tokenReceiver,
+            amount: remainingPrice
+        ))
+
+        // Add listing
+        let id = self.storefront.createListing(
+            nftProviderCapability: self.nftProvider,
+            nftType: Type<@MotoGPPack.NFT>(),
+            nftID: saleItemID,
+            salePaymentVaultType: Type<@FlowToken.Vault>(),
+            saleCuts: saleCuts
+        )
+        Marketplace.addListing(id: id, storefrontPublicCapability: self.storefrontPublic)
+    }
+}
 ```
 
 
@@ -325770,6 +333948,39 @@ transaction(id: UInt64, baseAmount: UFix64, interest: UFix64, duration: UFix64) 
     }
 }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/DisruptArt/saleWithdrawn.mainnet.cdc
+
+```
+import DisruptArtMarketplaceFlow from 0xcd946ef9b13804c6
+
+transaction(tokens:[UInt64]) {
+
+    prepare(acct: AuthAccount) {
+
+        let salewithdrawn = acct.borrow<&DisruptArtMarketplaceFlow.SaleCollection>(from: DisruptArtMarketplaceFlow.marketStoragePath)
+                    ?? panic("Could not borrow acct nft sale reference")
+
+        let tokenids:[UInt64] = tokens
+
+        // List the token for sale by moving it into the sale object
+        salewithdrawn.saleWithdrawn(tokens:tokenids)
+
+    }
+}
 ```
 
 
@@ -326185,6 +334396,103 @@ transaction(amountIn: UFix64, minAmountOut: UFix64) {
 
     bloctoTokenVault.deposit(from: <- token1Vault)
   }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoBay/ticalUniverse/sell.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTStorefront from 0x4eb8a10cb9f87357
+import Marketplace from 0xdc5127882cacf8d9
+import FlowToken from 0x1654653399040a61
+import TicalUniverse from 0xfef48806337aabf1
+
+transaction(saleItemID: UInt64, saleItemPrice: UFix64) {
+    let tokenReceiver: Capability<&{FungibleToken.Receiver}>
+    let nftProvider: Capability<&{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>
+    let storefront: &NFTStorefront.Storefront
+    let storefrontPublic: Capability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>
+
+    prepare(signer: AuthAccount) {
+        // Create Storefront if it doesn't exist
+        if signer.borrow<&NFTStorefront.Storefront>(from: NFTStorefront.StorefrontStoragePath) == nil {
+            let storefront <- NFTStorefront.createStorefront() as! @NFTStorefront.Storefront
+            signer.save(<-storefront, to: NFTStorefront.StorefrontStoragePath)
+            signer.link<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(
+                NFTStorefront.StorefrontPublicPath,
+                target: NFTStorefront.StorefrontStoragePath)
+        }
+
+        // We need a provider capability, but one is not provided by default so we create one if needed.
+        let nftCollectionProviderPrivatePath = /private/TicalUniverseCollectionProviderForNFTStorefront
+        if !signer.getCapability<&TicalUniverse.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath)!.check() {
+            signer.link<&TicalUniverse.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath, target: TicalUniverse.CollectionStoragePath)
+        }
+
+        self.tokenReceiver = signer.getCapability<&{FungibleToken.Receiver}>(/public/flowTokenReceiver)!
+        assert(self.tokenReceiver.borrow() != nil, message: "Missing or mis-typed FlowToken receiver")
+
+        self.nftProvider = signer.getCapability<&{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath)!
+        assert(self.nftProvider.borrow() != nil, message: "Missing or mis-typed Collection provider")
+
+        self.storefront = signer.borrow<&NFTStorefront.Storefront>(from: NFTStorefront.StorefrontStoragePath)
+            ?? panic("Missing or mis-typed NFTStorefront Storefront")
+
+        self.storefrontPublic = signer.getCapability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(NFTStorefront.StorefrontPublicPath)
+        assert(self.storefrontPublic.borrow() != nil, message: "Could not borrow public storefront from address")
+    }
+
+    execute {
+        // Remove old listing
+        if let listingID = Marketplace.getListingID(nftType: Type<@TicalUniverse.NFT>(), nftID: saleItemID) {
+            let listingIDs = self.storefront.getListingIDs()
+            if listingIDs.contains(listingID) {
+                self.storefront.removeListing(listingResourceID: listingID)
+            }
+            Marketplace.removeListing(id: listingID)
+        }
+
+        // Create SaleCuts
+        var saleCuts: [NFTStorefront.SaleCut] = []
+        let requirements = Marketplace.getSaleCutRequirements(nftType: Type<@TicalUniverse.NFT>())
+        var remainingPrice = saleItemPrice
+        for requirement in requirements {
+            let price = saleItemPrice * requirement.ratio
+            saleCuts.append(NFTStorefront.SaleCut(
+                receiver: requirement.receiver,
+                amount: price
+            ))
+            remainingPrice = remainingPrice - price
+        }
+        saleCuts.append(NFTStorefront.SaleCut(
+            receiver: self.tokenReceiver,
+            amount: remainingPrice
+        ))
+
+        // Add listing
+        let id = self.storefront.createListing(
+            nftProviderCapability: self.nftProvider,
+            nftType: Type<@TicalUniverse.NFT>(),
+            nftID: saleItemID,
+            salePaymentVaultType: Type<@FlowToken.Vault>(),
+            saleCuts: saleCuts
+        )
+        Marketplace.addListing(id: id, storefrontPublicCapability: self.storefrontPublic)
+    }
 }
 ```
 
@@ -328263,6 +336571,103 @@ transaction(nftIds: [UInt64], feeflowAmount: UFix64, payee: Address) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoBay/mugenArt/sell.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTStorefront from 0x94b06cfca1d8a476
+import Marketplace from 0xe1aa310cfe7750c4
+import FlowToken from 0x7e60df042a9c0868
+import MugenNFT from 0x0
+
+transaction(saleItemID: UInt64, saleItemPrice: UFix64) {
+    let tokenReceiver: Capability<&{FungibleToken.Receiver}>
+    let nftProvider: Capability<&{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>
+    let storefront: &NFTStorefront.Storefront
+    let storefrontPublic: Capability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>
+
+    prepare(signer: AuthAccount) {
+        // Create Storefront if it doesn't exist
+        if signer.borrow<&NFTStorefront.Storefront>(from: NFTStorefront.StorefrontStoragePath) == nil {
+            let storefront <- NFTStorefront.createStorefront() as! @NFTStorefront.Storefront
+            signer.save(<-storefront, to: NFTStorefront.StorefrontStoragePath)
+            signer.link<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(
+                NFTStorefront.StorefrontPublicPath,
+                target: NFTStorefront.StorefrontStoragePath)
+        }
+
+        // We need a provider capability, but one is not provided by default so we create one if needed.
+        let nftCollectionProviderPrivatePath = /private/MugenNFTCollectionProviderForNFTStorefront
+        if !signer.getCapability<&MugenNFT.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath)!.check() {
+            signer.link<&MugenNFT.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath, target: MugenNFT.CollectionStoragePath)
+        }
+
+        self.tokenReceiver = signer.getCapability<&{FungibleToken.Receiver}>(/public/flowTokenReceiver)!
+        assert(self.tokenReceiver.borrow() != nil, message: "Missing or mis-typed FlowToken receiver")
+
+        self.nftProvider = signer.getCapability<&{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath)!
+        assert(self.nftProvider.borrow() != nil, message: "Missing or mis-typed Collection provider")
+
+        self.storefront = signer.borrow<&NFTStorefront.Storefront>(from: NFTStorefront.StorefrontStoragePath)
+            ?? panic("Missing or mis-typed NFTStorefront Storefront")
+
+        self.storefrontPublic = signer.getCapability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(NFTStorefront.StorefrontPublicPath)
+        assert(self.storefrontPublic.borrow() != nil, message: "Could not borrow public storefront from address")
+    }
+
+    execute {
+        // Remove old listing
+        if let listingID = Marketplace.getListingID(nftType: Type<@MugenNFT.NFT>(), nftID: saleItemID) {
+            let listingIDs = self.storefront.getListingIDs()
+            if listingIDs.contains(listingID) {
+                self.storefront.removeListing(listingResourceID: listingID)
+            }
+            Marketplace.removeListing(id: listingID)
+        }
+
+        // Create SaleCuts
+        var saleCuts: [NFTStorefront.SaleCut] = []
+        let requirements = Marketplace.getSaleCutRequirements(nftType: Type<@MugenNFT.NFT>())
+        var remainingPrice = saleItemPrice
+        for requirement in requirements {
+            let price = saleItemPrice * requirement.ratio
+            saleCuts.append(NFTStorefront.SaleCut(
+                receiver: requirement.receiver,
+                amount: price
+            ))
+            remainingPrice = remainingPrice - price
+        }
+        saleCuts.append(NFTStorefront.SaleCut(
+            receiver: self.tokenReceiver,
+            amount: remainingPrice
+        ))
+
+        // Add listing
+        let id = self.storefront.createListing(
+            nftProviderCapability: self.nftProvider,
+            nftType: Type<@MugenNFT.NFT>(),
+            nftID: saleItemID,
+            salePaymentVaultType: Type<@FlowToken.Vault>(),
+            saleCuts: saleCuts
+        )
+        Marketplace.addListing(id: id, storefrontPublicCapability: self.storefrontPublic)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/MantlefiNFTLending/Gooberz/forceRedeem.cdc
 
 ```
@@ -328549,6 +336954,128 @@ transaction(name: String, amount: UFix64) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/Flovatar/buyFlovatar.testnet.cdc
+
+```
+import Flovatar, FlovatarComponent, FlovatarComponentTemplate, FlovatarPack, FlovatarMarketplace from 0x0cf264811b95d465
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import FungibleToken from 0x9a0766d93b6608b7
+import FlowToken from 0x7e60df042a9c0868
+
+//this transaction buy a Flovatar from a direct sale listing from another user
+transaction(saleAddress: Address, tokenId: UInt64, amount: UFix64) {
+
+    // reference to the buyer's NFT collection where they
+    // will store the bought NFT
+
+    let vaultCap: Capability<&FlowToken.Vault{FungibleToken.Receiver}>
+    let collectionCap: Capability<&{Flovatar.CollectionPublic}>
+    // Vault that will hold the tokens that will be used
+    // to buy the NFT
+    let temporaryVault: @FungibleToken.Vault
+
+    prepare(account: AuthAccount) {
+
+        // get the references to the buyer's Vault and NFT Collection receiver
+        var collectionCap = account.getCapability<&{Flovatar.CollectionPublic}>(Flovatar.CollectionPublicPath)
+
+        // if collection is not created yet we make it.
+        if !collectionCap.check() {
+            // store an empty NFT Collection in account storage
+            account.save<@NonFungibleToken.Collection>(<- Flovatar.createEmptyCollection(), to: Flovatar.CollectionStoragePath)
+            // publish a capability to the Collection in storage
+            account.link<&{Flovatar.CollectionPublic}>(Flovatar.CollectionPublicPath, target: Flovatar.CollectionStoragePath)
+        }
+
+
+        self.collectionCap = collectionCap
+
+        self.vaultCap = account.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+
+        let vaultRef = account.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault) ?? panic("Could not borrow owner's Vault reference")
+
+        // withdraw tokens from the buyer's Vault
+        self.temporaryVault <- vaultRef.withdraw(amount: amount)
+    }
+
+    execute {
+        // get the read-only account storage of the seller
+        let seller = getAccount(saleAddress)
+
+        let marketplace = seller.getCapability(FlovatarMarketplace.CollectionPublicPath).borrow<&{FlovatarMarketplace.SalePublic}>()
+                         ?? panic("Could not borrow seller's sale reference")
+
+        marketplace.purchaseFlovatar(tokenId: tokenId, recipientCap:self.collectionCap, buyTokens: <- self.temporaryVault)
+    }
+
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/Flovatar/addFlovatarBackground.testnet.cdc
+
+```
+import Flovatar, FlovatarComponent, FlovatarComponentTemplate, FlovatarPack, FlovatarMarketplace from 0x0cf264811b95d465
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import FungibleToken from 0x9a0766d93b6608b7
+import FlowToken from 0x7e60df042a9c0868
+
+//this transaction will add a new Background to an existing Flovatar
+transaction(
+    flovatarId: UInt64,
+    background: UInt64
+    ) {
+
+    let flovatarCollection: &Flovatar.Collection
+    let flovatarComponentCollection: &FlovatarComponent.Collection
+
+    let backgroundNFT: @FlovatarComponent.NFT
+
+    prepare(account: AuthAccount) {
+        self.flovatarCollection = account.borrow<&Flovatar.Collection>(from: Flovatar.CollectionStoragePath)!
+
+        self.flovatarComponentCollection = account.borrow<&FlovatarComponent.Collection>(from: FlovatarComponent.CollectionStoragePath)!
+
+        self.backgroundNFT <- self.flovatarComponentCollection.withdraw(withdrawID: background) as! @FlovatarComponent.NFT
+    }
+
+    execute {
+
+        let flovatar: &{Flovatar.Private} = self.flovatarCollection.borrowFlovatarPrivate(id: flovatarId)!
+
+        let background <-flovatar.setBackground(component: <-self.backgroundNFT)
+        if(background != nil){
+            self.flovatarComponentCollection.deposit(token: <-background!)
+        } else {
+            destroy background
+        }
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/FlowStaking/stakeUnstakedFlow.mainnet.cdc
 
 ```
@@ -328816,6 +337343,59 @@ transaction(flowAmount: UFix64, payees: [Address], payeesShares: [UFix64], recip
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/Flovatar/addFlovatarEyeglasses.testnet.cdc
+
+```
+import Flovatar, FlovatarComponent, FlovatarComponentTemplate, FlovatarPack, FlovatarMarketplace from 0x0cf264811b95d465
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import FungibleToken from 0x9a0766d93b6608b7
+import FlowToken from 0x7e60df042a9c0868
+
+//this transaction will add a new pair of Eyeglasses to an existing Flovatar
+transaction(
+    flovatarId: UInt64,
+    eyeglasses: UInt64
+    ) {
+
+    let flovatarCollection: &Flovatar.Collection
+    let flovatarComponentCollection: &FlovatarComponent.Collection
+
+    let eyeglassesNFT: @FlovatarComponent.NFT
+
+    prepare(account: AuthAccount) {
+        self.flovatarCollection = account.borrow<&Flovatar.Collection>(from: Flovatar.CollectionStoragePath)!
+
+        self.flovatarComponentCollection = account.borrow<&FlovatarComponent.Collection>(from: FlovatarComponent.CollectionStoragePath)!
+
+        self.eyeglassesNFT <- self.flovatarComponentCollection.withdraw(withdrawID: eyeglasses) as! @FlovatarComponent.NFT
+    }
+
+    execute {
+
+        let flovatar: &{Flovatar.Private} = self.flovatarCollection.borrowFlovatarPrivate(id: flovatarId)!
+
+        let eyeglasses <-flovatar.setEyeglasses(component: <-self.eyeglassesNFT)
+        if(eyeglasses != nil){
+            self.flovatarComponentCollection.deposit(token: <-eyeglasses!)
+        } else {
+            destroy eyeglasses
+        }
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/Starly/storefront/buyKOTDItem.testnet.cdc
 
 ```
@@ -328861,6 +337441,75 @@ transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFi
         self.nftCollection.deposit(token: <-item)
         self.storefront.cleanup(listingResourceID: listingResourceID)
     }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoBay/flovatar/buy.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTStorefront from 0x94b06cfca1d8a476
+import Marketplace from 0xe1aa310cfe7750c4
+import FlowToken from 0x7e60df042a9c0868
+import Flovatar from 0x0cf264811b95d465
+
+transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFix64) {
+    let paymentVault: @FungibleToken.Vault
+    let storefront: &NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}
+    let nftCollection: &{NonFungibleToken.Receiver}
+    let listing: &NFTStorefront.Listing{NFTStorefront.ListingPublic}
+
+    prepare(signer: AuthAccount) {
+        // Create a collection to store the purchase if none present
+        if signer.borrow<&Flovatar.Collection>(from: Flovatar.CollectionStoragePath) == nil {
+            signer.save(<- Flovatar.createEmptyCollection(), to: Flovatar.CollectionStoragePath)
+            signer.link<&{NonFungibleToken.CollectionPublic, Flovatar.CollectionPublic}>(
+			    Flovatar.CollectionPublicPath,
+			    target: Flovatar.CollectionStoragePath
+		    )
+        }
+
+        self.storefront = getAccount(storefrontAddress)
+            .getCapability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(NFTStorefront.StorefrontPublicPath)
+            .borrow()
+            ?? panic("Could not borrow Storefront from provided address")
+
+        self.listing = self.storefront.borrowListing(listingResourceID: listingResourceID)
+            ?? panic("No Offer with that ID in Storefront")
+        let price = self.listing.getDetails().salePrice
+
+        assert(buyPrice == price, message: "buyPrice is NOT same with salePrice")
+
+        let targetTokenVault = signer.borrow<&{FungibleToken.Provider}>(from: /storage/flowTokenVault)
+            ?? panic("Cannot borrow target token vault from signer storage")
+        self.paymentVault <- targetTokenVault.withdraw(amount: price)
+
+        self.nftCollection = signer.borrow<&{NonFungibleToken.Receiver}>(from: Flovatar.CollectionStoragePath)
+                    ?? panic("Cannot borrow NFT collection receiver from account")
+    }
+
+    execute {
+        let item <- self.listing.purchase(payment: <-self.paymentVault)
+        self.nftCollection.deposit(token: <-item)
+
+        // Be kind and recycle
+        self.storefront.cleanup(listingResourceID: listingResourceID)
+        Marketplace.removeListing(id: listingResourceID)
+    }
+
 }
 ```
 
@@ -329065,6 +337714,59 @@ transaction(publicKey: String, amount: UFix64) {
 
         // Deposit the withdrawn tokens in the recipient's receiver
         receiverRef.deposit(from: <-self.sentVault)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/Flovatar/cancelSaleFlovatarComponent.testnet.cdc
+
+```
+import Flovatar, FlovatarComponent, FlovatarComponentTemplate, FlovatarPack, FlovatarMarketplace from 0x0cf264811b95d465
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import FungibleToken from 0x9a0766d93b6608b7
+import FlowToken from 0x7e60df042a9c0868
+
+transaction(
+    componentId: UInt64
+    ) {
+
+    let componentCollection: &FlovatarComponent.Collection
+    let marketplace: &FlovatarMarketplace.SaleCollection
+
+    prepare(account: AuthAccount) {
+
+        let marketplaceCap = account.getCapability<&{FlovatarMarketplace.SalePublic}>(FlovatarMarketplace.CollectionPublicPath)
+        // if sale collection is not created yet we make it.
+        if !marketplaceCap.check() {
+             let wallet =  account.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+             let sale <- FlovatarMarketplace.createSaleCollection(ownerVault: wallet)
+
+            // store an empty NFT Collection in account storage
+            account.save<@FlovatarMarketplace.SaleCollection>(<- sale, to:FlovatarMarketplace.CollectionStoragePath)
+
+            // publish a capability to the Collection in storage
+            account.link<&{FlovatarMarketplace.SalePublic}>(FlovatarMarketplace.CollectionPublicPath, target: FlovatarMarketplace.CollectionStoragePath)
+        }
+
+        self.marketplace = account.borrow<&FlovatarMarketplace.SaleCollection>(from: FlovatarMarketplace.CollectionStoragePath)!
+        self.componentCollection = account.borrow<&FlovatarComponent.Collection>(from: FlovatarComponent.CollectionStoragePath)!
+    }
+
+    execute {
+        let component <- self.marketplace.withdrawFlovatarComponent(tokenId: componentId)
+        self.componentCollection.deposit(token: <- component);
     }
 }
 ```
@@ -329567,6 +338269,41 @@ transaction(Uuid: UInt64, BorrowerAddress: Address) {
     }
 }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/Flovatar/openPack.mainnet.cdc
+
+```
+import Flovatar, FlovatarComponent, FlovatarComponentTemplate, FlovatarPack, FlovatarMarketplace from 0x921ea449dffec68a
+import NonFungibleToken from 0x1d7e57aa55817448
+import FungibleToken from 0xf233dcee88fe0abe
+import FlowToken from 0x1654653399040a61
+
+transaction(packId: UInt64) {
+
+    let flovatarPackCollection: &FlovatarPack.Collection
+
+    prepare(account: AuthAccount) {
+        self.flovatarPackCollection = account.borrow<&FlovatarPack.Collection>(from: FlovatarPack.CollectionStoragePath)!
+    }
+
+    execute {
+        self.flovatarPackCollection.openPack(id: packId)
+    }
+
+}
 ```
 
 
@@ -330217,6 +338954,75 @@ transaction {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoBay/jambbVouchers/buy.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTStorefront from 0x94b06cfca1d8a476
+import Marketplace from 0xe1aa310cfe7750c4
+import FlowToken from 0x7e60df042a9c0868
+import Vouchers from 0xe94a6e229293f196
+
+transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFix64) {
+    let paymentVault: @FungibleToken.Vault
+    let storefront: &NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}
+    let nftCollection: &{NonFungibleToken.Receiver}
+    let listing: &NFTStorefront.Listing{NFTStorefront.ListingPublic}
+
+    prepare(signer: AuthAccount) {
+        // Create a collection to store the purchase if none present
+        if signer.borrow<&Vouchers.Collection>(from: Vouchers.CollectionStoragePath) == nil {
+            signer.save(<- Vouchers.createEmptyCollection(), to: Vouchers.CollectionStoragePath)
+            signer.link<&{NonFungibleToken.CollectionPublic, Vouchers.CollectionPublic}>(
+			    Vouchers.CollectionPublicPath,
+			    target: Vouchers.CollectionStoragePath
+		    )
+        }
+
+        self.storefront = getAccount(storefrontAddress)
+            .getCapability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(NFTStorefront.StorefrontPublicPath)
+            .borrow()
+            ?? panic("Could not borrow Storefront from provided address")
+
+        self.listing = self.storefront.borrowListing(listingResourceID: listingResourceID)
+            ?? panic("No Offer with that ID in Storefront")
+        let price = self.listing.getDetails().salePrice
+
+        assert(buyPrice == price, message: "buyPrice is NOT same with salePrice")
+
+        let targetTokenVault = signer.borrow<&{FungibleToken.Provider}>(from: /storage/flowTokenVault)
+            ?? panic("Cannot borrow target token vault from signer storage")
+        self.paymentVault <- targetTokenVault.withdraw(amount: price)
+
+        self.nftCollection = signer.borrow<&{NonFungibleToken.Receiver}>(from: Vouchers.CollectionStoragePath)
+                    ?? panic("Cannot borrow NFT collection receiver from account")
+    }
+
+    execute {
+        let item <- self.listing.purchase(payment: <-self.paymentVault)
+        self.nftCollection.deposit(token: <-item)
+
+        // Be kind and recycle
+        self.storefront.cleanup(listingResourceID: listingResourceID)
+        Marketplace.removeListing(id: listingResourceID)
+    }
+
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/BloctoBay/zeedz/sell.cdc
 
 ```
@@ -330293,6 +339099,103 @@ transaction(saleItemID: UInt64, saleItemPrice: UFix64) {
         let id = self.storefront.createListing(
             nftProviderCapability: self.nftProvider,
             nftType: Type<@ZeedzINO.NFT>(),
+            nftID: saleItemID,
+            salePaymentVaultType: Type<@FlowToken.Vault>(),
+            saleCuts: saleCuts
+        )
+        Marketplace.addListing(id: id, storefrontPublicCapability: self.storefrontPublic)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoBay/darkCountry/sell.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTStorefront from 0x94b06cfca1d8a476
+import Marketplace from 0xe1aa310cfe7750c4
+import FlowToken from 0x7e60df042a9c0868
+import DarkCountry from 0xe2759c7e9a894ff1
+
+transaction(saleItemID: UInt64, saleItemPrice: UFix64) {
+    let tokenReceiver: Capability<&{FungibleToken.Receiver}>
+    let nftProvider: Capability<&{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>
+    let storefront: &NFTStorefront.Storefront
+    let storefrontPublic: Capability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>
+
+    prepare(signer: AuthAccount) {
+        // Create Storefront if it doesn't exist
+        if signer.borrow<&NFTStorefront.Storefront>(from: NFTStorefront.StorefrontStoragePath) == nil {
+            let storefront <- NFTStorefront.createStorefront() as! @NFTStorefront.Storefront
+            signer.save(<-storefront, to: NFTStorefront.StorefrontStoragePath)
+            signer.link<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(
+                NFTStorefront.StorefrontPublicPath,
+                target: NFTStorefront.StorefrontStoragePath)
+        }
+
+        // We need a provider capability, but one is not provided by default so we create one if needed.
+        let nftCollectionProviderPrivatePath = /private/DarkCountryCollectionProviderForNFTStorefront
+        if !signer.getCapability<&DarkCountry.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath)!.check() {
+            signer.link<&DarkCountry.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath, target: DarkCountry.CollectionStoragePath)
+        }
+
+        self.tokenReceiver = signer.getCapability<&{FungibleToken.Receiver}>(/public/flowTokenReceiver)!
+        assert(self.tokenReceiver.borrow() != nil, message: "Missing or mis-typed FlowToken receiver")
+
+        self.nftProvider = signer.getCapability<&{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath)!
+        assert(self.nftProvider.borrow() != nil, message: "Missing or mis-typed Collection provider")
+
+        self.storefront = signer.borrow<&NFTStorefront.Storefront>(from: NFTStorefront.StorefrontStoragePath)
+            ?? panic("Missing or mis-typed NFTStorefront Storefront")
+
+        self.storefrontPublic = signer.getCapability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(NFTStorefront.StorefrontPublicPath)
+        assert(self.storefrontPublic.borrow() != nil, message: "Could not borrow public storefront from address")
+    }
+
+    execute {
+        // Remove old listing
+        if let listingID = Marketplace.getListingID(nftType: Type<@DarkCountry.NFT>(), nftID: saleItemID) {
+            let listingIDs = self.storefront.getListingIDs()
+            if listingIDs.contains(listingID) {
+                self.storefront.removeListing(listingResourceID: listingID)
+            }
+            Marketplace.removeListing(id: listingID)
+        }
+
+        // Create SaleCuts
+        var saleCuts: [NFTStorefront.SaleCut] = []
+        let requirements = Marketplace.getSaleCutRequirements(nftType: Type<@DarkCountry.NFT>())
+        var remainingPrice = saleItemPrice
+        for requirement in requirements {
+            let price = saleItemPrice * requirement.ratio
+            saleCuts.append(NFTStorefront.SaleCut(
+                receiver: requirement.receiver,
+                amount: price
+            ))
+            remainingPrice = remainingPrice - price
+        }
+        saleCuts.append(NFTStorefront.SaleCut(
+            receiver: self.tokenReceiver,
+            amount: remainingPrice
+        ))
+
+        // Add listing
+        let id = self.storefront.createListing(
+            nftProviderCapability: self.nftProvider,
+            nftType: Type<@DarkCountry.NFT>(),
             nftID: saleItemID,
             salePaymentVaultType: Type<@FlowToken.Vault>(),
             saleCuts: saleCuts
@@ -331293,6 +340196,128 @@ transaction(name: String, amount: UFix64) {
 		let vaultRef = account.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault) ?? panic("Could not borrow reference to the fusdVault!")
 		FIND.deposit(to: name, from: <- vaultRef.withdraw(amount: amount))
 	}
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoBay/yahoo/buy.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTStorefront from 0x94b06cfca1d8a476
+import Marketplace from 0xe1aa310cfe7750c4
+import FlowToken from 0x7e60df042a9c0868
+import YahooCollectible from 0x5d50ce3fd080edce
+
+transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFix64) {
+    let paymentVault: @FungibleToken.Vault
+    let storefront: &NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}
+    let nftCollection: &{NonFungibleToken.Receiver}
+    let listing: &NFTStorefront.Listing{NFTStorefront.ListingPublic}
+
+    prepare(signer: AuthAccount) {
+        // Create a collection to store the purchase if none present
+        if signer.borrow<&YahooCollectible.Collection>(from: YahooCollectible.CollectionStoragePath) == nil {
+            signer.save(<- YahooCollectible.createEmptyCollection(), to: YahooCollectible.CollectionStoragePath)
+            signer.link<&{NonFungibleToken.CollectionPublic, YahooCollectible.CollectionPublic}>(
+			    YahooCollectible.CollectionPublicPath,
+			    target: YahooCollectible.CollectionStoragePath
+		    )
+        }
+
+        self.storefront = getAccount(storefrontAddress)
+            .getCapability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(NFTStorefront.StorefrontPublicPath)
+            .borrow()
+            ?? panic("Could not borrow Storefront from provided address")
+
+        self.listing = self.storefront.borrowListing(listingResourceID: listingResourceID)
+            ?? panic("No Offer with that ID in Storefront")
+        let price = self.listing.getDetails().salePrice
+
+        assert(buyPrice == price, message: "buyPrice is NOT same with salePrice")
+
+        let targetTokenVault = signer.borrow<&{FungibleToken.Provider}>(from: /storage/flowTokenVault)
+            ?? panic("Cannot borrow target token vault from signer storage")
+        self.paymentVault <- targetTokenVault.withdraw(amount: price)
+
+        self.nftCollection = signer.borrow<&{NonFungibleToken.Receiver}>(from: YahooCollectible.CollectionStoragePath)
+                    ?? panic("Cannot borrow NFT collection receiver from account")
+    }
+
+    execute {
+        let item <- self.listing.purchase(payment: <-self.paymentVault)
+        self.nftCollection.deposit(token: <-item)
+
+        // Be kind and recycle
+        self.storefront.cleanup(listingResourceID: listingResourceID)
+        Marketplace.removeListing(id: listingResourceID)
+    }
+
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/Flovatar/addFlovatarEyeglasses.mainnet.cdc
+
+```
+import Flovatar, FlovatarComponent, FlovatarComponentTemplate, FlovatarPack, FlovatarMarketplace from 0x921ea449dffec68a
+import NonFungibleToken from 0x1d7e57aa55817448
+import FungibleToken from 0xf233dcee88fe0abe
+import FlowToken from 0x1654653399040a61
+
+//this transaction will add a new pair of Eyeglasses to an existing Flovatar
+transaction(
+    flovatarId: UInt64,
+    eyeglasses: UInt64
+    ) {
+
+    let flovatarCollection: &Flovatar.Collection
+    let flovatarComponentCollection: &FlovatarComponent.Collection
+
+    let eyeglassesNFT: @FlovatarComponent.NFT
+
+    prepare(account: AuthAccount) {
+        self.flovatarCollection = account.borrow<&Flovatar.Collection>(from: Flovatar.CollectionStoragePath)!
+
+        self.flovatarComponentCollection = account.borrow<&FlovatarComponent.Collection>(from: FlovatarComponent.CollectionStoragePath)!
+
+        self.eyeglassesNFT <- self.flovatarComponentCollection.withdraw(withdrawID: eyeglasses) as! @FlovatarComponent.NFT
+    }
+
+    execute {
+
+        let flovatar: &{Flovatar.Private} = self.flovatarCollection.borrowFlovatarPrivate(id: flovatarId)!
+
+        let eyeglasses <-flovatar.setEyeglasses(component: <-self.eyeglassesNFT)
+        if(eyeglasses != nil){
+            self.flovatarComponentCollection.deposit(token: <-eyeglasses!)
+        } else {
+            destroy eyeglasses
+        }
+    }
 }
 ```
 
@@ -332349,6 +341374,71 @@ transaction(marketplace: Address, tokenId: UInt64, amount: UFix64) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/Flovatar/buyPack.mainnet.cdc
+
+```
+import Flovatar, FlovatarComponent, FlovatarComponentTemplate, FlovatarPack, FlovatarMarketplace from 0x921ea449dffec68a
+import NonFungibleToken from 0x1d7e57aa55817448
+import FungibleToken from 0xf233dcee88fe0abe
+import FlowToken from 0x1654653399040a61
+
+//this transaction buy a Pack
+transaction(saleAddress: Address, tokenId: UInt64, amount: UFix64, signature: String) {
+
+    // reference to the buyer's NFT collection where they
+    // will store the bought NFT
+
+    let vaultCap: Capability<&FlowToken.Vault{FungibleToken.Receiver}>
+    let collectionCap: Capability<&{FlovatarPack.CollectionPublic}>
+    // Vault that will hold the tokens that will be used
+    // to buy the NFT
+    let temporaryVault: @FungibleToken.Vault
+
+    prepare(account: AuthAccount) {
+
+        let flovatarPackCap = account.getCapability<&{FlovatarPack.CollectionPublic}>(FlovatarPack.CollectionPublicPath)
+        if(!flovatarPackCap.check()) {
+            let wallet =  account.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+            account.save<@FlovatarPack.Collection>(<- FlovatarPack.createEmptyCollection(ownerVault: wallet), to: FlovatarPack.CollectionStoragePath)
+            account.link<&{FlovatarPack.CollectionPublic}>(FlovatarPack.CollectionPublicPath, target: FlovatarPack.CollectionStoragePath)
+        }
+
+
+        self.collectionCap = flovatarPackCap
+
+        self.vaultCap = account.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+
+        let vaultRef = account.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault) ?? panic("Could not borrow owner's Vault reference")
+
+        // withdraw tokens from the buyer's Vault
+        self.temporaryVault <- vaultRef.withdraw(amount: amount)
+    }
+
+    execute {
+        // get the read-only account storage of the seller
+        let seller = getAccount(saleAddress)
+
+        let packmarket = seller.getCapability(FlovatarPack.CollectionPublicPath).borrow<&{FlovatarPack.CollectionPublic}>()
+                         ?? panic("Could not borrow seller's sale reference")
+
+        packmarket.purchase(tokenId: tokenId, recipientCap: self.collectionCap, buyTokens: <- self.temporaryVault, signature: signature)
+    }
+
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/FlowStaking/stakeNewFlow.mainnet.cdc
 
 ```
@@ -332441,6 +341531,103 @@ transaction(BorrowerAddress: Address, LenderAddress: Address, Uuid: UInt64, Lend
     }
 }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoBay/ticalUniverse/sell.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTStorefront from 0x94b06cfca1d8a476
+import Marketplace from 0xe1aa310cfe7750c4
+import FlowToken from 0x7e60df042a9c0868
+import TicalUniverse from 0x0
+
+transaction(saleItemID: UInt64, saleItemPrice: UFix64) {
+    let tokenReceiver: Capability<&{FungibleToken.Receiver}>
+    let nftProvider: Capability<&{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>
+    let storefront: &NFTStorefront.Storefront
+    let storefrontPublic: Capability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>
+
+    prepare(signer: AuthAccount) {
+        // Create Storefront if it doesn't exist
+        if signer.borrow<&NFTStorefront.Storefront>(from: NFTStorefront.StorefrontStoragePath) == nil {
+            let storefront <- NFTStorefront.createStorefront() as! @NFTStorefront.Storefront
+            signer.save(<-storefront, to: NFTStorefront.StorefrontStoragePath)
+            signer.link<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(
+                NFTStorefront.StorefrontPublicPath,
+                target: NFTStorefront.StorefrontStoragePath)
+        }
+
+        // We need a provider capability, but one is not provided by default so we create one if needed.
+        let nftCollectionProviderPrivatePath = /private/TicalUniverseCollectionProviderForNFTStorefront
+        if !signer.getCapability<&TicalUniverse.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath)!.check() {
+            signer.link<&TicalUniverse.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath, target: TicalUniverse.CollectionStoragePath)
+        }
+
+        self.tokenReceiver = signer.getCapability<&{FungibleToken.Receiver}>(/public/flowTokenReceiver)!
+        assert(self.tokenReceiver.borrow() != nil, message: "Missing or mis-typed FlowToken receiver")
+
+        self.nftProvider = signer.getCapability<&{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(nftCollectionProviderPrivatePath)!
+        assert(self.nftProvider.borrow() != nil, message: "Missing or mis-typed Collection provider")
+
+        self.storefront = signer.borrow<&NFTStorefront.Storefront>(from: NFTStorefront.StorefrontStoragePath)
+            ?? panic("Missing or mis-typed NFTStorefront Storefront")
+
+        self.storefrontPublic = signer.getCapability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(NFTStorefront.StorefrontPublicPath)
+        assert(self.storefrontPublic.borrow() != nil, message: "Could not borrow public storefront from address")
+    }
+
+    execute {
+        // Remove old listing
+        if let listingID = Marketplace.getListingID(nftType: Type<@TicalUniverse.NFT>(), nftID: saleItemID) {
+            let listingIDs = self.storefront.getListingIDs()
+            if listingIDs.contains(listingID) {
+                self.storefront.removeListing(listingResourceID: listingID)
+            }
+            Marketplace.removeListing(id: listingID)
+        }
+
+        // Create SaleCuts
+        var saleCuts: [NFTStorefront.SaleCut] = []
+        let requirements = Marketplace.getSaleCutRequirements(nftType: Type<@TicalUniverse.NFT>())
+        var remainingPrice = saleItemPrice
+        for requirement in requirements {
+            let price = saleItemPrice * requirement.ratio
+            saleCuts.append(NFTStorefront.SaleCut(
+                receiver: requirement.receiver,
+                amount: price
+            ))
+            remainingPrice = remainingPrice - price
+        }
+        saleCuts.append(NFTStorefront.SaleCut(
+            receiver: self.tokenReceiver,
+            amount: remainingPrice
+        ))
+
+        // Add listing
+        let id = self.storefront.createListing(
+            nftProviderCapability: self.nftProvider,
+            nftType: Type<@TicalUniverse.NFT>(),
+            nftID: saleItemID,
+            salePaymentVaultType: Type<@FlowToken.Vault>(),
+            saleCuts: saleCuts
+        )
+        Marketplace.addListing(id: id, storefrontPublicCapability: self.storefrontPublic)
+    }
+}
 ```
 
 
@@ -364787,6 +373974,29 @@ transaction(name: String) {
 
 
 
+# Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/pds/scripts/packNFT/packNFT_total_supply.cdc
+
+```
+import PackNFT from "PackNFT"
+
+access(all) fun main(): UInt64{
+    return PackNFT.totalSupply
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/nft-provider-aggregator/transactions/transfer_from_aggregated_nft_withdraw_as_thirdparty.cdc
 
 ```
@@ -377639,6 +386849,29 @@ access(all) contract AllDay: NonFungibleToken {
 
 
 
+# Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/pds/scripts/pds/get_dist_title.cdc
+
+```
+import PDS from "PDS"
+
+access(all) fun main(distId: UInt64): String {
+    return PDS.getDistInfo(distId: distId)!.title
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/sport-moment-nft/contracts/NonFungibleToken.cdc
 
 ```
@@ -378824,6 +388057,36 @@ transaction(name: String, description: String, productName: String, metadata: {S
 
 
 
+# Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/pds/scripts/exampleNFT/balance_exampleNFT.cdc
+
+```
+import NonFungibleToken from "NonFungibleToken"
+import ExampleNFT from "ExampleNFT"
+
+access(all) fun main(account: Address): [UInt64] {
+    let collectionData = ExampleNFT.resolveContractView(resourceType: nil, viewType: Type<MetadataViews.NFTCollectionData>()) as! MetadataViews.NFTCollectionData?
+        ?? panic("ViewResolver does not resolve NFTCollectionData view")
+
+    let collectionRef = getAccount(account).capabilities.borrow<
+        &ExampleNFT.Collection>(collectionData.publicPath)!
+
+    return collectionRef.getIDs()
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/escrow/scripts/sets/read_set_by_id.cdc
 
 ```
@@ -378952,6 +388215,29 @@ transaction(recipientAddress: Address, editionID: UInt64) {
     }
 }
 
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/pds/scripts/pds/get_dist_metadata.cdc
+
+```
+import PDS from "PDS"
+
+access(all) fun main(distId: UInt64): {String: String} {
+    return PDS.getDistInfo(distId: distId)!.metadata
+}
 
 ```
 
@@ -385214,6 +394500,33 @@ transaction(revealID: UInt64, openRequest: Bool) {
 
 
 
+# Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/pds/scripts/packNFT/balance_packNFT.cdc
+
+```
+import NonFungibleToken from "NonFungibleToken"
+import PackNFT from "PackNFT"
+
+access(all) fun main(account: Address): [UInt64] {
+    let collectionRef = getAccount(account).capabilities.borrow<
+        &PackNFT.Collection>(PackNFT.CollectionPublicPath)!
+
+    return collectionRef.getIDs()
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/sport-moment-nft/scripts/series/read_series_by_id.cdc
 
 ```
@@ -388197,6 +397510,36 @@ transaction (
 
 
 
+# Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/pds/scripts/collectibleNFT/balance.cdc
+
+```
+import NonFungibleToken from "NonFungibleToken"
+import ExampleNFT from "ExampleNFT"
+
+access(all) fun main(account: Address): Int {
+    let collectionData = ExampleNFT.resolveContractView(resourceType: nil, viewType: Type<MetadataViews.NFTCollectionData>()) as! MetadataViews.NFTCollectionData?
+        ?? panic("ViewResolver does not resolve NFTCollectionData view")
+
+    let collectionRef = getAccount(account).capabilities.borrow<
+        &ExampleNFT.Collection>(collectionData.publicPath)!
+
+    return collectionRef.getIDs().length
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/nft-provider-aggregator/transactions/publish_aggregated_nft_withdraw_capability.cdc
 
 ```
@@ -389851,6 +399194,31 @@ access(all) fun main(id: UInt64): AllDay.PlayData {
 
 
 
+# Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/pds/scripts/packNFT/packNFT_hash.cdc
+
+```
+import PackNFT from "PackNFT"
+import IPackNFT from "IPackNFT"
+
+access(all) fun main(id: UInt64): String {
+    let p = PackNFT.borrowPackRepresentation(id: id)
+    return p!.hash
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/epl-nft/scripts/get_nft_properties.cdc
 
 ```
@@ -390916,6 +400284,31 @@ pub contract Art_NFT: NonFungibleToken {
 
         emit ContractInitialized()
 	}
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/pds/scripts/packNFT/verify.cdc
+
+```
+import PackNFT from "PackNFT"
+import IPackNFT from "IPackNFT"
+
+access(all) fun main(id: UInt64, nftString: String): Bool {
+    let p = PackNFT.borrowPackRepresentation(id: id)
+    return p!.verify(nftString: nftString)
 }
 
 ```
@@ -392134,6 +401527,46 @@ transaction(recipients: [Address], withdrawIDs: [UInt64]) {
             i = i + 1
         }
     }
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/pds/scripts/collectibleNFT/balance_ids.cdc
+
+```
+import NonFungibleToken from "NonFungibleToken"
+import ExampleNFT from "ExampleNFT"
+
+access(all) fun main(account: Address, offset: UInt64, limit: UInt64): [UInt64] {
+    let collectionData = ExampleNFT.resolveContractView(resourceType: nil, viewType: Type<MetadataViews.NFTCollectionData>()) as! MetadataViews.NFTCollectionData?
+        ?? panic("ViewResolver does not resolve NFTCollectionData view")
+
+    let collectionRef = getAccount(account).capabilities.borrow<
+        &ExampleNFT.Collection>(collectionData.publicPath)!
+
+    let ids = collectionRef.getIDs()
+    let idsLen = UInt64(ids.length)
+
+    var res: [UInt64] = []
+    var i = offset
+    while i < offset+limit && i < idsLen {
+        res.append(ids[i])
+        i = i + 1
+    }
+
+    return res
 }
 
 ```
@@ -393978,6 +403411,502 @@ access(all) fun main(editionID: UInt64): Golazos.EditionData {
 
 
 
+# Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/pds/contracts/PackNFT_TopShot.cdc
+
+```
+import Crypto
+import NonFungibleToken from "NonFungibleToken"
+import FungibleToken from "FungibleToken"
+import IPackNFT from "IPackNFT"
+import MetadataViews from "MetadataViews"
+import ViewResolver from "ViewResolver"
+
+/// Contract that defines Pack NFTs.
+///
+access(all) contract PackNFT: NonFungibleToken, IPackNFT {
+
+    access(all) var totalSupply: UInt64
+    access(all) let version: String
+    access(all) let CollectionStoragePath: StoragePath
+    access(all) let CollectionPublicPath: PublicPath
+    access(all) let CollectionIPackNFTPublicPath: PublicPath
+    access(all) let OperatorStoragePath: StoragePath
+
+    /// Dictionary that stores Pack resources in the contract state (i.e., Pack NFT representations to keep track of states).
+    ///
+    access(contract) let packs: @{UInt64: Pack}
+
+    access(all) event RevealRequest(id: UInt64, openRequest: Bool)
+    access(all) event OpenRequest(id: UInt64)
+    access(all) event Revealed(id: UInt64, salt: [UInt8], nfts: String)
+    access(all) event Opened(id: UInt64)
+    access(all) event Minted(id: UInt64, hash: [UInt8], distId: UInt64)
+    access(all) event Burned(id: UInt64)
+    access(all) event ContractInitialized()
+    access(all) event Withdraw(id: UInt64, from: Address?)
+    access(all) event Deposit(id: UInt64, to: Address?)
+
+    /// Enum that defines the status of a Pack resource.
+    ///
+    access(all) enum Status: UInt8 {
+        access(all) case Sealed
+        access(all) case Revealed
+        access(all) case Opened
+    }
+
+    /// Resource that defines a Pack NFT Operator, responsible for:
+    ///  - Minting Pack NFTs and the corresponding Pack resources that keep track of states,
+    ///  - Revealing sealed Pack resources, and
+    ///  - opening revealed Pack resources.
+    ///
+    access(all) resource PackNFTOperator: IPackNFT.IOperator {
+
+        /// Mint a new Pack NFT resource and corresponding Pack resource; store the Pack resource in the contract's packs dictionary
+        /// and return the Pack NFT resource to the caller.
+        ///
+        access(IPackNFT.Operate) fun mint(distId: UInt64, commitHash: String, issuer: Address): @{IPackNFT.NFT} {
+            let nft <- create NFT(commitHash: commitHash, issuer: issuer)
+            PackNFT.totalSupply = PackNFT.totalSupply + 1
+            let p <- create Pack(commitHash: commitHash, issuer: issuer)
+            PackNFT.packs[nft.id] <-! p
+            emit Minted(id: nft.id, hash: commitHash.decodeHex(), distId: distId)
+            return <- nft
+        }
+
+        /// Reveal a Sealed Pack resource.
+        ///
+        access(IPackNFT.Operate) fun reveal(id: UInt64, nfts: [{IPackNFT.Collectible}], salt: String) {
+            let p <- PackNFT.packs.remove(key: id) ?? panic("no such pack")
+            p.reveal(id: id, nfts: nfts, salt: salt)
+            PackNFT.packs[id] <-! p
+        }
+
+        /// Open a Revealed Pack NFT resource.
+        ///
+        access(IPackNFT.Operate) fun open(id: UInt64, nfts: [{IPackNFT.Collectible}]) {
+            let p <- PackNFT.packs.remove(key: id) ?? panic("no such pack")
+            p.open(id: id, nfts: nfts)
+            PackNFT.packs[id] <-! p
+        }
+
+        /// PackNFTOperator resource initializer.
+        ///
+        view init() {}
+    }
+
+    /// Resource that defines a Pack NFT.
+    ///
+    access(all) resource Pack {
+        access(all) let hash: [UInt8]
+        access(all) let issuer: Address
+        access(all) var status: Status
+        access(all) var salt: [UInt8]?
+
+        access(all) view fun verify(nftString: String): Bool {
+            assert(self.status != Status.Sealed, message: "Pack not revealed yet")
+            var hashString = String.encodeHex(self.salt!)
+            hashString = hashString.concat(",").concat(nftString)
+            let hash = HashAlgorithm.SHA2_256.hash(hashString.utf8)
+            assert(String.encodeHex(self.hash) == String.encodeHex(hash), message: "CommitHash was not verified")
+            return true
+        }
+
+        access(self) fun _verify(nfts: [{IPackNFT.Collectible}], salt: String, commitHash: String): String {
+            var hashString = salt
+            var nftString = nfts[0].hashString()
+            var i = 1
+            while i < nfts.length {
+                let s = nfts[i].hashString()
+                nftString = nftString.concat(",").concat(s)
+                i = i + 1
+            }
+            hashString = hashString.concat(",").concat(nftString)
+            let hash = HashAlgorithm.SHA2_256.hash(hashString.utf8)
+            assert(String.encodeHex(self.hash) == String.encodeHex(hash), message: "CommitHash was not verified")
+            return nftString
+        }
+
+        access(contract) fun reveal(id: UInt64, nfts: [{IPackNFT.Collectible}], salt: String) {
+            assert(self.status == Status.Sealed, message: "Pack status is not Sealed")
+            let v = self._verify(nfts: nfts, salt: salt, commitHash: String.encodeHex(self.hash))
+            self.salt = salt.decodeHex()
+            self.status = Status.Revealed
+            emit Revealed(id: id, salt: salt.decodeHex(), nfts: v)
+        }
+
+        access(contract) fun open(id: UInt64, nfts: [{IPackNFT.Collectible}]) {
+            assert(self.status == Status.Revealed, message: "Pack status is not Revealed")
+            self._verify(nfts: nfts, salt: String.encodeHex(self.salt!), commitHash: String.encodeHex(self.hash))
+            self.status = Status.Opened
+            emit Opened(id: id)
+        }
+
+        /// Pack resource initializer.
+        ///
+        view init(commitHash: String, issuer: Address) {
+            // Set the hash and issuer from the arguments.
+            self.hash = commitHash.decodeHex()
+            self.issuer = issuer
+
+            // Initial status is Sealed.
+            self.status = Status.Sealed
+
+            // Salt is nil until reveal.
+            self.salt = nil
+        }
+    }
+
+    /// Resource that defines a Pack NFT.
+    ///
+    access(all) resource NFT: NonFungibleToken.NFT, IPackNFT.NFT, IPackNFT.IPackNFTToken, IPackNFT.IPackNFTOwnerOperator, ViewResolver.Resolver {
+        /// This NFT's unique ID.
+        ///
+        access(all) let id: UInt64
+
+        /// This NFT's commit hash, used to verify the IDs of the NFTs in the Pack.
+        ///
+        access(all) let hash: [UInt8]
+
+        /// This NFT's issuer.
+        ///
+        access(all) let issuer: Address
+
+        /// Event emitted when a NFT is destroyed (replaces Burned event before Cadence 1.0 update)
+        ///
+        access(all) event ResourceDestroyed(id: UInt64 = self.id)
+
+        /// Executed by calling the Burner contract's burn method (i.e., conforms to the Burnable interface)
+        ///
+        access(contract) fun burnCallback() {
+            PackNFT.totalSupply = PackNFT.totalSupply - 1
+            destroy <- PackNFT.packs.remove(key: self.id) ?? panic("no such pack")
+        }
+
+        /// NFT resource initializer.
+        ///
+        view init(commitHash: String, issuer: Address) {
+            self.id = self.uuid
+            self.hash = commitHash.decodeHex()
+            self.issuer = issuer
+        }
+
+        /// Create an empty Collection for Pinnacle NFTs and return it to the caller
+        ///
+        access(all) fun createEmptyCollection(): @{NonFungibleToken.Collection} {
+            return <- PackNFT.createEmptyCollection(nftType: Type<@NFT>())
+        }
+
+        /// Return the metadata view types available for this NFT.
+        ///
+        access(all) view fun getViews(): [Type] {
+            return [
+                Type<MetadataViews.Display>(),
+                Type<MetadataViews.ExternalURL>(),
+                Type<MetadataViews.Medias>(),
+                Type<MetadataViews.NFTCollectionData>(),
+                Type<MetadataViews.NFTCollectionDisplay>(),
+                Type<MetadataViews.Royalties>(),
+                Type<MetadataViews.Serial>()
+            ]
+        }
+
+        /// Resolve this NFT's metadata views.
+        ///
+        access(all) view fun resolveView(_ view: Type): AnyStruct? {
+            switch view {
+                case Type<MetadataViews.Display>():
+                    return MetadataViews.Display(
+                        name: "NBA Top Shot Pack",
+                        description: "Reveals official NBA Top Shot Moments when opened",
+                        thumbnail: MetadataViews.HTTPFile(url: self.getImage(imageType: "image", format: "jpeg", width: 256))
+                    )
+                case Type<MetadataViews.ExternalURL>():
+                    return MetadataViews.ExternalURL("https://nbatopshot.com/packnfts/".concat(self.id.toString())) // might have to make a URL that redirects to packs page based on packNFT id -> distribution id
+                case Type<MetadataViews.Medias>():
+                    return MetadataViews.Medias(
+                        [
+                            MetadataViews.Media(
+                                file: MetadataViews.HTTPFile(url: self.getImage(imageType: "image", format: "jpeg", width: 512)),
+                                mediaType: "image/jpeg"
+                            )
+                        ]
+                    )
+                case Type<MetadataViews.NFTCollectionData>():
+                    return MetadataViews.NFTCollectionData(
+                        storagePath: PackNFT.CollectionStoragePath,
+                        publicPath: PackNFT.CollectionPublicPath,
+                        publicCollection: Type<&Collection>(),
+                        publicLinkedType: Type<&Collection>(),
+                        createEmptyCollectionFunction: (fun (): @{NonFungibleToken.Collection} {
+                            return <-PackNFT.createEmptyCollection(nftType: Type<@NFT>())
+                        })
+                    )
+                case Type<MetadataViews.NFTCollectionDisplay>():
+                    let bannerImage = MetadataViews.Media(
+                        file: MetadataViews.HTTPFile(
+                            url: "https://nbatopshot.com/static/img/top-shot-logo-horizontal-white.svg"
+                        ),
+                        mediaType: "image/svg+xml"
+                    )
+                    let squareImage = MetadataViews.Media(
+                        file: MetadataViews.HTTPFile(
+                            url: "https://nbatopshot.com/static/img/og/og.png"
+                        ),
+                        mediaType: "image/png"
+                    )
+                    return MetadataViews.NFTCollectionDisplay(
+                        name: "NBA-Top-Shot-Packs",
+                        description: "NBA Top Shot is your chance to own, sell, and trade official digital collectibles of the NBA and WNBA's greatest plays and players",
+                        externalURL: MetadataViews.ExternalURL("https://nbatopshot.com/"),
+                        squareImage: squareImage,
+                        bannerImage: bannerImage,
+                        socials: {
+                            "twitter": MetadataViews.ExternalURL("https://twitter.com/nbatopshot"),
+                            "discord": MetadataViews.ExternalURL("https://discord.com/invite/nbatopshot"),
+                            "instagram": MetadataViews.ExternalURL("https://www.instagram.com/nbatopshot")
+                        }
+                    )
+                case Type<MetadataViews.Royalties>():
+                    let royaltyReceiver: Capability<&{FungibleToken.Receiver}> =
+                        getAccount({{.RoyaltyAddress}}).capabilities.get<&{FungibleToken.Receiver}>(MetadataViews.getRoyaltyReceiverPublicPath())
+                    return MetadataViews.Royalties(
+                        [
+                            MetadataViews.Royalty(
+                                receiver: royaltyReceiver,
+                                cut: 0.05,
+                                description: "NBA Top Shot marketplace royalty"
+                            )
+                        ]
+                    )
+                case Type<MetadataViews.Serial>():
+                    return MetadataViews.Serial(self.id)
+            }
+            return nil
+        }
+
+        /// Return an asset path.
+        ///
+        access(all) view fun assetPath(): String {
+            // this path is normative -> it does not yet have pack related assets here
+            return "https://media.nbatopshot.com/packnfts/".concat(self.id.toString()).concat("/media/")
+        }
+
+        /// Return an image path.
+        ///
+        access(all) view fun getImage(imageType: String, format: String, width: Int): String {
+            return self.assetPath().concat(imageType).concat("?format=").concat(format).concat("&width=").concat(width.toString())
+        }
+    }
+
+    /// Resource that defines a Collection of Pack NFTs.
+    ///
+    access(all) resource Collection: NonFungibleToken.Collection, IPackNFT.IPackNFTCollectionPublic, ViewResolver.ResolverCollection {
+        /// Dictionary of NFT conforming tokens.
+        /// NFT is a resource type with a UInt64 ID field.
+        ///
+        access(all) var ownedNFTs: @{UInt64: {NonFungibleToken.NFT}}
+
+        /// Collection resource initializer,
+        ///
+        view init() {
+            self.ownedNFTs <- {}
+        }
+
+        /// Remove an NFT from the collection and moves it to the caller.
+        ///
+        access(NonFungibleToken.Withdraw) fun withdraw(withdrawID: UInt64): @{NonFungibleToken.NFT} {
+            let token <- self.ownedNFTs.remove(key: withdrawID) ?? panic("missing NFT")
+
+            // Withdrawn event emitted from NonFungibleToken contract interface.
+            emit Withdraw(id: token.id, from: self.owner?.address) // TODO: Consider removing
+            return <- token
+        }
+
+        /// Deposit an NFT into this Collection.
+        ///
+        access(all) fun deposit(token: @{NonFungibleToken.NFT}) {
+            let token <- token as! @NFT
+            let id: UInt64 = token.id
+            // Add the new token to the dictionary which removes the old one.
+            let oldToken <- self.ownedNFTs[id] <- token
+
+            // Deposited event emitted from NonFungibleToken contract interface.
+            emit Deposit(id: id, to: self.owner?.address)  // TODO: Consider removing
+            destroy oldToken
+        }
+
+        /// Emit a RevealRequest event to signal a Sealed Pack NFT should be revealed.
+        ///
+        access(NonFungibleToken.Update) fun emitRevealRequestEvent(id: UInt64, openRequest: Bool) {
+            pre {
+                self.borrowNFT(id) != nil: "NFT with provided ID must exist in the collection"
+                PackNFT.borrowPackRepresentation(id: id)!.status.rawValue == Status.Sealed.rawValue: "Pack status must be Sealed for reveal request"
+            }
+            emit RevealRequest(id: id, openRequest: openRequest)
+        }
+
+        /// Emit an OpenRequest event to signal a Revealed Pack NFT should be opened.
+        ///
+        access(NonFungibleToken.Update) fun emitOpenRequestEvent(id: UInt64) {
+            pre {
+                self.borrowNFT(id) != nil: "NFT with provided ID must exist in the collection"
+                PackNFT.borrowPackRepresentation(id: id)!.status.rawValue == Status.Revealed.rawValue: "Pack status must be Revealed for open request"
+            }
+            emit OpenRequest(id: id)
+        }
+
+        /// Return an array of the IDs that are in the collection.
+        ///
+        access(all) view fun getIDs(): [UInt64] {
+            return self.ownedNFTs.keys
+        }
+
+        /// Return the amount of NFTs stored in the collection.
+        ///
+        access(all) view fun getLength(): Int {
+            return self.ownedNFTs.length
+        }
+
+        /// Return a list of NFT types that this receiver accepts.
+        ///
+        access(all) view fun getSupportedNFTTypes(): {Type: Bool} {
+            let supportedTypes: {Type: Bool} = {}
+            supportedTypes[Type<@NFT>()] = true
+            return supportedTypes
+        }
+
+        /// Return whether or not the given type is accepted by the collection.
+        ///
+        access(all) view fun isSupportedNFTType(type: Type): Bool {
+            if type == Type<@NFT>() {
+                return true
+            }
+            return false
+        }
+
+        /// Return a reference to an NFT in the Collection.
+        ///
+        access(all) view fun borrowNFT(_ id: UInt64): &{NonFungibleToken.NFT}? {
+            return &self.ownedNFTs[id]
+        }
+
+        /// Return a reference to a ViewResolver for an NFT in the Collection.
+        ///
+        access(all) view fun borrowViewResolver(id: UInt64): &{ViewResolver.Resolver}? {
+            if let nft = &self.ownedNFTs[id] as &{NonFungibleToken.NFT}? {
+                return nft as &{ViewResolver.Resolver}
+            }
+            return nil
+        }
+
+        /// Create an empty Collection of the same type and returns it to the caller.
+        ///
+        access(all) fun createEmptyCollection(): @{NonFungibleToken.Collection} {
+            return <-PackNFT.createEmptyCollection(nftType: Type<@NFT>())
+        }
+    }
+
+    access(all) fun publicReveal(id: UInt64, nfts: [{IPackNFT.Collectible}], salt: String) {
+        let p = PackNFT.borrowPackRepresentation(id: id) ?? panic ("No such pack")
+        p.reveal(id: id, nfts: nfts, salt: salt)
+    }
+
+    /// Return a reference to a Pack resource stored in the contract state.
+    ///
+    access(all) view fun borrowPackRepresentation(id: UInt64): &Pack? {
+        return (&self.packs[id] as &Pack?)!
+    }
+
+    /// Create an empty Collection for Pack NFTs and return it to the caller.
+    ///
+    access(all) fun createEmptyCollection(nftType: Type): @{NonFungibleToken.Collection} {
+        if nftType != Type<@NFT>() {
+            panic("NFT type is not supported")
+        }
+        return <- create Collection()
+    }
+
+    /// Return the metadata views implemented by this contract.
+    ///
+    /// @return An array of Types defining the implemented views. This value will be used by
+    ///         developers to know which parameter to pass to the resolveView() method.
+    ///
+    access(all) view fun getContractViews(resourceType: Type?): [Type] {
+        return [
+            Type<MetadataViews.NFTCollectionData>()
+        ]
+    }
+
+    /// Resolve a metadata view for this contract.
+    ///
+    /// @param view: The Type of the desired view.
+    /// @return A structure representing the requested view.
+    ///
+    access(all) view fun resolveContractView(resourceType: Type?, viewType: Type): AnyStruct? {
+        switch viewType {
+            case Type<MetadataViews.NFTCollectionData>():
+                let collectionData = MetadataViews.NFTCollectionData(
+                    storagePath: PackNFT.CollectionStoragePath,
+                    publicPath: PackNFT.CollectionPublicPath,
+                    publicCollection: Type<&Collection>(),
+                    publicLinkedType: Type<&Collection>(),
+                    createEmptyCollectionFunction: (fun(): @{NonFungibleToken.Collection} {
+                        return <-PackNFT.createEmptyCollection(nftType: Type<@NFT>())
+                    })
+                )
+                return collectionData
+        }
+        return nil
+    }
+
+    /// PackNFT contract initializer.
+    ///
+    init(
+        CollectionStoragePath: StoragePath,
+        CollectionPublicPath: PublicPath,
+        CollectionIPackNFTPublicPath: PublicPath,
+        OperatorStoragePath: StoragePath,
+        version: String
+    ) {
+        self.totalSupply = 0
+        self.packs <- {}
+        self.CollectionStoragePath = CollectionStoragePath
+        self.CollectionPublicPath = CollectionPublicPath
+        self.CollectionIPackNFTPublicPath = CollectionIPackNFTPublicPath
+        self.OperatorStoragePath = OperatorStoragePath
+        self.version = version
+
+        // Create a collection to receive Pack NFTs and publish public receiver capabilities.
+        self.account.storage.save(<- create Collection(), to: self.CollectionStoragePath)
+        self.account.capabilities.publish(
+            self.account.capabilities.storage.issue<&{NonFungibleToken.CollectionPublic}>(self.CollectionStoragePath),
+            at: self.CollectionPublicPath
+        )
+        self.account.capabilities.publish(
+            self.account.capabilities.storage.issue<&{IPackNFT.IPackNFTCollectionPublic}>(self.CollectionStoragePath),
+            at: self.CollectionIPackNFTPublicPath
+        )
+
+        // Create a Pack NFT operator to share mint capability with proxy.
+        self.account.storage.save(<- create PackNFTOperator(), to: self.OperatorStoragePath)
+        self.account.capabilities.storage.issue<&{IPackNFT.IOperator}>(self.OperatorStoragePath)
+    }
+
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/epl-nft/transactions/admin/create_play.cdc
 
 ```
@@ -395058,6 +404987,40 @@ transaction(name: String) {
     }
 }
 
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/pds/scripts/exampleNFT/borrow_nft.cdc
+
+```
+import NonFungibleToken from "NonFungibleToken"
+import ExampleNFT from "ExampleNFT"
+
+// This script borrows an NFT from a collection
+access(all) fun main(address: Address, id: UInt64) {
+    let collectionData = ExampleNFT.resolveContractView(resourceType: nil, viewType: Type<MetadataViews.NFTCollectionData>()) as! MetadataViews.NFTCollectionData?
+        ?? panic("ViewResolver does not resolve NFTCollectionData view")
+
+    let account = getAccount(address)
+
+    let collectionRef = getAccount(address).capabilities.borrow<
+        &ExampleNFT.Collection>(collectionData.publicPath)!
+
+    // Borrow a reference to a specific NFT in the collection
+    let _ = collectionRef.borrowNFT(id)
+}
 
 ```
 
@@ -397355,6 +407318,31 @@ transaction(nftWithdrawCapPath: StoragePath, title: String, metadata: {String: S
             metadata: metadata,
         )
     }
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/pds/scripts/packNFT/packNFT_status.cdc
+
+```
+import PackNFT from "PackNFT"
+import IPackNFT from "IPackNFT"
+
+access(all) fun main(id: UInt64): UInt8 {
+    let p = PackNFT.borrowPackRepresentation(id: id)
+    return p!.status.rawValue
 }
 
 ```
@@ -402200,6 +412188,29 @@ import DSSCollection from "../../contracts/DSSCollection.cdc"
 pub fun main(collectionGroupId: UInt64): UInt64 {
     let count = DSSCollection.collectionGroupNFTCount[collectionGroupId] ?? 0
     return count
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/pds/scripts/pds/get_next_dist_id.cdc
+
+```
+import PDS from "PDS"
+
+access(all) fun main(): UInt64 {
+    return PDS.nextDistId
 }
 
 ```
@@ -411907,6 +421918,412 @@ access(all) fun main(acctAddress: Address): [UInt64]? {
 
 
 
+# Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/pds/contracts/PDS.cdc
+
+```
+import NonFungibleToken from "NonFungibleToken"
+import IPackNFT from "IPackNFT"
+
+/// The Pack Distribution Service (PDS) contract is responsible for creating and managing distributions of packs.
+///
+access(all) contract PDS{
+    /// Entitlement that grants the ability to operate PDS functionalities.
+    ///
+    access(all) entitlement Operate
+
+    access(all) var version: String
+    access(all) let PackIssuerStoragePath: StoragePath
+    access(all) let PackIssuerCapRecv: PublicPath
+    access(all) let DistCreatorStoragePath: StoragePath
+    access(all) let DistManagerStoragePath: StoragePath
+
+    /// The next distribution ID to be used.
+    ///
+    access(all) var nextDistId: UInt64
+
+    /// Dictionary that stores distribution IDs to distribution details in the contract state.
+    ///
+    access(contract) let Distributions: {UInt64: DistInfo}
+
+    /// Dictionary that stores distribution IDs to shared capabilities in the contract state.
+    ///
+    access(contract) let DistSharedCap: @{UInt64: SharedCapabilities}
+
+    /// Emitted when an issuer has created a distribution.
+    ///
+    access(all) event DistributionCreated(DistId: UInt64, title: String, metadata: {String: String}, state: UInt8)
+
+    /// Emitted when an issuer has updated a distribution.
+    ///
+    access(all) event DistributionUpdated(DistId: UInt64, title: String, metadata: {String: String}, state: UInt8)
+
+    /// Emmitted when a distribution manager has updated a distribution state.
+    ///
+    access(all) event DistributionStateUpdated(DistId: UInt64, state: UInt8)
+
+    /// Enum that defines the status of a Distribution.
+    ///
+    access(all) enum DistState: UInt8 {
+        access(all) case Initialized
+        access(all) case Invalid
+        access(all) case Complete
+    }
+
+    /// Struct that defines the details of a Distribution.
+    ///
+    access(all) struct DistInfo {
+        access(all) var title: String
+        access(all) var metadata: {String: String}
+        access(all) var state: PDS.DistState
+
+        access(contract) fun setState(newState: PDS.DistState) {
+            self.state = newState
+        }
+
+        access(contract) fun update(title: String, metadata: {String: String}) {
+            self.title = title
+            self.metadata = metadata
+        }
+
+        /// DistInfo struct initializer.
+        ///
+        view init(title: String, metadata: {String: String}) {
+            self.title = title
+            self.metadata = metadata
+            self.state = PDS.DistState.Initialized
+        }
+    }
+
+    /// Struct that defines a Collectible.
+    ///
+    access(all) struct Collectible: IPackNFT.Collectible {
+        access(all) let address: Address
+        access(all) let contractName: String
+        access(all) let id: UInt64
+
+        // returning in string so that it is more readable and anyone can check the hash
+        access(all) view fun hashString(): String {
+            // address string is 16 characters long with 0x as prefix (for 8 bytes in hex)
+            // example: ,f3fcd2c1a78f5ee.ExampleNFT.12
+            let c = "A."
+            var a = ""
+            let addrStr = self.address.toString()
+            if addrStr.length < 18 {
+                let padding = 18 - addrStr.length
+                let p = "0"
+                var i = 0
+                a = addrStr.slice(from: 2, upTo: addrStr.length)
+                while i < padding {
+                    a = p.concat(a)
+                    i = i + 1
+                }
+            } else {
+                a = addrStr.slice(from: 2, upTo: 18)
+            }
+            return c.concat(a).concat(".").concat(self.contractName).concat(".").concat(self.id.toString())
+        }
+
+        /// Collectible struct initializer.
+        ///
+        view init(address: Address, contractName: String, id: UInt64) {
+            self.address = address
+            self.contractName = contractName
+            self.id = id
+        }
+    }
+
+    /// Resource that defines the shared capabilities required for creating and managing Pack NFTs.
+    ///
+    access(all) resource SharedCapabilities {
+        /// Capability to withdraw NFTs from the issuer.
+        ///
+        access(self) let withdrawCap: Capability<auth(NonFungibleToken.Withdraw) &{NonFungibleToken.Provider}>
+
+        /// Capability to mint, reveal, and open Pack NFTs.
+        ///
+        access(self) let operatorCap: Capability<auth(IPackNFT.Operate) &{IPackNFT.IOperator}>
+
+        /// Withdraw an NFT from the issuer.
+        ///
+        access(contract) fun withdrawFromIssuer(withdrawID: UInt64): @{NonFungibleToken.NFT} {
+            let c = self.withdrawCap.borrow() ?? panic("no such cap")
+            return <- c.withdraw(withdrawID: withdrawID)
+        }
+
+        /// Mint Pack NFTs.
+        ///
+        access(contract) fun mintPackNFT(distId: UInt64, commitHashes: [String], issuer: Address, recvCap: &{NonFungibleToken.CollectionPublic}) {
+            var i = 0
+            let c = self.operatorCap.borrow() ?? panic("no such cap")
+            while i < commitHashes.length{
+                let nft <- c.mint(distId: distId, commitHash: commitHashes[i], issuer: issuer)
+                i = i + 1
+                let n <- nft
+                recvCap.deposit(token: <- n)
+            }
+        }
+
+        /// Reveal Pack NFTs.
+        ///
+        access(contract) fun revealPackNFT(packId: UInt64, nfts: [{IPackNFT.Collectible}], salt: String) {
+            let c = self.operatorCap.borrow() ?? panic("no such cap")
+            c.reveal(id: packId, nfts: nfts, salt: salt)
+        }
+
+        /// Open Pack NFTs.
+        ///
+        access(contract) fun openPackNFT(packId: UInt64, nfts: [{IPackNFT.Collectible}], recvCap: &{NonFungibleToken.CollectionPublic}, collectionStoragePath: StoragePath?) {
+            let c = self.operatorCap.borrow() ?? panic("no such cap")
+            let toReleaseNFTs: [UInt64] = []
+            var i = 0
+            while i < nfts.length {
+                toReleaseNFTs.append(nfts[i].id)
+                i = i + 1
+            }
+            c.open(id: packId, nfts: nfts)
+            if collectionStoragePath == nil {
+                self.fulfillFromIssuer(nftIds: toReleaseNFTs, recvCap: recvCap)
+            } else {
+                self.releaseEscrow(nftIds: toReleaseNFTs, recvCap: recvCap , collectionStoragePath: collectionStoragePath!)
+            }
+        }
+
+        /// Release escrowed NFTs to the receiver.
+        ///
+        access(contract) fun releaseEscrow(nftIds: [UInt64], recvCap: &{NonFungibleToken.CollectionPublic}, collectionStoragePath: StoragePath) {
+            let pdsCollection = PDS.account.storage.borrow<auth(NonFungibleToken.Withdraw) &{NonFungibleToken.Collection}>(from: collectionStoragePath)
+                ?? panic("Unable to borrow PDS collection provider capability from private path")
+            var i = 0
+            while i < nftIds.length {
+                recvCap.deposit(token: <- pdsCollection.withdraw(withdrawID: nftIds[i]))
+                i = i + 1
+            }
+        }
+
+        /// Release NFTs from the issuer to the receiver.
+        ///
+        access(contract) fun fulfillFromIssuer(nftIds: [UInt64], recvCap:  &{NonFungibleToken.CollectionPublic}) {
+            let issuerCollection = self.withdrawCap.borrow() ?? panic("Unable to borrow withdrawCap")
+            var i = 0
+            while i < nftIds.length {
+                recvCap.deposit(token: <- issuerCollection.withdraw(withdrawID: nftIds[i]))
+                i = i + 1
+            }
+        }
+
+        /// SharedCapabilities resource initializer.
+        ///
+        view init(
+            withdrawCap: Capability<auth(NonFungibleToken.Withdraw) &{NonFungibleToken.Provider}>,
+            operatorCap: Capability<auth(IPackNFT.Operate) &{IPackNFT.IOperator}>
+        ) {
+            self.withdrawCap = withdrawCap
+            self.operatorCap = operatorCap
+        }
+    }
+
+
+    // Included for backwards compatibility.
+    access(all) resource interface PackIssuerCapReciever {}
+
+    /// Resource that defines the issuer of a pack.
+    ///
+    access(all) resource PackIssuer: PackIssuerCapReciever {
+        access(self) var cap: Capability<&DistributionCreator>?
+
+        /// Set the capability to create a distribution; the function is publicly accessible but requires a capability argument to a DistrubutionCreator admin resource.
+        ///
+        access(all) fun setDistCap(cap: Capability<&DistributionCreator>) {
+            pre {
+                cap.check(): "Invalid capability"
+            }
+            self.cap = cap
+        }
+
+        access(Operate) fun createDist(sharedCap: @SharedCapabilities, title: String, metadata: {String: String}) {
+            assert(title.length > 0, message: "Title must not be empty")
+            let c = self.cap!.borrow()!
+            c.createNewDist(sharedCap: <- sharedCap, title: title, metadata: metadata)
+        }
+
+        /// PackIssuer resource initializer.
+        ///
+        view init() {
+            self.cap = nil
+        }
+    }
+
+    // Included for backwards compatibility.
+    access(all) resource interface IDistCreator {}
+
+    /// Resource that defines the creator of a distribution.
+    ///
+    access(all) resource DistributionCreator: IDistCreator {
+        access(contract) fun createNewDist(sharedCap: @SharedCapabilities, title: String, metadata: {String: String}) {
+            let currentId = PDS.nextDistId
+            PDS.DistSharedCap[currentId] <-! sharedCap
+            PDS.Distributions[currentId] = DistInfo(title: title, metadata: metadata)
+            PDS.nextDistId = currentId + 1
+            emit DistributionCreated(DistId: currentId, title: title, metadata: metadata, state: 0)
+        }
+    }
+
+    /// Resource that defines the manager of a distribution.
+    ///
+    access(all) resource DistributionManager {
+        access(Operate) fun updateDistState(distId: UInt64, state: PDS.DistState) {
+            let d = PDS.Distributions.remove(key: distId) ?? panic ("No such distribution")
+            d.setState(newState: state)
+            PDS.Distributions.insert(key: distId, d)
+            emit DistributionStateUpdated(DistId: distId, state: state.rawValue)
+        }
+
+        access(Operate) fun updateDist(distId: UInt64, title: String, metadata: {String: String}) {
+            pre {
+                title.length > 0: "Title must not be empty"
+            }
+            let d = PDS.Distributions.remove(key: distId) ?? panic ("No such distribution")
+            d.update(title: title, metadata: metadata)
+            PDS.Distributions.insert(key: distId, d)
+            emit DistributionUpdated(DistId: distId, title: title, metadata: metadata, state: d.state.rawValue)
+        }
+
+        access(Operate) fun withdraw(distId: UInt64, nftIDs: [UInt64], escrowCollectionPublic: PublicPath) {
+            assert(PDS.DistSharedCap.containsKey(distId), message: "No such distribution")
+            let d <- PDS.DistSharedCap.remove(key: distId)!
+            let pdsCollection = PDS.getManagerCollectionCap(escrowCollectionPublic: escrowCollectionPublic).borrow()!
+            var i = 0
+            while i < nftIDs.length {
+                let nft <- d.withdrawFromIssuer(withdrawID: nftIDs[i])
+                pdsCollection.deposit(token:<-nft)
+                i = i + 1
+            }
+            PDS.DistSharedCap[distId] <-! d
+        }
+
+        access(Operate) fun mintPackNFT(distId: UInt64, commitHashes: [String], issuer: Address, recvCap: &{NonFungibleToken.CollectionPublic}) {
+            assert(PDS.DistSharedCap.containsKey(distId), message: "No such distribution")
+            let d <- PDS.DistSharedCap.remove(key: distId)!
+            d.mintPackNFT(distId: distId, commitHashes: commitHashes, issuer: issuer, recvCap: recvCap)
+            PDS.DistSharedCap[distId] <-! d
+        }
+
+        access(Operate) fun revealPackNFT(distId: UInt64, packId: UInt64, nftContractAddrs: [Address], nftContractNames: [String], nftIds: [UInt64], salt: String) {
+            assert(PDS.DistSharedCap.containsKey(distId), message: "No such distribution")
+            assert(
+                nftContractAddrs.length == nftContractNames.length &&
+                nftContractNames.length == nftIds.length,
+                message: "NFTs must be fully described"
+            )
+            let d <- PDS.DistSharedCap.remove(key: distId)!
+            let arr: [{IPackNFT.Collectible}] = []
+            var i = 0
+            while i < nftContractAddrs.length {
+                let s = Collectible(address: nftContractAddrs[i], contractName: nftContractNames[i], id: nftIds[i])
+                arr.append(s)
+                i = i + 1
+            }
+            d.revealPackNFT(packId: packId, nfts: arr, salt: salt)
+            PDS.DistSharedCap[distId] <-! d
+        }
+
+        access(Operate) fun openPackNFT(
+            distId: UInt64,
+            packId: UInt64,
+            nftContractAddrs: [Address],
+            nftContractNames: [String],
+            nftIds: [UInt64],
+            recvCap: &{NonFungibleToken.CollectionPublic},
+            collectionStoragePath: StoragePath?
+        ) {
+            assert(PDS.DistSharedCap.containsKey(distId), message: "No such distribution")
+            let d <- PDS.DistSharedCap.remove(key: distId)!
+            let arr: [{IPackNFT.Collectible}] = []
+            var i = 0
+            while i < nftContractAddrs.length {
+                let s = Collectible(address: nftContractAddrs[i], contractName: nftContractNames[i], id: nftIds[i])
+                arr.append(s)
+                i = i + 1
+            }
+            d.openPackNFT(packId: packId, nfts: arr, recvCap: recvCap, collectionStoragePath: collectionStoragePath)
+            PDS.DistSharedCap[distId] <-! d
+        }
+
+    }
+
+    /// Returns the manager collection capability to receive NFTs to be escrowed.
+    ///
+    access(contract) view fun getManagerCollectionCap(escrowCollectionPublic: PublicPath): Capability<&{NonFungibleToken.CollectionPublic}> {
+        let pdsCollection = self.account.capabilities.get<&{NonFungibleToken.CollectionPublic}>(escrowCollectionPublic)!
+        assert(pdsCollection.check(), message: "Please ensure PDS has created and linked a Collection for recieving escrows")
+        return pdsCollection
+    }
+
+
+
+    /// Create a PackIssuer resource and return it to the caller.
+    access(all) fun createPackIssuer(): @PackIssuer{
+        return <- create PackIssuer()
+    }
+
+    /// Create a SharedCapabilities resource and return it to the caller.
+    ///
+    access(all) fun createSharedCapabilities(
+        withdrawCap: Capability<auth(NonFungibleToken.Withdraw) &{NonFungibleToken.Provider}>,
+        operatorCap: Capability<auth(IPackNFT.Operate) &{IPackNFT.IOperator}>
+    ): @SharedCapabilities {
+        return <- create SharedCapabilities(
+            withdrawCap: withdrawCap,
+            operatorCap: operatorCap
+        )
+    }
+
+    /// Returns the details of a distribution if it exists, nil otherwise.
+    ///
+    access(all) view fun getDistInfo(distId: UInt64): DistInfo? {
+        return PDS.Distributions[distId]
+    }
+
+    /// PDS contract initializer.
+    ///
+    init(
+        PackIssuerStoragePath: StoragePath,
+        PackIssuerCapRecv: PublicPath,
+        DistCreatorStoragePath: StoragePath,
+        DistManagerStoragePath: StoragePath,
+        version: String
+    ) {
+        self.nextDistId = 1
+        self.DistSharedCap <- {}
+        self.Distributions = {}
+        self.PackIssuerStoragePath = PackIssuerStoragePath
+        self.PackIssuerCapRecv = PackIssuerCapRecv
+        self.DistCreatorStoragePath = DistCreatorStoragePath
+        self.DistManagerStoragePath = DistManagerStoragePath
+        self.version = version
+
+        // Create a DistributionCreator resource to share create capability with PackIssuer.
+        self.account.storage.save(<- create DistributionCreator(), to: self.DistCreatorStoragePath)
+
+        // Create a DistributionManager resource to manager distributions (withdraw for escrow, mint PackNFT todo: reveal / transfer).
+        self.account.storage.save(<- create DistributionManager(), to: self.DistManagerStoragePath)
+    }
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/dss-collection-nft/contracts/flow-utils/ArrayUtils.cdc
 
 ```
@@ -412008,6 +422425,39 @@ pub fun main(): UInt64 {
 
 
 
+# Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/pds/scripts/exampleNFT/get_collection_length.cdc
+
+```
+import NonFungibleToken from "NonFungibleToken"
+import ExampleNFT from "ExampleNFT"
+
+// This script returns the number of NFTs in the collection of the given address
+access(all) fun main(address: Address): Int {
+    let collectionData = ExampleNFT.resolveContractView(resourceType: nil, viewType: Type<MetadataViews.NFTCollectionData>()) as! MetadataViews.NFTCollectionData?
+        ?? panic("ViewResolver does not resolve NFTCollectionData view")
+
+    let account = getAccount(address)
+
+    let collectionRef = getAccount(address).capabilities.borrow<
+        &ExampleNFT.Collection>(collectionData.publicPath)!
+
+    return collectionRef.getIDs().length
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/nft-provider-aggregator/transactions/exampleNFT/link_providerCap_exampleNFT.cdc
 
 ```
@@ -412032,6 +422482,40 @@ transaction (nftWithdrawCapPath: StoragePath) {
             to: nftWithdrawCapPath
         )
     }
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/pds/scripts/exampleNFT/get_collection_nft_ids.cdc
+
+```
+import NonFungibleToken from "NonFungibleToken"
+import ExampleNFT from "ExampleNFT"
+
+// This script returns the IDs of the NFTs in the collection
+access(all) fun main(address: Address): [UInt64] {
+    let collectionData = ExampleNFT.resolveContractView(resourceType: nil, viewType: Type<MetadataViews.NFTCollectionData>()) as! MetadataViews.NFTCollectionData?
+        ?? panic("ViewResolver does not resolve NFTCollectionData view")
+
+    let account = getAccount(address)
+
+    let collectionRef = getAccount(address).capabilities.borrow<
+        &ExampleNFT.Collection>(collectionData.publicPath)!
+
+    // Return the IDs of the NFTs in the collection
+    return collectionRef.getIDs()
 }
 
 ```
@@ -413111,6 +423595,30 @@ access(all) fun main(address: Address, id: UInt64): [AnyStruct] {
 
 
 
+# Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/pds/scripts/packNFT/checksum.cdc
+
+```
+import Crypto
+access(all) fun main(toHash: String): String {
+    let hashB2 = HashAlgorithm.SHA2_256.hash(toHash.utf8)
+    log(String.encodeHex(hashB2))
+    return String.encodeHex(hashB2)
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/dss-collection-nft/transactions/admin/create_item_in_slot.cdc
 
 ```
@@ -413141,6 +423649,29 @@ transaction(
     }
 }
 
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/pds/scripts/pds/get_dist_state.cdc
+
+```
+import PDS from "PDS"
+
+access(all) fun main(distId: UInt64): UInt8 {
+    return PDS.getDistInfo(distId: distId)!.state.rawValue
+}
 
 ```
 
@@ -418323,6 +428854,33 @@ pub contract Bobblz_NFT: NonFungibleToken {
 
         emit ContractInitialized()
 	}
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/pds/scripts/packNFT/has_packNFT_collection.cdc
+
+```
+import PackNFT from "PackNFT"
+
+/// Check if an account has been set up to hold PackNFTs.
+///
+access(all) fun main(address: Address): Bool {
+    let account = getAccount(address)
+    return account.capabilities.borrow<
+        &PackNFT.Collection>(PackNFT.CollectionPublicPath) != nil
 }
 
 ```

@@ -1,6 +1,7 @@
 # Source: https://github.com/onflow/flow-evm-bridge/blob/main/solidity/src/interfaces/ICrossVM.sol
 
 ```
+// SPDX-License-Identifier: Unlicense
 pragma solidity 0.8.24;
 
 interface ICrossVM {
