@@ -21045,6 +21045,91 @@ access(all) fun main(payerAcct: Address, inclusionEffort: UFix64, maxExecutionEf
 
 
 
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/tests/transactions/schedule_tx_with_different_handler.cdc
+
+```
+import "FlowTransactionScheduler"
+import "FlowTransactionSchedulerUtils"
+import "TestFlowScheduledTransactionHandler"
+import "FlowToken"
+import "FungibleToken"
+
+// This transaction uses a TEST CONTRACT and tests different non-standard handler types
+// It shouldn't be directly used in production!
+// This transaction is designed solely for testing FlowTransactionScheduler functionality
+// and contains implementations that are specific to the tests
+//
+// Replace this transaction with your own implementation when using FlowTransactionScheduler
+//
+
+transaction(timestamp: UFix64, feeAmount: UFix64, effort: UInt64, priority: UInt8, testData: AnyStruct?) {
+
+    prepare(account: auth(BorrowValue, SaveValue, IssueStorageCapabilityController, PublishCapability, GetStorageCapabilityController) &Account) {
+        
+        // If a transaction handler has not been created for this account yet, create one,
+        // store it, and issue a capability that will be used to create the transaction
+        if !account.storage.check<@TestFlowScheduledTransactionHandler.Handler>(from: /storage/secondTestHandler) {
+            let handler <- TestFlowScheduledTransactionHandler.createHandler()
+        
+            account.storage.save(<-handler, to: /storage/secondTestHandler)
+            account.capabilities.storage.issue<auth(FlowTransactionScheduler.Execute) &{FlowTransactionScheduler.TransactionHandler}>(/storage/secondTestHandler)
+            
+            let publicHandlerCap = account.capabilities.storage.issue<&{FlowTransactionScheduler.TransactionHandler}>(/storage/secondTestHandler)
+            account.capabilities.publish(publicHandlerCap, at: /public/secondTestHandler)
+        }
+
+        // Get the entitled capability that will be used to create the transaction
+        // Need to check both controllers because the order of controllers is not guaranteed
+        var handlerCap: Capability<auth(FlowTransactionScheduler.Execute) &{FlowTransactionScheduler.TransactionHandler}>? = nil
+        
+        if let cap = account.capabilities.storage
+                            .getControllers(forPath: /storage/secondTestHandler)[0]
+                            .capability as? Capability<auth(FlowTransactionScheduler.Execute) &{FlowTransactionScheduler.TransactionHandler}> {
+            handlerCap = cap
+        } else {
+            handlerCap = account.capabilities.storage
+                            .getControllers(forPath: /storage/secondTestHandler)[1]
+                            .capability as! Capability<auth(FlowTransactionScheduler.Execute) &{FlowTransactionScheduler.TransactionHandler}>
+        }
+        
+        // borrow a reference to the vault that will be used for fees
+        let vault = account.storage.borrow<auth(FungibleToken.Withdraw) &FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow FlowToken vault")
+        
+        let fees <- vault.withdraw(amount: feeAmount) as! @FlowToken.Vault
+        let priorityEnum = FlowTransactionScheduler.Priority(rawValue: priority)
+            ?? FlowTransactionScheduler.Priority.High
+
+        // borrow a reference to the callback manager
+        let manager = account.storage.borrow<auth(FlowTransactionSchedulerUtils.Owner) &{FlowTransactionSchedulerUtils.Manager}>(from: FlowTransactionSchedulerUtils.managerStoragePath)
+            ?? panic("Could not borrow a Manager reference from \(FlowTransactionSchedulerUtils.managerStoragePath)")
+
+        // Schedule the regular transaction with the main contract
+        manager.schedule(
+            handlerCap: handlerCap!,
+            data: testData,
+            timestamp: timestamp,
+            priority: priorityEnum,
+            executionEffort: effort,
+            fees: <-fees
+        )
+    }
+} 
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/FlowServiceAccount/scripts/get_account_creators.cdc
 
 ```
@@ -29981,6 +30066,1511 @@ access(all) fun main(account: Address): UFix64 {
 
 
 
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/tests/transactionScheduler_schedule_test_tmp_no_ci.cdc
+
+```
+import Test
+import BlockchainHelpers
+import "FlowTransactionScheduler"
+import "FlowToken"
+import "TestFlowScheduledTransactionHandler"
+
+import "scheduled_transaction_test_helpers.cdc"
+
+access(all)
+fun setup() {
+
+    var err = Test.deployContract(
+        name: "FlowTransactionScheduler",
+        path: "../contracts/FlowTransactionScheduler.cdc",
+        arguments: []
+    )
+    Test.expect(err, Test.beNil())
+
+    err = Test.deployContract(
+        name: "FlowTransactionSchedulerUtils",
+        path: "../contracts/FlowTransactionSchedulerUtils.cdc",
+        arguments: []
+    )
+    Test.expect(err, Test.beNil())
+
+    err = Test.deployContract(
+        name: "TestFlowScheduledTransactionHandler",
+        path: "../contracts/testContracts/TestFlowScheduledTransactionHandler.cdc",
+        arguments: []
+    )
+    Test.expect(err, Test.beNil())
+
+    fundAccountWithFlow(to: admin.address, amount: 10000.0)
+}
+
+/** ---------------------------------------------------------------------------------
+ Transaction scheduler schedule tests
+ --------------------------------------------------------------------------------- */
+
+// Transaction structure for tests
+access(all) struct ScheduledTransaction {
+    access(all) var id: UInt64?
+    access(all) let requestedDelta: UFix64
+    access(all) let priority: UInt8
+    access(all) let executionEffort: UInt64
+    access(all) let data: AnyStruct?
+    access(all) let fees: UFix64
+    access(all) let failWithErr: String?
+
+    access(all) init(
+        requestedDelta: UFix64,
+        priority: UInt8,
+        executionEffort: UInt64,
+        data: AnyStruct?,
+        fees: UFix64,
+        failWithErr: String?
+    ) {
+        self.id = nil
+        self.requestedDelta = requestedDelta
+        self.priority = priority
+        self.executionEffort = executionEffort
+        self.data = data
+        self.fees = fees
+        self.failWithErr = failWithErr
+    }
+
+    access(all) fun setID(id: UInt64?) {
+        self.id = id
+    }
+}
+
+// Test case structure for schedule and effort used tests
+access(all) struct ScheduleAndEffortUsedTestCase {
+    access(all) let name: String
+    access(all) let transactions: [ScheduledTransaction]
+    access(all) let transactionsIndicesToCancel: [Int]
+    access(all) let expectedAvailableEfforts: {UFix64: {UInt8: UInt64}}
+    access(all) let expectedPendingQueues: {UFix64: [UInt64]}
+    access(all) let expectedPendingQueueAfterExecution: [UInt64]
+
+    access(all) init(
+        name: String,
+        transactions: [ScheduledTransaction],
+        transactionsIndicesToCancel: [Int],
+        expectedAvailableEfforts: {UFix64: {UInt8: UInt64}},
+        expectedPendingQueues: {UFix64: [UInt64]},
+        expectedPendingQueueAfterExecution: [UInt64]
+    ) {
+        self.name = name
+        self.transactions = transactions
+        self.transactionsIndicesToCancel = transactionsIndicesToCancel
+        self.expectedAvailableEfforts = expectedAvailableEfforts
+        self.expectedPendingQueues = expectedPendingQueues
+        self.expectedPendingQueueAfterExecution = expectedPendingQueueAfterExecution
+    }
+    
+    access(all) fun setID(index: Int, id: UInt64?) {
+        self.transactions[index].setID(id: id)
+    }
+}
+
+access(all) fun runScheduleAndEffortUsedTestCase(testCase: ScheduleAndEffortUsedTestCase, currentTimestamp: UFix64): UFix64 {
+    
+    var scheduleIndex = 0
+    var idToSet = 1
+    for tx in testCase.transactions {
+        scheduleTransaction(
+            timestamp: currentTimestamp + tx.requestedDelta,
+            fee: tx.fees,
+            effort: tx.executionEffort,
+            priority: tx.priority,
+            data: tx.data,
+            testName: testCase.name,
+            failWithErr: tx.failWithErr
+        )
+        if tx.failWithErr == nil {
+            testCase.setID(index: scheduleIndex, id: UInt64(idToSet))
+            idToSet = idToSet + 1
+        }
+        scheduleIndex = scheduleIndex + 1
+    }
+
+    for cancelIndex in testCase.transactionsIndicesToCancel {
+        cancelTransaction(id: testCase.transactions[cancelIndex].id!, failWithErr: nil)
+        testCase.setID(index: cancelIndex, id: nil)
+    }
+
+    for delta in testCase.expectedAvailableEfforts.keys {
+        for priority in testCase.expectedAvailableEfforts[delta]!.keys {
+            let expectedEffort = testCase.expectedAvailableEfforts[delta]![priority]!
+            let actualEffort = getSlotAvailableEffort(timestamp: currentTimestamp + delta, priority: priority)
+            
+            // check available efforts
+            Test.assert(expectedEffort == actualEffort,
+                message: "available effort mismatch for test case: \(testCase.name) with timestamp \(currentTimestamp + delta) and priority \(priority). Expected \(expectedEffort) but got \(actualEffort)"
+            )
+        }
+    }
+
+    Test.moveTime(by: Fix64(futureDelta-30.0))
+
+    let sortedTimestamps = FlowTransactionScheduler.SortedTimestamps()
+    for delta in testCase.expectedPendingQueues.keys {
+        sortedTimestamps.add(timestamp: currentTimestamp + delta)
+    }
+
+    for timestamp in sortedTimestamps.getAll() {
+        // move time forward to trigger execution eligibility
+        while getTimestamp() < timestamp {
+            Test.moveTime(by: Fix64(1.0))
+        }
+
+        let expectedPendingQueue = testCase.expectedPendingQueues[timestamp - currentTimestamp]!
+        let actualPendingQueue = getPendingQueue()
+        Test.assert(expectedPendingQueue.length == actualPendingQueue.length,
+                message: "pending queue length mismatch for test case: \(testCase.name) with timestamp \(timestamp). Expected \(expectedPendingQueue.length) but got \(actualPendingQueue.length)"
+        )
+
+        for id in expectedPendingQueue {
+            Test.assert(actualPendingQueue.contains(id),
+                message: "pending queue element mismatch for test case: \(testCase.name) with timestamp \(timestamp). Expected \(id) but could not find it in the actual pending queue"
+            )
+        }
+    }
+
+    // process transactions
+    processTransactions()
+
+    var numberOfTransactionsExecuted = 0
+
+    for tx in testCase.transactions {
+        if tx.id != nil && numberOfTransactionsExecuted < collectionTransactionsLimit && UInt64(numberOfTransactionsExecuted)*maxEffort < collectionEffortLimit - maxEffort {
+            numberOfTransactionsExecuted = numberOfTransactionsExecuted + 1
+            if tx.data != nil {
+                if tx.data as! String == "cancel" {
+                    executeScheduledTransaction(id: tx.id!, testName: testCase.name, failWithErr: "Transaction must be in a scheduled state in order to be canceled")
+                    continue
+                } else if tx.data as! String == "fail" {
+                    executeScheduledTransaction(id: tx.id!, testName: testCase.name, failWithErr: "Transaction \(tx.id!) failed")
+                    continue
+                }
+            }
+            executeScheduledTransaction(id: tx.id!, testName: testCase.name, failWithErr: nil)
+        }
+    }
+
+    // move time forward by 20.0
+    Test.moveTime(by: Fix64(20.0))
+
+    // get actual pending queue
+    let actualPendingQueueAfterExecution = getPendingQueue()
+    Test.assert(testCase.expectedPendingQueueAfterExecution.length == actualPendingQueueAfterExecution.length,
+        message: "pending queue after execution length mismatch for test case: \(testCase.name) after execution. Expected \(testCase.expectedPendingQueueAfterExecution.length) but got \(actualPendingQueueAfterExecution.length)"
+    )
+    for id in testCase.expectedPendingQueueAfterExecution {
+        Test.assert(actualPendingQueueAfterExecution.contains(id),
+            message: "pending queue after execution element mismatch for test case: \(testCase.name). Expected \(id) but could not find it in the actual pending queue"
+        )
+    }
+
+    return getTimestamp()
+}
+
+access(all) fun testScheduleAndEffortUsed() {
+
+    var startingHeight = getCurrentBlockHeight()
+
+    // Common transactions that we will use multiple times in certain test cases
+
+    let lowTransactionWith150Effort = ScheduledTransaction(
+        requestedDelta: futureDelta,
+        priority: lowPriority,
+        executionEffort: 150,
+        data: testData,
+        fees: feeAmount,
+        failWithErr: nil
+    )
+
+    let mediumTransactionWith2000Effort = ScheduledTransaction(
+        requestedDelta: futureDelta,
+        priority: mediumPriority,
+        executionEffort: 2000,
+        data: testData,
+        fees: feeAmount,
+        failWithErr: nil
+    )
+
+    let highTransactionWith4000Effort = ScheduledTransaction(
+        requestedDelta: futureDelta,
+        priority: highPriority,
+        executionEffort: 4000,
+        data: testData,
+        fees: feeAmount,
+        failWithErr: nil
+    )
+
+    let testCases: [ScheduleAndEffortUsedTestCase] = [
+        // Low priority only test cases
+        ScheduleAndEffortUsedTestCase(
+            name: "Low priority: Zero fees and zero effort fails with no effort used",
+            transactions: [
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: highPriority,
+                    executionEffort: 1000,
+                    data: testData,
+                    fees: 0.0,
+                    failWithErr: "Insufficient fees: The Fee balance of 0.00000000 is not sufficient to pay the required amount of 0.00011000 for execution of the transaction."
+                ),
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: lowPriority,
+                    executionEffort: 0,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: "Invalid execution effort: 0 is less than the minimum execution effort of 100"
+                )
+            ],
+            transactionsIndicesToCancel: [],
+            expectedAvailableEfforts: {
+                futureDelta: {
+                    highPriority: highPriorityMaxEffort,
+                    mediumPriority: mediumPriorityMaxEffort,
+                    lowPriority: lowPriorityMaxEffort
+                }
+            },
+            expectedPendingQueues: {
+                futureDelta: []
+            },
+            expectedPendingQueueAfterExecution: []
+        ),
+        ScheduleAndEffortUsedTestCase(
+            name: "Low priority: Min effort fits in slot and uses min effort",
+            transactions: [
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: lowPriority,
+                    executionEffort: 100,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                )
+            ],
+            transactionsIndicesToCancel: [],
+            expectedAvailableEfforts: {
+                futureDelta: {
+                    highPriority: highPriorityMaxEffort,
+                    mediumPriority: mediumPriorityMaxEffort,
+                    lowPriority: lowPriorityMaxEffort - 100
+                }
+            },
+            expectedPendingQueues: {
+                futureDelta: [1]
+            },
+            expectedPendingQueueAfterExecution: []
+        ),
+        ScheduleAndEffortUsedTestCase(
+            name: "Low priority: Max effort fits in slot and uses max effort. Other low priority transactions are scheduled for later",
+            transactions: [
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: lowPriority,
+                    executionEffort: lowPriorityMaxEffort,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                ),
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: lowPriority,
+                    executionEffort: minEffort,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                )
+            ],
+            transactionsIndicesToCancel: [],
+            expectedAvailableEfforts: {
+                futureDelta: {
+                    highPriority: highPriorityMaxEffort,
+                    mediumPriority: mediumPriorityMaxEffort,
+                    lowPriority: 0
+                },
+                futureDelta + 1.0: {
+                    highPriority: highPriorityMaxEffort,
+                    mediumPriority: mediumPriorityMaxEffort,
+                    lowPriority: lowPriorityMaxEffort - minEffort
+                }
+            },
+            expectedPendingQueues: {
+                futureDelta: [1],
+                futureDelta + 1.0: [1,2]
+            },
+            expectedPendingQueueAfterExecution: []
+        ),
+        ScheduleAndEffortUsedTestCase(
+            name: "Low Priority: Greater than max effort Fails",
+            transactions: [
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: lowPriority,
+                    executionEffort: lowPriorityMaxEffort + 1,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: "Invalid execution effort: \(lowPriorityMaxEffort + 1) is greater than the priority's max effort of \(lowPriorityMaxEffort)"
+                )
+            ],
+            transactionsIndicesToCancel: [],
+            expectedAvailableEfforts: {
+                futureDelta: {
+                    highPriority: highPriorityMaxEffort,
+                    mediumPriority: mediumPriorityMaxEffort,
+                    lowPriority: lowPriorityMaxEffort
+                }
+            },
+            expectedPendingQueues: {
+                futureDelta: []
+            },
+            expectedPendingQueueAfterExecution: []
+        ),
+        ScheduleAndEffortUsedTestCase(
+            name: "Low Priority: Many low priority transactions scheduled for same timestamp",
+            transactions: [
+                lowTransactionWith150Effort,
+                lowTransactionWith150Effort,
+                lowTransactionWith150Effort,
+                lowTransactionWith150Effort,
+                lowTransactionWith150Effort,
+                lowTransactionWith150Effort,
+                lowTransactionWith150Effort,
+                lowTransactionWith150Effort,
+                lowTransactionWith150Effort,
+                lowTransactionWith150Effort,
+                lowTransactionWith150Effort,
+                lowTransactionWith150Effort,
+                lowTransactionWith150Effort,
+                lowTransactionWith150Effort,
+                lowTransactionWith150Effort,
+                lowTransactionWith150Effort,
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: lowPriority,
+                    executionEffort: 150,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                )
+            ],
+            transactionsIndicesToCancel: [],
+            expectedAvailableEfforts: {
+                futureDelta: {
+                    highPriority: highPriorityMaxEffort,
+                    mediumPriority: mediumPriorityMaxEffort,
+                    lowPriority: 100
+                },
+                futureDelta + 1.0: {
+                    highPriority: highPriorityMaxEffort,
+                    mediumPriority: mediumPriorityMaxEffort,
+                    lowPriority: lowPriorityMaxEffort - 150
+                }
+            },
+            expectedPendingQueues: {
+                futureDelta: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],
+                futureDelta + 1.0: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]
+            },
+            expectedPendingQueueAfterExecution: []
+        ),
+        
+        // Medium priority only test cases
+        ScheduleAndEffortUsedTestCase(
+            name: "Medium priority: Min effort fits in slot and uses min effort",
+            transactions: [
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: mediumPriority,
+                    executionEffort: minEffort,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                )
+            ],
+            transactionsIndicesToCancel: [],
+            expectedAvailableEfforts: {
+                futureDelta: {
+                    highPriority: highPriorityMaxEffort,
+                    mediumPriority: mediumPriorityMaxEffort - minEffort,
+                    lowPriority: lowPriorityMaxEffort
+                }
+            },
+            expectedPendingQueues: {
+                futureDelta: [1]
+            },
+            expectedPendingQueueAfterExecution: []
+        ),
+        ScheduleAndEffortUsedTestCase(
+            name: "Medium priority: Max effort fits in slot and uses max effort. Other medium priority transactions are scheduled for later",
+            transactions: [
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: mediumPriority,
+                    executionEffort: mediumPriorityMaxEffort,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                ),
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: mediumPriority,
+                    executionEffort: mediumPriorityMaxEffort,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                )
+            ],
+            transactionsIndicesToCancel: [],
+            expectedAvailableEfforts: {
+                futureDelta: {
+                    highPriority: highPriorityMaxEffort - sharedEffortLimit,
+                    mediumPriority: 0,
+                    lowPriority: lowPriorityMaxEffort
+                },
+                futureDelta + 1.0: {
+                    highPriority: highPriorityMaxEffort - sharedEffortLimit,
+                    mediumPriority: 0,
+                    lowPriority: lowPriorityMaxEffort
+                }
+            },
+            expectedPendingQueues: {
+                futureDelta: [1],
+                futureDelta + 1.0: [1,2]
+            },
+            expectedPendingQueueAfterExecution: []
+        ),
+        ScheduleAndEffortUsedTestCase(
+            name: "Medium Priority: Greater than max effort Fails",
+            transactions: [
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: mediumPriority,
+                    executionEffort: maxEffort + 1,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: "Invalid execution effort: \(maxEffort + 1) is greater than the maximum transaction effort of \(maxEffort)"
+                )
+            ],
+            transactionsIndicesToCancel: [],
+            expectedAvailableEfforts: {
+                futureDelta: {
+                    highPriority: highPriorityMaxEffort,
+                    mediumPriority: mediumPriorityMaxEffort,
+                    lowPriority: lowPriorityMaxEffort
+                }
+            },
+            expectedPendingQueues: {
+                futureDelta: []
+            },
+            expectedPendingQueueAfterExecution: []
+        ),
+        
+        // Medium Priority: Many medium priority transactions scheduled for same timestamp
+        ScheduleAndEffortUsedTestCase(
+            name: "Medium Priority: Many medium priority transactions scheduled for same timestamp",
+            transactions: [
+                mediumTransactionWith2000Effort,
+                mediumTransactionWith2000Effort,
+                mediumTransactionWith2000Effort,
+                mediumTransactionWith2000Effort,
+                mediumTransactionWith2000Effort,
+                mediumTransactionWith2000Effort,
+                mediumTransactionWith2000Effort,
+                mediumTransactionWith2000Effort,
+                mediumTransactionWith2000Effort,
+                mediumTransactionWith2000Effort
+            ],
+            transactionsIndicesToCancel: [],
+            expectedAvailableEfforts: {
+                futureDelta: {
+                    highPriority: highPriorityMaxEffort - 3500,
+                    mediumPriority: 1500,
+                    lowPriority: lowPriorityMaxEffort
+                },
+                futureDelta + 1.0: {
+                    highPriority: highPriorityMaxEffort - 3500,
+                    mediumPriority: 1500,
+                    lowPriority: lowPriorityMaxEffort
+                },
+                futureDelta + 2.0: {
+                    highPriority: highPriorityMaxEffort - 3500,
+                    mediumPriority: 1500,
+                    lowPriority: lowPriorityMaxEffort
+                },
+                futureDelta + 3.0: {
+                    highPriority: highPriorityMaxEffort,
+                    mediumPriority: mediumPriorityMaxEffort - 2000,
+                    lowPriority: lowPriorityMaxEffort
+                }
+            },
+            expectedPendingQueues: {
+                futureDelta: [1,2,3],
+                futureDelta + 1.0: [1,2,3,4,5,6],
+                futureDelta + 2.0: [1,2,3,4,5,6,7,8,9],
+                futureDelta + 3.0: [1,2,3,4,5,6,7,8,9,10]
+            },
+            expectedPendingQueueAfterExecution: []
+        ),
+        
+        // High priority only test cases
+        ScheduleAndEffortUsedTestCase(
+            name: "High priority: Min effort fits in slot and uses min effort",
+            transactions: [
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: highPriority,
+                    executionEffort: minEffort,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                )
+            ],
+            transactionsIndicesToCancel: [],
+            expectedAvailableEfforts: {
+                futureDelta: {
+                    highPriority: highPriorityMaxEffort - minEffort,
+                    mediumPriority: mediumPriorityMaxEffort,
+                    lowPriority: lowPriorityMaxEffort
+                }
+            },
+            expectedPendingQueues: {
+                futureDelta: [1]
+            },
+            expectedPendingQueueAfterExecution: []
+        ),
+        ScheduleAndEffortUsedTestCase(
+            name: "High priority: Max effort fits in slot and uses max effort. Other high priority transactions fail in the same slot",
+            transactions: [
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: highPriority,
+                    executionEffort: maxEffort,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                ),
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: highPriority,
+                    executionEffort: maxEffort,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: "Invalid execution effort: \(maxEffort) is greater than the priority's available effort for the requested timestamp."
+                )
+            ],
+            transactionsIndicesToCancel: [],
+            expectedAvailableEfforts: {
+                futureDelta: {
+                    highPriority: highPriorityMaxEffort - maxEffort,
+                    mediumPriority: mediumPriorityMaxEffort,
+                    lowPriority: lowPriorityMaxEffort
+                },
+                futureDelta + 1.0: {
+                    highPriority: highPriorityMaxEffort,
+                    mediumPriority: mediumPriorityMaxEffort,
+                    lowPriority: lowPriorityMaxEffort
+                }
+            },
+            expectedPendingQueues: {
+                futureDelta: [1],
+                futureDelta + 1.0: [1]
+            },
+            expectedPendingQueueAfterExecution: []
+        ),
+        ScheduleAndEffortUsedTestCase(
+            name: "High Priority: Greater than max effort Fails",
+            transactions: [
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: highPriority,
+                    executionEffort: maxEffort + 1,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: "Invalid execution effort: \(maxEffort + 1) is greater than the maximum transaction effort of 9999"
+                )
+            ],
+            transactionsIndicesToCancel: [],
+            expectedAvailableEfforts: {
+                futureDelta: {
+                    highPriority: highPriorityMaxEffort,
+                    mediumPriority: mediumPriorityMaxEffort,
+                    lowPriority: lowPriorityMaxEffort
+                }
+            },
+            expectedPendingQueues: {
+                futureDelta: []
+            },
+            expectedPendingQueueAfterExecution: []
+        ),
+        ScheduleAndEffortUsedTestCase(
+            name: "High Priority: Many high priority transactions scheduled for the same timestamp",
+            transactions: [
+                highTransactionWith4000Effort,
+                highTransactionWith4000Effort,
+                highTransactionWith4000Effort,
+                ScheduledTransaction(
+                    requestedDelta: futureDelta + 1.0,
+                    priority: highPriority,
+                    executionEffort: 4000,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                )
+            ],
+            transactionsIndicesToCancel: [],
+            expectedAvailableEfforts: {
+                futureDelta: {
+                    highPriority: highPriorityMaxEffort - 12000,
+                    mediumPriority: 5500,
+                    lowPriority: lowPriorityMaxEffort
+                },
+                futureDelta + 1.0: {
+                    highPriority: highPriorityMaxEffort - 4000,
+                    mediumPriority: mediumPriorityMaxEffort,
+                    lowPriority: lowPriorityMaxEffort
+                }
+            },
+            expectedPendingQueues: {
+                futureDelta: [1,2,3],
+                futureDelta + 1.0: [1,2,3,4]
+            },
+            expectedPendingQueueAfterExecution: []
+        ),
+        
+        // Mixed priority test cases - testing shared limit usage
+        ScheduleAndEffortUsedTestCase(
+            name: "Mixed priorities: High priorities use shared limit, medium priority uses reserve",
+            transactions: [
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: highPriority,
+                    executionEffort: 9000,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                ),
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: highPriority,
+                    executionEffort: 6000,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                ),
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: mediumPriority,
+                    executionEffort: mediumPriorityEffortReserve,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                ),
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: lowPriority,
+                    executionEffort: 1000,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                ),
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: mediumPriority,
+                    executionEffort: 1000,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                ),
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: highPriority,
+                    executionEffort: 1000,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: "Invalid execution effort: 1000 is greater than the priority's available effort for the requested timestamp."
+                )
+            ],
+            transactionsIndicesToCancel: [],
+            expectedAvailableEfforts: {
+                futureDelta: {
+                    highPriority: 0,
+                    mediumPriority: 0,
+                    lowPriority: 0
+                },
+                futureDelta + 1.0: {
+                    highPriority: highPriorityMaxEffort,
+                    mediumPriority: mediumPriorityMaxEffort - 1000,
+                    lowPriority: lowPriorityMaxEffort - 1000
+                }
+            },
+            expectedPendingQueues: {
+                futureDelta: [1,2,3],
+                futureDelta + 1.0: [1,2,3,4,5]
+            },
+            expectedPendingQueueAfterExecution: []
+        ),
+        ScheduleAndEffortUsedTestCase(
+            name: "Mixed priorities: Medium uses shared limit, high priority fails in the same slot",
+            transactions: [
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: mediumPriority,
+                    executionEffort: 7500,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                ),
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: highPriority,
+                    executionEffort: 9000,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                ),
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: highPriority,
+                    executionEffort: 1001,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: "Invalid execution effort: 1001 is greater than the priority's available effort for the requested timestamp."
+                ),
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: highPriority,
+                    executionEffort: 1000,
+                    data: testData,
+                    fees: feeAmount,    
+                    failWithErr: nil
+                )
+            ],
+            transactionsIndicesToCancel: [],
+            expectedAvailableEfforts: {
+                futureDelta: {
+                    highPriority: 0,
+                    mediumPriority: 0,
+                    lowPriority: 0
+                }
+            },
+            expectedPendingQueues: {
+                futureDelta: [1,2,3],
+                futureDelta + 1.0: [1,2,3]
+            },
+            expectedPendingQueueAfterExecution: []
+        ),
+        ScheduleAndEffortUsedTestCase(
+            name: "Mixed priorities: High and medium use most of shared limit, low priority fits in remaining but doesn't use the high or medium effort",
+            transactions: [
+                highTransactionWith4000Effort,
+                highTransactionWith4000Effort,
+                highTransactionWith4000Effort,
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: mediumPriority,
+                    executionEffort: mediumPriorityEffortReserve + 2000,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                ),
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: lowPriority,
+                    executionEffort: 1001,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                ),
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: mediumPriority,
+                    executionEffort: 1001,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                ),
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: lowPriority,
+                    executionEffort: 1000,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                )
+            ],
+            transactionsIndicesToCancel: [],
+            expectedAvailableEfforts: {
+                futureDelta: {
+                    highPriority: 1000,
+                    mediumPriority: 1000,
+                    lowPriority: 0
+                },
+                futureDelta + 1.0: {
+                    highPriority: highPriorityMaxEffort,
+                    mediumPriority: mediumPriorityMaxEffort-1001,
+                    lowPriority: lowPriorityMaxEffort - 1001
+                }
+            },
+            expectedPendingQueues: {
+                futureDelta: [1,2,3,4,7],
+                futureDelta + 1.0: [1,2,3,4,5,6,7]
+            },
+            expectedPendingQueueAfterExecution: []
+        ),
+        
+        // Test cases for low priority transactions getting rescheduled by higher priority transactions
+        ScheduleAndEffortUsedTestCase(
+            name: "Low priority gets rescheduled: Low priority fills slot, high and medium priority pushes it to next timestamp",
+            transactions: [
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: lowPriority,
+                    executionEffort: lowPriorityMaxEffort,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                ),
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: highPriority,
+                    executionEffort: 4500,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                ),
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: highPriority,
+                    executionEffort: 4500,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                ),
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: highPriority,
+                    executionEffort: 4500,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                ),
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: mediumPriority,
+                    executionEffort: 4000,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                )
+            ],
+            transactionsIndicesToCancel: [],
+            expectedAvailableEfforts: {
+                futureDelta: {
+                    highPriority: 0,
+                    mediumPriority: 0,
+                    lowPriority: 0
+                },
+                futureDelta + 1.0: {
+                    highPriority: highPriorityMaxEffort,
+                    mediumPriority: mediumPriorityMaxEffort,
+                    lowPriority: 0
+                }
+            },
+            expectedPendingQueues: {
+                futureDelta: [2,3,4,5],
+                futureDelta + 1.0: [1,2,3,4,5]
+            },
+            expectedPendingQueueAfterExecution: []
+        ),
+        ScheduleAndEffortUsedTestCase(
+            name: "Low priority gets rescheduled: Multiple low priority transactions get pushed by high and medium priority",
+            transactions: [
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: lowPriority,
+                    executionEffort: 1000,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                ),
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: lowPriority,
+                    executionEffort: 1000,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                ),
+                highTransactionWith4000Effort,
+                highTransactionWith4000Effort,
+                highTransactionWith4000Effort,
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: highPriority,
+                    executionEffort: 3000,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                ),
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: mediumPriority,
+                    executionEffort: 1000,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                )
+            ],
+            transactionsIndicesToCancel: [],
+            expectedAvailableEfforts: {
+                futureDelta: {
+                    highPriority: 0,
+                    mediumPriority: 1500,
+                    lowPriority: 500
+                },
+                futureDelta + 1.0: {
+                    highPriority: highPriorityMaxEffort,
+                    mediumPriority: mediumPriorityMaxEffort,
+                    lowPriority: 1500
+                }
+            },
+            expectedPendingQueues: {
+                futureDelta: [2,3,4,5,6,7],
+                futureDelta + 1.0: [1,2,3,4,5,6,7]
+            },
+            expectedPendingQueueAfterExecution: []
+        ),
+        ScheduleAndEffortUsedTestCase(
+            name: "Low priority gets rescheduled: Low Priorities get pushed to multiple slots",
+            transactions: [
+                // Schedule two low priority transactions for the same timestamp
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: lowPriority,
+                    executionEffort: 1500,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                ),
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: lowPriority,
+                    executionEffort: 1000,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                ),
+                // Schedule medium transactions to fill up the medium slots and shared limit
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: mediumPriority,
+                    executionEffort: 4000,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                ),
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: mediumPriority,
+                    executionEffort: 3500,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                ),
+                // Schedule high transactions for the next timestamp so that the low priority transactions get pushed to the next timestamp
+                ScheduledTransaction(
+                    requestedDelta: futureDelta + 1.0,
+                    priority: highPriority,
+                    executionEffort: 4000,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                ),
+                ScheduledTransaction(
+                    requestedDelta: futureDelta + 1.0,
+                    priority: highPriority,
+                    executionEffort: 4000,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                ),
+                ScheduledTransaction(
+                    requestedDelta: futureDelta + 1.0,
+                    priority: highPriority,
+                    executionEffort: 4000,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                ),
+                ScheduledTransaction(
+                    requestedDelta: futureDelta + 1.0,
+                    priority: highPriority,
+                    executionEffort: 3000,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                ),
+                // Schedule medium transaction for the next timestamp to fill up the medium slots so that the low priority transactions get pushed to the next timestamp
+                ScheduledTransaction(
+                    requestedDelta: futureDelta + 1.0,
+                    priority: mediumPriority,
+                    executionEffort: mediumPriorityEffortReserve - 1000,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                ),
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: highPriority,
+                    executionEffort: 4750,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                ),
+                // Should push 1 and 2 to the next two timestamps
+                 ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: highPriority,
+                    executionEffort: 4750,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                )
+            ],
+            transactionsIndicesToCancel: [],
+            expectedAvailableEfforts: {
+                futureDelta: {
+                    highPriority: 500,
+                    mediumPriority: 0,
+                    lowPriority: 500
+                },
+                futureDelta + 1.0: {
+                    highPriority: 0,
+                    mediumPriority: 1000,
+                    lowPriority: 0
+                },
+                futureDelta + 2.0: {
+                    highPriority: highPriorityMaxEffort,
+                    mediumPriority: mediumPriorityMaxEffort,
+                    lowPriority: 1000
+                }
+            },
+            expectedPendingQueues: {
+                futureDelta: [3,4,10,11],
+                futureDelta + 1.0: [2,3,4,5,6,7,8,9,10,11],
+                futureDelta + 2.0: [1,2,3,4,5,6,7,8,9,10,11]
+            },
+            expectedPendingQueueAfterExecution: []
+        ),
+        // Self-canceling transaction test case
+        ScheduleAndEffortUsedTestCase(
+            name: "Cancel Tests: Transaction tries to cancel itself during execution: Should fail",
+            transactions: [
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: lowPriority,
+                    executionEffort: 1500,
+                    data: "cancel",
+                    fees: feeAmount,
+                    failWithErr: nil
+                )
+            ],
+            transactionsIndicesToCancel: [],
+            expectedAvailableEfforts: {
+                futureDelta: {
+                    highPriority: highPriorityMaxEffort,
+                    mediumPriority: mediumPriorityMaxEffort,
+                    lowPriority: lowPriorityMaxEffort - 1500
+                }
+            },
+            expectedPendingQueues: {
+                futureDelta: [1]
+            },
+            expectedPendingQueueAfterExecution: []
+        ),
+        ScheduleAndEffortUsedTestCase(
+            name: "Cancel Tests: High priority transaction canceled after scheduling",
+            transactions: [
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: highPriority,
+                    executionEffort: 5000,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                )
+            ],
+            transactionsIndicesToCancel: [0],
+            expectedAvailableEfforts: {
+                futureDelta: {
+                    highPriority: highPriorityMaxEffort,
+                    mediumPriority: mediumPriorityMaxEffort,
+                    lowPriority: lowPriorityMaxEffort
+                }
+            },
+            expectedPendingQueues: {
+                futureDelta: []
+            },
+            expectedPendingQueueAfterExecution: []
+        ),
+        
+        ScheduleAndEffortUsedTestCase(
+            name: "Cancel Tests: Medium priority transaction canceled after scheduling",
+            transactions: [
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: mediumPriority,
+                    executionEffort: 3000,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                )
+            ],
+            transactionsIndicesToCancel: [0],
+            expectedAvailableEfforts: {
+                futureDelta: {
+                    highPriority: highPriorityMaxEffort,
+                    mediumPriority: mediumPriorityMaxEffort,
+                    lowPriority: lowPriorityMaxEffort
+                }
+            },
+            expectedPendingQueues: {
+                futureDelta: []
+            },
+            expectedPendingQueueAfterExecution: []
+        ),
+        
+        ScheduleAndEffortUsedTestCase(
+            name: "Cancel Tests: Low priority transaction canceled after scheduling",
+            transactions: [
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: lowPriority,
+                    executionEffort: 2000,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                )
+            ],
+            transactionsIndicesToCancel: [0],
+            expectedAvailableEfforts: {
+                futureDelta: {
+                    highPriority: highPriorityMaxEffort,
+                    mediumPriority: mediumPriorityMaxEffort,
+                    lowPriority: lowPriorityMaxEffort
+                }
+            },
+            expectedPendingQueues: {
+                futureDelta: []
+            },
+            expectedPendingQueueAfterExecution: []
+        ),
+        
+        ScheduleAndEffortUsedTestCase(
+            name: "Cancel Tests: Multiple transactions with one canceled",
+            transactions: [
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: highPriority,
+                    executionEffort: 4000,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                ),
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: mediumPriority,
+                    executionEffort: 2500,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                ),
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: lowPriority,
+                    executionEffort: 1500,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                )
+            ],
+            transactionsIndicesToCancel: [1],
+            expectedAvailableEfforts: {
+                futureDelta: {
+                    highPriority: highPriorityMaxEffort - 4000,
+                    mediumPriority: mediumPriorityMaxEffort,
+                    lowPriority: lowPriorityMaxEffort - 1500
+                }
+            },
+            expectedPendingQueues: {
+                futureDelta: [1, 3]
+            },
+            expectedPendingQueueAfterExecution: []
+        ),
+        
+        ScheduleAndEffortUsedTestCase(
+            name: "Cancel Tests: Multiple transactions with multiple canceled",
+            transactions: [
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: highPriority,
+                    executionEffort: 4000,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                ),
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: mediumPriority,
+                    executionEffort: 2500,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                ),
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: lowPriority,
+                    executionEffort: 1500,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                )
+            ],
+            transactionsIndicesToCancel: [0, 2],
+            expectedAvailableEfforts: {
+                futureDelta: {
+                    highPriority: highPriorityMaxEffort,
+                    mediumPriority: mediumPriorityMaxEffort - 2500,
+                    lowPriority: lowPriorityMaxEffort
+                }
+            },
+            expectedPendingQueues: {
+                futureDelta: [2]
+            },
+            expectedPendingQueueAfterExecution: []
+        ),
+        ScheduleAndEffortUsedTestCase(
+            name: "Cancel Tests: Transaction canceled with different timestamp",
+            transactions: [
+                ScheduledTransaction(
+                    requestedDelta: futureDelta + 50.0,
+                    priority: highPriority,
+                    executionEffort: 6000,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                )
+            ],
+            transactionsIndicesToCancel: [0],
+            expectedAvailableEfforts: {
+                futureDelta: {
+                    highPriority: highPriorityMaxEffort,
+                    mediumPriority: mediumPriorityMaxEffort,
+                    lowPriority: lowPriorityMaxEffort
+                },
+                futureDelta + 50.0: {
+                    highPriority: highPriorityMaxEffort,
+                    mediumPriority: mediumPriorityMaxEffort,
+                    lowPriority: lowPriorityMaxEffort
+                }
+            },
+            expectedPendingQueues: {
+                futureDelta + 50.0: []
+            },
+            expectedPendingQueueAfterExecution: []
+        ),
+        ScheduleAndEffortUsedTestCase(
+            name: "Cancel Tests: Cancel a transaction that was moved to a different timestamp by another transaction",
+            transactions: [
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: lowPriority,
+                    executionEffort: lowPriorityMaxEffort,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                ),
+                highTransactionWith4000Effort,
+                highTransactionWith4000Effort,
+                highTransactionWith4000Effort,
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: highPriority,
+                    executionEffort: 3000,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                ),
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: mediumPriority,
+                    executionEffort: mediumPriorityEffortReserve,
+                    data: testData,
+                    fees: feeAmount,
+                    failWithErr: nil
+                )
+            ],
+            transactionsIndicesToCancel: [0],
+            expectedAvailableEfforts: {
+                futureDelta: {
+                    highPriority: 0,
+                    mediumPriority: 0,
+                    lowPriority: 0
+                },
+                futureDelta + 1.0: {
+                    highPriority: highPriorityMaxEffort,
+                    mediumPriority: mediumPriorityMaxEffort,
+                    lowPriority: lowPriorityMaxEffort
+                }
+            },
+            expectedPendingQueues: {
+                futureDelta: [2,3,4,5,6],
+                futureDelta + 1.0: [2,3,4,5,6]
+            },
+            expectedPendingQueueAfterExecution: []
+        ),
+        ScheduleAndEffortUsedTestCase(
+            name: "Fail Tests: Transaction with fail data should fail during execution",
+            transactions: [
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: mediumPriority,
+                    executionEffort: 1000,
+                    data: "fail",
+                    fees: feeAmount,
+                    failWithErr: nil
+                )
+            ],
+            transactionsIndicesToCancel: [],
+            expectedAvailableEfforts: {
+                futureDelta: {
+                    highPriority: highPriorityMaxEffort,
+                    mediumPriority: mediumPriorityMaxEffort - 1000,
+                    lowPriority: lowPriorityMaxEffort
+                }
+            },
+            expectedPendingQueues: {
+                futureDelta: [1]
+            },
+            expectedPendingQueueAfterExecution: []
+        ),
+        ScheduleAndEffortUsedTestCase(
+            name: "Schedule Tests: Transaction schedules another transaction during execution",
+            transactions: [
+                ScheduledTransaction(
+                    requestedDelta: futureDelta,
+                    priority: highPriority,
+                    executionEffort: 1500,
+                    data: "schedule",
+                    fees: feeAmount,
+                    failWithErr: nil
+                )
+            ],
+            transactionsIndicesToCancel: [],
+            expectedAvailableEfforts: {
+                futureDelta: {
+                    highPriority: highPriorityMaxEffort - 1500,
+                    mediumPriority: mediumPriorityMaxEffort,
+                    lowPriority: lowPriorityMaxEffort
+                }
+            },
+            expectedPendingQueues: {
+                futureDelta: [1]
+            },
+            expectedPendingQueueAfterExecution: [2]
+        )
+    ]
+
+    /// Test case to test transactions over collection effort limit
+    ///
+    var transactionsOverCollectionEffortLimit: [ScheduledTransaction] = []
+    while UInt64(transactionsOverCollectionEffortLimit.length)*mediumPriorityMaxEffort <= collectionEffortLimit + mediumPriorityMaxEffort*2 {
+        transactionsOverCollectionEffortLimit.append(ScheduledTransaction(
+            requestedDelta: futureDelta+UFix64(transactionsOverCollectionEffortLimit.length),
+            priority: mediumPriority,
+            executionEffort: mediumPriorityMaxEffort,
+            data: testData,
+            fees: feeAmount,
+            failWithErr: nil
+        ))
+    }
+
+    var expectedPendingQueue: {UFix64: [UInt64]} = {}
+    var queue: [UInt64] = []
+    var i: Int = 1
+    while i <= transactionsOverCollectionEffortLimit.length - 3 {
+        queue.append(UInt64(i))
+        i = i + 1
+    }
+    expectedPendingQueue[futureDelta+UFix64(transactionsOverCollectionEffortLimit.length)] = queue
+
+    testCases.append(ScheduleAndEffortUsedTestCase(
+        name: "Collection Limit Tests: Transactions over collection effort limit",
+        transactions: transactionsOverCollectionEffortLimit,
+        transactionsIndicesToCancel: [],
+        expectedAvailableEfforts: {},
+        expectedPendingQueues: expectedPendingQueue,
+        expectedPendingQueueAfterExecution: [UInt64(transactionsOverCollectionEffortLimit.length-2), UInt64(transactionsOverCollectionEffortLimit.length-1), UInt64(transactionsOverCollectionEffortLimit.length)]
+    ))
+
+    /// Test case to test transactions over collection transaction limit
+    ///
+    var transactionsOverCollectionTxLimit: [ScheduledTransaction] = []
+    while transactionsOverCollectionTxLimit.length < collectionTransactionsLimit + 2 {
+        transactionsOverCollectionTxLimit.append(ScheduledTransaction(
+            requestedDelta: futureDelta+UFix64(transactionsOverCollectionTxLimit.length),
+            priority: mediumPriority,
+            executionEffort: 2000,
+            data: testData,
+            fees: feeAmount,
+            failWithErr: nil
+        ))
+    }
+
+    expectedPendingQueue = {}
+    queue = []
+    i = 1
+    while i <= collectionTransactionsLimit {
+        queue.append(UInt64(i))
+        i = i + 1
+    }
+    expectedPendingQueue[futureDelta+UFix64(transactionsOverCollectionTxLimit.length)] = queue
+
+    testCases.append(ScheduleAndEffortUsedTestCase(
+        name: "Collection Limit Tests: Transactions over collection transaction limit",
+        transactions: transactionsOverCollectionTxLimit,
+        transactionsIndicesToCancel: [],
+        expectedAvailableEfforts: {},
+        expectedPendingQueues: expectedPendingQueue,
+        expectedPendingQueueAfterExecution: [UInt64(collectionTransactionsLimit+1), UInt64(collectionTransactionsLimit+2)]
+    ))
+
+    var currentTimestamp = getTimestamp()
+
+    for testCase in testCases {
+        currentTimestamp = runScheduleAndEffortUsedTestCase(testCase: testCase, currentTimestamp: currentTimestamp)
+        if startingHeight < getCurrentBlockHeight() {
+            Test.reset(to: startingHeight)
+        }
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/epoch/admin/update_epoch_config.cdc
 
 ```
@@ -30209,6 +31799,35 @@ transaction {
   }
 }
  
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/tests/transactions/destroy_handler.cdc
+
+```
+import "TestFlowScheduledTransactionHandler"
+import "FlowTransactionScheduler"
+
+transaction {
+    prepare(account: auth(BorrowValue, LoadValue) &Account) {
+        let handler <- account.storage.load<@TestFlowScheduledTransactionHandler.Handler>(from: TestFlowScheduledTransactionHandler.HandlerStoragePath)
+            ?? panic("Could not load TestFlowScheduledTransactionHandler")
+        destroy handler
+    }
+}
+
 
 ```
 
@@ -32376,6 +33995,346 @@ transaction(
         )
     }
 } 
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/tests/transactionScheduler_misc_test.cdc
+
+```
+import Test
+import BlockchainHelpers
+import "FlowTransactionScheduler"
+import "FlowToken"
+import "TestFlowScheduledTransactionHandler"
+
+import "scheduled_transaction_test_helpers.cdc"
+
+access(all) let transactionToFail = 6 as UInt64
+access(all) let transactionToCancel = 2 as UInt64
+
+access(all) var startingHeight: UInt64 = 0
+
+access(all) var feesBalanceBefore: UFix64 = 0.0
+access(all) var accountBalanceBefore: UFix64 = 0.0
+
+access(all)
+fun setup() {
+
+    var err = Test.deployContract(
+        name: "FlowTransactionScheduler",
+        path: "../contracts/FlowTransactionScheduler.cdc",
+        arguments: []
+    )
+    Test.expect(err, Test.beNil())
+
+    err = Test.deployContract(
+        name: "FlowTransactionSchedulerUtils",
+        path: "../contracts/FlowTransactionSchedulerUtils.cdc",
+        arguments: []
+    )
+    Test.expect(err, Test.beNil())
+
+    err = Test.deployContract(
+        name: "TestFlowScheduledTransactionHandler",
+        path: "../contracts/testContracts/TestFlowScheduledTransactionHandler.cdc",
+        arguments: []
+    )
+    Test.expect(err, Test.beNil())
+
+    fundAccountWithFlow(to: admin.address, amount: 10000.0)
+
+    startingHeight = getCurrentBlockHeight()
+
+}
+
+access(all) fun testScheduledTransactionMoveExecutionCapability() {
+    var tx = Test.Transaction(
+        code: Test.readFile("../transactions/transactionScheduler/admin/create_execution_account.cdc"),
+        authorizers: [admin.address],
+        signers: [admin],
+        arguments: [],
+    )
+    var result = Test.executeTransaction(tx)
+    Test.expect(result, Test.beSucceeded())
+    
+    executeScheduledTransactionWithCapability(
+        id: 1,
+        testName: "Scheduled Transaction Move Execution Capability: Execute Should Fail because ID does not exist",
+        failWithErr: "Invalid ID: Transaction with id 1 not found"
+    )
+}
+
+access(all) fun testScheduledTransactionCancellationLimits() {
+
+    // lower the canceled transactions limit so the test runs faster
+    setConfigDetails(
+        maximumIndividualEffort: nil,
+        minimumExecutionEffort: nil,
+        slotSharedEffortLimit: nil,
+        priorityEffortReserve: nil,
+        lowPriorityEffortLimit: nil,
+        maxDataSizeMB: nil,
+        priorityFeeMultipliers: nil,
+        refundMultiplier: nil,
+        canceledTransactionsLimit: 10,
+        collectionEffortLimit: nil,
+        collectionTransactionsLimit: nil,
+        txRemovalLimit: nil,
+        shouldFail: nil
+    )
+
+    let currentTime = getTimestamp()
+    var timeInFuture = currentTime + futureDelta
+
+    let numToCancel: UInt64 = 20
+    var i: UInt64 = 0
+
+    // Schedule numToCancel transactions
+    while i <= numToCancel {
+
+        // Schedule a medium transaction
+        scheduleTransaction(
+            timestamp: timeInFuture + UFix64(i),
+            fee: feeAmount,
+            effort: mediumEffort,
+            priority: mediumPriority,
+            data: testData,
+            testName: "Cancellation Limits: Scheduled \(i)",
+            failWithErr: nil
+        )
+
+        i = i + 1
+
+    }
+
+    // Cancel the second transaction
+    cancelTransaction(
+        id: 2,
+        failWithErr: nil
+    )
+
+    var id: UInt64 = 1
+
+    while id < numToCancel {
+
+        // Cancel the transactions
+        if id != 2 {
+            cancelTransaction(
+                id: id,
+                failWithErr: nil
+            )
+        }
+
+        // make sure the getStatus logic is working correctly
+        // the second transaction should be canceled
+        if id < 12 {
+            Test.assertEqual(statusCanceled, getStatus(id: 2)!)
+        } else {
+            Test.assertEqual(statusUnknown, getStatus(id: 2)!)
+        }
+
+        id = id + 1
+    }
+
+    // Check that the canceled transactions are the ones we expect
+    var canceledTransactions = getCanceledTransactions()
+    Test.assertEqual(10, canceledTransactions.length)
+
+    // The first 10 canceled transactions should have been removed from the canceled transactions array
+    i = 10 as UInt64
+    for canceledID in canceledTransactions {
+        Test.assertEqual(i, canceledID)
+        i = i + 1
+    }
+
+    // get the status of one of the first 30 transactions and one of the later ones
+    var status = getStatus(id: 1)
+    Test.assertEqual(statusUnknown, status!)
+
+    status = getStatus(id: 19)
+    Test.assertEqual(statusCanceled, status!)
+
+    status = getStatus(id: 20)
+    Test.assertEqual(statusScheduled, status!)
+}
+
+access(all) fun testScheduledTransactionScheduleAnotherTransaction() {
+
+    if startingHeight < getCurrentBlockHeight() {
+        Test.reset(to: startingHeight)
+    }
+
+    let currentTime = getTimestamp()
+    var timeInFuture = currentTime + futureDelta*5.0
+
+    // Schedule a medium transaction
+    scheduleTransaction(
+        timestamp: timeInFuture,
+        fee: feeAmount,
+        effort: mediumEffort,
+        priority: mediumPriority,
+        data: "schedule",
+        testName: "Schedule Another Transaction: Scheduled",
+        failWithErr: nil
+    )
+
+    let transactionData = getTransactionData(id: 1)
+    Test.assertEqual(1 as UInt64,transactionData!.id)
+    Test.assertEqual(timeInFuture, transactionData!.scheduledTimestamp)
+    Test.assertEqual(mediumPriority, transactionData!.priority.rawValue)
+    Test.assertEqual(feeAmount, transactionData!.fees)
+    Test.assertEqual(mediumEffort, transactionData!.executionEffort)
+    Test.assertEqual(statusScheduled, transactionData!.status.rawValue)
+
+    Test.moveTime(by: Fix64(futureDelta*6.0))
+
+    processTransactions()
+
+    executeScheduledTransaction(
+        id: 1,
+        testName: "Schedule Another Transaction: Executed",
+        failWithErr: nil
+    )
+
+    // get the status of the newly scheduled transaction with ID 2
+    var status = getStatus(id: 2)
+    Test.assertEqual(statusScheduled, status!)
+    
+}
+
+
+access(all) fun testScheduledTransactionDestroyHandler() {
+
+    if startingHeight < getCurrentBlockHeight() {
+        Test.reset(to: startingHeight)
+    }
+
+    let currentTime = getTimestamp()
+    var timeInFuture = currentTime + futureDelta*10.0
+
+    // Schedule a medium transaction
+    scheduleTransaction(
+        timestamp: timeInFuture,
+        fee: feeAmount,
+        effort: mediumEffort,
+        priority: mediumPriority,
+        data: testData,
+        testName: "Destroy Handler: Scheduled",
+        failWithErr: nil
+    )
+
+    // Schedule a medium transaction
+    scheduleTransaction(
+        timestamp: timeInFuture,
+        fee: feeAmount,
+        effort: mediumEffort,
+        priority: mediumPriority,
+        data: testData,
+        testName: "Destroy Handler: SecondScheduled To Cancel",
+        failWithErr: nil
+    )
+
+    // Destroy the handler for both transactions
+    let destroyHandlerCode = Test.readFile("./transactions/destroy_handler.cdc")
+    let destroyHandlerTx = Test.Transaction(
+        code: destroyHandlerCode,
+        authorizers: [admin.address],
+        signers: [admin],
+        arguments: []
+    )
+    var result = Test.executeTransaction(destroyHandlerTx)
+    Test.expect(result, Test.beSucceeded())
+
+    // Cancel the second transaction
+    cancelTransaction(
+        id: 2,
+        failWithErr: nil
+    )
+    
+    // make sure the canceled event was emitted with empty handler values
+    let canceledEvents = Test.eventsOfType(Type<FlowTransactionScheduler.Canceled>())
+    Test.assertEqual(1, canceledEvents.length)
+    let canceledEvent = canceledEvents[0] as! FlowTransactionScheduler.Canceled
+    Test.assertEqual(UInt64(2), canceledEvent.id)
+    Test.assertEqual(mediumPriority, canceledEvent.priority)
+    Test.assertEqual(feeAmount/UFix64(2.0), canceledEvent.feesReturned)
+    Test.assertEqual(feeAmount/UFix64(2.0), canceledEvent.feesDeducted)
+    Test.assertEqual(Address(0x0000000000000007), canceledEvent.transactionHandlerOwner)
+    Test.assertEqual("A.0000000000000007.TestFlowScheduledTransactionHandler.Handler", canceledEvent.transactionHandlerTypeIdentifier)
+
+    Test.moveTime(by: Fix64(futureDelta*11.0))
+
+    processTransactions()
+
+    // The PendingExecution event is always emitted even when the handler is destroyed,
+    // but transactionHandlerTypeIdentifier is "" since the handler cannot be borrowed
+    let pendingExecutionEvents = Test.eventsOfType(Type<FlowTransactionScheduler.PendingExecution>())
+    Test.assertEqual(1, pendingExecutionEvents.length)
+    let pendingEvent = pendingExecutionEvents[0] as! FlowTransactionScheduler.PendingExecution
+    Test.assertEqual("", pendingEvent.transactionHandlerTypeIdentifier)
+
+    executeScheduledTransaction(
+        id: 1,
+        testName: "Destroy Handler: Execute",
+        failWithErr: "Invalid transaction handler: Could not borrow a reference to the transaction handler"
+    )
+    
+}
+
+access(all) fun testScheduledTransactionEstimateReturnNil() {
+
+    if startingHeight < getCurrentBlockHeight() {
+        Test.reset(to: startingHeight)
+    }
+
+    let currentTime = getTimestamp()
+    var timeInFuture = currentTime + futureDelta*20.0
+
+    // Schedule a high priority transaction
+    scheduleTransaction(
+        timestamp: timeInFuture,
+        fee: feeAmount,
+        effort: maxEffort,
+        priority: highPriority,
+        data: testData,
+        testName: "Estimate Return Nil: Scheduled 1",
+        failWithErr: nil
+    )
+
+    // Schedule a high priority transaction
+    scheduleTransaction(
+        timestamp: timeInFuture,
+        fee: feeAmount,
+        effort: sharedEffortLimit,
+        priority: highPriority,
+        data: testData,
+        testName: "Estimate Return Nil: Scheduled 2",
+        failWithErr: nil
+    )
+
+    let estimate = getEstimate(
+        data: testData,
+        timestamp: timeInFuture,
+        priority: highPriority,
+        executionEffort: sharedEffortLimit
+    )
+    
+    Test.assertEqual(nil, estimate.flowFee)
+    Test.assertEqual(nil, estimate.timestamp)
+    Test.assertEqual("Invalid execution effort: \(sharedEffortLimit) is greater than the priority's available effort for the requested timestamp.", estimate.error!)
+}
 
 ```
 
@@ -34635,6 +36594,305 @@ access(all) fun main(array: [String]): [FlowClusterQC.Cluster] {
     return FlowEpoch.createCollectorClusters(nodeIDs: array)
 }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/tests/scripts/get_timestamp.cdc
+
+```
+access(all) fun main(): UFix64 {
+    return getCurrentBlock().timestamp
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/tests/transactionScheduler_events_test.cdc
+
+```
+import Test
+import BlockchainHelpers
+import "FlowTransactionScheduler"
+import "FlowToken"
+import "TestFlowScheduledTransactionHandler"
+
+import "scheduled_transaction_test_helpers.cdc"
+
+access(all) let transactionToFail = 6 as UInt64
+access(all) let transactionToCancel = 2 as UInt64
+
+access(all) var startingHeight: UInt64 = 0
+
+access(all) var feesBalanceBefore: UFix64 = 0.0
+access(all) var accountBalanceBefore: UFix64 = 0.0
+
+access(all)
+fun setup() {
+
+    var err = Test.deployContract(
+        name: "FlowTransactionScheduler",
+        path: "../contracts/FlowTransactionScheduler.cdc",
+        arguments: []
+    )
+    Test.expect(err, Test.beNil())
+
+    err = Test.deployContract(
+        name: "FlowTransactionSchedulerUtils",
+        path: "../contracts/FlowTransactionSchedulerUtils.cdc",
+        arguments: []
+    )
+    Test.expect(err, Test.beNil())
+
+    err = Test.deployContract(
+        name: "TestFlowScheduledTransactionHandler",
+        path: "../contracts/testContracts/TestFlowScheduledTransactionHandler.cdc",
+        arguments: []
+    )
+    Test.expect(err, Test.beNil())
+
+    fundAccountWithFlow(to: admin.address, amount: 10000.0)
+
+    startingHeight = getCurrentBlockHeight()
+
+}
+
+/** ---------------------------------------------------------------------------------
+ Transaction handler integration tests
+ --------------------------------------------------------------------------------- */
+
+access(all) fun testTransactionScheduleEventAndData() {
+
+    let currentTime = getTimestamp()
+    let timeInFuture = currentTime + futureDelta
+
+    accountBalanceBefore = getBalance(account: admin.address)
+    feesBalanceBefore = getFeesBalance()
+    
+    // Schedule high priority transaction
+    scheduleTransaction(
+        timestamp: timeInFuture,
+        fee: feeAmount,
+        effort: basicEffort,
+        priority: highPriority,
+        data: testData,
+        testName: "Test Transaction Scheduling: First High Scheduled",
+        failWithErr: nil
+    )
+
+    // Check for Scheduled event using Test.eventsOfType
+    var scheduledEvents = Test.eventsOfType(Type<FlowTransactionScheduler.Scheduled>())
+    Test.assert(scheduledEvents.length == 1, message: "There should be one Scheduled event but there are \(scheduledEvents.length) events")
+    
+    var scheduledEvent = scheduledEvents[0] as! FlowTransactionScheduler.Scheduled
+    Test.assertEqual(highPriority, scheduledEvent.priority!)
+    Test.assertEqual(timeInFuture, scheduledEvent.timestamp!)
+    Test.assert(scheduledEvent.executionEffort == basicEffort, message: "incorrect execution effort")
+    Test.assertEqual(feeAmount, scheduledEvent.fees!)
+    Test.assertEqual(admin.address, scheduledEvent.transactionHandlerOwner!)
+    Test.assertEqual("A.0000000000000007.TestFlowScheduledTransactionHandler.Handler", scheduledEvent.transactionHandlerTypeIdentifier!)
+    Test.assertEqual(TestFlowScheduledTransactionHandler.HandlerPublicPath, scheduledEvent.transactionHandlerPublicPath!)
+    
+    let transactionID = scheduledEvent.id as UInt64
+
+    var status = getStatus(id: transactionID)
+    Test.assertEqual(statusScheduled, status!)
+
+    var transactionData = getTransactionData(id: transactionID)
+    Test.assertEqual(transactionID, transactionData!.id)
+    Test.assertEqual(timeInFuture, transactionData!.scheduledTimestamp)
+    Test.assertEqual(highPriority, transactionData!.priority.rawValue)
+    Test.assertEqual(feeAmount, transactionData!.fees)
+    Test.assertEqual(basicEffort, transactionData!.executionEffort)
+    Test.assertEqual(statusScheduled, transactionData!.status.rawValue)
+    Test.assertEqual(admin.address, transactionData!.handlerAddress)
+    Test.assertEqual("A.0000000000000007.TestFlowScheduledTransactionHandler.Handler", transactionData!.handlerTypeIdentifier)
+
+    // invalid timeframe should return empty dictionary
+    var transactions = getTransactionsForTimeframe(startTimestamp: timeInFuture, endTimestamp: timeInFuture - 1.0)
+    Test.assertEqual(0, transactions.keys.length)
+
+    transactions = getTransactionsForTimeframe(startTimestamp: timeInFuture-10.0, endTimestamp: timeInFuture - 1.0)
+    Test.assertEqual(0, transactions.keys.length)
+
+    transactions = getTransactionsForTimeframe(startTimestamp: timeInFuture-10.0, endTimestamp: timeInFuture)
+    Test.assertEqual(1, transactions.keys.length)
+    let transactionsAtFutureTime = transactions[timeInFuture]!
+    let highPriorityTransactions = transactionsAtFutureTime[highPriority]!
+    Test.assertEqual(1, highPriorityTransactions.length)
+    Test.assertEqual(transactionID, highPriorityTransactions[0])
+
+    // Try to execute the transaction, should fail because it isn't pendingExecution
+    executeScheduledTransaction(
+        id: transactionID,
+        testName: "Test Transaction Events Path: First High Scheduled",
+        failWithErr: "Invalid ID: Cannot execute transaction with id \(transactionID) because it has incorrect status \(statusScheduled)"
+    )
+}
+
+
+access(all) fun testScheduledTransactionCancelationEvents() {
+
+    var currentTime = getTimestamp()
+    var timeInFuture = currentTime + futureDelta
+
+    var balanceBefore = getBalance(account: admin.address)
+
+    // Cancel invalid transaction should fail
+    cancelTransaction(
+        id: 100,
+        failWithErr: "Invalid ID: Transaction with ID 100 not found in manager"
+    )
+
+    // Schedule a medium transaction
+    scheduleTransaction(
+        timestamp: timeInFuture,
+        fee: feeAmount,
+        effort: mediumEffort,
+        priority: mediumPriority,
+        data: testData,
+        testName: "Test Transaction Cancelation: First Scheduled",
+        failWithErr: nil
+    )
+
+    // Cancel the transaction
+    cancelTransaction(
+        id: transactionToCancel,
+        failWithErr: nil
+    )
+
+    let canceledEvents = Test.eventsOfType(Type<FlowTransactionScheduler.Canceled>())
+    Test.assert(canceledEvents.length == 1, message: "Should only have one Canceled event")
+    let canceledEvent = canceledEvents[0] as! FlowTransactionScheduler.Canceled
+    Test.assertEqual(transactionToCancel, canceledEvent.id)
+    Test.assertEqual(mediumPriority, canceledEvent.priority)
+    Test.assertEqual(feeAmount/UFix64(2.0), canceledEvent.feesReturned)
+    Test.assertEqual(feeAmount/UFix64(2.0), canceledEvent.feesDeducted)
+    Test.assertEqual(admin.address, canceledEvent.transactionHandlerOwner)
+    Test.assertEqual("A.0000000000000007.TestFlowScheduledTransactionHandler.Handler", canceledEvent.transactionHandlerTypeIdentifier!)
+
+    // Make sure the status is canceled
+    var status = getStatus(id: transactionToCancel)
+    Test.assertEqual(statusCanceled, status!)
+
+    // Available Effort should be completely unused
+    // for the slot that the canceled transaction was in
+    var effort = getSlotAvailableEffort(timestamp: timeInFuture, priority: mediumPriority)
+    Test.assertEqual(UInt64(mediumPriorityMaxEffort), effort!)
+
+    // Assert that the new balance reflects the refunds
+    Test.assertEqual(balanceBefore - feeAmount/UFix64(2.0), getBalance(account: admin.address))
+    Test.assertEqual(feesBalanceBefore + feeAmount/UFix64(2.0), getFeesBalance())
+}
+
+access(all) fun testScheduledTransactionExecution() {
+
+    var currentTime = getTimestamp()
+    var timeInFuture = currentTime + futureDelta
+
+    feesBalanceBefore = getFeesBalance()
+
+    // Simulate FVM process - should not yet process since timestamp is in the future
+    processTransactions()
+
+    // Check that no PendingExecution events were emitted yet (since transaction is in the future)
+    let pendingExecutionEventsBeforeTime = Test.eventsOfType(Type<FlowTransactionScheduler.PendingExecution>())
+    Test.assert(pendingExecutionEventsBeforeTime.length == 0, message: "PendingExecution before time")
+
+    // move time forward to trigger execution eligibility
+    // Have to subtract to handle the automatic timestamp drift
+    // so that the medium transaction that got scheduled doesn't get marked as pendingExecution
+    Test.moveTime(by: Fix64(futureDelta - 6.0))
+    while getTimestamp() < timeInFuture {
+        Test.moveTime(by: Fix64(1.0))
+    }
+
+    // process transaction scheduled in the testTransactionScheduleEventAndData 
+    processTransactions()
+
+    // Check for PendingExecution event after processing
+    // Should have one high
+
+    let pendingExecutionEventsAfterTime = Test.eventsOfType(Type<FlowTransactionScheduler.PendingExecution>())
+    Test.assertEqual(1, pendingExecutionEventsAfterTime.length)
+    23
+    var firstEvent: Bool = false
+    for event in pendingExecutionEventsAfterTime {
+        let pendingExecutionEvent = event as! FlowTransactionScheduler.PendingExecution
+        Test.assert(
+            pendingExecutionEvent.id != UInt64(2),
+            message: "ID 2 Should not have been marked as pendingExecution"
+        )
+
+        // verify that the transactions got marked as executed
+        var status = getStatus(id: pendingExecutionEvent.id)
+        Test.assertEqual(statusExecuted, status!)
+
+        // Simulate FVM execute - should execute the transaction
+        if pendingExecutionEvent.id == transactionToFail {
+            // ID 2 should fail, so need to verify that
+            executeScheduledTransaction(id: pendingExecutionEvent.id, testName: "Test Transaction Execution: First High Scheduled", failWithErr: "Transaction \(transactionToFail) failed")
+        } else {
+            executeScheduledTransaction(id: pendingExecutionEvent.id, testName: "Test Transaction Execution: First High Scheduled", failWithErr: nil)
+        
+            // Verify that the first event is the high priority transaction
+            if !firstEvent {
+                let executedEvents = Test.eventsOfType(Type<FlowTransactionScheduler.Executed>())
+                Test.assert(executedEvents.length == 1, message: "Should only have one Executed event")
+                let executedEvent = executedEvents[0] as! FlowTransactionScheduler.Executed
+                Test.assertEqual(pendingExecutionEvent.id, executedEvent.id)
+                Test.assertEqual(pendingExecutionEvent.priority, executedEvent.priority)
+                Test.assertEqual(pendingExecutionEvent.executionEffort, executedEvent.executionEffort)
+                Test.assertEqual(pendingExecutionEvent.transactionHandlerOwner, executedEvent.transactionHandlerOwner)
+                // PendingExecution always emits "" for transactionHandlerTypeIdentifier (to avoid failures
+                // when the handler contract is broken), so we check the Executed event directly instead
+                Test.assertEqual("", pendingExecutionEvent.transactionHandlerTypeIdentifier)
+                Test.assertEqual(TestFlowScheduledTransactionHandler.HandlerPublicPath, executedEvent.transactionHandlerPublicPath!)
+                firstEvent = true
+            }
+        }
+    }
+
+    // Check that the transactions were executed
+    var transactionIDs = _executeScript(
+        "./scripts/get_executed_transactions.cdc",
+        []
+    ).returnValue! as! [UInt64]
+    Test.assert(transactionIDs.length == 1, message: "Executed ids is the wrong count")
+    
+    Test.moveTime(by: Fix64(2.0))
+
+    // Process transactions again to remove the executed transactions and pay fees
+    processTransactions()
+
+    // Check that the fees were paid
+    Test.assertEqual(feesBalanceBefore + feeAmount, getFeesBalance())
+
+    // verify that the removed transaction still counts as executed
+    var status = getStatus(id: 1 as UInt64)
+    Test.assertEqual(statusExecuted, status!)
+}
 ```
 
 
@@ -36965,6 +39223,29 @@ transaction(recoveryEpochCounter: UInt64,
             )
     }
 }
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/tests/scripts/get_data_size.cdc
+
+```
+import "FlowTransactionScheduler"
+
+access(all) fun main(data: AnyStruct): UFix64 {
+    return FlowTransactionScheduler.getSizeOfData(data)
+}
+
 ```
 
 
@@ -40036,6 +42317,35 @@ transaction(qcName: String, qcCode: [UInt8], dkgName: String, dkgCode: [UInt8]) 
 
 
 
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/tests/transactions/execute_transaction.cdc
+
+```
+import "FlowTransactionScheduler"
+
+// Execute a scheduled transaction by the FlowTransactionScheduler contract.
+// This will be called by the FVM and the transaction will be executed by their ID.
+transaction(id: UInt64) {
+    prepare(serviceAccount: auth(BorrowValue) &Account) {
+        let scheduler = serviceAccount.storage.borrow<auth(FlowTransactionScheduler.Execute) &FlowTransactionScheduler.SharedScheduler>(from: FlowTransactionScheduler.storagePath)
+            ?? panic("Could not borrow FlowTransactionScheduler")
+
+        scheduler.executeTransaction(id: id)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_candidate_nodes.cdc
 
 ```
@@ -40045,6 +42355,29 @@ import "FlowIDTableStaking"
 // for the upcoming epoch
 access(all) fun main(): {UInt8: {String: Bool}} {
     return FlowIDTableStaking.getCandidateNodeList()
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/tests/transactions/upgrade_contract.cdc
+
+```
+transaction(name: String, code: String) {
+    prepare(account: auth(UpdateContract) &Account) {
+        // Upgrade the contract
+        account.contracts.update(name: name, code: code.utf8)
+    }
 }
 ```
 
@@ -47551,6 +49884,45 @@ import "FlowIDTableStaking"
 access(all) fun main(): {UInt8: UInt64} {
     return FlowIDTableStaking.getCandidateNodeLimits()
         ?? panic("Could not load candidate limits")
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/tests/transactions/execute_transaction_with_capability.cdc
+
+```
+import "FlowTransactionScheduler"
+
+// Execute a scheduled transaction by the FlowTransactionScheduler contract.
+// This will be called by the FVM and the transaction will be executed by their ID.
+transaction(id: UInt64) {
+    prepare(signer: auth(CopyValue) &Account) {
+
+        let childAccount = signer.storage.copy<Capability<auth(Storage, Contracts, Keys, Inbox, Capabilities) &Account>>(from: /storage/executeScheduledTransactionsAccount)
+            ?? panic("Could not find Execute Scheduled Transactions Account in storage")
+
+        let childAccountRef = childAccount.borrow()
+            ?? panic("Could not borrow Execute Scheduled Transactions Account reference")
+
+        let scheduler = childAccountRef.storage.copy<Capability<auth(FlowTransactionScheduler.Execute) &FlowTransactionScheduler.SharedScheduler>>(from: /storage/executeScheduledTransactionsCapability)
+            ?? panic("Could not find Execute Scheduled Transactions Capability in storage")
+
+        let schedulerRef = scheduler.borrow()
+            ?? panic("Could not borrow FlowTransactionScheduler SharedScheduler reference")
+
+        schedulerRef.executeTransaction(id: id)
+    }
 }
 ```
 
@@ -311167,6 +313539,61 @@ pub fun main(): {Address: UInt64} {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/GeniaceNFT/lendMoney.testnet.cdc
+
+```
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// Let the lender lend FLOW to borrower
+transaction(BorrowerAddress: Address, LenderAddress: Address, Uuid: UInt64, LendAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+
+    let ticketRef:  &NFTLendingPlace.LenderTicket
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket) == nil {
+            let lendingTicket <- NFTLendingPlace.createLenderTicket()
+            acct.save(<-lendingTicket, to: /storage/NFTLendingPlaceCollectionLenderTicket)
+        }
+
+        self.ticketRef = acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket reference")
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow lender's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: LendAmount) as! @FlowToken.Vault
+    }
+
+    execute {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlaceRef = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place recource")
+
+        lendingPlaceRef.lendOut(uuid: Uuid, recipient: LenderAddress, lendAmount: <-self.temporaryVault, ticket:  self.ticketRef)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/Flovatar/createSaleFlovatarComponent.testnet.cdc
 
 ```
@@ -311244,6 +313671,43 @@ transaction(Uuid: UInt64) {
     }
 }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/EternalShard/cancelBorrowMoney.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+
+// Let the NFT owner unlist NFT from NFTLendingPlace's resource
+transaction(Uuid: UInt64) {
+
+    prepare(acct: AuthAccount) {
+
+        let lending = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's vault resource")
+
+        // Borrow a reference to the NFTCollection in storage
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/EternalShardCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        let NFTtoken <- lending.withdraw(uuid: Uuid)
+
+        collectionRef.deposit(token: <- NFTtoken)
+    }
+}
 ```
 
 
@@ -311458,6 +313922,102 @@ transaction(saleItemID: UInt64, saleItemPrice: UFix64) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoSwap/swapExactFusdForFlowToken.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import FUSD from 0x3c5959b568896393
+import FlowToken from 0x1654653399040a61
+import FusdUsdtSwapPair from 0x87f3f233f34b0733
+import FlowSwapPair from 0xc6c77b9f5c7a378f
+
+transaction(amountIn: UFix64, minAmountOut: UFix64) {
+  prepare(signer: AuthAccount) {
+    
+    
+
+    let fusdVault = signer.borrow<&FUSD.Vault>(from: /storage/fusdVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    let token0Vault <- fusdVault.withdraw(amount: amountIn) as! @FUSD.Vault
+    let token1Vault <- FusdUsdtSwapPair.swapToken1ForToken2(from: <- token0Vault)
+let token2Vault <- FlowSwapPair.swapToken2ForToken1(from: <- token1Vault)
+
+      if signer.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault) == nil {
+    signer.save(<-FlowToken.createEmptyVault(), to: /storage/flowTokenVault)
+    signer.link<&FlowToken.Vault{FungibleToken.Receiver}>(
+      /public/flowTokenReceiver,
+      target: /storage/flowTokenVault
+    )
+    signer.link<&FlowToken.Vault{FungibleToken.Balance}>(
+      /public/flowTokenBalance,
+      target: /storage/flowTokenVault
+    )
+  }
+    let flowTokenVault = signer.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    assert(token2Vault.balance >= minAmountOut, message: "Output amount too small")
+
+    flowTokenVault.deposit(from: <- token2Vault)
+  }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Vouchers/forceRedeem.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+
+// Let the lender get borrower's NFT by force
+transaction(Uuid: UInt64, BorrowerAddress: Address) {
+
+    prepare(acct: AuthAccount) {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlace = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let ticketRef =  acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket resource")
+
+        let returnNft <- lendingPlace.forcedRedeem(uuid: Uuid, lendticket: ticketRef)
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/jambbLaunchVouchersCollection)
+            ?? panic("Could not borrow owner's NFT collection reference")
+
+        collectionRef.deposit(token: <-returnNft)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/MikoSea/MikoSeaMarket/removeListing.mainnet.cdc
 
 ```
@@ -311655,6 +314215,149 @@ transaction(saleItemID: UInt64, saleItemPrice: UFix64) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/TopShot/cancelBorrowMoney.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+
+// Let the NFT owner unlist NFT from NFTLendingPlace's resource
+transaction(Uuid: UInt64) {
+
+    prepare(acct: AuthAccount) {
+
+        let lending = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's vault resource")
+
+        // Borrow a reference to the NFTCollection in storage
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/MomentCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        let NFTtoken <- lending.withdraw(uuid: Uuid)
+
+        collectionRef.deposit(token: <- NFTtoken)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoSwap/swapExactFlowTokenForFusd.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import FlowToken from 0x1654653399040a61
+import FUSD from 0x3c5959b568896393
+import FlowSwapPair from 0xc6c77b9f5c7a378f
+import FusdUsdtSwapPair from 0x87f3f233f34b0733
+
+transaction(amountIn: UFix64, minAmountOut: UFix64) {
+  prepare(signer: AuthAccount) {
+    
+    
+
+    let flowTokenVault = signer.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    let token0Vault <- flowTokenVault.withdraw(amount: amountIn) as! @FlowToken.Vault
+    let token1Vault <- FlowSwapPair.swapToken1ForToken2(from: <- token0Vault)
+let token2Vault <- FusdUsdtSwapPair.swapToken2ForToken1(from: <- token1Vault)
+
+      if signer.borrow<&FUSD.Vault>(from: /storage/fusdVault) == nil {
+    signer.save(<-FUSD.createEmptyVault(), to: /storage/fusdVault)
+    signer.link<&FUSD.Vault{FungibleToken.Receiver}>(
+      /public/fusdReceiver,
+      target: /storage/fusdVault
+    )
+    signer.link<&FUSD.Vault{FungibleToken.Balance}>(
+      /public/fusdBalance,
+      target: /storage/fusdVault
+    )
+  }
+    let fusdVault = signer.borrow<&FUSD.Vault>(from: /storage/fusdVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    assert(token2Vault.balance >= minAmountOut, message: "Output amount too small")
+
+    fusdVault.deposit(from: <- token2Vault)
+  }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoSwap/swapExactUSDTForFlowToken.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import TeleportedTetherToken from 0xcfdd90d4a00f7b5b
+import FlowToken from 0x1654653399040a61
+import FlowSwapPair from 0xc6c77b9f5c7a378f
+
+transaction(amountIn: UFix64, minAmountOut: UFix64) {
+  prepare(signer: AuthAccount) {
+    
+    
+
+    let teleportedTetherTokenVault = signer.borrow<&TeleportedTetherToken.Vault>(from: TeleportedTetherToken.TokenStoragePath) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    let token0Vault <- teleportedTetherTokenVault.withdraw(amount: amountIn) as! @TeleportedTetherToken.Vault
+    let token1Vault <- FlowSwapPair.swapToken2ForToken1(from: <- token0Vault)
+
+      if signer.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault) == nil {
+    signer.save(<-FlowToken.createEmptyVault(), to: /storage/flowTokenVault)
+    signer.link<&FlowToken.Vault{FungibleToken.Receiver}>(
+      /public/flowTokenReceiver,
+      target: /storage/flowTokenVault
+    )
+    signer.link<&FlowToken.Vault{FungibleToken.Balance}>(
+      /public/flowTokenBalance,
+      target: /storage/flowTokenVault
+    )
+  }
+    let flowTokenVault = signer.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    assert(token1Vault.balance >= minAmountOut, message: "Output amount too small")
+
+    flowTokenVault.deposit(from: <- token1Vault)
+  }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/Starly/storefront/buyNyatheesOVOItem.testnet.cdc
 
 ```
@@ -311699,6 +314402,43 @@ transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFi
         let item <- self.listing.purchase(payment: <-self.paymentVault)
         self.nftCollection.deposit(token: <-item)
         self.storefront.cleanup(listingResourceID: listingResourceID)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Vouchers/cancelBorrowMoney.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+
+// Let the NFT owner unlist NFT from NFTLendingPlace's resource
+transaction(Uuid: UInt64) {
+
+    prepare(acct: AuthAccount) {
+
+        let lending = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's vault resource")
+
+        // Borrow a reference to the NFTCollection in storage
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/jambbLaunchVouchersCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        let NFTtoken <- lending.withdraw(uuid: Uuid)
+
+        collectionRef.deposit(token: <- NFTtoken)
     }
 }
 ```
@@ -312185,6 +314925,109 @@ transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFi
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/EternalMoment/repay.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// Let the borrower to repay FLOW
+transaction(Uuid: UInt64, RepayAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+    let collectionRef: &NonFungibleToken.Collection
+    let landingPlaceRef: &NFTLendingPlace.LendingCollection
+
+    prepare(acct: AuthAccount) {
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow borrower's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: RepayAmount) as! @FlowToken.Vault
+
+        self.collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/EternalMomentCollection)
+            ?? panic("Could not borrow borrower's NFT collection reference")
+
+        self.landingPlaceRef =  acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's LenderTicket reference")
+    }
+
+    execute {
+        let returnNft <- self.landingPlaceRef.repay(uuid: Uuid, repayAmount: <-self.temporaryVault)
+
+        self.collectionRef.deposit(token: <-returnNft)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoSwap/swapFlowTokenForExactBloctoToken.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import FlowToken from 0x1654653399040a61
+import BloctoToken from 0x0f9df91c9121c460
+import FlowSwapPair from 0xc6c77b9f5c7a378f
+import BltUsdtSwapPair from 0xfcb06a5ae5b21a2d
+
+transaction(maxAmountIn: UFix64, amountOut: UFix64) {
+  prepare(signer: AuthAccount) {
+    let amount0 = BltUsdtSwapPair.quoteSwapToken2ForExactToken1(amount: amountOut) / (1.0 - BltUsdtSwapPair.getFeePercentage())
+let amountIn = FlowSwapPair.quoteSwapToken1ForExactToken2(amount: amount0) / (1.0 - FlowSwapPair.getFeePercentage())
+    assert(amountIn <= maxAmountIn, message: "Input amount too large")
+
+    let flowTokenVault = signer.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    let token0Vault <- flowTokenVault.withdraw(amount: amountIn) as! @FlowToken.Vault
+    let token1Vault <- FlowSwapPair.swapToken1ForToken2(from: <- token0Vault)
+let token2Vault <- BltUsdtSwapPair.swapToken2ForToken1(from: <- token1Vault)
+
+      if signer.borrow<&BloctoToken.Vault>(from: /storage/bloctoTokenVault) == nil {
+    signer.save(<-BloctoToken.createEmptyVault(), to: /storage/bloctoTokenVault)
+    signer.link<&BloctoToken.Vault{FungibleToken.Receiver}>(
+      /public/bloctoTokenReceiver,
+      target: /storage/bloctoTokenVault
+    )
+    signer.link<&BloctoToken.Vault{FungibleToken.Balance}>(
+      /public/bloctoTokenBalance,
+      target: /storage/bloctoTokenVault
+    )
+  }
+    let bloctoTokenVault = signer.borrow<&BloctoToken.Vault>(from: /storage/bloctoTokenVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    
+
+    bloctoTokenVault.deposit(from: <- token2Vault)
+  }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/Starly/storefront/buyMusicBlockItem.testnet.cdc
 
 ```
@@ -312345,6 +315188,54 @@ transaction(amount: UFix64, index: Int) {
   execute {
     self.bloctoPassRef.stakeUnstakedTokens(amount: amount)
   }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Domains/borrowMoneyByNFT.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// List an NFT in the account storage for lending
+transaction(id: UInt64, baseAmount: UFix64, interest: UFix64, duration: UFix64) {
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&AnyResource{NFTLendingPlace.LendingPublic}>(from: /storage/NFTLendingPlaceCollection) == nil {
+            let receiver = acct.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+            let lendingPlace <- NFTLendingPlace.createLendingCollection(ownerVault: receiver)
+            acct.save(<-lendingPlace, to: /storage/NFTLendingPlaceCollection)
+            acct.link<&NFTLendingPlace.LendingCollection{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection, target: /storage/NFTLendingPlaceCollection)
+        }
+
+        let lendingPlace = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/fnsDomainCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        // Withdraw the NFT to use as collateral
+        let token <- collectionRef.withdraw(withdrawID: id)
+
+        // List the NFT as collateral
+        lendingPlace.listForLending(owner: acct.address, token: <-token, baseAmount: baseAmount, interest: interest, duration: duration)
+    }
 }
 ```
 
@@ -312758,6 +315649,48 @@ transaction {
                 ?? panic("failed to borrow reference to recipient vault")
             receiver.deposit(from: <-sentVault)
         }
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/TopShot/forceRedeem.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+
+// Let the lender get borrower's NFT by force
+transaction(Uuid: UInt64, BorrowerAddress: Address) {
+
+    prepare(acct: AuthAccount) {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlace = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let ticketRef =  acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket resource")
+
+        let returnNft <- lendingPlace.forcedRedeem(uuid: Uuid, lendticket: ticketRef)
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/MomentCollection)
+            ?? panic("Could not borrow owner's NFT collection reference")
+
+        collectionRef.deposit(token: <-returnNft)
     }
 }
 ```
@@ -313284,6 +316217,168 @@ transaction(amount: UFix64, index: Int) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/RaceDay_NFT/lendMoney.mainnet.cdc
+
+```
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// Let the lender lend FLOW to borrower
+transaction(BorrowerAddress: Address, LenderAddress: Address, Uuid: UInt64, LendAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+
+    let ticketRef:  &NFTLendingPlace.LenderTicket
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket) == nil {
+            let lendingTicket <- NFTLendingPlace.createLenderTicket()
+            acct.save(<-lendingTicket, to: /storage/NFTLendingPlaceCollectionLenderTicket)
+        }
+
+        self.ticketRef = acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket reference")
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow lender's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: LendAmount) as! @FlowToken.Vault
+    }
+
+    execute {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlaceRef = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place recource")
+
+        lendingPlaceRef.lendOut(uuid: Uuid, recipient: LenderAddress, lendAmount: <-self.temporaryVault, ticket:  self.ticketRef)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoSwap/swapExactUSDTForFusd.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import TeleportedTetherToken from 0xcfdd90d4a00f7b5b
+import FUSD from 0x3c5959b568896393
+import FusdUsdtSwapPair from 0x87f3f233f34b0733
+
+transaction(amountIn: UFix64, minAmountOut: UFix64) {
+  prepare(signer: AuthAccount) {
+    
+    
+
+    let teleportedTetherTokenVault = signer.borrow<&TeleportedTetherToken.Vault>(from: TeleportedTetherToken.TokenStoragePath) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    let token0Vault <- teleportedTetherTokenVault.withdraw(amount: amountIn) as! @TeleportedTetherToken.Vault
+    let token1Vault <- FusdUsdtSwapPair.swapToken2ForToken1(from: <- token0Vault)
+
+      if signer.borrow<&FUSD.Vault>(from: /storage/fusdVault) == nil {
+    signer.save(<-FUSD.createEmptyVault(), to: /storage/fusdVault)
+    signer.link<&FUSD.Vault{FungibleToken.Receiver}>(
+      /public/fusdReceiver,
+      target: /storage/fusdVault
+    )
+    signer.link<&FUSD.Vault{FungibleToken.Balance}>(
+      /public/fusdBalance,
+      target: /storage/fusdVault
+    )
+  }
+    let fusdVault = signer.borrow<&FUSD.Vault>(from: /storage/fusdVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    assert(token1Vault.balance >= minAmountOut, message: "Output amount too small")
+
+    fusdVault.deposit(from: <- token1Vault)
+  }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/StarlyCard/lendMoney.testnet.cdc
+
+```
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// Let the lender lend FLOW to borrower
+transaction(BorrowerAddress: Address, LenderAddress: Address, Uuid: UInt64, LendAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+
+    let ticketRef:  &NFTLendingPlace.LenderTicket
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket) == nil {
+            let lendingTicket <- NFTLendingPlace.createLenderTicket()
+            acct.save(<-lendingTicket, to: /storage/NFTLendingPlaceCollectionLenderTicket)
+        }
+
+        self.ticketRef = acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket reference")
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow lender's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: LendAmount) as! @FlowToken.Vault
+    }
+
+    execute {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlaceRef = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place recource")
+
+        lendingPlaceRef.lendOut(uuid: Uuid, recipient: LenderAddress, lendAmount: <-self.temporaryVault, ticket:  self.ticketRef)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/BloctoBay/raceDay/sell.cdc
 
 ```
@@ -313484,6 +316579,48 @@ transaction(Uuid: UInt64, BorrowerAddress: Address) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/RaceDay_NFT/forceRedeem.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+
+// Let the lender get borrower's NFT by force
+transaction(Uuid: UInt64, BorrowerAddress: Address) {
+
+    prepare(acct: AuthAccount) {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlace = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let ticketRef =  acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket resource")
+
+        let returnNft <- lendingPlace.forcedRedeem(uuid: Uuid, lendticket: ticketRef)
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/RaceDay_NFTCollection)
+            ?? panic("Could not borrow owner's NFT collection reference")
+
+        collectionRef.deposit(token: <-returnNft)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/Find/delistSale.testnet.cdc
 
 ```
@@ -313494,6 +316631,61 @@ transaction(name: String) {
 		let finLeases= acct.borrow<&FIND.LeaseCollection>(from:FIND.LeaseStoragePath)!
 		finLeases.delistSale(name)
 	}
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/FantastecNFT/lendMoney.mainnet.cdc
+
+```
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// Let the lender lend FLOW to borrower
+transaction(BorrowerAddress: Address, LenderAddress: Address, Uuid: UInt64, LendAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+
+    let ticketRef:  &NFTLendingPlace.LenderTicket
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket) == nil {
+            let lendingTicket <- NFTLendingPlace.createLenderTicket()
+            acct.save(<-lendingTicket, to: /storage/NFTLendingPlaceCollectionLenderTicket)
+        }
+
+        self.ticketRef = acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket reference")
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow lender's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: LendAmount) as! @FlowToken.Vault
+    }
+
+    execute {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlaceRef = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place recource")
+
+        lendingPlaceRef.lendOut(uuid: Uuid, recipient: LenderAddress, lendAmount: <-self.temporaryVault, ticket:  self.ticketRef)
+    }
 }
 ```
 
@@ -313891,6 +317083,124 @@ transaction(Uuid: UInt64) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoSwap/swapFlowTokenForExactFusd.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import FlowToken from 0x7e60df042a9c0868
+import FUSD from 0xe223d8a629e49c68
+import FlowSwapPair from 0xd9854329b7edf136
+import FusdUsdtSwapPair from 0x3502a5dacaf350bb
+
+transaction(maxAmountIn: UFix64, amountOut: UFix64) {
+  prepare(signer: AuthAccount) {
+    let amount0 = FusdUsdtSwapPair.quoteSwapToken2ForExactToken1(amount: amountOut) / (1.0 - FusdUsdtSwapPair.getFeePercentage())
+let amountIn = FlowSwapPair.quoteSwapToken1ForExactToken2(amount: amount0) / (1.0 - FlowSwapPair.getFeePercentage())
+    assert(amountIn <= maxAmountIn, message: "Input amount too large")
+
+    let flowTokenVault = signer.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    let token0Vault <- flowTokenVault.withdraw(amount: amountIn) as! @FlowToken.Vault
+    let token1Vault <- FlowSwapPair.swapToken1ForToken2(from: <- token0Vault)
+let token2Vault <- FusdUsdtSwapPair.swapToken2ForToken1(from: <- token1Vault)
+
+      if signer.borrow<&FUSD.Vault>(from: /storage/fusdVault) == nil {
+    signer.save(<-FUSD.createEmptyVault(), to: /storage/fusdVault)
+    signer.link<&FUSD.Vault{FungibleToken.Receiver}>(
+      /public/fusdReceiver,
+      target: /storage/fusdVault
+    )
+    signer.link<&FUSD.Vault{FungibleToken.Balance}>(
+      /public/fusdBalance,
+      target: /storage/fusdVault
+    )
+  }
+    let fusdVault = signer.borrow<&FUSD.Vault>(from: /storage/fusdVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    
+
+    fusdVault.deposit(from: <- token2Vault)
+  }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/TheFootballClub/sellTFCItem.mainnet.cdc
+
+```
+import FUSD from 0x3c5959b568896393
+import NonFungibleToken from 0x1d7e57aa55817448
+import TFCItems from 0x81e95660ab5308e1
+import NFTStorefront from 0x4eb8a10cb9f87357
+import FungibleToken from 0xf233dcee88fe0abe
+
+/*
+    This transaction is used to sell a TFCItem for FUSD
+ */
+transaction(saleItemID: UInt64, saleItemPrice: UFix64) {
+    let fusdReceiver: Capability<&FUSD.Vault{FungibleToken.Receiver}>
+    let TFCItemsProvider: Capability<&TFCItems.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>
+    let storefront: &NFTStorefront.Storefront
+
+    prepare(acct: AuthAccount) {
+        // We need a provider capability, but one is not provided by default so we create one if needed.
+        let TFCItemsCollectionProviderPrivatePath = /private/TFCItemsCollectionProviderForNFTStorefront
+
+        self.fusdReceiver = acct.getCapability<&FUSD.Vault{FungibleToken.Receiver}>(/public/fusdReceiver)!
+        assert(self.fusdReceiver.borrow() != nil, message: "Missing or mis-typed FUSD receiver")
+
+        if !acct.getCapability<&TFCItems.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(TFCItemsCollectionProviderPrivatePath)!.check() {
+            acct.link<&TFCItems.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(TFCItemsCollectionProviderPrivatePath, target: TFCItems.CollectionStoragePath)
+        }
+        
+        self.TFCItemsProvider = acct.getCapability<&TFCItems.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(TFCItemsCollectionProviderPrivatePath)!
+        assert(self.TFCItemsProvider.borrow() != nil, message: "Missing or mis-typed TFCItems.Collection provider")
+
+        self.storefront = acct.borrow<&NFTStorefront.Storefront>(from: NFTStorefront.StorefrontStoragePath)
+            ?? panic("Missing or mis-typed NFTStorefront Storefront")
+    }
+
+    execute {
+        let saleCut = NFTStorefront.SaleCut(
+            receiver: self.fusdReceiver,
+            amount: saleItemPrice
+        )
+        self.storefront.createListing(
+            nftProviderCapability: self.TFCItemsProvider,
+            nftType: Type<@TFCItems.NFT>(),
+            nftID: saleItemID,
+            salePaymentVaultType: Type<@FUSD.Vault>(),
+            saleCuts: [saleCut]
+        )
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/MantlefiNFTLending/EternalMoment/forceRedeem.cdc
 
 ```
@@ -313920,6 +317230,206 @@ transaction(Uuid: UInt64, BorrowerAddress: Address) {
     }
 }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoSwap/swapBloctoTokenForExactUSDT.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import BloctoToken from 0x0f9df91c9121c460
+import TeleportedTetherToken from 0xcfdd90d4a00f7b5b
+import BltUsdtSwapPair from 0xfcb06a5ae5b21a2d
+
+transaction(maxAmountIn: UFix64, amountOut: UFix64) {
+  prepare(signer: AuthAccount) {
+    let amountIn = BltUsdtSwapPair.quoteSwapToken1ForExactToken2(amount: amountOut) / (1.0 - BltUsdtSwapPair.getFeePercentage())
+    assert(amountIn <= maxAmountIn, message: "Input amount too large")
+
+    let bloctoTokenVault = signer.borrow<&BloctoToken.Vault>(from: /storage/bloctoTokenVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    let token0Vault <- bloctoTokenVault.withdraw(amount: amountIn) as! @BloctoToken.Vault
+    let token1Vault <- BltUsdtSwapPair.swapToken1ForToken2(from: <- token0Vault)
+
+      if signer.borrow<&TeleportedTetherToken.Vault>(from: TeleportedTetherToken.TokenStoragePath) == nil {
+    signer.save(<-TeleportedTetherToken.createEmptyVault(), to: TeleportedTetherToken.TokenStoragePath)
+    signer.link<&TeleportedTetherToken.Vault{FungibleToken.Receiver}>(
+      TeleportedTetherToken.TokenPublicReceiverPath,
+      target: TeleportedTetherToken.TokenStoragePath
+    )
+    signer.link<&TeleportedTetherToken.Vault{FungibleToken.Balance}>(
+      TeleportedTetherToken.TokenPublicBalancePath,
+      target: TeleportedTetherToken.TokenStoragePath
+    )
+  }
+    let teleportedTetherTokenVault = signer.borrow<&TeleportedTetherToken.Vault>(from: TeleportedTetherToken.TokenStoragePath) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    
+
+    teleportedTetherTokenVault.deposit(from: <- token1Vault)
+  }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/MatrixWorldFlowFestNFT/borrowMoneyByNFT.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// List an NFT in the account storage for lending
+transaction(id: UInt64, baseAmount: UFix64, interest: UFix64, duration: UFix64) {
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&AnyResource{NFTLendingPlace.LendingPublic}>(from: /storage/NFTLendingPlaceCollection) == nil {
+            let receiver = acct.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+            let lendingPlace <- NFTLendingPlace.createLendingCollection(ownerVault: receiver)
+            acct.save(<-lendingPlace, to: /storage/NFTLendingPlaceCollection)
+            acct.link<&NFTLendingPlace.LendingCollection{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection, target: /storage/NFTLendingPlaceCollection)
+        }
+
+        let lendingPlace = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/MatrixWorldFlowFestNFTCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        // Withdraw the NFT to use as collateral
+        let token <- collectionRef.withdraw(withdrawID: id)
+
+        // List the NFT as collateral
+        lendingPlace.listForLending(owner: acct.address, token: <-token, baseAmount: baseAmount, interest: interest, duration: duration)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Domains/borrowMoneyByNFT.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// List an NFT in the account storage for lending
+transaction(id: UInt64, baseAmount: UFix64, interest: UFix64, duration: UFix64) {
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&AnyResource{NFTLendingPlace.LendingPublic}>(from: /storage/NFTLendingPlaceCollection) == nil {
+            let receiver = acct.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+            let lendingPlace <- NFTLendingPlace.createLendingCollection(ownerVault: receiver)
+            acct.save(<-lendingPlace, to: /storage/NFTLendingPlaceCollection)
+            acct.link<&NFTLendingPlace.LendingCollection{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection, target: /storage/NFTLendingPlaceCollection)
+        }
+
+        let lendingPlace = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/fnsDomainCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        // Withdraw the NFT to use as collateral
+        let token <- collectionRef.withdraw(withdrawID: id)
+
+        // List the NFT as collateral
+        lendingPlace.listForLending(owner: acct.address, token: <-token, baseAmount: baseAmount, interest: interest, duration: duration)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoSwap/swapExactFlowTokenForUSDT.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import FlowToken from 0x7e60df042a9c0868
+import TeleportedTetherToken from 0xab26e0a07d770ec1
+import FlowSwapPair from 0xd9854329b7edf136
+
+transaction(amountIn: UFix64, minAmountOut: UFix64) {
+  prepare(signer: AuthAccount) {
+    
+    
+
+    let flowTokenVault = signer.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    let token0Vault <- flowTokenVault.withdraw(amount: amountIn) as! @FlowToken.Vault
+    let token1Vault <- FlowSwapPair.swapToken1ForToken2(from: <- token0Vault)
+
+      if signer.borrow<&TeleportedTetherToken.Vault>(from: TeleportedTetherToken.TokenStoragePath) == nil {
+    signer.save(<-TeleportedTetherToken.createEmptyVault(), to: TeleportedTetherToken.TokenStoragePath)
+    signer.link<&TeleportedTetherToken.Vault{FungibleToken.Receiver}>(
+      TeleportedTetherToken.TokenPublicReceiverPath,
+      target: TeleportedTetherToken.TokenStoragePath
+    )
+    signer.link<&TeleportedTetherToken.Vault{FungibleToken.Balance}>(
+      TeleportedTetherToken.TokenPublicBalancePath,
+      target: TeleportedTetherToken.TokenStoragePath
+    )
+  }
+    let teleportedTetherTokenVault = signer.borrow<&TeleportedTetherToken.Vault>(from: TeleportedTetherToken.TokenStoragePath) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    assert(token1Vault.balance >= minAmountOut, message: "Output amount too small")
+
+    teleportedTetherTokenVault.deposit(from: <- token1Vault)
+  }
+}
 ```
 
 
@@ -314159,6 +317669,60 @@ transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFi
         Marketplace.removeListing(id: listingResourceID)
     }
 
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoSwap/swapExactBloctoTokenForFlow.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import BloctoToken from 0x0f9df91c9121c460
+import FlowToken from 0x1654653399040a61
+import BltUsdtSwapPair from 0xfcb06a5ae5b21a2d
+import FlowSwapPair from 0xc6c77b9f5c7a378f
+
+transaction(amountIn: UFix64, minAmountOut: UFix64) {
+  prepare(signer: AuthAccount) {
+    
+    
+
+    let bloctoTokenVault = signer.borrow<&BloctoToken.Vault>(from: /storage/bloctoTokenVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    let token0Vault <- bloctoTokenVault.withdraw(amount: amountIn) as! @BloctoToken.Vault
+    let token1Vault <- BltUsdtSwapPair.swapToken1ForToken2(from: <- token0Vault)
+let token2Vault <- FlowSwapPair.swapToken2ForToken1(from: <- token1Vault)
+
+      if signer.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault) == nil {
+    signer.save(<-FlowToken.createEmptyVault(), to: /storage/flowTokenVault)
+    signer.link<&FlowToken.Vault{FungibleToken.Receiver}>(
+      /public/flowTokenReceiver,
+      target: /storage/flowTokenVault
+    )
+    signer.link<&FlowToken.Vault{FungibleToken.Balance}>(
+      /public/flowTokenBalance,
+      target: /storage/flowTokenVault
+    )
+  }
+    let flowTokenVault = signer.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    assert(token2Vault.balance >= minAmountOut, message: "Output amount too small")
+
+    flowTokenVault.deposit(from: <- token2Vault)
+  }
 }
 ```
 
@@ -314725,6 +318289,61 @@ transaction(saleItemID: UInt64, saleItemPrice: UFix64) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/BiscuitsNGroovy/lendMoney.testnet.cdc
+
+```
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// Let the lender lend FLOW to borrower
+transaction(BorrowerAddress: Address, LenderAddress: Address, Uuid: UInt64, LendAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+
+    let ticketRef:  &NFTLendingPlace.LenderTicket
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket) == nil {
+            let lendingTicket <- NFTLendingPlace.createLenderTicket()
+            acct.save(<-lendingTicket, to: /storage/NFTLendingPlaceCollectionLenderTicket)
+        }
+
+        self.ticketRef = acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket reference")
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow lender's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: LendAmount) as! @FlowToken.Vault
+    }
+
+    execute {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlaceRef = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place recource")
+
+        lendingPlaceRef.lendOut(uuid: Uuid, recipient: LenderAddress, lendAmount: <-self.temporaryVault, ticket:  self.ticketRef)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/FreeFlow/createAccountAndDeposit.testnet.cdc
 
 ```
@@ -314789,6 +318408,186 @@ transaction(publicKey: String, amount: UFix64) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Domains/forceRedeem.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+
+// Let the lender get borrower's NFT by force
+transaction(Uuid: UInt64, BorrowerAddress: Address) {
+
+    prepare(acct: AuthAccount) {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlace = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let ticketRef =  acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket resource")
+
+        let returnNft <- lendingPlace.forcedRedeem(uuid: Uuid, lendticket: ticketRef)
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/fnsDomainCollection)
+            ?? panic("Could not borrow owner's NFT collection reference")
+
+        collectionRef.deposit(token: <-returnNft)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/TopShot/borrowMoneyByNFT.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// List an NFT in the account storage for lending
+transaction(id: UInt64, baseAmount: UFix64, interest: UFix64, duration: UFix64) {
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&AnyResource{NFTLendingPlace.LendingPublic}>(from: /storage/NFTLendingPlaceCollection) == nil {
+            let receiver = acct.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+            let lendingPlace <- NFTLendingPlace.createLendingCollection(ownerVault: receiver)
+            acct.save(<-lendingPlace, to: /storage/NFTLendingPlaceCollection)
+            acct.link<&NFTLendingPlace.LendingCollection{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection, target: /storage/NFTLendingPlaceCollection)
+        }
+
+        let lendingPlace = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/MomentCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        // Withdraw the NFT to use as collateral
+        let token <- collectionRef.withdraw(withdrawID: id)
+
+        // List the NFT as collateral
+        lendingPlace.listForLending(owner: acct.address, token: <-token, baseAmount: baseAmount, interest: interest, duration: duration)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/StarlyCard/borrowMoneyByNFT.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// List an NFT in the account storage for lending
+transaction(id: UInt64, baseAmount: UFix64, interest: UFix64, duration: UFix64) {
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&AnyResource{NFTLendingPlace.LendingPublic}>(from: /storage/NFTLendingPlaceCollection) == nil {
+            let receiver = acct.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+            let lendingPlace <- NFTLendingPlace.createLendingCollection(ownerVault: receiver)
+            acct.save(<-lendingPlace, to: /storage/NFTLendingPlaceCollection)
+            acct.link<&NFTLendingPlace.LendingCollection{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection, target: /storage/NFTLendingPlaceCollection)
+        }
+
+        let lendingPlace = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/starlyCardCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        // Withdraw the NFT to use as collateral
+        let token <- collectionRef.withdraw(withdrawID: id)
+
+        // List the NFT as collateral
+        lendingPlace.listForLending(owner: acct.address, token: <-token, baseAmount: baseAmount, interest: interest, duration: duration)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/TopShot/forceRedeem.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+
+// Let the lender get borrower's NFT by force
+transaction(Uuid: UInt64, BorrowerAddress: Address) {
+
+    prepare(acct: AuthAccount) {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlace = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let ticketRef =  acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket resource")
+
+        let returnNft <- lendingPlace.forcedRedeem(uuid: Uuid, lendticket: ticketRef)
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/MomentCollection)
+            ?? panic("Could not borrow owner's NFT collection reference")
+
+        collectionRef.deposit(token: <-returnNft)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/FlowStaking/claimRewardFlow.testnet.cdc
 
 ```
@@ -314814,6 +318613,80 @@ transaction(amount: UFix64) {
     self.nodeDelegatorProxy.withdrawRewardedTokens(amount: amount)
     self.vaultRef.deposit(from: <-self.holderRef.withdraw(amount: amount))
   }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/NyatheesOVO/cancelBorrowMoney.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+
+// Let the NFT owner unlist NFT from NFTLendingPlace's resource
+transaction(Uuid: UInt64) {
+
+    prepare(acct: AuthAccount) {
+
+        let lending = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's vault resource")
+
+        // Borrow a reference to the NFTCollection in storage
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/NyatheesOVOCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        let NFTtoken <- lending.withdraw(uuid: Uuid)
+
+        collectionRef.deposit(token: <- NFTtoken)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/FantastecNFT/cancelBorrowMoney.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+
+// Let the NFT owner unlist NFT from NFTLendingPlace's resource
+transaction(Uuid: UInt64) {
+
+    prepare(acct: AuthAccount) {
+
+        let lending = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's vault resource")
+
+        // Borrow a reference to the NFTCollection in storage
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/FantastecNFTCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        let NFTtoken <- lending.withdraw(uuid: Uuid)
+
+        collectionRef.deposit(token: <- NFTtoken)
+    }
 }
 ```
 
@@ -314943,6 +318816,43 @@ transaction() {
    }
 
 
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/EternalShard/cancelBorrowMoney.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+
+// Let the NFT owner unlist NFT from NFTLendingPlace's resource
+transaction(Uuid: UInt64) {
+
+    prepare(acct: AuthAccount) {
+
+        let lending = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's vault resource")
+
+        // Borrow a reference to the NFTCollection in storage
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/EternalShardCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        let NFTtoken <- lending.withdraw(uuid: Uuid)
+
+        collectionRef.deposit(token: <- NFTtoken)
+    }
 }
 ```
 
@@ -315473,6 +319383,58 @@ transaction(Uuid: UInt64, BorrowerAddress: Address) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoSwap/swapExactUSDTForBloctoToken.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import TeleportedTetherToken from 0xab26e0a07d770ec1
+import BloctoToken from 0x6e0797ac987005f5
+import BltUsdtSwapPair from 0xc59604d4e65f14b3
+
+transaction(amountIn: UFix64, minAmountOut: UFix64) {
+  prepare(signer: AuthAccount) {
+    
+    
+
+    let teleportedTetherTokenVault = signer.borrow<&TeleportedTetherToken.Vault>(from: TeleportedTetherToken.TokenStoragePath) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    let token0Vault <- teleportedTetherTokenVault.withdraw(amount: amountIn) as! @TeleportedTetherToken.Vault
+    let token1Vault <- BltUsdtSwapPair.swapToken2ForToken1(from: <- token0Vault)
+
+      if signer.borrow<&BloctoToken.Vault>(from: /storage/bloctoTokenVault) == nil {
+    signer.save(<-BloctoToken.createEmptyVault(), to: /storage/bloctoTokenVault)
+    signer.link<&BloctoToken.Vault{FungibleToken.Receiver}>(
+      /public/bloctoTokenReceiver,
+      target: /storage/bloctoTokenVault
+    )
+    signer.link<&BloctoToken.Vault{FungibleToken.Balance}>(
+      /public/bloctoTokenBalance,
+      target: /storage/bloctoTokenVault
+    )
+  }
+    let bloctoTokenVault = signer.borrow<&BloctoToken.Vault>(from: /storage/bloctoTokenVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    assert(token1Vault.balance >= minAmountOut, message: "Output amount too small")
+
+    bloctoTokenVault.deposit(from: <- token1Vault)
+  }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/FlowStaking/enableFlowStake.testnet.cdc
 
 ```
@@ -315724,6 +319686,109 @@ transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFi
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/FantastecNFT/borrowMoneyByNFT.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// List an NFT in the account storage for lending
+transaction(id: UInt64, baseAmount: UFix64, interest: UFix64, duration: UFix64) {
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&AnyResource{NFTLendingPlace.LendingPublic}>(from: /storage/NFTLendingPlaceCollection) == nil {
+            let receiver = acct.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+            let lendingPlace <- NFTLendingPlace.createLendingCollection(ownerVault: receiver)
+            acct.save(<-lendingPlace, to: /storage/NFTLendingPlaceCollection)
+            acct.link<&NFTLendingPlace.LendingCollection{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection, target: /storage/NFTLendingPlaceCollection)
+        }
+
+        let lendingPlace = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/FantastecNFTCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        // Withdraw the NFT to use as collateral
+        let token <- collectionRef.withdraw(withdrawID: id)
+
+        // List the NFT as collateral
+        lendingPlace.listForLending(owner: acct.address, token: <-token, baseAmount: baseAmount, interest: interest, duration: duration)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/FantastecNFT/lendMoney.testnet.cdc
+
+```
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// Let the lender lend FLOW to borrower
+transaction(BorrowerAddress: Address, LenderAddress: Address, Uuid: UInt64, LendAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+
+    let ticketRef:  &NFTLendingPlace.LenderTicket
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket) == nil {
+            let lendingTicket <- NFTLendingPlace.createLenderTicket()
+            acct.save(<-lendingTicket, to: /storage/NFTLendingPlaceCollectionLenderTicket)
+        }
+
+        self.ticketRef = acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket reference")
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow lender's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: LendAmount) as! @FlowToken.Vault
+    }
+
+    execute {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlaceRef = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place recource")
+
+        lendingPlaceRef.lendOut(uuid: Uuid, recipient: LenderAddress, lendAmount: <-self.temporaryVault, ticket:  self.ticketRef)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/EnemyMetal/buyWithFlowNft.cdc
 
 ```
@@ -315786,6 +319851,61 @@ transaction(flowAmount: UFix64, payees: [Address], payeesShares: [UFix64], recip
         // Deposit the NFT in the recipient's collection
         depositRef.deposit(token: <-nft)
     }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoSwap/swapBloctoTokenForExactFlowToken.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import BloctoToken from 0x6e0797ac987005f5
+import FlowToken from 0x7e60df042a9c0868
+import BltUsdtSwapPair from 0xc59604d4e65f14b3
+import FlowSwapPair from 0xd9854329b7edf136
+
+transaction(maxAmountIn: UFix64, amountOut: UFix64) {
+  prepare(signer: AuthAccount) {
+    let amount0 = FlowSwapPair.quoteSwapToken2ForExactToken1(amount: amountOut) / (1.0 - FlowSwapPair.getFeePercentage())
+let amountIn = BltUsdtSwapPair.quoteSwapToken1ForExactToken2(amount: amount0) / (1.0 - BltUsdtSwapPair.getFeePercentage())
+    assert(amountIn <= maxAmountIn, message: "Input amount too large")
+
+    let bloctoTokenVault = signer.borrow<&BloctoToken.Vault>(from: /storage/bloctoTokenVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    let token0Vault <- bloctoTokenVault.withdraw(amount: amountIn) as! @BloctoToken.Vault
+    let token1Vault <- BltUsdtSwapPair.swapToken1ForToken2(from: <- token0Vault)
+let token2Vault <- FlowSwapPair.swapToken2ForToken1(from: <- token1Vault)
+
+      if signer.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault) == nil {
+    signer.save(<-FlowToken.createEmptyVault(), to: /storage/flowTokenVault)
+    signer.link<&FlowToken.Vault{FungibleToken.Receiver}>(
+      /public/flowTokenReceiver,
+      target: /storage/flowTokenVault
+    )
+    signer.link<&FlowToken.Vault{FungibleToken.Balance}>(
+      /public/flowTokenBalance,
+      target: /storage/flowTokenVault
+    )
+  }
+    let flowTokenVault = signer.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    
+
+    flowTokenVault.deposit(from: <- token2Vault)
+  }
 }
 ```
 
@@ -315883,6 +320003,60 @@ transaction(saleItemID: UInt64, saleItemPrice: UFix64) {
         )
         Marketplace.addListing(id: id, storefrontPublicCapability: self.storefrontPublic)
     }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoSwap/swapExactFusdForFlowToken.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import FUSD from 0xe223d8a629e49c68
+import FlowToken from 0x7e60df042a9c0868
+import FusdUsdtSwapPair from 0x3502a5dacaf350bb
+import FlowSwapPair from 0xd9854329b7edf136
+
+transaction(amountIn: UFix64, minAmountOut: UFix64) {
+  prepare(signer: AuthAccount) {
+    
+    
+
+    let fusdVault = signer.borrow<&FUSD.Vault>(from: /storage/fusdVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    let token0Vault <- fusdVault.withdraw(amount: amountIn) as! @FUSD.Vault
+    let token1Vault <- FusdUsdtSwapPair.swapToken1ForToken2(from: <- token0Vault)
+let token2Vault <- FlowSwapPair.swapToken2ForToken1(from: <- token1Vault)
+
+      if signer.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault) == nil {
+    signer.save(<-FlowToken.createEmptyVault(), to: /storage/flowTokenVault)
+    signer.link<&FlowToken.Vault{FungibleToken.Receiver}>(
+      /public/flowTokenReceiver,
+      target: /storage/flowTokenVault
+    )
+    signer.link<&FlowToken.Vault{FungibleToken.Balance}>(
+      /public/flowTokenBalance,
+      target: /storage/flowTokenVault
+    )
+  }
+    let flowTokenVault = signer.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    assert(token2Vault.balance >= minAmountOut, message: "Output amount too small")
+
+    flowTokenVault.deposit(from: <- token2Vault)
+  }
 }
 ```
 
@@ -316697,6 +320871,48 @@ transaction(flowAmount: UFix64, payees: [Address], payeesShares: [UFix64], recip
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/EternalShard/forceRedeem.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+
+// Let the lender get borrower's NFT by force
+transaction(Uuid: UInt64, BorrowerAddress: Address) {
+
+    prepare(acct: AuthAccount) {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlace = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let ticketRef =  acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket resource")
+
+        let returnNft <- lendingPlace.forcedRedeem(uuid: Uuid, lendticket: ticketRef)
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/EternalShardCollection)
+            ?? panic("Could not borrow owner's NFT collection reference")
+
+        collectionRef.deposit(token: <-returnNft)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/MantlefiNFTLending/TFCItems/borrowMoneyByNFT.cdc
 
 ```
@@ -317074,6 +321290,48 @@ let token2Vault <- FusdUsdtSwapPair.swapToken2ForToken1(from: <- token1Vault)
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Gooberz/forceRedeem.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+
+// Let the lender get borrower's NFT by force
+transaction(Uuid: UInt64, BorrowerAddress: Address) {
+
+    prepare(acct: AuthAccount) {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlace = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let ticketRef =  acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket resource")
+
+        let returnNft <- lendingPlace.forcedRedeem(uuid: Uuid, lendticket: ticketRef)
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/GooberzPartyFolksCollection)
+            ?? panic("Could not borrow owner's NFT collection reference")
+
+        collectionRef.deposit(token: <-returnNft)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/BloctoBay/partyGooberz/sell.cdc
 
 ```
@@ -317155,6 +321413,80 @@ transaction(saleItemID: UInt64, saleItemPrice: UFix64) {
             saleCuts: saleCuts
         )
         Marketplace.addListing(id: id, storefrontPublicCapability: self.storefrontPublic)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Mynft/cancelBorrowMoney.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+
+// Let the NFT owner unlist NFT from NFTLendingPlace's resource
+transaction(Uuid: UInt64) {
+
+    prepare(acct: AuthAccount) {
+
+        let lending = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's vault resource")
+
+        // Borrow a reference to the NFTCollection in storage
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/MynftCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        let NFTtoken <- lending.withdraw(uuid: Uuid)
+
+        collectionRef.deposit(token: <- NFTtoken)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Gaia/cancelBorrowMoney.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+
+// Let the NFT owner unlist NFT from NFTLendingPlace's resource
+transaction(Uuid: UInt64) {
+
+    prepare(acct: AuthAccount) {
+
+        let lending = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's vault resource")
+
+        // Borrow a reference to the NFTCollection in storage
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/GaiaCollection001)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        let NFTtoken <- lending.withdraw(uuid: Uuid)
+
+        collectionRef.deposit(token: <- NFTtoken)
     }
 }
 ```
@@ -317373,6 +321705,61 @@ transaction {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Mynft/lendMoney.testnet.cdc
+
+```
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// Let the lender lend FLOW to borrower
+transaction(BorrowerAddress: Address, LenderAddress: Address, Uuid: UInt64, LendAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+
+    let ticketRef:  &NFTLendingPlace.LenderTicket
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket) == nil {
+            let lendingTicket <- NFTLendingPlace.createLenderTicket()
+            acct.save(<-lendingTicket, to: /storage/NFTLendingPlaceCollectionLenderTicket)
+        }
+
+        self.ticketRef = acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket reference")
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow lender's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: LendAmount) as! @FlowToken.Vault
+    }
+
+    execute {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlaceRef = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place recource")
+
+        lendingPlaceRef.lendOut(uuid: Uuid, recipient: LenderAddress, lendAmount: <-self.temporaryVault, ticket:  self.ticketRef)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/BloctoSwap/swapUSDTForExactFlowToken.cdc
 
 ```
@@ -317535,6 +321922,116 @@ transaction(amount: UInt64) {
     post {
         self.recipientCollectionRef.getIDs().contains(self.mintingIDBefore): "The next Inscription ID should have been minted and delivered"
         Inscription.totalSupply == self.mintingIDBefore + amount: "The total supply should have been increased by ".concat(amount.toString())
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/NyatheesOVO/lendMoney.mainnet.cdc
+
+```
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// Let the lender lend FLOW to borrower
+transaction(BorrowerAddress: Address, LenderAddress: Address, Uuid: UInt64, LendAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+
+    let ticketRef:  &NFTLendingPlace.LenderTicket
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket) == nil {
+            let lendingTicket <- NFTLendingPlace.createLenderTicket()
+            acct.save(<-lendingTicket, to: /storage/NFTLendingPlaceCollectionLenderTicket)
+        }
+
+        self.ticketRef = acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket reference")
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow lender's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: LendAmount) as! @FlowToken.Vault
+    }
+
+    execute {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlaceRef = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place recource")
+
+        lendingPlaceRef.lendOut(uuid: Uuid, recipient: LenderAddress, lendAmount: <-self.temporaryVault, ticket:  self.ticketRef)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Vouchers/lendMoney.mainnet.cdc
+
+```
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// Let the lender lend FLOW to borrower
+transaction(BorrowerAddress: Address, LenderAddress: Address, Uuid: UInt64, LendAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+
+    let ticketRef:  &NFTLendingPlace.LenderTicket
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket) == nil {
+            let lendingTicket <- NFTLendingPlace.createLenderTicket()
+            acct.save(<-lendingTicket, to: /storage/NFTLendingPlaceCollectionLenderTicket)
+        }
+
+        self.ticketRef = acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket reference")
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow lender's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: LendAmount) as! @FlowToken.Vault
+    }
+
+    execute {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlaceRef = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place recource")
+
+        lendingPlaceRef.lendOut(uuid: Uuid, recipient: LenderAddress, lendAmount: <-self.temporaryVault, ticket:  self.ticketRef)
     }
 }
 ```
@@ -318022,6 +322519,109 @@ transaction(Uuid: UInt64, BorrowerAddress: Address) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Mynft/borrowMoneyByNFT.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// List an NFT in the account storage for lending
+transaction(id: UInt64, baseAmount: UFix64, interest: UFix64, duration: UFix64) {
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&AnyResource{NFTLendingPlace.LendingPublic}>(from: /storage/NFTLendingPlaceCollection) == nil {
+            let receiver = acct.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+            let lendingPlace <- NFTLendingPlace.createLendingCollection(ownerVault: receiver)
+            acct.save(<-lendingPlace, to: /storage/NFTLendingPlaceCollection)
+            acct.link<&NFTLendingPlace.LendingCollection{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection, target: /storage/NFTLendingPlaceCollection)
+        }
+
+        let lendingPlace = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/MynftCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        // Withdraw the NFT to use as collateral
+        let token <- collectionRef.withdraw(withdrawID: id)
+
+        // List the NFT as collateral
+        lendingPlace.listForLending(owner: acct.address, token: <-token, baseAmount: baseAmount, interest: interest, duration: duration)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoSwap/swapFlowTokenForExactBloctoToken.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import FlowToken from 0x7e60df042a9c0868
+import BloctoToken from 0x6e0797ac987005f5
+import FlowSwapPair from 0xd9854329b7edf136
+import BltUsdtSwapPair from 0xc59604d4e65f14b3
+
+transaction(maxAmountIn: UFix64, amountOut: UFix64) {
+  prepare(signer: AuthAccount) {
+    let amount0 = BltUsdtSwapPair.quoteSwapToken2ForExactToken1(amount: amountOut) / (1.0 - BltUsdtSwapPair.getFeePercentage())
+let amountIn = FlowSwapPair.quoteSwapToken1ForExactToken2(amount: amount0) / (1.0 - FlowSwapPair.getFeePercentage())
+    assert(amountIn <= maxAmountIn, message: "Input amount too large")
+
+    let flowTokenVault = signer.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    let token0Vault <- flowTokenVault.withdraw(amount: amountIn) as! @FlowToken.Vault
+    let token1Vault <- FlowSwapPair.swapToken1ForToken2(from: <- token0Vault)
+let token2Vault <- BltUsdtSwapPair.swapToken2ForToken1(from: <- token1Vault)
+
+      if signer.borrow<&BloctoToken.Vault>(from: /storage/bloctoTokenVault) == nil {
+    signer.save(<-BloctoToken.createEmptyVault(), to: /storage/bloctoTokenVault)
+    signer.link<&BloctoToken.Vault{FungibleToken.Receiver}>(
+      /public/bloctoTokenReceiver,
+      target: /storage/bloctoTokenVault
+    )
+    signer.link<&BloctoToken.Vault{FungibleToken.Balance}>(
+      /public/bloctoTokenBalance,
+      target: /storage/bloctoTokenVault
+    )
+  }
+    let bloctoTokenVault = signer.borrow<&BloctoToken.Vault>(from: /storage/bloctoTokenVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    
+
+    bloctoTokenVault.deposit(from: <- token2Vault)
+  }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/MikoSea/mikoseanftv2/destroyNFT.mainnet.cdc
 
 ```
@@ -318036,6 +322636,91 @@ transaction(nftID: UInt64) {
 
     execute {
         self.holder.burn(id: nftID)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/NyatheesOVO/repay.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// Let the borrower to repay FLOW
+transaction(Uuid: UInt64, RepayAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+    let collectionRef: &NonFungibleToken.Collection
+    let landingPlaceRef: &NFTLendingPlace.LendingCollection
+
+    prepare(acct: AuthAccount) {
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow borrower's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: RepayAmount) as! @FlowToken.Vault
+
+        self.collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/NyatheesOVOCollection)
+            ?? panic("Could not borrow borrower's NFT collection reference")
+
+        self.landingPlaceRef =  acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's LenderTicket reference")
+    }
+
+    execute {
+        let returnNft <- self.landingPlaceRef.repay(uuid: Uuid, repayAmount: <-self.temporaryVault)
+
+        self.collectionRef.deposit(token: <-returnNft)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Gaia/cancelBorrowMoney.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+
+// Let the NFT owner unlist NFT from NFTLendingPlace's resource
+transaction(Uuid: UInt64) {
+
+    prepare(acct: AuthAccount) {
+
+        let lending = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's vault resource")
+
+        // Borrow a reference to the NFTCollection in storage
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/GaiaCollection001)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        let NFTtoken <- lending.withdraw(uuid: Uuid)
+
+        collectionRef.deposit(token: <- NFTtoken)
     }
 }
 ```
@@ -318134,6 +322819,61 @@ transaction(tokens:[UInt64]) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Gaia/lendMoney.testnet.cdc
+
+```
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// Let the lender lend FLOW to borrower
+transaction(BorrowerAddress: Address, LenderAddress: Address, Uuid: UInt64, LendAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+
+    let ticketRef:  &NFTLendingPlace.LenderTicket
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket) == nil {
+            let lendingTicket <- NFTLendingPlace.createLenderTicket()
+            acct.save(<-lendingTicket, to: /storage/NFTLendingPlaceCollectionLenderTicket)
+        }
+
+        self.ticketRef = acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket reference")
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow lender's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: LendAmount) as! @FlowToken.Vault
+    }
+
+    execute {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlaceRef = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place recource")
+
+        lendingPlaceRef.lendOut(uuid: Uuid, recipient: LenderAddress, lendAmount: <-self.temporaryVault, ticket:  self.ticketRef)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/Starly/storefront/buyBlockleteGamesItem.mainnet.cdc
 
 ```
@@ -318178,6 +322918,54 @@ transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFi
         let item <- self.listing.purchase(payment: <-self.paymentVault)
         self.nftCollection.deposit(token: <-item)
         self.storefront.cleanup(listingResourceID: listingResourceID)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Gooberz/repay.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// Let the borrower to repay FLOW
+transaction(Uuid: UInt64, RepayAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+    let collectionRef: &NonFungibleToken.Collection
+    let landingPlaceRef: &NFTLendingPlace.LendingCollection
+
+    prepare(acct: AuthAccount) {
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow borrower's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: RepayAmount) as! @FlowToken.Vault
+
+        self.collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/GooberzPartyFolksCollection)
+            ?? panic("Could not borrow borrower's NFT collection reference")
+
+        self.landingPlaceRef =  acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's LenderTicket reference")
+    }
+
+    execute {
+        let returnNft <- self.landingPlaceRef.repay(uuid: Uuid, repayAmount: <-self.temporaryVault)
+
+        self.collectionRef.deposit(token: <-returnNft)
     }
 }
 ```
@@ -318553,6 +323341,43 @@ transaction(id: String, amount: UFix64, cosignerPubKey: String) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Domains/cancelBorrowMoney.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+
+// Let the NFT owner unlist NFT from NFTLendingPlace's resource
+transaction(Uuid: UInt64) {
+
+    prepare(acct: AuthAccount) {
+
+        let lending = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's vault resource")
+
+        // Borrow a reference to the NFTCollection in storage
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/fnsDomainCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        let NFTtoken <- lending.withdraw(uuid: Uuid)
+
+        collectionRef.deposit(token: <- NFTtoken)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/FreeFlow/mint.mainnet.cdc
 
 ```
@@ -318612,6 +323437,71 @@ transaction(amount: UInt64) {
     post {
         self.recipientCollectionRef.getIDs().contains(self.mintingIDBefore): "The next Inscription ID should have been minted and delivered"
         Inscription.totalSupply == self.mintingIDBefore + amount: "The total supply should have been increased by ".concat(amount.toString())
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/TheFootballClub/initializeAccount.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import TFCItems from 0x81e95660ab5308e1
+import NFTStorefront from 0x4eb8a10cb9f87357
+
+/*
+    Check if an account has a TFCItems Collection capability
+ */
+pub fun hasItems(_ address: Address): Bool {
+    return getAccount(address)
+    .getCapability<&TFCItems.Collection{NonFungibleToken.CollectionPublic, TFCItems.TFCItemsCollectionPublic}>(TFCItems.CollectionPublicPath)
+    .check()
+}
+/*
+    Check if an account has a storefront capability
+ */
+pub fun hasStorefont(_ address: Address): Bool {
+    return getAccount(address)
+    .getCapability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(NFTStorefront.StorefrontPublicPath)
+    .check()
+}
+
+/*
+    This transaction configures an account to hold TFC Items & an NFTStorefont
+ */
+transaction {
+    prepare(signer: AuthAccount) {
+    
+
+    // if a TFCItems collection is not created yet we make it.
+    if !hasItems(signer.address) {
+        if signer.borrow<&TFCItems.Collection>(from: TFCItems.CollectionStoragePath) == nil {
+            signer.save(<-TFCItems.createEmptyCollection(), to: TFCItems.CollectionStoragePath)
+            signer.unlink(TFCItems.CollectionPublicPath)
+            signer.link<&TFCItems.Collection{NonFungibleToken.CollectionPublic, TFCItems.TFCItemsCollectionPublic}>(TFCItems.CollectionPublicPath, target: TFCItems.CollectionStoragePath)
+        }
+    }
+
+    // if a NFTStorefront is not created yet we make it.
+    if !hasStorefont(signer.address) {
+        if signer.borrow<&NFTStorefront.Storefront>(from: NFTStorefront.StorefrontStoragePath) == nil {
+            let storefront <- NFTStorefront.createStorefront() as! @NFTStorefront.Storefront        
+            signer.save(<-storefront, to: NFTStorefront.StorefrontStoragePath)
+            signer.link<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(NFTStorefront.StorefrontPublicPath, target: NFTStorefront.StorefrontStoragePath)
+        }
+    }
+
     }
 }
 ```
@@ -318706,6 +323596,48 @@ transaction(nftIds: [UInt64], metadataArray: [String], claimMetadatasArray: [[St
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Gaia/forceRedeem.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+
+// Let the lender get borrower's NFT by force
+transaction(Uuid: UInt64, BorrowerAddress: Address) {
+
+    prepare(acct: AuthAccount) {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlace = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let ticketRef =  acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket resource")
+
+        let returnNft <- lendingPlace.forcedRedeem(uuid: Uuid, lendticket: ticketRef)
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/GaiaCollection001)
+            ?? panic("Could not borrow owner's NFT collection reference")
+
+        collectionRef.deposit(token: <-returnNft)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/Flovatar/cancelSaleFlovatarComponent.mainnet.cdc
 
 ```
@@ -318743,6 +323675,48 @@ transaction(
     execute {
         let component <- self.marketplace.withdrawFlovatarComponent(tokenId: componentId)
         self.componentCollection.deposit(token: <- component);
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/MatrixWorldFlowFestNFT/forceRedeem.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+
+// Let the lender get borrower's NFT by force
+transaction(Uuid: UInt64, BorrowerAddress: Address) {
+
+    prepare(acct: AuthAccount) {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlace = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let ticketRef =  acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket resource")
+
+        let returnNft <- lendingPlace.forcedRedeem(uuid: Uuid, lendticket: ticketRef)
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/MatrixWorldFlowFestNFTCollection)
+            ?? panic("Could not borrow owner's NFT collection reference")
+
+        collectionRef.deposit(token: <-returnNft)
     }
 }
 ```
@@ -319343,6 +324317,48 @@ transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFi
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/NyatheesOVO/forceRedeem.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+
+// Let the lender get borrower's NFT by force
+transaction(Uuid: UInt64, BorrowerAddress: Address) {
+
+    prepare(acct: AuthAccount) {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlace = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let ticketRef =  acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket resource")
+
+        let returnNft <- lendingPlace.forcedRedeem(uuid: Uuid, lendticket: ticketRef)
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/NyatheesOVOCollection)
+            ?? panic("Could not borrow owner's NFT collection reference")
+
+        collectionRef.deposit(token: <-returnNft)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/DisruptArt/createSetup.testnet.cdc
 
 ```
@@ -319545,6 +324561,48 @@ transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFi
         Marketplace.removeListing(id: listingResourceID)
     }
 
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/FantastecNFT/forceRedeem.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+
+// Let the lender get borrower's NFT by force
+transaction(Uuid: UInt64, BorrowerAddress: Address) {
+
+    prepare(acct: AuthAccount) {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlace = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let ticketRef =  acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket resource")
+
+        let returnNft <- lendingPlace.forcedRedeem(uuid: Uuid, lendticket: ticketRef)
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/FantastecNFTCollection)
+            ?? panic("Could not borrow owner's NFT collection reference")
+
+        collectionRef.deposit(token: <-returnNft)
+    }
 }
 ```
 
@@ -319800,6 +324858,54 @@ transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFi
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Vouchers/borrowMoneyByNFT.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// List an NFT in the account storage for lending
+transaction(id: UInt64, baseAmount: UFix64, interest: UFix64, duration: UFix64) {
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&AnyResource{NFTLendingPlace.LendingPublic}>(from: /storage/NFTLendingPlaceCollection) == nil {
+            let receiver = acct.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+            let lendingPlace <- NFTLendingPlace.createLendingCollection(ownerVault: receiver)
+            acct.save(<-lendingPlace, to: /storage/NFTLendingPlaceCollection)
+            acct.link<&NFTLendingPlace.LendingCollection{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection, target: /storage/NFTLendingPlaceCollection)
+        }
+
+        let lendingPlace = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/jambbLaunchVouchersCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        // Withdraw the NFT to use as collateral
+        let token <- collectionRef.withdraw(withdrawID: id)
+
+        // List the NFT as collateral
+        lendingPlace.listForLending(owner: acct.address, token: <-token, baseAmount: baseAmount, interest: interest, duration: duration)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/FanTop/sell_token.mainnet.cdc
 
 ```
@@ -319881,6 +324987,236 @@ transaction(nftIDs:[UInt64], comment: String){
         for nftId in nftIDs {
             MIKOSEANFT.createComment(projectId:self.projectId, itemId:self.itemId, userAddress:self.address, nftId:nftId, comment: comment)
         }
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/GeniaceNFT/borrowMoneyByNFT.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// List an NFT in the account storage for lending
+transaction(id: UInt64, baseAmount: UFix64, interest: UFix64, duration: UFix64) {
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&AnyResource{NFTLendingPlace.LendingPublic}>(from: /storage/NFTLendingPlaceCollection) == nil {
+            let receiver = acct.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+            let lendingPlace <- NFTLendingPlace.createLendingCollection(ownerVault: receiver)
+            acct.save(<-lendingPlace, to: /storage/NFTLendingPlaceCollection)
+            acct.link<&NFTLendingPlace.LendingCollection{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection, target: /storage/NFTLendingPlaceCollection)
+        }
+
+        let lendingPlace = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/GeniaceNFTCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        // Withdraw the NFT to use as collateral
+        let token <- collectionRef.withdraw(withdrawID: id)
+
+        // List the NFT as collateral
+        lendingPlace.listForLending(owner: acct.address, token: <-token, baseAmount: baseAmount, interest: interest, duration: duration)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/MatrixWorldFlowFestNFT/forceRedeem.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+
+// Let the lender get borrower's NFT by force
+transaction(Uuid: UInt64, BorrowerAddress: Address) {
+
+    prepare(acct: AuthAccount) {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlace = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let ticketRef =  acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket resource")
+
+        let returnNft <- lendingPlace.forcedRedeem(uuid: Uuid, lendticket: ticketRef)
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/MatrixWorldFlowFestNFTCollection)
+            ?? panic("Could not borrow owner's NFT collection reference")
+
+        collectionRef.deposit(token: <-returnNft)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/RaceDay_NFT/borrowMoneyByNFT.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// List an NFT in the account storage for lending
+transaction(id: UInt64, baseAmount: UFix64, interest: UFix64, duration: UFix64) {
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&AnyResource{NFTLendingPlace.LendingPublic}>(from: /storage/NFTLendingPlaceCollection) == nil {
+            let receiver = acct.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+            let lendingPlace <- NFTLendingPlace.createLendingCollection(ownerVault: receiver)
+            acct.save(<-lendingPlace, to: /storage/NFTLendingPlaceCollection)
+            acct.link<&NFTLendingPlace.LendingCollection{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection, target: /storage/NFTLendingPlaceCollection)
+        }
+
+        let lendingPlace = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/RaceDay_NFTCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        // Withdraw the NFT to use as collateral
+        let token <- collectionRef.withdraw(withdrawID: id)
+
+        // List the NFT as collateral
+        lendingPlace.listForLending(owner: acct.address, token: <-token, baseAmount: baseAmount, interest: interest, duration: duration)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/MatrixWorldFlowFestNFT/cancelBorrowMoney.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+
+// Let the NFT owner unlist NFT from NFTLendingPlace's resource
+transaction(Uuid: UInt64) {
+
+    prepare(acct: AuthAccount) {
+
+        let lending = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's vault resource")
+
+        // Borrow a reference to the NFTCollection in storage
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/MatrixWorldFlowFestNFTCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        let NFTtoken <- lending.withdraw(uuid: Uuid)
+
+        collectionRef.deposit(token: <- NFTtoken)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/EternalShard/lendMoney.mainnet.cdc
+
+```
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// Let the lender lend FLOW to borrower
+transaction(BorrowerAddress: Address, LenderAddress: Address, Uuid: UInt64, LendAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+
+    let ticketRef:  &NFTLendingPlace.LenderTicket
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket) == nil {
+            let lendingTicket <- NFTLendingPlace.createLenderTicket()
+            acct.save(<-lendingTicket, to: /storage/NFTLendingPlaceCollectionLenderTicket)
+        }
+
+        self.ticketRef = acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket reference")
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow lender's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: LendAmount) as! @FlowToken.Vault
+    }
+
+    execute {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlaceRef = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place recource")
+
+        lendingPlaceRef.lendOut(uuid: Uuid, recipient: LenderAddress, lendAmount: <-self.temporaryVault, ticket:  self.ticketRef)
     }
 }
 ```
@@ -320388,6 +325724,54 @@ transaction(
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Gooberz/borrowMoneyByNFT.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// List an NFT in the account storage for lending
+transaction(id: UInt64, baseAmount: UFix64, interest: UFix64, duration: UFix64) {
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&AnyResource{NFTLendingPlace.LendingPublic}>(from: /storage/NFTLendingPlaceCollection) == nil {
+            let receiver = acct.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+            let lendingPlace <- NFTLendingPlace.createLendingCollection(ownerVault: receiver)
+            acct.save(<-lendingPlace, to: /storage/NFTLendingPlaceCollection)
+            acct.link<&NFTLendingPlace.LendingCollection{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection, target: /storage/NFTLendingPlaceCollection)
+        }
+
+        let lendingPlace = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/GooberzPartyFolksCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        // Withdraw the NFT to use as collateral
+        let token <- collectionRef.withdraw(withdrawID: id)
+
+        // List the NFT as collateral
+        lendingPlace.listForLending(owner: acct.address, token: <-token, baseAmount: baseAmount, interest: interest, duration: duration)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/FanTop/transfer_token.testnet.cdc
 
 ```
@@ -320533,6 +325917,61 @@ transaction(tokenIds: [UInt64]) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoSwap/swapBloctoTokenForExactFusd.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import BloctoToken from 0x6e0797ac987005f5
+import FUSD from 0xe223d8a629e49c68
+import BltUsdtSwapPair from 0xc59604d4e65f14b3
+import FusdUsdtSwapPair from 0x3502a5dacaf350bb
+
+transaction(maxAmountIn: UFix64, amountOut: UFix64) {
+  prepare(signer: AuthAccount) {
+    let amount0 = FusdUsdtSwapPair.quoteSwapToken2ForExactToken1(amount: amountOut) / (1.0 - FusdUsdtSwapPair.getFeePercentage())
+let amountIn = BltUsdtSwapPair.quoteSwapToken1ForExactToken2(amount: amount0) / (1.0 - BltUsdtSwapPair.getFeePercentage())
+    assert(amountIn <= maxAmountIn, message: "Input amount too large")
+
+    let bloctoTokenVault = signer.borrow<&BloctoToken.Vault>(from: /storage/bloctoTokenVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    let token0Vault <- bloctoTokenVault.withdraw(amount: amountIn) as! @BloctoToken.Vault
+    let token1Vault <- BltUsdtSwapPair.swapToken1ForToken2(from: <- token0Vault)
+let token2Vault <- FusdUsdtSwapPair.swapToken2ForToken1(from: <- token1Vault)
+
+      if signer.borrow<&FUSD.Vault>(from: /storage/fusdVault) == nil {
+    signer.save(<-FUSD.createEmptyVault(), to: /storage/fusdVault)
+    signer.link<&FUSD.Vault{FungibleToken.Receiver}>(
+      /public/fusdReceiver,
+      target: /storage/fusdVault
+    )
+    signer.link<&FUSD.Vault{FungibleToken.Balance}>(
+      /public/fusdBalance,
+      target: /storage/fusdVault
+    )
+  }
+    let fusdVault = signer.borrow<&FUSD.Vault>(from: /storage/fusdVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    
+
+    fusdVault.deposit(from: <- token2Vault)
+  }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/Find/fulfillAuction.mainnet.cdc
 
 ```
@@ -320651,6 +326090,61 @@ transaction(nftIds: [UInt64], userSafeRecipient: Address) {
             depositRef.deposit(token: <-nft)
             x = x + 1;
         }
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Mynft/lendMoney.mainnet.cdc
+
+```
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// Let the lender lend FLOW to borrower
+transaction(BorrowerAddress: Address, LenderAddress: Address, Uuid: UInt64, LendAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+
+    let ticketRef:  &NFTLendingPlace.LenderTicket
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket) == nil {
+            let lendingTicket <- NFTLendingPlace.createLenderTicket()
+            acct.save(<-lendingTicket, to: /storage/NFTLendingPlaceCollectionLenderTicket)
+        }
+
+        self.ticketRef = acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket reference")
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow lender's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: LendAmount) as! @FlowToken.Vault
+    }
+
+    execute {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlaceRef = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place recource")
+
+        lendingPlaceRef.lendOut(uuid: Uuid, recipient: LenderAddress, lendAmount: <-self.temporaryVault, ticket:  self.ticketRef)
     }
 }
 ```
@@ -320865,6 +326359,61 @@ let token2Vault <- FlowSwapPair.swapToken2ForToken1(from: <- token1Vault)
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/RaceDay_NFT/lendMoney.testnet.cdc
+
+```
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// Let the lender lend FLOW to borrower
+transaction(BorrowerAddress: Address, LenderAddress: Address, Uuid: UInt64, LendAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+
+    let ticketRef:  &NFTLendingPlace.LenderTicket
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket) == nil {
+            let lendingTicket <- NFTLendingPlace.createLenderTicket()
+            acct.save(<-lendingTicket, to: /storage/NFTLendingPlaceCollectionLenderTicket)
+        }
+
+        self.ticketRef = acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket reference")
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow lender's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: LendAmount) as! @FlowToken.Vault
+    }
+
+    execute {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlaceRef = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place recource")
+
+        lendingPlaceRef.lendOut(uuid: Uuid, recipient: LenderAddress, lendAmount: <-self.temporaryVault, ticket:  self.ticketRef)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/MikoSea/mikoseanftv2/destroyNFT.testnet.cdc
 
 ```
@@ -321003,6 +326552,97 @@ transaction(BorrowerAddress: Address, LenderAddress: Address, Uuid: UInt64, Lend
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoSwap/swapExactBloctoTokenForFlow.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import BloctoToken from 0x6e0797ac987005f5
+import FlowToken from 0x7e60df042a9c0868
+import BltUsdtSwapPair from 0xc59604d4e65f14b3
+import FlowSwapPair from 0xd9854329b7edf136
+
+transaction(amountIn: UFix64, minAmountOut: UFix64) {
+  prepare(signer: AuthAccount) {
+    
+    
+
+    let bloctoTokenVault = signer.borrow<&BloctoToken.Vault>(from: /storage/bloctoTokenVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    let token0Vault <- bloctoTokenVault.withdraw(amount: amountIn) as! @BloctoToken.Vault
+    let token1Vault <- BltUsdtSwapPair.swapToken1ForToken2(from: <- token0Vault)
+let token2Vault <- FlowSwapPair.swapToken2ForToken1(from: <- token1Vault)
+
+      if signer.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault) == nil {
+    signer.save(<-FlowToken.createEmptyVault(), to: /storage/flowTokenVault)
+    signer.link<&FlowToken.Vault{FungibleToken.Receiver}>(
+      /public/flowTokenReceiver,
+      target: /storage/flowTokenVault
+    )
+    signer.link<&FlowToken.Vault{FungibleToken.Balance}>(
+      /public/flowTokenBalance,
+      target: /storage/flowTokenVault
+    )
+  }
+    let flowTokenVault = signer.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    assert(token2Vault.balance >= minAmountOut, message: "Output amount too small")
+
+    flowTokenVault.deposit(from: <- token2Vault)
+  }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/StarlyCard/cancelBorrowMoney.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+
+// Let the NFT owner unlist NFT from NFTLendingPlace's resource
+transaction(Uuid: UInt64) {
+
+    prepare(acct: AuthAccount) {
+
+        let lending = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's vault resource")
+
+        // Borrow a reference to the NFTCollection in storage
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/starlyCardCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        let NFTtoken <- lending.withdraw(uuid: Uuid)
+
+        collectionRef.deposit(token: <- NFTtoken)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/Starly/staking/stake.testnet.cdc
 
 ```
@@ -321034,6 +326674,60 @@ transaction(amount: UFix64) {
         let vault <- self.vaultRef.withdraw(amount: amount) as! @StarlyToken.Vault
         self.stakeCollectionRef.stake(principalVault: <-vault)
     }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoSwap/swapExactBloctoTokenForFusd.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import BloctoToken from 0x6e0797ac987005f5
+import FUSD from 0xe223d8a629e49c68
+import BltUsdtSwapPair from 0xc59604d4e65f14b3
+import FusdUsdtSwapPair from 0x3502a5dacaf350bb
+
+transaction(amountIn: UFix64, minAmountOut: UFix64) {
+  prepare(signer: AuthAccount) {
+    
+    
+
+    let bloctoTokenVault = signer.borrow<&BloctoToken.Vault>(from: /storage/bloctoTokenVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    let token0Vault <- bloctoTokenVault.withdraw(amount: amountIn) as! @BloctoToken.Vault
+    let token1Vault <- BltUsdtSwapPair.swapToken1ForToken2(from: <- token0Vault)
+let token2Vault <- FusdUsdtSwapPair.swapToken2ForToken1(from: <- token1Vault)
+
+      if signer.borrow<&FUSD.Vault>(from: /storage/fusdVault) == nil {
+    signer.save(<-FUSD.createEmptyVault(), to: /storage/fusdVault)
+    signer.link<&FUSD.Vault{FungibleToken.Receiver}>(
+      /public/fusdReceiver,
+      target: /storage/fusdVault
+    )
+    signer.link<&FUSD.Vault{FungibleToken.Balance}>(
+      /public/fusdBalance,
+      target: /storage/fusdVault
+    )
+  }
+    let fusdVault = signer.borrow<&FUSD.Vault>(from: /storage/fusdVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    assert(token2Vault.balance >= minAmountOut, message: "Output amount too small")
+
+    fusdVault.deposit(from: <- token2Vault)
+  }
 }
 ```
 
@@ -321167,6 +326861,91 @@ transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFi
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/RaceDay_NFT/borrowMoneyByNFT.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// List an NFT in the account storage for lending
+transaction(id: UInt64, baseAmount: UFix64, interest: UFix64, duration: UFix64) {
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&AnyResource{NFTLendingPlace.LendingPublic}>(from: /storage/NFTLendingPlaceCollection) == nil {
+            let receiver = acct.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+            let lendingPlace <- NFTLendingPlace.createLendingCollection(ownerVault: receiver)
+            acct.save(<-lendingPlace, to: /storage/NFTLendingPlaceCollection)
+            acct.link<&NFTLendingPlace.LendingCollection{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection, target: /storage/NFTLendingPlaceCollection)
+        }
+
+        let lendingPlace = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/RaceDay_NFTCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        // Withdraw the NFT to use as collateral
+        let token <- collectionRef.withdraw(withdrawID: id)
+
+        // List the NFT as collateral
+        lendingPlace.listForLending(owner: acct.address, token: <-token, baseAmount: baseAmount, interest: interest, duration: duration)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/EternalMoment/cancelBorrowMoney.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+
+// Let the NFT owner unlist NFT from NFTLendingPlace's resource
+transaction(Uuid: UInt64) {
+
+    prepare(acct: AuthAccount) {
+
+        let lending = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's vault resource")
+
+        // Borrow a reference to the NFTCollection in storage
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/EternalMomentCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        let NFTtoken <- lending.withdraw(uuid: Uuid)
+
+        collectionRef.deposit(token: <- NFTtoken)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoBay/darkCountry/buy.testnet.cdc
 
 ```
@@ -321274,6 +327053,205 @@ transaction(
         let component <- self.componentCollection.withdraw(withdrawID: componentId) as! @FlovatarComponent.NFT
         self.marketplace.listFlovatarComponentForSale(token: <- component, price: price)
     }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/EternalShard/repay.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// Let the borrower to repay FLOW
+transaction(Uuid: UInt64, RepayAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+    let collectionRef: &NonFungibleToken.Collection
+    let landingPlaceRef: &NFTLendingPlace.LendingCollection
+
+    prepare(acct: AuthAccount) {
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow borrower's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: RepayAmount) as! @FlowToken.Vault
+
+        self.collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/EternalShardCollection)
+            ?? panic("Could not borrow borrower's NFT collection reference")
+
+        self.landingPlaceRef =  acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's LenderTicket reference")
+    }
+
+    execute {
+        let returnNft <- self.landingPlaceRef.repay(uuid: Uuid, repayAmount: <-self.temporaryVault)
+
+        self.collectionRef.deposit(token: <-returnNft)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/NyatheesOVO/forceRedeem.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+
+// Let the lender get borrower's NFT by force
+transaction(Uuid: UInt64, BorrowerAddress: Address) {
+
+    prepare(acct: AuthAccount) {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlace = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let ticketRef =  acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket resource")
+
+        let returnNft <- lendingPlace.forcedRedeem(uuid: Uuid, lendticket: ticketRef)
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/NyatheesOVOCollection)
+            ?? panic("Could not borrow owner's NFT collection reference")
+
+        collectionRef.deposit(token: <-returnNft)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/EternalMoment/lendMoney.testnet.cdc
+
+```
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// Let the lender lend FLOW to borrower
+transaction(BorrowerAddress: Address, LenderAddress: Address, Uuid: UInt64, LendAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+
+    let ticketRef:  &NFTLendingPlace.LenderTicket
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket) == nil {
+            let lendingTicket <- NFTLendingPlace.createLenderTicket()
+            acct.save(<-lendingTicket, to: /storage/NFTLendingPlaceCollectionLenderTicket)
+        }
+
+        self.ticketRef = acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket reference")
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow lender's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: LendAmount) as! @FlowToken.Vault
+    }
+
+    execute {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlaceRef = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place recource")
+
+        lendingPlaceRef.lendOut(uuid: Uuid, recipient: LenderAddress, lendAmount: <-self.temporaryVault, ticket:  self.ticketRef)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoSwap/swapExactBloctoTokenForFusd.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import BloctoToken from 0x0f9df91c9121c460
+import FUSD from 0x3c5959b568896393
+import BltUsdtSwapPair from 0xfcb06a5ae5b21a2d
+import FusdUsdtSwapPair from 0x87f3f233f34b0733
+
+transaction(amountIn: UFix64, minAmountOut: UFix64) {
+  prepare(signer: AuthAccount) {
+    
+    
+
+    let bloctoTokenVault = signer.borrow<&BloctoToken.Vault>(from: /storage/bloctoTokenVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    let token0Vault <- bloctoTokenVault.withdraw(amount: amountIn) as! @BloctoToken.Vault
+    let token1Vault <- BltUsdtSwapPair.swapToken1ForToken2(from: <- token0Vault)
+let token2Vault <- FusdUsdtSwapPair.swapToken2ForToken1(from: <- token1Vault)
+
+      if signer.borrow<&FUSD.Vault>(from: /storage/fusdVault) == nil {
+    signer.save(<-FUSD.createEmptyVault(), to: /storage/fusdVault)
+    signer.link<&FUSD.Vault{FungibleToken.Receiver}>(
+      /public/fusdReceiver,
+      target: /storage/fusdVault
+    )
+    signer.link<&FUSD.Vault{FungibleToken.Balance}>(
+      /public/fusdBalance,
+      target: /storage/fusdVault
+    )
+  }
+    let fusdVault = signer.borrow<&FUSD.Vault>(from: /storage/fusdVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    assert(token2Vault.balance >= minAmountOut, message: "Output amount too small")
+
+    fusdVault.deposit(from: <- token2Vault)
+  }
 }
 ```
 
@@ -322004,6 +327982,43 @@ transaction {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/TopShot/cancelBorrowMoney.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+
+// Let the NFT owner unlist NFT from NFTLendingPlace's resource
+transaction(Uuid: UInt64) {
+
+    prepare(acct: AuthAccount) {
+
+        let lending = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's vault resource")
+
+        // Borrow a reference to the NFTCollection in storage
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/MomentCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        let NFTtoken <- lending.withdraw(uuid: Uuid)
+
+        collectionRef.deposit(token: <- NFTtoken)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/Starly/vesting/initializeVesting.mainnet.cdc
 
 ```
@@ -322336,6 +328351,102 @@ transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFi
         Marketplace.removeListing(id: listingResourceID)
     }
 
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Gooberz/repay.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// Let the borrower to repay FLOW
+transaction(Uuid: UInt64, RepayAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+    let collectionRef: &NonFungibleToken.Collection
+    let landingPlaceRef: &NFTLendingPlace.LendingCollection
+
+    prepare(acct: AuthAccount) {
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow borrower's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: RepayAmount) as! @FlowToken.Vault
+
+        self.collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/GooberzPartyFolksCollection)
+            ?? panic("Could not borrow borrower's NFT collection reference")
+
+        self.landingPlaceRef =  acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's LenderTicket reference")
+    }
+
+    execute {
+        let returnNft <- self.landingPlaceRef.repay(uuid: Uuid, repayAmount: <-self.temporaryVault)
+
+        self.collectionRef.deposit(token: <-returnNft)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Gaia/repay.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// Let the borrower to repay FLOW
+transaction(Uuid: UInt64, RepayAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+    let collectionRef: &NonFungibleToken.Collection
+    let landingPlaceRef: &NFTLendingPlace.LendingCollection
+
+    prepare(acct: AuthAccount) {
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow borrower's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: RepayAmount) as! @FlowToken.Vault
+
+        self.collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/GaiaCollection001)
+            ?? panic("Could not borrow borrower's NFT collection reference")
+
+        self.landingPlaceRef =  acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's LenderTicket reference")
+    }
+
+    execute {
+        let returnNft <- self.landingPlaceRef.repay(uuid: Uuid, repayAmount: <-self.temporaryVault)
+
+        self.collectionRef.deposit(token: <-returnNft)
+    }
 }
 ```
 
@@ -322700,6 +328811,61 @@ transaction {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoSwap/swapBloctoTokenForExactFusd.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import BloctoToken from 0x0f9df91c9121c460
+import FUSD from 0x3c5959b568896393
+import BltUsdtSwapPair from 0xfcb06a5ae5b21a2d
+import FusdUsdtSwapPair from 0x87f3f233f34b0733
+
+transaction(maxAmountIn: UFix64, amountOut: UFix64) {
+  prepare(signer: AuthAccount) {
+    let amount0 = FusdUsdtSwapPair.quoteSwapToken2ForExactToken1(amount: amountOut) / (1.0 - FusdUsdtSwapPair.getFeePercentage())
+let amountIn = BltUsdtSwapPair.quoteSwapToken1ForExactToken2(amount: amount0) / (1.0 - BltUsdtSwapPair.getFeePercentage())
+    assert(amountIn <= maxAmountIn, message: "Input amount too large")
+
+    let bloctoTokenVault = signer.borrow<&BloctoToken.Vault>(from: /storage/bloctoTokenVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    let token0Vault <- bloctoTokenVault.withdraw(amount: amountIn) as! @BloctoToken.Vault
+    let token1Vault <- BltUsdtSwapPair.swapToken1ForToken2(from: <- token0Vault)
+let token2Vault <- FusdUsdtSwapPair.swapToken2ForToken1(from: <- token1Vault)
+
+      if signer.borrow<&FUSD.Vault>(from: /storage/fusdVault) == nil {
+    signer.save(<-FUSD.createEmptyVault(), to: /storage/fusdVault)
+    signer.link<&FUSD.Vault{FungibleToken.Receiver}>(
+      /public/fusdReceiver,
+      target: /storage/fusdVault
+    )
+    signer.link<&FUSD.Vault{FungibleToken.Balance}>(
+      /public/fusdBalance,
+      target: /storage/fusdVault
+    )
+  }
+    let fusdVault = signer.borrow<&FUSD.Vault>(from: /storage/fusdVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    
+
+    fusdVault.deposit(from: <- token2Vault)
+  }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/Starly/buyPackV2.mainnet.cdc
 
 ```
@@ -322833,6 +328999,54 @@ transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFi
         Marketplace.removeListing(id: listingResourceID)
     }
 
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/TopShot/borrowMoneyByNFT.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// List an NFT in the account storage for lending
+transaction(id: UInt64, baseAmount: UFix64, interest: UFix64, duration: UFix64) {
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&AnyResource{NFTLendingPlace.LendingPublic}>(from: /storage/NFTLendingPlaceCollection) == nil {
+            let receiver = acct.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+            let lendingPlace <- NFTLendingPlace.createLendingCollection(ownerVault: receiver)
+            acct.save(<-lendingPlace, to: /storage/NFTLendingPlaceCollection)
+            acct.link<&NFTLendingPlace.LendingCollection{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection, target: /storage/NFTLendingPlaceCollection)
+        }
+
+        let lendingPlace = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/MomentCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        // Withdraw the NFT to use as collateral
+        let token <- collectionRef.withdraw(withdrawID: id)
+
+        // List the NFT as collateral
+        lendingPlace.listForLending(owner: acct.address, token: <-token, baseAmount: baseAmount, interest: interest, duration: duration)
+    }
 }
 ```
 
@@ -323147,6 +329361,61 @@ transaction(nftIds: [UInt64], metadataArray: [String], claimMetadatasArray: [[St
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/TopShot/lendMoney.testnet.cdc
+
+```
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// Let the lender lend FLOW to borrower
+transaction(BorrowerAddress: Address, LenderAddress: Address, Uuid: UInt64, LendAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+
+    let ticketRef:  &NFTLendingPlace.LenderTicket
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket) == nil {
+            let lendingTicket <- NFTLendingPlace.createLenderTicket()
+            acct.save(<-lendingTicket, to: /storage/NFTLendingPlaceCollectionLenderTicket)
+        }
+
+        self.ticketRef = acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket reference")
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow lender's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: LendAmount) as! @FlowToken.Vault
+    }
+
+    execute {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlaceRef = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place recource")
+
+        lendingPlaceRef.lendOut(uuid: Uuid, recipient: LenderAddress, lendAmount: <-self.temporaryVault, ticket:  self.ticketRef)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoBay/ticalUniverse/buy.testnet.cdc
 
 ```
@@ -323201,6 +329470,157 @@ transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFi
         Marketplace.removeListing(id: listingResourceID)
     }
 
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Vouchers/repay.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// Let the borrower to repay FLOW
+transaction(Uuid: UInt64, RepayAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+    let collectionRef: &NonFungibleToken.Collection
+    let landingPlaceRef: &NFTLendingPlace.LendingCollection
+
+    prepare(acct: AuthAccount) {
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow borrower's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: RepayAmount) as! @FlowToken.Vault
+
+        self.collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/jambbLaunchVouchersCollection)
+            ?? panic("Could not borrow borrower's NFT collection reference")
+
+        self.landingPlaceRef =  acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's LenderTicket reference")
+    }
+
+    execute {
+        let returnNft <- self.landingPlaceRef.repay(uuid: Uuid, repayAmount: <-self.temporaryVault)
+
+        self.collectionRef.deposit(token: <-returnNft)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Domains/lendMoney.testnet.cdc
+
+```
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// Let the lender lend FLOW to borrower
+transaction(BorrowerAddress: Address, LenderAddress: Address, Uuid: UInt64, LendAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+
+    let ticketRef:  &NFTLendingPlace.LenderTicket
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket) == nil {
+            let lendingTicket <- NFTLendingPlace.createLenderTicket()
+            acct.save(<-lendingTicket, to: /storage/NFTLendingPlaceCollectionLenderTicket)
+        }
+
+        self.ticketRef = acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket reference")
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow lender's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: LendAmount) as! @FlowToken.Vault
+    }
+
+    execute {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlaceRef = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place recource")
+
+        lendingPlaceRef.lendOut(uuid: Uuid, recipient: LenderAddress, lendAmount: <-self.temporaryVault, ticket:  self.ticketRef)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Vouchers/borrowMoneyByNFT.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// List an NFT in the account storage for lending
+transaction(id: UInt64, baseAmount: UFix64, interest: UFix64, duration: UFix64) {
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&AnyResource{NFTLendingPlace.LendingPublic}>(from: /storage/NFTLendingPlaceCollection) == nil {
+            let receiver = acct.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+            let lendingPlace <- NFTLendingPlace.createLendingCollection(ownerVault: receiver)
+            acct.save(<-lendingPlace, to: /storage/NFTLendingPlaceCollection)
+            acct.link<&NFTLendingPlace.LendingCollection{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection, target: /storage/NFTLendingPlaceCollection)
+        }
+
+        let lendingPlace = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/jambbLaunchVouchersCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        // Withdraw the NFT to use as collateral
+        let token <- collectionRef.withdraw(withdrawID: id)
+
+        // List the NFT as collateral
+        lendingPlace.listForLending(owner: acct.address, token: <-token, baseAmount: baseAmount, interest: interest, duration: duration)
+    }
 }
 ```
 
@@ -323350,6 +329770,90 @@ transaction(Uuid: UInt64, RepayAmount: UFix64) {
     }
 }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Vouchers/forceRedeem.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+
+// Let the lender get borrower's NFT by force
+transaction(Uuid: UInt64, BorrowerAddress: Address) {
+
+    prepare(acct: AuthAccount) {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlace = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let ticketRef =  acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket resource")
+
+        let returnNft <- lendingPlace.forcedRedeem(uuid: Uuid, lendticket: ticketRef)
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/jambbLaunchVouchersCollection)
+            ?? panic("Could not borrow owner's NFT collection reference")
+
+        collectionRef.deposit(token: <-returnNft)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/BiscuitsNGroovy/forceRedeem.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+
+// Let the lender get borrower's NFT by force
+transaction(Uuid: UInt64, BorrowerAddress: Address) {
+
+    prepare(acct: AuthAccount) {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlace = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let ticketRef =  acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket resource")
+
+        let returnNft <- lendingPlace.forcedRedeem(uuid: Uuid, lendticket: ticketRef)
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/BnGNFTCollection)
+            ?? panic("Could not borrow owner's NFT collection reference")
+
+        collectionRef.deposit(token: <-returnNft)
+    }
+}
 ```
 
 
@@ -323728,6 +330232,54 @@ transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFi
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/NyatheesOVO/borrowMoneyByNFT.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// List an NFT in the account storage for lending
+transaction(id: UInt64, baseAmount: UFix64, interest: UFix64, duration: UFix64) {
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&AnyResource{NFTLendingPlace.LendingPublic}>(from: /storage/NFTLendingPlaceCollection) == nil {
+            let receiver = acct.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+            let lendingPlace <- NFTLendingPlace.createLendingCollection(ownerVault: receiver)
+            acct.save(<-lendingPlace, to: /storage/NFTLendingPlaceCollection)
+            acct.link<&NFTLendingPlace.LendingCollection{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection, target: /storage/NFTLendingPlaceCollection)
+        }
+
+        let lendingPlace = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/NyatheesOVOCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        // Withdraw the NFT to use as collateral
+        let token <- collectionRef.withdraw(withdrawID: id)
+
+        // List the NFT as collateral
+        lendingPlace.listForLending(owner: acct.address, token: <-token, baseAmount: baseAmount, interest: interest, duration: duration)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/Starly/storefront/buyRCRDSHPItem.mainnet.cdc
 
 ```
@@ -323892,6 +330444,61 @@ transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFi
         let item <- self.listing.purchase(payment: <-self.paymentVault)
         self.nftCollection.deposit(token: <-item)
         self.storefront.cleanup(listingResourceID: listingResourceID)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/MatrixWorldFlowFestNFT/lendMoney.mainnet.cdc
+
+```
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// Let the lender lend FLOW to borrower
+transaction(BorrowerAddress: Address, LenderAddress: Address, Uuid: UInt64, LendAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+
+    let ticketRef:  &NFTLendingPlace.LenderTicket
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket) == nil {
+            let lendingTicket <- NFTLendingPlace.createLenderTicket()
+            acct.save(<-lendingTicket, to: /storage/NFTLendingPlaceCollectionLenderTicket)
+        }
+
+        self.ticketRef = acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket reference")
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow lender's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: LendAmount) as! @FlowToken.Vault
+    }
+
+    execute {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlaceRef = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place recource")
+
+        lendingPlaceRef.lendOut(uuid: Uuid, recipient: LenderAddress, lendAmount: <-self.temporaryVault, ticket:  self.ticketRef)
     }
 }
 ```
@@ -324092,6 +330699,54 @@ transaction(id: UInt64, baseAmount: UFix64, interest: UFix64, duration: UFix64) 
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/NyatheesOVO/repay.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// Let the borrower to repay FLOW
+transaction(Uuid: UInt64, RepayAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+    let collectionRef: &NonFungibleToken.Collection
+    let landingPlaceRef: &NFTLendingPlace.LendingCollection
+
+    prepare(acct: AuthAccount) {
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow borrower's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: RepayAmount) as! @FlowToken.Vault
+
+        self.collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/NyatheesOVOCollection)
+            ?? panic("Could not borrow borrower's NFT collection reference")
+
+        self.landingPlaceRef =  acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's LenderTicket reference")
+    }
+
+    execute {
+        let returnNft <- self.landingPlaceRef.repay(uuid: Uuid, repayAmount: <-self.temporaryVault)
+
+        self.collectionRef.deposit(token: <-returnNft)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoBay/removeItem.testnet.cdc
 
 ```
@@ -324110,6 +330765,43 @@ transaction(listingResourceID: UInt64) {
     execute {
         self.storefrontManager.removeListing(listingResourceID: listingResourceID)
         Marketplace.removeListing(id: listingResourceID)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Gooberz/cancelBorrowMoney.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+
+// Let the NFT owner unlist NFT from NFTLendingPlace's resource
+transaction(Uuid: UInt64) {
+
+    prepare(acct: AuthAccount) {
+
+        let lending = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's vault resource")
+
+        // Borrow a reference to the NFTCollection in storage
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/GooberzPartyFolksCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        let NFTtoken <- lending.withdraw(uuid: Uuid)
+
+        collectionRef.deposit(token: <- NFTtoken)
     }
 }
 ```
@@ -324235,6 +330927,61 @@ transaction {
              acct.unlink(StarlyCardMarket.CollectionPublicPath)
              acct.link<&StarlyCardMarket.Collection{StarlyCardMarket.CollectionPublic}>(StarlyCardMarket.CollectionPublicPath, target:StarlyCardMarket.CollectionStoragePath)
         }
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/MatrixWorldFlowFestNFT/lendMoney.testnet.cdc
+
+```
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// Let the lender lend FLOW to borrower
+transaction(BorrowerAddress: Address, LenderAddress: Address, Uuid: UInt64, LendAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+
+    let ticketRef:  &NFTLendingPlace.LenderTicket
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket) == nil {
+            let lendingTicket <- NFTLendingPlace.createLenderTicket()
+            acct.save(<-lendingTicket, to: /storage/NFTLendingPlaceCollectionLenderTicket)
+        }
+
+        self.ticketRef = acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket reference")
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow lender's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: LendAmount) as! @FlowToken.Vault
+    }
+
+    execute {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlaceRef = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place recource")
+
+        lendingPlaceRef.lendOut(uuid: Uuid, recipient: LenderAddress, lendAmount: <-self.temporaryVault, ticket:  self.ticketRef)
     }
 }
 ```
@@ -324404,6 +331151,102 @@ transaction(saleItemID: UInt64, saleItemPrice: UFix64) {
         )
         Marketplace.addListing(id: id, storefrontPublicCapability: self.storefrontPublic)
     }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/EternalShard/forceRedeem.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+
+// Let the lender get borrower's NFT by force
+transaction(Uuid: UInt64, BorrowerAddress: Address) {
+
+    prepare(acct: AuthAccount) {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlace = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let ticketRef =  acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket resource")
+
+        let returnNft <- lendingPlace.forcedRedeem(uuid: Uuid, lendticket: ticketRef)
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/EternalShardCollection)
+            ?? panic("Could not borrow owner's NFT collection reference")
+
+        collectionRef.deposit(token: <-returnNft)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoSwap/swapExactFusdForBloctoToken.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import FUSD from 0xe223d8a629e49c68
+import BloctoToken from 0x6e0797ac987005f5
+import FusdUsdtSwapPair from 0x3502a5dacaf350bb
+import BltUsdtSwapPair from 0xc59604d4e65f14b3
+
+transaction(amountIn: UFix64, minAmountOut: UFix64) {
+  prepare(signer: AuthAccount) {
+    
+    
+
+    let fusdVault = signer.borrow<&FUSD.Vault>(from: /storage/fusdVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    let token0Vault <- fusdVault.withdraw(amount: amountIn) as! @FUSD.Vault
+    let token1Vault <- FusdUsdtSwapPair.swapToken1ForToken2(from: <- token0Vault)
+let token2Vault <- BltUsdtSwapPair.swapToken2ForToken1(from: <- token1Vault)
+
+      if signer.borrow<&BloctoToken.Vault>(from: /storage/bloctoTokenVault) == nil {
+    signer.save(<-BloctoToken.createEmptyVault(), to: /storage/bloctoTokenVault)
+    signer.link<&BloctoToken.Vault{FungibleToken.Receiver}>(
+      /public/bloctoTokenReceiver,
+      target: /storage/bloctoTokenVault
+    )
+    signer.link<&BloctoToken.Vault{FungibleToken.Balance}>(
+      /public/bloctoTokenBalance,
+      target: /storage/bloctoTokenVault
+    )
+  }
+    let bloctoTokenVault = signer.borrow<&BloctoToken.Vault>(from: /storage/bloctoTokenVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    assert(token2Vault.balance >= minAmountOut, message: "Output amount too small")
+
+    bloctoTokenVault.deposit(from: <- token2Vault)
+  }
 }
 ```
 
@@ -324883,6 +331726,102 @@ transaction(Uuid: UInt64, BorrowerAddress: Address) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/GeniaceNFT/repay.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// Let the borrower to repay FLOW
+transaction(Uuid: UInt64, RepayAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+    let collectionRef: &NonFungibleToken.Collection
+    let landingPlaceRef: &NFTLendingPlace.LendingCollection
+
+    prepare(acct: AuthAccount) {
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow borrower's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: RepayAmount) as! @FlowToken.Vault
+
+        self.collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/GeniaceNFTCollection)
+            ?? panic("Could not borrow borrower's NFT collection reference")
+
+        self.landingPlaceRef =  acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's LenderTicket reference")
+    }
+
+    execute {
+        let returnNft <- self.landingPlaceRef.repay(uuid: Uuid, repayAmount: <-self.temporaryVault)
+
+        self.collectionRef.deposit(token: <-returnNft)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/TopShot/repay.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// Let the borrower to repay FLOW
+transaction(Uuid: UInt64, RepayAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+    let collectionRef: &NonFungibleToken.Collection
+    let landingPlaceRef: &NFTLendingPlace.LendingCollection
+
+    prepare(acct: AuthAccount) {
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow borrower's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: RepayAmount) as! @FlowToken.Vault
+
+        self.collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/MomentCollection)
+            ?? panic("Could not borrow borrower's NFT collection reference")
+
+        self.landingPlaceRef =  acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's LenderTicket reference")
+    }
+
+    execute {
+        let returnNft <- self.landingPlaceRef.repay(uuid: Uuid, repayAmount: <-self.temporaryVault)
+
+        self.collectionRef.deposit(token: <-returnNft)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/AFL/buyPack.mainnet.cdc
 
 ```
@@ -324904,6 +331843,54 @@ transaction(templateIds: [UInt64], packTemplateId: UInt64, price:UFix64, receipt
   execute{
       self.adminRef.buyPack(templateIds: templateIds, packTemplateId: packTemplateId, receiptAddress: receiptAddress, price: price, flowPayment: <- self.temporaryVault)
   }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Gaia/repay.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// Let the borrower to repay FLOW
+transaction(Uuid: UInt64, RepayAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+    let collectionRef: &NonFungibleToken.Collection
+    let landingPlaceRef: &NFTLendingPlace.LendingCollection
+
+    prepare(acct: AuthAccount) {
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow borrower's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: RepayAmount) as! @FlowToken.Vault
+
+        self.collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/GaiaCollection001)
+            ?? panic("Could not borrow borrower's NFT collection reference")
+
+        self.landingPlaceRef =  acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's LenderTicket reference")
+    }
+
+    execute {
+        let returnNft <- self.landingPlaceRef.repay(uuid: Uuid, repayAmount: <-self.temporaryVault)
+
+        self.collectionRef.deposit(token: <-returnNft)
+    }
 }
 ```
 
@@ -325245,6 +332232,54 @@ transaction(
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/FantastecNFT/borrowMoneyByNFT.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// List an NFT in the account storage for lending
+transaction(id: UInt64, baseAmount: UFix64, interest: UFix64, duration: UFix64) {
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&AnyResource{NFTLendingPlace.LendingPublic}>(from: /storage/NFTLendingPlaceCollection) == nil {
+            let receiver = acct.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+            let lendingPlace <- NFTLendingPlace.createLendingCollection(ownerVault: receiver)
+            acct.save(<-lendingPlace, to: /storage/NFTLendingPlaceCollection)
+            acct.link<&NFTLendingPlace.LendingCollection{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection, target: /storage/NFTLendingPlaceCollection)
+        }
+
+        let lendingPlace = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/FantastecNFTCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        // Withdraw the NFT to use as collateral
+        let token <- collectionRef.withdraw(withdrawID: id)
+
+        // List the NFT as collateral
+        lendingPlace.listForLending(owner: acct.address, token: <-token, baseAmount: baseAmount, interest: interest, duration: duration)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/MantlefiNFTLending/Vouchers/lendMoney.cdc
 
 ```
@@ -325287,6 +332322,54 @@ transaction(BorrowerAddress: Address, LenderAddress: Address, Uuid: UInt64, Lend
     }
 }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/BiscuitsNGroovy/repay.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// Let the borrower to repay FLOW
+transaction(Uuid: UInt64, RepayAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+    let collectionRef: &NonFungibleToken.Collection
+    let landingPlaceRef: &NFTLendingPlace.LendingCollection
+
+    prepare(acct: AuthAccount) {
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow borrower's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: RepayAmount) as! @FlowToken.Vault
+
+        self.collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/BnGNFTCollection)
+            ?? panic("Could not borrow borrower's NFT collection reference")
+
+        self.landingPlaceRef =  acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's LenderTicket reference")
+    }
+
+    execute {
+        let returnNft <- self.landingPlaceRef.repay(uuid: Uuid, repayAmount: <-self.temporaryVault)
+
+        self.collectionRef.deposit(token: <-returnNft)
+    }
+}
 ```
 
 
@@ -325553,6 +332636,151 @@ transaction(
         self.flovatarCollection.deposit(token: <-flovatar)
     }
 
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/GeniaceNFT/lendMoney.mainnet.cdc
+
+```
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// Let the lender lend FLOW to borrower
+transaction(BorrowerAddress: Address, LenderAddress: Address, Uuid: UInt64, LendAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+
+    let ticketRef:  &NFTLendingPlace.LenderTicket
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket) == nil {
+            let lendingTicket <- NFTLendingPlace.createLenderTicket()
+            acct.save(<-lendingTicket, to: /storage/NFTLendingPlaceCollectionLenderTicket)
+        }
+
+        self.ticketRef = acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket reference")
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow lender's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: LendAmount) as! @FlowToken.Vault
+    }
+
+    execute {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlaceRef = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place recource")
+
+        lendingPlaceRef.lendOut(uuid: Uuid, recipient: LenderAddress, lendAmount: <-self.temporaryVault, ticket:  self.ticketRef)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/MatrixWorldFlowFestNFT/repay.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// Let the borrower to repay FLOW
+transaction(Uuid: UInt64, RepayAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+    let collectionRef: &NonFungibleToken.Collection
+    let landingPlaceRef: &NFTLendingPlace.LendingCollection
+
+    prepare(acct: AuthAccount) {
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow borrower's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: RepayAmount) as! @FlowToken.Vault
+
+        self.collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/MatrixWorldFlowFestNFTCollection)
+            ?? panic("Could not borrow borrower's NFT collection reference")
+
+        self.landingPlaceRef =  acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's LenderTicket reference")
+    }
+
+    execute {
+        let returnNft <- self.landingPlaceRef.repay(uuid: Uuid, repayAmount: <-self.temporaryVault)
+
+        self.collectionRef.deposit(token: <-returnNft)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Gaia/forceRedeem.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+
+// Let the lender get borrower's NFT by force
+transaction(Uuid: UInt64, BorrowerAddress: Address) {
+
+    prepare(acct: AuthAccount) {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlace = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let ticketRef =  acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket resource")
+
+        let returnNft <- lendingPlace.forcedRedeem(uuid: Uuid, lendticket: ticketRef)
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/GaiaCollection001)
+            ?? panic("Could not borrow owner's NFT collection reference")
+
+        collectionRef.deposit(token: <-returnNft)
+    }
 }
 ```
 
@@ -325891,6 +333119,98 @@ transaction(nftIds: [UInt64], userSafeRecipient: Address) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/RaceDay_NFT/cancelBorrowMoney.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+
+// Let the NFT owner unlist NFT from NFTLendingPlace's resource
+transaction(Uuid: UInt64) {
+
+    prepare(acct: AuthAccount) {
+
+        let lending = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's vault resource")
+
+        // Borrow a reference to the NFTCollection in storage
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/RaceDay_NFTCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        let NFTtoken <- lending.withdraw(uuid: Uuid)
+
+        collectionRef.deposit(token: <- NFTtoken)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/TopShot/lendMoney.mainnet.cdc
+
+```
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// Let the lender lend FLOW to borrower
+transaction(BorrowerAddress: Address, LenderAddress: Address, Uuid: UInt64, LendAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+
+    let ticketRef:  &NFTLendingPlace.LenderTicket
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket) == nil {
+            let lendingTicket <- NFTLendingPlace.createLenderTicket()
+            acct.save(<-lendingTicket, to: /storage/NFTLendingPlaceCollectionLenderTicket)
+        }
+
+        self.ticketRef = acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket reference")
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow lender's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: LendAmount) as! @FlowToken.Vault
+    }
+
+    execute {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlaceRef = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place recource")
+
+        lendingPlaceRef.lendOut(uuid: Uuid, recipient: LenderAddress, lendAmount: <-self.temporaryVault, ticket:  self.ticketRef)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoToken/sendBloctoToken.testnet.cdc
 
 ```
@@ -326072,6 +333392,85 @@ transaction {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/NyatheesOVO/cancelBorrowMoney.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+
+// Let the NFT owner unlist NFT from NFTLendingPlace's resource
+transaction(Uuid: UInt64) {
+
+    prepare(acct: AuthAccount) {
+
+        let lending = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's vault resource")
+
+        // Borrow a reference to the NFTCollection in storage
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/NyatheesOVOCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        let NFTtoken <- lending.withdraw(uuid: Uuid)
+
+        collectionRef.deposit(token: <- NFTtoken)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/StarlyCard/forceRedeem.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+
+// Let the lender get borrower's NFT by force
+transaction(Uuid: UInt64, BorrowerAddress: Address) {
+
+    prepare(acct: AuthAccount) {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlace = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let ticketRef =  acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket resource")
+
+        let returnNft <- lendingPlace.forcedRedeem(uuid: Uuid, lendticket: ticketRef)
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/starlyCardCollection)
+            ?? panic("Could not borrow owner's NFT collection reference")
+
+        collectionRef.deposit(token: <-returnNft)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/Starly/cancelSaleOffer.testnet.cdc
 
 ```
@@ -326083,6 +333482,54 @@ transaction(itemID: UInt64) {
           .borrow<&StarlyCardMarket.Collection>(from: StarlyCardMarket.CollectionStoragePath)!
           .remove(itemID: itemID)
         destroy offer
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Gaia/borrowMoneyByNFT.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// List an NFT in the account storage for lending
+transaction(id: UInt64, baseAmount: UFix64, interest: UFix64, duration: UFix64) {
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&AnyResource{NFTLendingPlace.LendingPublic}>(from: /storage/NFTLendingPlaceCollection) == nil {
+            let receiver = acct.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+            let lendingPlace <- NFTLendingPlace.createLendingCollection(ownerVault: receiver)
+            acct.save(<-lendingPlace, to: /storage/NFTLendingPlaceCollection)
+            acct.link<&NFTLendingPlace.LendingCollection{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection, target: /storage/NFTLendingPlaceCollection)
+        }
+
+        let lendingPlace = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/GaiaCollection001)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        // Withdraw the NFT to use as collateral
+        let token <- collectionRef.withdraw(withdrawID: id)
+
+        // List the NFT as collateral
+        lendingPlace.listForLending(owner: acct.address, token: <-token, baseAmount: baseAmount, interest: interest, duration: duration)
     }
 }
 ```
@@ -326250,6 +333697,209 @@ transaction(BorrowerAddress: Address, LenderAddress: Address, Uuid: UInt64, Lend
     }
 }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Domains/lendMoney.mainnet.cdc
+
+```
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// Let the lender lend FLOW to borrower
+transaction(BorrowerAddress: Address, LenderAddress: Address, Uuid: UInt64, LendAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+
+    let ticketRef:  &NFTLendingPlace.LenderTicket
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket) == nil {
+            let lendingTicket <- NFTLendingPlace.createLenderTicket()
+            acct.save(<-lendingTicket, to: /storage/NFTLendingPlaceCollectionLenderTicket)
+        }
+
+        self.ticketRef = acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket reference")
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow lender's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: LendAmount) as! @FlowToken.Vault
+    }
+
+    execute {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlaceRef = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place recource")
+
+        lendingPlaceRef.lendOut(uuid: Uuid, recipient: LenderAddress, lendAmount: <-self.temporaryVault, ticket:  self.ticketRef)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/MatrixWorldFlowFestNFT/repay.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// Let the borrower to repay FLOW
+transaction(Uuid: UInt64, RepayAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+    let collectionRef: &NonFungibleToken.Collection
+    let landingPlaceRef: &NFTLendingPlace.LendingCollection
+
+    prepare(acct: AuthAccount) {
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow borrower's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: RepayAmount) as! @FlowToken.Vault
+
+        self.collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/MatrixWorldFlowFestNFTCollection)
+            ?? panic("Could not borrow borrower's NFT collection reference")
+
+        self.landingPlaceRef =  acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's LenderTicket reference")
+    }
+
+    execute {
+        let returnNft <- self.landingPlaceRef.repay(uuid: Uuid, repayAmount: <-self.temporaryVault)
+
+        self.collectionRef.deposit(token: <-returnNft)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoSwap/swapExactBloctoTokenForUSDT.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import BloctoToken from 0x6e0797ac987005f5
+import TeleportedTetherToken from 0xab26e0a07d770ec1
+import BltUsdtSwapPair from 0xc59604d4e65f14b3
+
+transaction(amountIn: UFix64, minAmountOut: UFix64) {
+  prepare(signer: AuthAccount) {
+    
+    
+
+    let bloctoTokenVault = signer.borrow<&BloctoToken.Vault>(from: /storage/bloctoTokenVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    let token0Vault <- bloctoTokenVault.withdraw(amount: amountIn) as! @BloctoToken.Vault
+    let token1Vault <- BltUsdtSwapPair.swapToken1ForToken2(from: <- token0Vault)
+
+      if signer.borrow<&TeleportedTetherToken.Vault>(from: TeleportedTetherToken.TokenStoragePath) == nil {
+    signer.save(<-TeleportedTetherToken.createEmptyVault(), to: TeleportedTetherToken.TokenStoragePath)
+    signer.link<&TeleportedTetherToken.Vault{FungibleToken.Receiver}>(
+      TeleportedTetherToken.TokenPublicReceiverPath,
+      target: TeleportedTetherToken.TokenStoragePath
+    )
+    signer.link<&TeleportedTetherToken.Vault{FungibleToken.Balance}>(
+      TeleportedTetherToken.TokenPublicBalancePath,
+      target: TeleportedTetherToken.TokenStoragePath
+    )
+  }
+    let teleportedTetherTokenVault = signer.borrow<&TeleportedTetherToken.Vault>(from: TeleportedTetherToken.TokenStoragePath) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    assert(token1Vault.balance >= minAmountOut, message: "Output amount too small")
+
+    teleportedTetherTokenVault.deposit(from: <- token1Vault)
+  }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/StarlyCard/repay.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// Let the borrower to repay FLOW
+transaction(Uuid: UInt64, RepayAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+    let collectionRef: &NonFungibleToken.Collection
+    let landingPlaceRef: &NFTLendingPlace.LendingCollection
+
+    prepare(acct: AuthAccount) {
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow borrower's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: RepayAmount) as! @FlowToken.Vault
+
+        self.collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/starlyCardCollection)
+            ?? panic("Could not borrow borrower's NFT collection reference")
+
+        self.landingPlaceRef =  acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's LenderTicket reference")
+    }
+
+    execute {
+        let returnNft <- self.landingPlaceRef.repay(uuid: Uuid, repayAmount: <-self.temporaryVault)
+
+        self.collectionRef.deposit(token: <-returnNft)
+    }
+}
 ```
 
 
@@ -326522,6 +334172,77 @@ transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFi
         Marketplace.removeListing(id: listingResourceID)
     }
 
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Domains/cancelBorrowMoney.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+
+// Let the NFT owner unlist NFT from NFTLendingPlace's resource
+transaction(Uuid: UInt64) {
+
+    prepare(acct: AuthAccount) {
+
+        let lending = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's vault resource")
+
+        // Borrow a reference to the NFTCollection in storage
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/fnsDomainCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        let NFTtoken <- lending.withdraw(uuid: Uuid)
+
+        collectionRef.deposit(token: <- NFTtoken)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/TheFootballClub/removeListing.testnet.cdc
+
+```
+import NFTStorefront from 0x94b06cfca1d8a476
+
+/*
+    Removes a listing from an account's storefront
+*/
+transaction(listingResourceID: UInt64) {
+    let storefront: &NFTStorefront.Storefront{NFTStorefront.StorefrontManager}
+
+    prepare(acct: AuthAccount) {
+        self.storefront = acct.borrow<&NFTStorefront.Storefront{NFTStorefront.StorefrontManager}>(from: NFTStorefront.StorefrontStoragePath)
+            ?? panic("Missing or mis-typed NFTStorefront.Storefront")
+    }
+
+    execute {
+        self.storefront.removeListing(listingResourceID: listingResourceID)
+    }
 }
 ```
 
@@ -327135,6 +334856,108 @@ transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFi
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoSwap/swapExactFlowTokenForFusd.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import FlowToken from 0x7e60df042a9c0868
+import FUSD from 0xe223d8a629e49c68
+import FlowSwapPair from 0xd9854329b7edf136
+import FusdUsdtSwapPair from 0x3502a5dacaf350bb
+
+transaction(amountIn: UFix64, minAmountOut: UFix64) {
+  prepare(signer: AuthAccount) {
+    
+    
+
+    let flowTokenVault = signer.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    let token0Vault <- flowTokenVault.withdraw(amount: amountIn) as! @FlowToken.Vault
+    let token1Vault <- FlowSwapPair.swapToken1ForToken2(from: <- token0Vault)
+let token2Vault <- FusdUsdtSwapPair.swapToken2ForToken1(from: <- token1Vault)
+
+      if signer.borrow<&FUSD.Vault>(from: /storage/fusdVault) == nil {
+    signer.save(<-FUSD.createEmptyVault(), to: /storage/fusdVault)
+    signer.link<&FUSD.Vault{FungibleToken.Receiver}>(
+      /public/fusdReceiver,
+      target: /storage/fusdVault
+    )
+    signer.link<&FUSD.Vault{FungibleToken.Balance}>(
+      /public/fusdBalance,
+      target: /storage/fusdVault
+    )
+  }
+    let fusdVault = signer.borrow<&FUSD.Vault>(from: /storage/fusdVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    assert(token2Vault.balance >= minAmountOut, message: "Output amount too small")
+
+    fusdVault.deposit(from: <- token2Vault)
+  }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Domains/repay.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// Let the borrower to repay FLOW
+transaction(Uuid: UInt64, RepayAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+    let collectionRef: &NonFungibleToken.Collection
+    let landingPlaceRef: &NFTLendingPlace.LendingCollection
+
+    prepare(acct: AuthAccount) {
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow borrower's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: RepayAmount) as! @FlowToken.Vault
+
+        self.collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/fnsDomainCollection)
+            ?? panic("Could not borrow borrower's NFT collection reference")
+
+        self.landingPlaceRef =  acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's LenderTicket reference")
+    }
+
+    execute {
+        let returnNft <- self.landingPlaceRef.repay(uuid: Uuid, repayAmount: <-self.temporaryVault)
+
+        self.collectionRef.deposit(token: <-returnNft)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/Find/increaseBid.mainnet.cdc
 
 ```
@@ -327167,6 +334990,109 @@ transaction(name: String, amount: UFix64) {
 		bids.increaseBid(name: name, vault: <- vault)
 
 	}
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/StarlyCard/lendMoney.mainnet.cdc
+
+```
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// Let the lender lend FLOW to borrower
+transaction(BorrowerAddress: Address, LenderAddress: Address, Uuid: UInt64, LendAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+
+    let ticketRef:  &NFTLendingPlace.LenderTicket
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket) == nil {
+            let lendingTicket <- NFTLendingPlace.createLenderTicket()
+            acct.save(<-lendingTicket, to: /storage/NFTLendingPlaceCollectionLenderTicket)
+        }
+
+        self.ticketRef = acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket reference")
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow lender's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: LendAmount) as! @FlowToken.Vault
+    }
+
+    execute {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlaceRef = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place recource")
+
+        lendingPlaceRef.lendOut(uuid: Uuid, recipient: LenderAddress, lendAmount: <-self.temporaryVault, ticket:  self.ticketRef)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/EternalMoment/borrowMoneyByNFT.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// List an NFT in the account storage for lending
+transaction(id: UInt64, baseAmount: UFix64, interest: UFix64, duration: UFix64) {
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&AnyResource{NFTLendingPlace.LendingPublic}>(from: /storage/NFTLendingPlaceCollection) == nil {
+            let receiver = acct.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+            let lendingPlace <- NFTLendingPlace.createLendingCollection(ownerVault: receiver)
+            acct.save(<-lendingPlace, to: /storage/NFTLendingPlaceCollection)
+            acct.link<&NFTLendingPlace.LendingCollection{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection, target: /storage/NFTLendingPlaceCollection)
+        }
+
+        let lendingPlace = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/EternalMomentCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        // Withdraw the NFT to use as collateral
+        let token <- collectionRef.withdraw(withdrawID: id)
+
+        // List the NFT as collateral
+        lendingPlace.listForLending(owner: acct.address, token: <-token, baseAmount: baseAmount, interest: interest, duration: duration)
+    }
 }
 ```
 
@@ -327472,6 +335398,43 @@ transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFi
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/GeniaceNFT/cancelBorrowMoney.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+
+// Let the NFT owner unlist NFT from NFTLendingPlace's resource
+transaction(Uuid: UInt64) {
+
+    prepare(acct: AuthAccount) {
+
+        let lending = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's vault resource")
+
+        // Borrow a reference to the NFTCollection in storage
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/GeniaceNFTCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        let NFTtoken <- lending.withdraw(uuid: Uuid)
+
+        collectionRef.deposit(token: <- NFTtoken)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/BloctoSwap/swapFlowTokenForExactUSDT.cdc
 
 ```
@@ -327565,6 +335528,48 @@ transaction(marketplace: Address, dropId: UInt64, auctionId: UInt64, bidAmount: 
     }
     execute {
         self.versusCap.borrow()!.placeBid(dropId: dropId, auctionId: auctionId, bidTokens: <- self.temporaryVault, vaultCap: self.vaultCap, collectionCap: self.collectionCap)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Domains/forceRedeem.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+
+// Let the lender get borrower's NFT by force
+transaction(Uuid: UInt64, BorrowerAddress: Address) {
+
+    prepare(acct: AuthAccount) {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlace = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let ticketRef =  acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket resource")
+
+        let returnNft <- lendingPlace.forcedRedeem(uuid: Uuid, lendticket: ticketRef)
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/fnsDomainCollection)
+            ?? panic("Could not borrow owner's NFT collection reference")
+
+        collectionRef.deposit(token: <-returnNft)
     }
 }
 ```
@@ -327812,6 +335817,108 @@ transaction(saleAddress: Address, tokenId: UInt64, amount: UFix64, signature: St
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/BiscuitsNGroovy/cancelBorrowMoney.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+
+// Let the NFT owner unlist NFT from NFTLendingPlace's resource
+transaction(Uuid: UInt64) {
+
+    prepare(acct: AuthAccount) {
+
+        let lending = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's vault resource")
+
+        // Borrow a reference to the NFTCollection in storage
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/BnGNFTCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        let NFTtoken <- lending.withdraw(uuid: Uuid)
+
+        collectionRef.deposit(token: <- NFTtoken)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/TheFootballClub/initializeAccount.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import TFCItems from 0x91a6217c3b70cae8
+import NFTStorefront from 0x94b06cfca1d8a476
+
+/*
+    Check if an account has a TFCItems Collection capability
+ */
+pub fun hasItems(_ address: Address): Bool {
+    return getAccount(address)
+    .getCapability<&TFCItems.Collection{NonFungibleToken.CollectionPublic, TFCItems.TFCItemsCollectionPublic}>(TFCItems.CollectionPublicPath)
+    .check()
+}
+/*
+    Check if an account has a storefront capability
+ */
+pub fun hasStorefont(_ address: Address): Bool {
+    return getAccount(address)
+    .getCapability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(NFTStorefront.StorefrontPublicPath)
+    .check()
+}
+
+/*
+    This transaction configures an account to hold TFC Items & an NFTStorefont
+ */
+transaction {
+    prepare(signer: AuthAccount) {
+    
+
+    // if a TFCItems collection is not created yet we make it.
+    if !hasItems(signer.address) {
+        if signer.borrow<&TFCItems.Collection>(from: TFCItems.CollectionStoragePath) == nil {
+            signer.save(<-TFCItems.createEmptyCollection(), to: TFCItems.CollectionStoragePath)
+            signer.unlink(TFCItems.CollectionPublicPath)
+            signer.link<&TFCItems.Collection{NonFungibleToken.CollectionPublic, TFCItems.TFCItemsCollectionPublic}>(TFCItems.CollectionPublicPath, target: TFCItems.CollectionStoragePath)
+        }
+    }
+
+    // if a NFTStorefront is not created yet we make it.
+    if !hasStorefont(signer.address) {
+        if signer.borrow<&NFTStorefront.Storefront>(from: NFTStorefront.StorefrontStoragePath) == nil {
+            let storefront <- NFTStorefront.createStorefront() as! @NFTStorefront.Storefront        
+            signer.save(<-storefront, to: NFTStorefront.StorefrontStoragePath)
+            signer.link<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(NFTStorefront.StorefrontPublicPath, target: NFTStorefront.StorefrontStoragePath)
+        }
+    }
+
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/BloctoSwap/swapFlowTokenForExactFusd.cdc
 
 ```
@@ -327852,6 +335959,72 @@ let token2Vault <- FusdUsdtSwapPair.swapToken2ForToken1(from: <- token1Vault)
 
     fusdVault.deposit(from: <- token2Vault)
   }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/TheFootballClub/buyTFCItem.testnet.cdc
+
+```
+import FUSD from 0xe223d8a629e49c68
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import TFCItems from 0x91a6217c3b70cae8
+import NFTStorefront from 0x94b06cfca1d8a476
+import FungibleToken from 0x9a0766d93b6608b7
+
+/*
+    This transaction is used to buy a TFCItem for FUSD
+ */
+transaction(storefrontAddress: Address, listingResourceID: UInt64, buyPrice: UFix64) {
+    let paymentVault: @FungibleToken.Vault
+    let TFCItemsCollection: &TFCItems.Collection{NonFungibleToken.Receiver}
+    let storefront: &NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}
+    let listing: &NFTStorefront.Listing{NFTStorefront.ListingPublic}
+
+    prepare(acct: AuthAccount) {
+        self.storefront = getAccount(storefrontAddress)
+            .getCapability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(
+                NFTStorefront.StorefrontPublicPath
+            )!
+            .borrow()
+            ?? panic("Could not borrow Storefront from provided address")
+
+        self.listing = self.storefront.borrowListing(listingResourceID: listingResourceID)
+                    ?? panic("No Offer with that ID in Storefront")
+        let price = self.listing.getDetails().salePrice
+
+        assert(buyPrice == price, message: "buyPrice is NOT same with salePrice")
+
+        let mainFlowVault = acct.borrow<&FUSD.Vault>(from: /storage/fusdVault)
+            ?? panic("Cannot borrow FUSD vault from acct storage")
+        self.paymentVault <- mainFlowVault.withdraw(amount: price)
+
+        self.TFCItemsCollection = acct.borrow<&TFCItems.Collection{NonFungibleToken.Receiver}>(
+            from: TFCItems.CollectionStoragePath
+        ) ?? panic("Cannot borrow NFT collection receiver from account")
+    }
+
+    execute {
+        let item <- self.listing.purchase(
+            payment: <-self.paymentVault
+        )
+
+        self.TFCItemsCollection.deposit(token: <-item)
+        
+        // Be kind and recycle
+        self.storefront.cleanup(listingResourceID: listingResourceID)
+    }
 }
 ```
 
@@ -327992,6 +336165,48 @@ transaction(flowAmount: UFix64, payees: [Address], payeesShares: [UFix64], recip
             self.minter.mintNFT(recipient: receiver, data: self.nfts[x]);
             x = x + 1;
         }
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Gooberz/forceRedeem.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+
+// Let the lender get borrower's NFT by force
+transaction(Uuid: UInt64, BorrowerAddress: Address) {
+
+    prepare(acct: AuthAccount) {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlace = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let ticketRef =  acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket resource")
+
+        let returnNft <- lendingPlace.forcedRedeem(uuid: Uuid, lendticket: ticketRef)
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/GooberzPartyFolksCollection)
+            ?? panic("Could not borrow owner's NFT collection reference")
+
+        collectionRef.deposit(token: <-returnNft)
     }
 }
 ```
@@ -328186,6 +336401,54 @@ transaction(Uuid: UInt64, RepayAmount: UFix64) {
     }
 }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/GeniaceNFT/repay.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// Let the borrower to repay FLOW
+transaction(Uuid: UInt64, RepayAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+    let collectionRef: &NonFungibleToken.Collection
+    let landingPlaceRef: &NFTLendingPlace.LendingCollection
+
+    prepare(acct: AuthAccount) {
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow borrower's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: RepayAmount) as! @FlowToken.Vault
+
+        self.collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/GeniaceNFTCollection)
+            ?? panic("Could not borrow borrower's NFT collection reference")
+
+        self.landingPlaceRef =  acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's LenderTicket reference")
+    }
+
+    execute {
+        let returnNft <- self.landingPlaceRef.repay(uuid: Uuid, repayAmount: <-self.temporaryVault)
+
+        self.collectionRef.deposit(token: <-returnNft)
+    }
+}
 ```
 
 
@@ -329051,6 +337314,48 @@ transaction(id: UInt64, baseAmount: UFix64, interest: UFix64, duration: UFix64) 
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Mynft/forceRedeem.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+
+// Let the lender get borrower's NFT by force
+transaction(Uuid: UInt64, BorrowerAddress: Address) {
+
+    prepare(acct: AuthAccount) {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlace = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let ticketRef =  acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket resource")
+
+        let returnNft <- lendingPlace.forcedRedeem(uuid: Uuid, lendticket: ticketRef)
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/MynftCollection)
+            ?? panic("Could not borrow owner's NFT collection reference")
+
+        collectionRef.deposit(token: <-returnNft)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/Starly/initializeAccountForFlowFestOnTestnet.testnet.cdc
 
 ```
@@ -329454,6 +337759,58 @@ transaction(name: String, amount: UFix64) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoSwap/swapExactBloctoTokenForUSDT.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import BloctoToken from 0x0f9df91c9121c460
+import TeleportedTetherToken from 0xcfdd90d4a00f7b5b
+import BltUsdtSwapPair from 0xfcb06a5ae5b21a2d
+
+transaction(amountIn: UFix64, minAmountOut: UFix64) {
+  prepare(signer: AuthAccount) {
+    
+    
+
+    let bloctoTokenVault = signer.borrow<&BloctoToken.Vault>(from: /storage/bloctoTokenVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    let token0Vault <- bloctoTokenVault.withdraw(amount: amountIn) as! @BloctoToken.Vault
+    let token1Vault <- BltUsdtSwapPair.swapToken1ForToken2(from: <- token0Vault)
+
+      if signer.borrow<&TeleportedTetherToken.Vault>(from: TeleportedTetherToken.TokenStoragePath) == nil {
+    signer.save(<-TeleportedTetherToken.createEmptyVault(), to: TeleportedTetherToken.TokenStoragePath)
+    signer.link<&TeleportedTetherToken.Vault{FungibleToken.Receiver}>(
+      TeleportedTetherToken.TokenPublicReceiverPath,
+      target: TeleportedTetherToken.TokenStoragePath
+    )
+    signer.link<&TeleportedTetherToken.Vault{FungibleToken.Balance}>(
+      TeleportedTetherToken.TokenPublicBalancePath,
+      target: TeleportedTetherToken.TokenStoragePath
+    )
+  }
+    let teleportedTetherTokenVault = signer.borrow<&TeleportedTetherToken.Vault>(from: TeleportedTetherToken.TokenStoragePath) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    assert(token1Vault.balance >= minAmountOut, message: "Output amount too small")
+
+    teleportedTetherTokenVault.deposit(from: <- token1Vault)
+  }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/MantlefiNFTLending/TFCItems/cancelBorrowMoney.cdc
 
 ```
@@ -329639,6 +337996,103 @@ transaction(amount: UFix64, to: Address) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/EternalMoment/forceRedeem.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+
+// Let the lender get borrower's NFT by force
+transaction(Uuid: UInt64, BorrowerAddress: Address) {
+
+    prepare(acct: AuthAccount) {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlace = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let ticketRef =  acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket resource")
+
+        let returnNft <- lendingPlace.forcedRedeem(uuid: Uuid, lendticket: ticketRef)
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/EternalMomentCollection)
+            ?? panic("Could not borrow owner's NFT collection reference")
+
+        collectionRef.deposit(token: <-returnNft)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/EternalShard/lendMoney.testnet.cdc
+
+```
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// Let the lender lend FLOW to borrower
+transaction(BorrowerAddress: Address, LenderAddress: Address, Uuid: UInt64, LendAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+
+    let ticketRef:  &NFTLendingPlace.LenderTicket
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket) == nil {
+            let lendingTicket <- NFTLendingPlace.createLenderTicket()
+            acct.save(<-lendingTicket, to: /storage/NFTLendingPlaceCollectionLenderTicket)
+        }
+
+        self.ticketRef = acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket reference")
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow lender's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: LendAmount) as! @FlowToken.Vault
+    }
+
+    execute {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlaceRef = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place recource")
+
+        lendingPlaceRef.lendOut(uuid: Uuid, recipient: LenderAddress, lendAmount: <-self.temporaryVault, ticket:  self.ticketRef)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoBay/ticalUniverse/buy.mainnet.cdc
 
 ```
@@ -329693,6 +338147,143 @@ transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFi
         Marketplace.removeListing(id: listingResourceID)
     }
 
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/NyatheesOVO/borrowMoneyByNFT.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// List an NFT in the account storage for lending
+transaction(id: UInt64, baseAmount: UFix64, interest: UFix64, duration: UFix64) {
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&AnyResource{NFTLendingPlace.LendingPublic}>(from: /storage/NFTLendingPlaceCollection) == nil {
+            let receiver = acct.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+            let lendingPlace <- NFTLendingPlace.createLendingCollection(ownerVault: receiver)
+            acct.save(<-lendingPlace, to: /storage/NFTLendingPlaceCollection)
+            acct.link<&NFTLendingPlace.LendingCollection{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection, target: /storage/NFTLendingPlaceCollection)
+        }
+
+        let lendingPlace = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/NyatheesOVOCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        // Withdraw the NFT to use as collateral
+        let token <- collectionRef.withdraw(withdrawID: id)
+
+        // List the NFT as collateral
+        lendingPlace.listForLending(owner: acct.address, token: <-token, baseAmount: baseAmount, interest: interest, duration: duration)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/MatrixWorldFlowFestNFT/cancelBorrowMoney.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+
+// Let the NFT owner unlist NFT from NFTLendingPlace's resource
+transaction(Uuid: UInt64) {
+
+    prepare(acct: AuthAccount) {
+
+        let lending = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's vault resource")
+
+        // Borrow a reference to the NFTCollection in storage
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/MatrixWorldFlowFestNFTCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        let NFTtoken <- lending.withdraw(uuid: Uuid)
+
+        collectionRef.deposit(token: <- NFTtoken)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoSwap/swapExactFlowTokenForUSDT.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import FlowToken from 0x1654653399040a61
+import TeleportedTetherToken from 0xcfdd90d4a00f7b5b
+import FlowSwapPair from 0xc6c77b9f5c7a378f
+
+transaction(amountIn: UFix64, minAmountOut: UFix64) {
+  prepare(signer: AuthAccount) {
+    
+    
+
+    let flowTokenVault = signer.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    let token0Vault <- flowTokenVault.withdraw(amount: amountIn) as! @FlowToken.Vault
+    let token1Vault <- FlowSwapPair.swapToken1ForToken2(from: <- token0Vault)
+
+      if signer.borrow<&TeleportedTetherToken.Vault>(from: TeleportedTetherToken.TokenStoragePath) == nil {
+    signer.save(<-TeleportedTetherToken.createEmptyVault(), to: TeleportedTetherToken.TokenStoragePath)
+    signer.link<&TeleportedTetherToken.Vault{FungibleToken.Receiver}>(
+      TeleportedTetherToken.TokenPublicReceiverPath,
+      target: TeleportedTetherToken.TokenStoragePath
+    )
+    signer.link<&TeleportedTetherToken.Vault{FungibleToken.Balance}>(
+      TeleportedTetherToken.TokenPublicBalancePath,
+      target: TeleportedTetherToken.TokenStoragePath
+    )
+  }
+    let teleportedTetherTokenVault = signer.borrow<&TeleportedTetherToken.Vault>(from: TeleportedTetherToken.TokenStoragePath) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    assert(token1Vault.balance >= minAmountOut, message: "Output amount too small")
+
+    teleportedTetherTokenVault.deposit(from: <- token1Vault)
+  }
 }
 ```
 
@@ -330017,6 +338608,58 @@ transaction(
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoSwap/swapExactFusdForUSDT.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import FUSD from 0xe223d8a629e49c68
+import TeleportedTetherToken from 0xab26e0a07d770ec1
+import FusdUsdtSwapPair from 0x3502a5dacaf350bb
+
+transaction(amountIn: UFix64, minAmountOut: UFix64) {
+  prepare(signer: AuthAccount) {
+    
+    
+
+    let fusdVault = signer.borrow<&FUSD.Vault>(from: /storage/fusdVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    let token0Vault <- fusdVault.withdraw(amount: amountIn) as! @FUSD.Vault
+    let token1Vault <- FusdUsdtSwapPair.swapToken1ForToken2(from: <- token0Vault)
+
+      if signer.borrow<&TeleportedTetherToken.Vault>(from: TeleportedTetherToken.TokenStoragePath) == nil {
+    signer.save(<-TeleportedTetherToken.createEmptyVault(), to: TeleportedTetherToken.TokenStoragePath)
+    signer.link<&TeleportedTetherToken.Vault{FungibleToken.Receiver}>(
+      TeleportedTetherToken.TokenPublicReceiverPath,
+      target: TeleportedTetherToken.TokenStoragePath
+    )
+    signer.link<&TeleportedTetherToken.Vault{FungibleToken.Balance}>(
+      TeleportedTetherToken.TokenPublicBalancePath,
+      target: TeleportedTetherToken.TokenStoragePath
+    )
+  }
+    let teleportedTetherTokenVault = signer.borrow<&TeleportedTetherToken.Vault>(from: TeleportedTetherToken.TokenStoragePath) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    assert(token1Vault.balance >= minAmountOut, message: "Output amount too small")
+
+    teleportedTetherTokenVault.deposit(from: <- token1Vault)
+  }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/BloctoBay/ticalUniverse/sell.cdc
 
 ```
@@ -330232,6 +338875,43 @@ transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFi
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Vouchers/cancelBorrowMoney.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+
+// Let the NFT owner unlist NFT from NFTLendingPlace's resource
+transaction(Uuid: UInt64) {
+
+    prepare(acct: AuthAccount) {
+
+        let lending = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's vault resource")
+
+        // Borrow a reference to the NFTCollection in storage
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/jambbLaunchVouchersCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        let NFTtoken <- lending.withdraw(uuid: Uuid)
+
+        collectionRef.deposit(token: <- NFTtoken)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/Flovatar/updateSaleFlovatarComponent.mainnet.cdc
 
 ```
@@ -330370,6 +339050,43 @@ transaction(Uuid: UInt64) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Mynft/cancelBorrowMoney.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+
+// Let the NFT owner unlist NFT from NFTLendingPlace's resource
+transaction(Uuid: UInt64) {
+
+    prepare(acct: AuthAccount) {
+
+        let lending = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's vault resource")
+
+        // Borrow a reference to the NFTCollection in storage
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/MynftCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        let NFTtoken <- lending.withdraw(uuid: Uuid)
+
+        collectionRef.deposit(token: <- NFTtoken)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/Starly/buyPackUsingFlow.mainnet.cdc
 
 ```
@@ -330450,6 +339167,102 @@ transaction(
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/StarlyCard/borrowMoneyByNFT.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// List an NFT in the account storage for lending
+transaction(id: UInt64, baseAmount: UFix64, interest: UFix64, duration: UFix64) {
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&AnyResource{NFTLendingPlace.LendingPublic}>(from: /storage/NFTLendingPlaceCollection) == nil {
+            let receiver = acct.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+            let lendingPlace <- NFTLendingPlace.createLendingCollection(ownerVault: receiver)
+            acct.save(<-lendingPlace, to: /storage/NFTLendingPlaceCollection)
+            acct.link<&NFTLendingPlace.LendingCollection{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection, target: /storage/NFTLendingPlaceCollection)
+        }
+
+        let lendingPlace = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/starlyCardCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        // Withdraw the NFT to use as collateral
+        let token <- collectionRef.withdraw(withdrawID: id)
+
+        // List the NFT as collateral
+        lendingPlace.listForLending(owner: acct.address, token: <-token, baseAmount: baseAmount, interest: interest, duration: duration)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Domains/repay.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// Let the borrower to repay FLOW
+transaction(Uuid: UInt64, RepayAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+    let collectionRef: &NonFungibleToken.Collection
+    let landingPlaceRef: &NFTLendingPlace.LendingCollection
+
+    prepare(acct: AuthAccount) {
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow borrower's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: RepayAmount) as! @FlowToken.Vault
+
+        self.collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/fnsDomainCollection)
+            ?? panic("Could not borrow borrower's NFT collection reference")
+
+        self.landingPlaceRef =  acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's LenderTicket reference")
+    }
+
+    execute {
+        let returnNft <- self.landingPlaceRef.repay(uuid: Uuid, repayAmount: <-self.temporaryVault)
+
+        self.collectionRef.deposit(token: <-returnNft)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/Starly/storefront/buyNyatheesOVOItem.mainnet.cdc
 
 ```
@@ -330494,6 +339307,54 @@ transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFi
         let item <- self.listing.purchase(payment: <-self.paymentVault)
         self.nftCollection.deposit(token: <-item)
         self.storefront.cleanup(listingResourceID: listingResourceID)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Mynft/borrowMoneyByNFT.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// List an NFT in the account storage for lending
+transaction(id: UInt64, baseAmount: UFix64, interest: UFix64, duration: UFix64) {
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&AnyResource{NFTLendingPlace.LendingPublic}>(from: /storage/NFTLendingPlaceCollection) == nil {
+            let receiver = acct.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+            let lendingPlace <- NFTLendingPlace.createLendingCollection(ownerVault: receiver)
+            acct.save(<-lendingPlace, to: /storage/NFTLendingPlaceCollection)
+            acct.link<&NFTLendingPlace.LendingCollection{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection, target: /storage/NFTLendingPlaceCollection)
+        }
+
+        let lendingPlace = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/MynftCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        // Withdraw the NFT to use as collateral
+        let token <- collectionRef.withdraw(withdrawID: id)
+
+        // List the NFT as collateral
+        lendingPlace.listForLending(owner: acct.address, token: <-token, baseAmount: baseAmount, interest: interest, duration: duration)
     }
 }
 ```
@@ -330691,6 +339552,43 @@ transaction(amount: UFix64) {
       self.vaultRef.deposit(from: <-self.holderRef.withdraw(amount: max))
     }
   } 
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/RaceDay_NFT/cancelBorrowMoney.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+
+// Let the NFT owner unlist NFT from NFTLendingPlace's resource
+transaction(Uuid: UInt64) {
+
+    prepare(acct: AuthAccount) {
+
+        let lending = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's vault resource")
+
+        // Borrow a reference to the NFTCollection in storage
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/RaceDay_NFTCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        let NFTtoken <- lending.withdraw(uuid: Uuid)
+
+        collectionRef.deposit(token: <- NFTtoken)
+    }
 }
 ```
 
@@ -331189,6 +340087,58 @@ transaction(BorrowerAddress: Address, LenderAddress: Address, Uuid: UInt64, Lend
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoSwap/swapBloctoTokenForExactUSDT.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import BloctoToken from 0x6e0797ac987005f5
+import TeleportedTetherToken from 0xab26e0a07d770ec1
+import BltUsdtSwapPair from 0xc59604d4e65f14b3
+
+transaction(maxAmountIn: UFix64, amountOut: UFix64) {
+  prepare(signer: AuthAccount) {
+    let amountIn = BltUsdtSwapPair.quoteSwapToken1ForExactToken2(amount: amountOut) / (1.0 - BltUsdtSwapPair.getFeePercentage())
+    assert(amountIn <= maxAmountIn, message: "Input amount too large")
+
+    let bloctoTokenVault = signer.borrow<&BloctoToken.Vault>(from: /storage/bloctoTokenVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    let token0Vault <- bloctoTokenVault.withdraw(amount: amountIn) as! @BloctoToken.Vault
+    let token1Vault <- BltUsdtSwapPair.swapToken1ForToken2(from: <- token0Vault)
+
+      if signer.borrow<&TeleportedTetherToken.Vault>(from: TeleportedTetherToken.TokenStoragePath) == nil {
+    signer.save(<-TeleportedTetherToken.createEmptyVault(), to: TeleportedTetherToken.TokenStoragePath)
+    signer.link<&TeleportedTetherToken.Vault{FungibleToken.Receiver}>(
+      TeleportedTetherToken.TokenPublicReceiverPath,
+      target: TeleportedTetherToken.TokenStoragePath
+    )
+    signer.link<&TeleportedTetherToken.Vault{FungibleToken.Balance}>(
+      TeleportedTetherToken.TokenPublicBalancePath,
+      target: TeleportedTetherToken.TokenStoragePath
+    )
+  }
+    let teleportedTetherTokenVault = signer.borrow<&TeleportedTetherToken.Vault>(from: TeleportedTetherToken.TokenStoragePath) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    
+
+    teleportedTetherTokenVault.deposit(from: <- token1Vault)
+  }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/BloctoBay/flovatar/buy.cdc
 
 ```
@@ -331298,6 +340248,43 @@ let token2Vault <- FlowSwapPair.swapToken2ForToken1(from: <- token1Vault)
 
     flowTokenVault.deposit(from: <- token2Vault)
   }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/EternalMoment/cancelBorrowMoney.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+
+// Let the NFT owner unlist NFT from NFTLendingPlace's resource
+transaction(Uuid: UInt64) {
+
+    prepare(acct: AuthAccount) {
+
+        let lending = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's vault resource")
+
+        // Borrow a reference to the NFTCollection in storage
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/EternalMomentCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        let NFTtoken <- lending.withdraw(uuid: Uuid)
+
+        collectionRef.deposit(token: <- NFTtoken)
+    }
 }
 ```
 
@@ -331449,6 +340436,61 @@ transaction {
                 StarlyToken.TokenPublicBalancePath,
                 target: StarlyToken.TokenStoragePath)
         }
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Gooberz/lendMoney.testnet.cdc
+
+```
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// Let the lender lend FLOW to borrower
+transaction(BorrowerAddress: Address, LenderAddress: Address, Uuid: UInt64, LendAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+
+    let ticketRef:  &NFTLendingPlace.LenderTicket
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket) == nil {
+            let lendingTicket <- NFTLendingPlace.createLenderTicket()
+            acct.save(<-lendingTicket, to: /storage/NFTLendingPlaceCollectionLenderTicket)
+        }
+
+        self.ticketRef = acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket reference")
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow lender's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: LendAmount) as! @FlowToken.Vault
+    }
+
+    execute {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlaceRef = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place recource")
+
+        lendingPlaceRef.lendOut(uuid: Uuid, recipient: LenderAddress, lendAmount: <-self.temporaryVault, ticket:  self.ticketRef)
     }
 }
 ```
@@ -331849,6 +340891,157 @@ transaction(flowAmount: UFix64, payees: [Address], payeesShares: [UFix64], recip
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/GeniaceNFT/borrowMoneyByNFT.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// List an NFT in the account storage for lending
+transaction(id: UInt64, baseAmount: UFix64, interest: UFix64, duration: UFix64) {
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&AnyResource{NFTLendingPlace.LendingPublic}>(from: /storage/NFTLendingPlaceCollection) == nil {
+            let receiver = acct.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+            let lendingPlace <- NFTLendingPlace.createLendingCollection(ownerVault: receiver)
+            acct.save(<-lendingPlace, to: /storage/NFTLendingPlaceCollection)
+            acct.link<&NFTLendingPlace.LendingCollection{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection, target: /storage/NFTLendingPlaceCollection)
+        }
+
+        let lendingPlace = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/GeniaceNFTCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        // Withdraw the NFT to use as collateral
+        let token <- collectionRef.withdraw(withdrawID: id)
+
+        // List the NFT as collateral
+        lendingPlace.listForLending(owner: acct.address, token: <-token, baseAmount: baseAmount, interest: interest, duration: duration)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/RaceDay_NFT/repay.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// Let the borrower to repay FLOW
+transaction(Uuid: UInt64, RepayAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+    let collectionRef: &NonFungibleToken.Collection
+    let landingPlaceRef: &NFTLendingPlace.LendingCollection
+
+    prepare(acct: AuthAccount) {
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow borrower's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: RepayAmount) as! @FlowToken.Vault
+
+        self.collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/RaceDay_NFTCollection)
+            ?? panic("Could not borrow borrower's NFT collection reference")
+
+        self.landingPlaceRef =  acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's LenderTicket reference")
+    }
+
+    execute {
+        let returnNft <- self.landingPlaceRef.repay(uuid: Uuid, repayAmount: <-self.temporaryVault)
+
+        self.collectionRef.deposit(token: <-returnNft)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoSwap/swapFlowTokenForExactFusd.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import FlowToken from 0x1654653399040a61
+import FUSD from 0x3c5959b568896393
+import FlowSwapPair from 0xc6c77b9f5c7a378f
+import FusdUsdtSwapPair from 0x87f3f233f34b0733
+
+transaction(maxAmountIn: UFix64, amountOut: UFix64) {
+  prepare(signer: AuthAccount) {
+    let amount0 = FusdUsdtSwapPair.quoteSwapToken2ForExactToken1(amount: amountOut) / (1.0 - FusdUsdtSwapPair.getFeePercentage())
+let amountIn = FlowSwapPair.quoteSwapToken1ForExactToken2(amount: amount0) / (1.0 - FlowSwapPair.getFeePercentage())
+    assert(amountIn <= maxAmountIn, message: "Input amount too large")
+
+    let flowTokenVault = signer.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    let token0Vault <- flowTokenVault.withdraw(amount: amountIn) as! @FlowToken.Vault
+    let token1Vault <- FlowSwapPair.swapToken1ForToken2(from: <- token0Vault)
+let token2Vault <- FusdUsdtSwapPair.swapToken2ForToken1(from: <- token1Vault)
+
+      if signer.borrow<&FUSD.Vault>(from: /storage/fusdVault) == nil {
+    signer.save(<-FUSD.createEmptyVault(), to: /storage/fusdVault)
+    signer.link<&FUSD.Vault{FungibleToken.Receiver}>(
+      /public/fusdReceiver,
+      target: /storage/fusdVault
+    )
+    signer.link<&FUSD.Vault{FungibleToken.Balance}>(
+      /public/fusdBalance,
+      target: /storage/fusdVault
+    )
+  }
+    let fusdVault = signer.borrow<&FUSD.Vault>(from: /storage/fusdVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    
+
+    fusdVault.deposit(from: <- token2Vault)
+  }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/BloctoBay/topShot/buy.cdc
 
 ```
@@ -331946,6 +341139,58 @@ transaction(name: String) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoSwap/swapExactUSDTForBloctoToken.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import TeleportedTetherToken from 0xcfdd90d4a00f7b5b
+import BloctoToken from 0x0f9df91c9121c460
+import BltUsdtSwapPair from 0xfcb06a5ae5b21a2d
+
+transaction(amountIn: UFix64, minAmountOut: UFix64) {
+  prepare(signer: AuthAccount) {
+    
+    
+
+    let teleportedTetherTokenVault = signer.borrow<&TeleportedTetherToken.Vault>(from: TeleportedTetherToken.TokenStoragePath) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    let token0Vault <- teleportedTetherTokenVault.withdraw(amount: amountIn) as! @TeleportedTetherToken.Vault
+    let token1Vault <- BltUsdtSwapPair.swapToken2ForToken1(from: <- token0Vault)
+
+      if signer.borrow<&BloctoToken.Vault>(from: /storage/bloctoTokenVault) == nil {
+    signer.save(<-BloctoToken.createEmptyVault(), to: /storage/bloctoTokenVault)
+    signer.link<&BloctoToken.Vault{FungibleToken.Receiver}>(
+      /public/bloctoTokenReceiver,
+      target: /storage/bloctoTokenVault
+    )
+    signer.link<&BloctoToken.Vault{FungibleToken.Balance}>(
+      /public/bloctoTokenBalance,
+      target: /storage/bloctoTokenVault
+    )
+  }
+    let bloctoTokenVault = signer.borrow<&BloctoToken.Vault>(from: /storage/bloctoTokenVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    assert(token1Vault.balance >= minAmountOut, message: "Output amount too small")
+
+    bloctoTokenVault.deposit(from: <- token1Vault)
+  }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/MikoSea/Mikosea/user/BatchComment.testnet.cdc
 
 ```
@@ -331970,6 +341215,43 @@ transaction(nftIDs:[UInt64], comment: String){
         for nftId in nftIDs {
             MIKOSEANFT.createComment(projectId:self.projectId, itemId:self.itemId, userAddress:self.address, nftId:nftId, comment: comment)
         }
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/GeniaceNFT/cancelBorrowMoney.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+
+// Let the NFT owner unlist NFT from NFTLendingPlace's resource
+transaction(Uuid: UInt64) {
+
+    prepare(acct: AuthAccount) {
+
+        let lending = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's vault resource")
+
+        // Borrow a reference to the NFTCollection in storage
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/GeniaceNFTCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        let NFTtoken <- lending.withdraw(uuid: Uuid)
+
+        collectionRef.deposit(token: <- NFTtoken)
     }
 }
 ```
@@ -332082,6 +341364,54 @@ transaction(
                 receiver: self.creatorFUSDVault,
                 percent: creatorCutPercent),
             additionalSaleCutReceivers: [])
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/FantastecNFT/repay.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// Let the borrower to repay FLOW
+transaction(Uuid: UInt64, RepayAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+    let collectionRef: &NonFungibleToken.Collection
+    let landingPlaceRef: &NFTLendingPlace.LendingCollection
+
+    prepare(acct: AuthAccount) {
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow borrower's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: RepayAmount) as! @FlowToken.Vault
+
+        self.collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/FantastecNFTCollection)
+            ?? panic("Could not borrow borrower's NFT collection reference")
+
+        self.landingPlaceRef =  acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's LenderTicket reference")
+    }
+
+    execute {
+        let returnNft <- self.landingPlaceRef.repay(uuid: Uuid, repayAmount: <-self.temporaryVault)
+
+        self.collectionRef.deposit(token: <-returnNft)
     }
 }
 ```
@@ -332338,6 +341668,102 @@ transaction(saleItemID: UInt64, saleItemPrice: UFix64) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/FantastecNFT/repay.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// Let the borrower to repay FLOW
+transaction(Uuid: UInt64, RepayAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+    let collectionRef: &NonFungibleToken.Collection
+    let landingPlaceRef: &NFTLendingPlace.LendingCollection
+
+    prepare(acct: AuthAccount) {
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow borrower's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: RepayAmount) as! @FlowToken.Vault
+
+        self.collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/FantastecNFTCollection)
+            ?? panic("Could not borrow borrower's NFT collection reference")
+
+        self.landingPlaceRef =  acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's LenderTicket reference")
+    }
+
+    execute {
+        let returnNft <- self.landingPlaceRef.repay(uuid: Uuid, repayAmount: <-self.temporaryVault)
+
+        self.collectionRef.deposit(token: <-returnNft)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/EternalShard/borrowMoneyByNFT.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// List an NFT in the account storage for lending
+transaction(id: UInt64, baseAmount: UFix64, interest: UFix64, duration: UFix64) {
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&AnyResource{NFTLendingPlace.LendingPublic}>(from: /storage/NFTLendingPlaceCollection) == nil {
+            let receiver = acct.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+            let lendingPlace <- NFTLendingPlace.createLendingCollection(ownerVault: receiver)
+            acct.save(<-lendingPlace, to: /storage/NFTLendingPlaceCollection)
+            acct.link<&NFTLendingPlace.LendingCollection{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection, target: /storage/NFTLendingPlaceCollection)
+        }
+
+        let lendingPlace = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/EternalShardCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        // Withdraw the NFT to use as collateral
+        let token <- collectionRef.withdraw(withdrawID: id)
+
+        // List the NFT as collateral
+        lendingPlace.listForLending(owner: acct.address, token: <-token, baseAmount: baseAmount, interest: interest, duration: duration)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/BloctoSwap/swapUSDTForExactFusd.cdc
 
 ```
@@ -332462,6 +341888,60 @@ prepare(account: AuthAccount) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoSwap/swapExactFusdForBloctoToken.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import FUSD from 0x3c5959b568896393
+import BloctoToken from 0x0f9df91c9121c460
+import FusdUsdtSwapPair from 0x87f3f233f34b0733
+import BltUsdtSwapPair from 0xfcb06a5ae5b21a2d
+
+transaction(amountIn: UFix64, minAmountOut: UFix64) {
+  prepare(signer: AuthAccount) {
+    
+    
+
+    let fusdVault = signer.borrow<&FUSD.Vault>(from: /storage/fusdVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    let token0Vault <- fusdVault.withdraw(amount: amountIn) as! @FUSD.Vault
+    let token1Vault <- FusdUsdtSwapPair.swapToken1ForToken2(from: <- token0Vault)
+let token2Vault <- BltUsdtSwapPair.swapToken2ForToken1(from: <- token1Vault)
+
+      if signer.borrow<&BloctoToken.Vault>(from: /storage/bloctoTokenVault) == nil {
+    signer.save(<-BloctoToken.createEmptyVault(), to: /storage/bloctoTokenVault)
+    signer.link<&BloctoToken.Vault{FungibleToken.Receiver}>(
+      /public/bloctoTokenReceiver,
+      target: /storage/bloctoTokenVault
+    )
+    signer.link<&BloctoToken.Vault{FungibleToken.Balance}>(
+      /public/bloctoTokenBalance,
+      target: /storage/bloctoTokenVault
+    )
+  }
+    let bloctoTokenVault = signer.borrow<&BloctoToken.Vault>(from: /storage/bloctoTokenVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    assert(token2Vault.balance >= minAmountOut, message: "Output amount too small")
+
+    bloctoTokenVault.deposit(from: <- token2Vault)
+  }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/Starly/acceptSaleOffer.testnet.cdc
 
 ```
@@ -332522,6 +342002,108 @@ transaction(itemID: UInt64, marketCollectionAddress: Address) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoSwap/swapExactFlowForBloctoToken.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import FlowToken from 0x1654653399040a61
+import BloctoToken from 0x0f9df91c9121c460
+import FlowSwapPair from 0xc6c77b9f5c7a378f
+import BltUsdtSwapPair from 0xfcb06a5ae5b21a2d
+
+transaction(amountIn: UFix64, minAmountOut: UFix64) {
+  prepare(signer: AuthAccount) {
+    
+    
+
+    let flowTokenVault = signer.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    let token0Vault <- flowTokenVault.withdraw(amount: amountIn) as! @FlowToken.Vault
+    let token1Vault <- FlowSwapPair.swapToken1ForToken2(from: <- token0Vault)
+let token2Vault <- BltUsdtSwapPair.swapToken2ForToken1(from: <- token1Vault)
+
+      if signer.borrow<&BloctoToken.Vault>(from: /storage/bloctoTokenVault) == nil {
+    signer.save(<-BloctoToken.createEmptyVault(), to: /storage/bloctoTokenVault)
+    signer.link<&BloctoToken.Vault{FungibleToken.Receiver}>(
+      /public/bloctoTokenReceiver,
+      target: /storage/bloctoTokenVault
+    )
+    signer.link<&BloctoToken.Vault{FungibleToken.Balance}>(
+      /public/bloctoTokenBalance,
+      target: /storage/bloctoTokenVault
+    )
+  }
+    let bloctoTokenVault = signer.borrow<&BloctoToken.Vault>(from: /storage/bloctoTokenVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    assert(token2Vault.balance >= minAmountOut, message: "Output amount too small")
+
+    bloctoTokenVault.deposit(from: <- token2Vault)
+  }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/MatrixWorldFlowFestNFT/borrowMoneyByNFT.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// List an NFT in the account storage for lending
+transaction(id: UInt64, baseAmount: UFix64, interest: UFix64, duration: UFix64) {
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&AnyResource{NFTLendingPlace.LendingPublic}>(from: /storage/NFTLendingPlaceCollection) == nil {
+            let receiver = acct.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+            let lendingPlace <- NFTLendingPlace.createLendingCollection(ownerVault: receiver)
+            acct.save(<-lendingPlace, to: /storage/NFTLendingPlaceCollection)
+            acct.link<&NFTLendingPlace.LendingCollection{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection, target: /storage/NFTLendingPlaceCollection)
+        }
+
+        let lendingPlace = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/MatrixWorldFlowFestNFTCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        // Withdraw the NFT to use as collateral
+        let token <- collectionRef.withdraw(withdrawID: id)
+
+        // List the NFT as collateral
+        lendingPlace.listForLending(owner: acct.address, token: <-token, baseAmount: baseAmount, interest: interest, duration: duration)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/Find/bid.mainnet.cdc
 
 ```
@@ -332557,6 +342139,58 @@ transaction(name: String, amount: UFix64) {
 		bids.bid(name: name, vault: <- vault)
 
 	}
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoSwap/swapExactFusdForUSDT.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import FUSD from 0x3c5959b568896393
+import TeleportedTetherToken from 0xcfdd90d4a00f7b5b
+import FusdUsdtSwapPair from 0x87f3f233f34b0733
+
+transaction(amountIn: UFix64, minAmountOut: UFix64) {
+  prepare(signer: AuthAccount) {
+    
+    
+
+    let fusdVault = signer.borrow<&FUSD.Vault>(from: /storage/fusdVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    let token0Vault <- fusdVault.withdraw(amount: amountIn) as! @FUSD.Vault
+    let token1Vault <- FusdUsdtSwapPair.swapToken1ForToken2(from: <- token0Vault)
+
+      if signer.borrow<&TeleportedTetherToken.Vault>(from: TeleportedTetherToken.TokenStoragePath) == nil {
+    signer.save(<-TeleportedTetherToken.createEmptyVault(), to: TeleportedTetherToken.TokenStoragePath)
+    signer.link<&TeleportedTetherToken.Vault{FungibleToken.Receiver}>(
+      TeleportedTetherToken.TokenPublicReceiverPath,
+      target: TeleportedTetherToken.TokenStoragePath
+    )
+    signer.link<&TeleportedTetherToken.Vault{FungibleToken.Balance}>(
+      TeleportedTetherToken.TokenPublicBalancePath,
+      target: TeleportedTetherToken.TokenStoragePath
+    )
+  }
+    let teleportedTetherTokenVault = signer.borrow<&TeleportedTetherToken.Vault>(from: TeleportedTetherToken.TokenStoragePath) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    assert(token1Vault.balance >= minAmountOut, message: "Output amount too small")
+
+    teleportedTetherTokenVault.deposit(from: <- token1Vault)
+  }
 }
 ```
 
@@ -333377,6 +343011,54 @@ transaction(flowAmount: UFix64, payees: [Address], payeesShares: [UFix64], recip
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/EternalShard/repay.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// Let the borrower to repay FLOW
+transaction(Uuid: UInt64, RepayAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+    let collectionRef: &NonFungibleToken.Collection
+    let landingPlaceRef: &NFTLendingPlace.LendingCollection
+
+    prepare(acct: AuthAccount) {
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow borrower's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: RepayAmount) as! @FlowToken.Vault
+
+        self.collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/EternalShardCollection)
+            ?? panic("Could not borrow borrower's NFT collection reference")
+
+        self.landingPlaceRef =  acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's LenderTicket reference")
+    }
+
+    execute {
+        let returnNft <- self.landingPlaceRef.repay(uuid: Uuid, repayAmount: <-self.temporaryVault)
+
+        self.collectionRef.deposit(token: <-returnNft)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/Starly/acceptSaleOfferV2.mainnet.cdc
 
 ```
@@ -333600,6 +343282,96 @@ transaction(Uuid: UInt64, RepayAmount: UFix64) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Mynft/forceRedeem.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+
+// Let the lender get borrower's NFT by force
+transaction(Uuid: UInt64, BorrowerAddress: Address) {
+
+    prepare(acct: AuthAccount) {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlace = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let ticketRef =  acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket resource")
+
+        let returnNft <- lendingPlace.forcedRedeem(uuid: Uuid, lendticket: ticketRef)
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/MynftCollection)
+            ?? panic("Could not borrow owner's NFT collection reference")
+
+        collectionRef.deposit(token: <-returnNft)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/RaceDay_NFT/repay.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// Let the borrower to repay FLOW
+transaction(Uuid: UInt64, RepayAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+    let collectionRef: &NonFungibleToken.Collection
+    let landingPlaceRef: &NFTLendingPlace.LendingCollection
+
+    prepare(acct: AuthAccount) {
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow borrower's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: RepayAmount) as! @FlowToken.Vault
+
+        self.collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/RaceDay_NFTCollection)
+            ?? panic("Could not borrow borrower's NFT collection reference")
+
+        self.landingPlaceRef =  acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's LenderTicket reference")
+    }
+
+    execute {
+        let returnNft <- self.landingPlaceRef.repay(uuid: Uuid, repayAmount: <-self.temporaryVault)
+
+        self.collectionRef.deposit(token: <-returnNft)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/MantlefiNFTLending/EternalShard/forceRedeem.cdc
 
 ```
@@ -333778,6 +343550,54 @@ transaction(saleItemID: UInt64, saleItemPrice: UFix64) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Gooberz/borrowMoneyByNFT.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// List an NFT in the account storage for lending
+transaction(id: UInt64, baseAmount: UFix64, interest: UFix64, duration: UFix64) {
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&AnyResource{NFTLendingPlace.LendingPublic}>(from: /storage/NFTLendingPlaceCollection) == nil {
+            let receiver = acct.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+            let lendingPlace <- NFTLendingPlace.createLendingCollection(ownerVault: receiver)
+            acct.save(<-lendingPlace, to: /storage/NFTLendingPlaceCollection)
+            acct.link<&NFTLendingPlace.LendingCollection{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection, target: /storage/NFTLendingPlaceCollection)
+        }
+
+        let lendingPlace = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/GooberzPartyFolksCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        // Withdraw the NFT to use as collateral
+        let token <- collectionRef.withdraw(withdrawID: id)
+
+        // List the NFT as collateral
+        lendingPlace.listForLending(owner: acct.address, token: <-token, baseAmount: baseAmount, interest: interest, duration: duration)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/MantlefiNFTLending/NyatheesOVO/cancelBorrowMoney.cdc
 
 ```
@@ -333913,6 +343733,54 @@ transaction(saleItemID: UInt64, saleItemPrice: UFix64) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/EternalShard/borrowMoneyByNFT.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// List an NFT in the account storage for lending
+transaction(id: UInt64, baseAmount: UFix64, interest: UFix64, duration: UFix64) {
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&AnyResource{NFTLendingPlace.LendingPublic}>(from: /storage/NFTLendingPlaceCollection) == nil {
+            let receiver = acct.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+            let lendingPlace <- NFTLendingPlace.createLendingCollection(ownerVault: receiver)
+            acct.save(<-lendingPlace, to: /storage/NFTLendingPlaceCollection)
+            acct.link<&NFTLendingPlace.LendingCollection{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection, target: /storage/NFTLendingPlaceCollection)
+        }
+
+        let lendingPlace = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/EternalShardCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        // Withdraw the NFT to use as collateral
+        let token <- collectionRef.withdraw(withdrawID: id)
+
+        // List the NFT as collateral
+        lendingPlace.listForLending(owner: acct.address, token: <-token, baseAmount: baseAmount, interest: interest, duration: duration)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/MantlefiNFTLending/Gaia/borrowMoneyByNFT.cdc
 
 ```
@@ -333948,6 +343816,48 @@ transaction(id: UInt64, baseAmount: UFix64, interest: UFix64, duration: UFix64) 
     }
 }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/GeniaceNFT/forceRedeem.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+
+// Let the lender get borrower's NFT by force
+transaction(Uuid: UInt64, BorrowerAddress: Address) {
+
+    prepare(acct: AuthAccount) {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlace = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let ticketRef =  acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket resource")
+
+        let returnNft <- lendingPlace.forcedRedeem(uuid: Uuid, lendticket: ticketRef)
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/GeniaceNFTCollection)
+            ?? panic("Could not borrow owner's NFT collection reference")
+
+        collectionRef.deposit(token: <-returnNft)
+    }
+}
 ```
 
 
@@ -334274,6 +344184,43 @@ transaction(id: UInt64, baseAmount: UFix64, interest: UFix64, duration: UFix64) 
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Gooberz/cancelBorrowMoney.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+
+// Let the NFT owner unlist NFT from NFTLendingPlace's resource
+transaction(Uuid: UInt64) {
+
+    prepare(acct: AuthAccount) {
+
+        let lending = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's vault resource")
+
+        // Borrow a reference to the NFTCollection in storage
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/GooberzPartyFolksCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        let NFTtoken <- lending.withdraw(uuid: Uuid)
+
+        collectionRef.deposit(token: <- NFTtoken)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/FanTop/transfer_token.mainnet.cdc
 
 ```
@@ -334396,6 +344343,157 @@ transaction(amountIn: UFix64, minAmountOut: UFix64) {
 
     bloctoTokenVault.deposit(from: <- token1Vault)
   }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/EternalMoment/repay.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// Let the borrower to repay FLOW
+transaction(Uuid: UInt64, RepayAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+    let collectionRef: &NonFungibleToken.Collection
+    let landingPlaceRef: &NFTLendingPlace.LendingCollection
+
+    prepare(acct: AuthAccount) {
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow borrower's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: RepayAmount) as! @FlowToken.Vault
+
+        self.collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/EternalMomentCollection)
+            ?? panic("Could not borrow borrower's NFT collection reference")
+
+        self.landingPlaceRef =  acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's LenderTicket reference")
+    }
+
+    execute {
+        let returnNft <- self.landingPlaceRef.repay(uuid: Uuid, repayAmount: <-self.temporaryVault)
+
+        self.collectionRef.deposit(token: <-returnNft)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/EternalMoment/lendMoney.mainnet.cdc
+
+```
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// Let the lender lend FLOW to borrower
+transaction(BorrowerAddress: Address, LenderAddress: Address, Uuid: UInt64, LendAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+
+    let ticketRef:  &NFTLendingPlace.LenderTicket
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket) == nil {
+            let lendingTicket <- NFTLendingPlace.createLenderTicket()
+            acct.save(<-lendingTicket, to: /storage/NFTLendingPlaceCollectionLenderTicket)
+        }
+
+        self.ticketRef = acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket reference")
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow lender's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: LendAmount) as! @FlowToken.Vault
+    }
+
+    execute {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlaceRef = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place recource")
+
+        lendingPlaceRef.lendOut(uuid: Uuid, recipient: LenderAddress, lendAmount: <-self.temporaryVault, ticket:  self.ticketRef)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Gaia/borrowMoneyByNFT.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// List an NFT in the account storage for lending
+transaction(id: UInt64, baseAmount: UFix64, interest: UFix64, duration: UFix64) {
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&AnyResource{NFTLendingPlace.LendingPublic}>(from: /storage/NFTLendingPlaceCollection) == nil {
+            let receiver = acct.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+            let lendingPlace <- NFTLendingPlace.createLendingCollection(ownerVault: receiver)
+            acct.save(<-lendingPlace, to: /storage/NFTLendingPlaceCollection)
+            acct.link<&NFTLendingPlace.LendingCollection{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection, target: /storage/NFTLendingPlaceCollection)
+        }
+
+        let lendingPlace = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/GaiaCollection001)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        // Withdraw the NFT to use as collateral
+        let token <- collectionRef.withdraw(withdrawID: id)
+
+        // List the NFT as collateral
+        lendingPlace.listForLending(owner: acct.address, token: <-token, baseAmount: baseAmount, interest: interest, duration: duration)
+    }
 }
 ```
 
@@ -334721,6 +344819,58 @@ transaction(commentId:UInt64, comment: String){
     execute{
         MIKOSEANFT.editComment(commentId: commentId, projectId: self.commentDetail!.projectId, itemId: self.commentDetail!.itemId, userAddress: self.address, nftId: self.commentDetail!.nftId, newComment: comment)
     }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoSwap/swapExactUSDTForFusd.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import TeleportedTetherToken from 0xab26e0a07d770ec1
+import FUSD from 0xe223d8a629e49c68
+import FusdUsdtSwapPair from 0x3502a5dacaf350bb
+
+transaction(amountIn: UFix64, minAmountOut: UFix64) {
+  prepare(signer: AuthAccount) {
+    
+    
+
+    let teleportedTetherTokenVault = signer.borrow<&TeleportedTetherToken.Vault>(from: TeleportedTetherToken.TokenStoragePath) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    let token0Vault <- teleportedTetherTokenVault.withdraw(amount: amountIn) as! @TeleportedTetherToken.Vault
+    let token1Vault <- FusdUsdtSwapPair.swapToken2ForToken1(from: <- token0Vault)
+
+      if signer.borrow<&FUSD.Vault>(from: /storage/fusdVault) == nil {
+    signer.save(<-FUSD.createEmptyVault(), to: /storage/fusdVault)
+    signer.link<&FUSD.Vault{FungibleToken.Receiver}>(
+      /public/fusdReceiver,
+      target: /storage/fusdVault
+    )
+    signer.link<&FUSD.Vault{FungibleToken.Balance}>(
+      /public/fusdBalance,
+      target: /storage/fusdVault
+    )
+  }
+    let fusdVault = signer.borrow<&FUSD.Vault>(from: /storage/fusdVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    assert(token1Vault.balance >= minAmountOut, message: "Output amount too small")
+
+    fusdVault.deposit(from: <- token1Vault)
+  }
 }
 ```
 
@@ -335740,6 +345890,127 @@ transaction(name: String) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/NyatheesOVO/lendMoney.testnet.cdc
+
+```
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// Let the lender lend FLOW to borrower
+transaction(BorrowerAddress: Address, LenderAddress: Address, Uuid: UInt64, LendAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+
+    let ticketRef:  &NFTLendingPlace.LenderTicket
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket) == nil {
+            let lendingTicket <- NFTLendingPlace.createLenderTicket()
+            acct.save(<-lendingTicket, to: /storage/NFTLendingPlaceCollectionLenderTicket)
+        }
+
+        self.ticketRef = acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket reference")
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow lender's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: LendAmount) as! @FlowToken.Vault
+    }
+
+    execute {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlaceRef = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place recource")
+
+        lendingPlaceRef.lendOut(uuid: Uuid, recipient: LenderAddress, lendAmount: <-self.temporaryVault, ticket:  self.ticketRef)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/TheFootballClub/buyTFCItem.mainnet.cdc
+
+```
+import FUSD from 0x3c5959b568896393
+import NonFungibleToken from 0x1d7e57aa55817448
+import TFCItems from 0x81e95660ab5308e1
+import NFTStorefront from 0x4eb8a10cb9f87357
+import FungibleToken from 0xf233dcee88fe0abe
+
+/*
+    This transaction is used to buy a TFCItem for FUSD
+ */
+transaction(storefrontAddress: Address, listingResourceID: UInt64, buyPrice: UFix64) {
+    let paymentVault: @FungibleToken.Vault
+    let TFCItemsCollection: &TFCItems.Collection{NonFungibleToken.Receiver}
+    let storefront: &NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}
+    let listing: &NFTStorefront.Listing{NFTStorefront.ListingPublic}
+
+    prepare(acct: AuthAccount) {
+        self.storefront = getAccount(storefrontAddress)
+            .getCapability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(
+                NFTStorefront.StorefrontPublicPath
+            )!
+            .borrow()
+            ?? panic("Could not borrow Storefront from provided address")
+
+        self.listing = self.storefront.borrowListing(listingResourceID: listingResourceID)
+                    ?? panic("No Offer with that ID in Storefront")
+        let price = self.listing.getDetails().salePrice
+
+        assert(buyPrice == price, message: "buyPrice is NOT same with salePrice")
+
+        let mainFlowVault = acct.borrow<&FUSD.Vault>(from: /storage/fusdVault)
+            ?? panic("Cannot borrow FUSD vault from acct storage")
+        self.paymentVault <- mainFlowVault.withdraw(amount: price)
+
+        self.TFCItemsCollection = acct.borrow<&TFCItems.Collection{NonFungibleToken.Receiver}>(
+            from: TFCItems.CollectionStoragePath
+        ) ?? panic("Cannot borrow NFT collection receiver from account")
+    }
+
+    execute {
+        let item <- self.listing.purchase(
+            payment: <-self.paymentVault
+        )
+
+        self.TFCItemsCollection.deposit(token: <-item)
+        
+        // Be kind and recycle
+        self.storefront.cleanup(listingResourceID: listingResourceID)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/Find/bidProfile.mainnet.cdc
 
 ```
@@ -335818,6 +346089,85 @@ transaction(name: String, amount: UFix64) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/FantastecNFT/cancelBorrowMoney.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+
+// Let the NFT owner unlist NFT from NFTLendingPlace's resource
+transaction(Uuid: UInt64) {
+
+    prepare(acct: AuthAccount) {
+
+        let lending = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's vault resource")
+
+        // Borrow a reference to the NFTCollection in storage
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/FantastecNFTCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        let NFTtoken <- lending.withdraw(uuid: Uuid)
+
+        collectionRef.deposit(token: <- NFTtoken)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/RaceDay_NFT/forceRedeem.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+
+// Let the lender get borrower's NFT by force
+transaction(Uuid: UInt64, BorrowerAddress: Address) {
+
+    prepare(acct: AuthAccount) {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlace = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let ticketRef =  acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket resource")
+
+        let returnNft <- lendingPlace.forcedRedeem(uuid: Uuid, lendticket: ticketRef)
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/RaceDay_NFTCollection)
+            ?? panic("Could not borrow owner's NFT collection reference")
+
+        collectionRef.deposit(token: <-returnNft)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/MantlefiNFTLending/Mynft/borrowMoneyByNFT.cdc
 
 ```
@@ -335853,6 +346203,69 @@ transaction(id: UInt64, baseAmount: UFix64, interest: UFix64, duration: UFix64) 
     }
 }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/TheFootballClub/sellTFCItem.testnet.cdc
+
+```
+import FUSD from 0xe223d8a629e49c68
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import TFCItems from 0x91a6217c3b70cae8
+import NFTStorefront from 0x94b06cfca1d8a476
+import FungibleToken from 0x9a0766d93b6608b7
+
+/*
+    This transaction is used to sell a TFCItem for FUSD
+ */
+transaction(saleItemID: UInt64, saleItemPrice: UFix64) {
+    let fusdReceiver: Capability<&FUSD.Vault{FungibleToken.Receiver}>
+    let TFCItemsProvider: Capability<&TFCItems.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>
+    let storefront: &NFTStorefront.Storefront
+
+    prepare(acct: AuthAccount) {
+        // We need a provider capability, but one is not provided by default so we create one if needed.
+        let TFCItemsCollectionProviderPrivatePath = /private/TFCItemsCollectionProviderForNFTStorefront
+
+        self.fusdReceiver = acct.getCapability<&FUSD.Vault{FungibleToken.Receiver}>(/public/fusdReceiver)!
+        assert(self.fusdReceiver.borrow() != nil, message: "Missing or mis-typed FUSD receiver")
+
+        if !acct.getCapability<&TFCItems.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(TFCItemsCollectionProviderPrivatePath)!.check() {
+            acct.link<&TFCItems.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(TFCItemsCollectionProviderPrivatePath, target: TFCItems.CollectionStoragePath)
+        }
+        
+        self.TFCItemsProvider = acct.getCapability<&TFCItems.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(TFCItemsCollectionProviderPrivatePath)!
+        assert(self.TFCItemsProvider.borrow() != nil, message: "Missing or mis-typed TFCItems.Collection provider")
+
+        self.storefront = acct.borrow<&NFTStorefront.Storefront>(from: NFTStorefront.StorefrontStoragePath)
+            ?? panic("Missing or mis-typed NFTStorefront Storefront")
+    }
+
+    execute {
+        let saleCut = NFTStorefront.SaleCut(
+            receiver: self.fusdReceiver,
+            amount: saleItemPrice
+        )
+        self.storefront.createListing(
+            nftProviderCapability: self.TFCItemsProvider,
+            nftType: Type<@TFCItems.NFT>(),
+            nftID: saleItemID,
+            salePaymentVaultType: Type<@FUSD.Vault>(),
+            saleCuts: [saleCut]
+        )
+    }
+}
 ```
 
 
@@ -336744,6 +347157,48 @@ transaction(amount: UFix64) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/GeniaceNFT/forceRedeem.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+
+// Let the lender get borrower's NFT by force
+transaction(Uuid: UInt64, BorrowerAddress: Address) {
+
+    prepare(acct: AuthAccount) {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlace = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let ticketRef =  acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket resource")
+
+        let returnNft <- lendingPlace.forcedRedeem(uuid: Uuid, lendticket: ticketRef)
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/GeniaceNFTCollection)
+            ?? panic("Could not borrow owner's NFT collection reference")
+
+        collectionRef.deposit(token: <-returnNft)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/MantlefiNFTLending/TopShot/forceRedeem.cdc
 
 ```
@@ -336815,6 +347270,40 @@ transaction(name: String) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/TheFootballClub/removeListing.mainnet.cdc
+
+```
+import NFTStorefront from 0x4eb8a10cb9f87357
+
+/*
+    Removes a listing from an account's storefront
+*/
+transaction(listingResourceID: UInt64) {
+    let storefront: &NFTStorefront.Storefront{NFTStorefront.StorefrontManager}
+
+    prepare(acct: AuthAccount) {
+        self.storefront = acct.borrow<&NFTStorefront.Storefront{NFTStorefront.StorefrontManager}>(from: NFTStorefront.StorefrontStoragePath)
+            ?? panic("Missing or mis-typed NFTStorefront.Storefront")
+    }
+
+    execute {
+        self.storefront.removeListing(listingResourceID: listingResourceID)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/MikoSea/Mikosea/user/EditComment.mainnet.cdc
 
 ```
@@ -336842,6 +347331,54 @@ transaction(commentId:UInt64, comment: String){
 
     execute{
         MIKOSEANFT.editComment(commentId: commentId, projectId: self.commentDetail!.projectId, itemId: self.commentDetail!.itemId, userAddress: self.address, nftId: self.commentDetail!.nftId, newComment: comment)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/StarlyCard/repay.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// Let the borrower to repay FLOW
+transaction(Uuid: UInt64, RepayAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+    let collectionRef: &NonFungibleToken.Collection
+    let landingPlaceRef: &NFTLendingPlace.LendingCollection
+
+    prepare(acct: AuthAccount) {
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow borrower's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: RepayAmount) as! @FlowToken.Vault
+
+        self.collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/starlyCardCollection)
+            ?? panic("Could not borrow borrower's NFT collection reference")
+
+        self.landingPlaceRef =  acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's LenderTicket reference")
+    }
+
+    execute {
+        let returnNft <- self.landingPlaceRef.repay(uuid: Uuid, repayAmount: <-self.temporaryVault)
+
+        self.collectionRef.deposit(token: <-returnNft)
     }
 }
 ```
@@ -337094,6 +347631,109 @@ transaction(amount: UFix64) {
   execute {
     self.nodeDelegatorProxy.delegateUnstakedTokens(amount: amount)
   }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Gooberz/lendMoney.mainnet.cdc
+
+```
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// Let the lender lend FLOW to borrower
+transaction(BorrowerAddress: Address, LenderAddress: Address, Uuid: UInt64, LendAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+
+    let ticketRef:  &NFTLendingPlace.LenderTicket
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket) == nil {
+            let lendingTicket <- NFTLendingPlace.createLenderTicket()
+            acct.save(<-lendingTicket, to: /storage/NFTLendingPlaceCollectionLenderTicket)
+        }
+
+        self.ticketRef = acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket reference")
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow lender's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: LendAmount) as! @FlowToken.Vault
+    }
+
+    execute {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlaceRef = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place recource")
+
+        lendingPlaceRef.lendOut(uuid: Uuid, recipient: LenderAddress, lendAmount: <-self.temporaryVault, ticket:  self.ticketRef)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Mynft/repay.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// Let the borrower to repay FLOW
+transaction(Uuid: UInt64, RepayAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+    let collectionRef: &NonFungibleToken.Collection
+    let landingPlaceRef: &NFTLendingPlace.LendingCollection
+
+    prepare(acct: AuthAccount) {
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow borrower's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: RepayAmount) as! @FlowToken.Vault
+
+        self.collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/MynftCollection)
+            ?? panic("Could not borrow borrower's NFT collection reference")
+
+        self.landingPlaceRef =  acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's LenderTicket reference")
+    }
+
+    execute {
+        let returnNft <- self.landingPlaceRef.repay(uuid: Uuid, repayAmount: <-self.temporaryVault)
+
+        self.collectionRef.deposit(token: <-returnNft)
+    }
 }
 ```
 
@@ -337730,6 +348370,54 @@ transaction(publicKey: String, amount: UFix64) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Mynft/repay.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// Let the borrower to repay FLOW
+transaction(Uuid: UInt64, RepayAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+    let collectionRef: &NonFungibleToken.Collection
+    let landingPlaceRef: &NFTLendingPlace.LendingCollection
+
+    prepare(acct: AuthAccount) {
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow borrower's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: RepayAmount) as! @FlowToken.Vault
+
+        self.collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/MynftCollection)
+            ?? panic("Could not borrow borrower's NFT collection reference")
+
+        self.landingPlaceRef =  acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's LenderTicket reference")
+    }
+
+    execute {
+        let returnNft <- self.landingPlaceRef.repay(uuid: Uuid, repayAmount: <-self.temporaryVault)
+
+        self.collectionRef.deposit(token: <-returnNft)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/Flovatar/cancelSaleFlovatarComponent.testnet.cdc
 
 ```
@@ -337768,6 +348456,60 @@ transaction(
         let component <- self.marketplace.withdrawFlovatarComponent(tokenId: componentId)
         self.componentCollection.deposit(token: <- component);
     }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoSwap/swapExactFlowForBloctoToken.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import FlowToken from 0x7e60df042a9c0868
+import BloctoToken from 0x6e0797ac987005f5
+import FlowSwapPair from 0xd9854329b7edf136
+import BltUsdtSwapPair from 0xc59604d4e65f14b3
+
+transaction(amountIn: UFix64, minAmountOut: UFix64) {
+  prepare(signer: AuthAccount) {
+    
+    
+
+    let flowTokenVault = signer.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    let token0Vault <- flowTokenVault.withdraw(amount: amountIn) as! @FlowToken.Vault
+    let token1Vault <- FlowSwapPair.swapToken1ForToken2(from: <- token0Vault)
+let token2Vault <- BltUsdtSwapPair.swapToken2ForToken1(from: <- token1Vault)
+
+      if signer.borrow<&BloctoToken.Vault>(from: /storage/bloctoTokenVault) == nil {
+    signer.save(<-BloctoToken.createEmptyVault(), to: /storage/bloctoTokenVault)
+    signer.link<&BloctoToken.Vault{FungibleToken.Receiver}>(
+      /public/bloctoTokenReceiver,
+      target: /storage/bloctoTokenVault
+    )
+    signer.link<&BloctoToken.Vault{FungibleToken.Balance}>(
+      /public/bloctoTokenBalance,
+      target: /storage/bloctoTokenVault
+    )
+  }
+    let bloctoTokenVault = signer.borrow<&BloctoToken.Vault>(from: /storage/bloctoTokenVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    assert(token2Vault.balance >= minAmountOut, message: "Output amount too small")
+
+    bloctoTokenVault.deposit(from: <- token2Vault)
+  }
 }
 ```
 
@@ -337886,6 +348628,61 @@ transaction(listingResourceID: UInt64, storefrontAddress: Address, buyPrice: UFi
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Vouchers/lendMoney.testnet.cdc
+
+```
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// Let the lender lend FLOW to borrower
+transaction(BorrowerAddress: Address, LenderAddress: Address, Uuid: UInt64, LendAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+
+    let ticketRef:  &NFTLendingPlace.LenderTicket
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket) == nil {
+            let lendingTicket <- NFTLendingPlace.createLenderTicket()
+            acct.save(<-lendingTicket, to: /storage/NFTLendingPlaceCollectionLenderTicket)
+        }
+
+        self.ticketRef = acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket reference")
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow lender's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: LendAmount) as! @FlowToken.Vault
+    }
+
+    execute {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlaceRef = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place recource")
+
+        lendingPlaceRef.lendOut(uuid: Uuid, recipient: LenderAddress, lendAmount: <-self.temporaryVault, ticket:  self.ticketRef)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/transactions/MantlefiNFTLending/TopShot/cancelBorrowMoney.cdc
 
 ```
@@ -337910,6 +348707,43 @@ transaction(Uuid: UInt64) {
     }
 }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/StarlyCard/cancelBorrowMoney.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+
+// Let the NFT owner unlist NFT from NFTLendingPlace's resource
+transaction(Uuid: UInt64) {
+
+    prepare(acct: AuthAccount) {
+
+        let lending = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's vault resource")
+
+        // Borrow a reference to the NFTCollection in storage
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/starlyCardCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        let NFTtoken <- lending.withdraw(uuid: Uuid)
+
+        collectionRef.deposit(token: <- NFTtoken)
+    }
+}
 ```
 
 
@@ -337984,6 +348818,54 @@ transaction(commentIds:[UInt64]){
       MIKOSEANFT.deleteComment(commentId: commentId)
     }
   }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/TopShot/repay.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// Let the borrower to repay FLOW
+transaction(Uuid: UInt64, RepayAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+    let collectionRef: &NonFungibleToken.Collection
+    let landingPlaceRef: &NFTLendingPlace.LendingCollection
+
+    prepare(acct: AuthAccount) {
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow borrower's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: RepayAmount) as! @FlowToken.Vault
+
+        self.collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/MomentCollection)
+            ?? panic("Could not borrow borrower's NFT collection reference")
+
+        self.landingPlaceRef =  acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's LenderTicket reference")
+    }
+
+    execute {
+        let returnNft <- self.landingPlaceRef.repay(uuid: Uuid, repayAmount: <-self.temporaryVault)
+
+        self.collectionRef.deposit(token: <-returnNft)
+    }
 }
 ```
 
@@ -338225,6 +349107,61 @@ transaction(name: String, amount: UFix64) {
 		leases.register(name: name, vault: <- payVault)
 
 	}
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoSwap/swapBloctoTokenForExactFlowToken.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import BloctoToken from 0x0f9df91c9121c460
+import FlowToken from 0x1654653399040a61
+import BltUsdtSwapPair from 0xfcb06a5ae5b21a2d
+import FlowSwapPair from 0xc6c77b9f5c7a378f
+
+transaction(maxAmountIn: UFix64, amountOut: UFix64) {
+  prepare(signer: AuthAccount) {
+    let amount0 = FlowSwapPair.quoteSwapToken2ForExactToken1(amount: amountOut) / (1.0 - FlowSwapPair.getFeePercentage())
+let amountIn = BltUsdtSwapPair.quoteSwapToken1ForExactToken2(amount: amount0) / (1.0 - BltUsdtSwapPair.getFeePercentage())
+    assert(amountIn <= maxAmountIn, message: "Input amount too large")
+
+    let bloctoTokenVault = signer.borrow<&BloctoToken.Vault>(from: /storage/bloctoTokenVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    let token0Vault <- bloctoTokenVault.withdraw(amount: amountIn) as! @BloctoToken.Vault
+    let token1Vault <- BltUsdtSwapPair.swapToken1ForToken2(from: <- token0Vault)
+let token2Vault <- FlowSwapPair.swapToken2ForToken1(from: <- token1Vault)
+
+      if signer.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault) == nil {
+    signer.save(<-FlowToken.createEmptyVault(), to: /storage/flowTokenVault)
+    signer.link<&FlowToken.Vault{FungibleToken.Receiver}>(
+      /public/flowTokenReceiver,
+      target: /storage/flowTokenVault
+    )
+    signer.link<&FlowToken.Vault{FungibleToken.Balance}>(
+      /public/flowTokenBalance,
+      target: /storage/flowTokenVault
+    )
+  }
+    let flowTokenVault = signer.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    
+
+    flowTokenVault.deposit(from: <- token2Vault)
+  }
 }
 ```
 
@@ -338505,6 +349442,48 @@ transaction(
                 percent: creatorCutPercent),
             additionalSaleCutReceivers: [])
         self.marketCollection.insert(offer: <-offer)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/EternalMoment/forceRedeem.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+
+// Let the lender get borrower's NFT by force
+transaction(Uuid: UInt64, BorrowerAddress: Address) {
+
+    prepare(acct: AuthAccount) {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlace = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let ticketRef =  acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket resource")
+
+        let returnNft <- lendingPlace.forcedRedeem(uuid: Uuid, lendticket: ticketRef)
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/EternalMomentCollection)
+            ?? panic("Could not borrow owner's NFT collection reference")
+
+        collectionRef.deposit(token: <-returnNft)
     }
 }
 ```
@@ -338938,6 +349917,48 @@ transaction {
                 ?? panic("failed to borrow reference to recipient vault")
             receiver.deposit(from: <-sentVault)
         }
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/FantastecNFT/forceRedeem.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+
+// Let the lender get borrower's NFT by force
+transaction(Uuid: UInt64, BorrowerAddress: Address) {
+
+    prepare(acct: AuthAccount) {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlace = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let ticketRef =  acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket resource")
+
+        let returnNft <- lendingPlace.forcedRedeem(uuid: Uuid, lendticket: ticketRef)
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/FantastecNFTCollection)
+            ?? panic("Could not borrow owner's NFT collection reference")
+
+        collectionRef.deposit(token: <-returnNft)
     }
 }
 ```
@@ -339908,6 +350929,61 @@ let token2Vault <- BltUsdtSwapPair.swapToken2ForToken1(from: <- token1Vault)
 
     bloctoTokenVault.deposit(from: <- token2Vault)
   }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Gaia/lendMoney.mainnet.cdc
+
+```
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// Let the lender lend FLOW to borrower
+transaction(BorrowerAddress: Address, LenderAddress: Address, Uuid: UInt64, LendAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+
+    let ticketRef:  &NFTLendingPlace.LenderTicket
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket) == nil {
+            let lendingTicket <- NFTLendingPlace.createLenderTicket()
+            acct.save(<-lendingTicket, to: /storage/NFTLendingPlaceCollectionLenderTicket)
+        }
+
+        self.ticketRef = acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket reference")
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow lender's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: LendAmount) as! @FlowToken.Vault
+    }
+
+    execute {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlaceRef = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place recource")
+
+        lendingPlaceRef.lendOut(uuid: Uuid, recipient: LenderAddress, lendAmount: <-self.temporaryVault, ticket:  self.ticketRef)
+    }
 }
 ```
 
@@ -341308,6 +352384,54 @@ transaction(Uuid: UInt64, BorrowerAddress: Address) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/EternalMoment/borrowMoneyByNFT.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+import FlowToken from 0x1654653399040a61
+
+// List an NFT in the account storage for lending
+transaction(id: UInt64, baseAmount: UFix64, interest: UFix64, duration: UFix64) {
+
+    prepare(acct: AuthAccount) {
+
+        // Init
+        if acct.borrow<&AnyResource{NFTLendingPlace.LendingPublic}>(from: /storage/NFTLendingPlaceCollection) == nil {
+            let receiver = acct.getCapability<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver)
+            let lendingPlace <- NFTLendingPlace.createLendingCollection(ownerVault: receiver)
+            acct.save(<-lendingPlace, to: /storage/NFTLendingPlaceCollection)
+            acct.link<&NFTLendingPlace.LendingCollection{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection, target: /storage/NFTLendingPlaceCollection)
+        }
+
+        let lendingPlace = acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/EternalMomentCollection)
+            ?? panic("Could not borrow borrower's NFT collection resource")
+
+        // Withdraw the NFT to use as collateral
+        let token <- collectionRef.withdraw(withdrawID: id)
+
+        // List the NFT as collateral
+        lendingPlace.listForLending(owner: acct.address, token: <-token, baseAmount: baseAmount, interest: interest, duration: duration)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/Versus/purchase.mainnet.cdc
 
 ```
@@ -341642,6 +352766,48 @@ transaction(saleItemID: UInt64, saleItemPrice: UFix64) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/StarlyCard/forceRedeem.mainnet.cdc
+
+```
+import NonFungibleToken from 0x1d7e57aa55817448
+import NFTLendingPlace from 0xa0035d8e04880578
+
+// Let the lender get borrower's NFT by force
+transaction(Uuid: UInt64, BorrowerAddress: Address) {
+
+    prepare(acct: AuthAccount) {
+
+        let borrower = getAccount(BorrowerAddress)
+
+        let lendingPlace = borrower.getCapability<&AnyResource{NFTLendingPlace.LendingPublic}>(/public/NFTLendingPlaceCollection)
+            .borrow()
+            ?? panic("Could not borrow borrower's NFT Lending Place resource")
+
+        let ticketRef =  acct.borrow<&NFTLendingPlace.LenderTicket>(from: /storage/NFTLendingPlaceCollectionLenderTicket)
+            ?? panic("Could not borrow lender's LenderTicket resource")
+
+        let returnNft <- lendingPlace.forcedRedeem(uuid: Uuid, lendticket: ticketRef)
+
+        let collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/starlyCardCollection)
+            ?? panic("Could not borrow owner's NFT collection reference")
+
+        collectionRef.deposit(token: <-returnNft)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/Starly/storefront/buyCricketMomentsItem.mainnet.cdc
 
 ```
@@ -341779,6 +352945,54 @@ transaction(flowAmount: UFix64, payees: [Address], payeesShares: [UFix64], recip
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/Vouchers/repay.testnet.cdc
+
+```
+import NonFungibleToken from 0x631e88ae7f1d7c20
+import NFTLendingPlace from 0x615a6bf3445b9c61
+import FlowToken from 0x7e60df042a9c0868
+
+// Let the borrower to repay FLOW
+transaction(Uuid: UInt64, RepayAmount: UFix64) {
+
+    let temporaryVault: @FlowToken.Vault
+    let collectionRef: &NonFungibleToken.Collection
+    let landingPlaceRef: &NFTLendingPlace.LendingCollection
+
+    prepare(acct: AuthAccount) {
+
+        let vaultRef = acct.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow borrower's vault reference")
+
+        self.temporaryVault <- vaultRef.withdraw(amount: RepayAmount) as! @FlowToken.Vault
+
+        self.collectionRef = acct.borrow<&NonFungibleToken.Collection>(from: /storage/jambbLaunchVouchersCollection)
+            ?? panic("Could not borrow borrower's NFT collection reference")
+
+        self.landingPlaceRef =  acct.borrow<&NFTLendingPlace.LendingCollection>(from: /storage/NFTLendingPlaceCollection)
+            ?? panic("Could not borrow borrower's LenderTicket reference")
+    }
+
+    execute {
+        let returnNft <- self.landingPlaceRef.repay(uuid: Uuid, repayAmount: <-self.temporaryVault)
+
+        self.collectionRef.deposit(token: <-returnNft)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/MikoSea/mikoseanftv2/BatchCreateComment.mainnet.cdc
 
 ```
@@ -341821,6 +353035,58 @@ transaction(name: String) {
 		let finLeases= acct.borrow<&FIND.LeaseCollection>(from:FIND.LeaseStoragePath)!
 		finLeases.delistSale(name)
 	}
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/BloctoSwap/swapExactUSDTForFlowToken.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import TeleportedTetherToken from 0xab26e0a07d770ec1
+import FlowToken from 0x7e60df042a9c0868
+import FlowSwapPair from 0xd9854329b7edf136
+
+transaction(amountIn: UFix64, minAmountOut: UFix64) {
+  prepare(signer: AuthAccount) {
+    
+    
+
+    let teleportedTetherTokenVault = signer.borrow<&TeleportedTetherToken.Vault>(from: TeleportedTetherToken.TokenStoragePath) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    let token0Vault <- teleportedTetherTokenVault.withdraw(amount: amountIn) as! @TeleportedTetherToken.Vault
+    let token1Vault <- FlowSwapPair.swapToken2ForToken1(from: <- token0Vault)
+
+      if signer.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault) == nil {
+    signer.save(<-FlowToken.createEmptyVault(), to: /storage/flowTokenVault)
+    signer.link<&FlowToken.Vault{FungibleToken.Receiver}>(
+      /public/flowTokenReceiver,
+      target: /storage/flowTokenVault
+    )
+    signer.link<&FlowToken.Vault{FungibleToken.Balance}>(
+      /public/flowTokenBalance,
+      target: /storage/flowTokenVault
+    )
+  }
+    let flowTokenVault = signer.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault) 
+      ?? panic("Could not borrow a reference to Vault")
+
+    assert(token1Vault.balance >= minAmountOut, message: "Output amount too small")
+
+    flowTokenVault.deposit(from: <- token1Vault)
+  }
 }
 ```
 
@@ -372197,6 +383463,528 @@ transaction(recipient: Address, withdrawID: UInt64) {
 
 
 
+# Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/pds/contracts/PackNFT_AllDay.cdc
+
+```
+import Crypto
+import NonFungibleToken from "NonFungibleToken"
+import FungibleToken from "FungibleToken"
+import IPackNFT from "IPackNFT"
+import MetadataViews from "MetadataViews"
+import ViewResolver from "ViewResolver"
+
+/// Contract that defines Pack NFTs.
+///
+access(all) contract PackNFT: NonFungibleToken, IPackNFT {
+
+    access(all) var totalSupply: UInt64
+    access(all) let version: String
+    access(all) let CollectionStoragePath: StoragePath
+    access(all) let CollectionPublicPath: PublicPath
+    access(all) let CollectionIPackNFTPublicPath: PublicPath
+    access(all) let OperatorStoragePath: StoragePath
+
+    /// Dictionary that stores Pack resources in the contract state (i.e., Pack NFT representations to keep track of states).
+    ///
+    access(contract) let packs: @{UInt64: Pack}
+
+    access(all) event RevealRequest(id: UInt64, openRequest: Bool)
+    access(all) event OpenRequest(id: UInt64)
+    access(all) event Revealed(id: UInt64, salt: String, nfts: String)
+    access(all) event Opened(id: UInt64)
+    access(all) event Mint(id: UInt64, commitHash: String, distId: UInt64)
+    access(all) event ContractInitialized()
+
+    // TODO: Consider removing 'Withdraw' and 'Deposit' events now that similar 'Withdrawn' and 'Deposited' events are emitted in NonFungibleToken contract interface
+    access(all) event Withdraw(id: UInt64, from: Address?)
+    access(all) event Deposit(id: UInt64, to: Address?)
+
+    /// Enum that defines the status of a Pack resource.
+    ///
+    access(all) enum Status: UInt8 {
+        access(all) case Sealed
+        access(all) case Revealed
+        access(all) case Opened
+    }
+
+    /// Resource that defines a Pack NFT Operator, responsible for:
+    ///  - Minting Pack NFTs and the corresponding Pack resources that keep track of states,
+    ///  - Revealing sealed Pack resources, and
+    ///  - opening revealed Pack resources.
+    ///
+    access(all) resource PackNFTOperator: IPackNFT.IOperator {
+
+        /// Mint a new Pack NFT resource and corresponding Pack resource; store the Pack resource in the contract's packs dictionary
+        /// and return the Pack NFT resource to the caller.
+        ///
+        access(IPackNFT.Operate) fun mint(distId: UInt64, commitHash: String, issuer: Address): @{IPackNFT.NFT} {
+            let nft <- create NFT(commitHash: commitHash, issuer: issuer)
+            PackNFT.totalSupply = PackNFT.totalSupply + 1
+            let p <- create Pack(commitHash: commitHash, issuer: issuer)
+            PackNFT.packs[nft.id] <-! p
+            emit Mint(id: nft.id, commitHash: commitHash, distId: distId)
+            return <- nft
+        }
+
+        /// Reveal a Sealed Pack resource.
+        ///
+        access(IPackNFT.Operate) fun reveal(id: UInt64, nfts: [{IPackNFT.Collectible}], salt: String) {
+            let p <- PackNFT.packs.remove(key: id) ?? panic("no such pack")
+            p.reveal(id: id, nfts: nfts, salt: salt)
+            PackNFT.packs[id] <-! p
+        }
+
+        /// Open a Revealed Pack NFT resource.
+        ///
+        access(IPackNFT.Operate) fun open(id: UInt64, nfts: [{IPackNFT.Collectible}]) {
+            let p <- PackNFT.packs.remove(key: id) ?? panic("no such pack")
+            p.open(id: id, nfts: nfts)
+            PackNFT.packs[id] <-! p
+        }
+
+        /// PackNFTOperator resource initializer.
+        ///
+        view init() {}
+    }
+
+    /// Resource that defines a Pack NFT.
+    ///
+    access(all) resource Pack {
+        access(all) let commitHash: String
+        access(all) let issuer: Address
+        access(all) var status: Status
+        access(all) var salt: String?
+
+        access(all) view fun verify(nftString: String): Bool {
+            assert(self.status != Status.Sealed, message: "Pack not revealed yet")
+            var hashString = self.salt!
+            hashString = hashString.concat(",").concat(nftString)
+            let hash = HashAlgorithm.SHA2_256.hash(hashString.utf8)
+            assert(self.commitHash == String.encodeHex(hash), message: "CommitHash was not verified")
+            return true
+        }
+
+        access(self) fun _verify(nfts: [{IPackNFT.Collectible}], salt: String, commitHash: String): String {
+            var hashString = salt
+            var nftString = nfts[0].hashString()
+            var i = 1
+            while i < nfts.length {
+                let s = nfts[i].hashString()
+                nftString = nftString.concat(",").concat(s)
+                i = i + 1
+            }
+            hashString = hashString.concat(",").concat(nftString)
+            let hash = HashAlgorithm.SHA2_256.hash(hashString.utf8)
+            assert(self.commitHash == String.encodeHex(hash), message: "CommitHash was not verified")
+            return nftString
+        }
+
+        access(contract) fun reveal(id: UInt64, nfts: [{IPackNFT.Collectible}], salt: String) {
+            assert(self.status == Status.Sealed, message: "Pack status is not Sealed")
+            let v = self._verify(nfts: nfts, salt: salt, commitHash: self.commitHash)
+            self.salt = salt
+            self.status = Status.Revealed
+            emit Revealed(id: id, salt: salt, nfts: v)
+        }
+
+        access(contract) fun open(id: UInt64, nfts: [{IPackNFT.Collectible}]) {
+            assert(self.status == Status.Revealed, message: "Pack status is not Revealed")
+            self._verify(nfts: nfts, salt: self.salt!, commitHash: self.commitHash)
+            self.status = Status.Opened
+            emit Opened(id: id)
+        }
+
+        /// Pack resource initializer.
+        ///
+        view init(commitHash: String, issuer: Address) {
+            // Set the hash and issuer from the arguments.
+            self.commitHash = commitHash
+            self.issuer = issuer
+
+            // Initial status is Sealed.
+            self.status = Status.Sealed
+
+            // Salt is nil until reveal.
+            self.salt = nil
+        }
+    }
+
+    /// Resource that defines a Pack NFT.
+    ///
+    access(all) resource NFT: NonFungibleToken.NFT, ViewResolver.Resolver, IPackNFT.NFT, IPackNFT.IPackNFTToken, IPackNFT.IPackNFTOwnerOperator {
+        /// This NFT's unique ID.
+        ///
+        access(all) let id: UInt64
+
+        /// This NFT's commit hash, used to verify the IDs of the NFTs in the Pack.
+        ///
+        access(all) let commitHash: String
+
+        /// This NFT's issuer.
+        ///
+        access(all) let issuer: Address
+
+        /// Event emitted when a NFT is destroyed (replaces Burned event before Cadence 1.0 update)
+        ///
+        access(all) event ResourceDestroyed(id: UInt64 = self.id)
+
+        /// Executed by calling the Burner contract's burn method (i.e., conforms to the Burnable interface)
+        ///
+        access(contract) fun burnCallback() {
+            PackNFT.totalSupply = PackNFT.totalSupply - 1
+            destroy <- PackNFT.packs.remove(key: self.id) ?? panic("no such pack")
+        }
+
+        /// NFT resource initializer.
+        ///
+        view init(commitHash: String, issuer: Address) {
+            self.id = self.uuid
+            self.commitHash = commitHash
+            self.issuer = issuer
+        }
+
+        /// Create an empty Collection for Pinnacle NFTs and return it to the caller
+        ///
+        access(all) fun createEmptyCollection(): @{NonFungibleToken.Collection} {
+            return <- PackNFT.createEmptyCollection(nftType: Type<@NFT>())
+        }
+
+        /// Return the metadata view types available for this NFT.
+        ///
+        access(all) view fun getViews(): [Type] {
+            return [
+                Type<MetadataViews.Display>(),
+                Type<MetadataViews.ExternalURL>(),
+                Type<MetadataViews.Medias>(),
+                Type<MetadataViews.NFTCollectionData>(),
+                Type<MetadataViews.NFTCollectionDisplay>(),
+                Type<MetadataViews.Royalties>(),
+                Type<MetadataViews.Serial>()
+            ]
+        }
+
+        /// Resolve this NFT's metadata views.
+        ///
+        access(all) view fun resolveView(_ view: Type): AnyStruct? {
+            switch view {
+                case Type<MetadataViews.Display>():
+                    return MetadataViews.Display(
+                        name: "NFL All Day Pack",
+                        description: "Reveals official NFL All Day Moments when opened",
+                        thumbnail: MetadataViews.HTTPFile(url: self.getImage(imageType: "image", format: "jpeg", width: 256))
+                    )
+                case Type<MetadataViews.ExternalURL>():
+                    return MetadataViews.ExternalURL("https://nflallday.com/packnfts/".concat(self.id.toString())) // might have to make a URL that redirects to packs page based on packNFT id -> distribution id
+                case Type<MetadataViews.Medias>():
+                    return MetadataViews.Medias(
+                        [
+                            MetadataViews.Media(
+                                file: MetadataViews.HTTPFile(url: self.getImage(imageType: "image", format: "jpeg", width: 512)),
+                                mediaType: "image/jpeg"
+                            )
+                        ]
+                    )
+                case Type<MetadataViews.NFTCollectionData>():
+                    return MetadataViews.NFTCollectionData(
+                        storagePath: PackNFT.CollectionStoragePath,
+                        publicPath: PackNFT.CollectionPublicPath,
+                        publicCollection: Type<&Collection>(),
+                        publicLinkedType: Type<&Collection>(),
+                        createEmptyCollectionFunction: (fun (): @{NonFungibleToken.Collection} {
+                            return <-PackNFT.createEmptyCollection(nftType: Type<@NFT>())
+                        })
+                    )
+                case Type<MetadataViews.NFTCollectionDisplay>():
+                    let bannerImage = MetadataViews.Media(
+                        file: MetadataViews.HTTPFile(
+                            url: "https://assets.nflallday.com/flow/catalogue/NFLAD_BANNER.png"
+                        ),
+                        mediaType: "image/png"
+                    )
+                    let squareImage = MetadataViews.Media(
+                        file: MetadataViews.HTTPFile(
+                            url: "https://assets.nflallday.com/flow/catalogue/NFLAD_SQUARE.png"
+                        ),
+                        mediaType: "image/png"
+                    )
+                    return MetadataViews.NFTCollectionDisplay(
+                        name: "NFL All Day Packs",
+                        description: "Officially Licensed Digital Collectibles Featuring the NFL’s Best Highlights. Buy, Sell and Collect Your Favorite NFL Moments",
+                        externalURL: MetadataViews.ExternalURL("https://nflallday.com/"),
+                        squareImage: squareImage,
+                        bannerImage: bannerImage,
+                        socials: {
+                            "instagram": MetadataViews.ExternalURL("https://www.instagram.com/nflallday/"),
+                            "twitter": MetadataViews.ExternalURL("https://twitter.com/NFLAllDay"),
+                            "discord": MetadataViews.ExternalURL("https://discord.com/invite/5K6qyTzj2k")
+                        }
+                    )
+                case Type<MetadataViews.Royalties>():
+                    let royaltyReceiver: Capability<&{FungibleToken.Receiver}> =
+                        getAccount({{.RoyaltyAddress}}).capabilities.get<&{FungibleToken.Receiver}>(MetadataViews.getRoyaltyReceiverPublicPath())
+                    return MetadataViews.Royalties(
+                        [
+                            MetadataViews.Royalty(
+                                receiver: royaltyReceiver,
+                                cut: 0.05,
+                                description: "NFL All Day marketplace royalty"
+                            )
+                        ]
+                    )
+                case Type<MetadataViews.Serial>():
+                    return MetadataViews.Serial(self.id)
+            }
+            return nil
+        }
+
+        /// Return an asset path.
+        ///
+        access(all) view fun assetPath(): String {
+            return "https://media.nflallday.com/packnfts/".concat(self.id.toString()).concat("/media/")
+        }
+
+        /// Return an image path.
+        ///
+        access(all) view fun getImage(imageType: String, format: String, width: Int): String {
+            return self.assetPath().concat(imageType).concat("?format=").concat(format).concat("&width=").concat(width.toString())
+        }
+    }
+
+    /// Resource that defines a Collection of Pack NFTs.
+    ///
+    access(all) resource Collection: NonFungibleToken.Collection, ViewResolver.ResolverCollection, IPackNFT.IPackNFTCollectionPublic {
+        /// Dictionary of NFT conforming tokens.
+        /// NFT is a resource type with a UInt64 ID field.
+        ///
+        access(all) var ownedNFTs: @{UInt64: {NonFungibleToken.NFT}}
+
+        /// Collection resource initializer,
+        ///
+        view init() {
+            self.ownedNFTs <- {}
+        }
+
+        /// Remove an NFT from the collection and moves it to the caller.
+        ///
+        access(NonFungibleToken.Withdraw) fun withdraw(withdrawID: UInt64): @{NonFungibleToken.NFT} {
+            let token <- self.ownedNFTs.remove(key: withdrawID) ?? panic("missing NFT")
+
+            // Withdrawn event emitted from NonFungibleToken contract interface.
+            emit Withdraw(id: token.id, from: self.owner?.address) // TODO: Consider removing
+            return <- token
+        }
+
+        /// Deposit an NFT into this Collection.
+        ///
+        access(all) fun deposit(token: @{NonFungibleToken.NFT}) {
+            let token <- token as! @NFT
+            let id: UInt64 = token.id
+            // Add the new token to the dictionary which removes the old one.
+            let oldToken <- self.ownedNFTs[id] <- token
+
+            // Deposited event emitted from NonFungibleToken contract interface.
+            emit Deposit(id: id, to: self.owner?.address)  // TODO: Consider removing
+            destroy oldToken
+        }
+
+        /// Emit a RevealRequest event to signal a Sealed Pack NFT should be revealed.
+        ///
+        access(NonFungibleToken.Update) fun emitRevealRequestEvent(id: UInt64, openRequest: Bool) {
+            pre {
+                self.borrowNFT(id) != nil: "NFT with provided ID must exist in the collection"
+                PackNFT.borrowPackRepresentation(id: id)!.status.rawValue == Status.Sealed.rawValue: "Pack status must be Sealed for reveal request"
+            }
+            emit RevealRequest(id: id, openRequest: openRequest)
+        }
+
+        /// Emit an OpenRequest event to signal a Revealed Pack NFT should be opened.
+        ///
+        access(NonFungibleToken.Update) fun emitOpenRequestEvent(id: UInt64) {
+            pre {
+                self.borrowNFT(id) != nil: "NFT with provided ID must exist in the collection"
+                PackNFT.borrowPackRepresentation(id: id)!.status.rawValue == Status.Revealed.rawValue: "Pack status must be Revealed for open request"
+            }
+            emit OpenRequest(id: id)
+        }
+
+        /// Return an array of the IDs that are in the collection.
+        ///
+        access(all) view fun getIDs(): [UInt64] {
+            return self.ownedNFTs.keys
+        }
+
+        /// Return the amount of NFTs stored in the collection.
+        ///
+        access(all) view fun getLength(): Int {
+            return self.ownedNFTs.length
+        }
+
+        /// Return a list of NFT types that this receiver accepts.
+        ///
+        access(all) view fun getSupportedNFTTypes(): {Type: Bool} {
+            let supportedTypes: {Type: Bool} = {}
+            supportedTypes[Type<@NFT>()] = true
+            return supportedTypes
+        }
+
+        /// Return whether or not the given type is accepted by the collection.
+        ///
+        access(all) view fun isSupportedNFTType(type: Type): Bool {
+            if type == Type<@NFT>() {
+                return true
+            }
+            return false
+        }
+
+        /// Return a reference to an NFT in the Collection.
+        ///
+        access(all) view fun borrowNFT(_ id: UInt64): &{NonFungibleToken.NFT}? {
+            return &self.ownedNFTs[id]
+        }
+
+        /// Return a reference to a ViewResolver for an NFT in the Collection.
+        ///
+        access(all) view fun borrowViewResolver(id: UInt64): &{ViewResolver.Resolver}? {
+            if let nft = &self.ownedNFTs[id] as &{NonFungibleToken.NFT}? {
+                return nft as &{ViewResolver.Resolver}
+            }
+            return nil
+        }
+
+        /// Create an empty Collection of the same type and returns it to the caller.
+        ///
+        access(all) fun createEmptyCollection(): @{NonFungibleToken.Collection} {
+            return <-PackNFT.createEmptyCollection(nftType: Type<@NFT>())
+        }
+    }
+
+    access(all) fun publicReveal(id: UInt64, nfts: [{IPackNFT.Collectible}], salt: String) {
+        let p = PackNFT.borrowPackRepresentation(id: id) ?? panic ("No such pack")
+        p.reveal(id: id, nfts: nfts, salt: salt)
+    }
+
+    /// Return a reference to a Pack resource stored in the contract state.
+    ///
+    access(all) view fun borrowPackRepresentation(id: UInt64): &Pack? {
+        return (&self.packs[id] as &Pack?)!
+    }
+
+    /// Create an empty Collection for Pack NFTs and return it to the caller.
+    ///
+    access(all) fun createEmptyCollection(nftType: Type): @{NonFungibleToken.Collection} {
+        if nftType != Type<@NFT>() {
+            panic("NFT type is not supported")
+        }
+        return <- create Collection()
+    }
+
+    /// Return the metadata views implemented by this contract.
+    ///
+    /// @return An array of Types defining the implemented views. This value will be used by
+    ///         developers to know which parameter to pass to the resolveView() method.
+    ///
+    access(all) view fun getContractViews(resourceType: Type?): [Type] {
+        return [
+            Type<MetadataViews.NFTCollectionData>(),
+            Type<MetadataViews.NFTCollectionDisplay>()
+        ]
+    }
+
+    /// Resolve a metadata view for this contract.
+    ///
+    /// @param view: The Type of the desired view.
+    /// @return A structure representing the requested view.
+    ///
+    access(all) view fun resolveContractView(resourceType: Type?, viewType: Type): AnyStruct? {
+        switch viewType {
+            case Type<MetadataViews.NFTCollectionData>():
+                let collectionData = MetadataViews.NFTCollectionData(
+                    storagePath: PackNFT.CollectionStoragePath,
+                    publicPath: PackNFT.CollectionPublicPath,
+                    publicCollection: Type<&Collection>(),
+                    publicLinkedType: Type<&Collection>(),
+                    createEmptyCollectionFunction: (fun(): @{NonFungibleToken.Collection} {
+                        return <-PackNFT.createEmptyCollection(nftType: Type<@NFT>())
+                    })
+                )
+                return collectionData
+            case Type<MetadataViews.NFTCollectionDisplay>():
+                let bannerImage = MetadataViews.Media(
+                    file: MetadataViews.HTTPFile(
+                        url: "https://assets.nflallday.com/flow/catalogue/NFLAD_BANNER.png"
+                    ),
+                    mediaType: "image/png"
+                )
+                let squareImage = MetadataViews.Media(
+                    file: MetadataViews.HTTPFile(
+                        url: "https://assets.nflallday.com/flow/catalogue/NFLAD_SQUARE.png"
+                    ),
+                    mediaType: "image/png"
+                )
+                return MetadataViews.NFTCollectionDisplay(
+                    name: "NFL All Day Packs",
+                    description: "Officially Licensed Digital Collectibles Featuring the NFL’s Best Highlights. Buy, Sell and Collect Your Favorite NFL Moments",
+                    externalURL: MetadataViews.ExternalURL("https://nflallday.com/"),
+                    squareImage: squareImage,
+                    bannerImage: bannerImage,
+                    socials: {
+                            "instagram": MetadataViews.ExternalURL("https://www.instagram.com/nflallday/"),
+                            "twitter": MetadataViews.ExternalURL("https://twitter.com/NFLAllDay"),
+                            "discord": MetadataViews.ExternalURL("https://discord.com/invite/5K6qyTzj2k")
+                    }
+                )
+        }
+        return nil
+    }
+
+    /// PackNFT contract initializer.
+    ///
+    init(
+        CollectionStoragePath: StoragePath,
+        CollectionPublicPath: PublicPath,
+        CollectionIPackNFTPublicPath: PublicPath,
+        OperatorStoragePath: StoragePath,
+        version: String
+    ) {
+        self.totalSupply = 0
+        self.packs <- {}
+        self.CollectionStoragePath = CollectionStoragePath
+        self.CollectionPublicPath = CollectionPublicPath
+        self.CollectionIPackNFTPublicPath = CollectionIPackNFTPublicPath
+        self.OperatorStoragePath = OperatorStoragePath
+        self.version = version
+
+        // Create a collection to receive Pack NFTs and publish public receiver capabilities.
+        self.account.storage.save(<- create Collection(), to: self.CollectionStoragePath)
+        self.account.capabilities.publish(
+            self.account.capabilities.storage.issue<&{NonFungibleToken.CollectionPublic}>(self.CollectionStoragePath),
+            at: self.CollectionPublicPath
+        )
+        self.account.capabilities.publish(
+            self.account.capabilities.storage.issue<&{IPackNFT.IPackNFTCollectionPublic}>(self.CollectionStoragePath),
+            at: self.CollectionIPackNFTPublicPath
+        )
+
+        // Create a Pack NFT operator to share mint capability with proxy.
+        self.account.storage.save(<- create PackNFTOperator(), to: self.OperatorStoragePath)
+        self.account.capabilities.storage.issue<&{IPackNFT.IOperator}>(self.OperatorStoragePath)
+    }
+
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/locked-nft/contracts/imports/MetadataViews.cdc
 
 ```
@@ -377964,6 +389752,501 @@ pub contract UFC_NFT: NonFungibleToken {
 	}
 }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/pds/contracts/PackNFT_Golazos.cdc
+
+```
+import Crypto
+import NonFungibleToken from "NonFungibleToken"
+import FungibleToken from "FungibleToken"
+import IPackNFT from "IPackNFT"
+import MetadataViews from "MetadataViews"
+import ViewResolver from "ViewResolver"
+
+/// Contract that defines Pack NFTs.
+///
+access(all) contract PackNFT: NonFungibleToken, IPackNFT {
+
+    access(all) var totalSupply: UInt64
+    access(all) let version: String
+    access(all) let CollectionStoragePath: StoragePath
+    access(all) let CollectionPublicPath: PublicPath
+    access(all) let CollectionIPackNFTPublicPath: PublicPath
+    access(all) let OperatorStoragePath: StoragePath
+
+    /// Dictionary that stores Pack resources in the contract state (i.e., Pack NFT representations to keep track of states).
+    ///
+    access(contract) let packs: @{UInt64: Pack}
+
+    access(all) event RevealRequest(id: UInt64, openRequest: Bool)
+    access(all) event OpenRequest(id: UInt64)
+    access(all) event Revealed(id: UInt64, salt: [UInt8], nfts: String)
+    access(all) event Opened(id: UInt64)
+    access(all) event Minted(id: UInt64, hash: [UInt8], distId: UInt64)
+    access(all) event Burned(id: UInt64)
+    access(all) event ContractInitialized()
+    access(all) event Withdraw(id: UInt64, from: Address?)
+    access(all) event Deposit(id: UInt64, to: Address?)
+
+    /// Enum that defines the status of a Pack resource.
+    ///
+    access(all) enum Status: UInt8 {
+        access(all) case Sealed
+        access(all) case Revealed
+        access(all) case Opened
+    }
+
+    /// Resource that defines a Pack NFT Operator, responsible for:
+    ///  - Minting Pack NFTs and the corresponding Pack resources that keep track of states,
+    ///  - Revealing sealed Pack resources, and
+    ///  - opening revealed Pack resources.
+    ///
+    access(all) resource PackNFTOperator: IPackNFT.IOperator {
+
+        /// Mint a new Pack NFT resource and corresponding Pack resource; store the Pack resource in the contract's packs dictionary
+        /// and return the Pack NFT resource to the caller.
+        ///
+        access(IPackNFT.Operate) fun mint(distId: UInt64, commitHash: String, issuer: Address): @{IPackNFT.NFT} {
+            let nft <- create NFT(commitHash: commitHash, issuer: issuer)
+            PackNFT.totalSupply = PackNFT.totalSupply + 1
+            let p <- create Pack(commitHash: commitHash, issuer: issuer)
+            PackNFT.packs[nft.id] <-! p
+            emit Minted(id: nft.id, hash: commitHash.decodeHex(), distId: distId)
+            return <- nft
+        }
+
+        /// Reveal a Sealed Pack resource.
+        ///
+        access(IPackNFT.Operate) fun reveal(id: UInt64, nfts: [{IPackNFT.Collectible}], salt: String) {
+            let p <- PackNFT.packs.remove(key: id) ?? panic("no such pack")
+            p.reveal(id: id, nfts: nfts, salt: salt)
+            PackNFT.packs[id] <-! p
+        }
+
+        /// Open a Revealed Pack NFT resource.
+        ///
+        access(IPackNFT.Operate) fun open(id: UInt64, nfts: [{IPackNFT.Collectible}]) {
+            let p <- PackNFT.packs.remove(key: id) ?? panic("no such pack")
+            p.open(id: id, nfts: nfts)
+            PackNFT.packs[id] <-! p
+        }
+
+        /// PackNFTOperator resource initializer.
+        ///
+        view init() {}
+    }
+
+    /// Resource that defines a Pack NFT.
+    ///
+    access(all) resource Pack {
+        access(all) let hash: [UInt8]
+        access(all) let issuer: Address
+        access(all) var status: Status
+        access(all) var salt: [UInt8]?
+
+        access(all) view fun verify(nftString: String): Bool {
+            assert(self.status != Status.Sealed, message: "Pack not revealed yet")
+            var hashString = String.encodeHex(self.salt!)
+            hashString = hashString.concat(",").concat(nftString)
+            let hash = HashAlgorithm.SHA2_256.hash(hashString.utf8)
+            assert(String.encodeHex(self.hash) == String.encodeHex(hash), message: "CommitHash was not verified")
+            return true
+        }
+
+        access(self) fun _verify(nfts: [{IPackNFT.Collectible}], salt: String, commitHash: String): String {
+            var hashString = salt
+            var nftString = nfts[0].hashString()
+            var i = 1
+            while i < nfts.length {
+                let s = nfts[i].hashString()
+                nftString = nftString.concat(",").concat(s)
+                i = i + 1
+            }
+            hashString = hashString.concat(",").concat(nftString)
+            let hash = HashAlgorithm.SHA2_256.hash(hashString.utf8)
+            assert(String.encodeHex(self.hash) == String.encodeHex(hash), message: "CommitHash was not verified")
+            return nftString
+        }
+
+        access(contract) fun reveal(id: UInt64, nfts: [{IPackNFT.Collectible}], salt: String) {
+            assert(self.status == Status.Sealed, message: "Pack status is not Sealed")
+            let v = self._verify(nfts: nfts, salt: salt, commitHash: String.encodeHex(self.hash))
+            self.salt = salt.decodeHex()
+            self.status = Status.Revealed
+            emit Revealed(id: id, salt: salt.decodeHex(), nfts: v)
+        }
+
+        access(contract) fun open(id: UInt64, nfts: [{IPackNFT.Collectible}]) {
+            assert(self.status == Status.Revealed, message: "Pack status is not Revealed")
+            self._verify(nfts: nfts, salt: String.encodeHex(self.salt!), commitHash: String.encodeHex(self.hash))
+            self.status = Status.Opened
+            emit Opened(id: id)
+        }
+
+        /// Pack resource initializer.
+        ///
+        view init(commitHash: String, issuer: Address) {
+            // Set the hash and issuer from the arguments.
+            self.hash = commitHash.decodeHex()
+            self.issuer = issuer
+
+            // Initial status is Sealed.
+            self.status = Status.Sealed
+
+            // Salt is nil until reveal.
+            self.salt = nil
+        }
+    }
+
+    /// Resource that defines a Pack NFT.
+    ///
+    access(all) resource NFT: NonFungibleToken.NFT, IPackNFT.NFT, IPackNFT.IPackNFTToken, IPackNFT.IPackNFTOwnerOperator, ViewResolver.Resolver {
+        /// This NFT's unique ID.
+        ///
+        access(all) let id: UInt64
+
+        /// This NFT's commit hash, used to verify the IDs of the NFTs in the Pack.
+        ///
+        access(all) let hash: [UInt8]
+
+        /// This NFT's issuer.
+        ///
+        access(all) let issuer: Address
+
+        /// Event emitted when a NFT is destroyed (replaces Burned event before Cadence 1.0 update)
+        ///
+        access(all) event ResourceDestroyed(id: UInt64 = self.id)
+
+        /// Executed by calling the Burner contract's burn method (i.e., conforms to the Burnable interface)
+        ///
+        access(contract) fun burnCallback() {
+            PackNFT.totalSupply = PackNFT.totalSupply - 1
+            destroy <- PackNFT.packs.remove(key: self.id) ?? panic("no such pack")
+        }
+
+        /// NFT resource initializer.
+        ///
+        view init(commitHash: String, issuer: Address) {
+            self.id = self.uuid
+            self.hash = commitHash.decodeHex()
+            self.issuer = issuer
+        }
+
+        /// Create an empty Collection for Pinnacle NFTs and return it to the caller
+        ///
+        access(all) fun createEmptyCollection(): @{NonFungibleToken.Collection} {
+            return <- PackNFT.createEmptyCollection(nftType: Type<@NFT>())
+        }
+
+        /// Return the metadata view types available for this NFT.
+        ///
+        access(all) view fun getViews(): [Type] {
+            return [
+                Type<MetadataViews.Display>(),
+                Type<MetadataViews.ExternalURL>(),
+                Type<MetadataViews.Medias>(),
+                Type<MetadataViews.NFTCollectionData>(),
+                Type<MetadataViews.NFTCollectionDisplay>(),
+                Type<MetadataViews.Royalties>(),
+                Type<MetadataViews.Serial>()
+            ]
+        }
+
+        /// Resolve this NFT's metadata views.
+        ///
+        access(all) view fun resolveView(_ view: Type): AnyStruct? {
+            switch view {
+                case Type<MetadataViews.Display>():
+                    return MetadataViews.Display(
+                        name: "Laliga Golazos Pack",
+                        description: "Reveals official Laliga Golazos Moments when opened",
+                        thumbnail: MetadataViews.HTTPFile(url: self.getImage(imageType: "image", format: "jpeg", width: 256))
+                    )
+                case Type<MetadataViews.ExternalURL>():
+                    return MetadataViews.ExternalURL("https://laligagolazos.com/packnfts/".concat(self.id.toString())) // might have to make a URL that redirects to packs page based on packNFT id -> distribution id
+                case Type<MetadataViews.Medias>():
+                    return MetadataViews.Medias(
+                        [
+                            MetadataViews.Media(
+                                file: MetadataViews.HTTPFile(url: self.getImage(imageType: "image", format: "jpeg", width: 512)),
+                                mediaType: "image/jpeg"
+                            )
+                        ]
+                    )
+                case Type<MetadataViews.NFTCollectionData>():
+                    return PackNFT.resolveContractView(resourceType: nil, viewType: Type<MetadataViews.NFTCollectionData>())
+                case Type<MetadataViews.NFTCollectionDisplay>():
+                    return PackNFT.resolveContractView(resourceType: nil, viewType: Type<MetadataViews.NFTCollectionDisplay>())
+                case Type<MetadataViews.Royalties>():
+                    return PackNFT.resolveContractView(resourceType: nil, viewType: Type<MetadataViews.Royalties>())
+                case Type<MetadataViews.Serial>():
+                    return MetadataViews.Serial(self.id)
+            }
+            return nil
+        }
+
+        /// Return an asset path.
+        ///
+        access(all) view fun assetPath(): String {
+            // this path is normative -> it does not yet have pack related assets here
+            return "https://ipfs.dapperlabs.com/ipfs/QmPvr5zTwji1UGpun57cbj719MUBsB5syjgikbwCMPmruQ"
+        }
+
+        /// Return an image path.
+        ///
+        access(all) view fun getImage(imageType: String, format: String, width: Int): String {
+            return self.assetPath().concat(imageType).concat("?format=").concat(format).concat("&width=").concat(width.toString())
+        }
+    }
+
+    /// Resource that defines a Collection of Pack NFTs.
+    ///
+    access(all) resource Collection: NonFungibleToken.Collection, IPackNFT.IPackNFTCollectionPublic, ViewResolver.ResolverCollection {
+        /// Dictionary of NFT conforming tokens.
+        /// NFT is a resource type with a UInt64 ID field.
+        ///
+        access(all) var ownedNFTs: @{UInt64: {NonFungibleToken.NFT}}
+
+        /// Collection resource initializer,
+        ///
+        view init() {
+            self.ownedNFTs <- {}
+        }
+
+        /// Remove an NFT from the collection and moves it to the caller.
+        ///
+        access(NonFungibleToken.Withdraw) fun withdraw(withdrawID: UInt64): @{NonFungibleToken.NFT} {
+            let token <- self.ownedNFTs.remove(key: withdrawID) ?? panic("missing NFT")
+
+            // Withdrawn event emitted from NonFungibleToken contract interface.
+            emit Withdraw(id: token.id, from: self.owner?.address) // TODO: Consider removing
+            return <- token
+        }
+
+        /// Deposit an NFT into this Collection.
+        ///
+        access(all) fun deposit(token: @{NonFungibleToken.NFT}) {
+            let token <- token as! @NFT
+            let id: UInt64 = token.id
+            // Add the new token to the dictionary which removes the old one.
+            let oldToken <- self.ownedNFTs[id] <- token
+
+            // Deposited event emitted from NonFungibleToken contract interface.
+            emit Deposit(id: id, to: self.owner?.address)  // TODO: Consider removing
+            destroy oldToken
+        }
+
+        /// Emit a RevealRequest event to signal a Sealed Pack NFT should be revealed.
+        ///
+        access(NonFungibleToken.Update) fun emitRevealRequestEvent(id: UInt64, openRequest: Bool) {
+            pre {
+                self.borrowNFT(id) != nil: "NFT with provided ID must exist in the collection"
+                PackNFT.borrowPackRepresentation(id: id)!.status.rawValue == Status.Sealed.rawValue: "Pack status must be Sealed for reveal request"
+            }
+            emit RevealRequest(id: id, openRequest: openRequest)
+        }
+
+        /// Emit an OpenRequest event to signal a Revealed Pack NFT should be opened.
+        ///
+        access(NonFungibleToken.Update) fun emitOpenRequestEvent(id: UInt64) {
+            pre {
+                self.borrowNFT(id) != nil: "NFT with provided ID must exist in the collection"
+                PackNFT.borrowPackRepresentation(id: id)!.status.rawValue == Status.Revealed.rawValue: "Pack status must be Revealed for open request"
+            }
+            emit OpenRequest(id: id)
+        }
+
+        /// Return an array of the IDs that are in the collection.
+        ///
+        access(all) view fun getIDs(): [UInt64] {
+            return self.ownedNFTs.keys
+        }
+
+        /// Return the amount of NFTs stored in the collection.
+        ///
+        access(all) view fun getLength(): Int {
+            return self.ownedNFTs.length
+        }
+
+        /// Return a list of NFT types that this receiver accepts.
+        ///
+        access(all) view fun getSupportedNFTTypes(): {Type: Bool} {
+            let supportedTypes: {Type: Bool} = {}
+            supportedTypes[Type<@NFT>()] = true
+            return supportedTypes
+        }
+
+        /// Return whether or not the given type is accepted by the collection.
+        ///
+        access(all) view fun isSupportedNFTType(type: Type): Bool {
+            if type == Type<@NFT>() {
+                return true
+            }
+            return false
+        }
+
+        /// Return a reference to an NFT in the Collection.
+        ///
+        access(all) view fun borrowNFT(_ id: UInt64): &{NonFungibleToken.NFT}? {
+            return &self.ownedNFTs[id]
+        }
+
+        /// Return a reference to a ViewResolver for an NFT in the Collection.
+        ///
+        access(all) view fun borrowViewResolver(id: UInt64): &{ViewResolver.Resolver}? {
+            if let nft = &self.ownedNFTs[id] as &{NonFungibleToken.NFT}? {
+                return nft as &{ViewResolver.Resolver}
+            }
+            return nil
+        }
+
+        /// Create an empty Collection of the same type and returns it to the caller.
+        ///
+        access(all) fun createEmptyCollection(): @{NonFungibleToken.Collection} {
+            return <-PackNFT.createEmptyCollection(nftType: Type<@NFT>())
+        }
+    }
+
+    access(all) fun publicReveal(id: UInt64, nfts: [{IPackNFT.Collectible}], salt: String) {
+        let p = PackNFT.borrowPackRepresentation(id: id) ?? panic ("No such pack")
+        p.reveal(id: id, nfts: nfts, salt: salt)
+    }
+
+    /// Return a reference to a Pack resource stored in the contract state.
+    ///
+    access(all) view fun borrowPackRepresentation(id: UInt64): &Pack? {
+        return (&self.packs[id] as &Pack?)!
+    }
+
+    /// Create an empty Collection for Pack NFTs and return it to the caller.
+    ///
+    access(all) fun createEmptyCollection(nftType: Type): @{NonFungibleToken.Collection} {
+        if nftType != Type<@NFT>() {
+            panic("NFT type is not supported")
+        }
+        return <- create Collection()
+    }
+
+    /// Return the metadata views implemented by this contract.
+    ///
+    /// @return An array of Types defining the implemented views. This value will be used by
+    ///         developers to know which parameter to pass to the resolveView() method.
+    ///
+    access(all) view fun getContractViews(resourceType: Type?): [Type] {
+        return [
+            Type<MetadataViews.NFTCollectionData>(),
+            Type<MetadataViews.NFTCollectionDisplay>(),
+            Type<MetadataViews.Royalties>()
+        ]
+    }
+
+    /// Resolve a metadata view for this contract.
+    ///
+    /// @param view: The Type of the desired view.
+    /// @return A structure representing the requested view.
+    ///
+    access(all) view fun resolveContractView(resourceType: Type?, viewType: Type): AnyStruct? {
+        switch viewType {
+            case Type<MetadataViews.NFTCollectionData>():
+                let collectionData = MetadataViews.NFTCollectionData(
+                    storagePath: self.CollectionStoragePath,
+                    publicPath: self.CollectionPublicPath,
+                    publicCollection: Type<&Collection>(),
+                    publicLinkedType: Type<&Collection>(),
+                    createEmptyCollectionFunction: (fun(): @{NonFungibleToken.Collection} {
+                        return <-PackNFT.createEmptyCollection(nftType: Type<@NFT>())
+                    })
+                )
+                return collectionData
+            case Type<MetadataViews.NFTCollectionDisplay>():
+                let bannerImage = MetadataViews.Media(
+                    file: MetadataViews.HTTPFile(
+                        url: "https://assets.laligagolazos.com/static/golazos-logos/Golazos_Logo_Horizontal_B.png"
+                    ),
+                    mediaType: "image/png"
+                )
+                let squareImage = MetadataViews.Media(
+                    file: MetadataViews.HTTPFile(
+                        url: "https://assets.laligagolazos.com/static/golazos-logos/Golazos_Logo_Primary_B.png"
+                    ),
+                    mediaType: "image/png"
+                )
+                return MetadataViews.NFTCollectionDisplay(
+                    name: "Laliga-Golazos-Packs",
+                    description: "Collect LaLiga's biggest Moments and get closer to the game than ever before",
+                    externalURL: MetadataViews.ExternalURL("https://laligagolazos.com/"),
+                    squareImage: squareImage,
+                    bannerImage: bannerImage,
+                    socials: {
+                        "instagram": MetadataViews.ExternalURL(" https://instagram.com/laligaonflow"),
+                        "twitter": MetadataViews.ExternalURL("https://twitter.com/LaLigaGolazos"),
+                        "discord": MetadataViews.ExternalURL("https://discord.gg/LaLigaGolazos"),
+                        "facebook": MetadataViews.ExternalURL("https://www.facebook.com/LaLigaGolazos/")
+                    }
+                )
+            case Type<MetadataViews.Royalties>():
+                let royaltyReceiver: Capability<&{FungibleToken.Receiver}> =
+                    getAccount({{.RoyaltyAddress}}).capabilities.get<&{FungibleToken.Receiver}>(MetadataViews.getRoyaltyReceiverPublicPath())
+                return MetadataViews.Royalties(
+                    [
+                        MetadataViews.Royalty(
+                            receiver: royaltyReceiver,
+                            cut: 0.05,
+                            description: "Laliga Golazos marketplace royalty"
+                        )
+                    ]
+                )
+        }
+        return nil
+    }
+
+    /// PackNFT contract initializer.
+    ///
+    init(
+        CollectionStoragePath: StoragePath,
+        CollectionPublicPath: PublicPath,
+        CollectionIPackNFTPublicPath: PublicPath,
+        OperatorStoragePath: StoragePath,
+        version: String
+    ) {
+        self.totalSupply = 0
+        self.packs <- {}
+        self.CollectionStoragePath = CollectionStoragePath
+        self.CollectionPublicPath = CollectionPublicPath
+        self.CollectionIPackNFTPublicPath = CollectionIPackNFTPublicPath
+        self.OperatorStoragePath = OperatorStoragePath
+        self.version = version
+
+        // Create a collection to receive Pack NFTs and publish public receiver capabilities.
+        self.account.storage.save(<- create Collection(), to: self.CollectionStoragePath)
+        self.account.capabilities.publish(
+            self.account.capabilities.storage.issue<&{NonFungibleToken.CollectionPublic}>(self.CollectionStoragePath),
+            at: self.CollectionPublicPath
+        )
+        self.account.capabilities.publish(
+            self.account.capabilities.storage.issue<&{IPackNFT.IPackNFTCollectionPublic}>(self.CollectionStoragePath),
+            at: self.CollectionIPackNFTPublicPath
+        )
+
+        // Create a Pack NFT operator to share mint capability with proxy.
+        self.account.storage.save(<- create PackNFTOperator(), to: self.OperatorStoragePath)
+        self.account.capabilities.storage.issue<&{IPackNFT.IOperator}>(self.OperatorStoragePath)
+    }
+
+}
 ```
 
 
@@ -390128,6 +402411,250 @@ access(all) contract MetadataViews {
 
 
 
+# Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/pds/contracts/imports/FungibleToken.cdc
+
+```
+/**
+
+# The Flow Fungible Token standard
+
+## `FungibleToken` contract
+
+The Fungible Token standard is no longer an interface
+that all fungible token contracts would have to conform to.
+
+If a users wants to deploy a new token contract, their contract
+does not need to implement the FungibleToken interface, but their tokens
+do need to implement the interfaces defined in this contract.
+
+## `Vault` resource interface
+
+Each fungible token resource type needs to implement the `Vault` resource interface.
+
+## `Provider`, `Receiver`, and `Balance` resource interfaces
+
+These interfaces declare pre-conditions and post-conditions that restrict
+the execution of the functions in the Vault.
+
+They are separate because it gives the user the ability to share
+a reference to their Vault that only exposes the fields functions
+in one or more of the interfaces.
+
+It also gives users the ability to make custom resources that implement
+these interfaces to do various things with the tokens.
+For example, a faucet can be implemented by conforming
+to the Provider interface.
+
+*/
+
+import ViewResolver from "ViewResolver"
+//import Burner from "Burner"
+
+/// FungibleToken
+///
+/// Fungible Token implementations are no longer required to implement the fungible token
+/// interface. We still have it as an interface here because there are some useful
+/// utility methods that many projects will still want to have on their contracts,
+/// but they are by no means required. all that is required is that the token
+/// implements the `Vault` interface
+access(all) contract interface FungibleToken: ViewResolver {
+
+    // An entitlement for allowing the withdrawal of tokens from a Vault
+    access(all) entitlement Withdraw
+
+    /// The event that is emitted when tokens are withdrawn from a Vault
+    access(all) event Withdrawn(type: String, amount: UFix64, from: Address?, fromUUID: UInt64, withdrawnUUID: UInt64)
+
+    /// The event that is emitted when tokens are deposited to a Vault
+    access(all) event Deposited(type: String, amount: UFix64, to: Address?, toUUID: UInt64, depositedUUID: UInt64)
+
+    /// Event that is emitted when the global burn method is called with a non-zero balance
+    access(all) event Burned(type: String, amount: UFix64, fromUUID: UInt64)
+
+    /// Balance
+    ///
+    /// The interface that provides standard functions\
+    /// for getting balance information
+    ///
+    access(all) resource interface Balance {
+        access(all) var balance: UFix64
+    }
+
+    /// Provider
+    ///
+    /// The interface that enforces the requirements for withdrawing
+    /// tokens from the implementing type.
+    ///
+    /// It does not enforce requirements on `balance` here,
+    /// because it leaves open the possibility of creating custom providers
+    /// that do not necessarily need their own balance.
+    ///
+    access(all) resource interface Provider {
+
+        /// Function to ask a provider if a specific amount of tokens
+        /// is available to be withdrawn
+        /// This could be useful to avoid panicing when calling withdraw
+        /// when the balance is unknown
+        /// Additionally, if the provider is pulling from multiple vaults
+        /// it only needs to check some of the vaults until the desired amount
+        /// is reached, potentially helping with performance.
+        /// 
+        access(all) view fun isAvailableToWithdraw(amount: UFix64): Bool
+
+        /// withdraw subtracts tokens from the implementing resource
+        /// and returns a Vault with the removed tokens.
+        ///
+        /// The function's access level is `access(Withdraw)`
+        /// So in order to access it, one would either need the object itself
+        /// or an entitled reference with `Withdraw`.
+        ///
+        access(Withdraw) fun withdraw(amount: UFix64): @{Vault} {
+            post {
+                // `result` refers to the return value
+                result.balance == amount:
+                    "Withdrawal amount must be the same as the balance of the withdrawn Vault"
+                emit Withdrawn(type: self.getType().identifier, amount: amount, from: self.owner?.address, fromUUID: self.uuid, withdrawnUUID: result.uuid)
+            }
+        }
+    }
+
+    /// Receiver
+    ///
+    /// The interface that enforces the requirements for depositing
+    /// tokens into the implementing type.
+    ///
+    /// We do not include a condition that checks the balance because
+    /// we want to give users the ability to make custom receivers that
+    /// can do custom things with the tokens, like split them up and
+    /// send them to different places.
+    ///
+    access(all) resource interface Receiver {
+
+        /// deposit takes a Vault and deposits it into the implementing resource type
+        ///
+        access(all) fun deposit(from: @{Vault})
+
+        /// getSupportedVaultTypes optionally returns a list of vault types that this receiver accepts
+        access(all) view fun getSupportedVaultTypes(): {Type: Bool}
+
+        /// Returns whether or not the given type is accepted by the Receiver
+        /// A vault that can accept any type should just return true by default
+        access(all) view fun isSupportedVaultType(type: Type): Bool
+    }
+
+    /// Vault
+    ///
+    /// Ideally, this interface would also conform to Receiver, Balance, Transferor, Provider, and Resolver
+    /// but that is not supported yet
+    ///
+    access(all) resource interface Vault: Receiver, Provider, Balance, ViewResolver.Resolver { //, Burner.Burnable {
+
+        /// Field that tracks the balance of a vault
+        access(all) var balance: UFix64
+
+        /// Called when a fungible token is burned via the `Burner.burn()` method
+        /// Implementations can do any bookkeeping or emit any events
+        /// that should be emitted when a vault is destroyed.
+        /// Many implementations will want to update the token's total supply
+        /// to reflect that the tokens have been burned and removed from the supply.
+        /// Implementations also need to set the balance to zero before the end of the function
+        /// This is to prevent vault owners from spamming fake Burned events.
+        access(contract) fun burnCallback() {
+            pre {
+                emit Burned(type: self.getType().identifier, amount: self.balance, fromUUID: self.uuid)
+            }
+            post {
+                self.balance == 0.0: "The balance must be set to zero during the burnCallback method so that it cannot be spammed"
+            }
+        }
+
+        /// getSupportedVaultTypes optionally returns a list of vault types that this receiver accepts
+        /// The default implementation is included here because vaults are expected
+        /// to only accepted their own type, so they have no need to provide an implementation
+        /// for this function
+        access(all) view fun getSupportedVaultTypes(): {Type: Bool} {
+            // Below check is implemented to make sure that run-time type would
+            // only get returned when the parent resource conforms with `FungibleToken.Vault`. 
+            if self.getType().isSubtype(of: Type<@{FungibleToken.Vault}>()) {
+                return {self.getType(): true}
+            } else {
+                // Return an empty dictionary as the default value for resource who don't
+                // implement `FungibleToken.Vault`, such as `FungibleTokenSwitchboard`, `TokenForwarder` etc.
+                return {}
+            }
+        }
+
+        /// Checks if the given type is supported by this Vault
+        access(all) view fun isSupportedVaultType(type: Type): Bool {
+            return self.getSupportedVaultTypes()[type] ?? false
+        }
+
+        /// withdraw subtracts `amount` from the Vault's balance
+        /// and returns a new Vault with the subtracted balance
+        ///
+        access(Withdraw) fun withdraw(amount: UFix64): @{Vault} {
+            pre {
+                self.balance >= amount:
+                    "Amount withdrawn must be less than or equal than the balance of the Vault"
+            }
+            post {
+                result.getType() == self.getType(): "Must return the same vault type as self"
+                // use the special function `before` to get the value of the `balance` field
+                // at the beginning of the function execution
+                //
+                self.balance == before(self.balance) - amount:
+                    "New Vault balance must be the difference of the previous balance and the withdrawn Vault balance"
+            }
+        }
+
+        /// deposit takes a Vault and adds its balance to the balance of this Vault
+        ///
+        access(all) fun deposit(from: @{FungibleToken.Vault}) {
+            // Assert that the concrete type of the deposited vault is the same
+            // as the vault that is accepting the deposit
+            pre {
+                from.isInstance(self.getType()): 
+                    "Cannot deposit an incompatible token type"
+                emit Deposited(type: from.getType().identifier, amount: from.balance, to: self.owner?.address, toUUID: self.uuid, depositedUUID: from.uuid)
+            }
+            post {
+                self.balance == before(self.balance) + before(from.balance):
+                    "New Vault balance must be the sum of the previous balance and the deposited Vault"
+            }
+        }
+
+        /// createEmptyVault allows any user to create a new Vault that has a zero balance
+        ///
+        access(all) fun createEmptyVault(): @{Vault} {
+            post {
+                result.balance == 0.0: "The newly created Vault must have zero balance"
+            }
+        }
+    }
+
+    /// createEmptyVault allows any user to create a new Vault that has a zero balance
+    ///
+    access(all) fun createEmptyVault(vaultType: Type): @{FungibleToken.Vault} {
+        post {
+            result.getType() == vaultType: "The returned vault does not match the desired type"
+            result.balance == 0.0: "The newly created Vault must have zero balance"
+        }
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/atlas/transactions/user/fulfill_pack_buyback_offer.cdc
 
 ```
@@ -393750,6 +406277,766 @@ pub contract InfiniteObjects_NFT: NonFungibleToken {
 
         emit ContractInitialized()
 	}
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/pds/contracts/PackNFT_Pinnacle.cdc
+
+```
+import Crypto
+import NonFungibleToken from "NonFungibleToken"
+import IPackNFT from "IPackNFT"
+import MetadataViews from "MetadataViews"
+import ViewResolver from "ViewResolver"
+
+/// Contract that defines Pack NFTs.
+///
+access(all) contract PackNFT: NonFungibleToken, IPackNFT {
+
+    access(all) var totalSupply: UInt64
+    access(all) let version: String
+    access(all) let CollectionStoragePath: StoragePath
+    access(all) let CollectionPublicPath: PublicPath
+    access(all) let CollectionIPackNFTPublicPath: PublicPath
+    access(all) let OperatorStoragePath: StoragePath
+
+    /// Dictionary that stores Pack resources in the contract state (i.e., Pack NFT representations to keep track of states).
+    ///
+    access(contract) let packs: @{UInt64: Pack}
+
+    access(all) event RevealRequest(id: UInt64, openRequest: Bool)
+    access(all) event OpenRequest(id: UInt64)
+    access(all) event Revealed(id: UInt64, salt: [UInt8], nfts: String)
+    access(all) event Opened(id: UInt64)
+    access(all) event Minted(id: UInt64, hash: [UInt8], distId: UInt64)
+    access(all) event ContractInitialized()
+
+    // TODO: Consider removing 'Withdraw' and 'Deposit' events now that similar 'Withdrawn' and 'Deposited' events are emitted in NonFungibleToken contract interface
+    access(all) event Withdraw(id: UInt64, from: Address?)
+    access(all) event Deposit(id: UInt64, to: Address?)
+
+    /// Enum that defines the status of a Pack resource.
+    ///
+    access(all) enum Status: UInt8 {
+        access(all) case Sealed
+        access(all) case Revealed
+        access(all) case Opened
+    }
+
+    /// Resource that defines a Pack NFT Operator, responsible for:
+    ///  - Minting Pack NFTs and the corresponding Pack resources that keep track of states,
+    ///  - Revealing sealed Pack resources, and
+    ///  - opening revealed Pack resources.
+    ///
+    access(all) resource PackNFTOperator: IPackNFT.IOperator {
+
+        /// Mint a new Pack NFT resource and corresponding Pack resource; store the Pack resource in the contract's packs dictionary
+        /// and return the Pack NFT resource to the caller.
+        ///
+        access(IPackNFT.Operate) fun mint(distId: UInt64, commitHash: String, issuer: Address): @{IPackNFT.NFT} {
+            let nft <- create NFT(commitHash: commitHash, issuer: issuer)
+            PackNFT.totalSupply = PackNFT.totalSupply + 1
+            let p <- create Pack(commitHash: commitHash, issuer: issuer)
+            PackNFT.packs[nft.id] <-! p
+            emit Minted(id: nft.id, hash: commitHash.decodeHex(), distId: distId)
+            return <- nft
+        }
+
+        /// Reveal a Sealed Pack resource.
+        ///
+        access(IPackNFT.Operate) fun reveal(id: UInt64, nfts: [{IPackNFT.Collectible}], salt: String) {
+            let p <- PackNFT.packs.remove(key: id) ?? panic("no such pack")
+            p.reveal(id: id, nfts: nfts, salt: salt)
+            PackNFT.packs[id] <-! p
+        }
+
+        /// Open a Revealed Pack NFT resource.
+        ///
+        access(IPackNFT.Operate) fun open(id: UInt64, nfts: [{IPackNFT.Collectible}]) {
+            let p <- PackNFT.packs.remove(key: id) ?? panic("no such pack")
+            p.open(id: id, nfts: nfts)
+            PackNFT.packs[id] <-! p
+        }
+
+        /// PackNFTOperator resource initializer.
+        ///
+        view init() {}
+    }
+
+    /// Resource that defines a Pack NFT.
+    ///
+    access(all) resource Pack {
+        access(all) let hash: [UInt8]
+        access(all) let issuer: Address
+        access(all) var status: Status
+        access(all) var salt: [UInt8]?
+
+        access(all) view fun verify(nftString: String): Bool {
+            assert(self.status != Status.Sealed, message: "Pack not revealed yet")
+            var hashString = String.encodeHex(self.salt!)
+            hashString = hashString.concat(",").concat(nftString)
+            let hash = HashAlgorithm.SHA2_256.hash(hashString.utf8)
+            assert(String.encodeHex(self.hash) == String.encodeHex(hash), message: "CommitHash was not verified")
+            return true
+        }
+
+        access(self) fun _verify(nfts: [{IPackNFT.Collectible}], salt: String, commitHash: String): String {
+            var hashString = salt
+            var nftString = nfts[0].hashString()
+            var i = 1
+            while i < nfts.length {
+                let s = nfts[i].hashString()
+                nftString = nftString.concat(",").concat(s)
+                i = i + 1
+            }
+            hashString = hashString.concat(",").concat(nftString)
+            let hash = HashAlgorithm.SHA2_256.hash(hashString.utf8)
+            assert(String.encodeHex(self.hash) == String.encodeHex(hash), message: "CommitHash was not verified")
+            return nftString
+        }
+
+        access(contract) fun reveal(id: UInt64, nfts: [{IPackNFT.Collectible}], salt: String) {
+            assert(self.status == Status.Sealed, message: "Pack status is not Sealed")
+            let v = self._verify(nfts: nfts, salt: salt, commitHash: String.encodeHex(self.hash))
+            self.salt = salt.decodeHex()
+            self.status = Status.Revealed
+            emit Revealed(id: id, salt: salt.decodeHex(), nfts: v)
+        }
+
+        access(contract) fun open(id: UInt64, nfts: [{IPackNFT.Collectible}]) {
+            assert(self.status == Status.Revealed, message: "Pack status is not Revealed")
+            self._verify(nfts: nfts, salt: String.encodeHex(self.salt!), commitHash: String.encodeHex(self.hash))
+            self.status = Status.Opened
+            emit Opened(id: id)
+        }
+
+        /// Pack resource initializer.
+        ///
+        view init(commitHash: String, issuer: Address) {
+            // Set the hash and issuer from the arguments.
+            self.hash = commitHash.decodeHex()
+            self.issuer = issuer
+
+            // Initial status is Sealed.
+            self.status = Status.Sealed
+
+            // Salt is nil until reveal.
+            self.salt = nil
+        }
+    }
+
+    /// Resource that defines a Pack NFT.
+    ///
+    access(all) resource NFT: NonFungibleToken.NFT, IPackNFT.NFT, IPackNFT.IPackNFTToken, IPackNFT.IPackNFTOwnerOperator, ViewResolver.Resolver {
+        /// This NFT's unique ID.
+        ///
+        access(all) let id: UInt64
+
+        /// This NFT's commit hash, used to verify the IDs of the NFTs in the Pack.
+        ///
+        access(all) let hash: [UInt8]
+
+        /// This NFT's issuer.
+        access(all) let issuer: Address
+
+        /// Event emitted when a NFT is destroyed (replaces Burned event before Cadence 1.0 update)
+        ///
+        access(all) event ResourceDestroyed(id: UInt64 = self.id)
+
+        /// Executed by calling the Burner contract's burn method (i.e., conforms to the Burnable interface)
+        ///
+        access(contract) fun burnCallback() {
+            PackNFT.totalSupply = PackNFT.totalSupply - 1
+            destroy <- PackNFT.packs.remove(key: self.id) ?? panic("no such pack")
+        }
+
+        /// NFT resource initializer.
+        ///
+        view init(commitHash: String, issuer: Address) {
+            self.id = self.uuid
+            self.hash = commitHash.decodeHex()
+            self.issuer = issuer
+        }
+
+        /// Create an empty Collection for Pinnacle NFTs and return it to the caller
+        ///
+        access(all) fun createEmptyCollection(): @{NonFungibleToken.Collection} {
+            return <- PackNFT.createEmptyCollection(nftType: Type<@NFT>())
+        }
+
+        /// Return the metadata view types available for this NFT.
+        ///
+        access(all) view fun getViews(): [Type] {
+            return []
+        }
+
+        /// Resolve this NFT's metadata views.
+        //// TODO: Implement metadata views as needed for the NFT the PackNFT is intended to contain
+        ///
+        access(all) view fun resolveView(_ view: Type): AnyStruct? {
+            return nil
+        }
+    }
+
+    /// Resource that defines a Collection of Pack NFTs.
+    ///
+    access(all) resource Collection: NonFungibleToken.Collection, IPackNFT.IPackNFTCollectionPublic, ViewResolver.ResolverCollection {
+        /// Dictionary of NFT conforming tokens.
+        /// NFT is a resource type with a UInt64 ID field.
+        ///
+        access(all) var ownedNFTs: @{UInt64: {NonFungibleToken.NFT}}
+
+        /// Collection resource initializer.
+        ///
+        view init() {
+            self.ownedNFTs <- {}
+        }
+
+        /// Remove an NFT from the collection and moves it to the caller.
+        ///
+        access(NonFungibleToken.Withdraw) fun withdraw(withdrawID: UInt64): @{NonFungibleToken.NFT} {
+            let token <- self.ownedNFTs.remove(key: withdrawID) ?? panic("missing NFT")
+
+            // Withdrawn event emitted from NonFungibleToken contract interface.
+            emit Withdraw(id: token.id, from: self.owner?.address) // TODO: Consider removing
+            return <- token
+        }
+
+        /// Deposit an NFT into this Collection.
+        ///
+        access(all) fun deposit(token: @{NonFungibleToken.NFT}) {
+            let token <- token as! @NFT
+            let id: UInt64 = token.id
+            // Add the new token to the dictionary which removes the old one.
+            let oldToken <- self.ownedNFTs[id] <- token
+
+            // Deposited event emitted from NonFungibleToken contract interface.
+            emit Deposit(id: id, to: self.owner?.address) // TODO: Consider removing
+            destroy oldToken
+        }
+
+        /// Emit a RevealRequest event to signal a Sealed Pack NFT should be revealed.
+        ///
+        access(NonFungibleToken.Update) fun emitRevealRequestEvent(id: UInt64, openRequest: Bool) {
+            pre {
+                self.borrowNFT(id) != nil: "NFT with provided ID must exist in the collection"
+                PackNFT.borrowPackRepresentation(id: id)!.status.rawValue == Status.Sealed.rawValue: "Pack status must be Sealed for reveal request"
+            }
+            emit RevealRequest(id: id, openRequest: openRequest)
+        }
+
+        /// Emit an OpenRequest event to signal a Revealed Pack NFT should be opened.
+        ///
+        access(NonFungibleToken.Update) fun emitOpenRequestEvent(id: UInt64) {
+            pre {
+                self.borrowNFT(id) != nil: "NFT with provided ID must exist in the collection"
+                PackNFT.borrowPackRepresentation(id: id)!.status.rawValue == Status.Revealed.rawValue: "Pack status must be Revealed for open request"
+            }
+            emit OpenRequest(id: id)
+        }
+
+        /// Return an array of the IDs that are in the collection.
+        ///
+        access(all) view fun getIDs(): [UInt64] {
+            return self.ownedNFTs.keys
+        }
+
+        /// Return the amount of NFTs stored in the collection.
+        ///
+        access(all) view fun getLength(): Int {
+            return self.ownedNFTs.length
+        }
+
+        /// Return a list of NFT types that this receiver accepts.
+        ///
+        access(all) view fun getSupportedNFTTypes(): {Type: Bool} {
+            let supportedTypes: {Type: Bool} = {}
+            supportedTypes[Type<@NFT>()] = true
+            return supportedTypes
+        }
+
+        /// Return whether or not the given type is accepted by the collection.
+        ///
+        access(all) view fun isSupportedNFTType(type: Type): Bool {
+            if type == Type<@NFT>() {
+                return true
+            }
+            return false
+        }
+
+        /// Return a reference to an NFT in the Collection.
+        ///
+        access(all) view fun borrowNFT(_ id: UInt64): &{NonFungibleToken.NFT}? {
+            return &self.ownedNFTs[id]
+        }
+
+        /// Return a reference to a ViewResolver for an NFT in the Collection.
+        ///
+        access(all) view fun borrowViewResolver(id: UInt64): &{ViewResolver.Resolver}? {
+            if let nft = &self.ownedNFTs[id] as &{NonFungibleToken.NFT}? {
+                return nft as &{ViewResolver.Resolver}
+            }
+            return nil
+        }
+
+        /// Create an empty Collection of the same type and returns it to the caller.
+        ///
+        access(all) fun createEmptyCollection(): @{NonFungibleToken.Collection} {
+            return <-PackNFT.createEmptyCollection(nftType: Type<@NFT>())
+        }
+    }
+
+    /// Reveal a Sealed Pack NFT.
+    ///
+    access(all) fun publicReveal(id: UInt64, nfts: [{IPackNFT.Collectible}], salt: String) {
+        let p = PackNFT.borrowPackRepresentation(id: id) ?? panic ("No such pack")
+        p.reveal(id: id, nfts: nfts, salt: salt)
+    }
+
+    /// Return a reference to a Pack resource stored in the contract state.
+    ///
+    access(all) view fun borrowPackRepresentation(id: UInt64): &Pack? {
+        return (&self.packs[id] as &Pack?)!
+    }
+
+    /// Create an empty Collection for Pack NFTs and return it to the caller.
+    ///
+    access(all) fun createEmptyCollection(nftType: Type): @{NonFungibleToken.Collection} {
+        if nftType != Type<@NFT>() {
+            panic("NFT type is not supported")
+        }
+        return <- create Collection()
+    }
+
+    /// Return the metadata views implemented by this contract.
+    ///
+    /// @return An array of Types defining the implemented views. This value will be used by
+    ///         developers to know which parameter to pass to the resolveView() method.
+    ///
+    access(all) view fun getContractViews(resourceType: Type?): [Type] {
+        return [
+            Type<MetadataViews.NFTCollectionData>(),
+            Type<MetadataViews.NFTCollectionDisplay>()
+        ]
+    }
+
+    /// Resolve a metadata view for this contract.
+    ///
+    /// @param view: The Type of the desired view.
+    /// @return A structure representing the requested view.
+    ///
+    access(all) view fun resolveContractView(resourceType: Type?, viewType: Type): AnyStruct? {
+        switch viewType {
+            case Type<MetadataViews.NFTCollectionData>():
+                let collectionData = MetadataViews.NFTCollectionData(
+                    storagePath: /storage/PinnaclePackNFTCollection,
+                    publicPath: /public/PinnaclePackNFTCollectionPub,
+                    publicCollection: Type<&Collection>(),
+                    publicLinkedType: Type<&Collection>(),
+                    createEmptyCollectionFunction: (fun(): @{NonFungibleToken.Collection} {
+                        return <-PackNFT.createEmptyCollection(nftType: Type<@NFT>())
+                    })
+                )
+                return collectionData
+            case Type<MetadataViews.NFTCollectionDisplay>():
+                let media = MetadataViews.Media(
+                    file: MetadataViews.HTTPFile(
+                        url: "https://assets.website-files.com/5f6294c0c7a8cdd643b1c820/5f6294c0c7a8cda55cb1c936_Flow_Wordmark.svg"
+                    ),
+                    mediaType: "image/svg+xml"
+                )
+                return MetadataViews.NFTCollectionDisplay(
+                    name: "Pinnacle Pack NFT Collection",
+                    description: "",
+                    externalURL: MetadataViews.ExternalURL(""),
+                    squareImage: media,
+                    bannerImage: media,
+                    socials: {
+                        "twitter": MetadataViews.ExternalURL("https://twitter.com/flow_blockchain")
+                    }
+                )
+        }
+        return nil
+    }
+
+    /// PackNFT contract initializer.
+    ///
+    init(
+        CollectionStoragePath: StoragePath,
+        CollectionPublicPath: PublicPath,
+        CollectionIPackNFTPublicPath: PublicPath,
+        OperatorStoragePath: StoragePath,
+        version: String
+    ) {
+        self.totalSupply = 0
+        self.packs <- {}
+        self.CollectionStoragePath = CollectionStoragePath
+        self.CollectionPublicPath = CollectionPublicPath
+        self.CollectionIPackNFTPublicPath = CollectionIPackNFTPublicPath
+        self.OperatorStoragePath = OperatorStoragePath
+        self.version = version
+
+        // Create a collection to receive Pack NFTs and publish public receiver capabilities.
+        self.account.storage.save(<- create Collection(), to: self.CollectionStoragePath)
+        self.account.capabilities.publish(
+            self.account.capabilities.storage.issue<&{NonFungibleToken.CollectionPublic}>(self.CollectionStoragePath),
+            at: self.CollectionPublicPath
+        )
+
+        // Create a Pack NFT operator to share mint capability with proxy.
+        self.account.storage.save(<- create PackNFTOperator(), to: self.OperatorStoragePath)
+        self.account.capabilities.storage.issue<&{IPackNFT.IOperator}>(self.OperatorStoragePath)
+    }
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/pds/contracts/imports/ExampleNFT.cdc
+
+```
+/* 
+*
+*  This is an example implementation of a Flow Non-Fungible Token
+*  using the V2 standard.
+*  It is not part of the official standard but it assumed to be
+*  similar to how many NFTs would implement the core functionality.
+*
+*  This contract does not implement any sophisticated classification
+*  system for its NFTs. It defines a simple NFT with minimal metadata.
+*   
+*/
+
+import NonFungibleToken from "NonFungibleToken"
+import ViewResolver from "ViewResolver"
+import MetadataViews from "MetadataViews"
+
+access(all) contract ExampleNFT: NonFungibleToken {
+
+    /// Path where the minter should be stored
+    /// The standard paths for the collection are stored in the collection resource type
+    access(all) let MinterStoragePath: StoragePath
+
+    /// We choose the name NFT here, but this type can have any name now
+    /// because the interface does not require it to have a specific name any more
+    access(all) resource NFT: NonFungibleToken.NFT, ViewResolver.Resolver {
+
+        access(all) let id: UInt64
+
+        /// From the Display metadata view
+        access(all) let name: String
+        access(all) let description: String
+        access(all) let thumbnail: String
+
+        /// For the Royalties metadata view
+        access(self) let royalties: [MetadataViews.Royalty]
+
+        /// Generic dictionary of traits the NFT has
+        access(self) let metadata: {String: AnyStruct}
+    
+        init(
+            name: String,
+            description: String,
+            thumbnail: String,
+            royalties: [MetadataViews.Royalty],
+            metadata: {String: AnyStruct},
+        ) {
+            self.id = self.uuid
+            self.name = name
+            self.description = description
+            self.thumbnail = thumbnail
+            self.royalties = royalties
+            self.metadata = metadata
+        }
+
+        /// createEmptyCollection creates an empty Collection
+        /// and returns it to the caller so that they can own NFTs
+        /// @{NonFungibleToken.Collection}
+        access(all) fun createEmptyCollection(): @{NonFungibleToken.Collection} {
+            return <-ExampleNFT.createEmptyCollection(nftType: Type<@ExampleNFT.NFT>())
+        }
+    
+        access(all) view fun getViews(): [Type] {
+            return [
+                Type<MetadataViews.Display>(),
+                Type<MetadataViews.Royalties>(),
+                Type<MetadataViews.Editions>(),
+                Type<MetadataViews.ExternalURL>(),
+                Type<MetadataViews.NFTCollectionData>(),
+                Type<MetadataViews.NFTCollectionDisplay>(),
+                Type<MetadataViews.Serial>(),
+                Type<MetadataViews.Traits>()
+            ]
+        }
+
+        access(all) fun resolveView(_ view: Type): AnyStruct? {
+            switch view {
+                case Type<MetadataViews.Display>():
+                    return MetadataViews.Display(
+                        name: self.name,
+                        description: self.description,
+                        thumbnail: MetadataViews.HTTPFile(
+                            url: self.thumbnail
+                        )
+                    )
+                case Type<MetadataViews.Editions>():
+                    // There is no max number of NFTs that can be minted from this contract
+                    // so the max edition field value is set to nil
+                    let editionInfo = MetadataViews.Edition(name: "Example NFT Edition", number: self.id, max: nil)
+                    let editionList: [MetadataViews.Edition] = [editionInfo]
+                    return MetadataViews.Editions(
+                        editionList
+                    )
+                case Type<MetadataViews.Serial>():
+                    return MetadataViews.Serial(
+                        self.id
+                    )
+                case Type<MetadataViews.Royalties>():
+                    return MetadataViews.Royalties(
+                        self.royalties
+                    )
+                case Type<MetadataViews.ExternalURL>():
+                    return MetadataViews.ExternalURL("https://example-nft.onflow.org/".concat(self.id.toString()))
+                case Type<MetadataViews.NFTCollectionData>():
+                    return ExampleNFT.resolveContractView(resourceType: Type<@ExampleNFT.NFT>(), viewType: Type<MetadataViews.NFTCollectionData>())
+                case Type<MetadataViews.NFTCollectionDisplay>():
+                    return ExampleNFT.resolveContractView(resourceType: Type<@ExampleNFT.NFT>(), viewType: Type<MetadataViews.NFTCollectionDisplay>())
+                case Type<MetadataViews.Traits>():
+                    // exclude mintedTime and foo to show other uses of Traits
+                    let excludedTraits = ["mintedTime", "foo"]
+                    let traitsView = MetadataViews.dictToTraits(dict: self.metadata, excludedNames: excludedTraits)
+
+                    // mintedTime is a unix timestamp, we should mark it with a displayType so platforms know how to show it.
+                    let mintedTimeTrait = MetadataViews.Trait(name: "mintedTime", value: self.metadata["mintedTime"]!, displayType: "Date", rarity: nil)
+                    traitsView.addTrait(mintedTimeTrait)
+
+                    // foo is a trait with its own rarity
+                    let fooTraitRarity = MetadataViews.Rarity(score: 10.0, max: 100.0, description: "Common")
+                    let fooTrait = MetadataViews.Trait(name: "foo", value: self.metadata["foo"], displayType: nil, rarity: fooTraitRarity)
+                    traitsView.addTrait(fooTrait)
+                    
+                    return traitsView
+            }
+            return nil
+        }
+    }
+
+    access(all) resource Collection: NonFungibleToken.Collection {
+        /// dictionary of NFT conforming tokens
+        /// NFT is a resource type with an `UInt64` ID field
+        access(all) var ownedNFTs: @{UInt64: {NonFungibleToken.NFT}}
+
+        access(all) var storagePath: StoragePath
+        access(all) var publicPath: PublicPath
+
+        init () {
+            self.ownedNFTs <- {}
+            let identifier = "exampleNFTCollection"
+            self.storagePath = StoragePath(identifier: identifier)!
+            self.publicPath = PublicPath(identifier: identifier)!
+        }
+
+        /// getSupportedNFTTypes returns a list of NFT types that this receiver accepts
+        access(all) view fun getSupportedNFTTypes(): {Type: Bool} {
+            let supportedTypes: {Type: Bool} = {}
+            supportedTypes[Type<@ExampleNFT.NFT>()] = true
+            return supportedTypes
+        }
+
+        /// Returns whether or not the given type is accepted by the collection
+        /// A collection that can accept any type should just return true by default
+        access(all) view fun isSupportedNFTType(type: Type): Bool {
+           if type == Type<@ExampleNFT.NFT>() {
+            return true
+           } else {
+            return false
+           }
+        }
+
+        /// withdraw removes an NFT from the collection and moves it to the caller
+        access(NonFungibleToken.Withdraw) fun withdraw(withdrawID: UInt64): @{NonFungibleToken.NFT} {
+            let token <- self.ownedNFTs.remove(key: withdrawID)
+                ?? panic("Could not withdraw an NFT with the provided ID from the collection")
+
+            return <-token
+        }
+
+        /// deposit takes a NFT and adds it to the collections dictionary
+        /// and adds the ID to the id array
+        access(all) fun deposit(token: @{NonFungibleToken.NFT}) {
+            let token <- token as! @ExampleNFT.NFT
+
+            // add the new token to the dictionary which removes the old one
+            let oldToken <- self.ownedNFTs[token.id] <- token
+
+            destroy oldToken
+        }
+
+        /// getIDs returns an array of the IDs that are in the collection
+        access(all) view fun getIDs(): [UInt64] {
+            return self.ownedNFTs.keys
+        }
+
+        /// Gets the amount of NFTs stored in the collection
+        access(all) view fun getLength(): Int {
+            return self.ownedNFTs.keys.length
+        }
+
+        access(all) view fun borrowNFT(_ id: UInt64): &{NonFungibleToken.NFT}? {
+            return (&self.ownedNFTs[id] as &{NonFungibleToken.NFT}?)
+        }
+
+        /// Borrow the view resolver for the specified NFT ID
+        access(all) view fun borrowViewResolver(id: UInt64): &{ViewResolver.Resolver}? {
+            if let nft = &self.ownedNFTs[id] as &{NonFungibleToken.NFT}? {
+                return nft as &{ViewResolver.Resolver}
+            }
+            return nil
+        }
+
+        /// createEmptyCollection creates an empty Collection of the same type
+        /// and returns it to the caller
+        /// @return A an empty collection of the same type
+        access(all) fun createEmptyCollection(): @{NonFungibleToken.Collection} {
+            return <-ExampleNFT.createEmptyCollection(nftType: Type<@ExampleNFT.NFT>())
+        }
+    }
+
+    /// createEmptyCollection creates an empty Collection for the specified NFT type
+    /// and returns it to the caller so that they can own NFTs
+    access(all) fun createEmptyCollection(nftType: Type): @{NonFungibleToken.Collection} {
+        return <- create Collection()
+    }
+
+    /// Function that returns all the Metadata Views implemented by a Non Fungible Token
+    ///
+    /// @return An array of Types defining the implemented views. This value will be used by
+    ///         developers to know which parameter to pass to the resolveView() method.
+    ///
+    access(all) view fun getContractViews(resourceType: Type?): [Type] {
+        return [
+            Type<MetadataViews.NFTCollectionData>(),
+            Type<MetadataViews.NFTCollectionDisplay>()
+        ]
+    }
+
+    /// Function that resolves a metadata view for this contract.
+    ///
+    /// @param view: The Type of the desired view.
+    /// @return A structure representing the requested view.
+    ///
+    access(all) fun resolveContractView(resourceType: Type?, viewType: Type): AnyStruct? {
+        switch viewType {
+            case Type<MetadataViews.NFTCollectionData>():
+                let collectionData = MetadataViews.NFTCollectionData(
+                    storagePath: /storage/exampleNFTCollection,
+                    publicPath: /public/exampleNFTCollection,
+                    publicCollection: Type<&ExampleNFT.Collection>(),
+                    publicLinkedType: Type<&ExampleNFT.Collection>(),
+                    createEmptyCollectionFunction: (fun(): @{NonFungibleToken.Collection} {
+                        return <-ExampleNFT.createEmptyCollection(nftType: Type<@ExampleNFT.NFT>())
+                    })
+                )
+                return collectionData
+            case Type<MetadataViews.NFTCollectionDisplay>():
+                let media = MetadataViews.Media(
+                    file: MetadataViews.HTTPFile(
+                        url: "https://assets.website-files.com/5f6294c0c7a8cdd643b1c820/5f6294c0c7a8cda55cb1c936_Flow_Wordmark.svg"
+                    ),
+                    mediaType: "image/svg+xml"
+                )
+                return MetadataViews.NFTCollectionDisplay(
+                    name: "The Example Collection",
+                    description: "This collection is used as an example to help you develop your next Flow NFT.",
+                    externalURL: MetadataViews.ExternalURL("https://example-nft.onflow.org"),
+                    squareImage: media,
+                    bannerImage: media,
+                    socials: {
+                        "twitter": MetadataViews.ExternalURL("https://twitter.com/flow_blockchain")
+                    }
+                )
+        }
+        return nil
+    }
+
+    /// Resource that an admin or something similar would own to be
+    /// able to mint new NFTs
+    ///
+    access(all) resource NFTMinter {
+
+        /// mintNFT mints a new NFT with a new ID
+        /// and returns it to the calling context
+        access(all) fun mintNFT(
+            name: String,
+            description: String,
+            thumbnail: String,
+            royalties: [MetadataViews.Royalty]
+        ): @ExampleNFT.NFT {
+
+            let metadata: {String: AnyStruct} = {}
+            let currentBlock = getCurrentBlock()
+            metadata["mintedBlock"] = currentBlock.height
+            metadata["mintedTime"] = currentBlock.timestamp
+
+            // this piece of metadata will be used to show embedding rarity into a trait
+            metadata["foo"] = "bar"
+
+            // create a new NFT
+            var newNFT <- create NFT(
+                name: name,
+                description: description,
+                thumbnail: thumbnail,
+                royalties: royalties,
+                metadata: metadata,
+            )
+
+            return <-newNFT
+        }
+    }
+
+    init() {
+
+        // Set the named paths
+        self.MinterStoragePath = /storage/cadenceExampleNFTMinter
+
+        // Create a Collection resource and save it to storage
+        let collection <- create Collection()
+        let defaultStoragePath = collection.storagePath
+        let defaultPublicPath = collection.publicPath
+        self.account.storage.save(<-collection, to: defaultStoragePath)
+
+        // create a public capability for the collection
+        let collectionCap = self.account.capabilities.storage.issue<&ExampleNFT.Collection>(defaultStoragePath)
+        self.account.capabilities.publish(collectionCap, at: defaultPublicPath)
+
+        // Create a Minter resource and save it to storage
+        let minter <- create NFTMinter()
+        self.account.storage.save(<-minter, to: self.MinterStoragePath)
+    }
 }
 
 ```
@@ -400986,6 +414273,729 @@ transaction {
             signer.capabilities.storage.issue<&Golazos.Collection>(Golazos.CollectionStoragePath),
             at: Golazos.CollectionPublicPath
         )
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/pds/contracts/imports/MetadataViews.cdc
+
+```
+import FungibleToken from "FungibleToken"
+import NonFungibleToken from "NonFungibleToken"
+import ViewResolver from "ViewResolver"
+
+/// This contract implements the metadata standard proposed
+/// in FLIP-0636.
+///
+/// Ref: https://github.com/onflow/flips/blob/main/application/20210916-nft-metadata.md
+///
+/// Structs and resources can implement one or more
+/// metadata types, called views. Each view type represents
+/// a different kind of metadata, such as a creator biography
+/// or a JPEG image file.
+///
+access(all) contract MetadataViews {
+
+    /// Display is a basic view that includes the name, description and
+    /// thumbnail for an object. Most objects should implement this view.
+    ///
+    access(all) struct Display {
+
+        /// The name of the object.
+        ///
+        /// This field will be displayed in lists and therefore should
+        /// be short an concise.
+        ///
+        access(all) let name: String
+
+        /// A written description of the object.
+        ///
+        /// This field will be displayed in a detailed view of the object,
+        /// so can be more verbose (e.g. a paragraph instead of a single line).
+        ///
+        access(all) let description: String
+
+        /// A small thumbnail representation of the object.
+        ///
+        /// This field should be a web-friendly file (i.e JPEG, PNG)
+        /// that can be displayed in lists, link previews, etc.
+        ///
+        access(all) let thumbnail: {File}
+
+        view init(
+            name: String,
+            description: String,
+            thumbnail: {File}
+        ) {
+            self.name = name
+            self.description = description
+            self.thumbnail = thumbnail
+        }
+    }
+
+    /// Helper to get Display in a typesafe way
+    ///
+    /// @param viewResolver: A reference to the resolver resource
+    /// @return An optional Display struct
+    ///
+    access(all) fun getDisplay(_ viewResolver: &{ViewResolver.Resolver}) : Display? {
+        if let view = viewResolver.resolveView(Type<Display>()) {
+            if let v = view as? Display {
+                return v
+            }
+        }
+        return nil
+    }
+
+    /// Generic interface that represents a file stored on or off chain. Files
+    /// can be used to references images, videos and other media.
+    ///
+    access(all) struct interface File {
+        access(all) view fun uri(): String
+    }
+
+    /// View to expose a file that is accessible at an HTTP (or HTTPS) URL.
+    ///
+    access(all) struct HTTPFile: File {
+        access(all) let url: String
+
+        view init(url: String) {
+            self.url = url
+        }
+
+        access(all) view fun uri(): String {
+            return self.url
+        }
+    }
+
+    /// View to expose a file stored on IPFS.
+    /// IPFS images are referenced by their content identifier (CID)
+    /// rather than a direct URI. A client application can use this CID
+    /// to find and load the image via an IPFS gateway.
+    ///
+    access(all) struct IPFSFile: File {
+
+        /// CID is the content identifier for this IPFS file.
+        ///
+        /// Ref: https://docs.ipfs.io/concepts/content-addressing/
+        ///
+        access(all) let cid: String
+
+        /// Path is an optional path to the file resource in an IPFS directory.
+        ///
+        /// This field is only needed if the file is inside a directory.
+        ///
+        /// Ref: https://docs.ipfs.io/concepts/file-systems/
+        ///
+        access(all) let path: String?
+
+        view init(cid: String, path: String?) {
+            self.cid = cid
+            self.path = path
+        }
+
+        /// This function returns the IPFS native URL for this file.
+        /// Ref: https://docs.ipfs.io/how-to/address-ipfs-on-web/#native-urls
+        ///
+        /// @return The string containing the file uri
+        ///
+        access(all) view fun uri(): String {
+            if let path = self.path {
+                return "ipfs://".concat(self.cid).concat("/").concat(path)
+            }
+
+            return "ipfs://".concat(self.cid)
+        }
+    }
+
+    /// View to represent a file with an correspoiding mediaType.
+    ///
+    access(all) struct Media {
+
+        /// File for the media
+        ///
+        access(all) let file: {File}
+
+        /// media-type comes on the form of type/subtype as described here 
+        /// https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types
+        ///
+        access(all) let mediaType: String
+
+        view init(file: {File}, mediaType: String) {
+          self.file=file
+          self.mediaType=mediaType
+        }
+    }
+
+    /// Wrapper view for multiple media views
+    ///
+    access(all) struct Medias {
+
+        /// An arbitrary-sized list for any number of Media items
+        access(all) let items: [Media]
+
+        view init(_ items: [Media]) {
+            self.items = items
+        }
+    }
+
+    /// Helper to get Medias in a typesafe way
+    ///
+    /// @param viewResolver: A reference to the resolver resource
+    /// @return A optional Medias struct
+    ///
+    access(all) fun getMedias(_ viewResolver: &{ViewResolver.Resolver}) : Medias? {
+        if let view = viewResolver.resolveView(Type<Medias>()) {
+            if let v = view as? Medias {
+                return v
+            }
+        }
+        return nil
+    }
+
+    /// View to represent a license according to https://spdx.org/licenses/
+    /// This view can be used if the content of an NFT is licensed.
+    ///
+    access(all) struct License {
+        access(all) let spdxIdentifier: String
+
+        view init(_ identifier: String) {
+            self.spdxIdentifier = identifier
+        }
+    }
+
+    /// Helper to get License in a typesafe way
+    ///
+    /// @param viewResolver: A reference to the resolver resource
+    /// @return A optional License struct
+    ///
+    access(all) fun getLicense(_ viewResolver: &{ViewResolver.Resolver}) : License? {
+        if let view = viewResolver.resolveView(Type<License>()) {
+            if let v = view as? License {
+                return v
+            }
+        }
+        return nil
+    }
+
+    /// View to expose a URL to this item on an external site.
+    /// This can be used by applications like .find and Blocto to direct users 
+    /// to the original link for an NFT or a project page that describes the NFT collection.
+    /// eg https://www.my-nft-project.com/overview-of-nft-collection
+    ///
+    access(all) struct ExternalURL {
+        access(all) let url: String
+
+        view init(_ url: String) {
+            self.url=url
+        }
+    }
+
+    /// Helper to get ExternalURL in a typesafe way
+    ///
+    /// @param viewResolver: A reference to the resolver resource
+    /// @return A optional ExternalURL struct
+    ///
+    access(all) fun getExternalURL(_ viewResolver: &{ViewResolver.Resolver}) : ExternalURL? {
+        if let view = viewResolver.resolveView(Type<ExternalURL>()) {
+            if let v = view as? ExternalURL {
+                return v
+            }
+        }
+        return nil
+    }
+
+    /// View that defines the composable royalty standard that gives marketplaces a 
+    /// unified interface to support NFT royalties.
+    ///
+    access(all) struct Royalty {
+
+        /// Generic FungibleToken Receiver for the beneficiary of the royalty
+        /// Can get the concrete type of the receiver with receiver.getType()
+        /// Recommendation - Users should create a new link for a FlowToken 
+        /// receiver for this using `getRoyaltyReceiverPublicPath()`, and not 
+        /// use the default FlowToken receiver. This will allow users to update 
+        /// the capability in the future to use a more generic capability
+        access(all) let receiver: Capability<&{FungibleToken.Receiver}>
+
+        /// Multiplier used to calculate the amount of sale value transferred to 
+        /// royalty receiver. Note - It should be between 0.0 and 1.0 
+        /// Ex - If the sale value is x and multiplier is 0.56 then the royalty 
+        /// value would be 0.56 * x.
+        /// Generally percentage get represented in terms of basis points
+        /// in solidity based smart contracts while cadence offers `UFix64` 
+        /// that already supports the basis points use case because its 
+        /// operations are entirely deterministic integer operations and support 
+        /// up to 8 points of precision.
+        access(all) let cut: UFix64
+
+        /// Optional description: This can be the cause of paying the royalty,
+        /// the relationship between the `wallet` and the NFT, or anything else
+        /// that the owner might want to specify.
+        access(all) let description: String
+
+        view init(receiver: Capability<&{FungibleToken.Receiver}>, cut: UFix64, description: String) {
+            pre {
+                cut >= 0.0 && cut <= 1.0 : "Cut value should be in valid range i.e [0,1]"
+            }
+            self.receiver = receiver
+            self.cut = cut
+            self.description = description
+        }
+    }
+
+    /// Wrapper view for multiple Royalty views.
+    /// Marketplaces can query this `Royalties` struct from NFTs 
+    /// and are expected to pay royalties based on these specifications.
+    ///
+    access(all) struct Royalties {
+
+        /// Array that tracks the individual royalties
+        access(self) let cutInfos: [Royalty]
+
+        access(all) view init(_ cutInfos: [Royalty]) {
+            // Validate that sum of all cut multipliers should not be greater than 1.0
+            var totalCut = 0.0
+            for royalty in cutInfos {
+                totalCut = totalCut + royalty.cut
+            }
+            assert(totalCut <= 1.0, message: "Sum of cutInfos multipliers should not be greater than 1.0")
+            // Assign the cutInfos
+            self.cutInfos = cutInfos
+        }
+
+        /// Return the cutInfos list
+        ///
+        /// @return An array containing all the royalties structs
+        ///
+        access(all) view fun getRoyalties(): [Royalty] {
+            return self.cutInfos
+        }
+    }
+
+    /// Helper to get Royalties in a typesafe way
+    ///
+    /// @param viewResolver: A reference to the resolver resource
+    /// @return A optional Royalties struct
+    ///
+    access(all) fun getRoyalties(_ viewResolver: &{ViewResolver.Resolver}) : Royalties? {
+        if let view = viewResolver.resolveView(Type<Royalties>()) {
+            if let v = view as? Royalties {
+                return v
+            }
+        }
+        return nil
+    }
+
+    /// Get the path that should be used for receiving royalties
+    /// This is a path that will eventually be used for a generic switchboard receiver,
+    /// hence the name but will only be used for royalties for now.
+    ///
+    /// @return The PublicPath for the generic FT receiver
+    ///
+    access(all) view fun getRoyaltyReceiverPublicPath(): PublicPath {
+        return /public/GenericFTReceiver
+    }
+
+    /// View to represent a single field of metadata on an NFT.
+    /// This is used to get traits of individual key/value pairs along with some
+    /// contextualized data about the trait
+    ///
+    access(all) struct Trait {
+        // The name of the trait. Like Background, Eyes, Hair, etc.
+        access(all) let name: String
+
+        // The underlying value of the trait, the rest of the fields of a trait provide context to the value.
+        access(all) let value: AnyStruct
+
+        // displayType is used to show some context about what this name and value represent
+        // for instance, you could set value to a unix timestamp, and specify displayType as "Date" to tell
+        // platforms to consume this trait as a date and not a number
+        access(all) let displayType: String?
+
+        // Rarity can also be used directly on an attribute.
+        //
+        // This is optional because not all attributes need to contribute to the NFT's rarity.
+        access(all) let rarity: Rarity?
+
+        view init(name: String, value: AnyStruct, displayType: String?, rarity: Rarity?) {
+            self.name = name
+            self.value = value
+            self.displayType = displayType
+            self.rarity = rarity
+        }
+    }
+
+    /// Wrapper view to return all the traits on an NFT.
+    /// This is used to return traits as individual key/value pairs along with
+    /// some contextualized data about each trait.
+    access(all) struct Traits {
+        access(all) let traits: [Trait]
+
+        view init(_ traits: [Trait]) {
+            self.traits = traits
+        }
+            
+        /// Adds a single Trait to the Traits view
+        /// 
+        /// @param Trait: The trait struct to be added
+        ///
+        access(all) fun addTrait(_ t: Trait) {
+            self.traits.append(t)
+        }
+    }
+
+    /// Helper to get Traits view in a typesafe way
+    ///
+    /// @param viewResolver: A reference to the resolver resource
+    /// @return A optional Traits struct
+    ///
+    access(all) fun getTraits(_ viewResolver: &{ViewResolver.Resolver}) : Traits? {
+        if let view = viewResolver.resolveView(Type<Traits>()) {
+            if let v = view as? Traits {
+                return v
+            }
+        }
+        return nil
+    }
+
+    /// Helper function to easily convert a dictionary to traits. For NFT 
+    /// collections that do not need either of the optional values of a Trait, 
+    /// this method should suffice to give them an array of valid traits.
+    ///
+    /// @param dict: The dictionary to be converted to Traits
+    /// @param excludedNames: An optional String array specifying the `dict`
+    ///         keys that are not wanted to become `Traits`
+    /// @return The generated Traits view
+    ///
+    access(all) fun dictToTraits(dict: {String: AnyStruct}, excludedNames: [String]?): Traits {
+        // Collection owners might not want all the fields in their metadata included.
+        // They might want to handle some specially, or they might just not want them included at all.
+        if excludedNames != nil {
+            for k in excludedNames! {
+                dict.remove(key: k)
+            }
+        }
+
+        let traits: [Trait] = []
+        for k in dict.keys {
+            let trait = Trait(name: k, value: dict[k]!, displayType: nil, rarity: nil)
+            traits.append(trait)
+        }
+
+        return Traits(traits)
+    }
+
+    /// Optional view for collections that issue multiple objects
+    /// with the same or similar metadata, for example an X of 100 set. This
+    /// information is useful for wallets and marketplaces.
+    /// An NFT might be part of multiple editions, which is why the edition
+    /// information is returned as an arbitrary sized array
+    ///
+    access(all) struct Edition {
+
+        /// The name of the edition
+        /// For example, this could be Set, Play, Series,
+        /// or any other way a project could classify its editions
+        access(all) let name: String?
+
+        /// The edition number of the object.
+        /// For an "24 of 100 (#24/100)" item, the number is 24.
+        access(all) let number: UInt64
+
+        /// The max edition number of this type of objects.
+        /// This field should only be provided for limited-editioned objects.
+        /// For an "24 of 100 (#24/100)" item, max is 100.
+        /// For an item with unlimited edition, max should be set to nil.
+        ///
+        access(all) let max: UInt64?
+
+        view init(name: String?, number: UInt64, max: UInt64?) {
+            if max != nil {
+                assert(number <= max!, message: "The number cannot be greater than the max number!")
+            }
+            self.name = name
+            self.number = number
+            self.max = max
+        }
+    }
+
+    /// Wrapper view for multiple Edition views
+    ///
+    access(all) struct Editions {
+
+        /// An arbitrary-sized list for any number of editions
+        /// that the NFT might be a part of
+        access(all) let infoList: [Edition]
+
+        view init(_ infoList: [Edition]) {
+            self.infoList = infoList
+        }
+    }
+
+    /// Helper to get Editions in a typesafe way
+    ///
+    /// @param viewResolver: A reference to the resolver resource
+    /// @return An optional Editions struct
+    ///
+    access(all) fun getEditions(_ viewResolver: &{ViewResolver.Resolver}) : Editions? {
+        if let view = viewResolver.resolveView(Type<Editions>()) {
+            if let v = view as? Editions {
+                return v
+            }
+        }
+        return nil
+    }
+
+    /// View representing a project-defined serial number for a specific NFT
+    /// Projects have different definitions for what a serial number should be
+    /// Some may use the NFTs regular ID and some may use a different
+    /// classification system. The serial number is expected to be unique among
+    /// other NFTs within that project
+    ///
+    access(all) struct Serial {
+        access(all) let number: UInt64
+
+        view init(_ number: UInt64) {
+            self.number = number
+        }
+    }
+
+    /// Helper to get Serial in a typesafe way
+    ///
+    /// @param viewResolver: A reference to the resolver resource
+    /// @return An optional Serial struct
+    ///
+    access(all) fun getSerial(_ viewResolver: &{ViewResolver.Resolver}) : Serial? {
+        if let view = viewResolver.resolveView(Type<Serial>()) {
+            if let v = view as? Serial {
+                return v
+            }
+        }
+        return nil
+    }
+
+    /// View to expose rarity information for a single rarity
+    /// Note that a rarity needs to have either score or description but it can 
+    /// have both
+    ///
+    access(all) struct Rarity {
+        /// The score of the rarity as a number
+        access(all) let score: UFix64?
+
+        /// The maximum value of score
+        access(all) let max: UFix64?
+
+        /// The description of the rarity as a string.
+        ///
+        /// This could be Legendary, Epic, Rare, Uncommon, Common or any other string value
+        access(all) let description: String?
+
+        view init(score: UFix64?, max: UFix64?, description: String?) {
+            if score == nil && description == nil {
+                panic("A Rarity needs to set score, description or both")
+            }
+
+            self.score = score
+            self.max = max
+            self.description = description
+        }
+    }
+
+    /// Helper to get Rarity view in a typesafe way
+    ///
+    /// @param viewResolver: A reference to the resolver resource
+    /// @return A optional Rarity struct
+    ///
+    access(all) fun getRarity(_ viewResolver: &{ViewResolver.Resolver}) : Rarity? {
+        if let view = viewResolver.resolveView(Type<Rarity>()) {
+            if let v = view as? Rarity {
+                return v
+            }
+        }
+        return nil
+    }
+
+    /// NFTView wraps all Core views along `id` and `uuid` fields, and is used 
+    /// to give a complete picture of an NFT. Most NFTs should implement this 
+    /// view.
+    ///
+    access(all) struct NFTView {
+        access(all) let id: UInt64
+        access(all) let uuid: UInt64
+        access(all) let display: MetadataViews.Display?
+        access(all) let externalURL: MetadataViews.ExternalURL?
+        access(all) let collectionData: NFTCollectionData?
+        access(all) let collectionDisplay: NFTCollectionDisplay?
+        access(all) let royalties: Royalties?
+        access(all) let traits: Traits?
+
+        view init(
+            id : UInt64,
+            uuid : UInt64,
+            display : MetadataViews.Display?,
+            externalURL : MetadataViews.ExternalURL?,
+            collectionData : NFTCollectionData?,
+            collectionDisplay : NFTCollectionDisplay?,
+            royalties : Royalties?,
+            traits: Traits?
+        ) {
+            self.id = id
+            self.uuid = uuid
+            self.display = display
+            self.externalURL = externalURL
+            self.collectionData = collectionData
+            self.collectionDisplay = collectionDisplay
+            self.royalties = royalties
+            self.traits = traits
+        }
+    }
+
+    /// Helper to get an NFT view 
+    ///
+    /// @param id: The NFT id
+    /// @param viewResolver: A reference to the resolver resource
+    /// @return A NFTView struct
+    ///
+    access(all) fun getNFTView(id: UInt64, viewResolver: &{ViewResolver.Resolver}) : NFTView {
+        let nftView = viewResolver.resolveView(Type<NFTView>())
+        if nftView != nil {
+            return nftView! as! NFTView
+        }
+
+        return NFTView(
+            id : id,
+            uuid: viewResolver.uuid,
+            display: MetadataViews.getDisplay(viewResolver),
+            externalURL : MetadataViews.getExternalURL(viewResolver),
+            collectionData : self.getNFTCollectionData(viewResolver),
+            collectionDisplay : self.getNFTCollectionDisplay(viewResolver),
+            royalties : self.getRoyalties(viewResolver),
+            traits : self.getTraits(viewResolver)
+        )
+    }
+
+    /// View to expose the information needed store and retrieve an NFT.
+    /// This can be used by applications to setup a NFT collection with proper 
+    /// storage and public capabilities.
+    ///
+    access(all) struct NFTCollectionData {
+        /// Path in storage where this NFT is recommended to be stored.
+        access(all) let storagePath: StoragePath
+
+        /// Public path which must be linked to expose public capabilities of this NFT
+        /// including standard NFT interfaces and metadataviews interfaces
+        access(all) let publicPath: PublicPath
+
+        /// The concrete type of the collection that is exposed to the public
+        /// now that entitlements exist, it no longer needs to be restricted to a specific interface
+        access(all) let publicCollection: Type
+
+        /// Type that should be linked at the aforementioned public path
+        access(all) let publicLinkedType: Type
+
+        /// Function that allows creation of an empty NFT collection that is intended to store
+        /// this NFT.
+        access(all) let createEmptyCollection: fun(): @{NonFungibleToken.Collection}
+
+        view init(
+            storagePath: StoragePath,
+            publicPath: PublicPath,
+            publicCollection: Type,
+            publicLinkedType: Type,
+            createEmptyCollectionFunction: fun(): @{NonFungibleToken.Collection}
+        ) {
+            pre {
+                publicLinkedType.isSubtype(of: Type<&{NonFungibleToken.Collection}>()): "Public type must be a subtype of NonFungibleToken.Collection interface."
+            }
+            self.storagePath=storagePath
+            self.publicPath=publicPath
+            self.publicCollection=publicCollection
+            self.publicLinkedType=publicLinkedType
+            self.createEmptyCollection=createEmptyCollectionFunction
+        }
+    }
+
+    /// Helper to get NFTCollectionData in a way that will return an typed Optional
+    ///
+    /// @param viewResolver: A reference to the resolver resource
+    /// @return A optional NFTCollectionData struct
+    ///
+    access(all) fun getNFTCollectionData(_ viewResolver: &{ViewResolver.Resolver}) : NFTCollectionData? {
+        if let view = viewResolver.resolveView(Type<NFTCollectionData>()) {
+            if let v = view as? NFTCollectionData {
+                return v
+            }
+        }
+        return nil
+    }
+
+    /// View to expose the information needed to showcase this NFT's
+    /// collection. This can be used by applications to give an overview and 
+    /// graphics of the NFT collection this NFT belongs to.
+    ///
+    access(all) struct NFTCollectionDisplay {
+        // Name that should be used when displaying this NFT collection.
+        access(all) let name: String
+
+        // Description that should be used to give an overview of this collection.
+        access(all) let description: String
+
+        // External link to a URL to view more information about this collection.
+        access(all) let externalURL: MetadataViews.ExternalURL
+
+        // Square-sized image to represent this collection.
+        access(all) let squareImage: MetadataViews.Media
+
+        // Banner-sized image for this collection, recommended to have a size near 1200x630.
+        access(all) let bannerImage: MetadataViews.Media
+
+        // Social links to reach this collection's social homepages.
+        // Possible keys may be "instagram", "twitter", "discord", etc.
+        access(all) let socials: {String: MetadataViews.ExternalURL}
+
+        view init(
+            name: String,
+            description: String,
+            externalURL: MetadataViews.ExternalURL,
+            squareImage: MetadataViews.Media,
+            bannerImage: MetadataViews.Media,
+            socials: {String: MetadataViews.ExternalURL}
+        ) {
+            self.name = name
+            self.description = description
+            self.externalURL = externalURL
+            self.squareImage = squareImage
+            self.bannerImage = bannerImage
+            self.socials = socials
+        }
+    }
+
+    /// Helper to get NFTCollectionDisplay in a way that will return a typed 
+    /// Optional
+    ///
+    /// @param viewResolver: A reference to the resolver resource
+    /// @return A optional NFTCollection struct
+    ///
+    access(all) fun getNFTCollectionDisplay(_ viewResolver: &{ViewResolver.Resolver}) : NFTCollectionDisplay? {
+        if let view = viewResolver.resolveView(Type<NFTCollectionDisplay>()) {
+            if let v = view as? NFTCollectionDisplay {
+                return v
+            }
+        }
+        return nil
     }
 }
 ```
@@ -412769,6 +426779,140 @@ transaction(id: UInt64) {
 
 
 
+# Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/pds/contracts/IPackNFT.cdc
+
+```
+import Crypto
+import NonFungibleToken from "NonFungibleToken"
+
+/// Contract interface for PackNFT contracts.
+///
+access(all) contract interface IPackNFT{
+
+    /// Entitlement to perform operations on the PackNFT
+    ///
+    access(all) entitlement Operate
+
+    /// StoragePath for Collection Resource
+    ///
+    access(all) let CollectionStoragePath: StoragePath
+
+    /// PublicPath expected for deposit
+    ///
+    access(all) let CollectionPublicPath: PublicPath
+
+    /// PublicPath for receiving PackNFT
+    ///
+    access(all) let CollectionIPackNFTPublicPath: PublicPath
+
+    /// StoragePath for the PackNFT Operator Resource (issuer owns this)
+    ///
+    access(all) let OperatorStoragePath: StoragePath
+
+    /// Request for Reveal
+    ///
+    access(all) event RevealRequest(id: UInt64, openRequest: Bool)
+
+    /// Request for Open
+    ///
+    /// This is emitted when owner of a PackNFT request for the entitled NFT to be
+    /// deposited to its account
+    access(all) event OpenRequest(id: UInt64)
+
+    /// Burned
+    ///
+    /// Emitted when a PackNFT has been burned
+    access(all) event Burned(id: UInt64 )
+
+    /// Opened
+    ///
+    /// Emitted when a packNFT has been opened
+    access(all) event Opened(id: UInt64)
+
+    // TODO: Clean up after enum handling/removal is clarified.
+    // Enums cannot be declared anymore in interfaces in Cadence 1.0
+    // access(all) enum Status: UInt8 {
+    //     access(all) case Sealed
+    //     access(all) case Revealed
+    //     access(all) case Opened
+    // }
+
+    /// Struct interface for Collectible
+    ///
+    access(all) struct interface Collectible {
+        access(all) let address: Address
+        access(all) let contractName: String
+        access(all) let id: UInt64
+        access(all) fun hashString(): String
+        view init(address: Address, contractName: String, id: UInt64)
+    }
+
+    /// Resource interface for PackNFT
+    ///
+    access(all) resource interface IPack {
+        access(all) let issuer: Address
+        // access(all) var status: Status
+
+        access(all) fun verify(nftString: String): Bool
+
+        access(contract) fun reveal(id: UInt64, nfts: [{IPackNFT.Collectible}], salt: String)
+        access(contract) fun open(id: UInt64, nfts: [{IPackNFT.Collectible}])
+        view init(commitHash: String, issuer: Address)
+    }
+
+    /// Resource interface for IOperator
+    ///
+    access(all) resource interface IOperator {
+        access(Operate) fun mint(distId: UInt64, commitHash: String, issuer: Address): @{IPackNFT.NFT}
+        access(Operate) fun reveal(id: UInt64, nfts: [{Collectible}], salt: String)
+        access(Operate) fun open(id: UInt64, nfts: [{IPackNFT.Collectible}])
+    }
+
+    // Included for backwards compatibility
+    access(all) resource interface PackNFTOperator: IOperator {}
+
+    /// Resource interface for IPackNFTToken
+    ///
+    access(all) resource interface IPackNFTToken {
+        access(all) let id: UInt64
+        access(all) let issuer: Address
+    }
+
+    /// Resource interface for NFT
+    ///
+    access(all) resource interface NFT: NonFungibleToken.NFT, IPackNFTToken, IPackNFTOwnerOperator {
+        access(all) let id: UInt64
+        access(all) let issuer: Address
+    }
+
+    /// Resource interface for PackNFT Collection
+    ///
+    access(all) resource interface IPackNFTCollectionPublic: NonFungibleToken.Collection {
+        access(NonFungibleToken.Update) fun emitRevealRequestEvent(id: UInt64, openRequest: Bool)
+        access(NonFungibleToken.Update) fun emitOpenRequestEvent(id: UInt64)
+    }
+
+    // Included for backwards compatibility
+    access(all) resource interface IPackNFTOwnerOperator{}
+
+    /// Reveal a Sealed Pack NFT
+    ///
+    access(all) fun publicReveal(id: UInt64, nfts: [{IPackNFT.Collectible}], salt: String)
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/laliga/scripts/nfts/read_collection_nft_length.cdc
 
 ```
@@ -422458,6 +436602,264 @@ access(all) fun main(address: Address): Int {
 
 
 
+# Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/pds/contracts/imports/NonFungibleToken.cdc
+
+```
+/**
+
+## The Flow Non-Fungible Token standard
+
+## `NonFungibleToken` contract
+
+The interface that all Non-Fungible Token contracts should conform to.
+If a user wants to deploy a new NFT contract, their contract should implement
+The types defined here
+
+## `NFT` resource interface
+
+The core resource type that represents an NFT in the smart contract.
+
+## `Collection` Resource interface
+
+The resource that stores a user's NFT collection.
+It includes a few functions to allow the owner to easily
+move tokens in and out of the collection.
+
+## `Provider` and `Receiver` resource interfaces
+
+These interfaces declare functions with some pre and post conditions
+that require the Collection to follow certain naming and behavior standards.
+
+They are separate because it gives developers the ability to define functions
+that can use any type that implements these interfaces
+
+By using resources and interfaces, users of NFT smart contracts can send
+and receive tokens peer-to-peer, without having to interact with a central ledger
+smart contract.
+
+To send an NFT to another user, a user would simply withdraw the NFT
+from their Collection, then call the deposit function on another user's
+Collection to complete the transfer.
+
+*/
+
+import "ViewResolver"
+
+/// The main NFT contract. Other NFT contracts will
+/// import and implement the interfaces defined in this contract
+///
+access(all) contract interface NonFungibleToken: ViewResolver {
+
+    /// An entitlement for allowing the withdrawal of tokens from a Vault
+    access(all) entitlement Withdraw
+
+    /// An entitlement for allowing updates and update events for an NFT
+    access(all) entitlement Update
+
+    /// Event that contracts should emit when the metadata of an NFT is updated
+    /// It can only be emitted by calling the `emitNFTUpdated` function
+    /// with an `Updatable` entitled reference to the NFT that was updated
+    /// The entitlement prevents spammers from calling this from other users' collections
+    /// because only code within a collection or that has special entitled access
+    /// to the collections methods will be able to get the entitled reference
+    /// 
+    /// The event makes it so that third-party indexers can monitor the events
+    /// and query the updated metadata from the owners' collections.
+    ///
+    access(all) event Updated(type: String, id: UInt64, uuid: UInt64, owner: Address?)
+    access(all) view fun emitNFTUpdated(_ nftRef: auth(Update) &{NonFungibleToken.NFT})
+    {
+        emit Updated(type: nftRef.getType().identifier, id: nftRef.id, uuid: nftRef.uuid, owner: nftRef.owner?.address)
+    }
+
+
+    /// Event that is emitted when a token is withdrawn,
+    /// indicating the type, id, uuid, the owner of the collection that it was withdrawn from,
+    /// and the UUID of the resource it was withdrawn from, usually a collection.
+    ///
+    /// If the collection is not in an account's storage, `from` will be `nil`.
+    ///
+    access(all) event Withdrawn(type: String, id: UInt64, uuid: UInt64, from: Address?, providerUUID: UInt64)
+
+    /// Event that emitted when a token is deposited to a collection.
+    /// Indicates the type, id, uuid, the owner of the collection that it was deposited to,
+    /// and the UUID of the collection it was deposited to
+    ///
+    /// If the collection is not in an account's storage, `from`, will be `nil`.
+    ///
+    access(all) event Deposited(type: String, id: UInt64, uuid: UInt64, to: Address?, collectionUUID: UInt64)
+
+    /// Interface that the NFTs must conform to
+    ///
+    access(all) resource interface NFT: ViewResolver.Resolver {
+
+        /// unique ID for the NFT
+        access(all) let id: UInt64
+
+        /// Event that is emitted automatically every time a resource is destroyed
+        /// The type information is included in the metadata event so it is not needed as an argument
+        access(all) event ResourceDestroyed(id: UInt64 = self.id, uuid: UInt64 = self.uuid)
+
+        /// createEmptyCollection creates an empty Collection that is able to store the NFT
+        /// and returns it to the caller so that they can own NFTs
+        /// @return A an empty collection that can store this NFT
+        access(all) fun createEmptyCollection(): @{Collection} {
+            post {
+                result.getLength() == 0: "The created collection must be empty!"
+                result.isSupportedNFTType(type: self.getType()): "The created collection must support this NFT type"
+            }
+        }
+
+        /// Gets all the NFTs that this NFT directly owns
+        /// @return A dictionary of all subNFTS keyed by type
+        access(all) view fun getAvailableSubNFTS(): {Type: UInt64} {
+            return {}
+        }
+
+        /// Get a reference to an NFT that this NFT owns
+        /// Both arguments are optional to allow the NFT to choose
+        /// how it returns sub NFTs depending on what arguments are provided
+        /// For example, if `type` has a value, but `id` doesn't, the NFT 
+        /// can choose which NFT of that type to return if there is a "default"
+        /// If both are `nil`, then NFTs that only store a single NFT can just return
+        /// that. This helps callers who aren't sure what they are looking for 
+        ///
+        /// @param type: The Type of the desired NFT
+        /// @param id: The id of the NFT to borrow
+        ///
+        /// @return A structure representing the requested view.
+        access(all) fun getSubNFT(type: Type, id: UInt64) : &{NonFungibleToken.NFT}? {
+            return nil
+        }
+    }
+
+    /// Interface to mediate withdrawals from a resource, usually a Collection
+    ///
+    access(all) resource interface Provider {
+
+        // We emit withdraw events from the provider interface because conficting withdraw
+        // events aren't as confusing to event listeners as conflicting deposit events
+
+        /// withdraw removes an NFT from the collection and moves it to the caller
+        /// It does not specify whether the ID is UUID or not
+        /// @param withdrawID: The id of the NFT to withdraw from the collection
+        access(Withdraw) fun withdraw(withdrawID: UInt64): @{NFT} {
+            post {
+                result.id == withdrawID: "The ID of the withdrawn token must be the same as the requested ID"
+                emit Withdrawn(type: result.getType().identifier, id: result.id, uuid: result.uuid, from: self.owner?.address, providerUUID: self.uuid)
+            }
+        }
+    }
+
+    /// Interface to mediate deposits to the Collection
+    ///
+    access(all) resource interface Receiver {
+
+        /// deposit takes an NFT as an argument and adds it to the Collection
+        /// @param token: The NFT to deposit
+        access(all) fun deposit(token: @{NFT})
+
+        /// getSupportedNFTTypes returns a list of NFT types that this receiver accepts
+        /// @return A dictionary of types mapped to booleans indicating if this
+        ///         reciever supports it
+        access(all) view fun getSupportedNFTTypes(): {Type: Bool}
+
+        /// Returns whether or not the given type is accepted by the collection
+        /// A collection that can accept any type should just return true by default
+        /// @param type: An NFT type
+        /// @return A boolean indicating if this receiver can recieve the desired NFT type
+        access(all) view fun isSupportedNFTType(type: Type): Bool
+    }
+
+    /// Kept for backwards-compatibility reasons
+    access(all) resource interface CollectionPublic {
+        access(all) fun deposit(token: @{NFT})
+        access(all) view fun getLength(): Int
+        access(all) view fun getIDs(): [UInt64]
+        access(all) fun forEachID(_ f: fun (UInt64): Bool): Void
+        access(all) view fun borrowNFT(_ id: UInt64): &{NFT}?
+    }
+
+    /// Requirement for the concrete resource type
+    /// to be declared in the implementing contract
+    ///
+    access(all) resource interface Collection: Provider, Receiver, CollectionPublic, ViewResolver.ResolverCollection {
+
+        access(all) var ownedNFTs: @{UInt64: {NonFungibleToken.NFT}}
+
+        /// deposit takes a NFT as an argument and stores it in the collection
+        /// @param token: The NFT to deposit into the collection
+        access(all) fun deposit(token: @{NonFungibleToken.NFT}) {
+            pre {
+                // We emit the deposit event in the `Collection` interface
+                // because the `Collection` interface is almost always the final destination
+                // of tokens and deposit emissions from custom receivers could be confusing
+                // and hard to reconcile to event listeners
+                emit Deposited(type: token.getType().identifier, id: token.id, uuid: token.uuid, to: self.owner?.address, collectionUUID: self.uuid)
+            }
+        }
+
+        /// Gets the amount of NFTs stored in the collection
+        /// @return An integer indicating the size of the collection
+        access(all) view fun getLength(): Int {
+            return self.ownedNFTs.length
+        }
+
+        /// Allows a given function to iterate through the list
+        /// of owned NFT IDs in a collection without first
+        /// having to load the entire list into memory
+        access(all) fun forEachID(_ f: fun (UInt64): Bool): Void {
+            self.ownedNFTs.forEachKey(f)
+        }
+
+        /// Borrows a reference to an NFT stored in the collection
+        /// If the NFT with the specified ID is not in the collection,
+        /// the function should return `nil` and not panic.
+        ///
+        /// @param id: The desired nft id in the collection to return a referece for.
+        /// @return An optional reference to the NFT
+        access(all) view fun borrowNFT(_ id: UInt64): &{NonFungibleToken.NFT}? {
+            post {
+                (result == nil) || (result?.id == id): 
+                    "Cannot borrow NFT reference: The ID of the returned reference does not match the ID that was specified"
+            }
+        }
+
+        /// createEmptyCollection creates an empty Collection of the same type
+        /// and returns it to the caller
+        /// @return A an empty collection of the same type
+        access(all) fun createEmptyCollection(): @{Collection} {
+            post {
+                result.getType() == self.getType(): "The created collection does not have the same type as this collection"
+                result.getLength() == 0: "The created collection must be empty!"
+            }
+        }
+    }
+
+    /// createEmptyCollection creates an empty Collection for the specified NFT type
+    /// and returns it to the caller so that they can own NFTs
+    /// @param nftType: The desired nft type to return a collection for.
+    /// @return An array of NFT Types that the implementing contract defines.
+    access(all) fun createEmptyCollection(nftType: Type): @{NonFungibleToken.Collection} {
+        post {
+            result.getIDs().length == 0: "The created collection must be empty!"
+        }
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/nft-provider-aggregator/transactions/exampleNFT/link_providerCap_exampleNFT.cdc
 
 ```
@@ -422481,6 +436883,82 @@ transaction (nftWithdrawCapPath: StoragePath) {
             signer.capabilities.storage.issue<auth(NonFungibleToken.Withdraw) &ExampleNFT.Collection>(collectionData.storagePath),
             to: nftWithdrawCapPath
         )
+    }
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/dapperlabs/studio-platform-smart-contracts/blob/main/pds/contracts/imports/ViewResolver.cdc
+
+```
+// Taken from the NFT Metadata standard, this contract exposes an interface to let 
+// anyone borrow a contract and resolve views on it.
+//
+// This will allow you to obtain information about a contract without necessarily knowing anything about it.
+// All you need is its address and name and you're good to go!
+access(all) contract interface ViewResolver {
+
+    /// Function that returns all the Metadata Views implemented by the resolving contract.
+    /// Some contracts may have multiple resource types that support metadata views
+    /// so there there is an optional parameter for specify which resource type the caller
+    /// is looking for views for.
+    /// Some contract-level views may be type-agnostic. In that case, the contract
+    /// should return the same views regardless of what type is passed in.
+    ///
+    /// @param resourceType: An optional resource type to return views for
+    /// @return An array of Types defining the implemented views. This value will be used by
+    ///         developers to know which parameter to pass to the resolveView() method.
+    ///
+    access(all) view fun getContractViews(resourceType: Type?): [Type]
+
+    /// Function that resolves a metadata view for this token.
+    /// Some contracts may have multiple resource types that support metadata views
+    /// so there there is an optional parameter for specify which resource type the caller
+    /// is looking for views for.
+    /// Some contract-level views may be type-agnostic. In that case, the contract
+    /// should return the same views regardless of what type is passed in.
+    ///
+    /// @param resourceType: An optional resource type to return views for
+    /// @param view: The Type of the desired view.
+    /// @return A structure representing the requested view.
+    ///
+    access(all) fun resolveContractView(resourceType: Type?, viewType: Type): AnyStruct?
+
+    /// Provides access to a set of metadata views. A struct or 
+    /// resource (e.g. an NFT) can implement this interface to provide access to 
+    /// the views that it supports.
+    ///
+    access(all) resource interface Resolver {
+
+        /// Same as getViews above, but on a specific NFT instead of a contract
+        access(all) view fun getViews(): [Type]
+
+        /// Same as resolveView above, but on a specific NFT instead of a contract
+        access(all) fun resolveView(_ view: Type): AnyStruct?
+    }
+
+    /// A group of view resolvers indexed by ID.
+    ///
+    access(all) resource interface ResolverCollection {
+        access(all) view fun borrowViewResolver(id: UInt64): &{Resolver}? {
+            return nil
+        }
+
+        access(all) view fun getIDs(): [UInt64] {
+            return []
+        }
     }
 }
 
