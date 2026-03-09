@@ -317572,6 +317572,39 @@ transaction(id: UInt64, baseAmount: UFix64, interest: UFix64, duration: UFix64) 
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/Mumg/setup_account.testnet.cdc
+
+```
+import NonFungibleToken from 0xNonFungibleToken
+import MUMGJ from 0xMUMGJ
+      transaction {
+        prepare(acct: AuthAccount) {
+          if acct.borrow<&MUMGJ.Collection>(from: MUMGJ.CollectionStoragePath) == nil {
+            // create a new empty collection
+            let collection <- MUMGJ.createEmptyCollection()
+            // save it to the account
+            acct.save(<-collection, to: MUMGJ.CollectionStoragePath)
+            // create a public capability for the collection
+            acct.link<&MUMGJ.Collection{NonFungibleToken.CollectionPublic, MUMGJ.MUMGJCollectionPublic}>(MUMGJ.CollectionPublicPath, target: MUMGJ.CollectionStoragePath)
+          }
+        }
+        execute {
+        }
+      }
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/Find/fulfill.testnet.cdc
 
 ```
@@ -318237,6 +318270,55 @@ transaction(id: UInt64, baseAmount: UFix64, interest: UFix64, duration: UFix64) 
     }
 }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/FlowToken/sendFlowToken.mainnet.cdc
+
+```
+import FungibleToken from 0xf233dcee88fe0abe
+import FlowToken from 0x1654653399040a61
+
+transaction(amount: UFix64, to: Address) {
+
+    // The Vault resource that holds the tokens that are being transferred
+    let sentVault: @FungibleToken.Vault
+
+    prepare(signer: AuthAccount) {
+
+        // Get a reference to the signer's stored vault
+        let vaultRef = signer.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow reference to the owner's Vault!")
+
+        // Withdraw tokens from the signer's stored vault
+        self.sentVault <- vaultRef.withdraw(amount: amount)
+    }
+
+    execute {
+
+        // Get the recipient's public account object
+        let recipient = getAccount(to)
+
+        // Get a reference to the recipient's Receiver
+        let receiverRef = recipient.getCapability(/public/flowTokenReceiver)
+            .borrow<&{FungibleToken.Receiver}>()
+            ?? panic("Could not borrow receiver reference to the recipient's Vault")
+
+        // Deposit the withdrawn tokens in the recipient's receiver
+        receiverRef.deposit(from: <-self.sentVault)
+    }
+}
 ```
 
 
@@ -330663,6 +330745,39 @@ transaction(Uuid: UInt64, BorrowerAddress: Address) {
 
 
 
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/Mumg/setup_account.mainnet.cdc
+
+```
+import NonFungibleToken from 0xNonFungibleToken
+import MUMGJ from 0xMUMGJ
+      transaction {
+        prepare(acct: AuthAccount) {
+          if acct.borrow<&MUMGJ.Collection>(from: MUMGJ.CollectionStoragePath) == nil {
+            // create a new empty collection
+            let collection <- MUMGJ.createEmptyCollection()
+            // save it to the account
+            acct.save(<-collection, to: MUMGJ.CollectionStoragePath)
+            // create a public capability for the collection
+            acct.link<&MUMGJ.Collection{NonFungibleToken.CollectionPublic, MUMGJ.MUMGJCollectionPublic}>(MUMGJ.CollectionPublicPath, target: MUMGJ.CollectionStoragePath)
+          }
+        }
+        execute {
+        }
+      }
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/MantlefiNFTLending/BiscuitsNGroovy/forceRedeem.testnet.cdc
 
 ```
@@ -332559,6 +332674,55 @@ transaction(saleItemID: UInt64, saleItemPrice: UFix64) {
             saleCuts: saleCuts
         )
         Marketplace.addListing(id: id, storefrontPublicCapability: self.storefrontPublic)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/blocto/flow-transactions/blob/main/build/FlowToken/sendFlowToken.testnet.cdc
+
+```
+import FungibleToken from 0x9a0766d93b6608b7
+import FlowToken from 0x7e60df042a9c0868
+
+transaction(amount: UFix64, to: Address) {
+
+    // The Vault resource that holds the tokens that are being transferred
+    let sentVault: @FungibleToken.Vault
+
+    prepare(signer: AuthAccount) {
+
+        // Get a reference to the signer's stored vault
+        let vaultRef = signer.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow reference to the owner's Vault!")
+
+        // Withdraw tokens from the signer's stored vault
+        self.sentVault <- vaultRef.withdraw(amount: amount)
+    }
+
+    execute {
+
+        // Get the recipient's public account object
+        let recipient = getAccount(to)
+
+        // Get a reference to the recipient's Receiver
+        let receiverRef = recipient.getCapability(/public/flowTokenReceiver)
+            .borrow<&{FungibleToken.Receiver}>()
+            ?? panic("Could not borrow receiver reference to the recipient's Vault")
+
+        // Deposit the withdrawn tokens in the recipient's receiver
+        receiverRef.deposit(from: <-self.sentVault)
     }
 }
 ```
