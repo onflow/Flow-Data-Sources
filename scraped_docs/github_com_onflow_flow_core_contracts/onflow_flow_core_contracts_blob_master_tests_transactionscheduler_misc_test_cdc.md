@@ -70,8 +70,8 @@ access(all) fun testScheduledTransactionCancellationLimits() {
     setConfigDetails(
         maximumIndividualEffort: nil,
         minimumExecutionEffort: nil,
-        slotSharedEffortLimit: nil,
-        priorityEffortReserve: nil,
+        highPriorityEffortLimit: nil,
+        mediumPriorityEffortLimit: nil,
         lowPriorityEffortLimit: nil,
         maxDataSizeMB: nil,
         priorityFeeMultipliers: nil,
@@ -301,11 +301,11 @@ access(all) fun testScheduledTransactionEstimateReturnNil() {
         failWithErr: nil
     )
 
-    // Schedule a high priority transaction
+    // Schedule a high priority transaction to consume remaining space
     scheduleTransaction(
         timestamp: timeInFuture,
         fee: feeAmount,
-        effort: sharedEffortLimit,
+        effort: mediumEffort,
         priority: highPriority,
         data: testData,
         testName: "Estimate Return Nil: Scheduled 2",
@@ -316,12 +316,12 @@ access(all) fun testScheduledTransactionEstimateReturnNil() {
         data: testData,
         timestamp: timeInFuture,
         priority: highPriority,
-        executionEffort: sharedEffortLimit
+        executionEffort: mediumEffort
     )
-    
+
     Test.assertEqual(nil, estimate.flowFee)
     Test.assertEqual(nil, estimate.timestamp)
-    Test.assertEqual("Invalid execution effort: \(sharedEffortLimit) is greater than the priority's available effort for the requested timestamp.", estimate.error!)
+    Test.assertEqual("Invalid execution effort: \(mediumEffort) is greater than the priority's available effort for the requested timestamp.", estimate.error!)
 }
 
 ```
