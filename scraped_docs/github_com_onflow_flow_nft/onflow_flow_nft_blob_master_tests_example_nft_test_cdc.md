@@ -8,6 +8,7 @@ import "ViewResolver"
 import "NonFungibleToken"
 import "ExampleNFT"
 import "MetadataViews"
+import "CrossVMMetadataViews"
 
 access(all) let admin = Test.getAccount(0x0000000000000007)
 access(all) let recipient = Test.createAccount()
@@ -376,7 +377,9 @@ fun testGetViews() {
         Type<MetadataViews.NFTCollectionDisplay>(),
         Type<MetadataViews.Serial>(),
         Type<MetadataViews.Traits>(),
-        Type<MetadataViews.EVMBridgedMetadata>()
+        Type<MetadataViews.EVMBridgedMetadata>(),
+        Type<CrossVMMetadataViews.EVMPointer>(),
+        Type<CrossVMMetadataViews.EVMBytesMetadata>()
     ]
     Test.assertEqual(expectedViews, supportedViews)
 }
@@ -393,7 +396,8 @@ fun testGetExampleNFTViews() {
     let expectedViews = [
         Type<MetadataViews.NFTCollectionData>(),
         Type<MetadataViews.NFTCollectionDisplay>(),
-        Type<MetadataViews.EVMBridgedMetadata>()
+        Type<MetadataViews.EVMBridgedMetadata>(),
+        Type<CrossVMMetadataViews.EVMPointer>()
     ]
     Test.assertEqual(expectedViews, supportedViews)
 }
