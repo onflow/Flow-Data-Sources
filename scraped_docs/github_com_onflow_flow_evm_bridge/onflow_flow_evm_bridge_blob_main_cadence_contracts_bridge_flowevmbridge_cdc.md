@@ -923,6 +923,12 @@ contract FlowEVMBridge : IFlowEVMNFTBridge, IFlowEVMTokenBridge {
             ?? panic("Could not find a custom cross-VM association for NFT \(token.getType().identifier) #\(token.id). "
                 .concat("The handleUpdatedBridgedNFTToEVM route is intended for bridged Cadence NFTs associated with ")
                 .concat(" ERC721 contracts that have registered as a custom cross-VM NFT collection."))
+
+        // Ensure the updated/custom type is not paused - the top-level pause check only covers the
+        // caller-supplied bridge-defined type, so we must re-check here after resolving the migration target
+        assert(FlowEVMBridgeConfig.isTypePaused(updatedCadenceAssociation) == false,
+            message: "Bridging is currently paused for type \(updatedCadenceAssociation.identifier)")
+
         let tokenRef = (&token as &{NonFungibleToken.NFT}) as! &{CrossVMNFT.EVMNFT}
         let evmID = tokenRef.evmID
         let bridgedToken <- token as! @{CrossVMNFT.EVMNFT}
@@ -1094,10 +1100,9 @@ contract FlowEVMBridge : IFlowEVMNFTBridge, IFlowEVMTokenBridge {
         // storage cost was already accounted for when the NFT was escrowed on the ToEVM path. Unlocking reduces
         // bridge storage rather than increasing it, so no new fee is warranted.
         // Cadence-native NFTs must be in escrow, so unlock & return
-        return <-FlowEVMBridgeNFTEscrow.unlockNFT(
-            type: type,
-            id: FlowEVMBridgeNFTEscrow.getLockedCadenceID(type: type, evmID: id)!
-        )
+        let lockedCadenceID = FlowEVMBridgeNFTEscrow.getLockedCadenceID(type: type, evmID: id)
+            ?? panic("NFT of type \(type.identifier) with EVM ID \(id) is not in escrow — cannot bridge from EVM")
+        return <-FlowEVMBridgeNFTEscrow.unlockNFT(type: type, id: lockedCadenceID)
     }
 
     /// Handler to move registered cross-VM EVM-native NFTs from EVM
