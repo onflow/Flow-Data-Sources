@@ -1,11 +1,11 @@
 # Source: https://github.com/onflow/flow-nft/blob/master/contracts/ViewResolver.cdc
 
 ```
-// Taken from the NFT Metadata standard, this contract exposes an interface to let 
-// anyone borrow a contract and resolve views on it.
-//
-// This will allow you to obtain information about a contract without necessarily knowing anything about it.
-// All you need is its address and name and you're good to go!
+/// Taken from the NFT Metadata standard, this contract exposes an interface to let
+/// anyone borrow a contract and resolve views on it.
+///
+/// This will allow you to obtain information about a contract without necessarily knowing anything about it.
+/// All you need is its address and name and you're good to go!
 access(all) contract interface ViewResolver {
 
     /// Function that returns all the Metadata Views implemented by the resolving contract.

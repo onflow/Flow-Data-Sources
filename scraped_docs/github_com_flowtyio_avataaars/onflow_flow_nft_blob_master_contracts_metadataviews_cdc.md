@@ -193,8 +193,8 @@ access(all) contract MetadataViews {
         access(all) let mediaType: String
 
         view init(file: {File}, mediaType: String) {
-          self.file=file
-          self.mediaType=mediaType
+            self.file = file
+            self.mediaType = mediaType
         }
     }
 
@@ -258,7 +258,7 @@ access(all) contract MetadataViews {
         access(all) let url: String
 
         view init(_ url: String) {
-            self.url=url
+            self.url = url
         }
     }
 
@@ -381,20 +381,20 @@ access(all) contract MetadataViews {
     /// contextualized data about the trait
     ///
     access(all) struct Trait {
-        // The name of the trait. Like Background, Eyes, Hair, etc.
+        /// The name of the trait. Like Background, Eyes, Hair, etc.
         access(all) let name: String
 
-        // The underlying value of the trait, the rest of the fields of a trait provide context to the value.
+        /// The underlying value of the trait, the rest of the fields of a trait provide context to the value.
         access(all) let value: AnyStruct
 
-        // displayType is used to show some context about what this name and value represent
-        // for instance, you could set value to a unix timestamp, and specify displayType as "Date" to tell
-        // platforms to consume this trait as a date and not a number
+        /// displayType is used to show some context about what this name and value represent.
+        /// For instance, you could set value to a unix timestamp, and specify displayType as "Date" to tell
+        /// platforms to consume this trait as a date and not a number.
         access(all) let displayType: String?
 
-        // Rarity can also be used directly on an attribute.
-        //
-        // This is optional because not all attributes need to contribute to the NFT's rarity.
+        /// Rarity can also be used directly on an attribute.
+        ///
+        /// This is optional because not all attributes need to contribute to the NFT's rarity.
         access(all) let rarity: Rarity?
 
         view init(name: String, value: AnyStruct, displayType: String?, rarity: Rarity?) {
@@ -419,8 +419,8 @@ access(all) contract MetadataViews {
         /// 
         /// @param Trait: The trait struct to be added
         ///
-        access(all) fun addTrait(_ t: Trait) {
-            self.traits.append(t)
+        access(all) fun addTrait(_ trait: Trait) {
+            self.traits.append(trait)
         }
     }
 
@@ -450,8 +450,8 @@ access(all) contract MetadataViews {
     access(all) fun dictToTraits(dict: {String: AnyStruct}, excludedNames: [String]?): Traits {
         // Collection owners might not want all the fields in their metadata included.
         // They might want to handle some specially, or they might just not want them included at all.
-        if excludedNames != nil {
-            for k in excludedNames! {
+        if let excludedNames = excludedNames {
+            for k in excludedNames {
                 dict.remove(key: k)
             }
         }
@@ -490,12 +490,12 @@ access(all) contract MetadataViews {
         access(all) let max: UInt64?
 
         view init(name: String?, number: UInt64, max: UInt64?) {
-            if max != nil {
+            if let max = max {
                 assert(
-                    number <= max!,
+                    number <= max,
                     message:
                         "MetadataViews.Edition.init: Cannot intialize the Edition Metadata View! "
-                        .concat("The provided edition number of \(number) cannot be greater than the max edition number of \(max!).")
+                        .concat("The provided edition number of \(number) cannot be greater than the max edition number of \(max).")
                 )
             }
             self.name = name
@@ -643,9 +643,8 @@ access(all) contract MetadataViews {
     /// @return A NFTView struct
     ///
     access(all) fun getNFTView(id: UInt64, viewResolver: &{ViewResolver.Resolver}) : NFTView {
-        let nftView = viewResolver.resolveView(Type<NFTView>())
-        if nftView != nil {
-            return nftView! as! NFTView
+        if let nftView = viewResolver.resolveView(Type<NFTView>()) {
+            return nftView as! NFTView
         }
 
         return NFTView(
@@ -695,11 +694,11 @@ access(all) contract MetadataViews {
                     "MetadataViews.NFTCollectionData.init: Cannot initialize the NFTCollectionData Metadata View! "
                     .concat("The Public linked type <\(publicLinkedType.identifier)> is incorrect. It must be a subtype of the NonFungibleToken.Collection interface.")
             }
-            self.storagePath=storagePath
-            self.publicPath=publicPath
-            self.publicCollection=publicCollection
-            self.publicLinkedType=publicLinkedType
-            self.createEmptyCollection=createEmptyCollectionFunction
+            self.storagePath = storagePath
+            self.publicPath = publicPath
+            self.publicCollection = publicCollection
+            self.publicLinkedType = publicLinkedType
+            self.createEmptyCollection = createEmptyCollectionFunction
         }
     }
 
