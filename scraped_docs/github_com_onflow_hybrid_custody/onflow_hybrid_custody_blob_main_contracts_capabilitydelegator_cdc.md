@@ -35,7 +35,7 @@ access(all) contract CapabilityDelegator {
             }
         }
         access(all) view fun findFirstPrivateType(_ type: Type): Type?
-        access(Get) fun getAllPrivate(): [Capability]
+        access(Get) view fun getAllPrivate(): [Capability]
     }
 
     /// Exposes public Capability retrieval
@@ -52,7 +52,7 @@ access(all) contract CapabilityDelegator {
     }
 
     /// This Delegator is used to store Capabilities, partitioned by public and private access with corresponding
-    /// GetterPublic and GetterPrivate conformances.AccountCapabilityController
+    /// GetterPublic and GetterPrivate conformances.
     ///
     access(all) resource Delegator: GetterPublic, GetterPrivate {
         access(self) let privateCapabilities: {Type: Capability}
@@ -88,7 +88,7 @@ access(all) contract CapabilityDelegator {
         ///
         /// @return List of all private Capabilities
         ///
-        access(Get) fun getAllPrivate(): [Capability] {
+        access(Get) view fun getAllPrivate(): [Capability] {
             return self.privateCapabilities.values
         }
 
