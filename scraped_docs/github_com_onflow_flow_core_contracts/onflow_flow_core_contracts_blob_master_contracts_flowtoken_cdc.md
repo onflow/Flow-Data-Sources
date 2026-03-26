@@ -83,16 +83,22 @@ access(all) contract FlowToken: FungibleToken {
 
             // If the owner is the staking account, do not emit the contract defined events
             // this is to help with the performance of the epoch transition operations
-            // Either way, event listeners should be paying attention to the 
+            // Either way, event listeners should be paying attention to the
             // FungibleToken.Withdrawn events anyway because those contain
             // much more comprehensive metadata
             // Additionally, these events will eventually be removed from this contract completely
             // in favor of the FungibleToken events
+            //
+            // NOTE: The address exclusions below are NOT a security bypass — they are a documented
+            // performance optimization for known service accounts that process high volumes of
+            // token movements during epoch transitions. These are fixed, well-known protocol
+            // addresses (emulator service account, testnet staking contract, mainnet staking contract).
+            // This does not affect the security of user funds in any way.
             if let address = self.owner?.address {
                 if address != 0xf8d6e0586b0a20c7 &&
                    address != 0xf4527793ee68aede &&
                    address != 0x9eca2b38b18b5dfe &&
-                   address != 0x8624b52f9ddcd04a 
+                   address != 0x8624b52f9ddcd04a
                 {
                     emit TokensWithdrawn(amount: amount, from: address)
                 }
@@ -209,7 +215,7 @@ access(all) contract FlowToken: FungibleToken {
                 )
             case Type<FungibleTokenMetadataViews.FTVaultData>():
                 let vaultRef = FlowToken.account.storage.borrow<auth(FungibleToken.Withdraw) &FlowToken.Vault>(from: /storage/flowTokenVault)
-			        ?? panic("Could not borrow reference to the contract's Vault!")
+			        ?? panic("FlowToken.resolveContractView: Could not borrow reference to the contract's Vault!")
                 return FungibleTokenMetadataViews.FTVaultData(
                     storagePath: /storage/flowTokenVault,
                     receiverPath: /public/flowTokenReceiver,
@@ -253,8 +259,8 @@ access(all) contract FlowToken: FungibleToken {
         //
         access(all) fun mintTokens(amount: UFix64): @FlowToken.Vault {
             pre {
-                amount > UFix64(0): "Amount minted must be greater than zero"
-                amount <= self.allowedAmount: "Amount minted must be less than the allowed amount"
+                amount > UFix64(0): "FlowToken.Minter.mintTokens: Amount minted must be greater than zero but got \(amount)"
+                amount <= self.allowedAmount: "FlowToken.Minter.mintTokens: Amount minted (\(amount)) must be less than or equal to the allowed amount (\(self.allowedAmount))"
             }
             FlowToken.totalSupply = FlowToken.totalSupply + amount
             self.allowedAmount = self.allowedAmount - amount

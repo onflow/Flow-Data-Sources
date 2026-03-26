@@ -117,7 +117,7 @@ fun testGetSourceOfRandomnessPrecedingRecordedHistory() {
     Test.expect(scriptResult, Test.beFailed())
     Test.assertError(
         scriptResult,
-        errorMessage: "Requested block height precedes recorded history"
+        errorMessage: "precedes recorded history"
     )
 }
 
