@@ -163,6 +163,8 @@ access(all) contract NFTStorefrontV2 {
             self.purchased = true
         }
 
+        /// Updates the custom identifier string used to distinguish events from different dApps.
+        /// May be set to nil to clear it.
         access(contract) fun setCustomID(customID: String?){
             self.customID = customID
         }
@@ -253,7 +255,21 @@ access(all) contract NFTStorefrontV2 {
         /// hasListingBecomeGhosted
         /// Tells whether listed NFT is present in provided capability.
         /// If it returns `false` then it means listing becomes ghost or sold out.
+        ///
+        /// DEPRECATED: The return value of this function is semantically inverted — it returns `true`
+        /// when the NFT is still present (i.e. NOT ghosted) and `false` when the NFT is absent
+        /// (i.e. IS ghosted). This is the opposite of what the function name implies. The function
+        /// is kept as-is to avoid breaking existing integrations that already compensate for the
+        /// inversion. Use `isGhostListing()` instead, which returns `true` when the listing is
+        /// ghosted and `false` when it is still valid.
         access(all) view fun hasListingBecomeGhosted(): Bool
+
+        /// isGhostListing
+        /// Returns `true` if the listed NFT is no longer present in the seller's collection
+        /// (i.e. the listing is ghosted and cannot be purchased), and `false` if the NFT is
+        /// still available. This is the correctly-named replacement for `hasListingBecomeGhosted()`,
+        /// which has inverted return semantics.
+        access(all) view fun isGhostListing(): Bool
 
     }
 
@@ -270,12 +286,23 @@ access(all) contract NFTStorefrontV2 {
         /// This capability allows the resource to withdraw *any* NFT, so you should be careful when giving
         /// such a capability to a resource and always check its code to make sure it will use it in the
         /// way that it claims.
+        ///
+        /// The field type uses `&{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}` while the
+        /// `init` parameter accepts `&{NonFungibleToken.Collection}`. These differ intentionally: callers
+        /// pass the narrower `Collection` type (which is the standard capability type issued to sellers),
+        /// and the assignment is valid because `NonFungibleToken.Collection` conforms to both `Provider`
+        /// and `CollectionPublic`. Aligning the two to the same type would be a breaking change for existing
+        /// integrations that already hold `&{NonFungibleToken.Collection}` capabilities.
         access(contract) let nftProviderCapability: Capability<auth(NonFungibleToken.Withdraw) &{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>
 
         /// An optional list of marketplaces capabilities that are approved 
         /// to receive the marketplace commission.
         access(contract) let marketplacesCapability: [Capability<&{FungibleToken.Receiver}>]?
 
+        /// Called by Burner.burn when this Listing is destroyed.
+        /// Emits ListingCompleted only if the listing was not already marked as purchased,
+        /// since purchase() emits the event for the purchased case.
+        /// If this logic changes, revisit Storefront.removeListing() and Storefront.cleanup().
         access(contract) fun burnCallback() {
             // If the listing has not been purchased, we regard it as completed here.
             // Otherwise we regard it as completed in purchase().
@@ -306,12 +333,15 @@ access(all) contract NFTStorefrontV2 {
         /// it will return nil.
         ///
         access(all) fun borrowNFT(): &{NonFungibleToken.NFT}? {
-            if let ref = self.nftProviderCapability.borrow()!.borrowNFT(self.details.nftID) {
-                if ref.isInstance(self.details.nftType) && ref.id == self.details.nftID {
-                    return ref
+            // If the provider capability has been revoked, return nil rather than panicking,
+            // as the doc contract promises nil for any absent/unavailable NFT.
+            if let providerRef = self.nftProviderCapability.borrow() {
+                if let ref = providerRef.borrowNFT(self.details.nftID) {
+                    if ref.isInstance(self.details.nftType) && ref.id == self.details.nftID {
+                        return ref
+                    }
                 }
             }
-
             return nil
         }
 
@@ -332,11 +362,26 @@ access(all) contract NFTStorefrontV2 {
         /// hasListingBecomeGhosted
         /// Tells whether listed NFT is present in provided capability.
         /// If it returns `false` then it means listing becomes ghost or sold out.
+        ///
+        /// DEPRECATED: The return value is semantically inverted relative to the function name.
+        /// This function returns `true` when the NFT is still present (not ghosted) and `false`
+        /// when the NFT is absent (ghosted). Use `isGhostListing()` instead.
         access(all) view fun hasListingBecomeGhosted(): Bool {
             if let providerRef = self.nftProviderCapability.borrow() {
                 return providerRef.borrowNFT(self.details.nftID) != nil
             }
             return false
+        }
+
+        /// isGhostListing
+        /// Returns `true` if the listed NFT is no longer present in the seller's collection
+        /// (i.e. the listing is ghosted and cannot be purchased), and `false` if the NFT is
+        /// still available. This is the correctly-named replacement for `hasListingBecomeGhosted()`.
+        access(all) view fun isGhostListing(): Bool {
+            if let providerRef = self.nftProviderCapability.borrow() {
+                return providerRef.borrowNFT(self.details.nftID) == nil
+            }
+            return true
         }
 
         /// purchase
@@ -368,6 +413,12 @@ access(all) contract NFTStorefrontV2 {
                 // If commission recipient is nil, Throw panic.
                 let commissionReceiver = commissionRecipient
                     ?? panic("NFTStorefrontV2.Listing.purchase: Commission recipient can't be nil")
+                // Verify the capability is valid before performing the allowlist check,
+                // so a revoked capability produces a clear error rather than a confusing borrow failure.
+                assert(
+                    commissionReceiver.check(),
+                    message: "NFTStorefrontV2.Listing.purchase: The provided commission recipient capability is invalid"
+                )
                 if self.marketplacesCapability != nil {
                     var isCommissionRecipientHasValidType = false
                     var isCommissionRecipientAuthorised = false
@@ -483,8 +534,8 @@ access(all) contract NFTStorefrontV2 {
             return <-nft
         }
 
-        // destructor event
-        //
+        /// Emitted automatically by the Cadence runtime when this Listing resource is destroyed.
+        /// Captures a snapshot of key listing fields at destruction time.
         access(all) event ResourceDestroyed(
             listingResourceID: UInt64 = self.uuid,
             storefrontResourceID: UInt64 = self.details.storefrontID,
@@ -540,11 +591,13 @@ access(all) contract NFTStorefrontV2 {
                 provider != nil,
                 message: "NFTStorefrontV2.Listing.init: Cannot initialize Listing, the NFT Provider Capability is invalid!")
 
-            // This will precondition assert if the token is not available.
+            // Verify the NFT exists in the collection and matches the declared type.
+            // We will check again at purchase time; this is an early-fail guard at listing creation.
             let nft = provider!.borrowNFT(self.details.nftID)
+                ?? panic("NFTStorefrontV2.Listing.init: NFT with ID \(self.details.nftID) does not exist in the provided collection")
             assert(
-                nft!.getType() == self.details.nftType,
-                message: "NFTStorefrontV2.Listing.init: Cannot initialize Listing! The type of the token for sale <\(nft!.getType().identifier)> is not of specified type in the listing <\(self.details.nftType.identifier)>"
+                nft.getType() == self.details.nftType,
+                message: "NFTStorefrontV2.Listing.init: Cannot initialize Listing! The type of the token for sale <\(nft.getType().identifier)> is not of specified type in the listing <\(self.details.nftType.identifier)>"
             )
         }
     }
@@ -590,7 +643,7 @@ access(all) contract NFTStorefrontV2 {
         }
         access(all) fun cleanupExpiredListings(fromIndex: UInt64, toIndex: UInt64)
         access(contract) fun cleanup(listingResourceID: UInt64)
-        access(all) fun getExistingListingIDs(nftType: Type, nftID: UInt64): [UInt64]
+        access(all) view fun getExistingListingIDs(nftType: Type, nftID: UInt64): [UInt64]
         access(all) fun cleanupPurchasedListings(listingResourceID: UInt64)
         access(all) fun cleanupGhostListings(listingResourceID: UInt64)
    }
@@ -660,19 +713,19 @@ access(all) contract NFTStorefrontV2 {
             // Add the `listingResourceID` in the tracked listings.
             self.addDuplicateListing(nftIdentifier: nftType.identifier, nftID: nftID, listingResourceID: listingResourceID)
 
-            // Scraping addresses from the capabilities to emit in the event.
-            var allowedCommissionReceivers : [Address]? = nil
+            // Extract the address from each marketplace capability for inclusion in the event.
+            // nil marketplacesCapability means open commission (any recipient allowed).
+            var allowedCommissionReceivers: [Address]? = nil
             if let allowedReceivers = marketplacesCapability {
-                // Small hack here to make `allowedCommissionReceivers` variable compatible to
-                // array properties.
-                allowedCommissionReceivers = []
-                for receiver in allowedReceivers {
-                    allowedCommissionReceivers!.append(receiver.address)
+                var addresses: [Address] = []
+                for cap in allowedReceivers {
+                    addresses.append(cap.address)
                 }
+                allowedCommissionReceivers = addresses
             }
 
             emit ListingAvailable(
-                storefrontAddress: self.owner?.address!,
+                storefrontAddress: self.owner!.address,
                 listingResourceID: listingResourceID,
                 nftType: nftType,
                 nftUUID: uuid,
@@ -735,11 +788,11 @@ access(all) contract NFTStorefrontV2 {
         /// getExistingListingIDs
         /// Returns an array of listing IDs of the given `nftType` and `nftID`.
         ///
-        access(all) fun getExistingListingIDs(nftType: Type, nftID: UInt64): [UInt64] {
+        access(all) view fun getExistingListingIDs(nftType: Type, nftID: UInt64): [UInt64] {
             if self.listedNFTs[nftType.identifier] == nil || self.listedNFTs[nftType.identifier]![nftID] == nil {
                 return []
             }
-            var listingIDs = self.listedNFTs[nftType.identifier]![nftID]!
+            let listingIDs = self.listedNFTs[nftType.identifier]![nftID]!
             return listingIDs
         }
 
@@ -766,21 +819,14 @@ access(all) contract NFTStorefrontV2 {
         access(all) fun getDuplicateListingIDs(nftType: Type, nftID: UInt64, listingID: UInt64): [UInt64] {
             var listingIDs = self.getExistingListingIDs(nftType: nftType, nftID: nftID)
 
-            // Verify that given listing Id also a part of the `listingIds`
-            let doesListingExist = listingIDs.contains(listingID)
-            // Find out the index of the existing listing.
-            if doesListingExist {
-                var index: Int = 0
-                for id in listingIDs {
-                    if id == listingID {
-                        break
-                    }
-                    index = index + 1
-                }
-                listingIDs.remove(at:index)
+            // Only return duplicates if the given listingID is actually tracked; otherwise
+            // there is nothing to deduplicate against.
+            if listingIDs.contains(listingID) {
+                let index = listingIDs.firstIndex(of: listingID)!
+                listingIDs.remove(at: index)
                 return listingIDs
-            } 
-           return []
+            }
+            return []
         }
 
         /// cleanupExpiredListings
@@ -804,7 +850,7 @@ access(all) contract NFTStorefrontV2 {
                         self.cleanup(listingResourceID: listingsIDs[index])
                     }
                 }
-                index = index + UInt64(1) 
+                index = index + 1
             }
         } 
 
@@ -849,13 +895,24 @@ access(all) contract NFTStorefrontV2 {
                 message: "NFTStorefrontV2.Storefront.cleanupGhostListings: Cannot cleanup listing with id \(listingResourceID) because it is already purchased!"
             )
             assert(
-                !listingRef.hasListingBecomeGhosted(),
+                listingRef.isGhostListing(),
                 message: "NFTStorefrontV2.Storefront.cleanupGhostListings: Cannot cleanup listing with id \(listingResourceID) because it is not a ghost listing!"
             )
             let listing <- self.listings.remove(key: listingResourceID)!
+            // Fetch duplicates before removing the primary from listedNFTs.
+            // getDuplicateListingIDs uses `contains(listingResourceID)` as a guard — if the primary
+            // is already absent from listedNFTs it returns [] and duplicates are never cleaned up.
             let duplicateListings = self.getDuplicateListingIDs(nftType: details.nftType, nftID: details.nftID, listingID: listingResourceID)
-
-            // Let's force removal of the listing in this storefront for the NFT that is being ghosted. 
+            // Now remove the ghost listing's own entry from listedNFTs.
+            // Every other removal path (removeListing, cleanupPurchasedListings, cleanup) does this
+            // for the primary listing; cleanupGhostListings was the only path that omitted it,
+            // leaving a dangling listedNFTs entry after the duplicate-cleanup loop.
+            self.removeDuplicateListing(
+                nftIdentifier: details.nftType.identifier,
+                nftID: details.nftID,
+                listingResourceID: listingResourceID
+            )
+            // Let's force removal of the listing in this storefront for the NFT that is being ghosted.
             for listingID in duplicateListings {
                 self.cleanup(listingResourceID: listingID)
             }

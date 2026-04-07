@@ -263,6 +263,85 @@ fun testCleanupPurchasedListings() {
 }
 
 access(all)
+fun testCleanupGhostListingsRemovesListedNFTsEntry() {
+    // Regression test for Bug 1: cleanupGhostListings must remove the primary ghost
+    // listing's entry from listedNFTs, not just from self.listings. Without the fix,
+    // a dangling entry remains in listedNFTs after cleanup, which getExistingListingIDs
+    // would continue to return even though the listing no longer exists.
+
+    mintNFTToSeller()
+
+    var code = loadCode("get_ids.cdc", "scripts/example-nft")
+    var result = Test.executeScript(code, [seller.address, /public/exampleNFTCollection])
+    Test.expect(result, Test.beSucceeded())
+    let nftID = (result.returnValue! as! [UInt64])[0]
+
+    // Create two listings for the same NFT (duplicate listings)
+    let sellCode = loadCode("sell_item.cdc", "transactions")
+    for _ in [1, 2] {
+        let tx = Test.Transaction(
+            code: sellCode,
+            authorizers: [seller.address],
+            signers: [seller],
+            arguments: [
+                nftID,
+                10.0,
+                "Custom",
+                0.1,
+                UInt64(2025908543),
+                [],
+                nftTypeIdentifier,
+                ftTypeIdentifier
+            ],
+        )
+        let txResult = Test.executeTransaction(tx)
+        Test.expect(txResult, Test.beSucceeded())
+    }
+
+    let getListingIDCode = loadCode("read_storefront_ids.cdc", "scripts")
+    result = Test.executeScript(getListingIDCode, [seller.address])
+    Test.expect(result, Test.beSucceeded())
+    Test.assertEqual(2, (result.returnValue! as! [UInt64]).length)
+    let primaryListingID = (result.returnValue! as! [UInt64])[0]
+
+    // Both listings should appear in listedNFTs
+    var existingIDs = scriptExecutor("get_existing_listing_ids.cdc", [seller.address, nftTypeIdentifier, nftID])
+    Test.assertEqual(2, (existingIDs as! [UInt64]?)!.length)
+
+    // Burn the NFT — both listings become ghost listings
+    let burnNFTCode = loadCode("burn_nft.cdc", "transactions/example-nft")
+    let burnTx = Test.Transaction(
+        code: burnNFTCode,
+        authorizers: [seller.address],
+        signers: [seller],
+        arguments: [nftID]
+    )
+    let burnResult = Test.executeTransaction(burnTx)
+    Test.expect(burnResult, Test.beSucceeded())
+
+    // Clean up the primary ghost listing (the duplicate is cleaned up automatically)
+    let cleanupCode = loadCode("cleanup_ghost_listing.cdc", "transactions")
+    let cleanupTx = Test.Transaction(
+        code: cleanupCode,
+        authorizers: [buyer.address],
+        signers: [buyer],
+        arguments: [primaryListingID, seller.address]
+    )
+    let cleanupResult = Test.executeTransaction(cleanupTx)
+    Test.expect(cleanupResult, Test.beSucceeded())
+
+    // Both listings must be gone from self.listings
+    result = Test.executeScript(getListingIDCode, [seller.address])
+    Test.expect(result, Test.beSucceeded())
+    Test.assertEqual(0, (result.returnValue! as! [UInt64]).length)
+
+    // The listedNFTs entry must also be fully cleared — this is the bug under test.
+    // Before the fix, getExistingListingIDs would still return [primaryListingID] here.
+    existingIDs = scriptExecutor("get_existing_listing_ids.cdc", [seller.address, nftTypeIdentifier, nftID])
+    Test.assertEqual(0, (existingIDs as! [UInt64]?)!.length)
+}
+
+access(all)
 fun testCleanupGhostListings() {
     // Mint a new NFT
     mintNFTToSeller()
@@ -339,6 +418,82 @@ fun testCleanupGhostListings() {
     result = Test.executeScript(getListingIDCode, [seller.address])
     Test.expect(result, Test.beSucceeded())
     Test.assertEqual((result.returnValue! as! [UInt64]).length, 0)
+}
+
+access(all)
+fun testIsGhostListing() {
+    // Mint a new NFT
+    mintNFTToSeller()
+
+    // Get the newly minted NFT's ID
+    var code = loadCode("get_ids.cdc", "scripts/example-nft")
+    var result = Test.executeScript(code, [seller.address, /public/exampleNFTCollection])
+    Test.expect(result, Test.beSucceeded())
+    let nftID = (result.returnValue! as! [UInt64])[0]
+
+    // Create a listing for the NFT
+    code = loadCode("sell_item.cdc", "transactions")
+    var tx = Test.Transaction(
+        code: code,
+        authorizers: [seller.address],
+        signers: [seller],
+        arguments: [
+            nftID,
+            10.0,
+            "Custom",
+            0.1,
+            UInt64(2025908543),
+            [],
+            nftTypeIdentifier,
+            ftTypeIdentifier
+        ],
+    )
+    var txResult = Test.executeTransaction(tx)
+    Test.expect(txResult, Test.beSucceeded())
+
+    let getListingIDCode = loadCode("read_storefront_ids.cdc", "scripts")
+    result = Test.executeScript(getListingIDCode, [seller.address])
+    Test.expect(result, Test.beSucceeded())
+    let listingID = (result.returnValue! as! [UInt64])[0]
+
+    // Before burning: isGhostListing() should return false (NFT is still present)
+    var isGhost = scriptExecutor("is_ghost_listing.cdc", [seller.address, listingID])
+    Test.assertEqual(isGhost!, false)
+
+    // read_all_unique_ghost_listings_v2 should return an empty array
+    var allGhostListingIDs = scriptExecutor("read_all_unique_ghost_listings_v2.cdc", [seller.address])
+    Test.assertEqual((allGhostListingIDs as! [UInt64]?)!.length, 0)
+
+    // Burn the NFT to ghost the listing
+    let burnNFTCode = loadCode("burn_nft.cdc", "transactions/example-nft")
+    tx = Test.Transaction(
+        code: burnNFTCode,
+        authorizers: [seller.address],
+        signers: [seller],
+        arguments: [nftID]
+    )
+    txResult = Test.executeTransaction(tx)
+    Test.expect(txResult, Test.beSucceeded())
+
+    // After burning: isGhostListing() should return true
+    isGhost = scriptExecutor("is_ghost_listing.cdc", [seller.address, listingID])
+    Test.assertEqual(isGhost!, true)
+
+    // read_all_unique_ghost_listings_v2 should now return the ghosted listing ID
+    allGhostListingIDs = scriptExecutor("read_all_unique_ghost_listings_v2.cdc", [seller.address])
+    Test.assertEqual((allGhostListingIDs as! [UInt64]?)!.length, 1)
+    Test.assertEqual((allGhostListingIDs as! [UInt64]?)![0], listingID)
+
+    // Clean up
+    let cleanupCode = loadCode("cleanup_ghost_listing.cdc", "transactions")
+    tx = Test.Transaction(
+        code: cleanupCode,
+        authorizers: [buyer.address],
+        signers: [buyer],
+        arguments: [listingID, seller.address]
+    )
+    txResult = Test.executeTransaction(tx)
+    Test.expect(txResult, Test.beSucceeded())
 }
 
 
@@ -515,9 +670,9 @@ fun testRemoveItem() {
     // Test that the proper events were emitted
     var typ = Type<NFTStorefrontV2.ListingCompleted>()
     var events = Test.eventsOfType(typ)
-    Test.assertEqual(5, events.length)
+    Test.assertEqual(8, events.length)
 
-    let completedEvent = events[4] as! NFTStorefrontV2.ListingCompleted
+    let completedEvent = events[7] as! NFTStorefrontV2.ListingCompleted
     Test.assertEqual(listingID, completedEvent.listingResourceID)
     Test.assertEqual(false, completedEvent.purchased)
     Test.assertEqual(Type<@ExampleNFT.NFT>(), completedEvent.nftType)
