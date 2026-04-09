@@ -58,29 +58,24 @@ On this page
 
 # Development Tools
 
-The Flow CLI integrates different development tools, which can now be easily started
-and managed from a single place.
+The Flow CLI integrates different development tools, which you can now easily start and manage from a single place.
 
-Currently the CLI supports starting:
-
-* [Flow Development Wallet](https://github.com/onflow/fcl-dev-wallet)
+Currently, the CLI supports starting [Flow Development Wallet](https://github.com/onflow/fcl-dev-wallet)
 
 ## Flow Development Wallet[​](#flow-development-wallet "Direct link to Flow Development Wallet")
 
-The Flow Dev Wallet is a mock Flow wallet that simulates the protocols used by FCL to interact with the Flow blockchain on behalf of simulated user accounts.
+The Flow Dev Wallet is a mock Flow wallet that simulates the protocols used by Flow CLient Library (FCL) to interact with the Flow blockchain on behalf of simulated user accounts.
 
-**Be sure you have the emulator running before starting this command**
-*You can start it using the `flow emulator` command*.
+**Be sure you started the emulator before you run this command**
+*You can start it with the `flow emulator` command*.
 
 `_10
 
 flow dev-wallet`
 
-*⚠️ This project implements an FCL compatible
-interface, but should **not** be used as a reference for
-building a production grade wallet.*
+*⚠️ This project implements an FCL compatible interface, but should **not** be used as a reference to build a production grade wallet.*
 
-After starting dev-wallet, you can set your fcl config to use it like below:
+After you start dev-wallet, you can set your fcl config to use it like below:
 
 `_10
 
@@ -108,7 +103,7 @@ _10
 
 .put("discovery.wallet", "http://localhost:8701/fcl/authn")`
 
-You can read more about setting up dev-wallet at [Flow Dev Wallet Project](https://github.com/onflow/fcl-dev-wallet)
+You can read more about how to set up dev-wallet at [Flow Dev Wallet Project](https://github.com/onflow/fcl-dev-wallet).
 
 ## Flags[​](#flags "Direct link to Flags")
 
@@ -118,15 +113,15 @@ You can read more about setting up dev-wallet at [Flow Dev Wallet Project](https
 * Valid inputs: Number
 * Default: `8701`
 
-Port on which the dev wallet server will listen on.
+Port on which the dev wallet server will listen.
 
-### Emulator Host[​](#emulator-host "Direct link to Emulator Host")
+### Emulator host[​](#emulator-host "Direct link to Emulator host")
 
 * Flag: `--emulator-host`
 * Valid inputs: a hostname
 * Default: `http://localhost:8080`
 
-Specifies the host configuration for dev wallet
+Specifies the host configuration for dev wallet.
 
 ### Configuration[​](#configuration "Direct link to Configuration")
 
@@ -134,13 +129,9 @@ Specifies the host configuration for dev wallet
 * Short Flag: `-f`
 * Valid inputs: valid filename
 
-Specify a filename for the configuration files, you can provide multiple configuration
-files by using `-f` flag multiple times.
+Specify a filename for the configuration files. To provide multiple configuration files, use the `-f` flag multiple times.
 
-Specify a filename for the configuration files, you can provide multiple configuration
-files by using `-f` flag multiple times.
-
-### Version Check[​](#version-check "Direct link to Version Check")
+### Version check[​](#version-check "Direct link to Version check")
 
 * Flag: `--skip-version-check`
 * Default: `false`
@@ -149,7 +140,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/utils/tools.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 15, 2025** by **cshannon1218**
 
 [Previous
 
@@ -164,7 +155,7 @@ Dependency Manager](/build/tools/flow-cli/dependency-manager)
 Copy as Markdown
 
 * [Flow Development Wallet](#flow-development-wallet)* [Flags](#flags)
-    + [Port](#port)+ [Emulator Host](#emulator-host)+ [Configuration](#configuration)+ [Version Check](#version-check)
+    + [Port](#port)+ [Emulator host](#emulator-host)+ [Configuration](#configuration)+ [Version check](#version-check)
 
 Flow
 

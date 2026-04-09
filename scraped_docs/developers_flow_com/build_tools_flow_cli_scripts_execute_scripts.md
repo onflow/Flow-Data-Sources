@@ -58,14 +58,13 @@ On this page
 
 # Execute a Script
 
-The Flow CLI provides a command to execute a Cadence script on
-the Flow execution state with any Flow Access API.
+The Flow CLI provides a command to execute a Cadence script on the Flow execution state with any Flow Access API.
 
 `_10
 
 flow scripts execute <filename> [<argument> <argument>...] [flags]`
 
-## Example Usage[​](#example-usage "Direct link to Example Usage")
+## Example usage[​](#example-usage "Direct link to Example usage")
 
 `_10
 
@@ -102,17 +101,15 @@ _10
 * Name: `filename`
 * Valid inputs: a path in the current filesystem.
 
-The first argument is a path to a Cadence file containing the
+The first argument is a path to a Cadence file that contains the
 script to be executed.
 
 ### Arguments[​](#arguments-1 "Direct link to Arguments")
 
 * Name: `argument`
-* Valid inputs: valid [cadence values](https://cadencelang.dev/docs/1.0/json-cadence-spec)
-  matching argument type in script code.
+* Valid inputs: valid [cadence values](https://cadencelang.dev/docs/1.0/json-cadence-spec) that matches argument type in script code.
 
-Input arguments values matching corresponding types in the source code and passed in the same order.
-You can pass a `nil` value to optional arguments by executing the flow script like this: `flow scripts execute script.cdc nil`.
+Input arguments values matching corresponding types in the source code and passed in the same order. To pass a `nil` value to optional arguments, you can execute the flow script like this: `flow scripts execute script.cdc nil`.
 
 ## Flags[​](#flags "Direct link to Flags")
 
@@ -122,9 +119,7 @@ You can pass a `nil` value to optional arguments by executing the flow script li
 * Valid inputs: arguments in JSON-Cadence form.
 * Example: `flow scripts execute script.cdc '[{"type": "String", "value": "Hello World"}]'`
 
-Arguments passed to the Cadence script in the Cadence JSON format.
-Cadence JSON format contains `type` and `value` keys and is
-[documented here](https://cadencelang.dev/docs/1.0/json-cadence-spec).
+Arguments passed to the Cadence script in the Cadence JSON format. Cadence JSON format contains `type` and `value` keys and is [documented here](https://cadencelang.dev/docs/1.0/json-cadence-spec).
 
 ### Host[​](#host "Direct link to Host")
 
@@ -132,17 +127,14 @@ Cadence JSON format contains `type` and `value` keys and is
 * Valid inputs: an IP address or hostname.
 * Default: `127.0.0.1:3569` (Flow Emulator)
 
-Specify the hostname of the Access API that will be
-used to execute the command. This flag overrides
-any host defined by the `--network` flag.
+Specify the hostname of the Access API to use to execute the command. This flag overrides any host defined by the `--network` flag.
 
-### Network Key[​](#network-key "Direct link to Network Key")
+### Network key[​](#network-key "Direct link to Network key")
 
 * Flag: `--network-key`
 * Valid inputs: A valid network public key of the host in hex string format
 
-Specify the network public key of the Access API that will be
-used to create a secure GRPC client when executing the command.
+Specify the network public key of the Access API to use to create a secure GRPC client when you execute the command.
 
 ### Network[​](#network "Direct link to Network")
 
@@ -193,9 +185,7 @@ Specify the log level. Control how much output you want to see during command ex
 * Valid inputs: a path in the current filesystem.
 * Default: `flow.json`
 
-Specify the path to the `flow.json` configuration file.
-You can use the `-f` flag multiple times to merge
-several configuration files.
+Specify the path to the `flow.json` configuration file. You can use the `-f` flag multiple times to merge several configuration files.
 
 ### Version Check[​](#version-check "Direct link to Version Check")
 
@@ -206,7 +196,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/scripts/execute-scripts.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 11, 2025** by **cshannon1218**
 
 [Previous
 
@@ -220,9 +210,9 @@ Send a Transaction](/build/tools/flow-cli/transactions/send-transactions)
 
 Copy as Markdown
 
-* [Example Usage](#example-usage)* [Arguments](#arguments)
+* [Example usage](#example-usage)* [Arguments](#arguments)
     + [Filename](#filename)+ [Arguments](#arguments-1)* [Flags](#flags)
-      + [Arguments JSON](#arguments-json)+ [Host](#host)+ [Network Key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version Check](#version-check)
+      + [Arguments JSON](#arguments-json)+ [Host](#host)+ [Network key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version Check](#version-check)
 
 Flow
 

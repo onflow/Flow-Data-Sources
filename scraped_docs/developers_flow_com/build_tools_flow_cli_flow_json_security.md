@@ -58,26 +58,28 @@ On this page
 
 # Security
 
-Managing accounts and private keys requires careful attention to security. This guide covers best practices for keeping your Flow accounts and private keys secure when using the Flow CLI.
+To manage accounts and private keys requires careful attention to security. This guide covers best practices to keep your Flow accounts and private keys secure when you use the Flow Command Line Interface (CLI).
 
 ## Security Overview[​](#security-overview "Direct link to Security Overview")
 
-⚠️ **Critical Warning**: Never commit private keys to source control. Always use secure methods to store and manage your private keys.
+danger
 
-The Flow CLI provides several secure options for managing private account data:
+⚠️ **Never** commit private keys to source control. Always use secure methods to store and manage your private keys.
 
-1. **File-based keys** - Store keys in separate files
-2. **Environment variables** - Use system environment variables
-3. **Private configuration files** - Separate sensitive config from main config
-4. **Multiple config files** - Merge secure and public configurations
+The Flow CLI provides several secure options to manage private account data:
 
-## File-Based Keys[​](#file-based-keys "Direct link to File-Based Keys")
+1. **File-based keys** - Store keys in separate files.
+2. **Environment variables** - Use system environment variables.
+3. **Private configuration files** - Separate sensitive config from main config.
+4. **Multiple config files** - Merge secure and public configurations.
+
+## File-based keys[​](#file-based-keys "Direct link to File-based keys")
 
 Store private keys in separate files that are excluded from source control.
 
 ### Setup[​](#setup "Direct link to Setup")
 
-1. **Create a key file** (e.g., `my-account.key`):
+1. **Create a key file** (for example, `my-account.key`):
 
 `_10
 
@@ -162,7 +164,7 @@ _11
 * ✅ Clear separation of concerns
 * ✅ Works with all Flow CLI commands
 
-## Environment Variables[​](#environment-variables "Direct link to Environment Variables")
+## Environment variables[​](#environment-variables "Direct link to Environment variables")
 
 Use environment variables for sensitive data like private keys and addresses.
 
@@ -220,12 +222,12 @@ FLOW_PRIVATE_KEY="your-key" flow project deploy`
 
 ### Benefits[​](#benefits-1 "Direct link to Benefits")
 
-* ✅ Keys never stored in files
-* ✅ Easy to manage different environments
-* ✅ Works with CI/CD systems
-* ✅ Can be rotated easily
+* ✅ Keys never stored in files.
+* ✅ Easy to manage different environments.
+* ✅ Works with CI or CD systems.
+* ✅ Can be rotated easily.
 
-## Private Configuration Files[​](#private-configuration-files "Direct link to Private Configuration Files")
+## Private configuration files[​](#private-configuration-files "Direct link to Private configuration files")
 
 Create separate configuration files for sensitive data and merge them when needed.
 
@@ -321,10 +323,10 @@ flow project deploy -f flow.json -f private.json`
 
 ### Benefits[​](#benefits-2 "Direct link to Benefits")
 
-* ✅ Clear separation of public and private data
-* ✅ Easy to manage multiple environments
-* ✅ Can be shared safely (without private files)
-* ✅ Works with all CLI commands
+* ✅ Clear separation of public and private data.
+* ✅ Easy to manage multiple environments.
+* ✅ Can be shared safely (without private files).
+* ✅ Works with all CLI commands.
 
 ## Environment Files (.env)[​](#environment-files-env "Direct link to Environment Files (.env)")
 
@@ -412,22 +414,22 @@ _10
 
 ### Benefits[​](#benefits-3 "Direct link to Benefits")
 
-* ✅ Automatic loading by CLI
-* ✅ Easy local development
-* ✅ Can have different files for different environments
-* ✅ Standard practice for many tools
+* ✅ Automatic loading by CLI.
+* ✅ Easy local development.
+* ✅ Can have different files for different environments.
+* ✅ Standard practice for many tools.
 
-## Multiple Configuration Files[​](#multiple-configuration-files "Direct link to Multiple Configuration Files")
+## Multiple configuration files[​](#multiple-configuration-files "Direct link to Multiple configuration files")
 
 Merge multiple configuration files for complex setups.
 
-### Priority Order[​](#priority-order "Direct link to Priority Order")
+### Priority order[​](#priority-order "Direct link to Priority order")
 
-When using multiple files, they are merged in order:
+When you use multiple files, they are merged in order:
 
-1. **Left to right** - Files specified first have lowest priority
-2. **Later files override** - Properties in later files take precedence
-3. **Non-overlapping properties** - Are combined from all files
+1. **Left to right** - Files specified first have lowest priority.
+2. **Later files override** - Properties in later files take precedence.
+3. **Non-overlapping properties** - Are combined from all files.
 
 ### Example[​](#example "Direct link to Example")
 
@@ -437,7 +439,7 @@ flow project deploy -f flow.json -f private.json -f local.json`
 
 **Result**: `local.json` overrides `private.json`, which overrides `flow.json`
 
-### Use Cases[​](#use-cases "Direct link to Use Cases")
+### Use cases[​](#use-cases "Direct link to Use cases")
 
 * **Development**: `flow.json` + `dev-private.json`
 * **Staging**: `flow.json` + `staging-private.json`
@@ -479,29 +481,29 @@ _10
 
 *.private.json`
 
-### 2. Use Different Keys for Different Environments[​](#2-use-different-keys-for-different-environments "Direct link to 2. Use Different Keys for Different Environments")
+### 2. Use different keys for different environments[​](#2-use-different-keys-for-different-environments "Direct link to 2. Use different keys for different environments")
 
-* **Development**: Use testnet keys
-* **Staging**: Use separate testnet keys
-* **Production**: Use mainnet keys with highest security
+* **Development**: Use testnet keys.
+* **Staging**: Use separate testnet keys.
+* **Production**: Use mainnet keys with highest security.
 
-### 3. Rotate Keys Regularly[​](#3-rotate-keys-regularly "Direct link to 3. Rotate Keys Regularly")
+### 3. Rotate keys regularly[​](#3-rotate-keys-regularly "Direct link to 3. Rotate keys regularly")
 
-* Generate new keys periodically
-* Update configuration files
-* Test with new keys before switching
+* Generate new keys periodically.
+* Update configuration files.
+* Test with new keys before you switch.
 
-### 4. Limit Key Permissions[​](#4-limit-key-permissions "Direct link to 4. Limit Key Permissions")
+### 4. Limit key permissions[​](#4-limit-key-permissions "Direct link to 4. Limit key permissions")
 
-* Use keys with minimal required permissions
-* Consider using different keys for different operations
-* Monitor key usage
+* Use keys with minimal required permissions.
+* Consider using different keys for different operations.
+* Monitor key usage.
 
-### 5. Secure Key Storage[​](#5-secure-key-storage "Direct link to 5. Secure Key Storage")
+### 5. Secure key storage[​](#5-secure-key-storage "Direct link to 5. Secure key storage")
 
-* Use hardware security modules (HSMs) for production
-* Consider cloud key management services
-* Encrypt key files when possible
+* Use hardware security modules (HSMs) for production.
+* Consider cloud key management services.
+* Encrypt key files when possible.
 
 ## Common Security Mistakes[​](#common-security-mistakes "Direct link to Common Security Mistakes")
 
@@ -605,7 +607,7 @@ This command creates `.pkey` files with restricted permissions, updates your `fl
 
 ## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
 
-### Environment Variables Not Loading[​](#environment-variables-not-loading "Direct link to Environment Variables Not Loading")
+### Environment variables won't load[​](#environment-variables-wont-load "Direct link to Environment variables won't load")
 
 Check that your environment variables are set:
 
@@ -613,7 +615,7 @@ Check that your environment variables are set:
 
 echo $FLOW_PRIVATE_KEY`
 
-### Key File Not Found[​](#key-file-not-found "Direct link to Key File Not Found")
+### Key file not found[​](#key-file-not-found "Direct link to Key file not found")
 
 Verify the key file path in your configuration:
 
@@ -621,7 +623,7 @@ Verify the key file path in your configuration:
 
 ls -la ./my-account.key`
 
-### Multiple Config Files Not Merging[​](#multiple-config-files-not-merging "Direct link to Multiple Config Files Not Merging")
+### Multiple config files not merging[​](#multiple-config-files-not-merging "Direct link to Multiple config files not merging")
 
 Check the order of your `-f` flags:
 
@@ -633,7 +635,7 @@ _10
 
 flow config add account -f flow.json -f private.json`
 
-## Related Commands[​](#related-commands "Direct link to Related Commands")
+## Related commands[​](#related-commands "Direct link to Related commands")
 
 * [`flow config add`](/build/tools/flow-cli/flow.json/manage-configuration) - Add configuration items securely
 * [`flow project deploy`](/build/tools/flow-cli/deployment/deploy-project-contracts) - Deploy with secure configuration
@@ -641,7 +643,7 @@ flow config add account -f flow.json -f private.json`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/flow.json/security.md)
 
-Last updated on **Jan 9, 2026** by **Chase Fleming**
+Last updated on **Apr 8, 2026** by **0xLisanAlGaib**
 
 [Previous
 
@@ -655,15 +657,15 @@ Get Block](/build/tools/flow-cli/get-flow-data/get-blocks)
 
 Copy as Markdown
 
-* [Security Overview](#security-overview)* [File-Based Keys](#file-based-keys)
-    + [Setup](#setup)+ [Benefits](#benefits)* [Environment Variables](#environment-variables)
-      + [Setup](#setup-1)+ [Benefits](#benefits-1)* [Private Configuration Files](#private-configuration-files)
+* [Security Overview](#security-overview)* [File-based keys](#file-based-keys)
+    + [Setup](#setup)+ [Benefits](#benefits)* [Environment variables](#environment-variables)
+      + [Setup](#setup-1)+ [Benefits](#benefits-1)* [Private configuration files](#private-configuration-files)
         + [Setup](#setup-2)+ [Benefits](#benefits-2)* [Environment Files (.env)](#environment-files-env)
-          + [Setup](#setup-3)+ [Benefits](#benefits-3)* [Multiple Configuration Files](#multiple-configuration-files)
-            + [Priority Order](#priority-order)+ [Example](#example)+ [Use Cases](#use-cases)* [Security Best Practices](#security-best-practices)
-              + [1. Never Commit Private Keys](#1-never-commit-private-keys)+ [2. Use Different Keys for Different Environments](#2-use-different-keys-for-different-environments)+ [3. Rotate Keys Regularly](#3-rotate-keys-regularly)+ [4. Limit Key Permissions](#4-limit-key-permissions)+ [5. Secure Key Storage](#5-secure-key-storage)* [Common Security Mistakes](#common-security-mistakes)
+          + [Setup](#setup-3)+ [Benefits](#benefits-3)* [Multiple configuration files](#multiple-configuration-files)
+            + [Priority order](#priority-order)+ [Example](#example)+ [Use cases](#use-cases)* [Security Best Practices](#security-best-practices)
+              + [1. Never Commit Private Keys](#1-never-commit-private-keys)+ [2. Use different keys for different environments](#2-use-different-keys-for-different-environments)+ [3. Rotate keys regularly](#3-rotate-keys-regularly)+ [4. Limit key permissions](#4-limit-key-permissions)+ [5. Secure key storage](#5-secure-key-storage)* [Common Security Mistakes](#common-security-mistakes)
                 + [❌ Don't Do This](#-dont-do-this)+ [✅ Do This Instead](#-do-this-instead)* [Troubleshooting](#troubleshooting)
-                  + [Environment Variables Not Loading](#environment-variables-not-loading)+ [Key File Not Found](#key-file-not-found)+ [Multiple Config Files Not Merging](#multiple-config-files-not-merging)* [Related Commands](#related-commands)
+                  + [Environment variables won't load](#environment-variables-wont-load)+ [Key file not found](#key-file-not-found)+ [Multiple config files not merging](#multiple-config-files-not-merging)* [Related commands](#related-commands)
 
 Flow
 

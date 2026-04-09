@@ -58,7 +58,7 @@ On this page
 
 # Cadence Linter
 
-The Cadence Linter is a static-analysis tool for finding potential issues in Cadence code. It is available in the Flow CLI & is designed to help developers write better code by identifying common mistakes and potential issues before they become problems.
+The Cadence Linter is a static-analysis tool you can use to find potential issues in Cadence code. It is available in the Flow CLI and is designed to help developers write better code by identifying common mistakes and potential issues before they become problems.
 
 The linter will also check your code for any syntax or semantic errors, and provide suggestions for how to fix them.
 
@@ -66,13 +66,13 @@ The linter will also check your code for any syntax or semantic errors, and prov
 
 flow cadence lint [files]`
 
-## Example Usage[​](#example-usage "Direct link to Example Usage")
+## Example use[​](#example-use "Direct link to Example use")
 
 `_10
 
 flow cadence lint **/*.cdc`
 
-## Example Output[​](#example-output "Direct link to Example Output")
+## Example output[​](#example-output "Direct link to Example output")
 
 `` _10
 
@@ -96,7 +96,7 @@ The Cadence Linter is also available in the [Cadence VSCode extension](/build/to
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/lint.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 15, 2025** by **cshannon1218**
 
 [Previous
 
@@ -110,7 +110,7 @@ Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)
 
 Copy as Markdown
 
-* [Example Usage](#example-usage)* [Example Output](#example-output)
+* [Example use](#example-use)* [Example output](#example-output)
 
 Flow
 

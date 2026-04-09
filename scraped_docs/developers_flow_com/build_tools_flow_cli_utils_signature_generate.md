@@ -58,7 +58,7 @@ On this page
 
 # Generate a Signature
 
-Generate a signature using the private key of the signer account.
+Generate a signature with the private key of the signer account.
 
 `_10
 
@@ -67,7 +67,7 @@ flow signatures generate <message>`
 ⚠️ *Make sure the account you want to use for signing is saved in the `flow.json` configuration.
 The address of the account is not important, just the private key.*
 
-## Example Usage[​](#example-usage "Direct link to Example Usage")
+## Example use[​](#example-use "Direct link to Example use")
 
 `_10
 
@@ -108,7 +108,7 @@ Message used for signing.
 ### Signer[​](#signer "Direct link to Signer")
 
 * Flag: `--signer`
-* Valid inputs: the name of an account defined in the configuration (`flow.json`)
+* Valid inputs: the name of an account defined in the configuration (`flow.json`).
 
 Specify the name of the account that will be used to sign the transaction.
 
@@ -143,7 +143,7 @@ Specify the filename where you want the result to be saved.
 * Valid inputs: `none`, `error`, `debug`
 * Default: `info`
 
-Specify the log level. Control how much output you want to see while command execution.
+Specify the log level. Control how much output you want to see while the command executes.
 
 ### Configuration[​](#configuration "Direct link to Configuration")
 
@@ -151,10 +151,9 @@ Specify the log level. Control how much output you want to see while command exe
 * Short Flag: `-f`
 * Valid inputs: valid filename
 
-Specify a filename for the configuration files, you can provide multiple configuration
-files by using `-f` flag multiple times.
+Specify a filename for the configuration files. To provide multiple configuration files, use the `-f` flag multiple times.
 
-### Version Check[​](#version-check "Direct link to Version Check")
+### Version check[​](#version-check "Direct link to Version check")
 
 * Flag: `--skip-version-check`
 * Default: `false`
@@ -163,7 +162,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/utils/signature-generate.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 15, 2025** by **cshannon1218**
 
 [Previous
 
@@ -177,9 +176,9 @@ Verify Signature](/build/tools/flow-cli/utils/signature-verify)
 
 Copy as Markdown
 
-* [Example Usage](#example-usage)* [Arguments](#arguments)
+* [Example use](#example-use)* [Arguments](#arguments)
     + [Message](#message)* [Flags](#flags)
-      + [Signer](#signer)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version Check](#version-check)
+      + [Signer](#signer)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version check](#version-check)
 
 Flow
 

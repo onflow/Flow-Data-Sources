@@ -58,7 +58,7 @@ On this page
 
 # Running Cadence Tests
 
-The Flow CLI provides a straightforward command to execute Cadence tests, enabling developers to validate their scripts and smart contracts effectively.
+The Flow CLI provides a straightforward command to execute Cadence tests, which allows developers to validate their scripts and smart contracts effectively.
 
 To run all tests in your project, simply use:
 
@@ -68,15 +68,17 @@ flow test`
 
 The `flow test` command automatically discovers and runs all test scripts in your project that end with `_test.cdc`.
 
-> **Note:** The `test` command requires a properly initialized configuration. If you haven’t set up your Flow project yet, refer to the [flow init](/build/tools/flow-cli/flow.json/initialize-configuration) guide for assistance.
+info
+
+The `test` command requires a properly initialized configuration. If you haven’t set up your Flow project yet, refer to the [flow init](/build/tools/flow-cli/flow.json/initialize-configuration) guide for assistance.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-Before running your tests, ensure that your contracts are properly configured in your `flow.json` file, including any necessary testing aliases.
+Before you run your tests, ensure that your contracts are properly configured in your `flow.json` file, particularly any necessary testing aliases.
 
-### Setting Up Testing Aliases in Contracts[​](#setting-up-testing-aliases-in-contracts "Direct link to Setting Up Testing Aliases in Contracts")
+### Set up testing aliases in contracts[​](#set-up-testing-aliases-in-contracts "Direct link to Set up testing aliases in contracts")
 
-If your tests involve deploying or interacting with contracts, you need to add your contracts to the `contracts` section in the `flow.json` configuration file. Specifically, include the contract name, source location, and an address alias for the `testing` environment.
+If your tests involve contract deployment or contract interaction, you need to add your contracts to the `contracts` section in the `flow.json` configuration file. Specifically, include the contract name, source location, and an address alias for the `testing` environment.
 
 Example `flow.json` configuration:
 
@@ -169,11 +171,13 @@ For the `testing` alias, you can use one of the following addresses:
 * `0x000000000000000D`
 * `0x000000000000000E`
 
-> **Note**: For more information on setting up contracts and aliases, refer to the [Flow CLI Configuration](/build/tools/flow-cli/flow.json/initialize-configuration) documentation.
+info
 
-## Example Usage[​](#example-usage "Direct link to Example Usage")
+For more information on how to set up contracts and aliases, refer to the [Flow CLI Configuration](/build/tools/flow-cli/flow.json/initialize-configuration) documentation.
 
-Assuming you have a test script named `test_script_test.cdc` in your project directory, which verifies the functionality of a Cadence script executed in the testing environment:
+## Example use[​](#example-use "Direct link to Example use")
+
+This example assumes you have a test script named `test_script_test.cdc` in your project directory, which verifies the functionality of a Cadence script executed in the testing environment:
 
 `_14
 
@@ -227,13 +231,13 @@ _14
 
 This script defines a single test case, `testSumOfTwo`, which checks if a Cadence script that adds two integers `(a + b)` works as expected. The test passes if the result matches the expected value of `5`.
 
-You can run all tests in your project using the CLI:
+You can run all tests in your project with the CLI:
 
 `_10
 
 $ flow test`
 
-The Flow CLI will discover all test scripts ending with `_test.cdc` and execute them. The results will be displayed in the terminal:
+The Flow CLI will discover all test scripts that end with `_test.cdc` and execute them. The results will be displayed in the terminal:
 
 `_10
 
@@ -243,13 +247,13 @@ _10
 
 - PASS: test_script_test.cdc > testSumOfTwo`
 
-To learn more about writing tests in Cadence, visit the [Cadence Testing Framework](/build/cadence/smart-contracts/testing) documentation.
+To learn more about how to write tests in Cadence, visit the [Cadence Testing Framework](/build/cadence/smart-contracts/testing) documentation.
 
 ---
 
-### Running Specific Tests and Files[​](#running-specific-tests-and-files "Direct link to Running Specific Tests and Files")
+### Run specific tests and files[​](#run-specific-tests-and-files "Direct link to Run specific tests and files")
 
-Run specific test scripts or directories by providing their paths:
+To run specific test scripts or directories, by provide their paths:
 
 `_10
 
@@ -261,14 +265,14 @@ This executes only the tests contained in the specified files and directories.
 
 ## Flags[​](#flags "Direct link to Flags")
 
-The `flow test` command supports several flags that provide additional functionality for managing test execution and coverage reporting.
+The `flow test` command supports several flags that provide additional functionality to manage test execution and coverage reports.
 
-### **Coverage Report**[​](#coverage-report "Direct link to coverage-report")
+### **Coverage report**[​](#coverage-report "Direct link to coverage-report")
 
 * **Flag:** `--cover`
 * **Default:** `false`
 
-The `--cover` flag calculates the coverage of the code being tested, helping you identify untested parts of your scripts and contracts.
+The `--cover` flag calculates the coverage of the code being tested, which helps you identify untested parts of your scripts and contracts.
 
 `_10
 
@@ -290,7 +294,7 @@ Coverage: 96.5% of statements`
 
 ---
 
-### Coverage Report Output File[​](#coverage-report-output-file "Direct link to Coverage Report Output File")
+### Coverage report output file[​](#coverage-report-output-file "Direct link to Coverage report output file")
 
 * **Flag:** `--coverprofile`
 * **Valid Inputs:** A valid filename with extension `.json` or `.lcov`
@@ -310,13 +314,13 @@ The generated coverage file can then be inspected:
 
 $ cat coverage.lcov`
 
-### Coverage Code Type[​](#coverage-code-type "Direct link to Coverage Code Type")
+### Coverage code type[​](#coverage-code-type "Direct link to Coverage code type")
 
 * **Flag:** `--covercode`
 * **Valid Inputs:** `"all"` (default) or `"contracts"`
 * **Default:** `"all"`
 
-The `--covercode` flag lets you limit the coverage report to specific types of code. Setting the value to `"contracts"` excludes scripts and transactions from the coverage analysis.
+The `--covercode` flag lets you limit the coverage report to specific types of code. Set the value to `"contracts"` to exclude scripts and transactions from the coverage analysis.
 
 `_10
 
@@ -338,7 +342,7 @@ There are no statements to cover`
 
 > **Note:** In this example, the coverage report is empty because the `--covercode` flag is set to `"contracts"`, and the test script only contains scripts, not contracts.
 
-### Random Execution of Test Cases[​](#random-execution-of-test-cases "Direct link to Random Execution of Test Cases")
+### Random execution of test cases[​](#random-execution-of-test-cases "Direct link to Random execution of test cases")
 
 * **Flag:** `--random`
 * **Default:** `false`
@@ -349,22 +353,24 @@ Use the `--random` flag to execute test cases in a random order. This can help i
 
 flow test --random`
 
-### Seed for Random Execution[​](#seed-for-random-execution "Direct link to Seed for Random Execution")
+### Seed for random execution[​](#seed-for-random-execution "Direct link to Seed for random execution")
 
 * **Flag:** `--seed`
 * **Default:** `0`
 
-Use the `--seed` flag to specify a seed value for the random execution order of test cases. This allows you to reproduce a specific random order by using the same seed value, which is helpful for debugging flaky tests.
+Use the `--seed` flag to specify a seed value for the random execution order of test cases. This allows you to reproduce a specific random order when you use the same seed value, which is helpful to debug flaky tests.
 
 `_10
 
 flow test --seed=12345`
 
-> **Note:** If both `--random` and `--seed` are provided, the `--random` flag will be ignored, and the seed value from `--seed` will be used for randomization.
+info
+
+If both `--random` and `--seed` are provided, the `--random` flag will be ignored, and the seed value from `--seed` will be used for randomization.
 
 ---
 
-### Run Specific Test by Name[​](#run-specific-test-by-name "Direct link to Run Specific Test by Name")
+### Run specific test by name[​](#run-specific-test-by-name "Direct link to Run specific test by name")
 
 * **Flag:** `--name`
 * **Default:** `""` (empty string)
@@ -377,15 +383,15 @@ flow test --name=testSumOfTwo`
 
 This command will run only the test function named `testSumOfTwo` across all test scripts that contain it.
 
-To dive deeper into testing the functionality of your Cadence scripts and contracts, explore the [Cadence Testing Framework](https://cadence-lang.org/docs/testing-framework) documentation.
+To dive deeper into testing the functionality of your Cadence scripts and contracts, explore the [Cadence Testing Framework](/build/cadence/smart-contracts/testing) documentation.
 
 ---
 
-### Fork Testing Flags[​](#fork-testing-flags "Direct link to Fork Testing Flags")
+### Fork testing flags[​](#fork-testing-flags "Direct link to Fork testing flags")
 
 Run tests against forked mainnet or testnet state. For a step-by-step tutorial, see: [Fork Testing with Cadence](/blockchain-development-tutorials/cadence/fork-testing). For background and best practices, see the guide: [Testing Strategy on Flow](/build/cadence/smart-contracts/testing-strategy).
 
-#### Configuring Fork Tests[​](#configuring-fork-tests "Direct link to Configuring Fork Tests")
+#### Configure fork tests[​](#configure-fork-tests "Direct link to Configure fork tests")
 
 **Recommended**: Use the `#test_fork` pragma in your test file:
 
@@ -419,7 +425,7 @@ Then run with:
 
 flow test`
 
-The pragma configures fork testing directly in your test files, making tests self-documenting. You can also use CLI flags (documented below) to override or configure fork tests without modifying test files.
+The pragma configures fork testing directly in your test files, which makes the tests self-documenting. You can also use CLI flags (documented below) to override or configure fork tests and not modify test files.
 
 #### --fork[​](#--fork "Direct link to --fork")
 
@@ -442,8 +448,8 @@ flow test --fork mynet # Uses a custom network defined in flow.json`
 
 Requirements:
 
-* The network must exist in `flow.json`
-* The network must have a valid `host` configured
+* The network must exist in `flow.json`.
+* The network must have a valid `host` configured.
 
 #### --fork-host[​](#--fork-host "Direct link to --fork-host")
 
@@ -469,11 +475,13 @@ Pin the fork to a specific block height for historical state testing. Only block
 
 flow test --fork mainnet --fork-height 85432100`
 
-> Note: Historical data beyond spork boundaries is not available via standard access nodes. See the [Network Upgrade (Spork) Process](/protocol/node-ops/node-operation/network-upgrade).
+note
+
+Historical data beyond spork boundaries is not available via standard access nodes. See the [Network Upgrade (Spork) Process](/protocol/node-ops/node-operation/network-upgrade).
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/tests.md)
 
-Last updated on **Jan 9, 2026** by **Jordan Ribbink**
+Last updated on **Apr 8, 2026** by **0xLisanAlGaib**
 
 [Previous
 
@@ -488,9 +496,9 @@ Generating Cadence Boilerplate](/build/tools/flow-cli/generate)
 Copy as Markdown
 
 * [Prerequisites](#prerequisites)
-  + [Setting Up Testing Aliases in Contracts](#setting-up-testing-aliases-in-contracts)* [Example Usage](#example-usage)
-    + [Running Specific Tests and Files](#running-specific-tests-and-files)* [Flags](#flags)
-      + [**Coverage Report**](#coverage-report)+ [Coverage Report Output File](#coverage-report-output-file)+ [Coverage Code Type](#coverage-code-type)+ [Random Execution of Test Cases](#random-execution-of-test-cases)+ [Seed for Random Execution](#seed-for-random-execution)+ [Run Specific Test by Name](#run-specific-test-by-name)+ [Fork Testing Flags](#fork-testing-flags)
+  + [Set up testing aliases in contracts](#set-up-testing-aliases-in-contracts)* [Example use](#example-use)
+    + [Run specific tests and files](#run-specific-tests-and-files)* [Flags](#flags)
+      + [**Coverage report**](#coverage-report)+ [Coverage report output file](#coverage-report-output-file)+ [Coverage code type](#coverage-code-type)+ [Random execution of test cases](#random-execution-of-test-cases)+ [Seed for random execution](#seed-for-random-execution)+ [Run specific test by name](#run-specific-test-by-name)+ [Fork testing flags](#fork-testing-flags)
 
 Flow
 

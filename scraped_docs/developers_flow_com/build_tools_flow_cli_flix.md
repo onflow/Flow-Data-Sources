@@ -58,11 +58,11 @@ On this page
 
 # Flow Interaction Templates (FLIX)
 
-FLIX helps developers reuse existing Cadence transactions and scripts to easily integrate with existing Cadence smart contracts. Get more information about [Flow Interaction Templates](/build/cadence/advanced-concepts/flix)
+FLIX helps developers reuse current Cadence transactions and scripts to easily integrate with current Cadence smart contracts. Get more information about [Flow Interaction Templates](/build/cadence/advanced-concepts/flix) (FLIX).
 
 ## Introduction[​](#introduction "Direct link to Introduction")
 
-The Flow CLI provides a `flix` command with a few sub commands `execute` and `package`. Get familiar with Flow Interaction Templates [(FLIX)](https://github.com/onflow/flips/blob/main/application/20220503-interaction-templates.md). FLIX are a standard for distributing Cadence scripts and transactions, and metadata in a way that is consumable by tooling and wallets. FLIX can be audited for correctness and safety by auditors in the ecosystem.
+The Flow CLI provides a `flix` command with a few sub commands `execute` and `package`. [(FLIX)](https://github.com/onflow/flips/blob/main/application/20220503-interaction-templates.md) are a standard for Cadence scripts and transaction distribution, and metadata in a way that is consumable by tooling and wallets. Auditors in the ecosystem can audit FLIX for correctness and safety.
 
 `_10
 
@@ -102,7 +102,7 @@ package package file for FLIX template fcl-js is default`
 
 ### Execute[​](#execute "Direct link to Execute")
 
-The Flow CLI provides a `flix` command to `execute` FLIX. The Cadence being execute in the FLIX can be a transaction or script.
+The Flow CLI provides a `flix` command to `execute` FLIX. The Cadence that's executed in the FLIX can be a transaction or script.
 
 `_10
 
@@ -110,11 +110,11 @@ flow flix execute <query> [<argument> <argument>...] [flags]`
 
 warning
 
-A FLIX template might only support testnet and/or mainnet. Generally, emulator is not supported. This can be the case if the FLIX template relies on contract dependencies.
+A FLIX template might only support testnet or mainnet. Generally, emulator is not supported. This can be the case if the FLIX template relies on contract dependencies.
 
 Queries can be a FLIX `id`, `name`, `url` or `path` to a local FLIX file.
 
-### Execute Usage[​](#execute-usage "Direct link to Execute Usage")
+### Execute use[​](#execute-use "Direct link to Execute use")
 
 `_10
 
@@ -140,11 +140,11 @@ _10
 
 flow flix execute ./multiply.template.json 2 3 --network testnet`
 
-The Flow CLI provides a `flix` command to `package` up generated plain and simple JavaScript. This JavaScript uses FCL (Flow Client Library) to call the cadence the Flow Interaction Templates (FLIX) is based on.
+The Flow CLI provides a `flix` command to `package` up generated plain and simple JavaScript. This JavaScript uses FCL (Flow Client Library) to call the cadence the FLIX is based on.
 
 info
 
-Currently, `flix package` command only supports generating FCL (Flow Client Library) specific JavaScript and TypeScirpt, there are plans to support other languages like golang.
+Currently, `flix package` command only supports generating FCL-specific JavaScript and TypeScirpt. There are plans to support other languages like golang.
 
 `_10
 
@@ -155,13 +155,13 @@ flow flix package <query> [flags]`
 Generate FLIX json file. This command will take in a Cadence file and produce a FLIX json file. There are two ways to provide metadata to populate the FLIX json structure.
 
 * Use `--pre-fill` flag to pass in a pre populated FLIX json structure
-* Use `--exclude-networks` flag to specify excluded networks when generating a FLIX templates. Example, `--exclude-networks testnet,mainnet`
+* Use `--exclude-networks` flag to specify excluded networks when you generate a FLIX template. For example, `--exclude-networks testnet,mainnet`
 
 warning
 
-When generating a FLIX template, make sure all contract dependencies have been deployed to the supported networks. Add any aliases to your flow.json that will be needed to populate dependencies. Verify all dependencies have been populated after generating.
+When you generate a FLIX template, make sure all contract dependencies have been deployed to the supported networks. Add any aliases to your flow.json that you need to populate dependencies. Verify all dependencies were populated after you generate the FLIX template.
 
-### Generate Usage[​](#generate-usage "Direct link to Generate Usage")
+### Generate use[​](#generate-use "Direct link to Generate use")
 
 `_10
 
@@ -171,7 +171,7 @@ _10
 
 flow flix generate cadence/transactions/update-helloworld.cdc --save cadence/templates/update-helloworld.template.json`
 
-Example of Cadence simple, no metadata associated
+Example of Cadence simple, no metadata associated:
 
 `_10
 
@@ -191,9 +191,11 @@ _10
 
 }`
 
-### Cadence Doc Pragma:[​](#cadence-doc-pragma "Direct link to Cadence Doc Pragma:")
+### Cadence doc pragma:[​](#cadence-doc-pragma "Direct link to Cadence doc pragma:")
 
-It's recommended to use pragma to set the metadata for the script or transaction. More information on [Cadence Doc Pragma FLIP](https://github.com/onflow/flips/blob/main/application/20230406-interaction-template-cadence-doc.md)
+It's recommended to use pragma to set the metadata for the script or transaction.
+
+View more information about [Cadence Doc Pragma FLIP](https://github.com/onflow/flips/blob/main/application/20230406-interaction-template-cadence-doc.md).
 
 A pragma is short for "pragmatic information", it's special instructions to convey information to a processor in this case the utility that generates FLIX.
 
@@ -267,9 +269,9 @@ _19
 
 info
 
-Cadence v0.42.7 supports additional Cadence pragma functionality that FlIX utility can use to generate FLIX. It will support parameters "title" and "description".
+Cadence v0.42.7 supports additional Cadence pragma functionality that FlIX utility can use to generate FLIX. It will support parameters "title" and "description"
 
-The resulting json metadata is extracted from Cadence Doc Pragma
+The json metadata that results is extracted from Cadence Doc Pragma.
 
 `_39
 
@@ -427,13 +429,13 @@ _39
 
 }`
 
-Example of using a prefilled FLIX json file. No need to use Cadence pragma when using a prefilled FLIX json file. This method separates FLIX specific information from the transaction or script Cadence. Use the `flow flix generate` command:
+Example of when you use a prefilled FLIX json file. No need to use Cadence pragma when you use a prefilled FLIX json file. This method separates FLIX specific information from the transaction or script Cadence. Use the `flow flix generate` command:
 
 `_10
 
 flow flix generate cadence/scripts/read-helloworld.cdc --pre-fill cadence/templates/read-helloworld.prefill.json --save cadence/templates/read-helloworld.template.json`
 
-Using a pre-filled FLIX template, the cadence can be simple but no metadata accompanies it.
+With a pre-filled FLIX template, the cadence can be simple but no metadata accompanies it.
 
 `_10
 
@@ -569,7 +571,7 @@ _29
 
 }`
 
-The resulting FLIX json file after generation:
+The FLIX json file that results after generation:
 
 `_62
 
@@ -825,9 +827,9 @@ Queries can be a FLIX `url` or `path` to a local FLIX file. This command leverag
 
 warning
 
-Currently package doesn't support `id`, `name` flix query.
+Currently, package doesn't support `id`, `name` flix query.
 
-### Package Usage[​](#package-usage "Direct link to Package Usage")
+### Package use[​](#package-use "Direct link to Package use")
 
 `` _10
 
@@ -861,7 +863,7 @@ _10
 
 flow flix package ./multiply.template.json --lang ts --save ./multiply.ts`
 
-### Example Package Output[​](#example-package-output "Direct link to Example Package Output")
+### Example package output[​](#example-package-output "Direct link to Example package output")
 
 `_10
 
@@ -1098,8 +1100,7 @@ To generate a FLIX, see the [FLIX CLI readme](https://github.com/onflow/flow-int
 * Name: `argument`
 * Valid input: valid [FLIX](https://github.com/onflow/flips/blob/main/application/20220503-interaction-templates.md)
 
-Input argument value matching corresponding types in the source code and passed in the same order.
-You can pass a `nil` value to optional arguments by executing the flow FLIX execute script like this: `flow flix execute template.json nil`.
+Input argument value that match types which correspond in the source code and passed in the same order. To pass a `nil` value to optional arguments, you can execute the flow FLIX execute script like this: `flow flix execute template.json nil`.
 
 ## Flags[​](#flags "Direct link to Flags")
 
@@ -1109,9 +1110,7 @@ You can pass a `nil` value to optional arguments by executing the flow FLIX exec
 * Valid inputs: arguments in JSON-Cadence form.
 * Example: `flow flix execute template.script.json '[{"type": "String", "value": "Hello World"}]'`
 
-Arguments passed to the Cadence script in the Cadence JSON format.
-Cadence JSON format contains `type` and `value` keys and is
-[documented here](https://cadencelang.dev/docs/1.0/json-cadence-spec).
+Arguments passed to the Cadence script in the Cadence JSON format. Cadence JSON format contains `type` and `value` keys and is [documented here](https://cadencelang.dev/docs/1.0/json-cadence-spec).
 
 ## Pre Fill[​](#pre-fill "Direct link to Pre Fill")
 
@@ -1140,23 +1139,23 @@ Specify the name of the account that will be used to sign the transaction.
 * Flag: `--proposer`
 * Valid inputs: the name of an account defined in the configuration (`flow.json`)
 
-Specify the name of the account that will be used as proposer in the transaction.
+Specify the name of the account that will be used as the proposer in the transaction.
 
 ### Payer[​](#payer "Direct link to Payer")
 
 * Flag: `--payer`
 * Valid inputs: the name of an account defined in the configuration (`flow.json`)
 
-Specify the name of the account that will be used as payer in the transaction.
+Specify the name of the account that will be used as the payer in the transaction.
 
 ### Authorizer[​](#authorizer "Direct link to Authorizer")
 
 * Flag: `--authorizer`
 * Valid inputs: the name of a single or multiple comma-separated accounts defined in the configuration (`flow.json`)
 
-Specify the name of the account(s) that will be used as authorizer(s) in the transaction. If you want to provide multiple authorizers separate them using commas (e.g. `alice,bob`)
+Specify the name of the account(s) that will be used as authorizer(s) in the transaction. If you want to provide multiple authorizers, use commas to separate them (for example, `alice,bob`)
 
-### Compute Limit[​](#compute-limit "Direct link to Compute Limit")
+### Compute limit[​](#compute-limit "Direct link to Compute limit")
 
 * Flag: `--compute-limit`
 * Valid inputs: an integer greater than zero.
@@ -1170,17 +1169,14 @@ Specify the compute unit (gas) limit for this transaction.
 * Valid inputs: an IP address or hostname.
 * Default: `127.0.0.1:3569` (Flow Emulator)
 
-Specify the hostname of the Access API that will be
-used to execute the command. This flag overrides
-any host defined by the `--network` flag.
+Specify the hostname of the Access API that will be used to execute the command. This flag overrides any host defined by the `--network` flag.
 
-### Network Key[​](#network-key "Direct link to Network Key")
+### Network key[​](#network-key "Direct link to Network key")
 
 * Flag: `--network-key`
 * Valid inputs: A valid network public key of the host in hex string format
 
-Specify the network public key of the Access API that will be
-used to create a secure GRPC client when executing the command.
+Specify the network public key of the Access API that will be used to create a secure GRPC client when you execute the command.
 
 ### Network[​](#network "Direct link to Network")
 
@@ -1213,7 +1209,7 @@ Specify the format of the command results.
 * Short Flag: `-s`
 * Valid inputs: a path in the current filesystem.
 
-Specify the filename where you want the result to be saved
+Specify the filename where you want to save the result.
 
 ### Log[​](#log "Direct link to Log")
 
@@ -1231,9 +1227,7 @@ Specify the log level. Control how much output you want to see during command ex
 * Valid inputs: a path in the current filesystem.
 * Default: `flow.json`
 
-Specify the path to the `flow.json` configuration file.
-You can use the `-f` flag multiple times to merge
-several configuration files.
+Specify the path to the `flow.json` configuration file. You can use the `-f` flag multiple times to merge several configuration files.
 
 ### Version Check[​](#version-check "Direct link to Version Check")
 
@@ -1244,7 +1238,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/flix.md)
 
-Last updated on **Nov 12, 2025** by **Brian Doyle**
+Last updated on **Dec 15, 2025** by **cshannon1218**
 
 [Previous
 
@@ -1259,9 +1253,9 @@ Fork Testing](/build/tools/flow-cli/fork-testing)
 Copy as Markdown
 
 * [Introduction](#introduction)
-  + [Execute](#execute)+ [Execute Usage](#execute-usage)+ [Generate](#generate)+ [Generate Usage](#generate-usage)+ [Cadence Doc Pragma:](#cadence-doc-pragma)+ [Package](#package)+ [Package Usage](#package-usage)+ [Example Package Output](#example-package-output)* [Resources](#resources)* [Arguments](#arguments)* [Flags](#flags)
+  + [Execute](#execute)+ [Execute use](#execute-use)+ [Generate](#generate)+ [Generate use](#generate-use)+ [Cadence doc pragma:](#cadence-doc-pragma)+ [Package](#package)+ [Package use](#package-use)+ [Example package output](#example-package-output)* [Resources](#resources)* [Arguments](#arguments)* [Flags](#flags)
         + [Arguments JSON](#arguments-json)* [Pre Fill](#pre-fill)* [Block Height](#block-height)* [Block ID](#block-id)
-              + [Signer](#signer)+ [Proposer](#proposer)+ [Payer](#payer)+ [Authorizer](#authorizer)+ [Compute Limit](#compute-limit)+ [Host](#host)+ [Network Key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version Check](#version-check)
+              + [Signer](#signer)+ [Proposer](#proposer)+ [Payer](#payer)+ [Authorizer](#authorizer)+ [Compute limit](#compute-limit)+ [Host](#host)+ [Network key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version Check](#version-check)
 
 Flow
 

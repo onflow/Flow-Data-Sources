@@ -58,11 +58,11 @@ On this page
 
 # Commands Overview
 
-Flow CLI provides a set of powerful commands that simplify your development workflow. These "super commands" handle complex tasks automatically, letting you focus on writing your smart contracts while the CLI manages the rest.
+Flow CLI provides a set of powerful commands that simplify your development workflow. These "super commands" handle complex tasks automatically, which lets you focus on writing your smart contracts while the CLI manages the rest.
 
-## Project Lifecycle[​](#project-lifecycle "Direct link to Project Lifecycle")
+## Project lifecycle[​](#project-lifecycle "Direct link to Project lifecycle")
 
-### 1. Initialize a Project[​](#1-initialize-a-project "Direct link to 1. Initialize a Project")
+### 1. Initialize a project[​](#1-initialize-a-project "Direct link to 1. Initialize a project")
 
 Start a new Flow project with `flow init`:
 
@@ -109,7 +109,7 @@ flow init --service-private-key <key>`
 
 📖 **[Learn more about project initialization](/build/tools/flow-cli/flow.json/initialize-configuration)**
 
-### 2. Generate Project Files[​](#2-generate-project-files "Direct link to 2. Generate Project Files")
+### 2. Generate project files[​](#2-generate-project-files "Direct link to 2. Generate project files")
 
 Create new files with the `flow generate` command:
 
@@ -151,7 +151,7 @@ _11
 
 flow generate test MyToken`
 
-**Generated Structure:**
+**Generated structure:**
 
 `_10
 
@@ -235,7 +235,7 @@ flow test --verbose`
 
 📖 **[Learn more about testing](/build/tools/flow-cli/tests)**
 
-### 4. Deploy Contracts[​](#4-deploy-contracts "Direct link to 4. Deploy Contracts")
+### 4. Deploy contracts[​](#4-deploy-contracts "Direct link to 4. Deploy contracts")
 
 Deploy your contracts with `flow project deploy`:
 
@@ -279,9 +279,9 @@ flow project deploy --update`
 
 📖 **[Learn more about project deployment](/build/tools/flow-cli/deployment/deploy-project-contracts)**
 
-## Configuration Management[​](#configuration-management "Direct link to Configuration Management")
+## Configuration management[​](#configuration-management "Direct link to Configuration management")
 
-### Add Configuration Items[​](#add-configuration-items "Direct link to Add Configuration Items")
+### Add configuration items[​](#add-configuration-items "Direct link to Add configuration items")
 
 Use `flow config add` to manage your project configuration:
 
@@ -313,7 +313,7 @@ _10
 
 flow config add deployment --network testnet --account my-account --contract MyToken`
 
-### Remove Configuration Items[​](#remove-configuration-items "Direct link to Remove Configuration Items")
+### Remove configuration items[​](#remove-configuration-items "Direct link to Remove configuration items")
 
 `_10
 
@@ -345,9 +345,9 @@ flow config remove deployment testnet my-account MyToken`
 
 📖 **[Learn more about configuration management](/build/tools/flow-cli/flow.json/manage-configuration)**
 
-## Account Management[​](#account-management "Direct link to Account Management")
+## Account management[​](#account-management "Direct link to Account management")
 
-### List Accounts[​](#list-accounts "Direct link to List Accounts")
+### List accounts[​](#list-accounts "Direct link to List accounts")
 
 `_10
 
@@ -357,7 +357,7 @@ _10
 
 flow accounts list`
 
-### Create Accounts[​](#create-accounts "Direct link to Create Accounts")
+### Create accounts[​](#create-accounts "Direct link to Create accounts")
 
 `_10
 
@@ -387,7 +387,7 @@ _10
 
 flow accounts create --key <private-key>`
 
-### Fund Accounts[​](#fund-accounts "Direct link to Fund Accounts")
+### Fund accounts[​](#fund-accounts "Direct link to Fund accounts")
 
 `_10
 
@@ -417,7 +417,7 @@ _10
 
 flow accounts fund 0x8e94eaa81771313a`
 
-### Manage Account Keys[​](#manage-account-keys "Direct link to Manage Account Keys")
+### Manage account keys[​](#manage-account-keys "Direct link to Manage account keys")
 
 `_10
 
@@ -449,9 +449,9 @@ flow keys derive <private-key>`
 
 📖 **[Learn more about account management](/build/tools/flow-cli/accounts/create-accounts)**
 
-## Contract Interactions[​](#contract-interactions "Direct link to Contract Interactions")
+## Contract interactions[​](#contract-interactions "Direct link to Contract interactions")
 
-### Execute Scripts[​](#execute-scripts "Direct link to Execute Scripts")
+### Execute scripts[​](#execute-scripts "Direct link to Execute scripts")
 
 `_10
 
@@ -481,7 +481,7 @@ _10
 
 flow scripts execute cadence/scripts/GetBalance.cdc --network testnet`
 
-### Send Transactions[​](#send-transactions "Direct link to Send Transactions")
+### Send transactions[​](#send-transactions "Direct link to Send transactions")
 
 `_10
 
@@ -511,7 +511,7 @@ _10
 
 flow transactions send cadence/transactions/TransferTokens.cdc --signer my-account`
 
-### Get System Transactions[​](#get-system-transactions "Direct link to Get System Transactions")
+### Get system transactions[​](#get-system-transactions "Direct link to Get system transactions")
 
 `_10
 
@@ -573,9 +573,9 @@ go tool pprof -http=:8080 profile-07a8b433.pb.gz`
 
 📖 **[Learn more about scripts](/build/tools/flow-cli/scripts/execute-scripts)** | **[Learn more about transactions](/build/tools/flow-cli/transactions/send-transactions)** | **[Learn more about transaction profiling](/build/tools/flow-cli/transactions/profile-transactions)**
 
-## Dependency Management[​](#dependency-management "Direct link to Dependency Management")
+## Dependency management[​](#dependency-management "Direct link to Dependency management")
 
-### Install Dependencies[​](#install-dependencies "Direct link to Install Dependencies")
+### Install dependencies[​](#install-dependencies "Direct link to Install dependencies")
 
 `_10
 
@@ -605,7 +605,7 @@ _10
 
 flow dependencies install testnet://8a4dce54554b225d.NumberFormatter --account my-account`
 
-### Manage Dependencies[​](#manage-dependencies "Direct link to Manage Dependencies")
+### Manage dependencies[​](#manage-dependencies "Direct link to Manage dependencies")
 
 `_10
 
@@ -637,9 +637,9 @@ flow dependencies install testnet://8a4dce54554b225d.NumberFormatter`
 
 📖 **[Learn more about dependency management](/build/tools/flow-cli/dependency-manager)**
 
-## Scheduled Transactions[​](#scheduled-transactions "Direct link to Scheduled Transactions")
+## Scheduled transactions[​](#scheduled-transactions "Direct link to Scheduled transactions")
 
-### Setup Manager Resource[​](#setup-manager-resource "Direct link to Setup Manager Resource")
+### Setup manager resource[​](#setup-manager-resource "Direct link to Setup manager resource")
 
 `_10
 
@@ -649,7 +649,7 @@ _10
 
 flow schedule setup --network testnet --signer my-account`
 
-### List Scheduled Transactions[​](#list-scheduled-transactions "Direct link to List Scheduled Transactions")
+### List scheduled transactions[​](#list-scheduled-transactions "Direct link to List scheduled transactions")
 
 `_10
 
@@ -659,7 +659,7 @@ _10
 
 flow schedule list my-account --network testnet`
 
-### Get Transaction Details[​](#get-transaction-details "Direct link to Get Transaction Details")
+### Get transaction details[​](#get-transaction-details "Direct link to Get transaction details")
 
 `_10
 
@@ -669,7 +669,7 @@ _10
 
 flow schedule get 123 --network testnet`
 
-### Cancel Scheduled Transaction[​](#cancel-scheduled-transaction "Direct link to Cancel Scheduled Transaction")
+### Cancel scheduled transaction[​](#cancel-scheduled-transaction "Direct link to Cancel scheduled transaction")
 
 `_10
 
@@ -681,9 +681,9 @@ flow schedule cancel 123 --network testnet --signer my-account`
 
 📖 **[Learn more about scheduled transactions](/build/tools/flow-cli/scheduled-transactions)**
 
-## Development Workflow[​](#development-workflow "Direct link to Development Workflow")
+## Development workflow[​](#development-workflow "Direct link to Development workflow")
 
-### Local Development[​](#local-development "Direct link to Local Development")
+### Local development[​](#local-development "Direct link to Local development")
 
 1. **Start the emulator:**
 
@@ -715,7 +715,7 @@ flow scripts execute cadence/scripts/GetBalance.cdc`
 
 flow transactions send cadence/transactions/TransferTokens.cdc`
 
-### Testnet Deployment[​](#testnet-deployment "Direct link to Testnet Deployment")
+### Testnet deployment[​](#testnet-deployment "Direct link to Testnet deployment")
 
 1. **Configure testnet account:**
 
@@ -735,7 +735,7 @@ flow project deploy --network=testnet`
 
 flow scripts execute cadence/scripts/GetBalance.cdc --network=testnet`
 
-## Import Schema[​](#import-schema "Direct link to Import Schema")
+## Import schema[​](#import-schema "Direct link to Import schema")
 
 Use simplified imports in your Cadence code:
 
@@ -761,9 +761,9 @@ The CLI automatically resolves imports based on your `flow.json` configuration.
 
 ## Best Practices[​](#best-practices "Direct link to Best Practices")
 
-### 1. Use Configuration Commands[​](#1-use-configuration-commands "Direct link to 1. Use Configuration Commands")
+### 1. Use configuration commands[​](#1-use-configuration-commands "Direct link to 1. Use configuration commands")
 
-Instead of manually editing `flow.json`, use CLI commands:
+Rather than manually edit `flow.json`, use CLI commands:
 
 `_10
 
@@ -783,9 +783,9 @@ _10
 
 # Manually editing flow.json`
 
-### 2. Test Locally First[​](#2-test-locally-first "Direct link to 2. Test Locally First")
+### 2. Test locally first[​](#2-test-locally-first "Direct link to 2. Test locally first")
 
-Always test on emulator before deploying:
+Always test on emulator before you deploy:
 
 `_11
 
@@ -825,7 +825,7 @@ _11
 
 flow project deploy --network=testnet`
 
-### 3. Use Descriptive Names[​](#3-use-descriptive-names "Direct link to 3. Use Descriptive Names")
+### 3. Use descriptive names[​](#3-use-descriptive-names "Direct link to 3. Use descriptive names")
 
 Choose clear names for accounts and contracts:
 
@@ -855,7 +855,7 @@ _10
 
 flow generate contract c1`
 
-### 4. Secure Your Keys[​](#4-secure-your-keys "Direct link to 4. Secure Your Keys")
+### 4. Secure your keys[​](#4-secure-your-keys "Direct link to 4. Secure your keys")
 
 Use secure key management:
 
@@ -889,7 +889,7 @@ FLOW_PRIVATE_KEY=abc123 flow project deploy`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/commands.md)
 
-Last updated on **Jan 31, 2026** by **Jordan Ribbink**
+Last updated on **Apr 8, 2026** by **0xLisanAlGaib**
 
 [Previous
 
@@ -903,15 +903,15 @@ Get an Account](/build/tools/flow-cli/accounts/get-accounts)
 
 Copy as Markdown
 
-* [Project Lifecycle](#project-lifecycle)
-  + [1. Initialize a Project](#1-initialize-a-project)+ [2. Generate Project Files](#2-generate-project-files)+ [3. Run Tests](#3-run-tests)+ [4. Deploy Contracts](#4-deploy-contracts)* [Configuration Management](#configuration-management)
-    + [Add Configuration Items](#add-configuration-items)+ [Remove Configuration Items](#remove-configuration-items)* [Account Management](#account-management)
-      + [List Accounts](#list-accounts)+ [Create Accounts](#create-accounts)+ [Fund Accounts](#fund-accounts)+ [Manage Account Keys](#manage-account-keys)* [Contract Interactions](#contract-interactions)
-        + [Execute Scripts](#execute-scripts)+ [Send Transactions](#send-transactions)+ [Get System Transactions](#get-system-transactions)+ [Profile Transaction Performance](#profile-transaction-performance)* [Dependency Management](#dependency-management)
-          + [Install Dependencies](#install-dependencies)+ [Manage Dependencies](#manage-dependencies)* [Scheduled Transactions](#scheduled-transactions)
-            + [Setup Manager Resource](#setup-manager-resource)+ [List Scheduled Transactions](#list-scheduled-transactions)+ [Get Transaction Details](#get-transaction-details)+ [Cancel Scheduled Transaction](#cancel-scheduled-transaction)* [Development Workflow](#development-workflow)
-              + [Local Development](#local-development)+ [Testnet Deployment](#testnet-deployment)* [Import Schema](#import-schema)* [Best Practices](#best-practices)
-                  + [1. Use Configuration Commands](#1-use-configuration-commands)+ [2. Test Locally First](#2-test-locally-first)+ [3. Use Descriptive Names](#3-use-descriptive-names)+ [4. Secure Your Keys](#4-secure-your-keys)* [Related Documentation](#related-documentation)
+* [Project lifecycle](#project-lifecycle)
+  + [1. Initialize a project](#1-initialize-a-project)+ [2. Generate project files](#2-generate-project-files)+ [3. Run Tests](#3-run-tests)+ [4. Deploy contracts](#4-deploy-contracts)* [Configuration management](#configuration-management)
+    + [Add configuration items](#add-configuration-items)+ [Remove configuration items](#remove-configuration-items)* [Account management](#account-management)
+      + [List accounts](#list-accounts)+ [Create accounts](#create-accounts)+ [Fund accounts](#fund-accounts)+ [Manage account keys](#manage-account-keys)* [Contract interactions](#contract-interactions)
+        + [Execute scripts](#execute-scripts)+ [Send transactions](#send-transactions)+ [Get system transactions](#get-system-transactions)+ [Profile Transaction Performance](#profile-transaction-performance)* [Dependency management](#dependency-management)
+          + [Install dependencies](#install-dependencies)+ [Manage dependencies](#manage-dependencies)* [Scheduled transactions](#scheduled-transactions)
+            + [Setup manager resource](#setup-manager-resource)+ [List scheduled transactions](#list-scheduled-transactions)+ [Get transaction details](#get-transaction-details)+ [Cancel scheduled transaction](#cancel-scheduled-transaction)* [Development workflow](#development-workflow)
+              + [Local development](#local-development)+ [Testnet deployment](#testnet-deployment)* [Import schema](#import-schema)* [Best Practices](#best-practices)
+                  + [1. Use configuration commands](#1-use-configuration-commands)+ [2. Test locally first](#2-test-locally-first)+ [3. Use descriptive names](#3-use-descriptive-names)+ [4. Secure your keys](#4-secure-your-keys)* [Related Documentation](#related-documentation)
 
 Flow
 

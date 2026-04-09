@@ -64,7 +64,7 @@ The Flow CLI provides a command to derive Public Key from a Private Key.
 
 flow keys derive <private key>`
 
-## Example Usage[​](#example-usage "Direct link to Example Usage")
+## Example usage[​](#example-usage "Direct link to Example usage")
 
 ### Derive Public Key from a Private Key[​](#derive-public-key-from-a-private-key "Direct link to Derive Public Key from a Private Key")
 
@@ -101,7 +101,7 @@ Public Key 584245c57e5316d6606c53b1ce46dae29f5c9bd26e9e8...aaa5091b2eebcb2ac71c7
 
 ## Flags[​](#flags "Direct link to Flags")
 
-### Signature Algorithm[​](#signature-algorithm "Direct link to Signature Algorithm")
+### Signature algorithm[​](#signature-algorithm "Direct link to Signature algorithm")
 
 * Flag: `--sig-algo`
 * Valid inputs: `"ECDSA_P256", "ECDSA_secp256k1"`
@@ -132,11 +132,11 @@ Specify the format of the command results.
 * Short Flag: `-s`
 * Valid inputs: a path in the current filesystem.
 
-Specify the filename where you want the result to be saved
+Specify the filename where you want the result to be saved.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/keys/derive-keys.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 11, 2025** by **cshannon1218**
 
 [Previous
 
@@ -150,10 +150,10 @@ Add Project Contracts](/build/tools/flow-cli/deployment/project-contracts)
 
 Copy as Markdown
 
-* [Example Usage](#example-usage)
+* [Example usage](#example-usage)
   + [Derive Public Key from a Private Key](#derive-public-key-from-a-private-key)+ [Example response](#example-response)* [Arguments](#arguments)
     + [Private Key](#private-key)* [Flags](#flags)
-      + [Signature Algorithm](#signature-algorithm)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)
+      + [Signature algorithm](#signature-algorithm)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)
 
 Flow
 

@@ -64,9 +64,9 @@ The Flow CLI provides a command to decode encoded public account keys.
 
 flow keys decode <rlp|pem> <encoded public key>`
 
-## Example Usage[​](#example-usage "Direct link to Example Usage")
+## Example usage[​](#example-usage "Direct link to Example usage")
 
-### Decode RLP Encoded Public Key[​](#decode-rlp-encoded-public-key "Direct link to Decode RLP Encoded Public Key")
+### Decode RLP encoded public key[​](#decode-rlp-encoded-public-key "Direct link to Decode RLP encoded public key")
 
 `_10
 
@@ -94,7 +94,7 @@ _10
 
 Revoked false`
 
-### Decode PEM Encoded Public Key From File[​](#decode-pem-encoded-public-key-from-file "Direct link to Decode PEM Encoded Public Key From File")
+### Decode PEM encoded public key from file[​](#decode-pem-encoded-public-key-from-file "Direct link to Decode PEM encoded public key from file")
 
 `_10
 
@@ -126,17 +126,16 @@ Revoked false`
 
 First argument specifies a valid encoding of the public key provided.
 
-### Optional: Public Key[​](#optional-public-key "Direct link to Optional: Public Key")
+### Optional: public key[​](#optional-public-key "Direct link to Optional: public key")
 
 * Name: `encoded public key`
 * Valid inputs: valid encoded key content
 
-Optional second argument provides content of the encoded public key.
-If this argument is omitted the `--from-file` must be used instead.
+Optional second argument provides content of the encoded public key. If this argument is omitted, the `--from-file` must be used instead.
 
 ## Flags[​](#flags "Direct link to Flags")
 
-### From File[​](#from-file "Direct link to From File")
+### From file[​](#from-file "Direct link to From file")
 
 * Flag: `--from-file`
 * Valid inputs: valid filepath
@@ -165,9 +164,9 @@ Specify the format of the command results.
 * Short Flag: `-s`
 * Valid inputs: a path in the current filesystem.
 
-Specify the filename where you want the result to be saved
+Specify the filename where you want the result to be saved.
 
-### Version Check[​](#version-check "Direct link to Version Check")
+### Version check[​](#version-check "Direct link to Version check")
 
 * Flag: `--skip-version-check`
 * Default: `false`
@@ -176,7 +175,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/keys/decode-keys.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 11, 2025** by **cshannon1218**
 
 [Previous
 
@@ -190,10 +189,10 @@ Derive Public Key](/build/tools/flow-cli/keys/derive-keys)
 
 Copy as Markdown
 
-* [Example Usage](#example-usage)
-  + [Decode RLP Encoded Public Key](#decode-rlp-encoded-public-key)+ [Decode PEM Encoded Public Key From File](#decode-pem-encoded-public-key-from-file)* [Arguments](#arguments)
-    + [Encoding](#encoding)+ [Optional: Public Key](#optional-public-key)* [Flags](#flags)
-      + [From File](#from-file)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Version Check](#version-check)
+* [Example usage](#example-usage)
+  + [Decode RLP encoded public key](#decode-rlp-encoded-public-key)+ [Decode PEM encoded public key from file](#decode-pem-encoded-public-key-from-file)* [Arguments](#arguments)
+    + [Encoding](#encoding)+ [Optional: public key](#optional-public-key)* [Flags](#flags)
+      + [From file](#from-file)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Version check](#version-check)
 
 Flow
 

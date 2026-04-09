@@ -41,31 +41,31 @@ Flow Wallet is available on [Android](https://play.google.com/store/apps/details
 To use the Flow Wallet Chrome extension:
 
 1. Open the Flow Wallet browser extension and create your account.
-2. Connect to an app using Flow Wallet.
+2. Connect to an app with Flow Wallet.
 
-## Other EVM Wallets[​](#other-evm-wallets "Direct link to Other EVM Wallets")
+## Other EVM wallets[​](#other-evm-wallets "Direct link to Other EVM wallets")
 
 Applications deployed to Flow EVM will work with popular EVM-compatible wallets such as [MetaMask](https://chromewebstore.google.com/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn), all you need to do is add the correct [RPC endpoint](/build/evm/networks) as a custom network.
 
 ### Add Flow to Browser Wallets[​](#add-flow-to-browser-wallets "Direct link to Add Flow to Browser Wallets")
 
-### Add Manually to MetaMask[​](#add-manually-to-metamask "Direct link to Add Manually to MetaMask")
+### Add manually to MetaMask[​](#add-manually-to-metamask "Direct link to Add manually to MetaMask")
 
 Manual method: Add Flow EVM as a custom network to MetaMask:
 
-1. Open the MetaMask browser extension
-2. Open the network selection dropdown menu by clicking the dropdown button at the top of the extension
-3. Click the **`Add network`** button
-4. Click **`Add a network manually`**
+1. Open the MetaMask browser extension.
+2. Click the dropdown at the top of the extension to open the network selection dropdown menu.
+3. Click **`Add network`**.
+4. Click **`Add a network manually`**.
 5. In the **`Add a network manually`** dialog that appears, enter the following information:
 
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Name Value|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Network Name Flow EVM Mainnet|  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Description The public RPC url for Flow Mainnet|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | RPC Endpoint <https://mainnet.evm.nodes.onflow.org>| Chain ID 747|  |  |  |  | | --- | --- | --- | --- | | Currency Symbol FLOW|  |  | | --- | --- | | Block Explorer <https://evm.flowscan.io/> | | | | | | | | | | | | | |
 
-6. Tap the Save button to save Flow EVM as a network.
+6. Tap Save to save Flow EVM as a network.
 
-You should now be able to connect to the Flow EVM by selecting it from the network selection dropdown menu.
+To connect to the Flow EVM select, it from the network selection dropdown menu.
 
 To additionally add the Flow EVM Testnet to MetaMask, follow the same steps as above, but use the following information:
 
@@ -77,7 +77,7 @@ Use the [Flow Testnet Faucet](https://faucet.flow.com/fund-account) to fund your
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/evm/using.mdx)
 
-Last updated on **Sep 24, 2025** by **Brian Doyle**
+Last updated on **Dec 8, 2025** by **cshannon1218**
 
 [Previous
 
@@ -91,8 +91,8 @@ Network Information](/build/evm/networks)
 
 Copy as Markdown
 
-* [Flow Native Wallet](#flow-native-wallet)* [Other EVM Wallets](#other-evm-wallets)
-    + [Add Flow to Browser Wallets](#add-flow-to-browser-wallets)+ [Add Manually to MetaMask](#add-manually-to-metamask)
+* [Flow Native Wallet](#flow-native-wallet)* [Other EVM wallets](#other-evm-wallets)
+    + [Add Flow to Browser Wallets](#add-flow-to-browser-wallets)+ [Add manually to MetaMask](#add-manually-to-metamask)
 
 Flow
 

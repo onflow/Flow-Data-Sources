@@ -220,7 +220,7 @@ Learn more: [Fork Testing Overview](/build/tools/flow-cli/fork-testing)
 
 The `accounts` section defines the accounts you can use for transactions and deployments.
 
-#### Simple Account Format[​](#simple-account-format "Direct link to Simple Account Format")
+#### Simple account format[​](#simple-account-format "Direct link to Simple account format")
 
 `_10
 
@@ -246,7 +246,7 @@ _10
 
 }`
 
-#### Advanced Account Format[​](#advanced-account-format "Direct link to Advanced Account Format")
+#### Advanced account format[​](#advanced-account-format "Direct link to Advanced account format")
 
 For more control over key management:
 
@@ -344,7 +344,7 @@ _10
 
 }`
 
-The key file should contain only the hex-encoded private key (e.g., `ae1b44c0f5e8f6992ef2348898a35e50a8b0b9684000da8b1dade1b3bcd6ebee`).
+The key file should contain only the hex-encoded private key (for example, `ae1b44c0f5e8f6992ef2348898a35e50a8b0b9684000da8b1dade1b3bcd6ebee`).
 
 **Special Address Values:**
 
@@ -354,7 +354,7 @@ The key file should contain only the hex-encoded private key (e.g., `ae1b44c0f5e
 
 The `contracts` section maps contract names to their source files.
 
-#### Simple Contract Format[​](#simple-contract-format "Direct link to Simple Contract Format")
+#### Simple contract format[​](#simple-contract-format "Direct link to Simple contract format")
 
 `_10
 
@@ -372,7 +372,7 @@ _10
 
 }`
 
-#### Advanced Contract Format with Aliases[​](#advanced-contract-format-with-aliases "Direct link to Advanced Contract Format with Aliases")
+#### Advanced contract format with aliases[​](#advanced-contract-format-with-aliases "Direct link to Advanced contract format with aliases")
 
 Use aliases when contracts are already deployed on specific networks:
 
@@ -418,9 +418,9 @@ _10
 * To avoid redeploying dependencies
 * To use the official versions of common contracts
 
-#### Cadence Import Aliasing[​](#cadence-import-aliasing "Direct link to Cadence Import Aliasing")
+#### Cadence import aliasing[​](#cadence-import-aliasing "Direct link to Cadence import aliasing")
 
-When deploying the same contract to multiple addresses with different names, use the `canonical` field to reference the original contract. This allows you to import multiple instances of the same contract with different identifiers.
+When you deploy the same contract to multiple addresses with different names, use the `canonical` field to reference the original contract. This allows you to import multiple instances of the same contract with different identifiers.
 
 `_15
 
@@ -574,7 +574,7 @@ _10
 
 }`
 
-## Complete Example[​](#complete-example "Direct link to Complete Example")
+## Complete example[​](#complete-example "Direct link to Complete example")
 
 Here's a complete `flow.json` for a project with multiple contracts and networks:
 
@@ -728,9 +728,9 @@ _39
 
 }`
 
-## Managing Configuration[​](#managing-configuration "Direct link to Managing Configuration")
+## Manage configuration[​](#manage-configuration "Direct link to Manage configuration")
 
-Instead of editing `flow.json` manually, use the CLI commands:
+Rather than edit `flow.json` manually, use the CLI commands:
 
 `_11
 
@@ -772,12 +772,12 @@ flow config remove account my-account`
 
 ## Best Practices[​](#best-practices "Direct link to Best Practices")
 
-1. **Use CLI commands** when possible instead of manual editing
-2. **Keep private keys secure** - consider using file-based keys for production
-3. **Use aliases** for core contracts to avoid redeployment
-4. **Test on emulator first** before deploying to testnet
-5. **Use different accounts** for different networks
-6. **Backup your configuration** before making major changes
+1. **Use CLI commands** when possible instead of manual editing.
+2. **Keep private keys secure** - consider file-based keys for production.
+3. **Use aliases** for core contracts to avoid redeployment.
+4. **Test on emulator first** before you deploy to testnet.
+5. **Use different accounts** for different networks.
+6. **Backup your configuration** before you make major changes.
 
 ## Related Commands[​](#related-commands "Direct link to Related Commands")
 
@@ -788,7 +788,7 @@ flow config remove account my-account`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/flow.json/configuration.md)
 
-Last updated on **Dec 16, 2025** by **Jordan Ribbink**
+Last updated on **Apr 8, 2026** by **0xLisanAlGaib**
 
 [Previous
 
@@ -803,7 +803,7 @@ Manage Configuration](/build/tools/flow-cli/flow.json/manage-configuration)
 Copy as Markdown
 
 * [Quick Start](#quick-start)* [Configuration Sections](#configuration-sections)
-    + [Networks](#networks)+ [Accounts](#accounts)+ [Contracts](#contracts)+ [Deployments](#deployments)+ [Emulators](#emulators)* [Complete Example](#complete-example)* [Managing Configuration](#managing-configuration)* [Best Practices](#best-practices)* [Related Commands](#related-commands)
+    + [Networks](#networks)+ [Accounts](#accounts)+ [Contracts](#contracts)+ [Deployments](#deployments)+ [Emulators](#emulators)* [Complete example](#complete-example)* [Manage configuration](#manage-configuration)* [Best Practices](#best-practices)* [Related Commands](#related-commands)
 
 Flow
 

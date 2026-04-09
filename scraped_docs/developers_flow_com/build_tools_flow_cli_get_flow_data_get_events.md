@@ -58,16 +58,16 @@ On this page
 
 # Get Events
 
-Use the event command to fetch a single or multiple events in a specific range of blocks.
-You can provide start and end block height range, but also specify number of the latest blocks to
-be used to search for specified event. Events are fetched concurrently by using multiple workers which
+Use the event command to fetch a single or multiple events in a specific range of blocks. You can provide start and end block height range, but also specify number of the latest blocks to use to search for specified event.
+
+Events are fetched concurrently via multiple workers, which
 optionally you can also control by specifying the flags.
 
 `_10
 
 flow events get <event_name>`
 
-## Example Usage[​](#example-usage "Direct link to Example Usage")
+## Example usage[​](#example-usage "Direct link to Example usage")
 
 Get the event by name `A.0b2a3299cc857e29.TopShot.Deposit` from the last 20 blocks on mainnet.
 
@@ -296,13 +296,12 @@ _34
 
 ## Arguments[​](#arguments "Direct link to Arguments")
 
-### Event Name[​](#event-name "Direct link to Event Name")
+### Event name[​](#event-name "Direct link to Event name")
 
 * Name: `event_name`
 * Valid Input: String
 
-Fully-qualified identifier for the events.
-You can provide multiple event names separated by a space.
+Fully-qualified identifier for the events. You can provide multiple event names separated by a space.
 
 ## Flags[​](#flags "Direct link to Flags")
 
@@ -311,16 +310,14 @@ You can provide multiple event names separated by a space.
 * Flag: `--start`
 * Valid inputs: valid block height
 
-Specify the start block height used alongside the end flag.
-This will define the lower boundary of the block range.
+Specify the start block height used alongside the end flag. This will define the lower boundary of the block range.
 
 ### End[​](#end "Direct link to End")
 
 * Flag: `--end`
 * Valid inputs: valid block height
 
-Specify the end block height used alongside the start flag.
-This will define the upper boundary of the block range.
+Specify the end block height used alongside the start flag. This will define the upper boundary of the block range.
 
 ### Last[​](#last "Direct link to Last")
 
@@ -328,8 +325,7 @@ This will define the upper boundary of the block range.
 * Valid inputs: number
 * Default: `10`
 
-Specify the number of blocks relative to the last block. Ignored if the
-start flag is set. Used as a default if no flags are provided.
+Specify the number of blocks relative to the last block. Ignored if the start flag is set. Used as a default if no flags are provided.
 
 ### Batch[​](#batch "Direct link to Batch")
 
@@ -345,7 +341,7 @@ Number of blocks each worker will fetch.
 * Valid inputs: number
 * Default: `10`
 
-Number of workers to use when fetching events concurrently.
+Number of workers to use when you fetch events concurrently.
 
 ### Host[​](#host "Direct link to Host")
 
@@ -353,17 +349,14 @@ Number of workers to use when fetching events concurrently.
 * Valid inputs: an IP address or hostname.
 * Default: `127.0.0.1:3569` (Flow Emulator)
 
-Specify the hostname of the Access API that will be
-used to execute the command. This flag overrides
-any host defined by the `--network` flag.
+Specify the hostname of the Access API to use to execute the command. This flag overrides any host defined by the `--network` flag.
 
-### Network Key[​](#network-key "Direct link to Network Key")
+### Network key[​](#network-key "Direct link to Network key")
 
 * Flag: `--network-key`
-* Valid inputs: A valid network public key of the host in hex string format
+* Valid inputs: A valid network public key of the host in hex string format.
 
-Specify the network public key of the Access API that will be
-used to create a secure GRPC client when executing the command.
+Specify the network public key of the Access API to use to create a secure GRPC client when you execute the command.
 
 ### Network[​](#network "Direct link to Network")
 
@@ -396,7 +389,7 @@ Specify the format of the command results.
 * Short Flag: `-s`
 * Valid inputs: a path in the current filesystem.
 
-Specify the filename where you want the result to be saved
+Specify the filename where you want the result to be saved.
 
 ### Log[​](#log "Direct link to Log")
 
@@ -414,11 +407,9 @@ Specify the log level. Control how much output you want to see during command ex
 * Valid inputs: a path in the current filesystem.
 * Default: `flow.json`
 
-Specify the path to the `flow.json` configuration file.
-You can use the `-f` flag multiple times to merge
-several configuration files.
+Specify the path to the `flow.json` configuration file. You can use the `-f` flag multiple times to merge several configuration files.
 
-### Version Check[​](#version-check "Direct link to Version Check")
+### Version check[​](#version-check "Direct link to Version check")
 
 * Flag: `--skip-version-check`
 * Default: `false`
@@ -427,7 +418,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/get-flow-data/get-events.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 11, 2025** by **cshannon1218**
 
 [Previous
 
@@ -441,9 +432,9 @@ Get Collection](/build/tools/flow-cli/get-flow-data/get-collections)
 
 Copy as Markdown
 
-* [Example Usage](#example-usage)* [Arguments](#arguments)
-    + [Event Name](#event-name)* [Flags](#flags)
-      + [Start](#start)+ [End](#end)+ [Last](#last)+ [Batch](#batch)+ [Workers](#workers)+ [Host](#host)+ [Network Key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version Check](#version-check)
+* [Example usage](#example-usage)* [Arguments](#arguments)
+    + [Event name](#event-name)* [Flags](#flags)
+      + [Start](#start)+ [End](#end)+ [Last](#last)+ [Batch](#batch)+ [Workers](#workers)+ [Host](#host)+ [Network key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version check](#version-check)
 
 Flow
 

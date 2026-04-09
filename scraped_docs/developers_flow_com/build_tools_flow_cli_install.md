@@ -58,7 +58,7 @@ On this page
 
 # Install Instructions
 
-The Flow CLI can be installed on macOS, Windows (7 or greater) and most Linux systems.
+You can install the Flow CLI on macOS, Windows (7 or greater) and most Linux systems.
 
 ## macOS[​](#macos "Direct link to macOS")
 
@@ -164,27 +164,27 @@ sudo sh -ci "$(curl -fsSL https://raw.githubusercontent.com/onflow/flow-cli/mast
 
    iex "& { $(irm 'https://raw.githubusercontent.com/onflow/flow-cli/master/install.ps1') }"`
 
-## Uninstalling Flow CLI[​](#uninstalling-flow-cli "Direct link to Uninstalling Flow CLI")
+## Uninstall Flow CLI[​](#uninstall-flow-cli "Direct link to Uninstall Flow CLI")
 
-To remove the flow CLI you can run the following command if it was previously installed using a pre-built binary.
+To remove the flow CLI, you can run the following command if it was previously installed from a pre-built binary.
 
 * macOS: `rm /usr/local/bin/flow`
 * Linux: `rm ~/.local/bin/flow`
 * Windows: `rm ~/Users/{user}/AppData/Flow/flow.exe`
 
-If you installed it using Hombrew you can remove it using: `brew uninstall flow-cli`.
+If you installed it with Hombrew, you can remove it with: `brew uninstall flow-cli`.
 
-## Next Steps[​](#next-steps "Direct link to Next Steps")
+## Next steps[​](#next-steps "Direct link to Next steps")
 
 Now that you have the Flow CLI installed, you can:
 
-* **[Get started with Flow CLI commands](/build/tools/flow-cli/commands)** - Learn the essential commands for project development
-* **[Initialize a new project](/build/tools/flow-cli/flow.json/initialize-configuration)** - Create your first Flow project
-* **[Configure your project](/build/tools/flow-cli/flow.json/configuration)** - Set up your `flow.json` configuration file
+* **[Get started with Flow CLI commands](/build/tools/flow-cli/commands)** - Learn the essential commands for project development.
+* **[Initialize a new project](/build/tools/flow-cli/flow.json/initialize-configuration)** - Create your first Flow project.
+* **[Configure your project](/build/tools/flow-cli/flow.json/configuration)** - Set up your `flow.json` configuration file.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/install.md)
 
-Last updated on **Sep 24, 2025** by **Brian Doyle**
+Last updated on **Dec 15, 2025** by **cshannon1218**
 
 [Previous
 
@@ -204,7 +204,7 @@ Copy as Markdown
       + [From a pre-built binary](#from-a-pre-built-binary-2)* [macOS](#macos-1)
         + [Homebrew](#homebrew-1)+ [From a pre-built binary](#from-a-pre-built-binary-3)* [Linux](#linux-1)
           + [From a pre-built binary](#from-a-pre-built-binary-4)* [Windows](#windows-1)
-            + [From a pre-built binary](#from-a-pre-built-binary-5)* [Uninstalling Flow CLI](#uninstalling-flow-cli)* [Next Steps](#next-steps)
+            + [From a pre-built binary](#from-a-pre-built-binary-5)* [Uninstall Flow CLI](#uninstall-flow-cli)* [Next steps](#next-steps)
 
 Flow
 

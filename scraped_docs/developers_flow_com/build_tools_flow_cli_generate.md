@@ -58,7 +58,7 @@ On this page
 
 # Generating Cadence Boilerplate
 
-The `flow generate` command provides a convenient way to create boilerplate template files for common Cadence code components. This command streamlines the development process by automatically generating properly structured files with the correct syntax and organization.
+The `flow generate` command provides a convenient way to create boilerplate template files for common Cadence code components. TO streamline the development process, this command automatically generates properly structured files with the correct syntax and organization.
 
 ## Overview[​](#overview "Direct link to Overview")
 
@@ -68,14 +68,14 @@ flow generate [command]`
 
 **Aliases:** `generate`, `g`
 
-The generate command supports four main subcommands for creating different types of Cadence files:
+The generate command supports four main subcommands to create different types of Cadence files:
 
-* **contract** - Generate Cadence smart contract templates
-* **script** - Generate Cadence script templates
-* **test** - Generate Cadence test templates
-* **transaction** - Generate Cadence transaction templates
+* **contract** - Generate Cadence smart contract templates.
+* **script** - Generate Cadence script templates.
+* **test** - Generate Cadence test templates.
+* **transaction** - Generate Cadence transaction templates.
 
-## Generate Contract[​](#generate-contract "Direct link to Generate Contract")
+## Generate contract[​](#generate-contract "Direct link to Generate contract")
 
 Creates a new Cadence smart contract with a basic template structure.
 
@@ -107,19 +107,19 @@ _10
 
 info
 
-When generating a contract, a corresponding test file will also be created automatically (unless `--skip-tests` is used). For example, generating `HelloWorld` contract will also create `cadence/tests/HelloWorld.test.cdc`.
+When you generate a contract, a test file that corresponds to that contracts is also created automatically (unless `--skip-tests` is used). For example, when you generate `HelloWorld`, the contract will also create `cadence/tests/HelloWorld.test.cdc`.
 
 ### Flags[​](#flags "Direct link to Flags")
 
-* `--dir string` - Directory to generate files in (defaults to `cadence/contracts/`)
-* `--skip-tests` - Skip generating test files
-* `-h, --help` - Help for contract command
+* `--dir string` - Directory to generate files in (defaults to `cadence/contracts/`).
+* `--skip-tests` - Skip test file generation.
+* `-h, --help` - Help for contract command.
 
-## Generate Transaction[​](#generate-transaction "Direct link to Generate Transaction")
+## Generate transaction[​](#generate-transaction "Direct link to Generate transaction")
 
 Creates a new Cadence transaction with a basic template structure.
 
-### Usage[​](#usage-1 "Direct link to Usage")
+### Use[​](#use "Direct link to Use")
 
 `_10
 
@@ -153,15 +153,15 @@ _10
 
 ### Flags[​](#flags-1 "Direct link to Flags")
 
-* `--dir string` - Directory to generate files in (defaults to `cadence/transactions/`)
-* `--skip-tests` - Skip generating test files
-* `-h, --help` - Help for transaction command
+* `--dir string` - Directory to generate files in (defaults to `cadence/transactions/`).
+* `--skip-tests` - Skip test file generation.
+* `-h, --help` - Help for transaction command.
 
-## Generate Script[​](#generate-script "Direct link to Generate Script")
+## Generate script[​](#generate-script "Direct link to Generate script")
 
 Creates a new Cadence script with a basic template structure.
 
-### Usage[​](#usage-2 "Direct link to Usage")
+### Use[​](#use-1 "Direct link to Use")
 
 `_10
 
@@ -181,15 +181,15 @@ access(all) fun main() {}`
 
 ### Flags[​](#flags-2 "Direct link to Flags")
 
-* `--dir string` - Directory to generate files in (defaults to `cadence/scripts/`)
-* `--skip-tests` - Skip generating test files
-* `-h, --help` - Help for script command
+* `--dir string` - Directory to generate files in (defaults to `cadence/scripts/`).
+* `--skip-tests` - Skip test file generation.
+* `-h, --help` - Help for script command.
 
-## Generate Test[​](#generate-test "Direct link to Generate Test")
+## Generate test[​](#generate-test "Direct link to Generate test")
 
 Creates a new Cadence test file with a basic template structure.
 
-### Usage[​](#usage-3 "Direct link to Usage")
+### Use[​](#use-2 "Direct link to Use")
 
 `_10
 
@@ -203,15 +203,15 @@ flow generate test MyToken`
 
 This command creates a file `cadence/tests/MyToken.test.cdc` with a basic test structure.
 
-After generating a test, you can run it using `flow test`. For more information about writing and running Cadence tests, see the [Cadence Tests documentation](/build/tools/flow-cli/tests).
+After you generate a test, you can run it using `flow test`. For more information about how to write and run Cadence tests, see the [Cadence Tests documentation](/build/tools/flow-cli/tests).
 
 ### Flags[​](#flags-3 "Direct link to Flags")
 
-* `--dir string` - Directory to generate files in (defaults to `cadence/tests/`)
-* `--skip-tests` - Skip generating test files
-* `-h, --help` - Help for test command
+* `--dir string` - Directory to generate files in (defaults to `cadence/tests/`).
+* `--skip-tests` - Skip test file generation.
+* `-h, --help` - Help for test command.
 
-## Custom Directory Usage[​](#custom-directory-usage "Direct link to Custom Directory Usage")
+## Custom directory use[​](#custom-directory-use "Direct link to Custom directory use")
 
 All generate commands support the `--dir` flag to specify a custom directory for the generated files. This is useful when your project requires a different organizational structure than the default.
 
@@ -255,9 +255,9 @@ _11
 
 flow generate test MyToken --dir=src/tests`
 
-## Project Structure[​](#project-structure "Direct link to Project Structure")
+## Project structure[​](#project-structure "Direct link to Project structure")
 
-When using the default directories, the generate command creates the following structure:
+When you use the default directories, the generate command creates the following structure:
 
 `_10
 
@@ -295,11 +295,11 @@ _10
 
 └── MyToken.test.cdc`
 
-The generate command is an essential tool for accelerating Flow development by providing standardized, well-structured boilerplate code for all common Cadence components.
+The generate command is an essential tool to accelerate Flow development with standardized, well-structured boilerplate code for all common Cadence components.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/generate.md)
 
-Last updated on **Aug 26, 2025** by **Chase Fleming**
+Last updated on **Dec 15, 2025** by **cshannon1218**
 
 [Previous
 
@@ -313,12 +313,12 @@ Cadence Linter](/build/tools/flow-cli/lint)
 
 Copy as Markdown
 
-* [Overview](#overview)* [Generate Contract](#generate-contract)
-    + [Usage](#usage)+ [Example](#example)+ [Flags](#flags)* [Generate Transaction](#generate-transaction)
-      + [Usage](#usage-1)+ [Example](#example-1)+ [Flags](#flags-1)* [Generate Script](#generate-script)
-        + [Usage](#usage-2)+ [Example](#example-2)+ [Flags](#flags-2)* [Generate Test](#generate-test)
-          + [Usage](#usage-3)+ [Example](#example-3)+ [Flags](#flags-3)* [Custom Directory Usage](#custom-directory-usage)
-            + [Examples](#examples)* [Project Structure](#project-structure)
+* [Overview](#overview)* [Generate contract](#generate-contract)
+    + [Usage](#usage)+ [Example](#example)+ [Flags](#flags)* [Generate transaction](#generate-transaction)
+      + [Use](#use)+ [Example](#example-1)+ [Flags](#flags-1)* [Generate script](#generate-script)
+        + [Use](#use-1)+ [Example](#example-2)+ [Flags](#flags-2)* [Generate test](#generate-test)
+          + [Use](#use-2)+ [Example](#example-3)+ [Flags](#flags-3)* [Custom directory use](#custom-directory-use)
+            + [Examples](#examples)* [Project structure](#project-structure)
 
 Flow
 

@@ -64,7 +64,7 @@ Verify validity of a signature based on provided message and public key of the s
 
 flow signatures verify <message> <signature> <public key>`
 
-## Example Usage[​](#example-usage "Direct link to Example Usage")
+## Example use[​](#example-use "Direct link to Example use")
 
 `_11
 
@@ -114,7 +114,7 @@ Signature Algorithm ECDSA_P256`
 
 * Name: `message`
 
-Message data used for creating the signature.
+Message data used to create the signature.
 
 ### Signature[​](#signature "Direct link to Signature")
 
@@ -126,11 +126,11 @@ Message signature that will be verified.
 
 * Name: `public key`
 
-Public key of the private key used for creating the signature.
+Public key of the private key used to create the signature.
 
 ## Flags[​](#flags "Direct link to Flags")
 
-### Public Key Signature Algorithm[​](#public-key-signature-algorithm "Direct link to Public Key Signature Algorithm")
+### Public key signature algorithm[​](#public-key-signature-algorithm "Direct link to Public key signature algorithm")
 
 * Flag: `--sig-algo`
 * Valid inputs: `"ECDSA_P256", "ECDSA_secp256k1"`
@@ -139,7 +139,7 @@ Specify the ECDSA signature algorithm of the key pair used for signing.
 
 Flow supports the secp256k1 and P-256 curves.
 
-### Public Key Hash Algorithm[​](#public-key-hash-algorithm "Direct link to Public Key Hash Algorithm")
+### Public key hash algorithm[​](#public-key-hash-algorithm "Direct link to Public key hash algorithm")
 
 * Flag: `--hash-algo`
 * Valid inputs: `"SHA2_256", "SHA3_256"`
@@ -178,7 +178,7 @@ Specify the filename where you want the result to be saved.
 * Valid inputs: `none`, `error`, `debug`
 * Default: `info`
 
-Specify the log level. Control how much output you want to see while command execution.
+Specify the log level. Control how much output you want to see while the command executes.
 
 ### Version Check[​](#version-check "Direct link to Version Check")
 
@@ -189,7 +189,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/utils/signature-verify.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 15, 2025** by **cshannon1218**
 
 [Previous
 
@@ -203,9 +203,9 @@ Snapshot Save](/build/tools/flow-cli/utils/snapshot-save)
 
 Copy as Markdown
 
-* [Example Usage](#example-usage)* [Arguments](#arguments)
+* [Example use](#example-use)* [Arguments](#arguments)
     + [Message](#message)+ [Signature](#signature)+ [Public Key](#public-key)* [Flags](#flags)
-      + [Public Key Signature Algorithm](#public-key-signature-algorithm)+ [Public Key Hash Algorithm](#public-key-hash-algorithm)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Version Check](#version-check)
+      + [Public key signature algorithm](#public-key-signature-algorithm)+ [Public key hash algorithm](#public-key-hash-algorithm)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Version Check](#version-check)
 
 Flow
 

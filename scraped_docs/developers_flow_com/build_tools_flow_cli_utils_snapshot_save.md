@@ -64,7 +64,7 @@ The FLOW CLI provides a command to save the latest finalized protocol state snap
 
 flow snapshot save <output path>`
 
-## Example Usage[​](#example-usage "Direct link to Example Usage")
+## Example use[​](#example-use "Direct link to Example use")
 
 `_10
 
@@ -78,7 +78,7 @@ snapshot saved: /tmp/snapshot.json`
 
 ## Arguments[​](#arguments "Direct link to Arguments")
 
-### Output Path[​](#output-path "Direct link to Output Path")
+### Output path[​](#output-path "Direct link to Output path")
 
 * Name: `output path`
 * Valid Input: any valid string path
@@ -93,16 +93,14 @@ Output path where the protocol snapshot JSON file will be saved.
 * Valid inputs: an IP address or hostname.
 * Default: `127.0.0.1:3569` (Flow Emulator)
 
-Specify the hostname of the Access API that will be
-used to execute the commands.
+Specify the hostname of the Access API that will be used to execute the commands.
 
 ### Network Key[​](#network-key "Direct link to Network Key")
 
 * Flag: `--network-key`
 * Valid inputs: A valid network public key of the host in hex string format
 
-Specify the network public key of the Access API that will be
-used to create a secure GRPC client when executing the command.
+Specify the network public key of the Access API that will be used to create a secure GRPC client when you execute the command.
 
 ### Network[​](#network "Direct link to Network")
 
@@ -138,7 +136,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/utils/snapshot-save.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 15, 2025** by **cshannon1218**
 
 [Previous
 
@@ -152,9 +150,9 @@ Development Tools](/build/tools/flow-cli/utils/tools)
 
 Copy as Markdown
 
-* [Example Usage](#example-usage)
+* [Example use](#example-use)
   + [Example response](#example-response)* [Arguments](#arguments)
-    + [Output Path](#output-path)* [Flags](#flags)
+    + [Output path](#output-path)* [Flags](#flags)
       + [Host](#host)+ [Network Key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Version Check](#version-check)
 
 Flow
