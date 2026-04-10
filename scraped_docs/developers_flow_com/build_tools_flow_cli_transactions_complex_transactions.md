@@ -60,16 +60,13 @@ On this page
 
 **Simple Transactions**
 
-Sending a transaction using the Flow CLI can simply be
-achieved by using the [send command documented here](/build/tools/flow-cli/transactions/send-transactions).
+To send a transaction with the Flow CLI use the [send command documented here](/build/tools/flow-cli/transactions/send-transactions).
 
 **Complex Transactions**
 
-If you would like to build more complex transactions the Flow CLI provides
-commands to build, sign and send transactions allowing you to specify different
-authorizers, signers and proposers.
+If you would like to build more complex transactions the Flow CLI provides commands to build, sign and send transactions that allow you to specify different authorizers, signers and proposers.
 
-The process of sending a complex transactions includes three steps:
+To send a complex transactions includes three steps:
 
 1. [build a transaction](/build/tools/flow-cli/transactions/build-transactions)
 2. [sign the built transaction](/build/tools/flow-cli/transactions/sign-transaction)
@@ -79,7 +76,7 @@ Read more about each command flags and arguments in the above links.
 
 ## Examples[​](#examples "Direct link to Examples")
 
-We will describe common examples for complex transactions. All examples are using an [example configuration](/build/tools/flow-cli/transactions/complex-transactions#configuration).
+We will describe common examples for complex transactions. All examples use an [example configuration](/build/tools/flow-cli/transactions/complex-transactions#configuration).
 
 ### Single payer, proposer and authorizer[​](#single-payer-proposer-and-authorizer "Direct link to Single payer, proposer and authorizer")
 
@@ -143,7 +140,7 @@ _10
 
 ### Single payer and proposer, multiple authorizers[​](#single-payer-and-proposer-multiple-authorizers "Direct link to Single payer and proposer, multiple authorizers")
 
-A transaction that declares same payer and proposer but multiple authorizers each required to sign the transaction. Please note that the order of signing is important, and [the payer must sign last](/build/cadence/basics/transactions#payer-signs-last).
+A transaction that declares same payer and proposer but multiple authorizers each required to sign the transaction. The order of signing is important, and [the payer must sign last](/build/cadence/basics/transactions#payer-signs-last).
 
 Build the transaction:
 
@@ -225,8 +222,7 @@ _10
 
 ### Different payer, proposer and authorizer[​](#different-payer-proposer-and-authorizer "Direct link to Different payer, proposer and authorizer")
 
-A transaction that declares different payer, proposer and authorizer each signing separately.
-Please note that the order of signing is important, and [the payer must sign last](/build/cadence/basics/transactions#payer-signs-last).
+A transaction that declares different payer, proposer and authorizer each signing separately. The order of signing is important, and [the payer must sign last](/build/cadence/basics/transactions#payer-signs-last).
 
 Build the transaction:
 
@@ -376,7 +372,7 @@ _10
 
 ### Configuration[​](#configuration "Direct link to Configuration")
 
-This is an example configuration using mock values:
+This is an example configuration that uses mock values:
 
 `_26
 
@@ -484,7 +480,7 @@ _26
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/transactions/complex-transactions.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 15, 2025** by **cshannon1218**
 
 [Previous
 

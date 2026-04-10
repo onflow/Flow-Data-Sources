@@ -426,12 +426,18 @@ access(all) contract HybridCustody {
         ///
         access(Manage) fun removeOwned(addr: Address) {
             if let acct = self.ownedAccounts.remove(key: addr) {
+                // Capture uuid before seal() rotates the auth account capability
+                let id: UInt64? = acct.borrow()?.uuid
                 if acct.check() {
                     acct.borrow()!.seal()
                 }
-                let id: UInt64? = acct.borrow()?.uuid ?? nil
-
-                emit OwnershipUpdated(id: id!, child: addr, previousOwner: self.owner!.address, owner: nil, active: false)
+                emit OwnershipUpdated(
+                    id: id ?? panic("Could not determine id of owned account being removed"),
+                    child: addr,
+                    previousOwner: self.owner!.address,
+                    owner: nil,
+                    active: false
+                )
             }
             // Don't emit an event if nothing was removed
         }
@@ -600,27 +606,23 @@ access(all) contract HybridCustody {
         access(Child) view fun getCapability(controllerID: UInt64, type: Type): Capability? {
             let child = self.childCap.borrow() ?? panic("failed to borrow child account")
 
-            let f = self.factory.borrow()!.getFactory(type)
-            if f == nil {
-                return nil
+            if let factory = self.factory.borrow() {
+                if let f = factory.getFactory(type) {
+                    let acct = child._borrowAccount()
+                    if let cap = f.getCapability(acct: acct, controllerID: controllerID) {
+                        // The child's own filter is always enforced; an invalid filter fails closed
+                        let childAllows = self.filter.borrow()?.allowed(cap: cap) ?? false
+                        // The manager filter is optionally set by the parent account; if absent, default to allow
+                        let managerAllows = self.getManagerCapabilityFilter()?.allowed(cap: cap) ?? true
+                        if !childAllows || !managerAllows {
+                            return nil
+                        }
+                        return cap
+                    }
+                }
             }
 
-            let acct = child._borrowAccount()
-            let tmp = f!.getCapability(acct: acct, controllerID: controllerID)
-            if tmp == nil {
-                return nil
-            }
-
-            let cap = tmp!
-            // The child's own filter is always enforced
-            let childAllows = self.filter.borrow()!.allowed(cap: cap)
-            // The manager filter is optionally set by the parent account; if absent, default to allow
-            let managerAllows = self.getManagerCapabilityFilter()?.allowed(cap: cap) ?? true
-            if !childAllows || !managerAllows {
-                return nil
-            }
-
-            return cap
+            return nil
         }
 
         /// Retrieves a private Capability from the Delegator or nil none is found of the given type. Useful for
@@ -650,13 +652,14 @@ access(all) contract HybridCustody {
         access(all) view fun getPublicCapability(path: PublicPath, type: Type): Capability? {
             let child = self.childCap.borrow() ?? panic("failed to borrow child account")
 
-            let f = self.factory.borrow()!.getFactory(type)
-            if f == nil {
-                return nil
+            if let factory = self.factory.borrow() {
+                if let f = factory.getFactory(type) {
+                    let acct = child._borrowAccount()
+                    return f.getPublicCapability(acct: acct, path: path)
+                }
             }
 
-            let acct = child._borrowAccount()
-            return f!.getPublicCapability(acct: acct, path: path)
+            return nil
         }
 
         /// Returns a reference to the stored managerCapabilityFilter if one exists
@@ -797,13 +800,13 @@ access(all) contract HybridCustody {
         access(self) var acct: Capability<auth(Storage, Contracts, Keys, Inbox, Capabilities) &Account>
 
         /// Mapping of current and pending parents, true and false respectively
-        access(all) let parents: {Address: Bool}
+        access(self) let parents: {Address: Bool}
         /// Address of the pending owner, if one exists
-        access(all) var pendingOwner: Address?
+        access(self) var pendingOwner: Address?
         /// Address of the current owner, if one exists
-        access(all) var acctOwner: Address?
+        access(self) var acctOwner: Address?
         /// Owned status of this account
-        access(all) var currentlyOwned: Bool
+        access(self) var currentlyOwned: Bool
 
         /// A bucket of structs so that the OwnedAccount resource can be easily extended with new functionality.
         access(self) let data: {String: AnyStruct}
@@ -1025,8 +1028,9 @@ access(all) contract HybridCustody {
         /// minimize access vectors.
         ///
         access(Owner) fun giveOwnership(to: Address) {
+            let previousOwner = self.getOwner()
             self.seal()
-            
+
             let acct = self.borrowAccount()
 
             // Link a Capability for the new owner, retrieve & publish
@@ -1041,7 +1045,7 @@ access(all) contract HybridCustody {
             self.pendingOwner = to
             self.currentlyOwned = true
 
-            emit OwnershipGranted(ownedAcctID: self.uuid, child: self.acct.address, previousOwner: self.getOwner(), pendingOwner: to)
+            emit OwnershipGranted(ownedAcctID: self.uuid, child: self.acct.address, previousOwner: previousOwner, pendingOwner: to)
         }
 
         /// Revokes all keys on the underlying account

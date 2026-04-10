@@ -42,7 +42,7 @@ On this page
 
 # Error Codes
 
-List of error codes returned from failing transactions and scripts. The error code has an accompanied error message that usually gives more clarification. This list is meant to give more information and helpful hints.
+List of error codes returned from transactions and scripts that fail. The error code has an accompanied error message that usually gives more clarification. This list is meant to give more information and helpful hints.
 [Code file](https://github.com/onflow/flow-go/blob/master/fvm/errors/codes.go)
 
 ### 1006[​](#1006 "Direct link to 1006")
@@ -322,7 +322,7 @@ Example:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/error-codes.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 16, 2025** by **cshannon1218**
 
 [Previous
 

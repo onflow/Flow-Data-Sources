@@ -58,11 +58,9 @@ On this page
 
 # Build a Transaction
 
-The Flow CLI provides a command to build a transactions with options to specify
-authorizer accounts, payer account and proposer account.
+The Flow CLI provides a command to build a transactions with options to specify authorizer accounts, payer account and proposer account.
 
-The `build` command doesn't produce any signatures and instead
-is designed to be used with the `sign` and `send-signed` commands.
+The `build` command doesn't produce any signatures. Instead, use it with the `sign` and `send-signed` commands.
 
 Use this functionality in the following order:
 
@@ -74,7 +72,7 @@ Use this functionality in the following order:
 
 flow transactions build <code filename> [<argument> <argument>...] [flags]`
 
-## Example Usage[​](#example-usage "Direct link to Example Usage")
+## Example use[​](#example-use "Direct link to Example use")
 
 `_41
 
@@ -222,22 +220,21 @@ JSON arguments from a file example:
 
 ## Arguments[​](#arguments "Direct link to Arguments")
 
-### Code Filename[​](#code-filename "Direct link to Code Filename")
+### Code filename[​](#code-filename "Direct link to Code filename")
 
 * Name: `filename`
 * Valid inputs: Any filename and path valid on the system.
 
-The first argument is a path to a Cadence file containing the
-transaction to be executed.
+The first argument is a path to a Cadence file that contains the transaction to be executed.
 
 ### Arguments[​](#arguments-1 "Direct link to Arguments")
 
 * Name: `argument`
-* Valid inputs: valid [cadence values](https://cadencelang.dev/docs/1.0/json-cadence-spec)
-  matching argument type in transaction code.
+* Valid inputs: valid [cadence values](https://cadencelang.dev/docs/1.0/json-cadence-spec) that match argument type in transaction code.
 
-Input arguments values matching corresponding types in the source code and passed in the same order.
-For passing complex argument values see [send transaction](/build/tools/flow-cli/transactions/send-transactions#example-usage) document.
+Input arguments values that match the types that correspond in the source code and passed in the same order.
+
+To pass complex argument values, see the [send transaction](/build/tools/flow-cli/transactions/send-transactions#example-usage) document.
 
 ## Flags[​](#flags "Direct link to Flags")
 
@@ -247,8 +244,7 @@ For passing complex argument values see [send transaction](/build/tools/flow-cli
 * Valid Inputs: Flow address or account name from configuration.
 * Default: service account
 
-Specify account address that will be paying for the transaction.
-Read more about payers [here](/build/cadence/basics/transactions).
+Specify account address that will pay for the transaction. Read more about payers [here](/build/cadence/basics/transactions).
 
 ### Proposer[​](#proposer "Direct link to Proposer")
 
@@ -273,8 +269,7 @@ Specify key index for the proposer account.
 * Valid Inputs: Flow address or account name from configuration.
 * Default: service account
 
-Additional authorizer addresses to add to the transaction.
-Read more about authorizers [here](/build/cadence/basics/transactions).
+Additional authorizer addresses to add to the transaction. Read more about authorizers [here](/build/cadence/basics/transactions).
 
 ### Arguments JSON[​](#arguments-json "Direct link to Arguments JSON")
 
@@ -282,11 +277,10 @@ Read more about authorizers [here](/build/cadence/basics/transactions).
 * Valid inputs: arguments in JSON-Cadence form.
 * Example: `flow transactions build ./tx.cdc '[{"type": "String", "value": "Hello World"}]'`
 
-Arguments passed to the Cadence transaction in Cadence JSON format.
-Cadence JSON format contains `type` and `value` keys and is
+Arguments passed to the Cadence transaction in Cadence JSON format. Cadence JSON format contains `type` and `value` keys and is
 [documented here](https://cadencelang.dev/docs/1.0/json-cadence-spec).
 
-### Gas Limit[​](#gas-limit "Direct link to Gas Limit")
+### Gas limit[​](#gas-limit "Direct link to Gas limit")
 
 * Flag: `--compute-limit`
 * Valid inputs: an integer greater than zero.
@@ -300,16 +294,14 @@ Specify the compute unit (gas) limit for this transaction.
 * Valid inputs: an IP address or hostname.
 * Default: `127.0.0.1:3569` (Flow Emulator)
 
-Specify the hostname of the Access API that will be
-used to execute the commands.
+Specify the hostname of the Access API that will be used to execute the commands.
 
-### Network Key[​](#network-key "Direct link to Network Key")
+### Network key[​](#network-key "Direct link to Network key")
 
 * Flag: `--network-key`
 * Valid inputs: A valid network public key of the host in hex string format
 
-Specify the network public key of the Access API that will be
-used to create a secure GRPC client when executing the command.
+Specify the network public key of the Access API that will be used to create a secure GRPC client when you execute the command.
 
 ### Network[​](#network "Direct link to Network")
 
@@ -320,7 +312,7 @@ used to create a secure GRPC client when executing the command.
 
 Specify which network you want the command to use for execution.
 
-### Include Fields[​](#include-fields "Direct link to Include Fields")
+### Include fields[​](#include-fields "Direct link to Include fields")
 
 * Flag: `--include`
 * Valid inputs: `code`, `payload`, `signatures`
@@ -366,10 +358,9 @@ Specify the log level. Control how much output you want to see while command exe
 * Short Flag: `-f`
 * Valid inputs: valid filename
 
-Specify a filename for the configuration files, you can provide multiple configuration
-files by using `-f` flag multiple times.
+Specify a filename for the configuration files. To provide multiple configuration files, pass the `-f` flag multiple times.
 
-### Version Check[​](#version-check "Direct link to Version Check")
+### Version check[​](#version-check "Direct link to Version check")
 
 * Flag: `--skip-version-check`
 * Default: `false`
@@ -378,7 +369,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/transactions/build-transactions.md)
 
-Last updated on **Nov 12, 2025** by **Brian Doyle**
+Last updated on **Dec 15, 2025** by **cshannon1218**
 
 [Previous
 
@@ -392,9 +383,9 @@ Build a Complex Transaction](/build/tools/flow-cli/transactions/complex-transact
 
 Copy as Markdown
 
-* [Example Usage](#example-usage)* [Arguments](#arguments)
-    + [Code Filename](#code-filename)+ [Arguments](#arguments-1)* [Flags](#flags)
-      + [Payer](#payer)+ [Proposer](#proposer)+ [Proposer Key Index](#proposer-key-index)+ [Authorizer](#authorizer)+ [Arguments JSON](#arguments-json)+ [Gas Limit](#gas-limit)+ [Host](#host)+ [Network Key](#network-key)+ [Network](#network)+ [Include Fields](#include-fields)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version Check](#version-check)
+* [Example use](#example-use)* [Arguments](#arguments)
+    + [Code filename](#code-filename)+ [Arguments](#arguments-1)* [Flags](#flags)
+      + [Payer](#payer)+ [Proposer](#proposer)+ [Proposer Key Index](#proposer-key-index)+ [Authorizer](#authorizer)+ [Arguments JSON](#arguments-json)+ [Gas limit](#gas-limit)+ [Host](#host)+ [Network key](#network-key)+ [Network](#network)+ [Include fields](#include-fields)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version check](#version-check)
 
 Flow
 

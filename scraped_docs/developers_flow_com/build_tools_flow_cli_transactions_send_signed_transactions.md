@@ -58,8 +58,7 @@ On this page
 
 # Send Signed Transaction
 
-The Flow CLI provides a command to send signed transactions to
-any Flow Access API.
+The Flow CLI provides a command to send signed transactions to any Flow Access API.
 
 Use this functionality in the following order:
 
@@ -71,7 +70,7 @@ Use this functionality in the following order:
 
 flow transactions send-signed <signed transaction filename>`
 
-## Example Usage[​](#example-usage "Direct link to Example Usage")
+## Example use[​](#example-use "Direct link to Example use")
 
 `_22
 
@@ -149,24 +148,23 @@ Payload (hidden, use --include payload)`
 
 ## Arguments[​](#arguments "Direct link to Arguments")
 
-### Signed Code Filename[​](#signed-code-filename "Direct link to Signed Code Filename")
+### Signed code filename[​](#signed-code-filename "Direct link to Signed code filename")
 
 * Name: `signed transaction filename`
 * Valid inputs: Any filename and path valid on the system.
 
-The first argument is a path to a Cadence file containing the
-transaction to be executed.
+The first argument is a path to a Cadence file that contains the transaction to be executed.
 
 ## Flags[​](#flags "Direct link to Flags")
 
-### Include Fields[​](#include-fields "Direct link to Include Fields")
+### Include fields[​](#include-fields "Direct link to Include fields")
 
 * Flag: `--include`
 * Valid inputs: `code`, `payload`
 
 Specify fields to include in the result output. Applies only to the text output.
 
-### Exclude Fields[​](#exclude-fields "Direct link to Exclude Fields")
+### Exclude fields[​](#exclude-fields "Direct link to Exclude fields")
 
 * Flag: `--exclude`
 * Valid inputs: `events`
@@ -191,13 +189,12 @@ Specify the hostname of the Access API that will be
 used to execute the command. This flag overrides
 any host defined by the `--network` flag.
 
-### Network Key[​](#network-key "Direct link to Network Key")
+### Network key[​](#network-key "Direct link to Network key")
 
 * Flag: `--network-key`
 * Valid inputs: A valid network public key of the host in hex string format
 
-Specify the network public key of the Access API that will be
-used to create a secure GRPC client when executing the command.
+Specify the network public key of the Access API that will be used to create a secure GRPC client when you execute the command.
 
 ### Network[​](#network "Direct link to Network")
 
@@ -222,7 +219,7 @@ Specify the format of the command results.
 * Short Flag: `-s`
 * Valid inputs: a path in the current filesystem.
 
-Specify the filename where you want the result to be saved
+Specify the filename where you want to save the result.
 
 ### Log[​](#log "Direct link to Log")
 
@@ -240,11 +237,9 @@ Specify the log level. Control how much output you want to see during command ex
 * Valid inputs: a path in the current filesystem.
 * Default: `flow.json`
 
-Specify the path to the `flow.json` configuration file.
-You can use the `-f` flag multiple times to merge
-several configuration files.
+Specify the path to the `flow.json` configuration file. You can use the `-f` flag multiple times to merge several configuration files.
 
-### Version Check[​](#version-check "Direct link to Version Check")
+### Version check[​](#version-check "Direct link to Version check")
 
 * Flag: `--skip-version-check`
 * Default: `false`
@@ -253,7 +248,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/transactions/send-signed-transactions.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 15, 2025** by **cshannon1218**
 
 [Previous
 
@@ -267,9 +262,9 @@ Build a Complex Transaction](/build/tools/flow-cli/transactions/decode-transacti
 
 Copy as Markdown
 
-* [Example Usage](#example-usage)* [Arguments](#arguments)
-    + [Signed Code Filename](#signed-code-filename)* [Flags](#flags)
-      + [Include Fields](#include-fields)+ [Exclude Fields](#exclude-fields)+ [Filter](#filter)+ [Host](#host)+ [Network Key](#network-key)+ [Network](#network)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version Check](#version-check)
+* [Example use](#example-use)* [Arguments](#arguments)
+    + [Signed code filename](#signed-code-filename)* [Flags](#flags)
+      + [Include fields](#include-fields)+ [Exclude fields](#exclude-fields)+ [Filter](#filter)+ [Host](#host)+ [Network key](#network-key)+ [Network](#network)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version check](#version-check)
 
 Flow
 
