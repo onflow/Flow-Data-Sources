@@ -58,8 +58,7 @@ On this page
 
 # Build a Complex Transaction
 
-The Flow CLI provides a command to decode a transaction
-from RLP in a file. It uses same transaction format as get command
+The Flow CLI provides a command to decode a transaction from RLP in a file. It uses same transaction format as get command
 
 `_10
 
@@ -138,11 +137,11 @@ Payload (hidden, use --include payload)`
 * Name: `<file_name>`
 * Valid Input: file name.
 
-The first argument is the filename containing the transaction RLP.
+The first argument is the filename that contains the transaction RLP.
 
 ## Flags[​](#flags "Direct link to Flags")
 
-### Include Fields[​](#include-fields "Direct link to Include Fields")
+### Include fields[​](#include-fields "Direct link to Include fields")
 
 * Flag: `--include`
 * Valid inputs: `code`, `payload`, `signatures`
@@ -165,7 +164,7 @@ Specify the format of the command results.
 
 Specify the filename where you want the result to be saved
 
-### Version Check[​](#version-check "Direct link to Version Check")
+### Version check[​](#version-check "Direct link to Version check")
 
 * Flag: `--skip-version-check`
 * Default: `false`
@@ -174,7 +173,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/transactions/decode-transactions.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 15, 2025** by **cshannon1218**
 
 [Previous
 
@@ -190,7 +189,7 @@ Copy as Markdown
 
 * [Example Usage](#example-usage)* [Arguments](#arguments)
     + [Filename](#filename)* [Flags](#flags)
-      + [Include Fields](#include-fields)+ [Output](#output)+ [Save](#save)+ [Version Check](#version-check)
+      + [Include fields](#include-fields)+ [Output](#output)+ [Save](#save)+ [Version check](#version-check)
 
 Flow
 

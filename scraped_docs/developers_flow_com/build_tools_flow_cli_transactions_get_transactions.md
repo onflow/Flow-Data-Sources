@@ -58,168 +58,163 @@ On this page
 
 # Get a Transaction
 
-The Flow CLI provides a command to fetch a transaction
-that was previously submitted to an Access API.
+The Flow CLI provides a command to fetch a transaction that was previously submitted to an Access API.
 
 `_10
 
 flow transactions get <tx_id>`
 
-## Example Usage[​](#example-usage "Direct link to Example Usage")
+## Example use[​](#example-use "Direct link to Example use")
 
-`_44
+`_42
 
 > flow transactions get 40bc4b100c1930c61381c22e0f4c10a7f5827975ee25715527c1061b8d71e5aa --network mainnet
 
-_44
+_42
 
-_44
+_42
 
 Status ✅ SEALED
 
-_44
+_42
 
 ID 40bc4b100c1930c61381c22e0f4c10a7f5827975ee25715527c1061b8d71e5aa
 
-_44
+_42
 
 Payer 18eb4ee6b3c026d2
 
-_44
+_42
 
 Authorizers [18eb4ee6b3c026d2]
 
-_44
+_42
 
-_44
+_42
 
 Proposal Key:
 
-_44
+_42
 
 Address 18eb4ee6b3c026d2
 
-_44
+_42
 
 Index 11
 
-_44
+_42
 
 Sequence 17930
 
-_44
+_42
 
-_44
+_42
 
 Payload Signature 0: 18eb4ee6b3c026d2
 
-_44
+_42
 
 Payload Signature 1: 18eb4ee6b3c026d2
 
-_44
+_42
 
 Envelope Signature 0: 18eb4ee6b3c026d2
 
-_44
+_42
 
 Signatures (minimized, use --include signatures)
 
-_44
+_42
 
-_44
+_42
 
 Events:
 
-_44
+_42
 
 Index 0
 
-_44
+_42
 
 Type A.1654653399040a61.FlowToken.TokensWithdrawn
 
-_44
+_42
 
 Tx ID 40bc4b100c1930c61381c22e0f4c10a7f5827975ee25715527c1061b8d71e5aa
 
-_44
+_42
 
 Values
 
-_44
+_42
 
 - amount (UFix64): 0.00100000
 
-_44
+_42
 
 - from ({}?): 18eb4ee6b3c026d2
 
-_44
+_42
 
-_44
+_42
 
 Index 1
 
-_44
+_42
 
 Type A.1654653399040a61.FlowToken.TokensDeposited
 
-_44
+_42
 
 Tx ID 40bc4b100c1930c61381c22e0f4c10a7f5827975ee25715527c1061b8d71e5aa
 
-_44
+_42
 
 Values
 
-_44
+_42
 
 - amount (UFix64): 0.00100000
 
-_44
+_42
 
 - to ({}?): 5068e27f275c546c
 
-_44
+_42
 
-_44
+_42
 
 Index 2
 
-_44
+_42
 
 Type A.18eb4ee6b3c026d2.PrivateReceiverForwarder.PrivateDeposit
 
-_44
+_42
 
 Tx ID 40bc4b100c1930c61381c22e0f4c10a7f5827975ee25715527c1061b8d71e5aa
 
-_44
+_42
 
 Values
 
-_44
+_42
 
 - amount (UFix64): 0.00100000
 
-_44
+_42
 
 - to ({}?): 5068e27f275c546c
 
-_44
+_42
 
-_44
-
-_44
-
-_44
+_42
 
 Code (hidden, use --include code)
 
-_44
+_42
 
-_44
+_42
 
 Payload (hidden, use --include payload)`
 
@@ -234,22 +229,21 @@ The first argument is the ID (hash) of the transaction.
 
 ## Flags[​](#flags "Direct link to Flags")
 
-### Include Fields[​](#include-fields "Direct link to Include Fields")
+### Include fields[​](#include-fields "Direct link to Include fields")
 
 * Flag: `--include`
 * Valid inputs: `code`, `payload`, `signatures`
 
 Specify fields to include in the result output. Applies only to the text output.
 
-### Wait for Seal[​](#wait-for-seal "Direct link to Wait for Seal")
+### Wait for seal[​](#wait-for-seal "Direct link to Wait for seal")
 
 * Flag: `--sealed`
 * Default: `false`
 
-Indicate whether to wait for the transaction to be sealed
-before displaying the result.
+Indicate whether to wait for the transaction to be sealed before itdisplays the result.
 
-### Exclude Fields[​](#exclude-fields "Direct link to Exclude Fields")
+### Exclude fields[​](#exclude-fields "Direct link to Exclude fields")
 
 * Flag: `--exclude`
 * Valid inputs: `events`
@@ -262,17 +256,14 @@ Specify fields to exclude from the result output. Applies only to the text outpu
 * Valid inputs: an IP address or hostname.
 * Default: `127.0.0.1:3569` (Flow Emulator)
 
-Specify the hostname of the Access API that will be
-used to execute the command. This flag overrides
-any host defined by the `--network` flag.
+Specify the hostname of the Access API that will be used to execute the command. This flag overrides any host defined by the `--network` flag.
 
-### Network Key[​](#network-key "Direct link to Network Key")
+### Network key[​](#network-key "Direct link to Network key")
 
 * Flag: `--network-key`
 * Valid inputs: A valid network public key of the host in hex string format
 
-Specify the network public key of the Access API that will be
-used to create a secure GRPC client when executing the command.
+Specify the network public key of the Access API that will be used to create a secure GRPC client when you execute the command.
 
 ### Network[​](#network "Direct link to Network")
 
@@ -305,7 +296,7 @@ Specify the format of the command results.
 * Short Flag: `-s`
 * Valid inputs: a path in the current filesystem.
 
-Specify the filename where you want the result to be saved
+Specify the filename where you want to save the result.
 
 ### Log[​](#log "Direct link to Log")
 
@@ -323,11 +314,9 @@ Specify the log level. Control how much output you want to see during command ex
 * Valid inputs: a path in the current filesystem.
 * Default: `flow.json`
 
-Specify the path to the `flow.json` configuration file.
-You can use the `-f` flag multiple times to merge
-several configuration files.
+Specify the path to the `flow.json` configuration file. You can use the `-f` flag multiple times to merge several configuration files.
 
-### Version Check[​](#version-check "Direct link to Version Check")
+### Version check[​](#version-check "Direct link to Version check")
 
 * Flag: `--skip-version-check`
 * Default: `false`
@@ -336,7 +325,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/transactions/get-transactions.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 15, 2025** by **cshannon1218**
 
 [Previous
 
@@ -350,9 +339,9 @@ Build a Transaction](/build/tools/flow-cli/transactions/build-transactions)
 
 Copy as Markdown
 
-* [Example Usage](#example-usage)* [Arguments](#arguments)
+* [Example use](#example-use)* [Arguments](#arguments)
     + [Transaction ID](#transaction-id)* [Flags](#flags)
-      + [Include Fields](#include-fields)+ [Wait for Seal](#wait-for-seal)+ [Exclude Fields](#exclude-fields)+ [Host](#host)+ [Network Key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version Check](#version-check)
+      + [Include fields](#include-fields)+ [Wait for seal](#wait-for-seal)+ [Exclude fields](#exclude-fields)+ [Host](#host)+ [Network key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version check](#version-check)
 
 Flow
 

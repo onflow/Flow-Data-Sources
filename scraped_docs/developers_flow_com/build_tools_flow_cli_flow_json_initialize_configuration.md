@@ -58,9 +58,9 @@ On this page
 
 # Initialize Configuration
 
-The `flow init` command creates a new Flow project with a basic `flow.json` configuration file. This is the first step in setting up any Flow project.
+The `flow init` command creates a new Flow project with a basic `flow.json` configuration file. This is the first step to set up any Flow project.
 
-## Basic Usage[​](#basic-usage "Direct link to Basic Usage")
+## Basic usage[​](#basic-usage "Direct link to Basic usage")
 
 `_10
 
@@ -68,15 +68,15 @@ flow init`
 
 This command will:
 
-* Create a new `flow.json` configuration file
-* Set up default networks (emulator, testnet, mainnet)
-* Create an emulator service account
-* Generate a basic project structure with `cadence/` directories
-* Give you options for project scaffolding
+* Create a new `flow.json` configuration file.
+* Set up default networks (emulator, testnet, mainnet).
+* Create an emulator service account.
+* Generate a basic project structure with `cadence/` directories.
+* Give you options for project scaffolding.
 
-## Project Structure[​](#project-structure "Direct link to Project Structure")
+## Project structure[​](#project-structure "Direct link to Project structure")
 
-After running `flow init`, you'll have:
+After you run `flow init`, you'll have:
 
 `_10
 
@@ -110,9 +110,9 @@ _10
 
 └── tests/`
 
-## Configuration Only[​](#configuration-only "Direct link to Configuration Only")
+## Configuration only[​](#configuration-only "Direct link to Configuration only")
 
-If you only want to generate the `flow.json` file without creating the full project structure, use the `--config-only` flag:
+If you only want to generate the `flow.json` file, but not create the full project structure, use the `--config-only` flag:
 
 `_10
 
@@ -120,11 +120,11 @@ flow init --config-only`
 
 This is useful when:
 
-* You already have a project structure
-* You want to add Flow configuration to an existing project
-* You're setting up configuration for a specific environment
+* You already have a project structure.
+* You want to add Flow configuration to a current project.
+* You want to set up configuration for a specific environment.
 
-## Global Configuration[​](#global-configuration "Direct link to Global Configuration")
+## Global configuration[​](#global-configuration "Direct link to Global configuration")
 
 You can create a global `flow.json` file that applies to all Flow projects on your system:
 
@@ -142,9 +142,9 @@ flow init --global`
 1. Local `flow.json` (highest priority)
 2. Global `flow.json` (lowest priority)
 
-Local configuration files will override global settings for overlapping properties.
+Local configuration files will override global settings for properties that overlap.
 
-## Error Handling[​](#error-handling "Direct link to Error Handling")
+## Error handling[​](#error-handling "Direct link to Error handling")
 
 If a `flow.json` file already exists, you'll see this error:
 
@@ -154,13 +154,13 @@ If a `flow.json` file already exists, you'll see this error:
 
 **Solutions:**
 
-* Delete the existing `flow.json` file first
-* Initialize in a different directory
-* Use `--config-only` to create a new config in a different location
+* Delete the current `flow.json` file first.
+* Initialize in a different directory.
+* Use `--config-only` to create a new config in a different location.
 
 ## Flags[​](#flags "Direct link to Flags")
 
-### Configuration Only[​](#configuration-only-1 "Direct link to Configuration Only")
+### Configuration only[​](#configuration-only-1 "Direct link to Configuration only")
 
 `_10
 
@@ -168,7 +168,7 @@ flow init --config-only`
 
 Creates only the `flow.json` file without project structure.
 
-### Global Flags[​](#global-flags "Direct link to Global Flags")
+### Global flags[​](#global-flags "Direct link to Global flags")
 
 The following global flags are also available:
 
@@ -204,7 +204,7 @@ flow init --yes`
 
 ## Next Steps[​](#next-steps "Direct link to Next Steps")
 
-After initializing your configuration:
+After you initialize the configuration:
 
 1. **Review the generated `flow.json`** - Understand the default setup
 2. **Add your contracts** - Use `flow config add contract`
@@ -220,7 +220,7 @@ After initializing your configuration:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/flow.json/initialize-configuration.md)
 
-Last updated on **Oct 9, 2025** by **Brian Doyle**
+Last updated on **Dec 11, 2025** by **cshannon1218**
 
 [Previous
 
@@ -234,8 +234,8 @@ Configuration](/build/tools/flow-cli/flow.json/configuration)
 
 Copy as Markdown
 
-* [Basic Usage](#basic-usage)* [Project Structure](#project-structure)* [Configuration Only](#configuration-only)* [Global Configuration](#global-configuration)* [Error Handling](#error-handling)* [Flags](#flags)
-            + [Configuration Only](#configuration-only-1)+ [Global Flags](#global-flags)* [Next Steps](#next-steps)* [Related Commands](#related-commands)
+* [Basic usage](#basic-usage)* [Project structure](#project-structure)* [Configuration only](#configuration-only)* [Global configuration](#global-configuration)* [Error handling](#error-handling)* [Flags](#flags)
+            + [Configuration only](#configuration-only-1)+ [Global flags](#global-flags)* [Next Steps](#next-steps)* [Related Commands](#related-commands)
 
 Flow
 
