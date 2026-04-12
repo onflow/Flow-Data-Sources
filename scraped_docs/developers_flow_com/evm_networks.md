@@ -46,12 +46,12 @@ Flow EVM has the following public RPC nodes available:
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Name Value|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Network Name Flow EVM Testnet|  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Description The public RPC URL for Flow Testnet|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | RPC Endpoint <https://testnet.evm.nodes.onflow.org>| Chain ID 545|  |  |  |  | | --- | --- | --- | --- | | Currency Symbol FLOW|  |  | | --- | --- | | Block Explorer <https://evm-testnet.flowscan.io> | | | | | | | | | | | | | |
 
-## EVM Specification[​](#evm-specification "Direct link to EVM Specification")
+## EVM specification[​](#evm-specification "Direct link to EVM specification")
 
-* Flow EVM is a virtual EVM-based blockchain using the latest EVM byte-code interpreter `Geth v1.13`
-* Utilizes `FLOW` token for transactions, with balances denominated in `Atto-FLOW` (1 `FLOW` = 10^18 `Atto-FLOW`)
-* The [EVM Gateway](https://github.com/onflow/flow-evm-gateway) exposes the standard EVM API (Ethereum JSON-RPC)
-* Read more about the implementation in [FLIP 223: EVM integration interface](https://github.com/onflow/flips/blob/main/protocol/20231116-evm-support.md)
+* Flow EVM is a virtual EVM-based blockchain with the latest EVM byte-code interpreter `Geth v1.13`.
+* Uses `FLOW` token for transactions, with balances denominated in `Atto-FLOW` (1 `FLOW` = 10^18 `Atto-FLOW`).
+* The [EVM Gateway](https://github.com/onflow/flow-evm-gateway) exposes the standard EVM API (Ethereum JSON-RPC).
+* Read more about the implementation in [FLIP 223: EVM integration interface](https://github.com/onflow/flips/blob/main/protocol/20231116-evm-support.md).
 
 ## JSON-RPC Methods[​](#json-rpc-methods "Direct link to JSON-RPC Methods")
 
@@ -65,7 +65,7 @@ Read more about the [EVM Gateway](https://github.com/onflow/flow-evm-gateway) on
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/evm/networks.md)
 
-Last updated on **Sep 24, 2025** by **Brian Doyle**
+Last updated on **Dec 8, 2025** by **cshannon1218**
 
 [Previous
 
@@ -79,7 +79,7 @@ Fees](/build/evm/fees)
 
 Copy as Markdown
 
-* [EVM Specification](#evm-specification)* [JSON-RPC Methods](#json-rpc-methods)
+* [EVM specification](#evm-specification)* [JSON-RPC Methods](#json-rpc-methods)
 
 Flow
 
