@@ -67,7 +67,19 @@ References are **copied** (i.e., they are value types).
 
 References have the type `&T`, where `T` is the type of the referenced object.
 
-References are created using the `&` operator. The reference type must be explicitly provided, for example, through a type annotation on a variable declaration or a type assertion using the `as` operator:
+Cadence has two kinds of references with different binding semantics:
+
+* [Ephemeral References](#ephemeral-references)
+* [Storage References](#storage-references)
+
+## Ephemeral references[​](#ephemeral-references "Direct link to Ephemeral references")
+
+Ephemeral references are created by taking a reference to a value on the stack.
+They are "value-bound", in the sense that the reference tracks a specific value instance.
+If the reference is to a resource, then the reference gets invalidated when the resource gets moved.
+Refer to the [Reference Validity](#reference-validity) section for more details.
+
+Ephemeral references are created using the `&` operator. The reference type must be explicitly provided, for example, through a type annotation on a variable declaration or a type assertion using the `as` operator:
 
 `_10
 
@@ -105,6 +117,20 @@ let hello = "Hello"`
    _10
 
    let unknownRef = &hello`
+
+## Storage references[​](#storage-references "Direct link to Storage references")
+
+Storage references are created by borrowing from an account storage.
+They are bound to a path, not a value instance.
+This means that the reference resolves to whatever value currently exists at the target storage path.
+Storage references function similarly to symbolic links in a filesystem: they point to a location, not to a specific object.
+
+As such, the validity of a storage reference depends on the value stored at the path.
+A storage reference does **not** get invalidated when the underlying value is changed or removed,
+as long as a compatible value exists at the path when the reference is used.
+Refer to the [Reference Validity](#reference-validity) section for more details.
+
+## Common characteristics[​](#common-characteristics "Direct link to Common characteristics")
 
 The reference type must be a supertype of the referenced object's type:
 
@@ -755,7 +781,11 @@ insertableAndRemovableArrayRef[2] = "John" // OK`
 
 ## Reference validity[​](#reference-validity "Direct link to Reference validity")
 
-Ephemeral references stay valid throughout the course of the program. However, **references to resources** can become invalid during the execution of a program if the referenced resource is moved or destroyed after taking the reference.
+### Ephemeral references[​](#ephemeral-references-1 "Direct link to Ephemeral references")
+
+Ephemeral references stay alive throughout the course of the program.
+However, **ephemeral references to resources** can become invalid during the execution of a program if the referenced resource
+is moved or destroyed after taking the reference.
 
 `` _11
 
@@ -779,7 +809,7 @@ _11
 
 _11
 
-// This will invalidate all the references taken to the resource `r`.
+// This will invalidate all the ephemeral references taken to the resource `r`.
 
 _11
 
@@ -795,7 +825,7 @@ _11
 
 ref.id = 2 ``
 
-A reference is invalidated upon the first transfer of the underlying resource, regardless of the origin and the destination.
+An ephemeral reference is invalidated upon the first transfer of the underlying resource, regardless of the origin and the destination.
 
 `_10
 
@@ -821,9 +851,128 @@ _10
 
 ref.id = 2`
 
-tip
+### Storage references[​](#storage-references-1 "Direct link to Storage references")
 
-Invalidations of storage references are not statically caught, but only at run-time.
+Similar to ephemeral references, storage references also stay alive throughout the course of the program.
+However, the validity of a storage reference depends on the value stored at the path to which the reference was taken.
+
+`` _36
+
+resource interface I {}
+
+_36
+
+_36
+
+resource R: I {}
+
+_36
+
+_36
+
+// Store an instance of `R` at the path `/storage/r`.
+
+_36
+
+account.storage.save(<- create R(), to: /storage/r)
+
+_36
+
+_36
+
+// Borrow a storage reference to the same path, as `R`.
+
+_36
+
+let rRef = account.storage.borrow<&R>(from: /storage/r)
+
+_36
+
+_36
+
+// Borrow a storage reference to the same path, as interface type `{I}`.
+
+_36
+
+let iRef = account.storage.borrow<&{I}>(from: /storage/r)
+
+_36
+
+_36
+
+_36
+
+// Remove the value
+
+_36
+
+destroy <- account.storage.load(from: /storage/r)
+
+_36
+
+_36
+
+// Both references are invalid now, as there is no value satisfying the borrow type.
+
+_36
+
+let id1 = rRef.id // Error
+
+_36
+
+let id2 = iRef.id // Error
+
+_36
+
+_36
+
+_36
+
+// Store a different value at the same path.
+
+_36
+
+// This new value is a subtype of the interface type `{I}`.
+
+_36
+
+_36
+
+resource T: I {}
+
+_36
+
+_36
+
+account.storage.save(<- create T(), to: /storage/r)
+
+_36
+
+_36
+
+// Now this makes `rRef` invalid, since it was borrowed as type `R`,
+
+_36
+
+// but the value stored is now of type `T`.
+
+_36
+
+let id1 = rRef.id // Error
+
+_36
+
+_36
+
+// But the reference `iRef` remains valid, since it was borrowed as type `{I}`,
+
+_36
+
+// and the value stored is now of type `T`, which is a subtype of `{I}`.
+
+_36
+
+let id2 = iRef.id // Valid ``
 
 ## Dereferencing values[​](#dereferencing-values "Direct link to Dereferencing values")
 
@@ -879,9 +1028,14 @@ Imports](/docs/language/imports)
 
 😞😐😊
 
+* [Ephemeral references](#ephemeral-references)
+* [Storage references](#storage-references)
+* [Common characteristics](#common-characteristics)
 * [Authorized references](#authorized-references)
   + [References and entitlement mappings](#references-and-entitlement-mappings)
 * [Field and index access](#field-and-index-access)
   + [Index assignment](#index-assignment)
 * [Reference validity](#reference-validity)
+  + [Ephemeral references](#ephemeral-references-1)
+  + [Storage references](#storage-references-1)
 * [Dereferencing values](#dereferencing-values)
