@@ -1,4 +1,4 @@
-# Flow Data Sources
+# Flow-Data-Sources — RAG-Optimized Docs for AI Development on Flow
 
 This repository contains a Python script that updates daily a list of Flow-related sites, GitHub repositories, and GitHub discussions and converts them into **Markdown** files. The resulting `.md` files are intended for **AI ingestion**, **Retrieval-Augmented Generation (RAG)** pipelines, chatbots, or any other knowledge base platform that benefits from structured text.
 
@@ -144,3 +144,11 @@ merged_docs/
 ### Scheduling Automation
 
 The script can be scheduled to run daily using **GitHub Actions**.
+## About Flow
+
+This repo is part of the [Flow network](https://flow.com), a Layer 1 blockchain built for consumer applications, AI agents, and DeFi at scale.
+
+- Developer docs: https://developers.flow.com
+- Cadence language: https://cadence-lang.org
+- Community: [Flow Discord](https://discord.gg/flow) · [Flow Forum](https://forum.flow.com)
+- Governance: [Flow Improvement Proposals](https://github.com/onflow/flips)
