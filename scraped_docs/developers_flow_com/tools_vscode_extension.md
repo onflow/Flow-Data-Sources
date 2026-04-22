@@ -42,7 +42,7 @@ On this page
 
 # Cadence VS Code Extension
 
-This extension integrates [Cadence](https://cadence-lang.org/docs), the resource-oriented smart contract programming language of [Flow](https://www.onflow.org/), into [Visual Studio Code](https://code.visualstudio.com/).
+This extension integrates [Cadence], the resource-oriented smart contract programming language of [Flow](https://www.onflow.org/), into [Visual Studio Code](https://code.visualstudio.com/).
 It provides features like syntax highlighting, type checking, code completion, etc.
 
 Note that most editing features (type checking, code completion, etc.) are implemented in the [Cadence Language Server](https://github.com/onflow/cadence-tools/tree/master/languageserver).
@@ -57,19 +57,19 @@ Note that most editing features (type checking, code completion, etc.) are imple
 To install the extension, ensure you have the [VS Code IDE installed](https://code.visualstudio.com/docs/setup/mac).  
 Then, you can install the Cadence extension from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=onflow.cadence).
 
-## Developing the Extension[​](#developing-the-extension "Direct link to Developing the Extension")
+## Develop the extension[​](#develop-the-extension "Direct link to Develop the extension")
 
 ### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
 * Must have Typescript installed globally: `npm i -g typescript`
 
-### Getting Started[​](#getting-started "Direct link to Getting Started")
+### Get started[​](#get-started "Direct link to Get started")
 
 * Run the Typescript watcher: `tsc -watch -p ./`
-* Launch the extension by pressing `F5` in VSCode
-* Manually reload the extension host when you make changes to TypeScript code
+* Press `F5` in VSCode to launch the extension.
+* Manually reload the extension host when you make changes to TypeScript code.
 
-### Configuration for Extension Host if Missing (`launch.json`):[​](#configuration-for-extension-host-if-missing-launchjson "Direct link to configuration-for-extension-host-if-missing-launchjson")
+### Configuration for extension host if missing (`launch.json`):[​](#configuration-for-extension-host-if-missing-launchjson "Direct link to configuration-for-extension-host-if-missing-launchjson")
 
 `_13
 
@@ -123,12 +123,9 @@ _13
 
 }`
 
-### Building[​](#building "Direct link to Building")
+### Build[​](#build "Direct link to Build")
 
-If you are building the extension from source, you need to build both the
-extension itself and the Flow CLI (if you don't already have a version installed).
-Unless you're developing the extension or need access to unreleased features,
-you should use the Flow CLI install option (above). It's much easier!
+If you build the extension from source, you need to build both the extension itself and the Flow CLI (if you don't already have a version installed). Unless you're developing the extension or need access to unreleased features, use the Flow CLI install option (above). It's much easier!
 
 If you haven't already, install dependencies.
 
@@ -146,7 +143,7 @@ script
 
 npm run package`
 
-This will result in a `.vsix` file containing the packaged extension.
+This will result in a `.vsix` file that contains the packaged extension.
 
 Install the packaged extension.
 
@@ -156,11 +153,11 @@ script
 
 code --install-extension cadence-*.vsix`
 
-Restart VS Code and the extension should be installed!
+Restart VS Code and the extension is installed!
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/vscode-extension/index.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Dec 16, 2025** by **cshannon1218**
 
 [Previous
 
@@ -174,8 +171,8 @@ Flow Dev Wallet](/build/tools/flow-dev-wallet)
 
 Copy as Markdown
 
-* [Features](#features)* [Installation](#installation)* [Developing the Extension](#developing-the-extension)
-      + [Prerequisites](#prerequisites)+ [Getting Started](#getting-started)+ [Configuration for Extension Host if Missing (`launch.json`):](#configuration-for-extension-host-if-missing-launchjson)+ [Building](#building)
+* [Features](#features)* [Installation](#installation)* [Develop the extension](#develop-the-extension)
+      + [Prerequisites](#prerequisites)+ [Get started](#get-started)+ [Configuration for extension host if missing (`launch.json`):](#configuration-for-extension-host-if-missing-launchjson)+ [Build](#build)
 
 Flow
 
