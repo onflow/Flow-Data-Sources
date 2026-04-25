@@ -1,6 +1,7 @@
 # Source: https://github.com/onflow/cadence-lang.org/blob/main/docs/tutorial/04-capabilities.md
 
 ---
+slug: capabilities
 title: Capabilities and Entitlements
 description: An introduction to capabilities, entitlements, and how they interact with resources in Cadence
 meta:

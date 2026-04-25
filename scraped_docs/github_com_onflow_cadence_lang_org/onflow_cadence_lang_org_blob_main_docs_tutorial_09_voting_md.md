@@ -1,6 +1,7 @@
 # Source: https://github.com/onflow/cadence-lang.org/blob/main/docs/tutorial/09-voting.md
 
 ---
+slug: voting
 title: Voting Contract
 ---
 

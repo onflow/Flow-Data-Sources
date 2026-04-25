@@ -1,6 +1,7 @@
 # Source: https://github.com/onflow/cadence-lang.org/blob/main/docs/tutorial/05-non-fungible-tokens-1.md
 
 ---
+slug: non-fungible-tokens-1
 archived: false
 draft: false
 title: Basic NFT

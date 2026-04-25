@@ -1,6 +1,7 @@
 # Source: https://github.com/onflow/cadence-lang.org/blob/main/docs/tutorial/01-first-steps.md
 
 ---
+slug: first-steps
 archived: false
 draft: false
 title: First Steps

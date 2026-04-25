@@ -1,6 +1,6 @@
 # Source: https://github.com/onflow/bridged-usdc/blob/main/README.md
 
-# Flow Bridged USDC
+# bridged-usdc — Flow Bridged USDC Standard
 
 This repo holds the `USDCFlow` smart contract, the Cadence 
 Fungible Token contract that acts as the Cadence bridged version of
@@ -81,3 +81,12 @@ That will run all the tests in the `tests/` directory.
 - [Old `FiatToken` code](https://github.com/flow-usdc/flow-usdc)
 - [Blog Post Announcing Migration from old USDC to new USDC](https://www.flow.com/post/stablecoins-on-flow-evolving-for-interoperability)
 - [Flow VM Bridge Github Repo](https://github.com/onflow/flow-evm-bridge/tree/main)
+
+## About Flow
+
+This repo is part of the [Flow network](https://flow.com), a Layer 1 blockchain built for consumer applications, AI agents, and DeFi at scale.
+
+- Developer docs: https://developers.flow.com
+- Cadence language: https://cadence-lang.org
+- Community: [Flow Discord](https://discord.gg/flow) · [Flow Forum](https://forum.flow.com)
+- Governance: [Flow Improvement Proposals](https://github.com/onflow/flips)

@@ -1,6 +1,7 @@
 # Source: https://github.com/onflow/cadence-lang.org/blob/main/docs/tutorial/07-marketplace-setup.md
 
 ---
+slug: marketplace-setup
 title: Marketplace Setup
 ---
 

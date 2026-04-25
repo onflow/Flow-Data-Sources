@@ -1,6 +1,7 @@
 # Source: https://github.com/onflow/cadence-lang.org/blob/main/docs/tutorial/03-resources.md
 
 ---
+slug: resources
 archived: false
 draft: false
 title: Resources and the Move (<-) Operator

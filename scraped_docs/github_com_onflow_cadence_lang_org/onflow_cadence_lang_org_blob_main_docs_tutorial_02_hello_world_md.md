@@ -1,6 +1,7 @@
 # Source: https://github.com/onflow/cadence-lang.org/blob/main/docs/tutorial/02-hello-world.md
 
 ---
+slug: hello-world
 archived: false
 draft: false
 title: Hello World

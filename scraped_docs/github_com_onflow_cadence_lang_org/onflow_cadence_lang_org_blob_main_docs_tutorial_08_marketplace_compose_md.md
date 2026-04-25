@@ -1,6 +1,7 @@
 # Source: https://github.com/onflow/cadence-lang.org/blob/main/docs/tutorial/08-marketplace-compose.md
 
 ---
+slug: marketplace-compose
 title: Marketplace
 archived: false
 draft: false
