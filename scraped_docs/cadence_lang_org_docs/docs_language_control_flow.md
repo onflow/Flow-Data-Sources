@@ -307,6 +307,454 @@ _10
 
 } ``
 
+## Guard statement[​](#guard-statement "Direct link to Guard statement")
+
+The guard statement is an early-exit mechanism. It asserts that a condition must be true (or an optional must be non-nil) to continue execution. If the condition is false, the mandatory `else` block runs — and that block **must** exit the current scope via `return`, `break`, `continue`, or a function that never returns (e.g., `panic`).
+
+The Cadence type checker enforces this: a guard whose `else` block can fall through is a type error.
+
+### Basic boolean guard[​](#basic-boolean-guard "Direct link to Basic boolean guard")
+
+`_10
+
+fun divide(_ a: Int, by b: Int): Int {
+
+_10
+
+guard b != 0 else {
+
+_10
+
+return 0
+
+_10
+
+}
+
+_10
+
+return a / b
+
+_10
+
+}
+
+_10
+
+_10
+
+divide(10, by: 2) // returns 5
+
+_10
+
+divide(10, by: 0) // returns 0`
+
+### Comparison with if-statement[​](#comparison-with-if-statement "Direct link to Comparison with if-statement")
+
+`guard` reads as "ensure this is true, otherwise bail out." The normal path stays at the outermost indentation level — there is no rightward drift for validation logic:
+
+`_23
+
+// Using if — validation logic nests deeper
+
+_23
+
+fun processAge(_ age: Int): String {
+
+_23
+
+if age >= 0 {
+
+_23
+
+if age <= 150 {
+
+_23
+
+return "Valid age: \(age)"
+
+_23
+
+} else {
+
+_23
+
+return "Too old"
+
+_23
+
+}
+
+_23
+
+} else {
+
+_23
+
+return "Negative age"
+
+_23
+
+}
+
+_23
+
+}
+
+_23
+
+_23
+
+// Using guard — happy path stays flat
+
+_23
+
+fun processAge(_ age: Int): String {
+
+_23
+
+guard age >= 0 else {
+
+_23
+
+return "Negative age"
+
+_23
+
+}
+
+_23
+
+guard age <= 150 else {
+
+_23
+
+return "Too old"
+
+_23
+
+}
+
+_23
+
+return "Valid age: \(age)"
+
+_23
+
+}`
+
+### Optional binding with guard[​](#optional-binding-with-guard "Direct link to Optional binding with guard")
+
+`guard let` and `guard var` unwrap an optional and — crucially — make the bound variable available **in the enclosing scope**, after the guard. This is the key difference from `if let`, where the bound variable only exists inside the `if` block.
+
+`` _10
+
+fun greet(_ name: String?): String {
+
+_10
+
+guard let unwrappedName = name else {
+
+_10
+
+return "Hello, stranger"
+
+_10
+
+}
+
+_10
+
+// `unwrappedName` is available here, already unwrapped to `String`
+
+_10
+
+return "Hello, \(unwrappedName)"
+
+_10
+
+}
+
+_10
+
+_10
+
+greet("Alice") // returns "Hello, Alice"
+
+_10
+
+greet(nil) // returns "Hello, stranger" ``
+
+Contrast with `if let`:
+
+`` _10
+
+fun greet(_ name: String?): String {
+
+_10
+
+if let unwrappedName = name {
+
+_10
+
+// `unwrappedName` only exists inside this block
+
+_10
+
+return "Hello, \(unwrappedName)"
+
+_10
+
+}
+
+_10
+
+return "Hello, stranger"
+
+_10
+
+// `unwrappedName` is NOT available here
+
+_10
+
+} ``
+
+Use `guard var` when the unwrapped value needs to be mutated after the guard:
+
+`_10
+
+fun normalize(_ value: Int?): Int {
+
+_10
+
+guard var n = value else {
+
+_10
+
+return 0
+
+_10
+
+}
+
+_10
+
+if n < 0 {
+
+_10
+
+n = 0
+
+_10
+
+}
+
+_10
+
+return n
+
+_10
+
+}`
+
+### Chaining guards[​](#chaining-guards "Direct link to Chaining guards")
+
+Multiple guards at the top of a function express preconditions clearly, without nesting:
+
+`` _19
+
+struct User {
+
+_19
+
+let name: String
+
+_19
+
+let age: Int
+
+_19
+
+_19
+
+init(name: String, age: Int) {
+
+_19
+
+self.name = name
+
+_19
+
+self.age = age
+
+_19
+
+}
+
+_19
+
+}
+
+_19
+
+_19
+
+fun createUser(name: String?, age: Int?): User? {
+
+_19
+
+guard let validName = name else { return nil }
+
+_19
+
+guard let validAge = age else { return nil }
+
+_19
+
+guard validName.length > 0 else { return nil }
+
+_19
+
+guard validAge >= 0 else { return nil }
+
+_19
+
+_19
+
+// All checks passed; both `validName` and `validAge` are in scope
+
+_19
+
+return User(name: validName, age: validAge)
+
+_19
+
+} ``
+
+### Guard in loops[​](#guard-in-loops "Direct link to Guard in loops")
+
+Inside a loop, `guard` can use `continue` or `break` instead of `return`:
+
+`_15
+
+fun sumPositives(_ values: [Int?]): Int {
+
+_15
+
+var total = 0
+
+_15
+
+for item in values {
+
+_15
+
+guard let value = item else {
+
+_15
+
+continue // skip nil entries
+
+_15
+
+}
+
+_15
+
+guard value > 0 else {
+
+_15
+
+continue // skip non-positive entries
+
+_15
+
+}
+
+_15
+
+total = total + value
+
+_15
+
+}
+
+_15
+
+return total
+
+_15
+
+}
+
+_15
+
+_15
+
+sumPositives([1, nil, -3, 4, nil, 2]) // returns 7`
+
+### Guard with resources[​](#guard-with-resources "Direct link to Guard with resources")
+
+`guard let` works with optional resources using the `<-` move operator. The `else` block must consume or destroy the original resource before exiting:
+
+`_15
+
+resource Vault {
+
+_15
+
+let balance: UFix64
+
+_15
+
+init(balance: UFix64) {
+
+_15
+
+self.balance = balance
+
+_15
+
+}
+
+_15
+
+}
+
+_15
+
+_15
+
+fun withdraw(_ vault: @Vault?): UFix64 {
+
+_15
+
+guard let v <- vault else {
+
+_15
+
+return 0.0
+
+_15
+
+}
+
+_15
+
+let balance = v.balance
+
+_15
+
+destroy v
+
+_15
+
+return balance
+
+_15
+
+}`
+
 ## Switch[​](#switch "Direct link to Switch")
 
 Switch-statements compare a value against several possible values of the same type, in order. When an equal value is found, the associated block of code is executed.
@@ -1121,6 +1569,13 @@ Scope](/docs/language/scope)
 
 * [Conditional branching: if-statement](#conditional-branching-if-statement)
 * [Optional binding](#optional-binding)
+* [Guard statement](#guard-statement)
+  + [Basic boolean guard](#basic-boolean-guard)
+  + [Comparison with if-statement](#comparison-with-if-statement)
+  + [Optional binding with guard](#optional-binding-with-guard)
+  + [Chaining guards](#chaining-guards)
+  + [Guard in loops](#guard-in-loops)
+  + [Guard with resources](#guard-with-resources)
 * [Switch](#switch)
   + [Duplicate cases](#duplicate-cases)
   + [`break`](#break)
