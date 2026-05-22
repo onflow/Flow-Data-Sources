@@ -35,7 +35,7 @@ On this page
 
 This is an opinionated list of best practices that Cadence developers should follow to write more secure Cadence code.
 
-Some practices listed below might overlap with advice in the [Cadence Anti-Patterns](/docs/design-patterns) article, which is a recommended read as well.
+Some practices listed below might overlap with advice in the [Cadence Anti-Patterns](/docs/anti-patterns) article, which is a recommended read as well.
 
 ## Access Control[​](#access-control "Direct link to Access Control")
 
@@ -93,115 +93,119 @@ _13
 
 If there are any functions that modify privileged state that also need to be callable from external code, use [entitlements](/docs/language/access-control) for the access modifiers for those functions:
 
-`` _31
+`` _32
 
-/// Simplified Vault implementation
+/// Declare Entitlements at the contract level — entitlements are
 
-_31
+_32
 
-/// Simplified Bank Account implementation
+/// namespaced to their contract and referenced by access modifiers
 
-_31
+_32
 
-access(all) resource BankAccount {
+/// on the contract's resources, structs, and functions.
 
-_31
-
-_31
-
-/// Declare Entitlements for state-modifying functions
-
-_31
+_32
 
 access(all) entitlement Owner
 
-_31
+_32
 
-_31
+_32
+
+/// Simplified Bank Account implementation
+
+_32
+
+access(all) resource BankAccount {
+
+_32
+
+_32
 
 /// Fields should default to access(self) just to be safe
 
-_31
+_32
 
 access(self) var balance: UFix64
 
-_31
+_32
 
-_31
+_32
 
 /// All non-view functions should be something other than access(all),
 
-_31
+_32
 
-_31
+_32
 
 /// This is only callable by other functions in the type, so it is `access(self)`
 
-_31
+_32
 
 access(self) fun updateBalance(_ new: UFix64) {
 
-_31
+_32
 
 self.balance = new
 
-_31
+_32
 
 }
 
-_31
+_32
 
-_31
+_32
 
 /// This function is external, but should only be called by the owner
 
-_31
+_32
 
 /// so we use the `Owner` entitlement
 
-_31
+_32
 
 access(Owner) fun withdrawFromAccount(_ amount: UFix64): @BankAccount {
 
-_31
+_32
 
 self.updateBalance(self.balance - amount)
 
-_31
+_32
 
 return <-create BankAccount(balance: amount)
 
-_31
+_32
 
 }
 
-_31
+_32
 
-_31
+_32
 
 /// This is also state-modifying, but we intend for it to be callable by anyone
 
-_31
+_32
 
 /// so we can make it access(all)
 
-_31
+_32
 
 access(all) fun depositToAccount(_ from: @BankAccount) {
 
-_31
+_32
 
 self.updateBalance(self.balance + from.getBalance())
 
-_31
+_32
 
 destroy from
 
-_31
+_32
 
 }
 
-_31
+_32
 
 } ``
 
@@ -239,7 +243,7 @@ _20
 
 _20
 
-let flowTokenVaultCaps = account.capabilities.storage.getControllers(forPath: /storage/flowTokenVault)
+let flowTokenVaultCaps = signer.capabilities.storage.getControllers(forPath: /storage/flowTokenVault)
 
 _20
 
@@ -291,7 +295,7 @@ _20
 
 _20
 
-flowTokenVaultCap = account.capabilities.storage.issue<auth(FungibleToken.Withdraw) &FlowToken.Vault>(/storage/flowTokenVault)
+flowTokenVaultCap = signer.capabilities.storage.issue<auth(FungibleToken.Withdraw) &FlowToken.Vault>(/storage/flowTokenVault)
 
 _20
 
@@ -307,7 +311,7 @@ When publishing a capability, a published capability might already be present. I
 
 _10
 
-if account.capabilities.borrow<&FlowToken.Vault>(/public/flowTokenReceiver) == nil {
+if signer.capabilities.borrow<&FlowToken.Vault>(/public/flowTokenReceiver) == nil {
 
 _10
 

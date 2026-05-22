@@ -49,141 +49,149 @@ for example, to write to storage, which provides the opportunity for bad actors 
 
 ### Example:[​](#example "Direct link to Example:")
 
-`` _39
+`` _41
 
 ...
 
-_39
+_41
 
 // BAD CODE
 
-_39
+_41
 
 // DO NOT COPY
 
-_39
+_41
 
-_39
+_41
 
 // Imagine this code is in a contract that uses a `auth(Storage) &Account` parameter
 
-_39
+_41
 
 // to authenticate users to transfer NFTs
 
-_39
+_41
 
-_39
+_41
 
 // They could deploy the contract with an Ethereum-style access control list functionality
 
-_39
+_41
 
-_39
+_41
 
 access(all)
 
-_39
+_41
 
 fun transferNFT(id: UInt64, owner: auth(Storage) &Account) {
 
-_39
+_41
 
 assert(owner(id) == owner.address)
 
-_39
+_41
 
-_39
+_41
 
 transfer(id)
 
-_39
+_41
 
 }
 
-_39
+_41
 
-_39
+_41
 
 // But they could upgrade the function to have the same signature
 
-_39
+_41
 
 // so it looks like it is doing the same thing, but they could also drain a little bit
 
-_39
+_41
 
 // of FLOW from the user's vault, a totally separate piece of the account that
 
-_39
+_41
 
 // should not be accessible in this function
 
-_39
+_41
 
 // BAD
 
-_39
+_41
 
-_39
+_41
 
 access(all)
 
-_39
+_41
 
 fun transferNFT(id: UInt64, owner: auth(Storage) &Account) {
 
-_39
+_41
 
 assert(owner(id) == owner.address)
 
-_39
+_41
 
-_39
+_41
 
 transfer(id)
 
-_39
+_41
 
-_39
+_41
 
 // Sneakily borrow a reference to the user's Flow Token Vault
 
-_39
+_41
 
 // and withdraw a bit of FLOW
 
-_39
+_41
 
 // BAD
 
-_39
+_41
 
-let vaultRef = owner.borrow<&FlowToken.Vault>(/storage/flowTokenVault)!
+let vaultRef = owner.storage.borrow<auth(FungibleToken.Withdraw) &FlowToken.Vault>(
 
-_39
+_41
+
+from: /storage/flowTokenVault
+
+_41
+
+)!
+
+_41
 
 let stolenTokens <- vaultRef.withdraw(amount: 0.1)
 
-_39
+_41
 
-_39
+_41
 
 // deposit the stolen funds in the contract owners vault
 
-_39
+_41
 
 // BAD
 
-_39
+_41
 
 contractVault.deposit(from: <-stolenTokens)
 
-_39
+_41
 
 }
 
-_39
+_41
 
 ... ``
 

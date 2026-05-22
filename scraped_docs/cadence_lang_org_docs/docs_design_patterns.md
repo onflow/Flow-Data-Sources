@@ -166,7 +166,7 @@ self.testStoragePath = /storage/testStorage
 
 _32
 
-self.account.storage.save(<-create Test(), to: self.TestStoragePath)
+self.account.storage.save(<-create Test(), to: self.testStoragePath)
 
 _32
 
@@ -834,123 +834,139 @@ can be borrowed using a reference expression (`&v as &T`).
 
 ### Example[​](#example-3 "Direct link to Example")
 
-`` _36
+`` _40
 
 // BAD: Loads and stores a resource to use it
 
-_36
+_40
 
 //
 
-_36
+_40
 
 transaction {
 
-_36
+_40
 
-_36
+_40
 
 prepare(acct: auth(LoadValue, SaveValue) &Account) {
 
-_36
+_40
 
-_36
+_40
 
 // Removes the vault from storage, a costly operation
 
-_36
+_40
 
-let vault <- acct.storage.load<@ExampleToken.Vault>(from: /storage/exampleToken)
+let vault <- acct.storage.load<@ExampleToken.Vault>(from: /storage/exampleToken)!
 
-_36
+_40
 
-_36
+_40
 
 // Withdraws tokens
 
-_36
+_40
 
-let burnVault <- vault.withdraw(amount: 10)
+let burnVault <- vault.withdraw(amount: 10.0)
 
-_36
+_40
 
-_36
+_40
 
 destroy burnVault
 
-_36
+_40
 
-_36
+_40
 
 // Saves the used vault back to storage, another costly operation
 
-_36
+_40
 
-acct.storage.save(to: /storage/exampleToken)
+acct.storage.save(<-vault, to: /storage/exampleToken)
 
-_36
+_40
 
-_36
-
-}
-
-_36
+_40
 
 }
 
-_36
+_40
 
-_36
+}
+
+_40
+
+_40
 
 // GOOD: Uses borrow instead to avoid costly operations
 
-_36
+_40
 
 //
 
-_36
+_40
 
 transaction {
 
-_36
+_40
 
-_36
+_40
 
 prepare(acct: auth(BorrowValue) &Account) {
 
-_36
+_40
 
-_36
+_40
 
 // Borrows a reference to the stored vault, much less costly operation
 
-_36
+_40
 
-let vault <- acct.storage.borrow<&ExampleToken.Vault>(from: /storage/exampleToken)
+// Borrow returns an optional reference; force-unwrap (or null-check) before use.
 
-_36
+_40
 
-_36
+// The reference must be authorized to call entitled methods like `withdraw`.
 
-let burnVault <- vault.withdraw(amount: 10)
+_40
 
-_36
+let vaultRef = acct.storage.borrow<auth(FungibleToken.Withdraw) &ExampleToken.Vault>(
 
-_36
+_40
+
+from: /storage/exampleToken
+
+_40
+
+)!
+
+_40
+
+_40
+
+let burnVault <- vaultRef.withdraw(amount: 10.0)
+
+_40
+
+_40
 
 destroy burnVault
 
-_36
+_40
 
-_36
+_40
 
 // No `save` required because we only used a reference
 
-_36
+_40
 
 }
 
-_36
+_40
 
 } ``
 
@@ -1168,7 +1184,7 @@ _26
 
 _26
 
-let vaultCaps = account.capabilities.storage.getControllers(forPath: /storage/exampleTokenVault)
+let vaultCaps = signer.capabilities.storage.getControllers(forPath: /storage/exampleTokenVault)
 
 _26
 
@@ -1176,7 +1192,7 @@ for cap in vaultCaps {
 
 _26
 
-if let cap = cap as? Capability<&ExampleToken.Vault> {
+if let cap = cap.capability as? Capability<&ExampleToken.Vault> {
 
 _26
 
@@ -1206,7 +1222,7 @@ _26
 
 _26
 
-capability = account.capabilities.storage.issue<&ExampleToken.Vault>(/storage/exampleTokenVault)
+capability = signer.capabilities.storage.issue<&ExampleToken.Vault>(/storage/exampleTokenVault)
 
 _26
 
@@ -1222,7 +1238,7 @@ _26
 
 _26
 
-if signer.capabilities.exits(publicPath) {
+if signer.capabilities.exists(publicPath) {
 
 _26
 
@@ -1234,7 +1250,7 @@ _26
 
 _26
 
-signer.capabilities.publish(capability, at: publicPath)
+signer.capabilities.publish(capability!, at: publicPath)
 
 _26
 
