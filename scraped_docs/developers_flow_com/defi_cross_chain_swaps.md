@@ -44,14 +44,9 @@ Intent based bridges do not depend on pre-funded liquidity pools which can impro
 
 [Relay.link](https://relay.link/bridge/base) allows users to specify desired cross-chain swap outcomes for orders.
 
-### DeBridge[​](#debridge "Direct link to DeBridge")
-
-[DeBridge](https://app.debridge.finance/) achieves efficient cross-chain swaps with minimal slippage in a decentralized environment
-through a peer-to-peer transaction mechanism.
-
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/defi/cross-chain-swaps.md)
 
-Last updated on **Dec 1, 2025** by **Brian Doyle**
+Last updated on **Jun 24, 2026** by **Ali Serag**
 
 [Previous
 
@@ -67,7 +62,7 @@ Copy as Markdown
 
 * [Liquidity Pool Based Cross-chain Swaps](#liquidity-pool-based-cross-chain-swaps)
   + [Stargate](#stargate)+ [Celer](#celer)* [Intent Based Cross-chain Swaps](#intent-based-cross-chain-swaps)
-    + [Relay](#relay)+ [DeBridge](#debridge)
+    + [Relay](#relay)
 
 Flow
 

@@ -64,9 +64,9 @@ Below is a list of commonly used DeFi contracts on Flow Mainnet:
 
 ## Bridges & Cross-Chain Messaging[​](#bridges--cross-chain-messaging "Direct link to Bridges & Cross-Chain Messaging")
 
-|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Bridge / Protocol Reference Docs|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Stargate Bridge ([stargate.finance](https://stargate.finance/bridge?srcChain=ethereum&srcToken=0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48&dstChain=flow&dstToken=0xF1815bd50389c46847f0Bda824eC8da914045D14)) [Mainnet Contracts](https://stargateprotocol.gitbook.io/stargate/v2-developer-docs/technical-reference/mainnet-contracts#flow)| Hyperlane Bridge ([trump.hyperlane.xyz](https://trump.hyperlane.xyz/)) [Mainnet Contracts](https://docs.hyperlane.xyz/docs/reference/addresses/mailbox-addresses)| Flow Bridge ([bridge.flow.com](https://bridge.flow.com/)) [Superbridge Docs](https://docs.superbridge.app/)| Celer cBridge ([cbridge.celer.network](https://cbridge.celer.network/1/747/USDC-intermediary)) [Celer cBridge Docs](https://cbridge-docs.celer.network/tutorial/flow-cadence-bridging-guide)| DeBridge ([app.debridge.finance](https://app.debridge.finance/)) [DeBridge Contracts](https://docs.debridge.finance/dln-the-debridge-liquidity-network-protocol/deployed-contracts)| Relay ([relay.link](https://relay.link/bridge)) [Relay Contracts](https://docs.relay.link/resources/contract-addresses)| LayerZero [Mainnet Contracts](https://docs.layerzero.network/v1/developers/evm/technical-reference/deployed-contracts?chains=flow)| Axelar [Axelar Docs](https://docs.axelar.dev/validator/external-chains/flow/) | | | | | | | | | | | | | | | | | |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Bridge / Protocol Reference Docs|  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Stargate Bridge ([stargate.finance](https://stargate.finance/bridge?srcChain=ethereum&srcToken=0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48&dstChain=flow&dstToken=0xF1815bd50389c46847f0Bda824eC8da914045D14)) [Mainnet Contracts](https://stargateprotocol.gitbook.io/stargate/v2-developer-docs/technical-reference/mainnet-contracts#flow)| Hyperlane Bridge ([trump.hyperlane.xyz](https://trump.hyperlane.xyz/)) [Mainnet Contracts](https://docs.hyperlane.xyz/docs/reference/addresses/mailbox-addresses)| Flow Bridge ([bridge.flow.com](https://bridge.flow.com/)) [Superbridge Docs](https://docs.superbridge.app/)| Celer cBridge ([cbridge.celer.network](https://cbridge.celer.network/1/747/USDC-intermediary)) [Celer cBridge Docs](https://cbridge-docs.celer.network/tutorial/flow-cadence-bridging-guide)| Relay ([relay.link](https://relay.link/bridge)) [Relay Contracts](https://docs.relay.link/resources/contract-addresses)| LayerZero [Mainnet Contracts](https://docs.layerzero.network/v1/developers/evm/technical-reference/deployed-contracts?chains=flow)| Axelar [Axelar Docs](https://docs.axelar.dev/validator/external-chains/flow/) | | | | | | | | | | | | | | | |
 
 ## Omni Fungible Tokens (PYUSD → USDF)[​](#omni-fungible-tokens-pyusd--usdf "Direct link to Omni Fungible Tokens (PYUSD → USDF)")
 
@@ -106,7 +106,7 @@ More information can be found on the Credora docs site for [EAS on Flow](https:/
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/defi/defi-contracts-mainnet.md)
 
-Last updated on **Dec 23, 2025** by **bz**
+Last updated on **Jun 24, 2026** by **Ali Serag**
 
 [Previous
 
