@@ -18,5 +18,5 @@ transaction() {
             self.storefront.removeListing(listingResourceID: resourceID)
         }
     }
-}z
+}
 ```
