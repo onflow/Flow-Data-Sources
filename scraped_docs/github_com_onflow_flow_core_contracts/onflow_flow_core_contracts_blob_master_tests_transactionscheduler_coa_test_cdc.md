@@ -363,7 +363,7 @@ access(all) fun testCOAScheduledTransactions() {
     executeScheduledTransaction(
         id: 6,
         testName: "Test COA Transaction Scheduling: Deposit too much FLOW and revert",
-        failWithErr: "is greater than the balance of the Vault"
+        failWithErr: "is greater than the balance of the `Vault`"
     )
 
     executeScheduledTransaction(
@@ -374,7 +374,7 @@ access(all) fun testCOAScheduledTransactions() {
 
     executeScheduledTransaction(
         id: 8,
-        testName: "Test COA Transaction Scheduling: Transfer too mcuh FLOW in EVM and revert",
+        testName: "Test COA Transaction Scheduling: Transfer too much FLOW in EVM and revert",
         failWithErr: "have 50000000000000000000 want 1000000000000000000000"
     )
 
