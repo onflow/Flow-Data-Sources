@@ -162,7 +162,6 @@ Integration guides for third-party services and tools that enhance Flow blockcha
   + [Authentication Integration Guide](/blockchain-development-tutorials/integrations/crossmint/authentication) - Set up user authentication for your Flow application using Crossmint's integrated authentication system with email, social logins, and wallet connections for unified identity management.
   + [Payment Checkout Integration](/blockchain-development-tutorials/integrations/crossmint/payment-checkout) - Enable fiat and cross-chain payments for Flow assets with credit cards, Apple Pay, Google Pay, and crypto across 40+ chains using hosted, embedded, or headless checkout solutions.
   + [Minting Platform Integration](/blockchain-development-tutorials/integrations/crossmint/minting-platform) - Create and distribute tokens at scale on Flow using Crossmint's no-code and API-based minting platform with smart contract deployment and airdrop capabilities.
-* [Gelato Smart Wallet](/blockchain-development-tutorials/integrations/gelato-sw) - Learn how to use Gelato Smart Wallet to enable gasless transactions on Flow EVM through sponsored transactions with EIP-7702 support for enhanced user experience.
 
 ### Building in Web3 has never been easier[​](#building-in-web3-has-never-been-easier "Direct link to Building in Web3 has never been easier")
 
@@ -170,7 +169,7 @@ Flow will continue to provide quality walkthroughs and tutorials to provide deve
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/index.md)
 
-Last updated on **Nov 12, 2025** by **Brian Doyle**
+Last updated on **Aug 13, 2026** by **Ali Serag**
 
 [Next
 

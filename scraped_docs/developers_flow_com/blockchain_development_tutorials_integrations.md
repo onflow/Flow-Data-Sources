@@ -32,7 +32,7 @@ Search
 
                     * [Third-Party Integrations](/blockchain-development-tutorials/integrations)
 
-                      + [Gelato Smart Wallet](/blockchain-development-tutorials/integrations/gelato-sw)+ [Crossmint Integration Guide](/blockchain-development-tutorials/integrations/crossmint)
+                      + [Crossmint Integration Guide](/blockchain-development-tutorials/integrations/crossmint)
 
 * * Third-Party Integrations
 
@@ -42,13 +42,9 @@ On this page
 
 Flow's developer-friendly ecosystem extends beyond core blockchain functionality through strategic integrations with leading infrastructure platforms. These integrations eliminate common Web3 friction points, which allows you to build sophisticated applications with traditional Web2 user experiences and leverage Flow's unique blockchain capabilities.
 
-This section provides comprehensive integration guides for platforms that enhance Flow development by addressing key challenges like gas fees, payment processing, user onboarding, and wallet management. Each integration tutorial provides step-by-step implementation guidance, best practices, and real-world examples to help you quickly integrate these powerful services into your Flow applications.
+This section provides comprehensive integration guides for platforms that enhance Flow development by addressing key challenges like payment processing, user onboarding, and wallet management. Each integration tutorial provides step-by-step implementation guidance, best practices, and real-world examples to help you quickly integrate these powerful services into your Flow applications.
 
 ## Available integrations[​](#available-integrations "Direct link to Available integrations")
-
-### [Gelato Smart Wallet](/blockchain-development-tutorials/integrations/gelato-sw)[​](#gelato-smart-wallet "Direct link to gelato-smart-wallet")
-
-Eliminate gas fees and improve user experience with Gelato's sponsored transaction infrastructure on Flow EVM. This comprehensive guide shows you how to implement gasless transactions with EIP-7702 features, configure API keys and funding accounts, and integrate the Gelato Smart Wallet SDK for seamless user onboarding. Learn to leverage Flow's low gas costs combined with Gelato's sponsorship infrastructure to create applications that rival traditional Web2 experiences and maintain blockchain security and transparency.
 
 ### [Crossmint Integration Platform](/blockchain-development-tutorials/integrations/crossmint)[​](#crossmint-integration-platform "Direct link to crossmint-integration-platform")
 
@@ -67,13 +63,13 @@ These third-party integrations demonstrate Flow's commitment to provide develope
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/integrations/index.md)
 
-Last updated on **Nov 12, 2025** by **cshannon1218**
+Last updated on **Aug 13, 2026** by **Ali Serag**
 
 [Previous
 
 Sponsored Transactions EVM Endpoint](/blockchain-development-tutorials/gasless-transactions/sponsored-transactions-evm-endpoint)[Next
 
-Gelato Smart Wallet](/blockchain-development-tutorials/integrations/gelato-sw)
+Crossmint Integration Guide](/blockchain-development-tutorials/integrations/crossmint)
 
 ###### Rate this page
 
@@ -82,7 +78,7 @@ Gelato Smart Wallet](/blockchain-development-tutorials/integrations/gelato-sw)
 Copy as Markdown
 
 * [Available integrations](#available-integrations)
-  + [Gelato Smart Wallet](#gelato-smart-wallet)+ [Crossmint Integration Platform](#crossmint-integration-platform)* [Conclusion](#conclusion)
+  + [Crossmint Integration Platform](#crossmint-integration-platform)* [Conclusion](#conclusion)
 
 Flow
 
