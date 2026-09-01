@@ -32,9 +32,9 @@ Search
 
                     * [Third-Party Integrations](/blockchain-development-tutorials/integrations)
 
-                      + [Gelato Smart Wallet](/blockchain-development-tutorials/integrations/gelato-sw)+ [Crossmint Integration Guide](/blockchain-development-tutorials/integrations/crossmint)
+                      + [Crossmint Integration Guide](/blockchain-development-tutorials/integrations/crossmint)
 
-                          - [Authentication Integration Guide](/blockchain-development-tutorials/integrations/crossmint/authentication)- [Payment Checkout Integration](/blockchain-development-tutorials/integrations/crossmint/payment-checkout)- [Minting Platform Integration](/blockchain-development-tutorials/integrations/crossmint/minting-platform)- [Crossmint Smart Wallets](/blockchain-development-tutorials/integrations/crossmint/smart-wallets)
+                        - [Authentication Integration Guide](/blockchain-development-tutorials/integrations/crossmint/authentication)- [Payment Checkout Integration](/blockchain-development-tutorials/integrations/crossmint/payment-checkout)- [Minting Platform Integration](/blockchain-development-tutorials/integrations/crossmint/minting-platform)- [Crossmint Smart Wallets](/blockchain-development-tutorials/integrations/crossmint/smart-wallets)
 
 * * [Third-Party Integrations](/blockchain-development-tutorials/integrations)* Crossmint Integration Guide
 
@@ -131,7 +131,7 @@ Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
-Gelato Smart Wallet](/blockchain-development-tutorials/integrations/gelato-sw)[Next
+Third-Party Integrations](/blockchain-development-tutorials/integrations)[Next
 
 Authentication Integration Guide](/blockchain-development-tutorials/integrations/crossmint/authentication)
 
