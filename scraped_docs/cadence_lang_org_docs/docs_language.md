@@ -1,4 +1,4 @@
-# Source: https://cadence-lang.org/docs/language
+# Source: https://cadence-lang.org/docs/language/
 
 The Cadence Programming Language | Cadence
 
