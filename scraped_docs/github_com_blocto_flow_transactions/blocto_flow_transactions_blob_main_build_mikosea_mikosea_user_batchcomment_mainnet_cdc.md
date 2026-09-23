@@ -1,7 +1,7 @@
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/MikoSea/Mikosea/user/BatchComment.mainnet.cdc
 
 ```
-// batchCreateComment v2
+// batchCreateComment v3.0
 import MIKOSEANFT from 0x0b80e42aaab305f0
 
 transaction(nftIDs:[UInt64], comment: String){
@@ -9,7 +9,7 @@ transaction(nftIDs:[UInt64], comment: String){
     let projectId:UInt64
     let itemId:UInt64
 
-    prepare(signer:AuthAccount){
+    prepare(signer: &Account){
         self.address = signer.address
         if let nftData = MIKOSEANFT.fetch(_from: self.address, itemId: nftIDs[0]) {
             self.projectId = nftData.data.projectId

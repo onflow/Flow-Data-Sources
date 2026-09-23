@@ -1,7 +1,7 @@
 # Source: https://github.com/blocto/flow-transactions/blob/main/build/MikoSea/MikoSeaMarketHistoryV2/createRevenueRequest.mainnet.cdc
 
 ```
-// adminCreateRevenueRequest v1
+// adminCreateRevenueRequest v3.0
 import MikoSeaMarketHistoryV2 from 0x0b80e42aaab305f0
 
 transaction(
@@ -10,8 +10,8 @@ transaction(
         metadata: {String:String}
     ) {
     let adminRef: &MikoSeaMarketHistoryV2.Admin
-    prepare(admin: AuthAccount) {
-        self.adminRef = admin.borrow<&MikoSeaMarketHistoryV2.Admin>(from: MikoSeaMarketHistoryV2.AdminStoragePath) ?? panic("NOT_ADMIN")
+    prepare(admin: auth(BorrowValue) &Account) {
+        self.adminRef = admin.storage.borrow<&MikoSeaMarketHistoryV2.Admin>(from: MikoSeaMarketHistoryV2.AdminStoragePath) ?? panic("NOT_ADMIN")
     }
 
     execute {

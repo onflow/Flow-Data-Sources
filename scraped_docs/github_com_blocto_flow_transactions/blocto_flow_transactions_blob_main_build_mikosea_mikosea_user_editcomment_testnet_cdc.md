@@ -8,7 +8,7 @@ transaction(commentId:UInt64, comment: String){
     let address: Address
     var commentDetail: MIKOSEANFT.Comment?
 
-    prepare(signer: AuthAccount) {
+    prepare(signer: &Account) {
         self.address = signer.address
         self.commentDetail = nil
         let comments = MIKOSEANFT.getAllComments()
