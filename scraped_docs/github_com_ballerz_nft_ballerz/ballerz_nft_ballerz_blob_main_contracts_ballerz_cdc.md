@@ -402,8 +402,20 @@ access(all) contract Gaia: ViewResolver, NonFungibleToken {
     }
 
     access(contract) fun buildExternalURL(): MetadataViews.ExternalURL {
-        let baseURI = "https://flowty.io/collection/".concat(Gaia.account.address.toString())
-        return MetadataViews.ExternalURL(baseURI)
+        return MetadataViews.ExternalURL("https://ballerz.com")
+    }
+
+    access(contract) view fun buildNFTExternalURL(setName: String, metadata: {String: String}): String {
+        let baseURL = "https://ballerz.com"
+        if let id = metadata["id"] {
+            if setName == "Ballerz" {
+                return baseURL.concat("/ballerz/").concat(id)
+            }
+            if setName == "Sneakerz" {
+                return baseURL.concat("/sneakerz/").concat(id)
+            }
+        }
+        return baseURL
     }
 
     // NFT
@@ -475,7 +487,7 @@ access(all) contract Gaia: ViewResolver, NonFungibleToken {
         access(all) fun resolveView(_ view: Type): AnyStruct? {
             var setData: SetData = Gaia.getSetInfo(setID: self.data.setID)!
             var templateMetadata: {String: String} = Gaia.getTemplateMetaData(templateID: self.data.templateID)!
-            let url = "https://flowty.io/collection/".concat(Gaia.account.address.toString()).concat("/Gaia/").concat(self.id.toString())
+            let url = Gaia.buildNFTExternalURL(setName: setData.name, metadata: templateMetadata)
 
             switch view {
                 case Type<MetadataViews.NFTView>():
@@ -784,14 +796,14 @@ access(all) contract Gaia: ViewResolver, NonFungibleToken {
 
     access(contract) fun getCollectionSquareImage(): MetadataViews.Media {
         return MetadataViews.Media(
-            file: MetadataViews.HTTPFile(url: "https://ballerz.com/images/onchain/logo-stack.png"),
-            mediaType: "image/jpeg"
+            file: MetadataViews.HTTPFile(url: "https://ballerz.cloud/images/onchain/logo-stack/public"),
+            mediaType: "image/png"
         )
     }
 
     access(contract) fun getCollectionBannerImage(): MetadataViews.Media {
         return MetadataViews.Media(
-            file: MetadataViews.HTTPFile(url: "https://ballerz.com/images/onchain/logo.jpg"),
+            file: MetadataViews.HTTPFile(url: "https://ballerz.cloud/images/onchain/logo/public"),
             mediaType: "image/jpeg"
         )
     }
@@ -838,7 +850,7 @@ access(all) contract Gaia: ViewResolver, NonFungibleToken {
                     squareImage: self.getCollectionSquareImage(),
                     bannerImage: self.getCollectionBannerImage(),
                     socials: {
-                        "twitter": MetadataViews.ExternalURL("https://twitter.com/@BALLERZ_NFT")
+                        "twitter": MetadataViews.ExternalURL("https://twitter.com/BALLERZ_NFT")
                     }
                 )
             }
