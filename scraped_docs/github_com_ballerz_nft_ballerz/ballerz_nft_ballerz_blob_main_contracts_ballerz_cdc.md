@@ -518,8 +518,13 @@ access(all) contract Gaia: ViewResolver, NonFungibleToken {
                     return self.parseTraits(metadata: metadata!, setData: setData)
                 case Type<MetadataViews.Royalties>():
                     let royalties: [MetadataViews.Royalty] = []
-                    let royaltyReceiverCap =
-                        getAccount(Gaia.royaltyAddress(setName: setData.name)).capabilities.get<&{FungibleToken.Receiver}>(/public/dapperUtilityCoinReceiver)
+                    // a switchboard at /public/GenericFTReceiver takes any token it is set up
+                    // for. without one, fall back to the Dapper Utility Coin receiver
+                    let royaltyAccount = getAccount(Gaia.royaltyAddress(setName: setData.name))
+                    var royaltyReceiverCap = royaltyAccount.capabilities.get<&{FungibleToken.Receiver}>(/public/GenericFTReceiver)
+                    if royaltyReceiverCap.check() == false {
+                        royaltyReceiverCap = royaltyAccount.capabilities.get<&{FungibleToken.Receiver}>(/public/dapperUtilityCoinReceiver)
+                    }
                     if royaltyReceiverCap.check() == true {
                         royalties.append(
                             MetadataViews.Royalty(
