@@ -197449,7 +197449,7 @@ Copyright © 2026 Flow Foundation. All Rights Reserved.
 
 
 
-# Source: https://developers.flow.com/
+# Source: https://developers.flow.com
 
 Flow Developer Portal
 
@@ -1092651,7 +1092651,7 @@ Paths](/docs/language/accounts/paths)
 
 
 
-# Source: https://cadence-lang.org/docs/language
+# Source: https://cadence-lang.org/docs/language/
 
 The Cadence Programming Language | Cadence
 
